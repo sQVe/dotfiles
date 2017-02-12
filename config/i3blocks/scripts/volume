@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+mixer="default"
+step="${1:-5%}"
+scontrol="Master"
+on_re="\[on\]"
+vol_re="[0-9]*%"
+
+case $BLOCK_BUTTON in
+  1) pavucontrol;;
+  3) amixer -q -D $mixer sset $scontrol toggle ;;
+  4) amixer -q -D $mixer sset $scontrol ${step}+ unmute ;;
+  5) amixer -q -D $mixer sset $scontrol ${step}- unmute ;;
+esac
+
+VOL=$(amixer -D $mixer get $scontrol)
+
+if [[ $VOL =~ $on_re ]]; then
+  [[ $VOL =~ $vol_re ]]
+  print="  ${BASH_REMATCH[*]}"
+else
+  print="  muted"
+  color="#EDC33D"
+fi
+
+echo "$print"
+echo "$print"
+echo "$color"

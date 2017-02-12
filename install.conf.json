@@ -1,0 +1,54 @@
+[
+  {
+    "defaults": {
+      "link": {
+        "create": true,
+	      "force": true,
+        "relink": true
+      }
+    }
+  },
+  {
+    "clean": [
+      "~"
+    ]
+  },
+  {
+    "link": {
+      "~/.npmrc": "npmrc",
+      "~/.nanorc": "nanorc",
+      "~/.tig": "tigrc",
+      "~/.eslintrc": "eslintrc",
+      "~/.gtkrc-2.0": "gtkrc-2.0",
+      "~/.zimrc": "zimrc",
+      "~/.zshrc": "zshrc",
+      "~/.xinitrc": "xinitrc",
+      "~/.Xresources": "Xresources",
+      "~/.config/redshift.conf": "config/redshift.conf",
+      "~/.config/dunst/dunstrc": "config/dunst/dunstrc",
+      "~/.config/htop/htoprc": "config/htop/htoprc",
+      "~/.config/ranger": "config/ranger",
+      "~/.config/cower/config": "config/cower/config",
+      "~/.config/i3/config": "config/i3/config",
+      "~/.config/i3blocks": "config/i3blocks",
+      "~/.config/livestreamer/config": "config/livestreamer/config",
+      "~/.config/mpv/mpv.conf": "config/mpv/mpv.conf",
+      "~/.config/Thunar/thunarrc": "config/Thunar/thunarrc",
+      "~/.config/pacaur/config": "config/pacaur/config",
+      "~/.weechat/buffers.conf": "weechat/buffers.conf",
+      "~/.weechat/irc.conf": "weechat/irc.conf",
+      "~/.weechat/logger.conf": "weechat/logger.conf",
+      "~/.weechat/plugins.conf": "weechat/plugins.conf",
+      "~/.weechat/weechat.conf": "weechat/weechat.conf",
+      "~/.local/share/gtksourceview-2.0/styles/sqve.xml": "local/share/gtksourceview-2.0/styles/sqve.xml"
+    }
+  },
+  {
+    "shell": [
+      [
+        "git submodule update --init --recursive",
+        "Installing submodules"
+      ]
+    ]
+  }
+]

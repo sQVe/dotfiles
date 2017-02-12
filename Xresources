@@ -1,0 +1,93 @@
+! --- Fonts & Cursor --- 
+Xft.dpi: 192
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+Xcursor.theme: Vanilla-DMZ
+Xcursor.size: 24
+
+! --- URxvt ---
+URxvt.font: xft:Meslo LG S for Powerline-8
+URxvt.urgentOnBell: true
+URxvt.scrollBar: false
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+URxvt.perl-ext-common: default,matcher
+URxvt.iso14755: false
+URxvt.url-launcher: /usr/bin/chromium
+URxvt.matcher.button: 1
+
+! --- rofi ---
+rofi.color-enabled: true
+rofi.color-window: #333333, #333333, #333333
+rofi.color-normal: #333333, #AAAAAA, #333333, #AAAAAA, #333333
+rofi.color-active: #333333, #268BD2, #333333, #268BD2, #333333
+rofi.color-urgent: #333333, #DC322F, #333333, #DC322F, #333333
+rofi.lines: 4
+rofi.columns: 2
+rofi.padding: 15
+rofi.width: 100
+rofi.location: 2
+rofi.yoffset: 27
+rofi.borderwidth: 0
+rofi.separator-style: none
+rofi.hide-scrollbar: true
+rofi.levenshtein-sort: true
+rofi.terminal: urxvt
+rofi.font: Meslo LG s for Powerline 16
+
+! --- Colors ---
+*background: #333333
+*foreground: #AAAAAA
+
+! black
+*color0: #000000
+
+! bright_black
+*color8: #6A6A6A
+
+! red
+*color1: #E02760
+
+! bright_red
+*color9: #E02760
+
+! green
+*color2: #6DB545
+
+! bright_green
+*color10: #6DB545
+
+! yellow
+*color3: #E09A45
+
+! bright_yellow
+*color11: #EDC33D
+
+! blue
+*color4: #3D88EA
+
+! bright_blue
+*color12: #3B80E0
+
+! magenta
+*color5: #C627D3
+
+! bright_magenta
+*color13: #C627D3
+
+! cyan
+*color6: #52B5B9
+
+! bright_cyan
+*color14: #52B5B9
+
+! white
+*color7: #D6D6D6
+
+! bright_white
+*color15: #FFFFFF

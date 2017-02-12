@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+
+ip="$(curl -s icanhazip.com)"
+
+if [[ $ip = "" ]]; then
+  text=""
+  color="#E02760"
+else
+  text="  $ip"
+  color="#52B5B9"
+fi
+
+echo "$text"
+echo "$text"
+echo $color

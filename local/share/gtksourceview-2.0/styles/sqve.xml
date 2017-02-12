@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<style-scheme id="sqve" _name="sQVe" version="1.0">
+  <author>Oskar 'sQVe' Grunning</author>
+  <_description>Dark color scheme</_description>
+
+  <!-- Colors -->
+  <color name="yellow"                      value="#E09A45"/>
+  <color name="bright_orange"               value="#EDC33D"/>
+  <color name="faded_orange"                value="#FFB054"/>
+  <color name="nail_polish_pink"            value="#FF0044"/>
+  <color name="neon_pink"                   value="#FFDD00"/>
+  <color name="sky_blue"                    value="#0088FF"/>
+  <color name="teal_blue"                   value="#80FFBB"/>
+  <color name="light_blue"                  value="#3B80E0"/>
+  <color name="medium_blue"                 value="#5242D3"/>
+  <color name="dark_gray"                   value="#333333"/>
+  <color name="darker_gray"                 value="#282828"/>
+  <color name="fadein_gray"                 value="#383838"/>
+  <color name="light_gray"                  value="#AAAAAA"/>
+  <color name="pale_grey"                   value="#EEEEEE"/>
+  <color name="steel_grey"                  value="#333333"/>
+  <color name="spring_green"                value="#6DB545"/>
+  <color name="sea_green"                   value="#52B5B9"/>
+  <color name="dark_red"                    value="#E02760"/>
+  <color name="bluish_grey"                 value="#777777"/>
+  <color name="steelblue3"                  value="#1BA39C"/>
+
+  <!-- Global Settings -->
+
+  <style name="text"                        foreground="light_gray" background="dark_gray"/>
+  <style name="selection"                   foreground="light_gray" background="sky_blue"/>
+  <style name="cursor"                      foreground="light_gray"/>
+  <style name="current-line"                background="darker_gray"/>
+  <style name="line-numbers"                foreground="fadin_gray" background="darker_gray"/>
+  <style name="draw-spaces"                 foreground="bluish_grey"/>
+
+  <!-- Bracket Matching -->
+  <style name="bracket-match"               background="steelblue3"/>
+  <style name="bracket-mismatch"            background="dark_red" bold="true"/>
+
+  <!-- Search Matching -->
+  <style name="search-match"                foreground="light_gray" background="sea_green"/>
+
+  <!-- Bookmarks FIXME -->
+  <style name="bookmark"                    background="light_gray"/>
+
+  <!-- Comments -->
+  <style name="def:comment"                 foreground="sky_blue" italic="true"/>
+  <style name="def:shebang"                 foreground="sky_blue" italic="true"/>
+  <style name="def:doc-comment-element"     bold="true"/>
+
+  <!-- Constants and Variables-->
+  <style name="def:constant"                foreground="yellow"/>
+  <style name="def:string"                  foreground="sea_green"/>
+  <style name="def:special-char"            foreground="light_gray"/>
+  <style name="def:special-constant"        foreground="nail_polish_pink" bold="true"/>
+  <style name="def:number"                  foreground="nail_polish_pink"/>
+  <style name="def:floating-point"          foreground="nail_polish_pink"/>
+  <style name="def:keyword"                 foreground="bright_orange" bold="true"/>
+  <style name="def:builtin"                 foreground="bright_orange" bold="true"/>
+  <style name="def:variable"                foreground="light_gray"/>
+
+  <!-- Identifiers -->
+  <style name="def:identifier"              foreground="light_gray"/>
+  <style name="def:function"                use-style="def:identifier"/>
+
+  <!-- Statements -->
+  <style name="def:statement"               foreground="bright_orange"/>
+
+  <!-- Types -->
+  <style name="def:type"                    foreground="teal_blue"/>
+
+  <!-- Others -->
+  <style name="def:error"                   foreground="light_gray" background="dark_red" bold="true"/>
+  <style name="def:note"                    foreground="neon_pink" bold="true"/>
+  <style name="def:net-address-in-comment"  foreground="teal_blue" italic="false" underline="true"/>
+  <style name="def:preprocessor"            foreground="light_gray"/>
+
+  <!-- Unknown? -->
+  <style name="def:specials"                foreground="light_gray" background="neon_pink"/>
+  <style name="def:boolean"                 foreground="nail_polish_pink"/>
+
+  <!-- C Styles -->
+  <style name="c:preprocessor"              foreground="teal_blue" bold="true"/>
+  <style name="c:included-file"             foreground="spring_green"/>
+  <style name="c:common-defines"            foreground="sky_blue" bold="true"/>
+
+  <!-- Diff Styles -->
+  <style name="diff:ignore"                 foreground="bluish_grey"/>
+  <style name="diff:added-line"             foreground="yellow"/>
+  <style name="diff:removed-line"           foreground="spring_green"/>
+  <style name="diff:changed-line"           foreground="bright_orange"/>
+  <style name="diff:diff-file"              foreground="sky_blue" bold="true"/>
+  <style name="diff:location"               foreground="sky_blue"/>
+  <style name="diff:special-case"           foreground="nail_polish_pink" bold="true"/>
+
+  <!-- Ruby Styles -->
+  <style name="ruby:module-handler"         foreground="teal_blue"/>
+  <style name="ruby:symbol"                 foreground="nail_polish_pink"/>
+  <style name="ruby:regex"                  foreground="teal_blue"/>
+
+  <!-- SH Styles -->
+  <style name="sh:function"                 foreground="neon_pink"/>
+
+  <!-- XML Styles -->
+  <style name="xml:attribute-name"          foreground="light_gray"/>
+  <style name="xml:element-name"            foreground="teal_blue"/>
+  <style name="xml:entity"                  foreground="#blue"/>
+  <style name="xml:processing-instruction"  bold="true"/>
+
+</style-scheme>

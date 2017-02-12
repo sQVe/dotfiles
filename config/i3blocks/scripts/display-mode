@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+temperature="$(redshift -p | grep -P -o '[0-9]+K')"
+color="#E02760"
+
+if [[ $(pidof redshift | wc -w) = 0 ]]; then
+  temperature="optimal"
+  color="#52B5B9"
+fi
+
+if [[ ${temperature::-1} -gt "4999" ]]; then
+  color="#EDC33D"
+fi
+
+echo "$temperature"
+echo "$temperature"
+echo "$color"

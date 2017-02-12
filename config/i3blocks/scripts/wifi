@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+label=""
+state="$(cat /sys/class/net/$BLOCK_INSTANCE/operstate)"
+
+if [ "$state" != "up" ]; then
+	echo "$label"
+	echo "$label"
+	echo "#E02760"
+	exit 0
+fi
+
+quality="$(grep $BLOCK_INSTANCE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')"
+ipaddr="$(ip addr show $BLOCK_INSTANCE | perl -n -e'/inet (.+)\// && print $1')"
+ssid="$(iwgetid -r)"
+
+echo "$label $ipaddr ($ssid @ $quality%)"
+echo "$label $ipaddr ($ssid @ $quality%)"
+
+if [[ $quality -gt 50 ]]; then
+    echo "#52B5B9"
+elif [[ $quality -gt 24 ]] && [[ $quality -lt 51 ]]; then
+    echo "#EDC33D"
+elif [[ $quality -lt 25 ]]; then
+    echo "#E02760"
+fi

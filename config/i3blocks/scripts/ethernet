@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+
+label=""
+state="down"
+
+if [ -f /sys/class/net/$BLOCK_INSTANCE/operstate ]; then
+	state="$(cat /sys/class/net/$BLOCK_INSTANCE/operstate)"
+fi
+
+if [[ "$state" == "down" ]]; then
+	echo "$label"
+	echo "$label"
+	echo "#E02760"
+	exit 0
+fi
+
+speed="$(cat /sys/class/net/$BLOCK_INSTANCE/speed 2> /dev/null)"
+ipaddr="$(ip addr show $BLOCK_INSTANCE | perl -n -e'/inet (.+)\// && print $1')"
+
+echo "$label $ipaddr ($speed)"
+echo "$label $ipaddr ($speed)"
+echo "#52B5B9"

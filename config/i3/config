@@ -1,0 +1,493 @@
+##############################
+# STYLING                    #
+##############################
+
+# Font
+font pango:Meslo LG S for Powerline 14
+
+# Windows                   border    background    font      indicator
+client.focused              #666666   #666666       #FFFFFF   #AAAAAA
+client.unfocused            #333333   #333333       #AAAAAA   #AAAAAA
+client.focused_inactive     #333333   #333333       #FFFFFF   #AAAAAA
+client.urgent               #E02760   #E02760       #FFFFFF   #AAAAAA
+
+# Workspacebar, statusbar etc
+bar {
+  colors {
+    # Whole color settings
+    background #333333
+    statusline #999999
+    separator  #333333
+
+    # Type             border  background font
+    focused_workspace  #AAAAAA #AAAAAA    #333333
+    active_workspace   #AAAAAA #AAAAAA    #333333
+    inactive_workspace #333333 #333333    #AAAAAA
+    urgent_workspace   #E02760 #E02760    #FFFFFF
+  }
+
+  # Output
+  output eDP-1
+
+  # i3bar position
+  position top
+
+  # Start i3status
+  status_command i3blocks
+
+  # Show systray on primary monitor always
+  tray_output eDP1
+
+  # Mouse bindings
+  bindsym button4 nop
+  bindsym button5 nop
+
+  font pango:Meslo LG S for Powerline 14
+}
+
+bar {
+  colors {
+    # Whole color settings
+    background #333333
+    statusline #999999
+    separator  #333333
+
+    # Type             border  background font
+    focused_workspace  #AAAAAA #AAAAAA    #333333
+    active_workspace   #AAAAAA #AAAAAA    #333333
+    inactive_workspace #333333 #333333    #AAAAAA
+    urgent_workspace   #E02760 #E02760    #FFFFFF
+  }
+
+  # Output
+  output DP-1
+
+  # i3bar position
+  position top
+
+  # Start i3status
+  status_command i3blocks
+
+  # Show systray on primary monitor always
+  tray_output DP1
+
+  # Mouse bindings
+  bindsym button4 nop
+  bindsym button5 nop
+
+  font pango:Meslo LG S for Powerline 14
+}
+
+bar {
+  colors {
+    # Whole color settings
+    background #333333
+    statusline #999999
+    separator  #333333
+
+    # Type             border  background font
+    focused_workspace  #AAAAAA #AAAAAA    #333333
+    active_workspace   #AAAAAA #AAAAAA    #333333
+    inactive_workspace #333333 #333333    #AAAAAA
+    urgent_workspace   #E02760 #E02760    #FFFFFF
+  }
+
+  # Output
+  output HDMI-1
+
+  # i3bar position
+  position top
+
+  # Mouse bindings
+  bindsym button4 nop
+  bindsym button5 nop
+
+  font pango:Meslo LG S for Powerline 14
+}
+
+bar {
+  colors {
+    # Whole color settings
+    background #333333
+    statusline #999999
+    separator  #333333
+
+    # Type             border  background font
+    focused_workspace  #AAAAAA #AAAAAA    #333333
+    active_workspace   #AAAAAA #AAAAAA    #333333
+    inactive_workspace #333333 #333333    #AAAAAA
+    urgent_workspace   #E02760 #E02760    #FFFFFF
+  }
+
+  # Output
+  output HDMI-2
+
+  # i3bar position
+  position top
+
+  # Mouse bindings
+  bindsym button4 nop
+  bindsym button5 nop
+
+  font pango:Meslo LG S for Powerline 14
+}
+
+# Window borders.
+new_window pixel 4
+new_float pixel 4
+
+# Smart borders
+smart_borders on
+
+# Max size for float
+floating_maximum_size 1920 x 1080
+
+# Enable back and forth navigation
+workspace_auto_back_and_forth yes
+
+
+##############################
+# SETUP                      #
+##############################
+
+# Mod
+set $mod Mod4
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# Split in horizontal orientation
+bindsym $mod+n split h
+
+# rename workspace
+bindsym $mod+y exec i3-input -F 'rename workspace to "%s"' -P 'Workspace name: '
+
+# Split in vertical orientation
+bindsym $mod+v split v
+
+# Enter fullscreen mode for the focused container
+bindsym $mod+u fullscreen toggle
+
+# Change container layout (stacked, tabbed, toggle split)
+bindsym $mod+e layout stacking
+bindsym $mod+w layout tabbed
+bindsym $mod+s layout toggle split
+
+# Toggle tiling / floating
+bindsym $mod+space floating toggle
+
+# Change focus between tiling / floating windows
+bindsym $mod+Shift+space focus mode_toggle
+
+# Focus the parent container
+bindsym $mod+p focus parent
+
+# Focus the child container
+bindsym $mod+c focus child
+
+# Reload the configuration file
+bindsym $mod+Shift+c reload
+
+# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+
+
+##############################
+# NAVIGATION & SIZE          #
+##############################
+
+# Change focus
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Change focus
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+
+# Move focused window
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+
+# Move focused workspace
+bindsym $mod+Mod1+Left move workspace to output left
+bindsym $mod+Mod1+Down move workspace to output down
+bindsym $mod+Mod1+Up move workspace to output up
+bindsym $mod+Mod1+Right move workspace to output right
+
+# Move focused workspace
+bindsym $mod+Mod1+h move workspace to output left
+bindsym $mod+Mod1+j move workspace to output down
+bindsym $mod+Mod1+k move workspace to output up
+bindsym $mod+Mod1+l move workspace to output right
+
+# Workspace tags
+set $w1 "1 "
+set $w2 "2 "
+set $w3 "3 "
+set $w4 "4 "
+set $w5 "5 "
+set $w6 "6 "
+set $w7 "7 "
+set $w8 "8 "
+set $w9 "9 "
+set $w10 "10 "
+
+# Cycle workspace
+bindsym $mod+Tab workspace next
+bindsym $mod+Ctrl+Right workspace next
+bindsym $mod+Ctrl+l workspace next
+bindsym $mod+section workspace prev
+bindsym $mod+Shift+Tab workspace prev
+bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+h workspace prev
+bindsym $mod+BackSpace workspace back_and_forth
+
+# Switch to workspace
+bindsym $mod+1 workspace number $w1
+bindsym $mod+2 workspace number $w2
+bindsym $mod+3 workspace number $w3
+bindsym $mod+4 workspace number $w4
+bindsym $mod+5 workspace number $w5
+bindsym $mod+6 workspace number $w6
+bindsym $mod+7 workspace number $w7
+bindsym $mod+8 workspace number $w8
+bindsym $mod+9 workspace number $w9
+bindsym $mod+0 workspace number $w10
+
+# Move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace number $w1
+bindsym $mod+Shift+2 move container to workspace number $w2
+bindsym $mod+Shift+3 move container to workspace number $w3
+bindsym $mod+Shift+4 move container to workspace number $w4
+bindsym $mod+Shift+5 move container to workspace number $w5
+bindsym $mod+Shift+6 move container to workspace number $w6
+bindsym $mod+Shift+7 move container to workspace number $w7
+bindsym $mod+Shift+8 move container to workspace number $w8
+bindsym $mod+Shift+9 move container to workspace number $w9
+bindsym $mod+Shift+0 move container to workspace number $w10
+bindsym $mod+Ctrl+1 move container to workspace number $w1
+bindsym $mod+Ctrl+2 move container to workspace number $w2
+bindsym $mod+Ctrl+3 move container to workspace number $w3
+bindsym $mod+Ctrl+4 move container to workspace number $w4
+bindsym $mod+Ctrl+5 move container to workspace number $w5
+bindsym $mod+Ctrl+6 move container to workspace number $w6
+bindsym $mod+Ctrl+7 move container to workspace number $w7
+bindsym $mod+Ctrl+8 move container to workspace number $w8
+bindsym $mod+Ctrl+9 move container to workspace number $w9
+bindsym $mod+Ctrl+0 move container to workspace number $w10
+
+# Swap workspace
+mode "workspace" {
+  bindsym t      workspace number $w1, mode "default"
+  bindsym a      workspace number $w2, mode "default"
+  bindsym c      workspace number $w3, mode "default"
+  bindsym w      workspace number $w4, mode "default"
+  bindsym g      workspace number $w5, mode "default"
+  bindsym s      workspace number $w6, mode "default"
+
+  bindsym 1      workspace number $w1, mode "default"
+  bindsym 2      workspace number $w2, mode "default"
+  bindsym 3      workspace number $w3, mode "default"
+  bindsym 4      workspace number $w4, mode "default"
+  bindsym 5      workspace number $w5, mode "default"
+  bindsym 6      workspace number $w6, mode "default"
+  bindsym 7      workspace number $w7, mode "default"
+  bindsym 8      workspace number $w8, mode "default"
+  bindsym 9      workspace number $w9, mode "default"
+  bindsym 10     workspace number $w10, mode "default"
+
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+a mode "workspace"
+
+# Resize window
+mode "resize" {
+  bindsym j resize shrink width 50 px or 10 ppt
+  bindsym k resize grow height 50 px or 10 ppt
+  bindsym h resize shrink height 50 px or 10 ppt
+  bindsym l resize grow width 50 px or 10 ppt
+
+  # same bindings, but for the arrow keys
+  bindsym Left resize shrink width 50 px or 10 ppt
+  bindsym Down resize grow height 50 px or 10 ppt
+  bindsym Up resize shrink height 50 px or 10 ppt
+  bindsym Right resize grow width 50 px or 10 ppt
+
+  # Back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+##############################
+# ASSIGN                     #
+##############################
+
+assign [class="^Atom$"]         			→ $w2
+assign [class="^Chromium$" window_role="browser"]	→ $w3
+assign [class="^Firefox$" window_role="browser"]	→ $w3
+assign [title="weechat" class="^URxvt$"]     		→ $w4
+assign [title="GitKraken" window_role="browser"]	→ $w5
+assign [class="^Inkscape$"]     			→ $w8
+assign [class="^Gimp.*$"]       			→ $w8
+assign [class="^mpv$"]          			→ $w9
+
+
+for_window [class="^Atom$"] focus
+for_window [class="^Chromium$"] focus
+for_window [class="^Firefox$"] focus
+for_window [title="weechat" class="^URxvt$"] focus
+for_window [title="GitKraken" window_role="browser"] focus
+for_window [class="^mpv$"] focus
+for_window [class="^Inkscape$"] focus
+for_window [class="^Gimp.*$"] focus
+for_window [instance="crx_fhbjgbiflinjbdggehcddcbncdddomop"] focus # Postman
+
+for_window [title="bc" class="^URxvt$"] focus, floating enable
+for_window [window_role="bubble"] floating enable, sticky enable
+
+
+
+##############################
+# APPS & KILL                #
+##############################
+
+# Start a terminal
+bindsym $mod+Return exec urxvt
+
+# Start rofi
+bindsym $mod+d exec --no-startup-id rofi -show run
+bindsym $mod+f exec --no-startup-id rofi -show window
+bindsym $mod+g exec --no-startup-id rofi -show ssh
+
+# Lock window
+bindsym $mod+x exec --no-startup-id lock
+
+# Kill focused window
+bindsym $mod+q kill
+bindsym $mod+Delete kill
+bindsym Mod1+F4 kill
+
+set $apps launch: [a]tom [b]c [c]hromium [g]itkraken [h]top [l]eafpad [p]ostman [s]potify [r]anger [t]hunar [w]eechat
+mode "$apps" {
+  bindsym a exec --no-startup-id atom, mode "default"
+  bindsym b exec urxvt -title bc -e bc -l -q, mode "default"
+  bindsym c exec --no-startup-id chromium, mode "default"
+  bindsym g exec gitkraken, mode "default"
+  bindsym h exec urxvt -title htop -e htop, mode "default"
+  bindsym l exec leafpad, mode "default"
+  bindsym p exec postman, mode "default"
+  bindsym s exec --no-startup-id spotify-start, mode "default"
+  bindsym r exec urxvt -e ranger, mode "default"
+  bindsym t exec thunar, mode "default"
+  bindsym w exec urxvt --hold -title weechat -e weechat, mode "default"
+
+  # Back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+z mode "$apps"
+
+##############################
+# BINDS                      #
+##############################
+
+set $i3exit exit: [e]xit [h]ibernate [l]ock [r]eboot [s]uspend [p]owerdown
+mode "$i3exit" {
+  bindsym e exec --no-startup-id i3exit exit, mode "default"
+  bindsym h exec --no-startup-id i3exit hibernate, mode "default"
+  bindsym l exec --no-startup-id i3exit lock, mode "default"
+  bindsym r exec --no-startup-id i3exit reboot, mode "default"
+  bindsym s exec --no-startup-id i3exit suspend, mode "default"
+  bindsym p exec --no-startup-id i3exit shutdown, mode "default"
+
+  # Back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym XF86PowerOff mode "$i3exit"
+
+# Pulse Audio controls
+bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse set Master 5%+ && pkill -RTMIN+8 i3blocks
+bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse set Master 5%- && pkill -RTMIN+8 i3blocks
+bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle && pkill -RTMIN+8 i3blocks
+
+# Screen brightness controls
+bindsym XF86MonBrightnessUp exec light -A 10 && pkill -RTMIN+10 i3blocks
+bindsym XF86MonBrightnessDown exec light -U 10 && pkill -RTMIN+10 i3blocks
+
+set $display-mode display mode: [a]uto [o]ptimal
+mode "$display-mode" {
+  bindsym a exec --no-startup-id redshift && pkill -RTMIN+2 i3blocks, mode "default"
+  bindsym o exec --no-startup-id ~/scripts/load-display-calibration & pkill -RTMIN+2 i3blocks, mode "default"
+
+  # Back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+m mode "$display-mode"
+
+set $playerctl player: pre[v] [b]toggle [n]ext
+mode "$playerctl" {
+  bindsym v exec --no-startup-id playerctl previous, mode "default"
+  bindsym b exec --no-startup-id playerctl play-pause, mode "default"
+  bindsym n exec --no-startup-id playerctl next, mode "default"
+
+  # Back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
+
+bindsym $mod+b mode "$playerctl"
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous, mode "default"
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause, mode "default"
+bindsym XF86AudioNext exec --no-startup-id playerctl next, mode "default"
+
+##############################
+# AUTOSTART                  #
+##############################
+
+# Set startup workspace
+exec --no-startup-id i3-msg workspace $w1
+
+# Start URxvt daemon
+exec --no-startup-id urxvtd -q -f -o
+
+# Start udiskie
+exec --no-startup-id udiskie -a
+
+# Start dunst
+exec --no-startup-id dunst
+
+# Start Clipit
+exec --no-startup-id clipit --no-icon
+
+# Set wallpaper
+#exec --no-startup-id feh --bg-fill ~/pictures/arch-wall.png
+
+# Start redshift
+exec --no-startup-id redshift
+
+# Thunar daemon
+exec --no-startup-id thunar --daemon
+
+# Handle lock - suspend, idle, lid close etc.
+exec --no-startup-id xss-lock -- lock
