@@ -342,7 +342,8 @@ assign [class="^Atom$"]         			→ $w2
 assign [class="^Chromium$" window_role="browser"]	→ $w3
 assign [class="^Firefox$" window_role="browser"]	→ $w3
 assign [title="weechat" class="^URxvt$"]     		→ $w4
-assign [title="GitKraken" window_role="browser"]	→ $w5
+assign [class="GitKraken"]				→ $w5
+assign [class="Gitkraken"]				→ $w5
 assign [class="^Inkscape$"]     			→ $w8
 assign [class="^Gimp.*$"]       			→ $w8
 assign [class="^mpv$"]          			→ $w9
@@ -352,7 +353,7 @@ for_window [class="^Atom$"] focus
 for_window [class="^Chromium$"] focus
 for_window [class="^Firefox$"] focus
 for_window [title="weechat" class="^URxvt$"] focus
-for_window [title="GitKraken" window_role="browser"] focus
+for_window [title="GitKraken"] focus
 for_window [class="^mpv$"] focus
 for_window [class="^Inkscape$"] focus
 for_window [class="^Gimp.*$"] focus
