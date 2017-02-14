@@ -482,7 +482,7 @@ exec --no-startup-id dunst
 exec --no-startup-id clipit --no-icon
 
 # Set wallpaper
-exec --no-startup-id feh --bg-fill ~/pictures/nightfall.png
+exec --no-startup-id feh --bg-fill ~/pictures/nightfall.jpg
 
 # Start redshift
 exec --no-startup-id redshift
