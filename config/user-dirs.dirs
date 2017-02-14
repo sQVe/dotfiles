@@ -1,0 +1,8 @@
+XDG_DESKTOP_DIR="/home/sqve/"
+XDG_DOWNLOAD_DIR="/home/sqve/download"
+XDG_TEMPLATES_DIR="/home/sqve/"
+XDG_PUBLICSHARE_DIR="/home/sqve/"
+XDG_DOCUMENTS_DIR="/home/sqve/docs"
+XDG_MUSIC_DIR="/home/sqve/"
+XDG_PICTURES_DIR="/home/sqve/pictures"
+XDG_VIDEOS_DIR="/home/sqve/"
