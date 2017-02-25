@@ -23,7 +23,7 @@ URxvt.matcher.button: 1
 
 ! --- rofi ---
 rofi.color-enabled: true
-rofi.color-window: #333333, #333333, #333333
+rofi.color-window: #333333, #333333, #333333, #AAAAAA, #333333
 rofi.color-normal: #333333, #AAAAAA, #333333, #AAAAAA, #333333
 rofi.color-active: #333333, #268BD2, #333333, #268BD2, #333333
 rofi.color-urgent: #333333, #DC322F, #333333, #DC322F, #333333
