@@ -492,3 +492,6 @@ exec --no-startup-id thunar --daemon
 
 # Handle lock - suspend, idle, lid close etc.
 exec --no-startup-id xss-lock -- lock
+
+# Start gesture handling.
+exec --no-startup-id libinput-gestures-setup start
