@@ -1,5 +1,5 @@
 [global]
-    font = Meslo LG S for Powerline 14
+    font = Iosevka 18
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -142,10 +142,10 @@
     browser = /usr/bin/chromium
 
     # Align icons left/right/off
-    icon_position = off
+    icon_position = left
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/
+    icon_folders = /usr/share/icons/Numix/16/status/:/usr/share/icons/Numix/16/devices/
 
 [frame]
     width = 4

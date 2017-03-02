@@ -10,7 +10,7 @@ Xcursor.theme: Vanilla-DMZ
 Xcursor.size: 24
 
 ! --- URxvt ---
-URxvt.font: xft:Meslo LG S for Powerline-8
+URxvt.font: xft:Iosevka-9
 URxvt.urgentOnBell: true
 URxvt.scrollBar: false
 URxvt*scrollTtyOutput: false
@@ -38,7 +38,7 @@ rofi.separator-style: none
 rofi.hide-scrollbar: true
 rofi.levenshtein-sort: true
 rofi.terminal: urxvt
-rofi.font: Meslo LG s for Powerline 16
+rofi.font: Iosevka 18
 
 ! --- Colors ---
 *background: #333333
