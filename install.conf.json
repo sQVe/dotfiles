@@ -33,7 +33,6 @@
       "~/.config/i3blocks": "config/i3blocks",
       "~/.config/user-dirs.dirs": "config/user-dirs.dirs",
       "~/.config/libinput-gestures.conf": "config/libinput-gestures.conf",
-      "~/.config/livestreamer/config": "config/livestreamer/config",
       "~/.config/mpv/mpv.conf": "config/mpv/mpv.conf",
       "~/.config/Thunar/thunarrc": "config/Thunar/thunarrc",
       "~/.config/pacaur/config": "config/pacaur/config",

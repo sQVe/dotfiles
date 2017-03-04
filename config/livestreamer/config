@@ -1,3 +1,0 @@
-player=mpv --cache 8192
-default-stream=720p30,720p60,best,source,
-twitch-oauth-token=onsd3s9hxb5boyzjl7sexqcfdt4ykw
