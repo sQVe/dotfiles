@@ -339,16 +339,18 @@ bindsym $mod+r mode "resize"
 # ASSIGN                     #
 ##############################
 
-assign [class="^Atom$"]         			→ $w2
-assign [class="^Chromium$" window_role="browser"]	→ $w3
-assign [class="^Firefox$" window_role="browser"]	→ $w3
-assign [class="Nylas N1"]				→ $w4
-assign [title="weechat" class="^URxvt$"]     		→ $w5
-assign [class="GitKraken"]				→ $w6
-assign [class="Gitkraken"]				→ $w6
-assign [class="^Inkscape$"]     			→ $w8
-assign [class="^Gimp.*$"]       			→ $w8
-assign [class="^mpv$"]          			→ $w9
+assign [class="Atom"]         			→ $w2
+assign [class="Chromium" window_role="browser"]	→ $w3
+assign [class="Firefox" window_role="browser"]	→ $w3
+assign [class="Nylas N1"]			→ $w4
+assign [title="weechat" class="^URxvt$"]     	→ $w5
+assign [class="GitKraken"]			→ $w6
+assign [class="Gitkraken"]			→ $w6
+assign [class="Inkscape"]     			→ $w8
+assign [class="^Gimp.*$"]       		→ $w8
+assign [class="mpv"]          			→ $w9
+assign [class="streamlink-twitch-gui"]          → $w9
+
 
 
 for_window [class="Atom"] focus
@@ -357,10 +359,13 @@ for_window [class="Firefox"] focus
 for_window [class="Nylas N1"] focus
 for_window [title="weechat" class="^URxvt$"] focus
 for_window [class="GitKraken"] focus
-for_window [class="Inkscape'"] focus
+for_window [class="Inkscape"] focus
 for_window [class="^Gimp.*$"] focus
 for_window [class="mpv"] focus
-for_window [instance="crx_fhbjgbiflinjbdggehcddcbncdddomop"] focus # Postman
+for_window [class="streamlink-twitch-gui"] focus
+
+# Postman
+for_window [instance="crx_fhbjgbiflinjbdggehcddcbncdddomop"] focus
 
 for_window [title="bc" class="URxvt"] focus, floating enable
 for_window [window_role="bubble"] floating enable, sticky enable
