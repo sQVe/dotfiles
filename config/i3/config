@@ -339,7 +339,7 @@ bindsym $mod+r mode "resize"
 # ASSIGN                     #
 ##############################
 
-assign [class="Atom"]         			→ $w2
+assign [class="Code"]         			→ $w2
 assign [class="Chromium" window_role="browser"]	→ $w3
 assign [class="Firefox" window_role="browser"]	→ $w3
 assign [class="Nylas N1"]			→ $w4
@@ -353,7 +353,7 @@ assign [class="streamlink-twitch-gui"]          → $w9
 
 
 
-for_window [class="Atom"] focus
+for_window [class="Code"] focus
 for_window [class="Chromium"] focus
 for_window [class="Firefox"] focus
 for_window [class="Nylas N1"] focus
@@ -392,9 +392,9 @@ bindsym $mod+q kill
 bindsym $mod+Delete kill
 bindsym Mod1+F4 kill
 
-set $apps launch: [a]tom [b]c [c]hromium [g]itkraken [h]top [l]eafpad [n]ylas [p]ostman [s]potify [r]anger [t]hunar [w]eechat
+set $apps launch: [a]code [b]c [c]hromium [g]itkraken [h]top [l]eafpad [n]ylas [p]ostman [s]potify [r]anger [t]hunar [w]eechat
 mode "$apps" {
-  bindsym a exec --no-startup-id atom, mode "default"
+  bindsym a exec --no-startup-id code, mode "default"
   bindsym b exec urxvt -title bc -e bc -l -q, mode "default"
   bindsym c exec --no-startup-id chromium, mode "default"
   bindsym g exec --no-startup-id gitkraken-start, mode "default"
