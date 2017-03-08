@@ -396,7 +396,7 @@ set $apps launch: [a]code [b]c [c]hromium [g]itkraken [h]top [l]eafpad [n]ylas [
 mode "$apps" {
   bindsym a exec --no-startup-id code, mode "default"
   bindsym b exec urxvt -title bc -e bc -l -q, mode "default"
-  bindsym c exec --no-startup-id chromium, mode "default"
+  bindsym c exec --no-startup-id chromium-start, mode "default"
   bindsym g exec --no-startup-id gitkraken-start, mode "default"
   bindsym h exec urxvt -title htop -e htop, mode "default"
   bindsym l exec leafpad, mode "default"
