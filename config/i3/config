@@ -36,7 +36,7 @@ bar {
   status_command i3blocks
 
   # Show systray on primary monitor always
-  tray_output eDP1
+  tray_output none
 
   # Mouse bindings
   bindsym button4 nop
@@ -69,7 +69,7 @@ bar {
   status_command i3blocks
 
   # Show systray on primary monitor always
-  tray_output DP1
+  tray_output none
 
   # Mouse bindings
   bindsym button4 nop
@@ -488,7 +488,7 @@ exec --no-startup-id udiskie -a
 exec --no-startup-id dunst
 
 # Start Clipit
-exec --no-startup-id clipit --no-icon
+exec --no-startup-id clipit
 
 # Set wallpaper
 exec --no-startup-id feh --bg-fill ~/pictures/nightfall.jpg
