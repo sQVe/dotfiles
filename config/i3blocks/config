@@ -14,9 +14,6 @@ label=
 interval=2
 label=
 
-[internet]
-interval=60
-
 [ethernet]
 instance=enp57s0u1u4
 interval=10

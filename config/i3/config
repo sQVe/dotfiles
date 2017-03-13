@@ -3,7 +3,7 @@
 ##############################
 
 # Font
-font pango:Iosevka 15
+font pango:Iosevka Light 14
 
 # Windows                   border    background    font      indicator
 client.focused              #666666   #666666       #FFFFFF   #AAAAAA
@@ -42,7 +42,7 @@ bar {
   bindsym button4 nop
   bindsym button5 nop
 
-  font pango:Iosevka 15
+  font pango:Iosevka Light 14
 }
 
 bar {
@@ -75,7 +75,7 @@ bar {
   bindsym button4 nop
   bindsym button5 nop
 
-  font pango:Iosevka 15
+  font pango:Iosevka Light 14
 }
 
 bar {
@@ -102,7 +102,7 @@ bar {
   bindsym button4 nop
   bindsym button5 nop
 
-  font pango:Iosevka 15
+  font pango:Iosevka Light 14
 }
 
 bar {
@@ -129,7 +129,7 @@ bar {
   bindsym button4 nop
   bindsym button5 nop
 
-  font pango:Iosevka 15
+  font pango:Iosevka Light 14
 }
 
 # Window borders.
