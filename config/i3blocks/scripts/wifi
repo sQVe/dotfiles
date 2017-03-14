@@ -11,11 +11,10 @@ if [ "$state" != "up" ]; then
 fi
 
 quality="$(grep $BLOCK_INSTANCE /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')"
-ipaddr="$(ip addr show $BLOCK_INSTANCE | perl -n -e'/inet (.+)\// && print $1')"
 ssid="$(iwgetid -r)"
 
-echo "$label $ipaddr ($ssid @ $quality%)"
-echo "$label $ipaddr ($ssid @ $quality%)"
+echo "$label $ssid @ $quality%"
+echo "$label $ssid @ $quality%"
 
 if [[ $quality -gt 50 ]]; then
     echo "#52B5B9"

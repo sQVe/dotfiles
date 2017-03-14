@@ -15,8 +15,7 @@ if [[ "$state" == "down" ]]; then
 fi
 
 speed="$(cat /sys/class/net/$BLOCK_INSTANCE/speed 2> /dev/null)"
-ipaddr="$(ip addr show $BLOCK_INSTANCE | perl -n -e'/inet (.+)\// && print $1')"
 
-echo "$label $ipaddr ($speed)"
-echo "$label $ipaddr ($speed)"
+echo "$label $speed"
+echo "$label $speed"
 echo "#52B5B9"
