@@ -75,7 +75,7 @@ alias pass="lpass"
 # -------------------------------------- Config
 alias cfg-xinitrc="$EDITOR ~/.dotfiles/xinitrc & disown"
 alias cfg-zshrc="$EDITOR ~/.dotfiles/zshrc & disown"
-alias cfg-zprofile="$EDITOR ~/.dotfiles/zprofile & disown"
+alias cfg-zimrc="$EDITOR ~/.dotfiles/zimrc & disown"
 alias cfg-i3="$EDITOR ~/.dotfiles/config/i3/config & disown"
 alias cfg-i3blocks="$EDITOR ~/.dotfiles/config/i3blocks/config & disown"
 alias cfg-xresources="$EDITOR ~/.dotfiles/Xresources & disown"
