@@ -236,11 +236,11 @@ bindsym $mod+Mod1+l move workspace to output right
 set $w1 "1 "
 set $w2 "2 "
 set $w3 "3 "
-set $w4 "4 "
-set $w5 "5 "
-set $w6 "6 "
-set $w7 "7 "
-set $w8 "8 "
+set $w4 "4 "
+set $w5 "5 "
+set $w6 "6 "
+set $w7 "7 "
+set $w8 "8 "
 set $w9 "9 "
 set $w10 "10 "
 
@@ -342,22 +342,19 @@ bindsym $mod+r mode "resize"
 assign [class="Code"]         			→ $w2
 assign [class="Chromium" window_role="browser"]	→ $w3
 assign [class="Firefox" window_role="browser"]	→ $w3
-assign [class="Nylas N1"]			→ $w4
-assign [title="weechat" class="^URxvt$"]     	→ $w5
-assign [class="GitKraken"]			→ $w6
-assign [class="Gitkraken"]			→ $w6
-assign [class="^Gimp.*$"]       		→ $w8
-assign [class="Darktable"]     			→ $w8
-assign [class="Inkscape"]     			→ $w8
-assign [class="mpv"]          			→ $w9
-assign [class="streamlink-twitch-gui"]          → $w9
+assign [title="weechat" class="^URxvt$"]     	→ $w6
+assign [class="GitKraken"]			→ $w4
+assign [class="^Gimp.*$"]       		→ $w7
+assign [class="Darktable"]     			→ $w7
+assign [class="Inkscape"]     			→ $w7
+assign [class="mpv"]          			→ $w8
+assign [class="streamlink-twitch-gui"]          → $w8
 
 
 
 for_window [class="Code"] focus
 for_window [class="Chromium"] focus
 for_window [class="Firefox"] focus
-for_window [class="Nylas N1"] focus
 for_window [title="weechat" class="^URxvt$"] focus
 for_window [class="GitKraken"] focus
 for_window [class="^Gimp.*$"] focus
@@ -394,15 +391,15 @@ bindsym $mod+q kill
 bindsym $mod+Delete kill
 bindsym Mod1+F4 kill
 
-set $apps launch: [a]code [b]c [c]hromium [g]itkraken [h]top [l]eafpad [n]ylas [p]ostman [s]potify [r]anger [t]hunar [w]eechat
+set $apps launch: [a]code [b]c [c]hromium [g]itkraken [h]top [i]nkscape [l]eafpad [p]ostman [s]potify [r]anger [t]hunar [w]eechat
 mode "$apps" {
   bindsym a exec --no-startup-id code, mode "default"
   bindsym b exec urxvt -title bc -e bc -l -q, mode "default"
   bindsym c exec --no-startup-id chromium-start, mode "default"
   bindsym g exec --no-startup-id gitkraken-start, mode "default"
   bindsym h exec urxvt -title htop -e htop, mode "default"
+  bindsym i exec --no-startup-id inkscape, mode "default"
   bindsym l exec leafpad, mode "default"
-  bindsym n exec --no-startup-id nylas, mode "default"
   bindsym p exec --no-startup-id postman, mode "default"
   bindsym s exec --no-startup-id spotify-start, mode "default"
   bindsym r exec urxvt -e ranger, mode "default"
