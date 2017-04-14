@@ -490,7 +490,7 @@ exec --no-startup-id dunst
 exec --no-startup-id clipit
 
 # Set wallpaper
-exec --no-startup-id feh --bg-fill ~/pictures/nightfall.jpg
+exec --no-startup-id feh --randomize --bg-fill ~/pictures/simon-stålenhag/*
 
 # Start redshift
 exec --no-startup-id redshift
