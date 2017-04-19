@@ -396,7 +396,7 @@ mode "$apps" {
   bindsym a exec --no-startup-id code, mode "default"
   bindsym b exec urxvt -title bc -e bc -l -q, mode "default"
   bindsym c exec --no-startup-id chromium-start, mode "default"
-  bindsym g exec --no-startup-id gitkraken-start, mode "default"
+  bindsym g exec --no-startup-id gitkraken, mode "default"
   bindsym h exec urxvt -title htop -e htop, mode "default"
   bindsym i exec --no-startup-id inkscape, mode "default"
   bindsym l exec leafpad, mode "default"
