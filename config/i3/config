@@ -466,9 +466,9 @@ mode "$playerctl" {
 }
 
 bindsym $mod+b mode "$playerctl"
-bindsym XF86AudioPrev exec --no-startup-id playerctl previous, mode "default"
-bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause, mode "default"
-bindsym XF86AudioNext exec --no-startup-id playerctl next, mode "default"
+bindsym XF86AudioPrev exec --no-startup-id playerctl previous
+bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
+bindsym XF86AudioNext exec --no-startup-id playerctl next
 
 ##############################
 # AUTOSTART                  #
