@@ -203,9 +203,9 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # Change focus
-bindsym $mod+h focus left
-bindsym $mod+j focus down
-bindsym $mod+k focus up
+bindsym $mod+j focus left
+bindsym $mod+k focus down
+bindsym $mod+i focus up
 bindsym $mod+l focus right
 
 # Move focused window
@@ -215,9 +215,9 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # Move focused window
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+i move up
 bindsym $mod+Shift+l move right
 
 # Move focused workspace
@@ -227,9 +227,9 @@ bindsym $mod+Mod1+Up move workspace to output up
 bindsym $mod+Mod1+Right move workspace to output right
 
 # Move focused workspace
-bindsym $mod+Mod1+h move workspace to output left
-bindsym $mod+Mod1+j move workspace to output down
-bindsym $mod+Mod1+k move workspace to output up
+bindsym $mod+Mod1+j move workspace to output left
+bindsym $mod+Mod1+k move workspace to output down
+bindsym $mod+Mod1+i move workspace to output up
 bindsym $mod+Mod1+l move workspace to output right
 
 # Workspace tags
@@ -248,10 +248,11 @@ set $w10 "10 "
 bindsym $mod+Tab workspace next
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+l workspace next
+bindsym $mod+Escape workspace prev
 bindsym $mod+section workspace prev
 bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+Ctrl+Left workspace prev
-bindsym $mod+Ctrl+h workspace prev
+bindsym $mod+Ctrl+j workspace prev
 bindsym $mod+BackSpace workspace back_and_forth
 
 # Switch to workspace
