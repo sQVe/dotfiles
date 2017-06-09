@@ -14,12 +14,12 @@
   <color name="teal_blue"                   value="#80FFBB"/>
   <color name="light_blue"                  value="#3B80E0"/>
   <color name="medium_blue"                 value="#5242D3"/>
-  <color name="dark_gray"                   value="#333333"/>
+  <color name="dark_gray"                   value="#343434"/>
   <color name="darker_gray"                 value="#282828"/>
   <color name="fadein_gray"                 value="#383838"/>
   <color name="light_gray"                  value="#AAAAAA"/>
   <color name="pale_grey"                   value="#EEEEEE"/>
-  <color name="steel_grey"                  value="#333333"/>
+  <color name="steel_grey"                  value="#343434"/>
   <color name="spring_green"                value="#6DB545"/>
   <color name="sea_green"                   value="#52B5B9"/>
   <color name="dark_red"                    value="#E02760"/>

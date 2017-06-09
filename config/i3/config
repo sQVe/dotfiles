@@ -7,23 +7,23 @@ font pango:Iosevka 14
 
 # Windows                   border    background    font      indicator
 client.focused              #666666   #666666       #FFFFFF   #AAAAAA
-client.unfocused            #333333   #333333       #AAAAAA   #AAAAAA
-client.focused_inactive     #333333   #333333       #FFFFFF   #AAAAAA
-client.urgent               #EDC33D   #EDC33D       #333333   #AAAAAA
+client.unfocused            #343434   #343434       #AAAAAA   #AAAAAA
+client.focused_inactive     #343434   #343434       #FFFFFF   #AAAAAA
+client.urgent               #EDC33D   #EDC33D       #343434   #AAAAAA
 
 # Workspacebar, statusbar etc
 bar {
   colors {
     # Whole color settings
-    background #333333
+    background #343434
     statusline #999999
-    separator  #333333
+    separator  #343434
 
     # Type             border  background font
-    focused_workspace  #AAAAAA #AAAAAA    #333333
-    active_workspace   #AAAAAA #AAAAAA    #333333
-    inactive_workspace #333333 #333333    #AAAAAA
-    urgent_workspace   #EDC33D #EDC33D    #333333
+    focused_workspace  #AAAAAA #AAAAAA    #343434
+    active_workspace   #AAAAAA #AAAAAA    #343434
+    inactive_workspace #343434 #343434    #AAAAAA
+    urgent_workspace   #EDC33D #EDC33D    #343434
   }
 
   # Output
@@ -48,15 +48,15 @@ bar {
 bar {
   colors {
     # Whole color settings
-    background #333333
+    background #343434
     statusline #999999
-    separator  #333333
+    separator  #343434
 
     # Type             border  background font
-    focused_workspace  #AAAAAA #AAAAAA    #333333
-    active_workspace   #AAAAAA #AAAAAA    #333333
-    inactive_workspace #333333 #333333    #AAAAAA
-    urgent_workspace   #EDC33D #EDC33D    #333333
+    focused_workspace  #AAAAAA #AAAAAA    #343434
+    active_workspace   #AAAAAA #AAAAAA    #343434
+    inactive_workspace #343434 #343434    #AAAAAA
+    urgent_workspace   #EDC33D #EDC33D    #343434
   }
 
   # Output
@@ -81,15 +81,15 @@ bar {
 bar {
   colors {
     # Whole color settings
-    background #333333
+    background #343434
     statusline #999999
-    separator  #333333
+    separator  #343434
 
     # Type             border  background font
-    focused_workspace  #AAAAAA #AAAAAA    #333333
-    active_workspace   #AAAAAA #AAAAAA    #333333
-    inactive_workspace #333333 #333333    #AAAAAA
-    urgent_workspace   #EDC33D #EDC33D    #333333
+    focused_workspace  #AAAAAA #AAAAAA    #343434
+    active_workspace   #AAAAAA #AAAAAA    #343434
+    inactive_workspace #343434 #343434    #AAAAAA
+    urgent_workspace   #EDC33D #EDC33D    #343434
   }
 
   # Output
@@ -108,15 +108,15 @@ bar {
 bar {
   colors {
     # Whole color settings
-    background #333333
+    background #343434
     statusline #999999
-    separator  #333333
+    separator  #343434
 
     # Type             border  background font
-    focused_workspace  #AAAAAA #AAAAAA    #333333
-    active_workspace   #AAAAAA #AAAAAA    #333333
-    inactive_workspace #333333 #333333    #AAAAAA
-    urgent_workspace   #EDC33D #EDC33D    #333333
+    focused_workspace  #AAAAAA #AAAAAA    #343434
+    active_workspace   #AAAAAA #AAAAAA    #343434
+    inactive_workspace #343434 #343434    #AAAAAA
+    urgent_workspace   #EDC33D #EDC33D    #343434
   }
 
   # Output

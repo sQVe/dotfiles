@@ -23,10 +23,10 @@ URxvt.matcher.button: 1
 
 ! --- rofi ---
 rofi.color-enabled: true
-rofi.color-window: #333333, #666666, #333333, #AAAAAA, #333333
-rofi.color-normal: #333333, #AAAAAA, #333333, #AAAAAA, #333333
-rofi.color-active: #333333, #EDC33D, #333333, #EDC33D, #333333
-rofi.color-urgent: #333333, #DC322F, #333333, #DC322F, #333333
+rofi.color-window: #343434, #666666, #343434, #AAAAAA, #343434
+rofi.color-normal: #343434, #AAAAAA, #343434, #AAAAAA, #343434
+rofi.color-active: #343434, #EDC33D, #343434, #EDC33D, #343434
+rofi.color-urgent: #343434, #DC322F, #343434, #DC322F, #343434
 rofi.lines: 6
 rofi.columns: 1
 rofi.padding: 20
@@ -41,7 +41,7 @@ rofi.terminal: urxvt
 rofi.font: Iosevka 18
 
 ! --- Colors ---
-*background: #333333
+*background: #343434
 *foreground: #AAAAAA
 
 ! black
