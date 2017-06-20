@@ -142,8 +142,8 @@ smart_borders on
 # Max size for float
 floating_maximum_size 1920 x 1080
 
-# Enable back and forth navigation
-workspace_auto_back_and_forth yes
+# Disable back and forth navigation
+workspace_auto_back_and_forth no
 
 
 ##############################
@@ -174,10 +174,10 @@ bindsym $mod+w layout tabbed
 bindsym $mod+s layout toggle split
 
 # Toggle tiling / floating
-bindsym $mod+space floating toggle
+bindsym $mod+o floating toggle
 
 # Change focus between tiling / floating windows
-bindsym $mod+Shift+space focus mode_toggle
+bindsym $mod+Shift+o focus mode_toggle
 
 # Focus the parent container
 bindsym $mod+p focus parent
@@ -308,13 +308,14 @@ mode "workspace" {
   bindsym 7      workspace number $w7, mode "default"
   bindsym 8      workspace number $w8, mode "default"
   bindsym 9      workspace number $w9, mode "default"
-  bindsym 10     workspace number $w10, mode "default"
+  bindsym 0     workspace number $w10, mode "default"
 
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
 
 bindsym $mod+a mode "workspace"
+bindsym $mod+space mode "workspace"
 
 # Resize window
 mode "resize" {
