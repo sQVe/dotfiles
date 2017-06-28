@@ -393,11 +393,12 @@ bindsym $mod+q kill
 bindsym $mod+Delete kill
 bindsym Mod1+F4 kill
 
-set $apps launch: [a]code [b]c [c]hromium [g]itkraken [h]top [i]nkscape [l]eafpad [p]ostman [s]potify [r]anger [t]hunar [w]eechat
+set $apps launch: [a]code [b]c [c]hromium [d]artha [g]itkraken [h]top [i]nkscape [l]eafpad [p]ostman [s]potify [r]anger [t]hunar [w]eechat
 mode "$apps" {
   bindsym a exec --no-startup-id code, mode "default"
   bindsym b exec urxvt -title bc -e bc -l -q, mode "default"
   bindsym c exec --no-startup-id chromium-start, mode "default"
+  bindsym d exec --no-startup-id artha, mode "default"
   bindsym g exec --no-startup-id gitkraken, mode "default"
   bindsym h exec urxvt -title htop -e htop, mode "default"
   bindsym i exec --no-startup-id inkscape, mode "default"
@@ -496,6 +497,9 @@ exec --no-startup-id feh --randomize --bg-fill ~/pictures/simon-stålenhag/*
 
 # Start redshift
 exec --no-startup-id redshift
+
+# Start artha
+exec --no-startup-id artha
 
 # Thunar daemon
 exec --no-startup-id thunar --daemon
