@@ -18,7 +18,6 @@
       "~/.npmrc": "npmrc",
       "~/.nanorc": "nanorc",
       "~/.tig": "tigrc",
-      "~/.eslintrc": "eslintrc",
       "~/.zimrc": "zimrc",
       "~/.zshrc": "zshrc",
       "~/.xinitrc": "xinitrc",
