@@ -368,6 +368,9 @@ for_window [class="streamlink-twitch-gui"] focus
 # Postman
 for_window [instance="crx_fhbjgbiflinjbdggehcddcbncdddomop"] focus
 
+# Join pop-up
+for_window [instance="crx_flejfacjooompmliegamfbpjjdlhokhj"] focus, floating enable
+
 for_window [title="bc" class="URxvt"] focus, floating enable
 for_window [window_role="bubble"] floating enable, sticky enable
 

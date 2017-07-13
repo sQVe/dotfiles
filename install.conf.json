@@ -3,7 +3,7 @@
     "defaults": {
       "link": {
         "create": true,
-	      "force": true,
+        "force": true,
         "relink": true
       }
     }
@@ -24,6 +24,7 @@
       "~/.Xresources": "Xresources",
       "~/.ssh/config": "ssh/config",
       "~/.config/redshift.conf": "config/redshift.conf",
+      "~/.config/clipit/clipitrc": "config/clipit/clipitrc",
       "~/.config/dunst/dunstrc": "config/dunst/dunstrc",
       "~/.config/htop/htoprc": "config/htop/htoprc",
       "~/.config/ranger": "config/ranger",
@@ -35,7 +36,7 @@
       "~/.config/mpv/mpv.conf": "config/mpv/mpv.conf",
       "~/.config/Thunar/thunarrc": "config/Thunar/thunarrc",
       "~/.config/pacaur/config": "config/pacaur/config",
-      "~/.config/fontconfig/fonts.conf": "config/fontconfig/fonts.conf", 
+      "~/.config/fontconfig/fonts.conf": "config/fontconfig/fonts.conf",
       "~/.weechat/buffers.conf": "weechat/buffers.conf",
       "~/.weechat/irc.conf": "weechat/irc.conf",
       "~/.weechat/logger.conf": "weechat/logger.conf",
