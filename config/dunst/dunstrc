@@ -1,5 +1,8 @@
 [global]
     font = Iosevka 9
+
+    frame_width = 4
+    frame_color = "#888888"
     
     # Allow a small subset of html markup:
     #   <b>bold</b>
@@ -11,7 +14,7 @@
     # <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
     # If markup is not allowed, those tags will be stripped out of the
     # message.
-    allow_markup = yes
+    markup = yes
     
     # The format of the message.  Possible variables are:
     #   %a  appname
@@ -64,7 +67,9 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "400x6-10+38"
+    geometry = "0x6-10+38"
+
+    max_icon_size = 128
     
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -145,11 +150,7 @@
     icon_position = left
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/Numix/16/status/:/usr/share/icons/Numix/16/devices/
-
-[frame]
-    width = 4
-    color = "#888888"
+    icon_folders = /usr/share/icons/Papirus/16x16/status/:/usr/share/icons/Papirus/16x16/devices/
 
 [shortcuts]
 
@@ -182,10 +183,9 @@
 [urgency_normal]
     background = "#52B5B9"
     foreground = "#343434"
-    timeout = 10
+    timeout = 20
 
 [urgency_critical]
     background = "#E02760"
     foreground = "#343434"
-    timeout = 25
-
+    timeout = 0

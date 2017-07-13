@@ -16,7 +16,7 @@ URxvt.scrollBar: false
 URxvt*scrollTtyOutput: false
 URxvt*scrollWithBuffer: true
 URxvt*scrollTtyKeypress: true
-URxvt.perl-ext-common: default,matcher
+URxvt.perl-ext-common: default,matcher,selection-to-clipboard
 URxvt.iso14755: false
 URxvt.url-launcher: /usr/bin/chromium
 URxvt.matcher.button: 1
