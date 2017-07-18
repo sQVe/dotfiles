@@ -72,6 +72,7 @@ alias feh="feh --scale-down"
 alias wifi-menu="wifi-menu -o"
 alias ccat="pygmentize -g"
 alias pass="lpass"
+alias t='urxvt & disown'
 
 # -------------------------------------- Config
 alias cfg-xinitrc="$EDITOR ~/.dotfiles/xinitrc & disown"
