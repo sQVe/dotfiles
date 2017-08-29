@@ -1,7 +1,7 @@
-# Load the Xresources settings
+# Load the Xresources settings.
 xrdb ~/.Xresources
 
-# Set background color
+# Set background color.
 xsetroot -solid "#222222"
 
 # Set screen power timer.
@@ -14,5 +14,8 @@ eval $(ssh-agent)
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)
 export SSH_AUTH_SOCK
 
-# Start i3
+# Start xiccd colord daemon.
+xiccd &
+
+# Start i3.
 exec i3

@@ -450,8 +450,8 @@ bindsym XF86MonBrightnessDown exec light -U 10 && pkill -RTMIN+10 i3blocks
 
 set $display-mode display mode: [a]uto [o]ptimal
 mode "$display-mode" {
-  bindsym a exec --no-startup-id redshift && pkill -RTMIN+2 i3blocks, mode "default"
-  bindsym o exec --no-startup-id load-icc & pkill -RTMIN+2 i3blocks, mode "default"
+  bindsym a exec --no-startup-id redshift -m randr:preserve=1 && pkill -RTMIN+2 i3blocks, mode "default"
+  bindsym o exec --no-startup-id pkill redshift & pkill -RTMIN+2 i3blocks, mode "default"
 
   # Back to normal: Enter or Escape
   bindsym Return mode "default"
@@ -499,7 +499,7 @@ exec --no-startup-id clipit
 exec --no-startup-id feh --randomize --bg-fill ~/pictures/simon-stålenhag/*
 
 # Start redshift
-exec --no-startup-id redshift
+exec --no-startup-id "sh -c 'sleep 5; exec redshift -m randr:preserve=1'"
 
 # Thunar daemon
 exec --no-startup-id thunar --daemon
