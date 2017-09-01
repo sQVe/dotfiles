@@ -480,6 +480,9 @@ bindsym XF86AudioNext exec --no-startup-id playerctl next
 # AUTOSTART                  #
 ##############################
 
+# Start compton
+exec --no-startup-id compton -b
+
 # Set startup workspace
 exec --no-startup-id i3-msg workspace $w1
 
@@ -507,5 +510,5 @@ exec --no-startup-id thunar --daemon
 # Handle lock - suspend, idle, lid close etc.
 exec --no-startup-id xss-lock -- lock
 
-# Start gesture handling.
+# Start gesture handling
 exec --no-startup-id libinput-gestures-setup start
