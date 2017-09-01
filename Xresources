@@ -7,7 +7,7 @@ Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 Xcursor.theme: Vanilla-DMZ
-Xcursor.size: 24
+Xcursor.size: 32
 
 ! --- URxvt ---
 URxvt.font: xft:Iosevka:pixelsize=24
