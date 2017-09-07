@@ -1,6 +1,7 @@
 ########################################
 # EXPORT
-########################################
+######################################## 
+export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 export EDITOR=leafpad
 export NVM_DIR="$HOME/.nvm"
 
@@ -89,5 +90,6 @@ alias cfg-hosts="sudo $EDITOR /etc/hosts"
 # MISC & SOURCE
 ########################################
 
+source ${ZIM_HOME}/init.zsh
 source /usr/share/nvm/nvm.sh
 source /usr/share/nvm/bash_completion
