@@ -33,7 +33,7 @@ alias xclip="xclip -selection clipboard"
 alias clipin="xclip -in"
 alias clipout="xclip -out"
 alias sudo="sudo "
-alias ga="cat /usr/lib/zim/modules/git/init.zsh | grep"
+alias ga="cat ${HOME}/.zim/modules/git/init.zsh | grep"
 
 # -------------------------------------- Listing
 alias ls="ls --group-directories-first --time-style=+'%d.%m.%Y %H:%M' --color=auto -F"
