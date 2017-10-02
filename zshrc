@@ -93,3 +93,8 @@ alias cfg-hosts="sudo $EDITOR /etc/hosts"
 source ${ZIM_HOME}/init.zsh
 source /usr/share/nvm/nvm.sh
 source /usr/share/nvm/bash_completion
+
+########################################
+# OPTIONS
+######################################## 
+setopt prompt_sp # Fixes issue with printing content without a newline.
