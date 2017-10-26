@@ -25,7 +25,6 @@
       "~/.Xresources": "Xresources",
       "~/.ssh/config": "ssh/config",
       "~/.config/redshift.conf": "config/redshift.conf",
-      "~/.config/compton.conf": "config/compton.conf",
       "~/.config/clipit/clipitrc": "config/clipit/clipitrc",
       "~/.config/dunst/dunstrc": "config/dunst/dunstrc",
       "~/.config/htop/htoprc": "config/htop/htoprc",
