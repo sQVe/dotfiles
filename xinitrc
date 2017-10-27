@@ -14,6 +14,9 @@ eval $(ssh-agent)
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)
 export SSH_AUTH_SOCK
 
+# Setup peek cache symlink to tmp (solves large file issues as cache is limited to 1G)
+ln -s "/tmp" "$HOME/.cache/peek"
+
 # Start xiccd colord daemon.
 xiccd &
 

@@ -35,6 +35,7 @@ alias clipin="xclip -in"
 alias clipout="xclip -out"
 alias sudo="sudo "
 alias ga="cat ${ZIM_HOME}/modules/git/init.zsh | grep"
+alias open="mimeo -q"
 
 # -------------------------------------- Listing
 alias ls="ls --group-directories-first --time-style=+'%d.%m.%Y %H:%M' --color=auto -F"
