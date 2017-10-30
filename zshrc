@@ -13,7 +13,7 @@ export NVM_DIR="$HOME/.nvm"
 # -------------------------------------- Safety
 alias rm="rm -I --preserve-root"
 alias mv="mv -i"
-alias cp="cp -i"
+alias cp="cp -ir"
 alias ln="ln -i"
 alias chown="chown --preserve-root"
 alias chmod="chmod --preserve-root"
@@ -22,20 +22,19 @@ alias chgrp="chgrp --preserve-root"
 # -------------------------------------- Goodies & Misc
 alias sx="startx"
 alias grep="grep --color=tty -d skip"
-alias cp="cp -ir"
 alias df="df -h"
 alias du="du -ch"
+alias dud="du -chd"
 alias free="free -m"
 alias np="nano -w PKGBUILD"
 alias more=less
 alias c=clear
 alias root="sudo -i"
 alias xclip="xclip -selection clipboard"
-alias clipin="xclip -in"
-alias clipout="xclip -out"
+alias clip="xclip"
 alias sudo="sudo "
-alias ga="cat ${ZIM_HOME}/modules/git/init.zsh | grep"
 alias open="mimeo -q"
+alias ga="cat ${ZIM_HOME}/modules/git/init.zsh | grep"
 
 # -------------------------------------- Listing
 alias ls="ls --group-directories-first --time-style=+'%d.%m.%Y %H:%M' --color=auto -F"
@@ -56,12 +55,6 @@ alias pi="pacaur -S"
 alias pr="pacaur -Rns"
 alias pqs="pacaur -Qs"
 alias pqi="pacaur -Qi"
-
-# -------------------------------------- Block / Unblock
-alias ubb="sudo rfkill unblock bluetooth"
-alias bb="sudo rfkill block bluetooth"
-alias ubw="sudo rfkill unblock wifi"
-alias bw="sudo rfkill block wifi"
 
 # -------------------------------------- Apps
 alias tiga="tig --all"
