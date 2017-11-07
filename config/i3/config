@@ -27,7 +27,7 @@ bar {
   }
 
   # Output
-  output eDP-1
+  output eDP1
 
   # i3bar position
   position top
@@ -60,7 +60,7 @@ bar {
   }
 
   # Output
-  output DP-1
+  output DP1
 
   # i3bar position
   position top
@@ -93,34 +93,7 @@ bar {
   }
 
   # Output
-  output HDMI-1
-
-  # i3bar position
-  position top
-
-  # Mouse bindings
-  bindsym button4 nop
-  bindsym button5 nop
-
-  font pango:Iosevka 7
-}
-
-bar {
-  colors {
-    # Whole color settings
-    background #343434
-    statusline #999999
-    separator  #343434
-
-    # Type             border  background font
-    focused_workspace  #AAAAAA #AAAAAA    #343434
-    active_workspace   #AAAAAA #AAAAAA    #343434
-    inactive_workspace #343434 #343434    #AAAAAA
-    urgent_workspace   #EDC33D #EDC33D    #343434
-  }
-
-  # Output
-  output HDMI-2
+  output HDMI1
 
   # i3bar position
   position top
@@ -365,9 +338,6 @@ for_window [class="Darktable"] focus
 for_window [class="mpv"] focus
 for_window [class="streamlink-twitch-gui"] focus
 
-# Postman
-for_window [instance="crx_fhbjgbiflinjbdggehcddcbncdddomop"] focus
-
 # Join pop-up
 for_window [instance="crx_flejfacjooompmliegamfbpjjdlhokhj"] focus, floating enable
 
@@ -400,7 +370,7 @@ set $apps launch: [a]code [b]c [c]hromium [d]rofi [g]itkraken [h]top [i]nkscape 
 mode "$apps" {
   bindsym a exec --no-startup-id code, mode "default"
   bindsym b exec urxvt -title bc -e bc -l -q, mode "default"
-  bindsym c exec --no-startup-id chromium-start, mode "default"
+  bindsym c exec --no-startup-id chromium, mode "default"
   bindsym d exec --no-startup-id rofi -show run, mode "default"
   bindsym g exec --no-startup-id gitkraken, mode "default"
   bindsym h exec urxvt -title htop -e htop, mode "default"

@@ -37,6 +37,7 @@
       "~/.config/Thunar/thunarrc": "config/Thunar/thunarrc",
       "~/.config/pacaur/config": "config/pacaur/config",
       "~/.config/fontconfig/fonts.conf": "config/fontconfig/fonts.conf",
+      "~/.config/chromium-flags.conf": "config/chromium-flags.conf",
       "~/.weechat/buffers.conf": "weechat/buffers.conf",
       "~/.weechat/irc.conf": "weechat/irc.conf",
       "~/.weechat/logger.conf": "weechat/logger.conf",
