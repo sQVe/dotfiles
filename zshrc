@@ -85,6 +85,8 @@ alias cfg-hosts="sudo $EDITOR /etc/hosts"
 # MISC & SOURCE
 ########################################
 
+fpath=(/usr/share/bash-completion/completions ${fpath})
+
 source ${ZIM_HOME}/init.zsh
 source /usr/share/nvm/nvm.sh
 source /usr/share/nvm/bash_completion
