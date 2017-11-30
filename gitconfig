@@ -1,0 +1,23 @@
+[user]
+	email = oskargrunning@gmail.com
+	name = Oskar Grunning
+[pull]
+	rebase = preserve
+[push]
+	default = simple
+[core]
+	pager = diff-so-fancy | less --tabs=4 -RFX
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 227
+	frag = magenta bold
+	commit = 227 bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse

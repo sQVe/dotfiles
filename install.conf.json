@@ -9,49 +9,46 @@
     }
   },
   {
-    "clean": [
-      "~"
-    ]
+    "clean": ["~"]
   },
   {
     "link": {
-      "~/.nanorc": "nanorc",
-      "~/.tig": "tigrc",
-      "~/.gtkrc-2.0.mine": "gtkrc-2.0.mine",
-      "~/.zimrc": "zimrc",
-      "~/.zshrc": "zshrc",
-      "~/.xinitrc": "xinitrc",
-      "~/.Xresources": "Xresources",
-      "~/.ssh/config": "ssh/config",
-      "~/.config/redshift.conf": "config/redshift.conf",
+      "~/.config/chromium-flags.conf": "config/chromium-flags.conf",
       "~/.config/clipit/clipitrc": "config/clipit/clipitrc",
-      "~/.config/dunst/dunstrc": "config/dunst/dunstrc",
-      "~/.config/htop/htoprc": "config/htop/htoprc",
-      "~/.config/ranger": "config/ranger",
       "~/.config/cower/config": "config/cower/config",
+      "~/.config/dunst/dunstrc": "config/dunst/dunstrc",
+      "~/.config/fontconfig/fonts.conf": "config/fontconfig/fonts.conf",
+      "~/.config/htop/htoprc": "config/htop/htoprc",
       "~/.config/i3/config": "config/i3/config",
       "~/.config/i3blocks": "config/i3blocks",
-      "~/.config/user-dirs.dirs": "config/user-dirs.dirs",
       "~/.config/libinput-gestures.conf": "config/libinput-gestures.conf",
       "~/.config/mpv/mpv.conf": "config/mpv/mpv.conf",
-      "~/.config/Thunar/thunarrc": "config/Thunar/thunarrc",
       "~/.config/pacaur/config": "config/pacaur/config",
-      "~/.config/fontconfig/fonts.conf": "config/fontconfig/fonts.conf",
-      "~/.config/chromium-flags.conf": "config/chromium-flags.conf",
+      "~/.config/ranger": "config/ranger",
+      "~/.config/redshift.conf": "config/redshift.conf",
+      "~/.config/Thunar/thunarrc": "config/Thunar/thunarrc",
+      "~/.config/user-dirs.dirs": "config/user-dirs.dirs",
+      "~/.gitconfig": "gitconfig",
+      "~/.gtkrc-2.0.mine": "gtkrc-2.0.mine",
+      "~/.local/share/gtksourceview-2.0/styles/sqve.xml":
+        "local/share/gtksourceview-2.0/styles/sqve.xml",
+      "~/.nanorc": "nanorc",
+      "~/.ssh/config": "ssh/config",
+      "~/.tig": "tigrc",
       "~/.weechat/buffers.conf": "weechat/buffers.conf",
       "~/.weechat/irc.conf": "weechat/irc.conf",
       "~/.weechat/logger.conf": "weechat/logger.conf",
       "~/.weechat/plugins.conf": "weechat/plugins.conf",
       "~/.weechat/weechat.conf": "weechat/weechat.conf",
-      "~/.local/share/gtksourceview-2.0/styles/sqve.xml": "local/share/gtksourceview-2.0/styles/sqve.xml"
+      "~/.xinitrc": "xinitrc",
+      "~/.Xresources": "Xresources",
+      "~/.zimrc": "zimrc",
+      "~/.zshrc": "zshrc"
     }
   },
   {
     "shell": [
-      [
-        "git submodule update --init --recursive",
-        "Installing submodules"
-      ]
+      ["git submodule update --init --recursive", "Installing submodules"]
     ]
   }
 ]

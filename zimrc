@@ -1,5 +1,3 @@
-
-
 #################
 # CORE SETTINGS #
 #################
@@ -9,9 +7,9 @@
 #
 
 # Select what modules you would like enabled.
-# The second line of modules may depend on options set by modules in the first line.
-# These dependencies are noted on the respective module's README.md.
-zmodules=(directory environment git git-info history input utility meta custom \
+# The second line of modules may depend on options set by modules in the first
+# line. These dependencies are noted on the respective module's README.md.
+zmodules=(directory environment git git-info history input utility custom \
           syntax-highlighting history-substring-search prompt completion archive)
 
 
@@ -43,6 +41,17 @@ zprompt_theme='lean'
 #setopt CORRECT
 
 #
+# Environment
+#
+
+# Set the string below to the desired terminal title format string.
+# The terminal title is redrawn upon directory change, however, variables like 
+# ${PWD} are only evaluated once. Use prompt expansion strings for dynamic data:
+#   http://zsh.sourceforge.net/Doc/Release/Prompt-Expansion.html#Simple-Prompt-Escapes
+# The example below uses the following format: 'username@host:/current/directory'
+ztermtitle='%n@%m:%~'
+
+#
 # Input
 #
 
@@ -68,4 +77,3 @@ zhighlighters=(main brackets root)
 
 # Load these ssh identities with the ssh module
 #zssh_ids=(id_rsa)
-
