@@ -5,6 +5,8 @@
 export EDITOR=leafpad
 export NVM_DIR="$HOME/.nvm"
 export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+export LESS='-R'
+export LESSOPEN='|pygmentize -g %s'
 
 ########################################
 # ALIASES
