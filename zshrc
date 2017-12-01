@@ -5,8 +5,8 @@
 export EDITOR=leafpad
 export NVM_DIR="$HOME/.nvm"
 export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
-export LESS='-R'
-export LESSOPEN='|pygmentize -g %s'
+export LESS="-R"
+export LESSOPEN="|pygmentize -g %s"
 
 ########################################
 # ALIASES
@@ -22,8 +22,8 @@ alias mv="mv -i"
 alias rm="rm -I --preserve-root"
 
 # -------------------------------------- Goodies & Misc
-alias c=clear
-alias clip="xclip"
+alias cl=clear
+alias clip=xclip
 alias df="df -h"
 alias du="du -ch"
 alias dud="du -chd"
@@ -35,7 +35,7 @@ alias np="nano -w PKGBUILD"
 alias open="mimeo -q"
 alias root="sudo -i"
 alias sudo="sudo "
-alias sx="startx"
+alias sx=startx
 alias xclip="xclip -selection clipboard"
 
 # -------------------------------------- Listing
@@ -63,13 +63,17 @@ alias bc="bc -l -q"
 alias bluetooth=bluetoothctl
 alias ccat="pygmentize -g"
 alias clock="tty-clock -s -c -C 6 -D"
+alias fa=code
+alias fc=cat
 alias feh="feh --scale-down"
+alias fl=less
+alias fo=xdg-open
+alias fp=leafpad
 alias git=hub
-alias lp=leafpad
 alias mixer=pavucontrol
-alias pass="lpass"
+alias pass=lpass
 alias slp="sudo leafpad"
-alias t='urxvt & disown'
+alias t="urxvt & disown"
 alias tiga="tig --all"
 alias wifi-menu="wifi-menu -o"
 
