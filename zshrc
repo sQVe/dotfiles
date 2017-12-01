@@ -63,12 +63,7 @@ alias bc="bc -l -q"
 alias bluetooth=bluetoothctl
 alias ccat="pygmentize -g"
 alias clock="tty-clock -s -c -C 6 -D"
-alias fa=code
-alias fc=cat
 alias feh="feh --scale-down"
-alias fl=less
-alias fo=xdg-open
-alias fp=leafpad
 alias git=hub
 alias mixer=pavucontrol
 alias pass=lpass
@@ -76,6 +71,12 @@ alias slp="sudo leafpad"
 alias t="urxvt & disown"
 alias tiga="tig --all"
 alias wifi-menu="wifi-menu -o"
+alias xa=code
+alias xc=cat
+alias xcc=ccat
+alias xl=less
+alias xo=xdg-open
+alias xp=leafpad
 
 # -------------------------------------- Config
 alias cfg-hosts="sudo $EDITOR /etc/hosts"
