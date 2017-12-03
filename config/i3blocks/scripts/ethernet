@@ -10,7 +10,7 @@ fi
 if [[ "$state" == "down" ]]; then
 	echo "$label"
 	echo "$label"
-	echo "#E02760"
+	echo "#FF5555"
 	exit 0
 fi
 
@@ -18,4 +18,4 @@ speed="$(cat /sys/class/net/$BLOCK_INSTANCE/speed 2> /dev/null)"
 
 echo "$label $speed"
 echo "$label $speed"
-echo "#52B5B9"
+echo "#8BE9FD"

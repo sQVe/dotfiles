@@ -6,10 +6,10 @@
 font pango:Iosevka 7
 
 # Windows                   border    background    font      indicator
-client.focused              #666666   #666666       #FFFFFF   #AAAAAA
-client.unfocused            #343434   #343434       #AAAAAA   #AAAAAA
-client.focused_inactive     #343434   #343434       #FFFFFF   #AAAAAA
-client.urgent               #EDC33D   #EDC33D       #343434   #AAAAAA
+client.focused              #444444   #444444       #F8F8F2   #999999
+client.unfocused            #343434   #343434       #999999   #999999
+client.focused_inactive     #343434   #343434       #F8F8F2   #999999
+client.urgent               #BD93F9   #BD93F9       #343434   #999999
 
 # Workspacebar, statusbar etc
 bar {
@@ -19,11 +19,11 @@ bar {
     statusline #999999
     separator  #343434
 
-    # Type             border  background font
-    focused_workspace  #AAAAAA #AAAAAA    #343434
-    active_workspace   #AAAAAA #AAAAAA    #343434
-    inactive_workspace #343434 #343434    #AAAAAA
-    urgent_workspace   #EDC33D #EDC33D    #343434
+    # Type             border   background font
+    focused_workspace  #444444  #444444    #50FA7B
+    active_workspace   #444444  #444444    #50FA7B
+    inactive_workspace #343434  #343434    #999999
+    urgent_workspace   #BD93F9  #BD93F9    #343434
   }
 
   # Output
@@ -52,11 +52,11 @@ bar {
     statusline #999999
     separator  #343434
 
-    # Type             border  background font
-    focused_workspace  #AAAAAA #AAAAAA    #343434
-    active_workspace   #AAAAAA #AAAAAA    #343434
-    inactive_workspace #343434 #343434    #AAAAAA
-    urgent_workspace   #EDC33D #EDC33D    #343434
+    # Type             border   background font
+    focused_workspace  #444444  #444444    #50FA7B
+    active_workspace   #444444  #444444    #50FA7B
+    inactive_workspace #343434  #343434    #999999
+    urgent_workspace   #BD93F9  #BD93F9    #343434
   }
 
   # Output
@@ -85,11 +85,11 @@ bar {
     statusline #999999
     separator  #343434
 
-    # Type             border  background font
-    focused_workspace  #AAAAAA #AAAAAA    #343434
-    active_workspace   #AAAAAA #AAAAAA    #343434
-    inactive_workspace #343434 #343434    #AAAAAA
-    urgent_workspace   #EDC33D #EDC33D    #343434
+    # Type             border   background font
+    focused_workspace  #444444  #444444    #50FA7B
+    active_workspace   #444444  #444444    #50FA7B
+    inactive_workspace #343434  #343434    #999999
+    urgent_workspace   #BD93F9  #BD93F9    #343434
   }
 
   # Output
@@ -326,7 +326,6 @@ assign [class="mpv"]          			→ $w8
 assign [class="streamlink-twitch-gui"]          → $w8
 
 
-
 for_window [class="Code"] focus
 for_window [class="Chromium"] focus
 for_window [class="Firefox"] focus
@@ -366,17 +365,18 @@ bindsym $mod+q kill
 bindsym $mod+Delete kill
 bindsym Mod1+F4 kill
 
-set $apps launch: [a]code [b]c [c]hromium [d]rofi [g]itkraken [h]top leaf[p]ad [s]potify [r]anger [t]hunar [w]eechat
+set $apps launch: [a]code [b]c [c]hromium [d]rofi [g]itkraken [h]top [m]icro [n]ano [s]potify [r]anger [t]hunar [w]eechat
 mode "$apps" {
   bindsym a exec --no-startup-id code, mode "default"
   bindsym b exec urxvt -title bc -e bc -l -q, mode "default"
   bindsym c exec --no-startup-id chromium, mode "default"
   bindsym d exec --no-startup-id rofi -show run, mode "default"
   bindsym g exec --no-startup-id gitkraken, mode "default"
-  bindsym h exec urxvt -title htop -e htop, mode "default"
-  bindsym p exec leafpad, mode "default"
-  bindsym s exec --no-startup-id spotify-start, mode "default"
+  bindsym h exec urxvt -e htop, mode "default"
+  bindsym m exec urxvt -e micro, mode "default"
+  bindsym n exec urxvt -e nano, mode "default"
   bindsym r exec urxvt -e ranger, mode "default"
+  bindsym s exec --no-startup-id spotify-start, mode "default"
   bindsym t exec thunar, mode "default"
   bindsym w exec urxvt --hold -title weechat -e weechat, mode "default"
 

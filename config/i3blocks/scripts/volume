@@ -20,7 +20,7 @@ if [[ $VOL =~ $on_re ]]; then
   print="  ${BASH_REMATCH[*]}"
 else
   print="  muted"
-  color="#EDC33D"
+  color="#E6DB74"
 fi
 
 echo "$print"

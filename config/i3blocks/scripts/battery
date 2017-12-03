@@ -34,7 +34,7 @@ else:
 
 
     # stands for charging
-    FA_LIGHTNING = "<span color='#EDC33D'><span font='FontAwesome'>\uf0e7</span></span>"
+    FA_LIGHTNING = "<span color='#E6DB74'><span font='FontAwesome'>\uf0e7</span></span>"
 
     # stands for plugged in
     FA_PLUG = "<span font='FontAwesome'>\uf1e6</span>"
@@ -56,12 +56,12 @@ else:
 
     def color(percent):
         if percent < 10:
-            return "#E02760"
+            return "#FF5555"
         if percent < 20:
-            return "#EDC33D"
+            return "#E6DB74"
         if percent < 80:
-            return "#AAAAAA"
-        return "#52B5B9"
+            return "#999999"
+        return "#8BE9FD"
 
     form =  '<span color="{}">{}%</span>'
     fulltext += form.format(color(percentleft), percentleft)

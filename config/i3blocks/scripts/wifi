@@ -6,7 +6,7 @@ state="$(cat /sys/class/net/$BLOCK_INSTANCE/operstate)"
 if [ "$state" != "up" ]; then
 	echo "$label"
 	echo "$label"
-	echo "#E02760"
+	echo "#FF5555"
 	exit 0
 fi
 
@@ -17,9 +17,9 @@ echo "$label $ssid @ $quality%"
 echo "$label $ssid @ $quality%"
 
 if [[ $quality -gt 50 ]]; then
-    echo "#52B5B9"
+    echo "#8BE9FD"
 elif [[ $quality -gt 24 ]] && [[ $quality -lt 51 ]]; then
     echo "#EDC33D"
 elif [[ $quality -lt 25 ]]; then
-    echo "#E02760"
+    echo "#FF5555"
 fi

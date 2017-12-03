@@ -1,2 +1,4 @@
 set refresh-mode = periodic
 set refresh-interval = 60
+
+color cursor	black magenta

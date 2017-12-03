@@ -27,7 +27,7 @@ echo $load
 awk -v cpus=$cpus -v cpuload=$load '
     BEGIN {
         if (cpus <= cpuload) {
-            print "#E02760";
+            print "#FF5555";
             exit 33;
         }
     }

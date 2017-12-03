@@ -1,0 +1,103 @@
+## Use auto-indentation.
+set autoindent
+
+## Remove backup functionality.
+unset backup
+
+## Do case-sensitive searches by default.
+set casesensitive
+
+## Use the blank line below the title bar as extra editing space.
+set morespace
+
+## Enable mouse support, if available for your system.  When enabled,
+## mouse clicks can be used to place the cursor, set the mark (with a
+## double click), and execute shortcuts.  The mouse will work in the X
+## Window System, and on the console when gpm is running.
+set mouse
+
+## Switch on multiple file buffers (inserting a file will put it into
+## a separate buffer).
+set multibuffer
+
+## Don't display the helpful shortcut lists at the bottom of the screen.
+set nohelp
+
+## Don't wrap text at all.
+set nowrap
+
+## Fix Backspace/Delete confusion problem.
+set rebinddelete
+
+## Do extended regular expression searches by default.
+set regexp
+
+## Make the Home key smarter.  When Home is pressed anywhere but at the
+## very beginning of non-whitespace characters on a line, the cursor
+## will jump to that beginning (either forwards or backwards).  If the
+## cursor is already at that position, it will jump to the true
+## beginning of the line.
+set smarthome
+
+## Use smooth scrolling as the default.
+set smooth
+
+## Use this spelling checker instead of the internal one.  This option
+## does not have a default value.
+set speller "aspell -x -c"
+
+## Use this tab size instead of the default; it must be greater than 0.
+set tabsize 2
+
+## Convert typed tabs to spaces.
+set tabstospaces
+
+## Don't add newlines to the ends of files.
+set nonewlines
+
+
+## Paint the interface elements of nano.
+## These are examples; by default there are no colors.
+set titlecolor black,blue
+set statuscolor black,green
+set selectedcolor black,magenta
+set numbercolor cyan
+set keycolor cyan
+set functioncolor green
+
+## Syntax highlighting.
+include /usr/share/nano/*.nanorc
+include /usr/share/nano-syntax-highlighting/*.nanorc 
+
+## Unbinds.
+unbind ^K main
+unbind ^U main
+unbind ^W main
+
+## Binds.
+bind ^O insert main
+bind ^S writeout main
+bind ^Q exit main
+bind ^H help main
+
+bind ^B firstline main
+bind ^E lastline main
+bind ^L curpos main
+bind ^G gotoline main
+
+bind ^Space mark main
+bind ^X cut main
+bind ^K cut main
+bind ^C copytext main
+bind ^V uncut main
+bind ^U uncut main
+
+bind ^F whereis main
+bind ^N searchagain main
+bind ^J replace main
+
+bind ^Z undo main
+bind ^Y redo main
+
+bind M-A nohelp main
+bind M-L constupdate main
