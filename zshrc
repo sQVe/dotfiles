@@ -88,6 +88,7 @@ alias mixer=pavucontrol
 alias n=nano
 alias o=open
 alias pass=lpass
+alias ranger='ranger --choosedir=$HOME/.config/ranger/latest-dir; cd `cat $HOME/.config/ranger/latest-dir`'
 alias r=ranger
 alias t='urxvt & disown'
 alias tiga='tig --all'
