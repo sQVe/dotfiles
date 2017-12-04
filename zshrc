@@ -35,9 +35,6 @@ alias ln='ln -i'
 alias mv='mv -i'
 alias rm='rm -I --preserve-root'
 
-# -------------------------------------- App specific environments vars
-alias micro='TERM=xterm-256color micro'
-
 # -------------------------------------- Goodies & Misc
 alias cl=clear
 alias clip=xclip

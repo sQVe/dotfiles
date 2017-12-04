@@ -62,8 +62,7 @@ rofi.font: Iosevka 18
 *.color15:    #E6E6E6
 
 ! --- Repair bindings ---
-! --- Set TERM to xterm-256color for the specific applications that need it.
-!URxvt*termName: xterm-256color
+URxvt*termName: xterm-256color
 
 URxvt*keysym.Home: 		\033OH
 URxvt*keysym.End:  		\033OF

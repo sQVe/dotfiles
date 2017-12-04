@@ -26,9 +26,6 @@ set nohelp
 ## Don't wrap text at all.
 set nowrap
 
-## Fix Backspace/Delete confusion problem.
-set rebinddelete
-
 ## Do extended regular expression searches by default.
 set regexp
 
