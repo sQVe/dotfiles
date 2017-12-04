@@ -83,6 +83,7 @@ alias c=cat
 alias ccat='pygmentize -g'
 alias clock='tty-clock -s -c -C 6 -D'
 alias feh='feh --scale-down'
+alias flash-ergodox='teensy_loader_cli --mcu=atmega32u4 -w'
 alias git=hub
 alias l=less
 alias m=micro
