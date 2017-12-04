@@ -88,10 +88,10 @@ alias mixer=pavucontrol
 alias n=nano
 alias o=open
 alias pass=lpass
+alias r=ranger
 alias t='urxvt & disown'
 alias tiga='tig --all'
 alias wifi-menu='wifi-menu -o'
-
 # -------------------------------------- Config
 alias cfg-hosts='sudo micro /etc/hosts'
 alias cfg-i3='micro ~/.dotfiles/config/i3/config'
