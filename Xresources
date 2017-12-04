@@ -45,7 +45,7 @@ rofi.font: Iosevka 18
 *.foreground: #F8F8F2
 *.background: #343434
 *.color0:     #000000
-*.color8:     #4D4D4D
+*.color8:     #646464
 *.color1:     #FF5555
 *.color9:     #FF6E67
 *.color2:     #50FA7B

@@ -55,7 +55,6 @@ set tabstospaces
 ## Don't add newlines to the ends of files.
 set nonewlines
 
-
 ## Paint the interface elements of nano.
 ## These are examples; by default there are no colors.
 set titlecolor black,blue

@@ -365,7 +365,7 @@ bindsym $mod+q kill
 bindsym $mod+Delete kill
 bindsym Mod1+F4 kill
 
-set $apps launch: [a]code [b]c [c]hromium [d]rofi [g]itkraken [h]top [m]icro [n]ano [s]potify [r]anger [t]hunar [w]eechat
+set $apps launch: [a]code [b]c [c]hromium [d]rofi [g]itkraken [h]top [m]icro [n]ano [s]potify [r]anger [w]eechat
 mode "$apps" {
   bindsym a exec --no-startup-id code, mode "default"
   bindsym b exec urxvt -title bc -e bc -l -q, mode "default"
@@ -377,7 +377,6 @@ mode "$apps" {
   bindsym n exec urxvt -e nano, mode "default"
   bindsym r exec urxvt -e ranger, mode "default"
   bindsym s exec --no-startup-id spotify-start, mode "default"
-  bindsym t exec thunar, mode "default"
   bindsym w exec urxvt --hold -title weechat -e weechat, mode "default"
 
   # Back to normal: Enter or Escape
@@ -471,9 +470,6 @@ exec --no-startup-id feh --randomize --bg-fill ~/pictures/simon-stålenhag/*
 
 # Start redshift
 exec --no-startup-id "sh -c 'sleep 5; exec redshift -m randr:preserve=1'"
-
-# Thunar daemon
-exec --no-startup-id thunar --daemon
 
 # Handle lock - suspend, idle, lid close etc.
 exec --no-startup-id xss-lock -- lock
