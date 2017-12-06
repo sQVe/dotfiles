@@ -262,34 +262,6 @@ bindsym $mod+Ctrl+8 move container to workspace number $w8
 bindsym $mod+Ctrl+9 move container to workspace number $w9
 bindsym $mod+Ctrl+0 move container to workspace number $w10
 
-# Swap workspace
-mode "workspace" {
-  bindsym t      workspace number $w1, mode "default"
-  bindsym a      workspace number $w2, mode "default"
-  bindsym c      workspace number $w3, mode "default"
-  bindsym n      workspace number $w4, mode "default"
-  bindsym w      workspace number $w5, mode "default"
-  bindsym g      workspace number $w6, mode "default"
-  bindsym s      workspace number $w7, mode "default"
-
-  bindsym 1      workspace number $w1, mode "default"
-  bindsym 2      workspace number $w2, mode "default"
-  bindsym 3      workspace number $w3, mode "default"
-  bindsym 4      workspace number $w4, mode "default"
-  bindsym 5      workspace number $w5, mode "default"
-  bindsym 6      workspace number $w6, mode "default"
-  bindsym 7      workspace number $w7, mode "default"
-  bindsym 8      workspace number $w8, mode "default"
-  bindsym 9      workspace number $w9, mode "default"
-  bindsym 0     workspace number $w10, mode "default"
-
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
-}
-
-bindsym $mod+a mode "workspace"
-bindsym $mod+space mode "workspace"
-
 # Resize window
 mode "resize" {
   bindsym j resize grow width 50 px or 10 ppt
