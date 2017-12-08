@@ -13,6 +13,7 @@ client.urgent               #BD93F9   #BD93F9       #343434   #999999
 
 # Workspacebar, statusbar etc
 bar {
+  mode hide
   colors {
     # Whole color settings
     background #343434
@@ -46,6 +47,7 @@ bar {
 }
 
 bar {
+  mode hide
   colors {
     # Whole color settings
     background #343434
@@ -79,6 +81,7 @@ bar {
 }
 
 bar {
+  mode hide
   colors {
     # Whole color settings
     background #343434
@@ -109,8 +112,8 @@ bar {
 new_window pixel 4
 new_float pixel 4
 
-# Smart borders
-smart_borders on
+# Hide edge borders when single window.
+hide_edge_borders smart
 
 # Max size for float
 floating_maximum_size 1920 x 1080
@@ -155,13 +158,16 @@ bindsym $mod+Shift+o focus mode_toggle
 # Focus the parent container
 bindsym $mod+p focus parent
 
+# Focus last child
+bindsym $mod+odiaeresis focus child
+
 # Focus the child container
 bindsym $mod+c focus child
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
 
-# Restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# Restart i3.
 bindsym $mod+Shift+r restart
 
 
@@ -221,11 +227,12 @@ set $w10 "10 "
 bindsym $mod+Tab workspace next
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+l workspace next
+bindsym $mod+End workspace next
 bindsym $mod+Escape workspace prev
 bindsym $mod+section workspace prev
-bindsym $mod+Shift+Tab workspace prev
 bindsym $mod+Ctrl+Left workspace prev
 bindsym $mod+Ctrl+j workspace prev
+bindsym $mod+Home workspace prev
 bindsym $mod+BackSpace workspace back_and_forth
 
 # Switch to workspace
@@ -251,16 +258,6 @@ bindsym $mod+Shift+7 move container to workspace number $w7
 bindsym $mod+Shift+8 move container to workspace number $w8
 bindsym $mod+Shift+9 move container to workspace number $w9
 bindsym $mod+Shift+0 move container to workspace number $w10
-bindsym $mod+Ctrl+1 move container to workspace number $w1
-bindsym $mod+Ctrl+2 move container to workspace number $w2
-bindsym $mod+Ctrl+3 move container to workspace number $w3
-bindsym $mod+Ctrl+4 move container to workspace number $w4
-bindsym $mod+Ctrl+5 move container to workspace number $w5
-bindsym $mod+Ctrl+6 move container to workspace number $w6
-bindsym $mod+Ctrl+7 move container to workspace number $w7
-bindsym $mod+Ctrl+8 move container to workspace number $w8
-bindsym $mod+Ctrl+9 move container to workspace number $w9
-bindsym $mod+Ctrl+0 move container to workspace number $w10
 
 # Resize window
 mode "resize" {
@@ -286,16 +283,16 @@ bindsym $mod+r mode "resize"
 # ASSIGN                     #
 ##############################
 
-assign [class="Code"]         			→ $w2
-assign [class="Chromium" window_role="browser"]	→ $w3
-assign [class="Firefox" window_role="browser"]	→ $w3
-assign [title="weechat" class="^URxvt$"]     	→ $w6
-assign [class="GitKraken"]			→ $w4
-assign [class="^Gimp.*$"]       		→ $w7
-assign [class="Darktable"]     			→ $w7
-assign [class="Inkscape"]     			→ $w7
-assign [class="mpv"]          			→ $w8
-assign [class="streamlink-twitch-gui"]          → $w8
+assign [class="Code"]         			              → $w2
+assign [class="Chromium" window_role="browser"]	  → $w3
+assign [class="Firefox" window_role="browser"]	  → $w3
+assign [title="weechat" class="^URxvt$"]          → $w6
+assign [class="GitKraken"]                        → $w4
+assign [class="^Gimp.*$"]       		              → $w7
+assign [class="Darktable"]     			              → $w7
+assign [class="Inkscape"]     			              → $w7
+assign [class="mpv"]          			              → $w8
+assign [class="streamlink-twitch-gui"]            → $w8
 
 
 for_window [class="Code"] focus
@@ -379,11 +376,16 @@ mode "$i3exit" {
 bindsym XF86PowerOff mode "$i3exit"
 
 # Pulse Audio controls
+bindsym $mod+plus exec --no-startup-id amixer -D pulse set Master 1+ toggle && pkill -RTMIN+8 i3blocks
+bindsym $mod+aring exec --no-startup-id amixer -D pulse set Master 5%+ && pkill -RTMIN+8 i3blocks
+bindsym $mod+adiaeresis exec --no-startup-id amixer -D pulse set Master 5%- && pkill -RTMIN+8 i3blocks
 bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -D pulse set Master 5%+ && pkill -RTMIN+8 i3blocks
 bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse set Master 5%- && pkill -RTMIN+8 i3blocks
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle && pkill -RTMIN+8 i3blocks
 
 # Screen brightness controls
+bindsym $mod+comma exec light -A 10 && pkill -RTMIN+10 i3blocks
+bindsym $mod+period exec light -U 10 && pkill -RTMIN+10 i3blocks
 bindsym XF86MonBrightnessUp exec light -A 10 && pkill -RTMIN+10 i3blocks
 bindsym XF86MonBrightnessDown exec light -U 10 && pkill -RTMIN+10 i3blocks
 
