@@ -324,7 +324,6 @@ bindsym $mod+Return exec urxvt
 # Start rofi
 bindsym $mod+d exec --no-startup-id rofi -show run
 bindsym $mod+f exec --no-startup-id rofi -show window
-bindsym $mod+g exec --no-startup-id rofi -show ssh
 
 # Lock window
 bindsym $mod+x exec --no-startup-id lock
