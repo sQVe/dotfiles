@@ -383,8 +383,8 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse set Master 5%-
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle && pkill -RTMIN+8 i3blocks
 
 # Screen brightness controls
-bindsym $mod+comma exec light -A 10 && pkill -RTMIN+10 i3blocks
-bindsym $mod+period exec light -U 10 && pkill -RTMIN+10 i3blocks
+bindsym $mod+period exec light -A 10 && pkill -RTMIN+10 i3blocks
+bindsym $mod+comma exec light -U 10 && pkill -RTMIN+10 i3blocks
 bindsym XF86MonBrightnessUp exec light -A 10 && pkill -RTMIN+10 i3blocks
 bindsym XF86MonBrightnessDown exec light -U 10 && pkill -RTMIN+10 i3blocks
 
