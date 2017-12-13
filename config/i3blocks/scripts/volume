@@ -7,7 +7,7 @@ on_re="\[on\]"
 vol_re="[0-9]*%"
 
 case $BLOCK_BUTTON in
-  1) pavucontrol;;
+  1) amixer -q -D $mixer sset $scontrol toggle ;;
   3) amixer -q -D $mixer sset $scontrol toggle ;;
   4) amixer -q -D $mixer sset $scontrol ${step}+ unmute ;;
   5) amixer -q -D $mixer sset $scontrol ${step}- unmute ;;

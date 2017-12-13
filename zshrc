@@ -82,7 +82,7 @@ alias flash-ergodox='teensy_loader_cli --mcu=atmega32u4 -w'
 alias git=hub
 alias l=less
 alias m=micro
-alias mixer=pavucontrol
+alias mixer=ncpamixer
 alias n=nano
 alias o=open
 alias pass=lpass
