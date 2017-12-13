@@ -37,7 +37,6 @@ alias rm='rm -I --preserve-root'
 
 # -------------------------------------- Goodies & Misc
 alias cl=clear
-alias clip=xclip
 alias df='df -h'
 alias du='du -ch'
 alias dud='du -chd'
@@ -50,7 +49,6 @@ alias open='mimeo -q'
 alias root='sudo -i'
 alias sudo='sudo '
 alias sx=startx
-alias xclip='xclip -selection clipboard'
 
 # -------------------------------------- Listing
 alias cla='clear;la'
