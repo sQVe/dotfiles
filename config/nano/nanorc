@@ -70,11 +70,16 @@ unbind ^K main
 unbind ^U main
 unbind ^W main
 
-## Binds.
+## Mod binds.
+bind M-A nohelp main
+bind M-L constupdate main
+
+## Ctrl binds.
 bind ^O insert main
 bind ^S writeout main
 bind ^Q exit main
-bind ^H help main
+bind ^P help main
+bind F1 help main
 
 bind ^B firstline main
 bind ^E lastline main
@@ -94,6 +99,3 @@ bind ^J replace main
 
 bind ^Z undo main
 bind ^Y redo main
-
-bind M-A nohelp main
-bind M-L constupdate main
