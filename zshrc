@@ -87,7 +87,7 @@ alias n=nano
 alias o=open
 alias pass=lpass
 alias r=ranger
-alias ranger='ranger --choosedir=$HOME/.config/ranger/latest-dir; cd `cat $HOME/.config/ranger/latest-dir`'
+alias ranger='ranger --choosedir=$HOME/.config/ranger/latest-dir; cd "`cat $HOME/.config/ranger/latest-dir`"'
 alias t='urxvt & disown'
 alias tiga='tig --all'
 alias todo='nano $HOME/TODO'
