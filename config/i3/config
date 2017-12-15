@@ -101,6 +101,12 @@ bar {
   # i3bar position
   position top
 
+  # Start i3status
+  status_command i3blocks
+
+  # Show systray on primary monitor always
+  tray_output none
+
   # Mouse bindings
   bindsym button4 nop
   bindsym button5 nop
@@ -135,9 +141,6 @@ floating_modifier $mod
 # Split in horizontal orientation
 bindsym $mod+n split h
 
-# rename workspace
-bindsym $mod+y exec i3-input -F 'rename workspace to "%s"' -P 'Workspace name: '
-
 # Split in vertical orientation
 bindsym $mod+v split v
 
@@ -158,11 +161,9 @@ bindsym $mod+Shift+o focus mode_toggle
 # Focus the parent container
 bindsym $mod+p focus parent
 
-# Focus last child
-bindsym $mod+odiaeresis focus child
-
 # Focus the child container
 bindsym $mod+c focus child
+bindsym $mod+odiaeresis focus child
 
 # Reload the configuration file
 bindsym $mod+Shift+c reload
@@ -346,9 +347,9 @@ mode "$apps" {
   bindsym r exec urxvt -e ranger, mode "default"
   bindsym s exec --no-startup-id spotify-start, mode "default"
   bindsym w exec urxvt --hold -title weechat -e weechat, mode "default"
+  bindsym Return exec urxvt, mode "default"
 
-  # Back to normal: Enter or Escape
-  bindsym Return mode "default"
+  # Back to normal: Escape
   bindsym Escape mode "default"
 }
 
@@ -367,8 +368,7 @@ mode "$i3exit" {
   bindsym s exec --no-startup-id i3exit suspend, mode "default"
   bindsym p exec --no-startup-id i3exit shutdown, mode "default"
 
-  # Back to normal: Enter or Escape
-  bindsym Return mode "default"
+  # Back to normal: Escape
   bindsym Escape mode "default"
 }
 
@@ -393,8 +393,7 @@ mode "$display-mode" {
   bindsym a exec --no-startup-id redshift -m randr:preserve=1 && pkill -RTMIN+2 i3blocks, mode "default"
   bindsym o exec --no-startup-id pkill redshift & pkill -RTMIN+2 i3blocks, mode "default"
 
-  # Back to normal: Enter or Escape
-  bindsym Return mode "default"
+  # Back to normal: Escape
   bindsym Escape mode "default"
 }
 
@@ -406,8 +405,7 @@ mode "$playerctl" {
   bindsym b exec --no-startup-id playerctl play-pause, mode "default"
   bindsym n exec --no-startup-id playerctl next, mode "default"
 
-  # Back to normal: Enter or Escape
-  bindsym Return mode "default"
+  # Back to normal: Escape
   bindsym Escape mode "default"
 }
 
