@@ -77,6 +77,7 @@ alias bluetooth=bluetoothctl
 alias c=cat
 alias ccat='pygmentize -g'
 alias clock='tty-clock -s -c -C 6 -D'
+alias diff='git diff'
 alias feh='feh --scale-down'
 alias flash-ergodox='teensy_loader_cli --mcu=atmega32u4 -w'
 alias git=hub
