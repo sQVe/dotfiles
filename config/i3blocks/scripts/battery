@@ -11,7 +11,7 @@ status = check_output(['acpi'], universal_newlines=True)
 
 if not status:
     # stands for no battery found
-    fulltext = "<span color='red'><span font='FontAwesome'>\uf00d \uf240</span></span>"
+    fulltext = "<span color='red'><span font='Font Awesome 5 Pro'>\uf00d \uf240</span></span>"
     percentleft = 100
 else:
     # if there is more than one battery in one laptop, the percentage left is
@@ -34,23 +34,26 @@ else:
 
 
     # stands for charging
-    FA_LIGHTNING = "<span color='#E6DB74'><span font='FontAwesome'>\uf0e7</span></span>"
+    FA_LIGHTNING = "<span color='#E6DB74'><span font='Font Awesome 5 Pro'>\uf376</span></span>"
 
     # stands for plugged in
-    FA_PLUG = "<span font='FontAwesome'>\uf1e6</span>"
-
-    # stands for using battery
-    FA_BATTERY = "<span font='FontAwesome'>\uf240</span>"
-
-    # stands for unknown status of battery
-    FA_QUESTION = "<span font='FontAwesome'>\uf128</span>"
+    FA_PLUG = "<span font='Font Awesome 5 Pro'>\uf240</span>"
 
     if state == "Discharging":
-        fulltext = FA_BATTERY + " "
+        if percentleft < 10:
+            fulltext = "<span font='Font Awesome 5 Pro'>\uf244</span> "
+        elif percentleft < 20:
+            fulltext = "<span font='Font Awesome 5 Pro'>\uf243</span> "
+        elif percentleft < 40:
+            fulltext = "<span font='Font Awesome 5 Pro'>\uf242</span> "
+        elif percentleft < 80:
+            fulltext = "<span font='Font Awesome 5 Pro'>\uf241</span> "
+        else:
+            fulltext = "<span font='Font Awesome 5 Pro'>\uf240</span> "
     elif state == "Full":
         fulltext = FA_PLUG + " "
     elif state == "Unknown":
-        fulltext = FA_BATTERY + " "
+        fulltext =  "<span font='Font Awesome 5 Pro'>\uf377</span> "
     else:
         fulltext = FA_LIGHTNING + " " + FA_PLUG + " "
 

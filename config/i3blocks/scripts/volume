@@ -9,17 +9,17 @@ vol_re="[0-9]*%"
 case $BLOCK_BUTTON in
   1) amixer -q -D $mixer sset $scontrol toggle ;;
   3) amixer -q -D $mixer sset $scontrol toggle ;;
-  4) amixer -q -D $mixer sset $scontrol ${step}+ unmute ;;
-  5) amixer -q -D $mixer sset $scontrol ${step}- unmute ;;
+  4) amixer -q -D $mixer sset $scontrol "${step}+" unmute ;;
+  5) amixer -q -D $mixer sset $scontrol "${step}-" unmute ;;
 esac
 
 VOL=$(amixer -D $mixer get $scontrol)
 
 if [[ $VOL =~ $on_re ]]; then
   [[ $VOL =~ $vol_re ]]
-  print="  ${BASH_REMATCH[*]}"
+  print=" ${BASH_REMATCH[*]}"
 else
-  print="  muted"
+  print=" muted"
   color="#E6DB74"
 fi
 

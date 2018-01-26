@@ -15,6 +15,10 @@ interval=2
 label=
 
 [ethernet]
+instance=enp0s20f0u1
+interval=10
+
+[ethernet]
 instance=enp57s0u1u4
 interval=10
 
@@ -34,7 +38,7 @@ label=
 [display-mode]
 interval=5
 signal=2
-label=
+label=
 
 [battery]
 interval=5
@@ -42,7 +46,7 @@ markup=pango
 
 [time]
 command=date '+%Y-%m-%d'
-label=
+label=
 interval=60
 
 [time]

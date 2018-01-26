@@ -3,7 +3,7 @@
 ##############################
 
 # Font
-font pango:Iosevka 7
+font pango:Iosevka, Font Awesome 5 Pro, Font Awesome 5 Brands 7
 
 # Windows                   border    background    font      indicator
 client.focused              #444444   #444444       #F8F8F2   #999999
@@ -43,7 +43,7 @@ bar {
   bindsym button4 nop
   bindsym button5 nop
 
-  font pango:Iosevka 7
+  font pango:Iosevka, Font Awesome 5 Pro, Font Awesome 5 Brands 7
 }
 
 bar {
@@ -77,7 +77,7 @@ bar {
   bindsym button4 nop
   bindsym button5 nop
 
-  font pango:Iosevka 7
+  font pango:Iosevka, Font Awesome 5 Pro, Font Awesome 5 Brands 7
 }
 
 bar {
@@ -111,7 +111,7 @@ bar {
   bindsym button4 nop
   bindsym button5 nop
 
-  font pango:Iosevka 7
+  font pango:Iosevka, Font Awesome 5 Pro, Font Awesome 5 Brands 7
 }
 
 # Window borders.
@@ -213,16 +213,16 @@ bindsym $mod+Mod1+i move workspace to output up
 bindsym $mod+Mod1+l move workspace to output right
 
 # Workspace tags
-set $w1 "1 "
-set $w2 "2 "
-set $w3 "3 "
+set $w1 "1 "
+set $w2 "2 "
+set $w3 "3 "
 set $w4 "4 "
-set $w5 "5 "
-set $w6 "6 "
-set $w7 "7 "
-set $w8 "8 "
-set $w9 "9 "
-set $w10 "10 "
+set $w5 "5 "
+set $w6 "6 "
+set $w7 "7 "
+set $w8 "8 "
+set $w9 "9 "
+set $w10 "10 "
 
 # Cycle workspace
 bindsym $mod+Tab workspace next
