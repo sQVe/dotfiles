@@ -32,10 +32,6 @@ else:
     commasplitstatus = commasplitstatus_batteries[0]
     percentleft = int(sum(percentleft_batteries)/len(percentleft_batteries))
 
-
-    # stands for charging
-    FA_LIGHTNING = "<span color='#E6DB74'><span font='Font Awesome 5 Pro'>\uf376</span></span>"
-
     # stands for plugged in
     FA_PLUG = "<span font='Font Awesome 5 Pro'>\uf240</span>"
 
@@ -55,7 +51,7 @@ else:
     elif state == "Unknown":
         fulltext =  "<span font='Font Awesome 5 Pro'>\uf377</span> "
     else:
-        fulltext = FA_LIGHTNING + " " + FA_PLUG + " "
+        fulltext = "<span color='#E6DB74'><span font='Font Awesome 5 Pro'>\uf376</span></span> "
 
     def color(percent):
         if percent < 10:
