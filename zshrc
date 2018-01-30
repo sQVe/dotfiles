@@ -83,7 +83,6 @@ alias feh='feh --scale-down'
 alias flash-ergodox='teensy_loader_cli --mcu=atmega32u4 -w'
 alias git=hub
 alias l=less
-alias m=micro
 alias mixer=ncpamixer
 alias n=nano
 alias o=open

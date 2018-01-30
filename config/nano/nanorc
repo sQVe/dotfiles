@@ -21,7 +21,7 @@ set mouse
 set multibuffer
 
 ## Don't display the helpful shortcut lists at the bottom of the screen.
-set nohelp
+## set nohelp
 
 ## Don't wrap text at all.
 set nowrap

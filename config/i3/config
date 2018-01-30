@@ -334,7 +334,7 @@ bindsym $mod+q kill
 bindsym $mod+Delete kill
 bindsym Mod1+F4 kill
 
-set $apps launch: [a]code [b]c [c]hromium [d]rofi [g]itkraken [h]top [m]icro [n]ano [s]potify [r]anger [w]eechat
+set $apps launch: [a]code [b]c [c]hromium [d]rofi [g]itkraken [h]top [n]ano [s]potify [r]anger [w]eechat
 mode "$apps" {
   bindsym a exec --no-startup-id code, mode "default"
   bindsym b exec urxvt -title bc -e bc -l -q, mode "default"
@@ -342,7 +342,6 @@ mode "$apps" {
   bindsym d exec --no-startup-id rofi -show run, mode "default"
   bindsym g exec --no-startup-id gitkraken, mode "default"
   bindsym h exec urxvt -e htop, mode "default"
-  bindsym m exec urxvt -e micro, mode "default"
   bindsym n exec urxvt -e nano, mode "default"
   bindsym r exec urxvt -e ranger, mode "default"
   bindsym s exec --no-startup-id spotify-start, mode "default"
