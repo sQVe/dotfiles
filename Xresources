@@ -10,7 +10,7 @@ Xcursor.theme: Vanilla-DMZ
 Xcursor.size: 48
 
 ! --- URxvt ---
-URxvt.font: xft:Iosevka:pixelsize=24, xft:Font Awesome 5 Pro:pixelsize=24
+URxvt.font: xft:Iosevka Term:pixelsize=24, xft:Font Awesome 5 Pro:pixelsize=24
 URxvt.internalBorder: 6
 URxvt.urgentOnBell: true
 URxvt.scrollBar: false
