@@ -6,10 +6,10 @@
 font pango:Iosevka, Font Awesome 5 Pro, Font Awesome 5 Brands 7
 
 # Windows                   border    background    font      indicator
-client.focused              #444444   #444444       #F8F8F2   #999999
-client.unfocused            #343434   #343434       #999999   #999999
-client.focused_inactive     #343434   #343434       #F8F8F2   #999999
-client.urgent               #BD93F9   #BD93F9       #343434   #999999
+client.focused              #BD93F9   #BD93F9       #343434   #50FA7B
+client.unfocused            #343434   #343434       #999999   #343434
+client.focused_inactive     #343434   #343434       #999999   #343434
+client.urgent               #BD93F9   #BD93F9       #999999   #343434
 
 # Workspacebar, statusbar etc
 bar {
@@ -115,8 +115,8 @@ bar {
 }
 
 # Window borders.
-new_window pixel 4
-new_float pixel 4
+new_window pixel 2
+new_float pixel 2
 
 # Hide edge borders when single window.
 hide_edge_borders smart
