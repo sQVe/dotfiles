@@ -62,15 +62,6 @@ alias llg='ll | grep'
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias lsg='ls | grep'
 
-# -------------------------------------- Pacaur
-alias p=pacaur
-alias pi='pacaur -S'
-alias pqi='pacaur -Qi'
-alias pqs='pacaur -Qs'
-alias pr='pacaur -Rns'
-alias ps='pacaur -Ss'
-alias pu='pacaur -Syu'
-
 # -------------------------------------- Apps
 alias a=code
 alias bc='bc -l -q'
@@ -80,12 +71,12 @@ alias ccat='pygmentize -g'
 alias clock='tty-clock -s -c -C 6 -D'
 alias diff='git diff'
 alias feh='feh --scale-down'
-alias flash-ergodox='teensy_loader_cli --mcu=atmega32u4 -w'
 alias git=hub
 alias l=less
 alias mixer=ncpamixer
 alias n=nano
 alias o=open
+alias p=pacaur
 alias pass=lpass
 alias r=ranger
 alias ranger='ranger --choosedir=$HOME/.config/ranger/latest-dir; cd "`cat $HOME/.config/ranger/latest-dir`"'

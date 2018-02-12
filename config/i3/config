@@ -139,7 +139,7 @@ set $mod Mod4
 floating_modifier $mod
 
 # Split in horizontal orientation
-bindsym $mod+n split h
+bindsym $mod+h split h
 
 # Split in vertical orientation
 bindsym $mod+v split v
