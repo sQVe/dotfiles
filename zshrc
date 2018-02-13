@@ -7,6 +7,7 @@ export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 export LESS='-R'
 export LESSOPEN='|pygmentize -g %s'
 export GREP_COLORS='mt=30;44'
+export HTTPIE_CONFIG_DIR=$HOME/.config/httpie
 
 ########################################
 # SOURCE
