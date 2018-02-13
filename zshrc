@@ -75,12 +75,14 @@ alias feh='feh --scale-down'
 alias git=hub
 alias l=less
 alias mixer=ncpamixer
+alias m=micro
 alias n=nano
 alias o=open
 alias p=pacaur
 alias pass=lpass
 alias r=ranger
 alias ranger='ranger --choosedir=$HOME/.config/ranger/latest-dir; cd "`cat $HOME/.config/ranger/latest-dir`"'
+alias sm='sudo micro'
 alias sn='sudo nano'
 alias so='sudo open'
 alias t='urxvt & disown'
@@ -89,9 +91,9 @@ alias todo='nano $HOME/TODO'
 alias wifi-menu='wifi-menu -o'
 
 # -------------------------------------- Config
-alias cfg-hosts='sudo nano /etc/hosts'
-alias cfg-i3='nano ~/.dotfiles/config/i3/config'
-alias cfg-xinitrc='nano ~/.dotfiles/xinitrc'
-alias cfg-xresources='nano ~/.dotfiles/Xresources'
-alias cfg-zimrc='nano ~/.dotfiles/zimrc'
-alias cfg-zshrc='nano ~/.dotfiles/zshrc'
+alias cfg-hosts='sudo micro /etc/hosts'
+alias cfg-i3='micro ~/.dotfiles/config/i3/config'
+alias cfg-xinitrc='micro ~/.dotfiles/xinitrc'
+alias cfg-xresources='micro ~/.dotfiles/Xresources'
+alias cfg-zimrc='micro ~/.dotfiles/zimrc'
+alias cfg-zshrc='micro ~/.dotfiles/zshrc'
