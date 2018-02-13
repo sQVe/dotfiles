@@ -45,7 +45,7 @@ alias free='free -m'
 alias ga='cat $ZIM_HOME/modules/git/init.zsh | grep'
 alias grep='grep --color=auto -d skip'
 alias more=less
-alias np='nano -w PKGBUILD'
+alias np='micro -w PKGBUILD'
 alias open='mimeo -q'
 alias root='sudo -i'
 alias sudo='sudo '
@@ -87,7 +87,7 @@ alias sn='sudo nano'
 alias so='sudo open'
 alias t='urxvt & disown'
 alias tiga='tig --all'
-alias todo='nano $HOME/TODO'
+alias todo='micro $HOME/TODO'
 alias wifi-menu='wifi-menu -o'
 
 # -------------------------------------- Config

@@ -87,5 +87,8 @@
   "Alt-n": "SpawnMultiCursor",
   "Alt-p": "RemoveMultiCursor",
   "Alt-c": "RemoveAllMultiCursors",
-  "Alt-x": "SkipMultiCursor"
+  "Alt-x": "SkipMultiCursor",
+
+  // Plugins
+  "Alt-c": "comment.comment"
 }
