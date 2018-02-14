@@ -49,6 +49,7 @@ image/x-xcf=feh.desktop;
 image/x-xcursor=feh.desktop;
 image/x-xpixmap=feh.desktop;
 image/x-xwindowdump=feh.desktop;
+inode/symlink=urxvt-micro.desktop;
 inode/x-empty=urxvt-micro.desktop;
 text/css=urxvt-micro.desktop;
 text/html=urxvt-micro.desktop;
