@@ -19,7 +19,7 @@ echo "$label $ssid @ $quality%"
 if [[ $quality -gt 50 ]]; then
     echo "#8BE9FD"
 elif [[ $quality -gt 24 ]] && [[ $quality -lt 51 ]]; then
-    echo "#EDC33D"
+    echo "#E6DB74"
 elif [[ $quality -lt 25 ]]; then
     echo "#FF5555"
 fi

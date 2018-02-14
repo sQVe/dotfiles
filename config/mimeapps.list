@@ -1,6 +1,7 @@
 [Added Associations]
 application/javascript=urxvt-micro.desktop;
 application/json=urxvt-micro.desktop;
+application/pdf=chromium.desktop;
 application/vnd.snap=urxvt-micro.desktop;
 application/x-makefile=urxvt-micro.desktop;
 application/x-shellscript=urxvt-micro.desktop;

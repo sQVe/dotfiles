@@ -8,6 +8,7 @@ export LESS='-R'
 export LESSOPEN='|pygmentize -g %s'
 export GREP_COLORS='mt=30;44'
 export HTTPIE_CONFIG_DIR=$HOME/.config/httpie
+export PATH=$PATH:$HOME/.local/bin
 
 ########################################
 # SOURCE
@@ -69,7 +70,6 @@ alias bc='bc -l -q'
 alias bluetooth=bluetoothctl
 alias c=cat
 alias ccat='pygmentize -g'
-alias clock='tty-clock -s -c -C 6 -D'
 alias diff='git diff'
 alias feh='feh --scale-down'
 alias git=hub
