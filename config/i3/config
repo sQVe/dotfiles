@@ -144,9 +144,6 @@ bindsym $mod+h split h
 # Split in vertical orientation
 bindsym $mod+v split v
 
-# Enter fullscreen mode for the focused container
-bindsym $mod+u fullscreen toggle
-
 # Change container layout (stacked, tabbed, toggle split)
 bindsym $mod+e layout stacking
 bindsym $mod+w layout tabbed
@@ -389,7 +386,7 @@ bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10 && pkill -RTMIN+1
 
 set $display-mode display mode: [a]uto [o]ptimal
 mode "$display-mode" {
-  bindsym a exec --no-startup-id redshift -m randr:preserve=1 && pkill -RTMIN+2 i3blocks, mode "default"
+  bindsym a exec --no-startup-id $HOME/scripts/start-redshift.sh, mode "default"
   bindsym o exec --no-startup-id pkill redshift & pkill -RTMIN+2 i3blocks, mode "default"
 
   # Back to normal: Escape
@@ -436,10 +433,10 @@ exec --no-startup-id dunst
 exec --no-startup-id clipit
 
 # Set wallpaper
-exec --no-startup-id feh --randomize --bg-fill ~/pictures/simon-stålenhag/*
+exec --no-startup-id $HOME/scripts/random-wall.sh
 
 # Start redshift
-exec --no-startup-id "sh -c 'sleep 5; exec redshift -m randr:preserve=1'"
+exec --no-startup-id "sh -c 'sleep 5; exec $HOME/scripts/start-redshift.sh'"
 
 # Handle lock - suspend, idle, lid close etc.
 exec --no-startup-id xss-lock -- lock
