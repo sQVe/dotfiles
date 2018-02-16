@@ -2,13 +2,13 @@
 # EXPORT
 ########################################
 
-export NVM_DIR=$HOME/.nvm
-export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
-export LESS='-R'
-export LESSOPEN='|pygmentize -g %s'
 export GREP_COLORS='mt=30;44'
 export HTTPIE_CONFIG_DIR=$HOME/.config/httpie
+export LESS='-R'
+export LESSOPEN='|pygmentize -g %s'
+export NVM_DIR=$HOME/.nvm
 export PATH=$PATH:$HOME/.local/bin
+export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
 
 ########################################
 # SOURCE

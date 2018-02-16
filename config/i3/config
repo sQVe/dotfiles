@@ -13,7 +13,6 @@ client.urgent               #BD93F9   #BD93F9       #999999   #343434
 
 # Workspacebar, statusbar etc
 bar {
-  mode hide
   colors {
     # Whole color settings
     background #343434
@@ -47,7 +46,6 @@ bar {
 }
 
 bar {
-  mode hide
   colors {
     # Whole color settings
     background #343434
@@ -81,7 +79,6 @@ bar {
 }
 
 bar {
-  mode hide
   colors {
     # Whole color settings
     background #343434
