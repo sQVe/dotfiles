@@ -1,23 +1,145 @@
 [user]
-	email = oskargrunning@gmail.com
-	name = Oskar Grunning
+  email = oskargrunning@gmail.com
+  name = Oskar Grunning
 [pull]
-	rebase = preserve
+  rebase = preserve
 [push]
-	default = simple
+  default = simple
 [core]
-	pager = diff-so-fancy | less --tabs=4 -RFX
+  pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
-	ui = true
+  ui = true
 [color "diff-highlight"]
-	oldNormal = red bold
-	oldHighlight = red bold 52
-	newNormal = green bold
-	newHighlight = green bold 22
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
 [color "diff"]
-	meta = 227
-	frag = magenta bold
-	commit = 227 bold
-	old = red bold
-	new = green bold
-	whitespace = red reverse
+  meta = 227
+  frag = magenta bold
+  commit = 227 bold
+  old = red bold
+  new = green bold
+  whitespace = red reverse
+[alias]
+  CO = gCo $(gCl)
+  CT = gCt $(gCl)
+  Ca = add $(gCl)
+  Ce = mergetool $(gCl)
+  Cl = --no-pager diff --diff-filter = U --name-only
+  Co = checkout --ours --
+  Ct = checkout --theirs --
+  R = remote
+  Ra = remote add
+  Rl = remote --verbose
+  Rm = remote rename
+  Rp = remote prune
+  Rs = remote show
+  Ru = remote update
+  Rx = remote rm
+  S = submodule
+  SI = submodule update --init --recursive
+  Sa = submodule add
+  Sf = submodule foreach
+  Si = submodule init
+  Sl = submodule status
+  Ss = submodule sync
+  Su = submodule foreach pull origin master
+  b = branch
+  bL = branch --all -vv
+  bM = branch --move --force
+  bS = show-branch --all
+  bc = checkout -b
+  bl = branch -vv
+  bm = branch --move
+  bs = show-branch
+  c = commit --verbose
+  cF = commit --verbose --amend
+  cO = checkout --patch
+  cP = cherry-pick --no-commit
+  cR = reset "HEAD^"
+  cS = commit -S
+  ca = commit --verbose --all
+  cf = commit --amend --reuse-message HEAD
+  cm = commit --message
+  co = checkout
+  cp = cherry-pick --ff
+  cr = revert
+  cs = show --pretty = format:"${_git_log_medium_format}"
+  d = ls-files
+  dc = ls-files --cached
+  di = status --porcelain --short --ignored | sed -n "s/^!! //p"
+  dk = ls-files --killed
+  dm = ls-files --modified
+  du = ls-files --other --exclude-standard
+  dx = ls-files --deleted
+  f = fetch
+  fc = clone
+  fm = pull
+  fr = pull --rebase
+  g = grep
+  gL = grep --files-without-match
+  gi = grep --ignore-case
+  gl = grep --files-with-matches
+  gv = grep --invert-match
+  gw = grep --word-regexp
+  iA = add --patch
+  iD = diff --no-ext-diff --cached --word-diff
+  iR = reset --patch
+  iX = rm --cached -rf
+  ia = add
+  id = diff --no-ext-diff --cached
+  ir = reset
+  iu = add --update
+  ix = rm --cached -r
+  l = log --topo-order --pretty = format:"${_git_log_medium_format}"
+  lG = log --topo-order --all --graph --pretty = format:"${_git_log_fullgraph_format}"
+  lS = log --topo-order --show-signature --pretty = format:"${_git_log_medium_format}"
+  lb = log --topo-order --pretty = format:"${_git_log_brief_format}"
+  lc = shortlog --summary --numbered
+  ld = log --topo-order --stat --patch --full-diff --pretty = format:"${_git_log_medium_format}"
+  lg = log --topo-order --all --graph --pretty = format:"${_git_log_oneline_format}%n"
+  lo = log --topo-order --pretty = format:"${_git_log_oneline_format}"
+  ls = log --topo-order --stat --pretty = format:"${_git_log_medium_format}"
+  m = merge
+  mC = merge --no-commit
+  mF = merge --no-ff
+  ma = merge --abort
+  mt = mergetool
+  p = push
+  pA = push --all && push --tags
+  pS = show --pretty = short --show-signature
+  pa = push --all
+  pc = push --set-upstream origin "$(git-branch-current 2> /dev/null)"
+  pf = push --force
+  pp = pull origin "$(git-branch-current 2> /dev/null)" && push origin "$(git-branch-current 2> /dev/null)"
+  pt = push --tags
+  r = rebase
+  ra = rebase --abort
+  rc = rebase --continue
+  ri = rebase --interactive
+  rs = rebase --skip
+  s = stash
+  sS = stash save --patch --no-keep-index
+  sa = stash apply
+  sd = stash show --patch --stat
+  sl = stash list
+  sp = stash pop
+  ss = stash save --include-untracked
+  su = stash show --patch | apply --reverse
+  sw = stash save --include-untracked --keep-index
+  sx = stash drop
+  t = tag
+  ts = tag --sign
+  tv = verify-tag
+  tx = tag --delete
+  wC = clean -d --force
+  wD = diff --no-ext-diff --word-diff
+  wR = reset --hard
+  wS = status
+  wX = rm -rf
+  wc = clean --dry-run
+  wd = diff --no-ext-diff
+  wr = reset --soft
+  ws = status --short
+  wx = rm -r

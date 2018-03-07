@@ -1,0 +1,12 @@
+[Unit]
+Description=KDE Connect Daemon
+After=display-manager.service
+
+[Service]
+Type=simple
+ExecStart=/usr/lib/kdeconnectd
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=default.target

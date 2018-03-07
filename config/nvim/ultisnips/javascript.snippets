@@ -1,0 +1,118 @@
+#-------------------------------------------------
+# NODE SPECIFIC
+#-------------------------------------------------
+
+snippet #! "Shebang"
+#!/usr/bin/env node
+endsnippet
+
+#-------------------------------------------------
+# CONSOLE
+#-------------------------------------------------
+
+snippet cl "Log to the console" b
+console.log($1);
+endsnippet
+
+snippet clc "Log to the console with context" b
+console.log('`!v expand("%:t")`:`!v line(".")` ==>', $1);
+endsnippet
+
+snippet ci "Info to the console" b
+console.info($1);
+endsnippet
+
+snippet cic "Info to the console with context" b
+console.info('`!v expand("%:t")`:`!v line(".")`' ==>', $1);
+endsnippet
+
+snippet cw "Warn to the console" b
+console.warn($1);
+endsnippet
+
+snippet cwc "Warn to the console with context" b
+console.warn('`!v expand("%:t")`:`!v line(".")` ==>'', $1);
+endsnippet
+
+#-------------------------------------------------
+# DISABLE ESLINT
+#-------------------------------------------------
+
+snippet eslint-disable "ESLint disable" b
+/* eslint-disable ${1:rule} */
+${VISUAL}$0
+/* eslint-enable */
+endsnippet
+
+snippet eslint-disable-line "ESLint disable line" w
+// eslint-disable-line ${1:rule}
+endsnippet
+
+snippet eslint-disable-next-line "ESLint disable next line" b
+// eslint-disable-next-line ${1:rule}
+endsnippet
+
+#-------------------------------------------------
+# FUNCTIONS
+#-------------------------------------------------
+
+snippet f "Function declaration" w
+function ${1:name}(${2:arguments}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fa "Anonymous function" w
+function(${2:arguments}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fr "Rocket function" w
+(${2:arguments}) => {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet af "Async function declaration" w
+async function ${1:name}(${2:arguments}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet afa "Async anonymous function" w
+async function(${2:arguments}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet afr "Async rocket function" w
+async (${2:arguments}) => {
+	${VISUAL}$0
+}
+endsnippet
+
+#-------------------------------------------------
+# MISC
+#-------------------------------------------------
+
+snippet import "Import module" b
+import ${1:name} from "${2:path}";
+endsnippet
+
+snippet switch "Switch statement" b
+switch(${VISUAL}${1:expression}) {
+	case '${VISUAL}${2:case}':
+		${3}
+		break;
+	${0}
+	default:
+		${4}
+}
+endsnippet
+
+snippet case "Switch case" b
+case '${VISUAL}${1:case}':
+	${VISUAL}$0
+	break;
+endsnippet

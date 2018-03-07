@@ -1,0 +1,11 @@
+[Unit]
+Description=Udiskie daemon
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/udiskie -a
+Restart=always
+RestartSec=60
+
+[Install]
+WantedBy=default.target

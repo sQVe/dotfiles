@@ -1,7 +1,6 @@
 ##############################
 # STYLING                    #
 ##############################
-
 # Font
 font pango:Iosevka, Font Awesome 5 Pro, Font Awesome 5 Brands 7
 
@@ -9,7 +8,7 @@ font pango:Iosevka, Font Awesome 5 Pro, Font Awesome 5 Brands 7
 client.focused              #BD93F9   #BD93F9       #343434   #50FA7B
 client.unfocused            #343434   #343434       #999999   #343434
 client.focused_inactive     #343434   #343434       #999999   #343434
-client.urgent               #BD93F9   #BD93F9       #999999   #343434
+client.urgent               #FF5555   #FF5555       #343434   #343434
 
 # Workspacebar, statusbar etc
 bar {
@@ -118,11 +117,17 @@ new_float pixel 2
 # Hide edge borders when single window.
 hide_edge_borders smart
 
-# Max size for float
+# Size for floats.
 floating_maximum_size 1920 x 1080
 
 # Disable back and forth navigation
 workspace_auto_back_and_forth no
+
+# Default workspace layout
+workspace_layout default
+
+# Default orientation
+default_orientation horizontal
 
 
 ##############################
@@ -136,10 +141,10 @@ set $mod Mod4
 floating_modifier $mod
 
 # Split in horizontal orientation
-bindsym $mod+h split h
+bindsym $mod+v split h
 
 # Split in vertical orientation
-bindsym $mod+v split v
+bindsym $mod+n split v
 
 # Change container layout (stacked, tabbed, toggle split)
 bindsym $mod+e layout stacking
@@ -148,6 +153,9 @@ bindsym $mod+s layout toggle split
 
 # Toggle tiling / floating
 bindsym $mod+o floating toggle
+
+# Toggle fullscreen
+bindsym $mod+u fullscreen toggle
 
 # Change focus between tiling / floating windows
 bindsym $mod+Shift+o focus mode_toggle
@@ -177,9 +185,9 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # Change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+i focus up
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
 bindsym $mod+l focus right
 
 # Move focused window
@@ -189,9 +197,9 @@ bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
 # Move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+i move up
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
 bindsym $mod+Shift+l move right
 
 # Move focused workspace
@@ -201,9 +209,9 @@ bindsym $mod+Mod1+Up move workspace to output up
 bindsym $mod+Mod1+Right move workspace to output right
 
 # Move focused workspace
-bindsym $mod+Mod1+j move workspace to output left
-bindsym $mod+Mod1+k move workspace to output down
-bindsym $mod+Mod1+i move workspace to output up
+bindsym $mod+Mod1+h move workspace to output left
+bindsym $mod+Mod1+j move workspace to output down
+bindsym $mod+Mod1+k move workspace to output up
 bindsym $mod+Mod1+l move workspace to output right
 
 # Workspace tags
@@ -213,8 +221,8 @@ set $w3 "3 "
 set $w4 "4 "
 set $w5 "5 "
 set $w6 "6 "
-set $w7 "7 "
-set $w8 "8 "
+set $w7 "7 "
+set $w8 "8 "
 set $w9 "9 "
 set $w10 "10 "
 
@@ -226,7 +234,7 @@ bindsym $mod+End workspace next
 bindsym $mod+Escape workspace prev
 bindsym $mod+section workspace prev
 bindsym $mod+Ctrl+Left workspace prev
-bindsym $mod+Ctrl+j workspace prev
+bindsym $mod+Ctrl+h workspace prev
 bindsym $mod+Home workspace prev
 bindsym $mod+BackSpace workspace back_and_forth
 
@@ -274,26 +282,23 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
 ##############################
 # ASSIGN                     #
 ##############################
 
-assign [class="Code"]         			              → $w2
-assign [class="Chromium" window_role="browser"]	  → $w3
-assign [class="Firefox" window_role="browser"]	  → $w3
-assign [title="weechat" class="^URxvt$"]          → $w6
-assign [class="GitKraken"]                        → $w4
-assign [class="^Gimp.*$"]       		              → $w7
-assign [class="Darktable"]     			              → $w7
-assign [class="Inkscape"]     			              → $w7
-assign [class="mpv"]          			              → $w8
-assign [class="streamlink-twitch-gui"]            → $w8
+assign [class="qutebrowser"]                          → $w3
+assign [class="URxvt" title="weechat"]                → $w6
+assign [class="GitKraken"]                            → $w4
+assign [class="^Gimp.*$"]                             → $w7
+assign [class="Darktable"]                            → $w7
+assign [class="Inkscape"]                             → $w7
+assign [class="mpv" title="^(?!.*Qutebrowser)"]       → $w8
+assign [class="streamlink-twitch-gui"]                → $w8
 
-
-for_window [class="Code"] focus
-for_window [class="Chromium"] focus
-for_window [class="Firefox"] focus
-for_window [title="weechat" class="^URxvt$"] focus
+# Focus on other workspaces.
+for_window [class="qutebrowser"] focus
+for_window [class="URxvt" title="weechat"] focus
 for_window [class="GitKraken"] focus
 for_window [class="^Gimp.*$"] focus
 for_window [class="Inkscape"] focus
@@ -301,13 +306,11 @@ for_window [class="Darktable"] focus
 for_window [class="mpv"] focus
 for_window [class="streamlink-twitch-gui"] focus
 
-# Join pop-up
-for_window [instance="crx_flejfacjooompmliegamfbpjjdlhokhj"] focus, floating enable
-
-for_window [title="bc" class="URxvt"] focus, floating enable
+# Set floating.
+for_window [class="URxvt" title="bc"] focus, floating enable
+for_window [class="URxvt" title="Vim for Qutebrowser"] focus, floating enable
+for_window [class="mpv" title="MPV for Qutebrowser"] focus, floating enable
 for_window [window_role="bubble"] floating enable, sticky enable
-
-
 
 ##############################
 # APPS & KILL                #
@@ -328,17 +331,17 @@ bindsym $mod+q kill
 bindsym $mod+Delete kill
 bindsym Mod1+F4 kill
 
-set $apps launch: [a]code [b]c [c]hromium [d]rofi [g]itkraken [h]top [n]ano [s]potify [r]anger [w]eechat
+set $apps launch: [b]c [c]hromium [d]rofi [g]itkraken [h]top [q]utebrowser [r]anger [s]potify [v]im [w]eechat
 mode "$apps" {
-  bindsym a exec --no-startup-id code, mode "default"
   bindsym b exec urxvt -title bc -e bc -l -q, mode "default"
   bindsym c exec --no-startup-id chromium, mode "default"
   bindsym d exec --no-startup-id rofi -show run, mode "default"
   bindsym g exec --no-startup-id gitkraken, mode "default"
   bindsym h exec urxvt -e htop, mode "default"
-  bindsym n exec urxvt -e nano, mode "default"
+  bindsym q exec start-qutebrowser, mode "default"
   bindsym r exec urxvt -e ranger, mode "default"
   bindsym s exec --no-startup-id spotify-start, mode "default"
+  bindsym v exec urxvt -e nvim, mode "default"
   bindsym w exec urxvt --hold -title weechat -e weechat, mode "default"
   bindsym Return exec urxvt, mode "default"
 
@@ -347,6 +350,7 @@ mode "$apps" {
 }
 
 bindsym $mod+z mode "$apps"
+
 
 ##############################
 # BINDS                      #
@@ -376,10 +380,10 @@ bindsym XF86AudioLowerVolume exec --no-startup-id amixer -D pulse set Master 5%-
 bindsym XF86AudioMute exec --no-startup-id amixer -D pulse set Master 1+ toggle && pkill -RTMIN+8 i3blocks
 
 # Screen brightness controls
-bindsym $mod+period exec --no-startup-id light -A 10 && pkill -RTMIN+10 i3blocks
-bindsym $mod+comma exec --no-startup-id light -U 10 && pkill -RTMIN+10 i3blocks
-bindsym XF86MonBrightnessUp exec --no-startup-id light -A 10 && pkill -RTMIN+10 i3blocks
-bindsym XF86MonBrightnessDown exec --no-startup-id light -U 10 && pkill -RTMIN+10 i3blocks
+bindsym $mod+period exec --no-startup-id light -A 5 && pkill -RTMIN+10 i3blocks
+bindsym $mod+comma exec --no-startup-id light -U 5 && pkill -RTMIN+10 i3blocks
+bindsym XF86MonBrightnessUp exec --no-startup-id light -A 5 && pkill -RTMIN+10 i3blocks
+bindsym XF86MonBrightnessDown exec --no-startup-id light -U 5 && pkill -RTMIN+10 i3blocks
 
 set $display-mode display mode: [a]uto [o]ptimal
 mode "$display-mode" {
@@ -407,36 +411,13 @@ bindsym XF86AudioPrev exec --no-startup-id playerctl previous
 bindsym XF86AudioPlay exec --no-startup-id playerctl play-pause
 bindsym XF86AudioNext exec --no-startup-id playerctl next
 
+
 ##############################
 # AUTOSTART                  #
 ##############################
 
-# Set startup workspace
+# Set startup workspace.
 exec --no-startup-id i3-msg workspace $w1
 
-# Start URxvt daemon
-exec --no-startup-id urxvtd -q -f -o
-
-# Start mons daemon
-exec --no-startup-id mons -a &!
-
-# Start udiskie
-exec --no-startup-id udiskie -a
-
-# Start dunst
-exec --no-startup-id dunst
-
-# Start Clipit
-exec --no-startup-id clipit
-
-# Set wallpaper
-exec --no-startup-id $HOME/scripts/random-wall.sh
-
-# Start redshift
-exec --no-startup-id "sh -c 'sleep 5; exec $HOME/scripts/start-redshift.sh'"
-
-# Handle lock - suspend, idle, lid close etc.
-exec --no-startup-id xss-lock -- lock
-
-# Start gesture handling
-exec --no-startup-id libinput-gestures-setup start
+# Start redshift.
+exec --no-startup-id "sh -c 'sleep 2; exec $HOME/scripts/start-redshift.sh'"
