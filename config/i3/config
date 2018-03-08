@@ -341,7 +341,7 @@ mode "$apps" {
   bindsym q exec start-qutebrowser, mode "default"
   bindsym r exec urxvt -e ranger, mode "default"
   bindsym s exec --no-startup-id spotify-start, mode "default"
-  bindsym v exec urxvt -e nvim, mode "default"
+  bindsym v exec urxvt -e zsh -ic nvim, mode "default"
   bindsym w exec urxvt --hold -title weechat -e weechat, mode "default"
   bindsym Return exec urxvt, mode "default"
 
