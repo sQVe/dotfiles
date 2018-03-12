@@ -3,7 +3,15 @@
 ########################################
 
 source ${ZIM_HOME}/init.zsh
-source /usr/share/nvm/nvm.sh --no-use
+
+########################################
+# FUNCTIONS
+########################################
+
+function nvm() {
+  source /usr/share/nvm/nvm.sh --no-use
+  nvm "$*"
+}
 
 ########################################
 # KEYBINDINGS
@@ -33,7 +41,7 @@ alias df='df -h'
 alias du='du -ch'
 alias dud='du -chd'
 alias free='free -m'
-alias ga='cat $ZIM_HOME/modules/git/init.zsh | grep'
+alias ga='cat $ZIM_HOME/modules/git/init.zsh | ag'
 alias grep='grep --color=auto -d skip'
 alias more=less
 alias np='nvim -w PKGBUILD'
@@ -48,11 +56,11 @@ alias cla='clear;la'
 alias cll='clear;ll'
 alias cls='clear;ls'
 alias la='ls -lhA'
-alias lag='la | grep'
+alias lag='la | ag'
 alias ll='ls -lh'
-alias llg='ll | grep'
+alias llg='ll | ag'
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
-alias lsg='ls | grep'
+alias lsg='ls | ag'
 
 # -------------------------------------- Apps
 
