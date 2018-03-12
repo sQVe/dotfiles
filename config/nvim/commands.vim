@@ -17,6 +17,3 @@ command Qa qa
 command QA qa
 command Wa wa
 command WA wa
-
-" Git
-command G Git

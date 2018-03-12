@@ -37,12 +37,16 @@ nnoremap <Leader>w :write<CR>
 nnoremap <Leader>W :wall<CR>
 
 " Close buffer.
-nnoremap <Leader>d :bp\|bd #<CR>
+nnoremap <Leader>d :bd<CR>
+nnoremap <Leader>D :bd!<CR>
 
 " Close window.
 nnoremap <Leader>q :quit<CR>
-nnoremap <Leader>Q :quitall<CR>
-nnoremap <Ctrl-Q> :quit<CR>
+nnoremap <Leader>Q :quit!<CR>
+
+" Close buffer but keep window.
+nnoremap <Leader>x :bp\|bd #<CR>
+nnoremap <Leader>X :bp\|bd! #<CR>
 
 " Join lines.
 noremap <Leader>m :join<CR>

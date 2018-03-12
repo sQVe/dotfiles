@@ -83,6 +83,9 @@ let g:ale_fixers = {
   \ 'json': ['prettier', 'eslint'],
   \ }
 
+" Vim Fugitive
+autocmd BufReadPost *.git/index  set nobuflisted        " Set Gstatus as a preview window.
+
 " -- FZF
 let $FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
 let g:fzf_action = {
@@ -197,7 +200,7 @@ nnoremap <Leader>c :BCommits<CR>
 nnoremap <Leader>C :Commits<CR>
 nnoremap <Leader>i :BLines<CR>
 nnoremap <Leader>I :Lines<CR>
-nnoremap <Leader>x :Snippets<CR>
+nnoremap <Leader>z :Snippets<CR>
 nnoremap ö :Files<CR>
 nnoremap Ö :Commands<CR>
 
@@ -220,3 +223,5 @@ noremap <Leader>O :NERDTreeFind<CR>
 
 " UltiSnips
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+
+" do not list the Gstatus buffer
