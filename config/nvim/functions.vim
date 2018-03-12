@@ -12,6 +12,13 @@ function! NumberToggle()
   endif
 endfunc
 
+" Merge filename and modified flag for vim-lightline.
+function! LightlineFilename()
+  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
+  let modified = &modified ? ' +' : ''
+  return filename . modified
+endfunction
+
 " --------------------------------------------------
 " FUNCTION CONFIG
 " --------------------------------------------------

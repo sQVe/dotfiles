@@ -21,9 +21,10 @@ Plug 'wavded/vim-stylus'
 
 " -- Interface
 Plug 'airblade/vim-gitgutter'
+Plug 'ap/vim-buftabline'
+Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
-Plug 'vim-airline/vim-airline'
 
 " -- Integration
 Plug 'editorconfig/editorconfig-vim'
@@ -63,10 +64,26 @@ call plug#end()
 " -- Colorschemes
 colorscheme dracula
 
-"-- Airline
-let g:airline_theme='dracula'
-let g:airline_powerline_fonts=1
-let g:airline#extensions#tabline#enabled = 1
+" Lightline
+let g:lightline = {
+  \ 'colorscheme': 'Dracula',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'readonly', 'filename' ] ],
+  \   'right': [ [ 'lineinfo' ],
+  \              [ 'percent' ],
+  \              [ 'filetype', 'fileencoding', 'fileformat' ] ]
+  \ },
+  \ 'component_function': {
+  \   'filename': 'LightlineFilename',
+  \ },
+  \ }
+
+" BufTabLine
+hi default link BufTabLineCurrent Identifier
+hi default link BufTabLineActive  Character
+hi default link BufTabLineHidden  Comment
+hi default link BufTabLineFill    LineNr
 
 " -- Ale
 let g:ale_fix_on_save = 1
@@ -140,9 +157,9 @@ autocmd BufEnter * EnableStripWhitespaceOnSave
 " NERDTree
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeMinimalUI = 1
-let g:NERDTreeQuitOnOpen = 1
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMapOpenSplit = 'n'
+let g:NERDTreeChDirMode = 2
 
 " NERDComment
 let g:NERDCommentEmptyLines = 1
@@ -193,6 +210,8 @@ noremap Ä :GitGutterNextHunk<CR>
 noremap Å :GitGutterPrevHunk<CR>
 
 " FZF
+nnoremap <Leader>/ :History/<CR>
+nnoremap <Leader>: :History:<CR>
 nnoremap <Leader>a :Ag<Space>
 nnoremap <Leader>b :Buffers<CR>
 nnoremap <Leader>B :Window<CR>
@@ -200,9 +219,9 @@ nnoremap <Leader>c :BCommits<CR>
 nnoremap <Leader>C :Commits<CR>
 nnoremap <Leader>i :BLines<CR>
 nnoremap <Leader>I :Lines<CR>
-nnoremap <Leader>z :Snippets<CR>
+nnoremap <Leader>z :Commands<CR>
 nnoremap ö :Files<CR>
-nnoremap Ö :Commands<CR>
+nnoremap Ö :History<CR>
 
 " Vim Fugitive
 nnoremap <Leader>gb :Gblame<CR>
