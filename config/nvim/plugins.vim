@@ -181,7 +181,6 @@ let g:SuperTabMappingBackward = '<Tab>'
 " Rainbow
 let g:rainbow_active = 1
 
-
 " --------------------------------------------------
 " PLUGIN MAPPINGS
 " --------------------------------------------------
@@ -242,5 +241,3 @@ noremap <Leader>O :NERDTreeFind<CR>
 
 " UltiSnips
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-
-" do not list the Gstatus buffer

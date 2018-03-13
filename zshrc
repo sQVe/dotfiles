@@ -88,7 +88,7 @@ alias ranger='ranger --choosedir=$HOME/.config/ranger/latest-dir; cd "`cat $HOME
 alias so='sudo open'
 alias sv='sudo nvim'
 alias tiga='tig --all'
-alias todo='nvim $HOME/TODO'
+alias todo='nvim $HOME/todo'
 alias v=nvim
 alias vim=nvim
 alias wifi-menu='wifi-menu -o'

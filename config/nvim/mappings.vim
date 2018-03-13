@@ -27,10 +27,10 @@ noremap K 10k
 nnoremap <Leader>n :enew<CR>
 
 " Start a new vim instance.
-nnoremap <Leader>N :!urxvt -e nvim & disown<CR>
+nnoremap <Leader>N :!urxvt -e nvim & disown<CR><CR>
 
 " Start a new terminal at current pwd.
-nnoremap <Leader>u :!urxvt & disown<CR>
+nnoremap <Leader>u :!urxvt & disown<CR><CR>
 
 " Write buffer.
 nnoremap <Leader>w :write<CR>
@@ -73,7 +73,7 @@ nnoremap <Leader><Tab> <C-^>
 noremap å {
 noremap ä }
 
-" Default to true RegExp search.
+" Default to Perlish RegEx search.
 noremap / /\v
 
 " Uniform split.
