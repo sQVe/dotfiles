@@ -15,11 +15,6 @@ interval=2
 label=
 
 [ethernet]
-instance=enp0s20f0u1
-interval=10
-
-[ethernet]
-instance=enp57s0u1u4
 interval=10
 
 [wifi]

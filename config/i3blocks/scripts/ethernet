@@ -1,20 +1,21 @@
 #!/usr/bin/env bash
 
+instance=$(fd enp /sys/class/net/ | head -n 1)
 label=""
 state="down"
 
-if [ -f /sys/class/net/$BLOCK_INSTANCE/operstate ]; then
-	state="$(cat /sys/class/net/$BLOCK_INSTANCE/operstate)"
+if [ -f "$instance/operstate" ]; then
+  state=$(cat "$instance/operstate")
 fi
 
 if [[ "$state" == "down" ]]; then
-	echo "$label"
-	echo "$label"
-	echo "#FF5555"
-	exit 0
+  echo "$label"
+  echo "$label"
+  echo "#FF5555"
+  exit 0
 fi
 
-speed="$(cat /sys/class/net/$BLOCK_INSTANCE/speed 2> /dev/null)"
+speed=$(cat "$instance/speed" 2> /dev/null)
 
 echo "$label $speed"
 echo "$label $speed"
