@@ -48,7 +48,6 @@ alias np='nvim -w PKGBUILD'
 alias open='mimeo -q'
 alias root='sudo -i'
 alias sudo='sudo '
-alias sx=startx
 alias q=exit
 
 # -------------------------------------- Listing
