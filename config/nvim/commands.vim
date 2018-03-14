@@ -2,6 +2,9 @@
 " COMMANDS
 " --------------------------------------------------
 
+" Open cheat sheet
+command Cheat view $HOME/docs/vim-cheat
+
 " Copy
 command Copy !cat % | xsel -ib
 
@@ -9,8 +12,8 @@ command Copy !cat % | xsel -ib
 command Wsudo w !sudo tee % > /dev/null
 
 " :Write and quit typos.
-command W w
-command Q q
+command W write
+command Q quit
 command Wq wq
 command WQ wq
 command Qa qa
