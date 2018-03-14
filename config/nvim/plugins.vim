@@ -64,27 +64,6 @@ call plug#end()
 " -- Colorschemes
 colorscheme dracula
 
-" Lightline
-let g:lightline = {
-  \ 'colorscheme': 'Dracula',
-  \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'readonly', 'filename' ] ],
-  \   'right': [ [ 'lineinfo' ],
-  \              [ 'percent' ],
-  \              [ 'filetype', 'fileencoding', 'fileformat' ] ]
-  \ },
-  \ 'component_function': {
-  \   'filename': 'LightlineFilename',
-  \ },
-  \ }
-
-" BufTabLine
-hi default link BufTabLineCurrent Identifier
-hi default link BufTabLineActive  Character
-hi default link BufTabLineHidden  Comment
-hi default link BufTabLineFill    LineNr
-
 " -- Ale
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_enter = 1
@@ -100,10 +79,30 @@ let g:ale_fixers = {
   \ 'json': ['prettier', 'eslint'],
   \ }
 
-" Vim Fugitive
+" Better Whitespace
+autocmd BufEnter * EnableStripWhitespaceOnSave
+
+" BufTabLine
+hi default link BufTabLineCurrent Identifier
+hi default link BufTabLineActive  Character
+hi default link BufTabLineHidden  Comment
+hi default link BufTabLineFill    LineNr
+
+" EasyMotion
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_grouping = 2
+let g:EasyMotion_keys = 'asdfhjklerui'
+let g:EasyMotion_smartcase = 1
+
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_refresh_always = 1
+
+" Fugitive
 autocmd BufReadPost *.git/index  set nobuflisted        " Set Gstatus as a preview window.
 
-" -- FZF
+" FZF
 let $FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -124,21 +123,8 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview('hidden')
-  \                         : fzf#vim#with_preview('right:50%', '?'),
-  \                 <bang>0)
-
 " Javascript
 let g:javascript_plugin_jsdoc = 1
-
-" Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_refresh_always = 1
-
-" Nvim Typescript
-let g:nvim_typescript#javascript_support = 1
 
 " LanguageClient
 let g:LanguageClient_autoStart = 1
@@ -151,8 +137,26 @@ let g:LanguageClient_serverCommands = {
   "\ 'javascript': ['javascript-typescript-stdio'],
   "\ 'javascript.jsx': ['javascript-typescript-stdio'],
 
-" Better Whitespace
-autocmd BufEnter * EnableStripWhitespaceOnSave
+" Lightline
+let g:lightline = {
+  \ 'colorscheme': 'Dracula',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'readonly', 'filename' ] ],
+  \   'right': [ [ 'lineinfo' ],
+  \              [ 'percent' ],
+  \              [ 'filetype', 'fileencoding', 'fileformat' ] ]
+  \ },
+  \ 'component_function': {
+  \   'filename': 'LightlineFilename',
+  \ },
+  \ }
+
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>,
+  \                 <bang>0 ? fzf#vim#with_preview('hidden')
+  \                         : fzf#vim#with_preview('right:50%', '?'),
+  \                 <bang>0)
 
 " NERDTree
 let g:NERDTreeAutoDeleteBuffer = 1
@@ -164,22 +168,21 @@ let g:NERDTreeChDirMode = 2
 " NERDComment
 let g:NERDCommentEmptyLines = 1
 
-" Easymotion
-let g:EasyMotion_keys = 'asdfhjklerui'
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_grouping = 2
+" Supertab
+let g:SuperTabMappingForward = '<S-Tab>'
+let g:SuperTabMappingBackward = '<Tab>'
 
+" Typescript
+let g:nvim_typescript#javascript_support = 1
+
+" Rainbow
+let g:rainbow_active = 1
+"
 " UltiSnips
 let g:UltiSnipsExpandTrigger = '<C-Space>'
 let g:UltiSnipsSnippetsDir = $HOME.'/.config/nvim/ultisnips'
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 
-" Supertab
-let g:SuperTabMappingForward = '<S-Tab>'
-let g:SuperTabMappingBackward = '<Tab>'
-
-" Rainbow
-let g:rainbow_active = 1
 
 " --------------------------------------------------
 " PLUGIN MAPPINGS
@@ -208,6 +211,19 @@ map <Leader>l <Plug>(easymotion-lineforward)
 noremap Ä :GitGutterNextHunk<CR>
 noremap Å :GitGutterPrevHunk<CR>
 
+" Fugitive
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gf :Gfetch<CR>
+nnoremap <Leader>gfm :Gpull<CR>
+nnoremap <Leader>gm :Gmerge<CR>
+nnoremap <Leader>go :Gbrowse<CR>
+nnoremap <Leader>gp :Gpush<CR>
+nnoremap <Leader>gr :Gread<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gw :Gwrite<CR>
+
 " FZF
 nnoremap <Leader>/ :History/<CR>
 nnoremap <Leader>: :History:<CR>
@@ -222,18 +238,10 @@ nnoremap <Leader>z :Commands<CR>
 nnoremap ö :Files<CR>
 nnoremap Ö :History<CR>
 
-" Vim Fugitive
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gc :Gcommit<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>gf :Gfetch<CR>
-nnoremap <Leader>gfm :Gpull<CR>
-nnoremap <Leader>gm :Gmerge<CR>
-nnoremap <Leader>go :Gbrowse<CR>
-nnoremap <Leader>gp :Gpush<CR>
-nnoremap <Leader>gr :Gread<CR>
-nnoremap <Leader>gs :Gstatus<CR>
-nnoremap <Leader>gw :Gwrite<CR>
+" Typescript
+nnoremap <Leader>ed :TSDef<CR>
+nnoremap <Leader>en :TSRename<CR>
+nnoremap <Leader>er :TSRefs<CR>
 
 " NERDTree
 noremap <Leader>o :NERDTreeToggle<CR>
