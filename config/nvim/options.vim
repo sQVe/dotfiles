@@ -3,6 +3,7 @@
 " --------------------------------------------------
 
 " Base
+set autoread                      " Auto read files on change.
 set formatoptions+=o              " Continue comment marker in new lines.
 set gdefault                      " Use 'g' flag by default with :s/foo/bar/.
 set hidden                        " Set buffer as hidden when abandoned.
@@ -20,13 +21,13 @@ set showmatch                     " Show matching brackets.
 set smartcase                     " Use case sensitive search when query has mixed case.
 
 " Complete
-set wildmenu
+set wildmenu                      " Enable wildmenu.
 set wildmode=longest,full
 set completeopt=longest,menuone
 
 " Cursor
-set cursorline
-set scrolloff=10
+set cursorline                    " Show a cursor line.
+set scrolloff=5                   " Start scrolling with 5 line padding.
 
 " Tabs and spaces
 set expandtab                     " Insert spaces when TAB is pressed.

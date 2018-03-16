@@ -94,8 +94,8 @@
   ix = rm --cached -r
   l = log --topo-order --pretty = format:"${_git_log_medium_format}"
   lG = log --topo-order --all --graph --pretty = format:"${_git_log_fullgraph_format}"
+  lO = log --topo-order --pretty=format:"${_git_log_oneline_medium_format}"
   lS = log --topo-order --show-signature --pretty = format:"${_git_log_medium_format}"
-  lb = log --topo-order --pretty = format:"${_git_log_brief_format}"
   lc = shortlog --summary --numbered
   ld = log --topo-order --stat --patch --full-diff --pretty = format:"${_git_log_medium_format}"
   lg = log --topo-order --all --graph --pretty = format:"${_git_log_oneline_format}%n"

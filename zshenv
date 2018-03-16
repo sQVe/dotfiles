@@ -24,3 +24,6 @@ export GREP_COLORS='mt=30;44'
 export LESS='-R'
 export LESSOPEN='|highlight -O xterm256 --force -s dracula --stdout %s'
 
+export TLDR_COLOR_COMMAND="magenta"
+export TLDR_COLOR_EXAMPLE="blue"
+export TLDR_COLOR_NAME="cyan"

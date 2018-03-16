@@ -94,7 +94,6 @@ let g:EasyMotion_grouping = 2
 let g:EasyMotion_keys = 'asdfhjklerui'
 let g:EasyMotion_smartcase = 1
 
-
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_refresh_always = 1
@@ -155,7 +154,7 @@ let g:lightline = {
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>,
   \                 <bang>0 ? fzf#vim#with_preview('hidden')
-  \                         : fzf#vim#with_preview('right:50%', '?'),
+  \                         : fzf#vim#with_preview('right:60%', '?'),
   \                 <bang>0)
 
 " NERDTree
@@ -234,6 +233,7 @@ nnoremap <Leader>c :BCommits<CR>
 nnoremap <Leader>C :Commits<CR>
 nnoremap <Leader>i :BLines<CR>
 nnoremap <Leader>I :Lines<CR>
+nnoremap <Leader>m :Marks<CR>
 nnoremap <Leader>z :Commands<CR>
 nnoremap ö :Files<CR>
 nnoremap Ö :History<CR>

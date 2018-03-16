@@ -49,7 +49,7 @@ nnoremap <Leader>x :bp\|bd #<CR>
 nnoremap <Leader>X :bp\|bd! #<CR>
 
 " Join lines.
-noremap <Leader>m :join<CR>
+noremap <Leader>J :join<CR>
 
 " Remove highlighted search result.
 noremap <Esc><Esc> :nohl<CR>
