@@ -2,14 +2,14 @@
 " COMMANDS
 " --------------------------------------------------
 
-" Open cheat sheet
-command Cheat view $HOME/docs/vim-cheat
-
 " Copy
-command Copy !cat % | xsel -ib
+command Copy !xsel -b < %
 
 " :Wsudo sudo save.
 command Wsudo w !sudo tee % > /dev/null
+
+" Delete all buffers but the open one.
+command Bdo %bd|e#|bd#
 
 " :Write and quit typos.
 command W write

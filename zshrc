@@ -1,8 +1,15 @@
 ########################################
-# SOURCE
+# SOURCE & SETTINGS
 ########################################
 
 source ${ZIM_HOME}/init.zsh
+
+# Replicate colors definied in .Xresources for virtual console.
+if [[ "$TERM" = "linux" ]]; then
+  colors=$(sed -n 's/\*\.color\([0-9]\+\).*#\(\w\{6\}\)/\1 \2/p' "$HOME/.Xresources")
+  echo -en $(awk '$1 < 16 {printf "\\e]P%X%s", $1, $2}' <<< "$colors")
+  clear
+fi
 
 ########################################
 # FUNCTIONS
@@ -12,6 +19,22 @@ function nvm() {
   source /usr/share/nvm/nvm.sh --no-use
   nvm "$*"
 }
+
+########################################
+# EXPORTS
+########################################
+
+export FZF_ALT_C_COMMAND='command fd --type d --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND='command fd --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='command fd --hidden --follow --exclude .git'
+
+export FZF_CTRL_T_OPTS="--preview '(highlight -l -O xterm256 -s dracula --stdout {} 2> /dev/null || cat {} || tree -C -L 1 --dirsfirst {}) 2> /dev/null | head -200'"
+export FZF_ALT_C_OPTS="--preview 'tree -C -L 1 --dirsfirst {}'"
+export FZF_DEFAULT_OPTS='
+  --color=bg+:#343434,spinner:#BD93F9,hl:#BD93F9
+  --color=fg:#F8F8F2,info:#FF79C6,pointer:#50FA7B
+  --color=marker:#50FA7B,hl+:#50FA7B
+'
 
 ########################################
 # KEYBINDINGS
@@ -65,12 +88,12 @@ alias lsg='ls | ag'
 
 alias :Q=exit
 alias :q=exit
-alias ag='ag --hidden'
+alias ag='ag --hidden --follow'
 alias bc='bc -l -q'
 alias bluetooth=bluetoothctl
 alias c=cat
 alias diff='git diff --no-index'
-alias fd='fd --hidden'
+alias fd='fd --hidden --follow'
 alias feh='feh --scale-down'
 alias git=hub
 alias hc="highlight -O xterm256 --force -s dracula --stdout"
@@ -91,6 +114,8 @@ alias todo='nvim $HOME/todo'
 alias v=nvim
 alias vim=nvim
 alias wifi-menu='wifi-menu -o'
+alias ramda='ramda --js'
+alias R='ramda --js'
 
 # -------------------------------------- Config
 alias cfg-env='sudo nvim /etc/environment'

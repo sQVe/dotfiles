@@ -1,7 +1,7 @@
 bcal https://calendar.google.com/calendar/b/1/r
 bin https://github.com/sQVe/bin
 bmail https://inbox.google.com/u/1
-bslack https://beamon.slack.com/unreads/
+bslack https://beamon.slack.com/
 cal https://calendar.google.com/calendar/r
 ddg https://start.duckduckgo.com/
 devhints https://devhints.io/
@@ -15,6 +15,7 @@ mail https://inbox.google.com/u/0
 mdn https://developer.mozilla.org/en-US/docs/Web
 qutecheat qute://help/img/cheatsheet-big.png
 rangercheat http://ranger.github.io/cheatsheet.png
+reddit https://www.reddit.com/
 regex https://regex101.com/
 scripts https://github.com/sQVe/scripts
 vimcheat https://vim.rtorr.com/

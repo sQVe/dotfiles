@@ -3,6 +3,7 @@ https://calendar.google.com/calendar/r Services | Calendar
 https://lastpass.com/ Services | LastPass
 https://web.whatsapp.com/ Services | WhatsApp
 https://www.massdrop.com/ Shopping | Massdrop
+https://www.reddit.com/ Entertainment | Reddit
 https://www.youtube.com/ Entertainment | YouTube
 https://www.google.com/ Search engine | Google
 https://start.duckduckgo.com/ Search engine | DuckDuckGo
@@ -15,16 +16,20 @@ https://news.ycombinator.com/ News / Tech | Hacker News
 http://techcrunch.com/ News / Tech | Tech Crunch
 https://thenextweb.com/ News / Tech | TNW
 http://slashdot.org/ News / Tech | Slashdot
-https://www.archlinux.org/ Linux / Arch Linux | Arch Linux
-https://aur.archlinux.org/ Linux / Arch Linux | AUR
-https://wiki.archlinux.org/ Linux / Arch Linux | Wiki
 https://archive.archlinux.org/ Linux / Arch Linux | Archive
 https://archlinuxarm.org/ Linux / Arch Linux | ARM
-http://ranger.nongnu.org/cheatsheet.svg Linux / Apps / Misc | Ranger Cheatsheet
-http://sed.sourceforge.net/sed1line.txt Linux / Apps / Misc | Sed One Liners
-https://vim.rtorr.com/ Linux / Apps / Vim | Vim Commands
-http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html Linux / Apps / Vim | Vim Cheatsheet
-https://vimawesome.com/ Linux / Apps / Vim | Vim Awesome
+https://aur.archlinux.org/ Linux / Arch Linux | AUR
+https://wiki.archlinux.org/ Linux / Arch Linux | Wiki
+https://www.archlinux.org/ Linux / Arch Linux | Arch Linux
+https://www.archlinux.org/packages/ Linux / Arch Linux | Packages
+http://ranger.nongnu.org/cheatsheet.svg Linux / Apps | Ranger Cheatsheet
+http://sed.sourceforge.net/sed1line.txt Linux / Apps | Sed One Liners
+http://www.gnu.org/software/gawk/manual/gawk.html Linux / Apps | Awk Manual
+http://www.gnu.org/software/grep/manual/grep.html Linux / Apps | Grep Manual
+http://www.gnu.org/software/sed/manual/sed.html Linux / Apps | Sed Manuel
+http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html Linux / Apps | Vim Cheatsheet
+https://vim.rtorr.com/ Linux / Apps | Vim Commands
+https://vimawesome.com/ Linux / Apps | Vim Awesome
 https://www.github.com/ Development | GitHub
 https://gist.github.com/sQVe Development | GitHub Gist
 https://travis-ci.org/ Develipment | Travis CI
@@ -38,6 +43,7 @@ https://app.pluralsight.com/library Development / Information | Pluralsight
 https://css-tricks.com/snippets/ Development / Information | CSS Tricks
 https://developer.mozilla.org/en-US/docs/Web Development / Information | MDN
 https://devhints.io/ Development / Information | Devhints
+https://docs.emmet.io/cheat-sheet/ Development / Information | Emmet Cheatsheet
 https://ponyfoo.com/ Development / Information | Pony Foo
 https://stackoverflow.com/ Development / Information | Stack Overflow
 http://ramdajs.com/docs/ Development / JavaScript / FP | Ramda

@@ -12,6 +12,7 @@ set mouse=a                       " Enable mouse.
 set nostartofline                 " Do not jump to first character with page commands.
 set ruler                         " Show the cursor position all the time.
 set showcmd                       " Display incomplete commands.
+set tildeop                       " Enable ~ operator.
 set timeoutlen=500                " Timeout Leader after 500 ms.
 
 " Searching
@@ -44,6 +45,7 @@ set listchars=extends:›,precedes:‹,tab:→\ ,nbsp:•,trail:•
 set foldenable                    " Enable folding.
 set foldlevelstart=99             " Folding level.
 set foldmethod=indent             " Folding method.
+set foldnestmax=2                 " Max amount of fold nesting.
 
 " Linenumber
 set number                        " Show the line numbers on the left side.

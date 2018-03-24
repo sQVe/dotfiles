@@ -9,8 +9,8 @@ noremap <F1> <Esc>
 " Motion.
 noremap <Up> gk
 noremap <Down> gj
-inoremap <Up> <C-O>gk
-inoremap <Down> <C-O>gj
+inoremap <Up> <C-o>gk
+inoremap <Down> <C-o>gj
 
 noremap k gk
 noremap gk k
@@ -18,7 +18,7 @@ noremap j gj
 noremap gj j
 
 noremap H ^
-noremap L $
+noremap L g_
 
 noremap J 10j
 noremap K 10k

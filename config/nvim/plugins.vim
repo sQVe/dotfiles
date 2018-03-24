@@ -9,6 +9,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 
 " -- Language
 Plug 'hail2u/vim-css3-syntax'
+Plug 'mattn/emmet-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
@@ -71,12 +72,17 @@ let g:ale_sign_column_always = 1
 let g:ale_sign_error = '››'
 let g:ale_sign_warning = '••'
 let g:ale_linters = {
-  \  'javascript': ['eslint'],
-  \  'sh': ['shellcheck'],
+  \ 'awk': ['gawk'],
+  \ 'javascript': ['eslint'],
+  \ 'sh': ['shellcheck'],
   \ }
 let g:ale_fixers = {
+  \ 'css': ['prettier'],
   \ 'javascript': ['prettier', 'eslint'],
   \ 'json': ['prettier', 'eslint'],
+  \ 'less': ['prettier'],
+  \ 'markdown': ['prettier'],
+  \ 'scss': ['prettier'],
   \ }
 
 " Better Whitespace
@@ -93,6 +99,14 @@ let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_grouping = 2
 let g:EasyMotion_keys = 'asdfhjklerui'
 let g:EasyMotion_smartcase = 1
+
+" Emmet
+let g:user_emmet_leader_key = '<C-a>'
+let g:user_emmet_settings = {
+  \ 'javascript' : { 'extends' : 'jsx' },
+  \ 'javascript.jsx' : { 'extends' : 'jsx' },
+  \ 'stylus' : { 'extends' : 'css' },
+  \ }
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
@@ -152,10 +166,10 @@ let g:lightline = {
   \ }
 
 command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>,
-  \                 <bang>0 ? fzf#vim#with_preview('hidden')
-  \                         : fzf#vim#with_preview('right:60%', '?'),
-  \                 <bang>0)
+  \ call fzf#vim#ag(<q-args>, '--hidden --follow',
+  \   <bang>0 ? fzf#vim#with_preview('hidden')
+  \     : fzf#vim#with_preview('right:60%', '?'),
+  \   <bang>0)
 
 " NERDTree
 let g:NERDTreeAutoDeleteBuffer = 1
@@ -188,10 +202,8 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 " --------------------------------------------------
 
 " Ale
-noremap <Leader>al :ALEToggle<Cr>
-noremap <Silent> <Leader>an <Plug>(ale_next_wrap)
-noremap <Silent> <Leader>ap <Plug>(ale_previous_wrap)
-noremap <Silent> <Leader>af <Plug>(ale_fix)
+noremap <Silent> <Leader>ej <Plug>(ale_next_wrap)
+noremap <Silent> <Leader>ek <Plug>(ale_previous_wrap)
 
 " Easymotion
 map <Leader> <Plug>(easymotion-prefix)
