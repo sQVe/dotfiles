@@ -3,7 +3,6 @@
 " --------------------------------------------------
 
 " Base
-set autoread                      " Auto read files on change.
 set formatoptions+=o              " Continue comment marker in new lines.
 set gdefault                      " Use 'g' flag by default with :s/foo/bar/.
 set hidden                        " Set buffer as hidden when abandoned.
@@ -14,6 +13,9 @@ set ruler                         " Show the cursor position all the time.
 set showcmd                       " Display incomplete commands.
 set tildeop                       " Enable ~ operator.
 set timeoutlen=500                " Timeout Leader after 500 ms.
+
+" Reload buffer on enter or focus.
+au FocusGained,BufEnter * :silent! !
 
 " Searching
 set ignorecase                    " Make searching case insensitive.
