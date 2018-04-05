@@ -2,7 +2,7 @@
 " COMMANDS
 " --------------------------------------------------
 
-" Copy
+" Copy.
 command Copy !xsel -b < %
 
 " :Wsudo sudo save.

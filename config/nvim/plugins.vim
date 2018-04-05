@@ -4,10 +4,10 @@
 
 call plug#begin('$HOME/.local/share/nvim/plugged')
 
-" -- Colorschemes
+" Colorschemes.
 Plug 'dracula/vim', { 'as': 'dracula' }
 
-" -- Language
+" Language.
 Plug 'hail2u/vim-css3-syntax'
 Plug 'mattn/emmet-vim'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -20,14 +20,14 @@ Plug 'wavded/vim-stylus'
 " https://github.com/styled-components/vim-styled-components/issues/36
 "Plug 'fleischie/vim-styled-components'
 
-" -- Interface
+" Interface.
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-buftabline'
 Plug 'itchyny/lightline.vim'
 Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 
-" -- Integration
+" Integration.
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -36,15 +36,15 @@ Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'w0rp/ale'
 
-" -- Commands
+" Commands.
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
-" -- Syntax & formatting
+" Syntax & formatting.
 Plug 'luochen1990/rainbow'
 
-" -- Completion
+" Completion.
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim', {
     \ 'branch': 'next',
@@ -53,7 +53,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'mhartington/nvim-typescript', { 'do': ':UpdateRemotePlugins' }
 Plug 'ervandew/supertab'
 
-" -- Snippets
+" Snippets.
 Plug 'sirver/ultisnips'
 
 call plug#end()
@@ -62,10 +62,10 @@ call plug#end()
 " PLUGIN CONFIG
 " --------------------------------------------------
 
-" -- Colorschemes
+" Colorschemes.
 colorscheme dracula
 
-" -- Ale
+" Ale.
 let g:ale_fix_on_save = 1
 let g:ale_lint_on_enter = 1
 let g:ale_sign_column_always = 1
@@ -85,22 +85,22 @@ let g:ale_fixers = {
   \ 'scss': ['prettier'],
   \ }
 
-" Better Whitespace
+" Better Whitespace.
 autocmd BufEnter * EnableStripWhitespaceOnSave
 
-" BufTabLine
+" BufTabLine.
 hi default link BufTabLineCurrent Identifier
 hi default link BufTabLineActive  Character
 hi default link BufTabLineHidden  Comment
 hi default link BufTabLineFill    LineNr
 
-" EasyMotion
+" EasyMotion.
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_grouping = 2
 let g:EasyMotion_keys = 'asdfhjklerui'
 let g:EasyMotion_smartcase = 1
 
-" Emmet
+" Emmet.
 let g:user_emmet_leader_key = '<C-a>'
 let g:user_emmet_settings = {
   \ 'javascript' : { 'extends' : 'jsx' },
@@ -108,14 +108,14 @@ let g:user_emmet_settings = {
   \ 'stylus' : { 'extends' : 'css' },
   \ }
 
-" Deoplete
+" Deoplete.
 let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_refresh_always = 1
 
-" Fugitive
+" Fugitive.
 autocmd BufReadPost *.git/index  set nobuflisted        " Set Gstatus as a preview window.
 
-" FZF
+" FZF.
 let $FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
 let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
@@ -136,10 +136,10 @@ let g:fzf_colors =
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'] }
 
-" Javascript
+" JavaScript.
 let g:javascript_plugin_jsdoc = 1
 
-" LanguageClient
+" LanguageClient.
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_serverCommands = {
   \ 'haskell': ['hie', '--lsp'],
@@ -171,27 +171,27 @@ command! -bang -nargs=* Ag
   \     : fzf#vim#with_preview('right:60%', '?'),
   \   <bang>0)
 
-" NERDTree
+" NERDTree.
 let g:NERDTreeAutoDeleteBuffer = 1
 let g:NERDTreeMinimalUI = 1
 let g:NERDTreeShowHidden = 1
 let g:NERDTreeMapOpenSplit = 'n'
 let g:NERDTreeChDirMode = 2
 
-" NERDComment
+" NERDComment.
 let g:NERDCommentEmptyLines = 1
 
-" Supertab
+" Supertab.
 let g:SuperTabMappingForward = '<S-Tab>'
 let g:SuperTabMappingBackward = '<Tab>'
 
-" Typescript
+" TypeScript.
 let g:nvim_typescript#javascript_support = 1
 
-" Rainbow
+" Rainbow.
 let g:rainbow_active = 1
 "
-" UltiSnips
+" UltiSnips.
 let g:UltiSnipsExpandTrigger = '<C-Space>'
 let g:UltiSnipsSnippetsDir = $HOME.'/.config/nvim/ultisnips'
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
@@ -201,11 +201,11 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 " PLUGIN MAPPINGS
 " --------------------------------------------------
 
-" Ale
+" Ale.
 noremap <Silent> <Leader>ej <Plug>(ale_next_wrap)
 noremap <Silent> <Leader>ek <Plug>(ale_previous_wrap)
 
-" Easymotion
+" Easymotion.
 map <Leader> <Plug>(easymotion-prefix)
 map <Leader>s <Plug>(easymotion-s)
 map <Leader>S <Plug>(easymotion-overwin-f)
@@ -218,11 +218,11 @@ map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
 map <Leader>l <Plug>(easymotion-lineforward)
 
-" Git gutter
+" Git Gutter.
 noremap Ä :GitGutterNextHunk<CR>
 noremap Å :GitGutterPrevHunk<CR>
 
-" Fugitive
+" Fugitive.
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gd :Gdiff<CR>
@@ -235,7 +235,7 @@ nnoremap <Leader>gr :Gread<CR>
 nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 
-" FZF
+" FZF.
 nnoremap <Leader>/ :History/<CR>
 nnoremap <Leader>: :History:<CR>
 nnoremap <Leader>a :Ag<Space>
@@ -250,14 +250,14 @@ nnoremap <Leader>z :Commands<CR>
 nnoremap ö :Files<CR>
 nnoremap Ö :History<CR>
 
-" Typescript
+" TypeScript.
 nnoremap <Leader>ed :TSDef<CR>
 nnoremap <Leader>en :TSRename<CR>
 nnoremap <Leader>er :TSRefs<CR>
 
-" NERDTree
+" NERDTree.
 noremap <Leader>o :NERDTreeToggle<CR>
 noremap <Leader>O :NERDTreeFind<CR>
 
-" UltiSnips
+" UltiSnips.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"

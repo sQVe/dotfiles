@@ -66,6 +66,9 @@ vnoremap <silent> # :<C-U>
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
+" Black hole.
+noremap <Leader>- "_
+
 " Switch between the last two files.
 nnoremap <Leader><Tab> <C-^>
 
@@ -78,15 +81,6 @@ noremap / /\v
 
 " Uniform split.
 noremap <Ctrl-W>n :split<CR>
-
-" Copy.
-noremap <Leader>y "+y
-noremap <Leader>Y "+Y
-noremap <Leader>yy "+yy
-
-" Paste.
-noremap <Leader>p "+p
-noremap <Leader>P "+P
 
 " Move between buffers.
 nnoremap <S-Tab> :bprev<CR>
