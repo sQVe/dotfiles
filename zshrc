@@ -88,6 +88,7 @@ alias lsg='ls | ag'
 
 alias :Q=exit
 alias :q=exit
+alias R='ramda --js'
 alias ag='ag --hidden --follow'
 alias bc='bc -l -q'
 alias bluetooth=bluetoothctl
@@ -103,19 +104,18 @@ alias loc=locate
 alias mixer=ncpamixer
 alias n=nano
 alias o=open
-alias p=pacaur
 alias pass=lpass
 alias r=ranger
+alias ramda='ramda --js'
 alias ranger='ranger --choosedir=$HOME/.config/ranger/latest-dir; cd "`cat $HOME/.config/ranger/latest-dir`"'
 alias so='sudo open'
 alias sv='sudo nvim'
 alias tiga='tig --all'
 alias todo='nvim $HOME/todo'
+alias tri=trizen
 alias v=nvim
 alias vim=nvim
 alias wifi-menu='wifi-menu -o'
-alias ramda='ramda --js'
-alias R='ramda --js'
 
 # -------------------------------------- Config
 alias cfg-env='sudo nvim /etc/environment'
