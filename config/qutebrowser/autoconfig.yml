@@ -3,5 +3,8 @@
 
 config_version: 2
 settings:
-  qt.highdpi:
-    global: false
+  aliases:
+    global:
+      q: quit
+      w: session-save
+      wq: quit --save

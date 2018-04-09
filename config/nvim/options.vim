@@ -13,7 +13,7 @@ set nostartofline                 " Do not jump to first character with page com
 set ruler                         " Show the cursor position all the time.
 set showcmd                       " Display incomplete commands.
 set tildeop                       " Enable ~ operator.
-set timeoutlen=250                " Timeout Leader after 250 ms.
+set timeoutlen=400                " Timeout Leader after 400 ms.
 
 " Reload buffer on enter or focus.
 au FocusGained,BufEnter * :silent! !
