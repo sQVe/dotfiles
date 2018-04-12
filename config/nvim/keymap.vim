@@ -78,6 +78,7 @@ noremap ä }
 
 " Default to Perlish RegEx search.
 noremap / /\v
+noremap ? ?\v
 
 " Uniform split.
 noremap <Ctrl-W>n :split<CR>
