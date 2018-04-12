@@ -12,6 +12,15 @@ function! NumberToggle()
   endif
 endfunc
 
+" Toggle spelling.
+function! SpellToggle()
+  if(&spell == 1)
+    set nospell
+  else
+    set spell
+  endif
+endfunc
+
 " Merge filename and modified flag for vim-lightline.
 function! LightlineFilename()
   let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
@@ -25,3 +34,6 @@ endfunction
 
 " Toggle relative numbering.
 nnoremap <Leader>r :call NumberToggle()<CR>
+
+" Toggle spelling.
+nnoremap <C-s> :call SpellToggle()<CR>

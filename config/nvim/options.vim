@@ -15,9 +15,6 @@ set showcmd                       " Display incomplete commands.
 set tildeop                       " Enable ~ operator.
 set timeoutlen=400                " Timeout Leader after 400 ms.
 
-" Reload buffer on enter or focus.
-au FocusGained,BufEnter * :silent! !
-
 " Searching.
 set ignorecase                    " Make searching case insensitive.
 set incsearch                     " Highlight search results as you type.
@@ -68,4 +65,16 @@ set splitright                    " Vertical split to right of current.
 " Undo.
 set undodir=$HOME/.local/share/nvim/.undo,/tmp
 set undofile                      " Keep a persistent backup file.
+
+" --------------------------------------------------
+" FILE / EVENT SPECIFIC
+" --------------------------------------------------
+
+" Reload buffer on enter or focus.
+au FocusGained,BufEnter * :silent! !
+
+" Enable spelling.
+autocmd FileType gitcommit setlocal spell
+autocmd FileType markdown setlocal spell
+autocmd FileType text setlocal spell
 

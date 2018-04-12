@@ -113,7 +113,7 @@ let g:deoplete#enable_at_startup = 1
 let g:deoplete#enable_refresh_always = 1
 
 " Fugitive.
-autocmd BufReadPost *.git/index  set nobuflisted        " Set Gstatus as a preview window.
+autocmd BufReadPost *.git/index  set nobuflisted
 
 " FZF.
 let $FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
@@ -182,8 +182,7 @@ let g:NERDTreeChDirMode = 2
 let g:NERDCommentEmptyLines = 1
 
 " Supertab.
-let g:SuperTabMappingForward = '<S-Tab>'
-let g:SuperTabMappingBackward = '<Tab>'
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " TypeScript.
 let g:nvim_typescript#javascript_support = 1
@@ -195,7 +194,6 @@ let g:rainbow_active = 1
 let g:UltiSnipsExpandTrigger = '<C-Space>'
 let g:UltiSnipsSnippetsDir = $HOME.'/.config/nvim/ultisnips'
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
-
 
 " --------------------------------------------------
 " PLUGIN MAPPINGS
