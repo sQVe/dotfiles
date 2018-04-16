@@ -52,7 +52,7 @@ nnoremap <Leader>X :bp\|bd! #<CR>
 noremap <Leader>J :join<CR>
 
 " Remove highlighted search result.
-noremap <Esc><Esc> :nohl<CR>
+nnoremap <Esc><Esc> :nohl<CR>
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
