@@ -77,4 +77,3 @@ au FocusGained,BufEnter * :silent! !
 autocmd FileType gitcommit setlocal spell
 autocmd FileType markdown setlocal spell
 autocmd FileType text setlocal spell
-
