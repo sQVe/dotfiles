@@ -14,6 +14,7 @@ set ruler                         " Show the cursor position all the time.
 set showcmd                       " Display incomplete commands.
 set tildeop                       " Enable ~ operator.
 set timeoutlen=400                " Timeout Leader after 400 ms.
+set virtualedit=block             " Enable virtualedit when in Visual Block mode.
 
 " Searching.
 set ignorecase                    " Make searching case insensitive.
@@ -23,8 +24,8 @@ set smartcase                     " Use case sensitive search when query has mix
 
 " Complete.
 set wildmenu                      " Enable wildmenu.
-set wildmode=longest,full
-set completeopt=longest,menuone
+set wildmode=longest,full         " Set wildmenu modes.
+set completeopt=longest,menuone   " Set compete options.
 
 " Cursor.
 set cursorline                    " Show a cursor line.
