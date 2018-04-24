@@ -63,13 +63,13 @@ function ${1:name}(${2:arguments}) {
 endsnippet
 
 snippet fa "Anonymous function" w
-function(${2:arguments}) {
+function(${1:arguments}) {
 	${VISUAL}$0
 }
 endsnippet
 
 snippet fr "Rocket function" w
-(${2:arguments}) => {
+(${1:arguments}) => {
 	${VISUAL}$0
 }
 endsnippet
@@ -81,15 +81,49 @@ async function ${1:name}(${2:arguments}) {
 endsnippet
 
 snippet afa "Async anonymous function" w
-async function(${2:arguments}) {
+async function(${1:arguments}) {
 	${VISUAL}$0
 }
 endsnippet
 
 snippet afr "Async rocket function" w
-async (${2:arguments}) => {
+async (${1:arguments}) => {
 	${VISUAL}$0
 }
+endsnippet
+
+#-------------------------------------------------
+# TESTING
+#-------------------------------------------------
+
+snippet describe "Test describe block" b
+describe('${1:context}', () => {
+	${VISUAL}$0
+});
+endsnippet
+
+snippet it "Test it block" b
+it('${1:action}', () => {
+	${VISUAL}$0
+});
+endsnippet
+
+snippet When "Test When block" b
+When('${1:when}', () => {
+	${VISUAL}$0
+});
+endsnippet
+
+snippet Then "Test Then block" b
+When('${1:then}', () => {
+	${VISUAL}$0
+});
+endsnippet
+
+snippet And "Test And block" b
+When('${1:and}', () => {
+	${VISUAL}$0
+});
 endsnippet
 
 #-------------------------------------------------
