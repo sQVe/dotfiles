@@ -102,7 +102,7 @@ let g:EasyMotion_keys = 'asdfhjklerui'
 let g:EasyMotion_smartcase = 1
 
 " Emmet.
-let g:user_emmet_leader_key = '<C-y>'
+let g:user_emmet_leader_key = ',,'
 let g:user_emmet_settings = {
   \ 'javascript' : { 'extends' : 'jsx' },
   \ 'javascript.jsx' : { 'extends' : 'jsx' },

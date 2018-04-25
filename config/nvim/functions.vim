@@ -28,6 +28,16 @@ function! LightlineFilename()
   return filename . modified
 endfunction
 
+" Disable deoplete when entering multiple cursor mode.
+function! Multiple_cursors_before()
+  let g:deoplete#disable_auto_complete = 1
+endfunction
+
+" Enable deoplete when leaving multiple cursor mode.
+function! Multiple_cursors_after()
+  let g:deoplete#disable_auto_complete = 0
+endfunction
+
 " --------------------------------------------------
 " FUNCTION CONFIG
 " --------------------------------------------------
