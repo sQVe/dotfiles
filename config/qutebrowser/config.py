@@ -781,7 +781,7 @@ c.url.auto_search = 'naive'
 # Page to open if :open -t/-b/-w is used without URL. Use `about:blank`
 # for a blank page.
 # Type: FuzzyUrl
-c.url.default_page = 'https://start.duckduckgo.com/'
+c.url.default_page = 'about:blank'
 
 # URL segments where `:navigate increment/decrement` will search for a
 # number.
@@ -807,7 +807,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = 'https://start.duckduckgo.com'
+c.url.start_pages = 'https://devdocs.io'
 
 # URL parameters to strip with `:yank url`.
 # Type: List of String
@@ -1159,7 +1159,7 @@ c.colors.tabs.selected.even.bg = '#444444'
 # Background color for webpages if unset (or empty to use the theme's
 # color).
 # Type: QtColor
-c.colors.webpage.bg = 'white'
+c.colors.webpage.bg = '#343434'
 
 # Default monospace fonts. Whenever "monospace" is used in a font
 # setting, it's replaced with the fonts listed here.
