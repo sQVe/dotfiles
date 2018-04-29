@@ -48,10 +48,9 @@ Plug 'luochen1990/rainbow'
 " Completion.
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-Plug 'mhartington/nvim-typescript', { 'do': ':UpdateRemotePlugins' }
+  \ 'branch': 'next',
+  \ 'do': 'bash install.sh',
+  \ }
 Plug 'ervandew/supertab'
 
 " Snippets.
@@ -142,8 +141,13 @@ let g:javascript_plugin_jsdoc = 1
 
 " LanguageClient.
 let g:LanguageClient_autoStart = 1
+let g:LanguageClient_changeThrottle = 0.250
+let g:LanguageClient_diagnosticsEnable = 0
+let g:LanguageClient_selectionUI = "fzf"
 let g:LanguageClient_serverCommands = {
   \ 'haskell': ['hie', '--lsp'],
+  \ 'javascript': ['javascript-typescript-stdio'],
+  \ 'javascript.jsx': ['javascript-typescript-stdio'],
   \ }
 
   " TODO: Use JavaScript LangServer when it is more stable.
@@ -184,9 +188,6 @@ let g:NERDCommentEmptyLines = 1
 
 " Supertab.
 let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" TypeScript.
-let g:nvim_typescript#javascript_support = 1
 
 " Rainbow.
 let g:rainbow_active = 1
@@ -249,10 +250,11 @@ nnoremap <Leader>z :Commands<CR>
 nnoremap ö :Files<CR>
 nnoremap Ö :History<CR>
 
-" TypeScript.
-nnoremap <Leader>ed :TSDef<CR>
-nnoremap <Leader>en :TSRename<CR>
-nnoremap <Leader>er :TSRefs<CR>
+" LanguageClient.
+nnoremap <Leader>ed :call LanguageClient#textDocument_definition()<CR>
+nnoremap <Leader>en :call LanguageClient#textDocument_rename()<CR>
+nnoremap <Leader>er :call LanguageClient#textDocument_references()<CR>
+nnoremap <Leader>es :call LanguageClient#textDocument_documentSymbol()<CR>
 
 " NERDTree.
 noremap <Leader>o :NERDTreeToggle<CR>
