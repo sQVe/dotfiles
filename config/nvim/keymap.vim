@@ -103,3 +103,7 @@ noremap <C-Left> <C-w>h
 noremap <C-Down> <C-w>j
 noremap <C-Up> <C-w>k
 noremap <C-Right> <C-w>l
+
+" Completion
+inoremap <C-x><C-s> <C-x>s
+

@@ -9,6 +9,7 @@ set gdefault                      " Use 'g' flag by default with :s/foo/bar/.
 set hidden                        " Set buffer as hidden when abandoned.
 set lazyredraw                    " Only redraw when needed.
 set mouse=a                       " Enable mouse.
+set noshowmode                    " Disable show mode.
 set nostartofline                 " Do not jump to first character with page commands.
 set ruler                         " Show the cursor position all the time.
 set showcmd                       " Display incomplete commands.
@@ -73,8 +74,3 @@ set undofile                      " Keep a persistent backup file.
 
 " Reload buffer on enter or focus.
 au FocusGained,BufEnter * :silent! !
-
-" Enable spelling.
-autocmd FileType gitcommit setlocal spell
-autocmd FileType markdown setlocal spell
-autocmd FileType text setlocal spell

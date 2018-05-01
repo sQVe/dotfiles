@@ -52,6 +52,7 @@ Plug 'autozimu/LanguageClient-neovim', {
   \ 'do': 'bash install.sh',
   \ }
 Plug 'ervandew/supertab'
+Plug 'ujihisa/neco-look'
 
 " Snippets.
 Plug 'sirver/ultisnips'
@@ -105,12 +106,29 @@ let g:user_emmet_leader_key = ',,'
 let g:user_emmet_settings = {
   \ 'javascript' : { 'extends' : 'jsx' },
   \ 'javascript.jsx' : { 'extends' : 'jsx' },
+  \ 'less' : { 'extends' : 'css' },
+  \ 'scss' : { 'extends' : 'css' },
   \ 'stylus' : { 'extends' : 'css' },
   \ }
 
 " Deoplete.
 let g:deoplete#enable_at_startup = 1
-let g:deoplete#enable_refresh_always = 1
+call deoplete#custom#option('ignore_sources', {
+  \ 'awk': ['look'],
+  \ 'css': ['look'],
+  \ 'haskell': ['look'],
+  \ 'javascript': ['look'],
+  \ 'javascript.jsx': ['look'],
+  \ 'less': ['look'],
+  \ 'scss': ['look'],
+  \ 'sh': ['look'],
+  \ 'stylus': ['look'],
+  \ })
+call deoplete#custom#option('refresh_always', v:true)
+call deoplete#custom#source('dictionary', 'matchers', ['matcher_head'])
+call deoplete#custom#source('dictionary', 'sorters', [])
+call deoplete#custom#source('look', 'min_pattern_length', 2)
+call deoplete#custom#source('ultisnips', 'rank', 9999)
 
 " Fugitive.
 autocmd BufReadPost *.git/index  set nobuflisted
@@ -148,6 +166,7 @@ let g:LanguageClient_serverCommands = {
   \ 'haskell': ['hie', '--lsp'],
   \ 'javascript': ['javascript-typescript-stdio'],
   \ 'javascript.jsx': ['javascript-typescript-stdio'],
+  \ 'sh': ['bash-language-server', 'start'],
   \ }
 
   " TODO: Use JavaScript LangServer when it is more stable.

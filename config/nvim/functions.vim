@@ -30,12 +30,12 @@ endfunction
 
 " Disable deoplete when entering multiple cursor mode.
 function! Multiple_cursors_before()
-  let g:deoplete#disable_auto_complete = 1
+  call deoplete#custom#buffer_option('auto_complete', v:false)
 endfunction
 
 " Enable deoplete when leaving multiple cursor mode.
 function! Multiple_cursors_after()
-  let g:deoplete#disable_auto_complete = 0
+  call deoplete#custom#buffer_option('auto_complete', v:true)
 endfunction
 
 " --------------------------------------------------
