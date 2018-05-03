@@ -336,12 +336,12 @@ mode "$apps" {
   bindsym c exec --no-startup-id chromium, mode "default"
   bindsym d exec --no-startup-id rofi -show run, mode "default"
   bindsym g exec --no-startup-id gitkraken, mode "default"
-  bindsym h exec urxvt -e htop, mode "default"
+  bindsym h exec t htop, mode "default"
   bindsym q exec start-qutebrowser, mode "default"
-  bindsym r exec urxvt -e ranger, mode "default"
+  bindsym r exec t ranger, mode "default"
   bindsym s exec --no-startup-id start-spotify, mode "default"
-  bindsym v exec urxvt -e zsh -ic nvim, mode "default"
-  bindsym w exec urxvt --hold -title weechat -e weechat, mode "default"
+  bindsym v exec t nvim, mode "default"
+  bindsym w exec urxvt -title weechat -e weechat, mode "default"
   bindsym Return exec urxvt, mode "default"
 
   # Back to normal: Escape

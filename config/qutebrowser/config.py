@@ -1159,7 +1159,7 @@ c.colors.tabs.selected.even.bg = '#444444'
 # Background color for webpages if unset (or empty to use the theme's
 # color).
 # Type: QtColor
-c.colors.webpage.bg = '#343434'
+c.colors.webpage.bg = '#fff'
 
 # Default monospace fonts. Whenever "monospace" is used in a font
 # setting, it's replaced with the fonts listed here.
@@ -1251,6 +1251,8 @@ config.bind('<', 'tab-move -')
 config.bind('>', 'tab-move +')
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
-config.bind('Z', 'hint links spawn mpv --title "MPV for Qutebrowser" {hint-url}')
 config.bind('x', 'open-editor')
-config.bind('z', 'spawn mpv --title "MPV for Qutebrowser" {url}')
+config.bind('zH', 'hint links spawn t "http \'{url}\' | less"')
+config.bind('zM', 'hint links spawn mpv --title "MPV for Qutebrowser" \'{hint-url}\'')
+config.bind('zh', 'spawn t "http \'{url}\' | less"')
+config.bind('zm', 'spawn mpv --title "MPV for Qutebrowser" \'{url}\'')
