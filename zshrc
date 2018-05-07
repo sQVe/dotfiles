@@ -89,7 +89,7 @@ alias lsg='ls | ag'
 alias :Q=exit
 alias :q=exit
 alias R='ramda --js'
-alias ag='ag --hidden --follow'
+alias ag='ag --hidden --ignore .git --follow'
 alias bc='bc -l -q'
 alias bluetooth=bluetoothctl
 alias c=cat
@@ -108,8 +108,6 @@ alias pass=lpass
 alias r=ranger
 alias ramda='ramda --js'
 alias ranger='ranger --choosedir=$HOME/.config/ranger/latest-dir; cd "`cat $HOME/.config/ranger/latest-dir`"'
-alias so='sudo open'
-alias sv='sudo nvim'
 alias tiga='tig --all'
 alias todo='nvim $HOME/todo'
 alias tri=trizen

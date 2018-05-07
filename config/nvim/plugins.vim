@@ -190,7 +190,7 @@ let g:lightline = {
   \ }
 
 command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>, '--hidden --follow',
+  \ call fzf#vim#ag(<q-args>, '--hidden --ignore .git --follow',
   \   <bang>0 ? fzf#vim#with_preview('hidden')
   \     : fzf#vim#with_preview('right:60%', '?'),
   \   <bang>0)
