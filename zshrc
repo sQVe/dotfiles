@@ -117,6 +117,7 @@ alias v=nvim
 alias vim=nvim
 alias wifi-menu='wifi-menu -o'
 alias xsel='xsel -b'
+alias ö=nvim
 
 # -------------------------------------- Config
 alias cfg-env='sudo nvim /etc/environment'
