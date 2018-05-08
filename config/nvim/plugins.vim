@@ -129,6 +129,7 @@ call deoplete#custom#source('dictionary', 'matchers', ['matcher_head'])
 call deoplete#custom#source('dictionary', 'sorters', [])
 call deoplete#custom#source('look', 'min_pattern_length', 2)
 call deoplete#custom#source('ultisnips', 'rank', 9999)
+call deoplete#custom#var('file', 'enable_buffer_path', v:true)
 
 " Fugitive.
 autocmd BufReadPost *.git/index  set nobuflisted
