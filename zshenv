@@ -10,6 +10,7 @@ export PROMPT_LEAN_VIMODE_FORMAT="%F{green}NORMAL%f "
 export GREP_COLORS='mt=30;44'
 export LESS='-R'
 export LESSOPEN='|highlight -O xterm256 --force -s dracula --stdout %s'
+export KEYTIMEOUT=1
 
 export TLDR_COLOR_COMMAND="magenta"
 export TLDR_COLOR_EXAMPLE="blue"

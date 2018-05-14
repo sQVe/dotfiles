@@ -40,16 +40,17 @@ export FZF_DEFAULT_OPTS='
 # KEYBINDINGS
 ########################################
 
+bindkey "^[" vi-cmd-mode
 bindkey "^[^?" backward-kill-word
 bindkey "^[^H" backward-kill-word
 bindkey '^G' fzf-cd-widget
-bindkey jj vi-cmd-mode
 
 ########################################
 # ALIASES
 ########################################
 
-# -------------------------------------- Safety
+# Safety
+
 alias chgrp='chgrp --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chown='chown --preserve-root'
@@ -58,7 +59,8 @@ alias ln='ln -i'
 alias mv='mv -i'
 alias rm='rm -I --preserve-root'
 
-# -------------------------------------- Goodies & Misc
+# Goodies & Misc
+
 alias cl=clear
 alias df='df -h'
 alias du='du -ch'
@@ -73,7 +75,8 @@ alias root='sudo -i'
 alias sudo='sudo '
 alias q=exit
 
-# -------------------------------------- Listing
+# Listing
+
 alias cla='clear;la'
 alias cll='clear;ll'
 alias cls='clear;ls'
@@ -84,7 +87,7 @@ alias llg='ll | ag'
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias lsg='ls | ag'
 
-# -------------------------------------- Apps
+# Apps
 
 alias :Q=exit
 alias :q=exit
@@ -108,6 +111,7 @@ alias pass=lpass
 alias r=ranger
 alias ramda='ramda --js'
 alias ranger='ranger --choosedir=$HOME/.config/ranger/latest-dir; cd "`cat $HOME/.config/ranger/latest-dir`"'
+alias t=term
 alias tiga='tig --all'
 alias todo='nvim $HOME/todo'
 alias tri=trizen
@@ -117,13 +121,16 @@ alias wifi-menu='wifi-menu -o'
 alias xsel='xsel -b'
 alias ö=nvim
 
-# -------------------------------------- Config
+# Config
+
 alias cfg-env='sudo nvim /etc/environment'
 alias cfg-hosts='sudo nvim /etc/hosts'
 alias cfg-i3='nvim ~/.dotfiles/config/i3/config'
+alias cfg-keymap='nvim ~/code/qmk_firmware/keyboards/ergodox_ez/keymaps/sqve/keymap.c'
 alias cfg-vim='nvim ~/.dotfiles/config/nvim/'
 alias cfg-xinitrc='nvim ~/.dotfiles/xinitrc'
 alias cfg-xresources='nvim ~/.dotfiles/Xresources'
 alias cfg-zimrc='nvim ~/.dotfiles/zimrc'
 alias cfg-zshenv='nvim ~/.dotfiles/zshenv'
 alias cfg-zshrc='nvim ~/.dotfiles/zshrc'
+
