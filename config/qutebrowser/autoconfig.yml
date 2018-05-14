@@ -3,7 +3,10 @@
 
 config_version: 2
 settings:
-  colors.webpage.bg:
-    global: '#fff'
-  fonts.monospace:
-    global: Iosevka, monospace
+  aliases:
+    global:
+      q: quit
+      w: session-save
+      wq: quit --save
+  content.cache.size:
+    global: null
