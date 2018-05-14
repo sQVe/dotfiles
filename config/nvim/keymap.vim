@@ -20,9 +20,6 @@ noremap gj j
 noremap H ^
 noremap L g_
 
-noremap J 10j
-noremap K 10k
-
 " New buffer.
 nnoremap <Leader>n :enew<CR>
 
