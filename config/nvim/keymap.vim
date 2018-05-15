@@ -45,9 +45,6 @@ nnoremap <Leader>Q :quit!<CR>
 nnoremap <Leader>x :bp\|bd #<CR>
 nnoremap <Leader>X :bp\|bd! #<CR>
 
-" Join lines.
-noremap <Leader>J :join<CR>
-
 " Remove highlighted search result.
 nnoremap <Esc><Esc> :nohl<CR>
 
@@ -72,10 +69,6 @@ nnoremap <Leader><Tab> <C-^>
 " Adapt for Swedish keyboard layout.
 noremap å {
 noremap ä }
-
-" Default to Perlish RegEx search.
-noremap / /\v
-noremap ? ?\v
 
 " Uniform split.
 noremap <Ctrl-W>n :split<CR>
