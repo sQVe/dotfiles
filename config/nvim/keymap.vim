@@ -60,6 +60,9 @@ vnoremap <silent> # :<C-U>
   \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
   \gV:call setreg('"', old_reg, old_regtype)<CR>
 
+" Set pwd to current open buffer path.
+noremap cd :Cdb<CR>:pwd<CR>
+
 " Black hole.
 noremap <Leader>- "_
 

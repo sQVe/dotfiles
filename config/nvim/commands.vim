@@ -2,6 +2,8 @@
 " COMMANDS
 " --------------------------------------------------
 
+command Cdb :cd %:p:h
+
 " Copy.
 command Copy !xsel -b < %
 
