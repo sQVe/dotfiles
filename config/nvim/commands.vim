@@ -5,11 +5,17 @@
 " Copy.
 command Copy !xsel -b < %
 
-" :Wsudo sudo save.
-command Wsudo w !sudo tee % > /dev/null
+" Delete all open buffers.
+command Bda bufdo bd
 
 " Delete all buffers but the open one.
 command Bdo %bd|e#|bd#
+
+" Show full path to open buffer.
+command Bpath echo expand('%:p')
+
+" :Wsudo sudo save.
+command Wsudo w !sudo tee % > /dev/null
 
 " :Write and quit typos.
 command W write

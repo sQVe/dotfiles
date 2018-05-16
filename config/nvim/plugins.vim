@@ -170,11 +170,6 @@ let g:LanguageClient_serverCommands = {
   \ 'sh': ['bash-language-server', 'start'],
   \ }
 
-  " TODO: Use JavaScript LangServer when it is more stable.
-  " https://github.com/sourcegraph/javascript-typescript-langserver/issues/432#issuecomment-368337905
-  "\ 'javascript': ['javascript-typescript-stdio'],
-  "\ 'javascript.jsx': ['javascript-typescript-stdio'],
-
 " Lightline
 let g:lightline = {
   \ 'colorscheme': 'Dracula',
