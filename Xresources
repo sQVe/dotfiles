@@ -52,7 +52,13 @@ URxvt.keysym.M-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-s: perl:keyboard-select:search
 URxvt.keysym.M-u: perl:matcher:list
 
-! ¤¤¤¤  rof i ¤¤¤¤
+! ¤¤¤¤  URxvt keybind repairs  ¤¤¤¤
+URxvt.keysym.Control-Up:      \033[1;5A
+URxvt.keysym.Control-Down:    \033[1;5B
+URxvt.keysym.Control-Left:    \033[1;5D
+URxvt.keysym.Control-Right:   \033[1;5C
+
+! ¤¤¤¤  rofi  ¤¤¤¤
 rofi.color-enabled:    true
 rofi.color-window:     #343434, #BD93F9, #343434, #50fa7b, #343434
 rofi.color-normal:     #343434, #AAAAAA, #343434, #50fa7b, #343434
@@ -93,8 +99,3 @@ rofi.window-format:    {n} {t}
 *.color7:     #BFBFBF
 *.color15:    #E6E6E6
 
-! ¤¤¤¤  Repair Ctrl + Arrow keys  ¤¤¤¤
-URxvt.keysym.Control-Up:      \033[1;5A
-URxvt.keysym.Control-Down:    \033[1;5B
-URxvt.keysym.Control-Left:    \033[1;5D
-URxvt.keysym.Control-Right:   \033[1;5C
