@@ -1,4 +1,4 @@
-" --------------------------------------------------
+
 " PLUGINS
 " --------------------------------------------------
 
@@ -7,18 +7,16 @@ call plug#begin('$HOME/.local/share/nvim/plugged')
 " Colorschemes.
 Plug 'dracula/vim', { 'as': 'dracula' }
 
-" Language.
+" Language, syntax and formatting.
+" Plug 'fleischie/vim-styled-components'
 Plug 'hail2u/vim-css3-syntax'
+Plug 'luochen1990/rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'tpope/vim-markdown'
 Plug 'wavded/vim-stylus'
-
-" TODO: Enable this once it plays nicely with Ale.
-" https://github.com/styled-components/vim-styled-components/issues/36
-"Plug 'fleischie/vim-styled-components'
 
 " Interface.
 Plug 'airblade/vim-gitgutter'
@@ -41,9 +39,6 @@ Plug 'w0rp/ale'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
-
-" Syntax & formatting.
-Plug 'luochen1990/rainbow'
 
 " Completion.
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -201,12 +196,17 @@ let g:NERDTreeChDirMode = 2
 " NERDComment.
 let g:NERDCommentEmptyLines = 1
 
+" Rainbow.
+let g:rainbow_active = 1
+let g:rainbow_conf = {
+  \ 'separately': {
+  \   'sh': 0,
+  \ }
+  \ }
+
 " Supertab.
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
-" Rainbow.
-let g:rainbow_active = 1
-"
 " UltiSnips.
 let g:UltiSnipsExpandTrigger = '<C-Space>'
 let g:UltiSnipsSnippetsDir = $HOME.'/.config/nvim/ultisnips'
