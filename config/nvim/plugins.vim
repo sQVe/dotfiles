@@ -122,6 +122,7 @@ call deoplete#custom#option('ignore_sources', {
 call deoplete#custom#option('refresh_always', v:true)
 call deoplete#custom#source('dictionary', 'matchers', ['matcher_head'])
 call deoplete#custom#source('dictionary', 'sorters', [])
+call deoplete#custom#source('file', 'rank', 8888)
 call deoplete#custom#source('look', 'min_pattern_length', 2)
 call deoplete#custom#source('ultisnips', 'rank', 9999)
 call deoplete#custom#var('file', 'enable_buffer_path', v:true)

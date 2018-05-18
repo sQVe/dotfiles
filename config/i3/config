@@ -30,6 +30,7 @@ set $workspace-9 "9 "
 
 set $lock --no-startup-id lock
 set $menu-apps --no-startup-id ~/scripts/menu-apps.sh
+set $menu-clipboard --no-startup-id "rofi -modi 'clipboard:greenclip print' -run-command '{cmd}' -show clipboard"
 set $menu-exit --no-startup-id ~/scripts/menu-exit.sh
 set $menu-run --no-startup-id "rofi -kb-accept-entry 'Return,space' -show run"
 set $menu-windows --no-startup-id "rofi -kb-accept-entry 'Return,space' -show window"
@@ -163,7 +164,7 @@ bindsym $mod+a split horizontal ;; exec $term
 bindsym $mod+adiaeresis exec $volume-down
 bindsym $mod+aring exec $volume-up
 bindsym $mod+b exec $qutebrowser
-bindsym $mod+c focus child
+bindsym $mod+c exec $menu-clipboard
 bindsym $mod+comma exec $brightness-up
 bindsym $mod+d exec $menu-run
 bindsym $mod+e exec $menu-exit
@@ -199,6 +200,7 @@ bindsym $mod+Shift+l move right 80
 bindsym $mod+Shift+m exec $redshift
 bindsym $mod+Shift+n exec $music-next
 bindsym $mod+Shift+o focus mode_toggle
+bindsym $mod+Shift+p focus child
 bindsym $mod+Shift+period exec $volume-down
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+s layout toggle splitv splith

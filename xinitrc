@@ -17,8 +17,8 @@ mons -a &
 # Start URxvt daemon.
 urxvtd -q -f -o &
 
-# Start clipit.
-clipit &
+# Start greenclip.
+greenclip daemon &
 
 # XSS Lock - handle lid close, suspend etc.
 xss-lock -- lock &
