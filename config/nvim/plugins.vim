@@ -216,8 +216,8 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 " --------------------------------------------------
 
 " Ale.
-noremap <Silent> <Leader>ej <Plug>(ale_next_wrap)
-noremap <Silent> <Leader>ek <Plug>(ale_previous_wrap)
+noremap <silent><Leader>ej <Plug>(ale_next_wrap)
+noremap <silent><Leader>ek <Plug>(ale_previous_wrap)
 
 " Easymotion.
 map <Leader> <Plug>(easymotion-prefix)
@@ -271,8 +271,8 @@ nnoremap <Leader>er :call LanguageClient#textDocument_references()<CR>
 nnoremap <Leader>es :call LanguageClient#textDocument_documentSymbol()<CR>
 
 " Ranger.
-nnoremap <Leader>o :RangerWorkingDirectory<CR>
-nnoremap <Leader>O :Ranger<CR>
+noremap <silent><Leader>o :RangerWorkingDirectory<CR>
+noremap <silent><Leader>O :Ranger<CR>
 
 " UltiSnips.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"

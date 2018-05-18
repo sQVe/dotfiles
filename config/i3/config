@@ -198,6 +198,7 @@ bindsym $mod+Shift+j move down 80
 bindsym $mod+Shift+k move up 80
 bindsym $mod+Shift+l move right 80
 bindsym $mod+Shift+m exec $redshift
+bindsym $mod+Shift+minus exec $volume-toggle
 bindsym $mod+Shift+n exec $music-next
 bindsym $mod+Shift+o focus mode_toggle
 bindsym $mod+Shift+p focus child
