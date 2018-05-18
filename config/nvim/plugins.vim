@@ -21,9 +21,10 @@ Plug 'wavded/vim-stylus'
 " Interface.
 Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-buftabline'
+Plug 'francoiscabrol/ranger.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'rbgrouleff/bclose.vim'
 Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
 
 " Integration.
 Plug 'editorconfig/editorconfig-vim'
@@ -187,13 +188,6 @@ command! -bang -nargs=* Ag
   \     : fzf#vim#with_preview('right:60%', '?'),
   \   <bang>0)
 
-" NERDTree.
-let g:NERDTreeAutoDeleteBuffer = 1
-let g:NERDTreeMinimalUI = 1
-let g:NERDTreeShowHidden = 1
-let g:NERDTreeMapOpenSplit = 'n'
-let g:NERDTreeChDirMode = 2
-
 " NERDComment.
 let g:NERDCommentEmptyLines = 1
 
@@ -204,6 +198,10 @@ let g:rainbow_conf = {
   \   'sh': 0,
   \ }
   \ }
+
+" Ranger.
+let g:ranger_map_keys = 0
+let g:ranger_replace_netrw = 1
 
 " Supertab.
 let g:SuperTabDefaultCompletionType = '<C-n>'
@@ -272,9 +270,9 @@ nnoremap <Leader>en :call LanguageClient#textDocument_rename()<CR>
 nnoremap <Leader>er :call LanguageClient#textDocument_references()<CR>
 nnoremap <Leader>es :call LanguageClient#textDocument_documentSymbol()<CR>
 
-" NERDTree.
-noremap <Leader>o :NERDTreeToggle<CR>
-noremap <Leader>O :NERDTreeFind<CR>
+" Ranger.
+nnoremap <Leader>o :RangerWorkingDirectory<CR>
+nnoremap <Leader>O :Ranger<CR>
 
 " UltiSnips.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
