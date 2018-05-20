@@ -233,7 +233,7 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>l <Plug>(easymotion-lineforward)
 
 " Git Gutter.
-noremap Ä :GitGutterNextHunk<CR>
+noremap å :GitGutterNextHunk<CR>
 noremap Å :GitGutterPrevHunk<CR>
 
 " Fugitive.
@@ -271,8 +271,8 @@ nnoremap <Leader>er :call LanguageClient#textDocument_references()<CR>
 nnoremap <Leader>es :call LanguageClient#textDocument_documentSymbol()<CR>
 
 " Ranger.
-noremap <silent><Leader>o :RangerWorkingDirectory<CR>
-noremap <silent><Leader>O :Ranger<CR>
+noremap <silent>ä :RangerWorkingDirectory<CR>
+noremap <silent>Ä :Ranger<CR>
 
 " UltiSnips.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"

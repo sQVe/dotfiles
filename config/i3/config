@@ -28,6 +28,7 @@ set $workspace-7 "7 "
 set $workspace-8 "8 "
 set $workspace-9 "9 "
 
+set $dropdown --no-startup-id term --name dropdown
 set $lock --no-startup-id lock
 set $menu-apps --no-startup-id ~/scripts/menu-apps.sh
 set $menu-clipboard --no-startup-id "rofi -modi 'clipboard:greenclip print' -run-command '{cmd}' -show clipboard"
@@ -37,6 +38,7 @@ set $menu-windows --no-startup-id "rofi -kb-accept-entry 'Return,space' -show wi
 set $music-next --no-startup-id playerctl next
 set $music-prev --no-startup-id playerctl previous
 set $music-toggle --no-startup-id playerctl play-pause
+set $node --no-startup-id term --name node node
 set $qutebrowser --no-startup-id scaled-qutebrowser
 set $ranger --no-startup-id term ranger
 set $redshift --no-startup-id $HOME/scripts/safe-load-redshift.sh
@@ -106,31 +108,33 @@ bar {
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 # Assign workspaces.
-assign [class="qutebrowser"]                          → $workspace-3
-assign [class="GitKraken"]                            → $workspace-4
-assign [class="URxvt" title="^weechat$"]              → $workspace-6
-assign [class="^Gimp.*$"]                             → $workspace-7
-assign [class="Darktable"]                            → $workspace-7
-assign [class="Inkscape"]                             → $workspace-7
-assign [class="mpv" title="^(?!.*Qutebrowser)"]       → $workspace-8
-assign [class="streamlink-twitch-gui"]                → $workspace-8
+assign [class="qutebrowser"]                               → $workspace-3
+assign [class="GitKraken"]                                 → $workspace-4
+assign [class="URxvt" instance="weechat"]                  → $workspace-6
+assign [class="Gimp"]                                      → $workspace-7
+assign [class="Darktable"]                                 → $workspace-7
+assign [class="Inkscape"]                                  → $workspace-7
+assign [class="mpv" instance="^(?!mpv-qutebrowser)"]       → $workspace-8
+assign [class="streamlink-twitch-gui"]                     → $workspace-8
 
-# Focus.
+# Specific window settings.
 for_window [class="Darktable"] focus
+for_window [class="Gimp"] focus
 for_window [class="GitKraken"] focus
 for_window [class="Inkscape"] focus
-for_window [class="URxvt" title="^weechat$"] focus
-for_window [class="^Gimp.*$"] focus
+for_window [class="URxvt"] focus
+for_window [class="URxvt"] resize set 1280 800
 for_window [class="mpv"] focus
 for_window [class="qutebrowser"] focus
 for_window [class="streamlink-twitch-gui"] focus
-
-# Float.
-for_window [class="URxvt" title="^Vim for Qutebrowser$"] focus, floating enable
-for_window [class="URxvt" title="^bc$"] focus, floating enable
-for_window [class="mpv" title="^MPV for Qutebrowser$"] focus, floating enable
-for_window [window_role="bubble"] floating enable, sticky enable
-
+for_window [instance="dropdown"] floating enable
+for_window [instance="dropdown"] move scratchpad
+for_window [instance="mpv-qutebrowser"] floating enable
+for_window [instance="node"] floating enable
+for_window [instance="node"] move scratchpad
+for_window [instance="vim-qutebrowser"] floating enable
+for_window [window_role="bubble"] floating enable
+for_window [window_role="bubble"] sticky enable
 
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 # ¤¤¤¤  Bindings  ¤¤¤¤
@@ -160,7 +164,7 @@ bindsym $mod+Shift+8 move container to workspace number $workspace-8
 bindsym $mod+Shift+9 move container to workspace number $workspace-9
 
 # Letter & symbol based bindings
-bindsym $mod+a split horizontal ;; exec $term
+bindsym $mod+a [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 bindsym $mod+adiaeresis exec $volume-down
 bindsym $mod+aring exec $volume-up
 bindsym $mod+b exec $qutebrowser
@@ -175,6 +179,7 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+m exec $kill-redshift
 bindsym $mod+minus exec $volume-toggle
+bindsym $mod+n [instance="node"] scratchpad show; [instance="node"] move position center
 bindsym $mod+o floating toggle
 bindsym $mod+p focus parent
 bindsym $mod+period exec $volume-up
@@ -189,7 +194,6 @@ bindsym $mod+x exec $lock
 bindsym $mod+y sticky toggle
 bindsym $mod+z exec $menu-apps
 
-bindsym $mod+Shift+a split vertical ;; exec $term
 bindsym $mod+Shift+b exec $music-toggle
 bindsym $mod+Shift+comma exec $brightness-down
 bindsym $mod+Shift+d exec $menu-windows
@@ -262,15 +266,15 @@ bindsym $mod+space fullscreen toggle
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 mode "RESIZE" {
-  bindsym h resize grow width 50 px or 10 ppt
-  bindsym j resize grow height 50 px or 10 ppt
-  bindsym k resize shrink height 50 px or 10 ppt
-  bindsym l resize shrink width 50 px or 10 ppt
+  bindsym h resize grow width 40
+  bindsym j resize grow height 40
+  bindsym k resize shrink height 40
+  bindsym l resize shrink width 40
 
-  bindsym Down resize shrink height 50 px or 10 ppt
-  bindsym Left resize grow width 50 px or 10 ppt
-  bindsym Right resize shrink width 50 px or 10 ppt
-  bindsym Up resize grow height 50 px or 10 ppt
+  bindsym Down resize shrink height 40
+  bindsym Left resize grow width 40
+  bindsym Right resize shrink width 40
+  bindsym Up resize grow height 40
 
   bindsym BackSpace mode "default"
   bindsym Delete mode "default"
@@ -284,5 +288,8 @@ mode "RESIZE" {
 # ¤¤¤¤  Autostart  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-exec --no-startup-id i3-msg workspace $workspace-1
 exec --no-startup-id "sh -c 'sleep 2; exec $HOME/scripts/safe-load-redshift.sh'"
+exec --no-startup-id i3-msg workspace $workspace-1
+
+exec $dropdown
+exec $node

@@ -410,7 +410,7 @@ c.downloads.remove_finished = -1
 # `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 # Same as `{column}`, but starting from index 0.
 # Type: ShellCommand
-c.editor.command = ['urxvt', '-title', 'Vim for Qutebrowser', '-e', 'nvim', '{file}']
+c.editor.command = ['term', '--name', 'vim-qutebrowser', 'nvim', '{file}']
 
 # Encoding to use for the editor.
 # Type: Encoding
@@ -1252,9 +1252,9 @@ config.bind('>', 'tab-move +')
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
 config.bind('x', 'open-editor')
-config.bind('zH', 'hint links spawn t "http \'{hint-url}\' | less"')
-config.bind('zM', 'hint links spawn mpv --title "MPV for Qutebrowser" \'{hint-url}\'')
-config.bind('zh', 'spawn t "http \'{url}\' | less"')
-config.bind('zm', 'spawn mpv --title "MPV for Qutebrowser" \'{url}\'')
+config.bind('zH', 'hint links spawn term "http \'{hint-url}\' | less"')
+config.bind('zM', 'hint links spawn mpv --name "mpv-qutebrowser" \'{hint-url}\'')
+config.bind('zh', 'spawn term "http \'{url}\' | less"')
+config.bind('zm', 'spawn mpv --name "mpv-qutebrowser" \'{url}\'')
 config.bind('Ö', 'set-cmd-text -s :open -t')
 config.bind('ö', 'set-cmd-text -s :open')
