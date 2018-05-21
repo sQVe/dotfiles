@@ -33,6 +33,7 @@ set $lock --no-startup-id lock
 set $menu-apps --no-startup-id ~/scripts/menu-apps.sh
 set $menu-clipboard --no-startup-id "rofi -modi 'clipboard:greenclip print' -run-command '{cmd}' -show clipboard"
 set $menu-exit --no-startup-id ~/scripts/menu-exit.sh
+set $menu-projects --no-startup-id ~/scripts/menu-projects.sh
 set $menu-run --no-startup-id "rofi -kb-accept-entry 'Return,space' -show run"
 set $menu-windows --no-startup-id "rofi -kb-accept-entry 'Return,space' -show window"
 set $music-next --no-startup-id playerctl next
@@ -212,6 +213,7 @@ bindsym $mod+Shift+period exec $volume-down
 bindsym $mod+Shift+r restart
 bindsym $mod+Shift+s layout toggle splitv splith
 bindsym $mod+Shift+v exec $music-prev
+bindsym $mod+Shift+z exec $menu-projects
 
 bindsym $mod+$alt+h move workspace to output left
 bindsym $mod+$alt+j move workspace to output down
