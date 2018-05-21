@@ -1,0 +1,2 @@
+scaled-qutebrowser %F
+  ^www\..+?\.\w+
