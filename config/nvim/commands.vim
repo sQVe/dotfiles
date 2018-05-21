@@ -2,6 +2,7 @@
 " COMMANDS
 " --------------------------------------------------
 
+" Set pwd to path of open buffer.
 command Cdb :cd %:p:h
 
 " Copy.
