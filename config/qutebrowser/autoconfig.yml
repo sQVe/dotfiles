@@ -8,17 +8,8 @@ settings:
       q: quit
       w: session-save
       wq: quit --save
-  bindings.commands:
+  url.open_base_url:
+    global: true
+  url.searchengines:
     global:
-      normal:
-        <: tab-move -
-        '>': tab-move +
-        J: tab-prev
-        K: tab-next
-        x: open-editor
-        zH: hint links spawn t "http '{hint-url}' | less"
-        zM: hint links spawn mpv --title "" '{hint-url}'
-        zh: spawn t "http '{url}' | less"
-        zm: spawn mpv --title "MPV for Qutebrowser" '{url}'
-        Ö: set-cmd-text -s :open -t
-        ö: set-cmd-text -s :open
+      DEFAULT: https://duckduckgo.com/?q={}

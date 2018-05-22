@@ -648,10 +648,6 @@ c.tabs.close_mouse_button_on_bar = 'new-tab'
 # Type: Float
 c.tabs.favicons.scale = 1.0
 
-# Show favicons in the tab bar.
-# Type: Bool
-c.tabs.favicons.show = True
-
 # How to behave when the last tab is closed.
 # Type: String
 # Valid values:
@@ -794,6 +790,11 @@ c.url.default_page = '~/.dotfiles/config/qutebrowser/index.html'
 #   - anchor
 c.url.incdec_segments = ['path', 'query']
 
+# Open base URL of the searchengine if a searchengine shortcut is
+# invoked without parameters.
+# Type: Bool
+c.url.open_base_url = True
+
 # Search engines which can be used via the address bar. Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
 # placeholder. The placeholder will be replaced by the search term, use
@@ -812,10 +813,6 @@ c.url.start_pages = 'https://devdocs.io'
 # URL parameters to strip with `:yank url`.
 # Type: List of String
 c.url.yank_ignored_parameters = ['ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
-
-# Hide the window decoration when using wayland.
-# Type: Bool
-c.window.hide_wayland_decoration = False
 
 # Format to use for the window title. The same placeholders like for
 # `tabs.title.format` are defined.
