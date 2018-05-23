@@ -126,6 +126,7 @@ for_window [class="Inkscape"] focus
 for_window [class="URxvt"] focus
 for_window [class="URxvt"] resize set 1280 800
 for_window [class="mpv"] focus
+for_window [class="mpv"] resize set 1920 1280
 for_window [class="qutebrowser"] focus
 for_window [class="streamlink-twitch-gui"] focus
 for_window [instance="dropdown"] floating enable
