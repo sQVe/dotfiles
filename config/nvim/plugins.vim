@@ -120,7 +120,6 @@ call deoplete#custom#option('ignore_sources', {
   \ 'sh': ['look'],
   \ 'stylus': ['look'],
   \ })
-call deoplete#custom#option('refresh_always', v:true)
 call deoplete#custom#source('dictionary', 'matchers', ['matcher_head'])
 call deoplete#custom#source('dictionary', 'sorters', [])
 call deoplete#custom#source('file', 'rank', 8888)
@@ -157,7 +156,6 @@ let g:javascript_plugin_jsdoc = 1
 
 " LanguageClient.
 let g:LanguageClient_autoStart = 1
-let g:LanguageClient_changeThrottle = 0.250
 let g:LanguageClient_diagnosticsEnable = 0
 let g:LanguageClient_selectionUI = "fzf"
 let g:LanguageClient_serverCommands = {
