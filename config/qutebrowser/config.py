@@ -410,7 +410,7 @@ c.downloads.remove_finished = -1
 # `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 # Same as `{column}`, but starting from index 0.
 # Type: ShellCommand
-c.editor.command = ['term', '--name', 'vim-qutebrowser', 'nvim', '{file}']
+c.editor.command = ['urxvt', '-name', 'vim-qutebrowser', '-e', 'nvim', '{file}']
 
 # Encoding to use for the editor.
 # Type: Encoding
