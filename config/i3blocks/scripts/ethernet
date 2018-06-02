@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-instance=$(fd enp /sys/class/net/ | head -n 1)
+instance="$(fd enp /sys/class/net/ | head -n 1)"
 label=""
 state="down"
 
-if [ -f "$instance/operstate" ]; then
+if [[ -f "$instance/operstate" ]]; then
   state=$(cat "$instance/operstate")
 fi
 
@@ -15,7 +15,7 @@ if [[ "$state" == "down" ]]; then
   exit 0
 fi
 
-speed=$(cat "$instance/speed" 2> /dev/null)
+speed="$(cat "$instance/speed" 2> /dev/null)"
 
 echo "$label $speed"
 echo "$label $speed"

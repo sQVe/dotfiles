@@ -3,7 +3,7 @@
 temperature="$(redshift -p | grep -P -o '[0-9]+K')"
 color="#FF5555"
 
-if [[ $(pidof redshift | wc -w) = 0 ]]; then
+if [[ "$(pidof redshift | wc -w)" = 0 ]]; then
   temperature="optimal"
   color="#8BE9FD"
 fi

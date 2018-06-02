@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-case $BLOCK_BUTTON in
+case "$BLOCK_BUTTON" in
   1) light -S 10;;
   2) light -S 40;;
   3) light -S 80;;
@@ -8,7 +8,7 @@ case $BLOCK_BUTTON in
   5) light -U 5;;
 esac
 
-light=$(light -G)
+light="$(light -G)"
 
-printf %.0f $light && echo ""
-printf %.0f $light && echo ""
+printf %.0f "$light" && echo ""
+printf %.0f "$light" && echo ""

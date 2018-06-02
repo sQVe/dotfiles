@@ -3,20 +3,18 @@
 mixer="default"
 step="${1:-5%}"
 scontrol="Master"
-on_re="\[on\]"
-vol_re="[0-9]*%"
 
 case $BLOCK_BUTTON in
-  1) amixer -q -D $mixer sset $scontrol toggle ;;
-  3) amixer -q -D $mixer sset $scontrol toggle ;;
-  4) amixer -q -D $mixer sset $scontrol "${step}+" unmute ;;
-  5) amixer -q -D $mixer sset $scontrol "${step}-" unmute ;;
+  1) amixer -q -D "$mixer" sset "$scontrol" toggle ;;
+  3) amixer -q -D "$mixer" sset "$scontrol" toggle ;;
+  4) amixer -q -D "$mixer" sset "$scontrol" "${step}+" unmute ;;
+  5) amixer -q -D "$mixer" sset "$scontrol" "${step}-" unmute ;;
 esac
 
-VOL=$(amixer -D $mixer get $scontrol)
+volume="$(amixer -D "$mixer" get "$scontrol")"
 
-if [[ $VOL =~ $on_re ]]; then
-  [[ $VOL =~ $vol_re ]]
+if [[ "$volume" =~ \[on\] ]]; then
+  [[ "$volume" =~ [0-9]*% ]]
   print=" ${BASH_REMATCH[*]}"
 else
   print=" muted"
