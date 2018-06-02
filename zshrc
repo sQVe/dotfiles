@@ -1,29 +1,37 @@
-########################################
-# SOURCE & SETTINGS
-########################################
 
+#  ╺━┓┏━┓╻ ╻┏━┓┏━╸
+#  ┏━┛┗━┓┣━┫┣┳┛┃
+#  ┗━╸┗━┛╹ ╹╹┗╸┗━╸
+
+# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+# ¤¤¤¤  Sourcing  ¤¤¤¤
+# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 source ${ZIM_HOME}/init.zsh
 
-# Replicate colors definied in .Xresources for virtual console.
+
+# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+# ¤¤¤¤  Settings  ¤¤¤¤
+# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 if [[ "$TERM" = "linux" ]]; then
+  # Replicate colors definied in .Xresources for virtual console.
   colors=$(sed -n 's/\*\.color\([0-9]\+\).*#\(\w\{6\}\)/\1 \2/p' "$HOME/.Xresources")
   echo -en $(awk '$1 < 16 {printf "\\e]P%X%s", $1, $2}' <<< "$colors")
   clear
 fi
 
-########################################
-# FUNCTIONS
-########################################
 
+# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+# ¤¤¤¤  Functions  ¤¤¤¤
+# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 function nvm() {
   source /usr/share/nvm/nvm.sh --no-use
   nvm "$*"
 }
 
-########################################
-# EXPORTS
-########################################
 
+# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+# ¤¤¤¤  Exports  ¤¤¤¤
+# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 export FZF_ALT_C_COMMAND='command fd --type d --hidden --follow --exclude .git'
 export FZF_CTRL_T_COMMAND='command fd --hidden --follow --exclude .git'
 export FZF_DEFAULT_COMMAND='command fd --hidden --follow --exclude .git'
@@ -36,21 +44,21 @@ export FZF_DEFAULT_OPTS='
   --color=marker:#50FA7B,hl+:#50FA7B
 '
 
-########################################
-# KEYBINDINGS
-########################################
 
+# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+# ¤¤¤¤  Keybindings  ¤¤¤¤
+# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 bindkey "^[" vi-cmd-mode
 bindkey "^[^?" backward-kill-word
 bindkey "^[^H" backward-kill-word
 bindkey '^G' fzf-cd-widget
 
-########################################
-# ALIASES
-########################################
+
+# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+# ¤¤¤¤  Aliases  ¤¤¤¤
+# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 # Safety
-
 alias chgrp='chgrp --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chown='chown --preserve-root'
@@ -60,7 +68,6 @@ alias mv='mv -i'
 alias rm='rm -I --preserve-root'
 
 # Goodies & Misc
-
 alias cl=clear
 alias df='df -h'
 alias du='du -ch'
@@ -76,7 +83,6 @@ alias sudo='sudo '
 alias q=exit
 
 # Listing
-
 alias cla='clear;la'
 alias cll='clear;ll'
 alias cls='clear;ls'
@@ -88,7 +94,6 @@ alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=au
 alias lsg='ls | ag'
 
 # Apps
-
 alias :Q=exit
 alias :q=exit
 alias R='ramda --js'
@@ -115,7 +120,6 @@ alias ranger='ranger --choosedir=$HOME/.config/ranger/latest-dir; cd "`cat $HOME
 alias t=term
 alias tiga='tig --all'
 alias todo='nvim $HOME/todo'
-alias tri=trizen
 alias v=nvim
 alias vim=nvim
 alias wifi-menu='wifi-menu -o'
@@ -123,7 +127,6 @@ alias xsel='xsel -b'
 alias ö=nvim
 
 # Config
-
 alias cfg-env='sudo nvim /etc/environment'
 alias cfg-hosts='sudo nvim /etc/hosts'
 alias cfg-i3='nvim ~/.dotfiles/config/i3/config'
@@ -134,4 +137,3 @@ alias cfg-xresources='nvim ~/.dotfiles/Xresources'
 alias cfg-zimrc='nvim ~/.dotfiles/zimrc'
 alias cfg-zshenv='nvim ~/.dotfiles/zshenv'
 alias cfg-zshrc='nvim ~/.dotfiles/zshrc'
-
