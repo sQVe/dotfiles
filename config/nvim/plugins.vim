@@ -95,10 +95,10 @@ let g:ale_fixers = {
 autocmd BufEnter * EnableStripWhitespaceOnSave
 
 " BufTabLine.
-hi default link BufTabLineCurrent Identifier
-hi default link BufTabLineActive  Character
-hi default link BufTabLineHidden  Comment
-hi default link BufTabLineFill    LineNr
+highlight default link BufTabLineCurrent Identifier
+highlight default link BufTabLineActive  Character
+highlight default link BufTabLineHidden  Comment
+highlight default link BufTabLineFill    LineNr
 
 " EasyMotion.
 let g:EasyMotion_do_mapping = 0
@@ -174,7 +174,7 @@ let g:LanguageClient_serverCommands = {
   \ 'sh': ['bash-language-server', 'start'],
   \ }
 
-" Lightline
+" Lightline.
 let g:lightline = {
   \ 'colorscheme': 'Dracula',
   \ 'active': {
