@@ -1,6 +1,7 @@
-" --------------------------------------------------
-" MAPPINGS
-" --------------------------------------------------
+
+"  ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
+"  ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
+"  ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
 " Escape.
 inoremap jj <Esc>
@@ -11,12 +12,10 @@ noremap <Up> gk
 noremap <Down> gj
 inoremap <Up> <C-o>gk
 inoremap <Down> <C-o>gj
-
 noremap k gk
 noremap gk k
 noremap j gj
 noremap gj j
-
 noremap H ^
 noremap L g_
 

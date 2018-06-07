@@ -1,8 +1,11 @@
-" --------------------------------------------------
-" OPTIONS
-" --------------------------------------------------
 
-" Base.
+"  ┏━┓┏━┓╺┳╸╻┏━┓┏┓╻┏━┓
+"  ┃ ┃┣━┛ ┃ ┃┃ ┃┃┗┫┗━┓
+"  ┗━┛╹   ╹ ╹┗━┛╹ ╹┗━┛
+
+" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+" ¤¤¤¤  General options  ¤¤¤¤
+" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 set clipboard=unnamedplus         " Use the + (clipboard) register.
 set formatoptions+=o              " Continue comment marker in new lines.
 set gdefault                      " Use 'g' flag by default with :s/foo/bar/.
@@ -69,9 +72,10 @@ set splitright                    " Vertical split to right of current.
 set undodir=$HOME/.local/share/nvim/.undo,/tmp
 set undofile                      " Keep a persistent backup file.
 
-" --------------------------------------------------
-" FILE / EVENT SPECIFIC
-" --------------------------------------------------
+
+" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+" ¤¤¤¤  File and event specific options  ¤¤¤¤
+" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 " Reload buffer on enter or focus.
 au FocusGained,BufEnter * :silent! !

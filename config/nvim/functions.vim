@@ -1,6 +1,11 @@
-" --------------------------------------------------
-" FUNCTIONS
-" --------------------------------------------------
+
+"  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓
+"  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
+"  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
+
+" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+" ¤¤¤¤  Functions  ¤¤¤¤
+" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 " Toggle relative numbering.
 function! NumberToggle()
@@ -38,12 +43,9 @@ function! Multiple_cursors_after()
   call deoplete#custom#buffer_option('auto_complete', v:true)
 endfunction
 
-" --------------------------------------------------
-" FUNCTION CONFIG
-" --------------------------------------------------
 
-" Toggle relative numbering.
+" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+" ¤¤¤¤  Function bindings  ¤¤¤¤
+" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 nnoremap <Leader>r :call NumberToggle()<CR>
-
-" Toggle spelling.
 nnoremap <C-s> :call SpellToggle()<CR>

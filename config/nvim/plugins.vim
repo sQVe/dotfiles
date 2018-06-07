@@ -1,6 +1,11 @@
 
-" PLUGINS
-" --------------------------------------------------
+"  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻┏━┓
+"  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫┗━┓
+"  ╹  ┗━╸┗━┛┗━┛╹╹ ╹┗━┛
+
+" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+" ¤¤¤¤  Import plugins  ¤¤¤¤
+" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 call plug#begin('$HOME/.local/share/nvim/plugged')
 
@@ -8,6 +13,9 @@ call plug#begin('$HOME/.local/share/nvim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Language, syntax and formatting.
+" NOTE: vim-styled-components plugin is not compatible together with
+" vim-javascript and rainbow. If we need this in the future then we need to
+" disable rainbow.
 " Plug 'fleischie/vim-styled-components'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'luochen1990/rainbow'
@@ -55,9 +63,10 @@ Plug 'sirver/ultisnips'
 
 call plug#end()
 
-" --------------------------------------------------
-" PLUGIN CONFIG
-" --------------------------------------------------
+
+" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+" ¤¤¤¤  Plugin options  ¤¤¤¤
+" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 " Colorschemes.
 colorscheme dracula
@@ -209,9 +218,10 @@ let g:UltiSnipsExpandTrigger = '<C-Space>'
 let g:UltiSnipsSnippetsDir = $HOME.'/.config/nvim/ultisnips'
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 
-" --------------------------------------------------
-" PLUGIN MAPPINGS
-" --------------------------------------------------
+
+" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+" ¤¤¤¤  Plugin mappings  ¤¤¤¤
+" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 " Ale.
 noremap <silent><Leader>ej <Plug>(ale_next_wrap)
