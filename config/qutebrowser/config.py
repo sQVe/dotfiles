@@ -1245,14 +1245,18 @@ c.fonts.web.size.default_fixed = 13
 
 # Bindings for normal mode
 config.bind('<', 'tab-move -')
+config.bind('<Ctrl+e>', 'open-editor')
 config.bind('>', 'tab-move +')
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
-config.bind('W', ':open -w')
-config.bind('x', 'open-editor')
+config.bind('W', 'open -w')
+config.bind('e', 'open-editor')
 config.bind('zH', 'hint links spawn term "http \'{hint-url}\' | less"')
 config.bind('zM', 'hint links spawn mpv --name "mpv-qutebrowser" \'{hint-url}\'')
 config.bind('zh', 'spawn term "http \'{url}\' | less"')
 config.bind('zm', 'spawn mpv --name "mpv-qutebrowser" \'{url}\'')
 config.bind('Ö', 'set-cmd-text -s :open -t')
 config.bind('ö', 'set-cmd-text -s :open')
+
+# Bindings for insert mode
+config.bind('<Ctrl+e>', 'open-editor', mode='insert')

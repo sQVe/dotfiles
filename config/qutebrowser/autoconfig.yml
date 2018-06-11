@@ -3,13 +3,20 @@
 
 config_version: 2
 settings:
-  aliases:
+  bindings.commands:
     global:
-      q: quit
-      w: session-save
-      wq: quit --save
-  url.open_base_url:
-    global: true
-  url.searchengines:
-    global:
-      DEFAULT: https://duckduckgo.com/?q={}
+      insert:
+        <Ctrl+e>: :open-editor
+      normal:
+        <: tab-move -
+        '>': tab-move +
+        J: tab-prev
+        K: tab-next
+        W: :open -w
+        e: open-editor
+        zH: hint links spawn term "http '{hint-url}' | less"
+        zM: hint links spawn mpv --name "mpv-qutebrowser" '{hint-url}'
+        zh: spawn term "http '{url}' | less"
+        zm: spawn mpv --name "mpv-qutebrowser" '{url}'
+        Ö: set-cmd-text -s :open -t
+        ö: set-cmd-text -s :open
