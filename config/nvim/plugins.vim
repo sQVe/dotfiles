@@ -142,9 +142,10 @@ autocmd BufReadPost *.git/index  set nobuflisted
 " FZF.
 let $FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
 let g:fzf_action = {
+  \ 'ctrl-S': 'split',
+  \ 'ctrl-s': 'vsplit',
   \ 'ctrl-t': 'tab split',
-  \ 'ctrl-n': 'split',
-  \ 'ctrl-v': 'vsplit' }
+  \ }
 let g:fzf_colors =
 \ { 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
@@ -158,7 +159,8 @@ let g:fzf_colors =
   \ 'pointer': ['fg', 'Exception'],
   \ 'marker':  ['fg', 'Keyword'],
   \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+  \ 'header':  ['fg', 'Comment'],
+  \ }
 
 " JavaScript.
 let g:javascript_plugin_jsdoc = 1

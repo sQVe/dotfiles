@@ -85,17 +85,23 @@ noremap <M-l> :bnext<CR>
 noremap <M-Left> :bprev<CR>
 noremap <M-Right> :bnext<CR>
 
+" Use vertical split as default split.
+noremap <C-S-w><C-S-s> :split<CR>
+noremap <C-S-w>s :split<CR>
+noremap <C-w><C-S-s> :split<CR>
+noremap <C-w><C-s> :vsplit<CR>
+noremap <C-w>s :vsplit<CR>
+
 " Move between open windows.
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
-
 noremap <C-Left> <C-w>h
 noremap <C-Down> <C-w>j
 noremap <C-Up> <C-w>k
 noremap <C-Right> <C-w>l
 
-" Completion
+" Spell completion.
 inoremap <C-x><C-s> <C-x>s
 
