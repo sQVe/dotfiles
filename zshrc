@@ -19,6 +19,10 @@ if [[ "$TERM" = "linux" ]]; then
   clear
 fi
 
+# Enable command edit in $EDITOR.
+autoload -z edit-command-line
+zle -N edit-command-line
+
 
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 # ¤¤¤¤  Functions  ¤¤¤¤
@@ -51,6 +55,7 @@ export FZF_DEFAULT_OPTS='
 bindkey "^[" vi-cmd-mode
 bindkey "^[^?" backward-kill-word
 bindkey "^[^H" backward-kill-word
+bindkey '^E' edit-command-line
 bindkey '^G' fzf-cd-widget
 
 
@@ -58,7 +63,7 @@ bindkey '^G' fzf-cd-widget
 # ¤¤¤¤  Aliases  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-# Safety
+# Safety.
 alias chgrp='chgrp --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chown='chown --preserve-root'
@@ -67,7 +72,7 @@ alias ln='ln -i'
 alias mv='mv -i'
 alias rm='rm -I --preserve-root'
 
-# Goodies & Misc
+# Goodies & Misc.
 alias cl=clear
 alias df='df -h'
 alias du='du -ch'
@@ -82,7 +87,7 @@ alias root='sudo -i'
 alias sudo='sudo '
 alias q=exit
 
-# Listing
+# Listing.
 alias cla='clear;la'
 alias cll='clear;ll'
 alias cls='clear;ls'
@@ -93,7 +98,7 @@ alias llg='ll | ag'
 alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
 alias lsg='ls | ag'
 
-# Apps
+# Apps.
 alias :Q=exit
 alias :q=exit
 alias R='ramda --js'
@@ -126,7 +131,7 @@ alias wifi-menu='wifi-menu -o'
 alias xsel='xsel -b'
 alias ö=nvim
 
-# Config
+# Config.
 alias cfg-env='sudo nvim /etc/environment'
 alias cfg-hosts='sudo nvim /etc/hosts'
 alias cfg-i3='nvim ~/.dotfiles/config/i3/config'
