@@ -167,8 +167,6 @@ bindsym $mod+Shift+9 move container to workspace number $workspace-9
 
 # Letter & symbol based bindings
 bindsym $mod+a [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
-bindsym $mod+adiaeresis exec $volume-down
-bindsym $mod+aring exec $volume-up
 bindsym $mod+b exec $qutebrowser
 bindsym $mod+c exec $menu-clipboard
 bindsym $mod+comma exec $brightness-up
@@ -186,7 +184,6 @@ bindsym $mod+n [instance="node"] scratchpad show; [instance="node"] move positio
 bindsym $mod+o floating toggle
 bindsym $mod+p focus parent
 bindsym $mod+period exec $volume-up
-bindsym $mod+plus exec $volume-toggle
 bindsym $mod+q kill
 bindsym $mod+r mode "resize"
 bindsym $mod+s split toggle
