@@ -198,6 +198,9 @@ command! -bang -nargs=* Ag
   \     : fzf#vim#with_preview('right:60%', '?'),
   \   <bang>0)
 
+" Markdown.
+let g:vim_markdown_folding_level = 2
+
 " NERDComment.
 let g:NERDCommentEmptyLines = 1
 
