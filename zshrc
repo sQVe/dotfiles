@@ -124,7 +124,7 @@ alias ramda='ramda --js'
 alias ranger='ranger --choosedir=$HOME/.config/ranger/latest-dir; cd "`cat $HOME/.config/ranger/latest-dir`"'
 alias t=term
 alias tiga='tig --all'
-alias todo='nvim $HOME/todo'
+alias todo='nvim $HOME/todo.md'
 alias v=nvim
 alias vim=nvim
 alias wifi-menu='wifi-menu -o'

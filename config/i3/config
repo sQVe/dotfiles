@@ -44,7 +44,7 @@ set $qutebrowser --no-startup-id scaled-qutebrowser
 set $ranger --no-startup-id term ranger
 set $redshift --no-startup-id $HOME/scripts/safe-load-redshift.sh
 set $term --no-startup-id term
-set $todo --no-startup-id term nvim ~/todo
+set $todo --no-startup-id term nvim ~/todo.md
 set $vim --no-startup-id term nvim
 
 set $brightness-down --no-startup-id light -U 5 && pkill -RTMIN+10 i3blocks
