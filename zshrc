@@ -126,6 +126,7 @@ alias t=term
 alias tiga='tig --all'
 alias todo='nvim $HOME/todo.md'
 alias v=nvim
+alias vi=nvim
 alias vim=nvim
 alias wifi-menu='wifi-menu -o'
 alias xsel='xsel -b'
