@@ -24,7 +24,6 @@ Plug 'maxmellon/vim-jsx-pretty'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
-Plug 'wavded/vim-stylus'
 
 " Interface.
 Plug 'airblade/vim-gitgutter'
