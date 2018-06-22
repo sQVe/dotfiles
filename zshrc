@@ -122,6 +122,7 @@ alias pass=lpass
 alias r=ranger
 alias ramda='ramda --js'
 alias ranger='ranger --choosedir=$HOME/.config/ranger/latest-dir; cd "`cat $HOME/.config/ranger/latest-dir`"'
+alias s=sudo
 alias t=term
 alias tiga='tig --all'
 alias todo='nvim $HOME/todo.md'
