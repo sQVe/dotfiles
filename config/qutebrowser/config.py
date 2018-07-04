@@ -93,11 +93,6 @@ c.backend = 'webengine'
 # Type: List of String
 c.qt.args = ['ppapi-widevine-path=/usr/lib/qt/plugins/ppapi/libwidevinecdmadapter.so']
 
-# Force software rendering for QtWebEngine. This is needed for
-# QtWebEngine to work with Nouveau drivers.
-# Type: Bool
-c.qt.force_software_rendering = False
-
 # Force a Qt platform to use. This sets the `QT_QPA_PLATFORM`
 # environment variable and is useful to force using the XCB plugin when
 # running QtWebEngine on Wayland.
@@ -149,7 +144,8 @@ c.content.windowed_fullscreen = False
 #   - ask
 c.content.geolocation = 'ask'
 
-# Value to send in the `Accept-Language` header.
+# Value to send in the `Accept-Language` header. Note that the value
+# read from JavaScript is always the global value.
 # Type: String
 c.content.headers.accept_language = 'en-US,en'
 
@@ -163,7 +159,8 @@ c.content.headers.custom = {}
 # Type: Bool
 c.content.headers.do_not_track = True
 
-# User agent to send. Unset to send the default.
+# User agent to send. Unset to send the default. Note that the value
+# read from JavaScript is always the global value.
 # Type: String
 c.content.headers.user_agent = None
 
@@ -736,7 +733,8 @@ c.tabs.title.alignment = 'left'
 # `{host}`: Host of the current web page. * `{backend}`: Either
 # ''webkit'' or ''webengine'' * `{private}`: Indicates when private mode
 # is enabled. * `{current_url}`: URL of the current web page. *
-# `{protocol}`: Protocol (http/https/...) of the current web page.
+# `{protocol}`: Protocol (http/https/...) of the current web page. *
+# `{audio}`: Indicator for audio/mute status.
 # Type: FormatString
 c.tabs.title.format = '{index}: {title}'
 
@@ -940,11 +938,11 @@ c.colors.hints.match.fg = '#bd93f9'
 
 # Text color for the keyhint widget.
 # Type: QssColor
-c.colors.keyhint.fg = '#FFFFFF'
+c.colors.keyhint.fg = 'white'
 
 # Highlight color for keys to complete the current keychain.
 # Type: QssColor
-c.colors.keyhint.suffix.fg = '#FFFF00'
+c.colors.keyhint.suffix.fg = '#ffff00'
 
 # Background color of the keyhint widget.
 # Type: QssColor
@@ -1072,7 +1070,7 @@ c.colors.statusbar.progress.bg = '#ff79c6'
 
 # Default foreground color of the URL in the statusbar.
 # Type: QssColor
-c.colors.statusbar.url.fg = '#AAAAAA'
+c.colors.statusbar.url.fg = '#aaaaaa'
 
 # Foreground color of the URL in the statusbar on error.
 # Type: QssColor
@@ -1085,12 +1083,12 @@ c.colors.statusbar.url.hover.fg = '#8be9fd'
 # Foreground color of the URL in the statusbar on successful load
 # (http).
 # Type: QssColor
-c.colors.statusbar.url.success.http.fg = '#AAAAAA'
+c.colors.statusbar.url.success.http.fg = '#aaaaaa'
 
 # Foreground color of the URL in the statusbar on successful load
 # (https).
 # Type: QssColor
-c.colors.statusbar.url.success.https.fg = '#AAAAAA'
+c.colors.statusbar.url.success.https.fg = '#aaaaaa'
 
 # Foreground color of the URL in the statusbar when there's a warning.
 # Type: QssColor
@@ -1123,7 +1121,7 @@ c.colors.tabs.indicator.system = 'rgb'
 
 # Foreground color of unselected odd tabs.
 # Type: QtColor
-c.colors.tabs.odd.fg = '#AAAAAA'
+c.colors.tabs.odd.fg = '#aaaaaa'
 
 # Background color of unselected odd tabs.
 # Type: QtColor
@@ -1131,7 +1129,7 @@ c.colors.tabs.odd.bg = '#343434'
 
 # Foreground color of unselected even tabs.
 # Type: QtColor
-c.colors.tabs.even.fg = '#AAAAAA'
+c.colors.tabs.even.fg = '#aaaaaa'
 
 # Background color of unselected even tabs.
 # Type: QtColor
@@ -1156,7 +1154,7 @@ c.colors.tabs.selected.even.bg = '#444444'
 # Background color for webpages if unset (or empty to use the theme's
 # color).
 # Type: QtColor
-c.colors.webpage.bg = '#fff'
+c.colors.webpage.bg = 'white'
 
 # Default monospace fonts. Whenever "monospace" is used in a font
 # setting, it's replaced with the fonts listed here.
