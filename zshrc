@@ -116,7 +116,6 @@ alias l=less
 alias leave='i3-msg exit'
 alias loc=locate
 alias mixer=ncpamixer
-alias n=nano
 alias o=open
 alias pass=lpass
 alias r=ranger
