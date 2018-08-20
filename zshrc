@@ -78,7 +78,7 @@ alias df='df -h'
 alias du='du -ch'
 alias dud='du -chd'
 alias free='free -m'
-alias ga='cat $ZIM_HOME/modules/git/init.zsh | ag'
+alias ga='cat $ZIM_HOME/modules/git/init.zsh | ag "^alias" | sed -e "s/alias //" -e "s/=/%%/" | column -t -s "%%" | ag'
 alias grep='grep --color=auto -d skip'
 alias more=less
 alias np='nvim -w PKGBUILD'
