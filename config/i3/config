@@ -96,6 +96,8 @@ bar {
 
   position top
   status_command i3blocks
+
+  # Set to either primary or output name.
   tray_output none
 
   # Disable mouse scroll.
