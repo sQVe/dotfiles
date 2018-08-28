@@ -18,6 +18,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 " disable rainbow.
 " Plug 'fleischie/vim-styled-components'
 Plug 'hail2u/vim-css3-syntax'
+Plug 'leafgarland/typescript-vim'
 Plug 'luochen1990/rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'maxmellon/vim-jsx-pretty'
@@ -80,6 +81,7 @@ let g:ale_sign_warning = '••'
 let g:ale_linters = {
   \ 'awk': ['gawk'],
   \ 'javascript': ['eslint'],
+  \ 'typescript': ['eslint'],
   \ 'sh': ['shellcheck'],
   \ }
 let g:ale_fixers = {
@@ -89,6 +91,7 @@ let g:ale_fixers = {
   \ 'less': ['prettier'],
   \ 'markdown': ['prettier'],
   \ 'scss': ['prettier'],
+  \ 'typescript': ['eslint'],
   \ }
 
 " Better Whitespace.
