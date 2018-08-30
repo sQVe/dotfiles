@@ -171,12 +171,14 @@ let g:javascript_plugin_jsdoc = 1
 " LanguageClient.
 let g:LanguageClient_autoStart = 1
 let g:LanguageClient_diagnosticsEnable = 0
+let g:LanguageClient_hoverPreview = "Always"
 let g:LanguageClient_selectionUI = "fzf"
 let g:LanguageClient_serverCommands = {
   \ 'haskell': ['hie', '--lsp'],
   \ 'javascript': ['javascript-typescript-stdio'],
   \ 'javascript.jsx': ['javascript-typescript-stdio'],
   \ 'sh': ['bash-language-server', 'start'],
+  \ 'typescript': ['javascript-typescript-stdio'],
   \ }
 
 " Lightline.
@@ -284,9 +286,12 @@ nnoremap Ö :History<CR>
 
 " LanguageClient.
 nnoremap <Leader>ed :call LanguageClient#textDocument_definition()<CR>
+nnoremap <Leader>eh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <Leader>em :call LanguageClient_contextMenu()<CR>
 nnoremap <Leader>en :call LanguageClient#textDocument_rename()<CR>
 nnoremap <Leader>er :call LanguageClient#textDocument_references()<CR>
 nnoremap <Leader>es :call LanguageClient#textDocument_documentSymbol()<CR>
+nnoremap <Leader>et :call LanguageClient#textDocument_typeDefinition()<CR>
 
 " Ranger.
 noremap <silent>ä :RangerWorkingDirectory<CR>
