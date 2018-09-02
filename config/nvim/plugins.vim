@@ -81,7 +81,7 @@ let g:ale_sign_warning = '••'
 let g:ale_linters = {
   \ 'awk': ['gawk'],
   \ 'javascript': ['eslint'],
-  \ 'typescript': ['eslint'],
+  \ 'typescript': ['tsserver', 'typecheck', 'eslint'],
   \ 'sh': ['shellcheck'],
   \ }
 let g:ale_fixers = {
@@ -91,7 +91,7 @@ let g:ale_fixers = {
   \ 'less': ['prettier'],
   \ 'markdown': ['prettier'],
   \ 'scss': ['prettier'],
-  \ 'typescript': ['eslint'],
+  \ 'typescript': ['prettier', 'eslint'],
   \ }
 
 " Better Whitespace.
@@ -117,6 +117,7 @@ let g:user_emmet_settings = {
   \ 'less' : { 'extends' : 'css' },
   \ 'scss' : { 'extends' : 'css' },
   \ 'stylus' : { 'extends' : 'css' },
+  \ 'typescript' : { 'extends' : 'jsx' },
   \ }
 
 " Deoplete.
@@ -131,6 +132,7 @@ call deoplete#custom#option('ignore_sources', {
   \ 'scss': ['look'],
   \ 'sh': ['look'],
   \ 'stylus': ['look'],
+  \ 'typescript': ['look'],
   \ })
 call deoplete#custom#source('dictionary', 'matchers', ['matcher_head'])
 call deoplete#custom#source('dictionary', 'sorters', [])
