@@ -85,6 +85,7 @@ alias np='nvim -w PKGBUILD'
 alias open='mimeo -q'
 alias root='sudo -i'
 alias sudo='sudo '
+alias sudoedit='sudo edit'
 alias q=exit
 
 # Listing.
@@ -122,6 +123,7 @@ alias r=ranger
 alias ramda='ramda --js'
 alias ranger='ranger --choosedir=$HOME/.config/ranger/latest-dir; cd "`cat $HOME/.config/ranger/latest-dir`"'
 alias s=sudo
+alias se=sudoedit
 alias t=term
 alias tiga='tig --all'
 alias todo='nvim $HOME/todo.md'
