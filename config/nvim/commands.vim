@@ -18,8 +18,11 @@ command Bdo %bd|e#|bd#
 " Show full path to open buffer.
 command Bpath echo expand('%:p')
 
-" :Wsudo sudo save.
-command Wsudo w !sudo tee % > /dev/null
+" Edit current file with sudo.
+command Esudo e suda://%
+
+" Write current file with sudo.
+command Wsudo w suda://%
 
 " :Write and quit typos.
 command W write

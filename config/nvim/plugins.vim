@@ -47,6 +47,7 @@ Plug 'w0rp/ale'
 
 " Commands.
 Plug 'easymotion/vim-easymotion'
+Plug 'lambdalisue/suda.vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 
