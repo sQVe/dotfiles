@@ -5,7 +5,7 @@
 
 " Escape.
 inoremap jj <Esc>
-noremap <F1> <Esc>
+inoremap <F1> <Esc>
 
 " Motion.
 noremap <Up> gk
