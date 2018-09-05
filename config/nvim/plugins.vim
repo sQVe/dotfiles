@@ -36,6 +36,7 @@ Plug 'scrooloose/nerdcommenter'
 
 " Integration.
 Plug 'editorconfig/editorconfig-vim'
+Plug 'embear/vim-localvimrc'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -82,7 +83,7 @@ let g:ale_sign_warning = '••'
 let g:ale_linters = {
   \ 'awk': ['gawk'],
   \ 'javascript': ['eslint'],
-  \ 'typescript': ['tsserver', 'typecheck', 'eslint'],
+  \ 'typescript': ['tsserver', 'typecheck', 'eslint', 'tslint'],
   \ 'sh': ['shellcheck'],
   \ }
 let g:ale_fixers = {
@@ -92,7 +93,7 @@ let g:ale_fixers = {
   \ 'less': ['prettier'],
   \ 'markdown': ['prettier'],
   \ 'scss': ['prettier'],
-  \ 'typescript': ['prettier', 'eslint'],
+  \ 'typescript': ['prettier', 'eslint', 'tslint'],
   \ }
 
 " Better Whitespace.
@@ -204,6 +205,11 @@ command! -bang -nargs=* Ag
   \   <bang>0 ? fzf#vim#with_preview('hidden')
   \     : fzf#vim#with_preview('right:60%', '?'),
   \   <bang>0)
+
+" Local Vim.
+let g:localvimrc_enable = 1
+let g:localvimrc_name = [ ".vimrc", ".lvimrc" ]
+let g:localvimrc_ask = 0
 
 " Markdown.
 let g:vim_markdown_folding_level = 2
