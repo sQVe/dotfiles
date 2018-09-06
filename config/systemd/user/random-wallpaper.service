@@ -3,4 +3,4 @@ Description=Random wallpaper
 
 [Service]
 Type=oneshot
-ExecStart=/home/sqve/scripts/random-wall.sh
+ExecStart=random-wallpaper
