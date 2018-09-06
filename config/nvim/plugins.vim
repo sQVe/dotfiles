@@ -41,6 +41,7 @@ Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'ntpeters/vim-better-whitespace'
+Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -145,6 +146,10 @@ call deoplete#custom#var('file', 'enable_buffer_path', v:true)
 
 " Fugitive.
 autocmd BufReadPost *.git/index  set nobuflisted
+
+" Fugitive Gitlab.
+
+let g:fugitive_gitlab_domains = ['http://AnimechGitLab']
 
 " FZF.
 let $FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
