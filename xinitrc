@@ -35,7 +35,7 @@ libinput-gestures-setup start &
 xsetroot -solid "#343434"
 
 # Set initial wallpaper.
-$HOME/scripts/random-wall.sh
+random-wallpaper
 
 # Set screen power timer.
 xset dpms 240 240 240
