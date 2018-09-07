@@ -205,11 +205,12 @@ let g:lightline = {
   \ },
   \ }
 
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
+command! -bang -nargs=* HistoryFiles
+  \ call fzf#vim#history(fzf#vim#with_preview('right:50%', '?'))
 command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>, '--hidden --ignore .git --follow',
-  \   <bang>0 ? fzf#vim#with_preview('hidden')
-  \     : fzf#vim#with_preview('right:60%', '?'),
-  \   <bang>0)
+  \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
 
 " Local Vim.
 let g:localvimrc_enable = 1
@@ -296,7 +297,7 @@ nnoremap <Leader>I :Lines<CR>
 nnoremap <Leader>m :Marks<CR>
 nnoremap <Leader>z :Commands<CR>
 nnoremap ö :Files<CR>
-nnoremap Ö :History<CR>
+nnoremap Ö :HistoryFiles<CR>
 
 " LanguageClient.
 nnoremap <Leader>ed :call LanguageClient#textDocument_definition()<CR>
