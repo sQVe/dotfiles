@@ -222,7 +222,7 @@ let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_no_extensions_in_markdown = 1
 
 " NERDComment.
-let g:NERDCommentEmptyLines = 1
+let g:NERDSpaceDelims = 1
 
 " Rainbow.
 let g:rainbow_active = 1
