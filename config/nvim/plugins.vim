@@ -36,7 +36,6 @@ Plug 'scrooloose/nerdcommenter'
 
 " Integration.
 Plug 'editorconfig/editorconfig-vim'
-Plug 'embear/vim-localvimrc'
 Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -211,11 +210,6 @@ command! -bang -nargs=* HistoryFiles
   \ call fzf#vim#history(fzf#vim#with_preview('right:50%', '?'))
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
-
-" Local Vim.
-let g:localvimrc_enable = 1
-let g:localvimrc_name = [ ".vimrc", ".lvimrc" ]
-let g:localvimrc_ask = 0
 
 " Markdown.
 let g:vim_markdown_folding_level = 2
