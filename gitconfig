@@ -21,3 +21,7 @@
   old = red bold
   new = green bold
   whitespace = red reverse
+[mergetool "fugitive"]
+	cmd = vim -f -c \"Gdiff\" \"$MERGED\"
+[merge]
+	tool = fugitive
