@@ -245,8 +245,8 @@ let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
 " ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 " Ale.
-noremap <silent><Leader>ej <Plug>(ale_next_wrap)
-noremap <silent><Leader>ek <Plug>(ale_previous_wrap)
+noremap <Leader>ej :ALENextWrap<CR>
+noremap <Leader>ek :ALEPreviousWrap<CR>
 
 " Easymotion.
 map <Leader> <Plug>(easymotion-prefix)
