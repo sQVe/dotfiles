@@ -105,12 +105,12 @@ highlight default link BufTabLineActive  Character
 highlight default link BufTabLineHidden  Comment
 highlight default link BufTabLineFill    LineNr
 
+
 " EasyMotion.
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_grouping = 2
-let g:EasyMotion_keys = 'asdfhjklerui'
+let g:EasyMotion_keys = 'fjdkslaöruvmeic,wox.qpz-ghtybn'
 let g:EasyMotion_smartcase = 1
-
 " Emmet.
 let g:user_emmet_leader_key = ',,'
 let g:user_emmet_settings = {
