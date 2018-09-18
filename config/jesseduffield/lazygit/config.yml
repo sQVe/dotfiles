@@ -1,3 +1,5 @@
+gui:
+  scrollHeight: 6
 reporting: "off"
 os:
   openCommand: 'sh -c "xdg-open {{filename}} >/dev/null"'
