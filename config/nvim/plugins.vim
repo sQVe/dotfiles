@@ -105,7 +105,6 @@ highlight default link BufTabLineActive  Character
 highlight default link BufTabLineHidden  Comment
 highlight default link BufTabLineFill    LineNr
 
-
 " EasyMotion.
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_grouping = 2
@@ -118,7 +117,6 @@ let g:user_emmet_settings = {
   \ 'javascript.jsx' : { 'extends' : 'jsx' },
   \ 'less' : { 'extends' : 'css' },
   \ 'scss' : { 'extends' : 'css' },
-  \ 'stylus' : { 'extends' : 'css' },
   \ 'typescript' : { 'extends' : 'jsx' },
   \ }
 
@@ -133,7 +131,6 @@ call deoplete#custom#option('ignore_sources', {
   \ 'less': ['look'],
   \ 'scss': ['look'],
   \ 'sh': ['look'],
-  \ 'stylus': ['look'],
   \ 'typescript': ['look'],
   \ })
 call deoplete#custom#source('dictionary', 'matchers', ['matcher_head'])
@@ -147,7 +144,6 @@ call deoplete#custom#var('file', 'enable_buffer_path', v:true)
 autocmd BufReadPost *.git/index  set nobuflisted
 
 " Fugitive Gitlab.
-
 let g:fugitive_gitlab_domains = ['http://AnimechGitLab']
 
 " FZF.
@@ -237,7 +233,7 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 " UltiSnips.
 let g:UltiSnipsExpandTrigger = '<C-Space>'
 let g:UltiSnipsSnippetsDir = $HOME.'/.config/nvim/ultisnips'
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.config/nvim/ultisnips']
+let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/ultisnips']
 
 
 " ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤

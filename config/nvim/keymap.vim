@@ -41,8 +41,8 @@ nnoremap <Leader>q :quit<CR>
 nnoremap <Leader>Q :quit!<CR>
 
 " Close buffer but keep window.
-nnoremap <Leader>x :bp\|bd #<CR>
-nnoremap <Leader>X :bp\|bd! #<CR>
+nnoremap <Leader>x :Bclose<CR>
+nnoremap <Leader>X :Bclose!<CR>
 
 " Remove highlighted search result.
 nnoremap <Esc><Esc> :nohl<CR>
