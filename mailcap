@@ -1,0 +1,8 @@
+# Replicate xdg/ranger mime settings for applications that use mailcap.
+
+image/gif; mpv '%s' --autofit 800x600 --loop=inf; test=test -n "$DISPLAY"
+image/x-imgur-album; feh -g 800x600 --scale-down --auto-zom --image-bg "#343434" %s; test=test -n "$DISPLAY"
+image/*; feh 800x600 --scale-down --auto-zom --image-bg "#343434" '%s'; test=test -n "$DISPLAY"
+text/*; nvim '%s'; test=test -n "$DISPLAY"
+video/x-youtube; mpv --ytdl-format=bestvideo+bestaudio/best '%s' --autofit 800x600; test=test -n "$DISPLAY"
+video/*; mpv '%s' --autofit 800x600 --loop=inf; test=test -n "$DISPLAY"
