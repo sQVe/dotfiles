@@ -52,10 +52,13 @@ export FZF_DEFAULT_OPTS='
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 # ¤¤¤¤  Keybindings  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-bindkey "^[" vi-cmd-mode
-bindkey "^[^?" backward-kill-word
-bindkey "^[^H" backward-kill-word
+bindkey -r '^T'
+
+bindkey '^[' vi-cmd-mode
+bindkey '^[^?' backward-kill-word
+bindkey '^[^H' backward-kill-word
 bindkey '^E' edit-command-line
+bindkey '^F' fzf-file-widget
 bindkey '^G' fzf-cd-widget
 
 
