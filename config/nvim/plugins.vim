@@ -32,7 +32,7 @@ Plug 'ap/vim-buftabline'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'rbgrouleff/bclose.vim'
-Plug 'scrooloose/nerdcommenter'
+Plug 'tomtom/tcomment_vim'
 
 " Integration.
 Plug 'editorconfig/editorconfig-vim'
@@ -217,8 +217,9 @@ let g:vim_markdown_folding_level = 2
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_no_extensions_in_markdown = 1
 
-" NERDComment.
-let g:NERDSpaceDelims = 1
+" TComment.
+let g:tcomment_mapleader1 = "<C-_>"
+let g:tcomment_mapleader2 = "<Leader>-"
 
 " Rainbow.
 let g:rainbow_active = 1

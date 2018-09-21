@@ -62,9 +62,6 @@ vnoremap <silent> # :<C-U>
 " Set pwd to current open buffer path.
 noremap cd :Cdb<CR>:pwd<CR>
 
-" Black hole.
-noremap <Leader>- "_
-
 " Switch between the last two files.
 nnoremap <Leader><Tab> <C-^>
 
