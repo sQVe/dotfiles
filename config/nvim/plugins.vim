@@ -110,6 +110,7 @@ let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_grouping = 2
 let g:EasyMotion_keys = 'fjdkslaöruvmeic,wox.qpz-ghtybn'
 let g:EasyMotion_smartcase = 1
+
 " Emmet.
 let g:user_emmet_leader_key = ',,'
 let g:user_emmet_settings = {
@@ -171,6 +172,10 @@ let g:fzf_colors =
 
 " JavaScript.
 let g:javascript_plugin_jsdoc = 1
+
+" JSX.
+let g:vim_jsx_pretty_enable_jsx_highlight = 1
+let g:vim_jsx_pretty_colorful_config = 1
 
 " LanguageClient.
 let g:LanguageClient_autoStart = 1
@@ -299,8 +304,8 @@ nnoremap <Leader>es :call LanguageClient#textDocument_documentSymbol()<CR>
 nnoremap <Leader>et :call LanguageClient#textDocument_typeDefinition()<CR>
 
 " Ranger.
-noremap <silent>ä :RangerWorkingDirectory<CR>
-noremap <silent>Ä :Ranger<CR>
+noremap <silent>ä :Ranger<CR>
+noremap <silent>Ä :RangerWorkingDirectory<CR>
 
 " UltiSnips.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
