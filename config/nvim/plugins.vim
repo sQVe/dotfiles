@@ -13,10 +13,6 @@ call plug#begin('$HOME/.local/share/nvim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Language, syntax and formatting.
-" NOTE: vim-styled-components plugin is not compatible together with
-" vim-javascript and rainbow. If we need this in the future then we need to
-" disable rainbow.
-" Plug 'fleischie/vim-styled-components'
 Plug 'hail2u/vim-css3-syntax'
 Plug 'leafgarland/typescript-vim'
 Plug 'luochen1990/rainbow'
@@ -31,26 +27,27 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-buftabline'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'rbgrouleff/bclose.vim'
-Plug 'tomtom/tcomment_vim'
-
-" Integration.
-Plug 'editorconfig/editorconfig-vim'
-Plug 'godlygeek/tabular'
 Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'shumphrey/fugitive-gitlab.vim'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rhubarb'
 Plug 'w0rp/ale'
 
-" Commands.
+" Integration.
 Plug 'easymotion/vim-easymotion'
-Plug 'lambdalisue/suda.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'shumphrey/fugitive-gitlab.vim'
+Plug 'sickill/vim-pasta'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
+
+" Commands.
+Plug 'godlygeek/tabular'
+Plug 'lambdalisue/suda.vim'
+Plug 'rbgrouleff/bclose.vim'
 
 " Completion.
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -59,10 +56,8 @@ Plug 'autozimu/LanguageClient-neovim', {
   \ 'do': 'bash install.sh',
   \ }
 Plug 'ervandew/supertab'
-Plug 'ujihisa/neco-look'
-
-" Snippets.
 Plug 'sirver/ultisnips'
+Plug 'ujihisa/neco-look'
 
 call plug#end()
 
@@ -170,6 +165,13 @@ let g:fzf_colors =
   \ 'header':  ['fg', 'Comment'],
   \ }
 
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
+command! -bang -nargs=* HistoryFiles
+  \ call fzf#vim#history(fzf#vim#with_preview('right:50%', '?'))
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
+
 " JavaScript.
 let g:javascript_plugin_jsdoc = 1
 
@@ -204,13 +206,6 @@ let g:lightline = {
   \   'filename': 'LightlineFilename',
   \ },
   \ }
-
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
-command! -bang -nargs=* HistoryFiles
-  \ call fzf#vim#history(fzf#vim#with_preview('right:50%', '?'))
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
 
 " Markdown.
 let g:vim_markdown_folding_level = 2
@@ -258,21 +253,19 @@ map <Leader>f <Plug>(easymotion-f)
 map <Leader>F <Plug>(easymotion-F)
 map <Leader>t <Plug>(easymotion-t)
 map <Leader>T <Plug>(easymotion-T)
-map <Leader>h <Plug>(easymotion-linebackward)
+map <Leader>b <Plug>(easymotion-linebackward)
+map <Leader>w <Plug>(easymotion-lineforward)
 map <Leader>j <Plug>(easymotion-j)
 map <Leader>k <Plug>(easymotion-k)
-map <Leader>l <Plug>(easymotion-lineforward)
 
-" Git Gutter.
-noremap å :GitGutterNextHunk<CR>
-noremap Å :GitGutterPrevHunk<CR>
-
-" Fugitive.
+" Fugitive and Git Gutter.
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gf :Gfetch<CR>
 nnoremap <Leader>gfm :Gpull<CR>
+nnoremap <Leader>gj :GitGutterNextHunk<CR>
+nnoremap <Leader>gk :GitGutterPrevHunk<CR>
 nnoremap <Leader>gm :Gmerge<CR>
 nnoremap <Leader>go :Gbrowse<CR>
 nnoremap <Leader>gp :Gpush<CR>
@@ -281,19 +274,14 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 
 " FZF.
-nnoremap <Leader>/ :History/<CR>
-nnoremap <Leader>: :History:<CR>
-nnoremap <Leader>a :Ag<Space>
-nnoremap <Leader>b :Buffers<CR>
-nnoremap <Leader>B :Window<CR>
-nnoremap <Leader>c :BCommits<CR>
-nnoremap <Leader>C :Commits<CR>
-nnoremap <Leader>i :BLines<CR>
-nnoremap <Leader>I :Lines<CR>
+nnoremap ä :Files<CR>
+nnoremap Ä :HistoryFiles<CR>
+nnoremap <Leader>ö :Commands<CR>
+nnoremap <Leader>Ö :Commands<CR>
+nnoremap <Leader>/ :Ag<Space>
 nnoremap <Leader>m :Marks<CR>
-nnoremap <Leader>z :Commands<CR>
-nnoremap ö :Files<CR>
-nnoremap Ö :HistoryFiles<CR>
+nnoremap <Leader>ä :Buffers<CR>
+nnoremap <Leader>Ä :Window<CR>
 
 " LanguageClient.
 nnoremap <Leader>ed :call LanguageClient#textDocument_definition()<CR>
@@ -305,8 +293,8 @@ nnoremap <Leader>es :call LanguageClient#textDocument_documentSymbol()<CR>
 nnoremap <Leader>et :call LanguageClient#textDocument_typeDefinition()<CR>
 
 " Ranger.
-noremap <silent>ä :Ranger<CR>
-noremap <silent>Ä :RangerWorkingDirectory<CR>
+nnoremap å :Ranger<CR>
+nnoremap Å :RangerWorkingDirectory<CR>
 
 " UltiSnips.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"

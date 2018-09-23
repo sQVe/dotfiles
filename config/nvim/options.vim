@@ -34,7 +34,6 @@ set completeopt=longest,menuone   " Set compete options.
 
 " Cursor.
 set cursorline                    " Show a cursor line.
-set scrolloff=5                   " Start scrolling with 5 line padding.
 
 " Tabs and spaces.
 set expandtab                     " Insert spaces when TAB is pressed.

@@ -7,45 +7,37 @@
 inoremap jj <Esc>
 inoremap <F1> <Esc>
 
+" Quick command.
+noremap ö :
+noremap Ö :
+
 " Motion.
 noremap <Up> gk
 noremap <Down> gj
 inoremap <Up> <C-o>gk
 inoremap <Down> <C-o>gj
 noremap k gk
-noremap gk k
 noremap j gj
+noremap gk k
 noremap gj j
-noremap H ^
-noremap L g_
 
-" New buffer.
-nnoremap <Leader>n :enew<CR>
+noremap <Leader>h ^
+noremap <Leader>l g_
+noremap <Leader>H ^
+noremap <Leader>L g_
 
-" Start a new vim instance.
-nnoremap <Leader>N :!urxvt -e nvim & disown<CR><CR>
+" Quick save.
+noremap <Leader><Leader> :write<CR>
+
+" Quit and close buffer.
+noremap <Leader>q :quit<CR>
+noremap <Leader>d :Bclose<CR>
 
 " Start a new terminal at current pwd.
-nnoremap <Leader>u :!urxvt & disown<CR><CR>
-
-" Write buffer.
-nnoremap <Leader>w :write<CR>
-nnoremap <Leader>W :wall<CR>
-
-" Close buffer.
-nnoremap <Leader>d :bd<CR>
-nnoremap <Leader>D :bd!<CR>
-
-" Close window.
-nnoremap <Leader>q :quit<CR>
-nnoremap <Leader>Q :quit!<CR>
-
-" Close buffer but keep window.
-nnoremap <Leader>x :Bclose<CR>
-nnoremap <Leader>X :Bclose!<CR>
+noremap <Leader>u :!urxvt & disown<CR><CR>
 
 " Remove highlighted search result.
-nnoremap <Esc><Esc> :nohl<CR>
+noremap <Esc><Esc> :nohl<CR>
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
@@ -63,11 +55,7 @@ vnoremap <silent> # :<C-U>
 noremap cd :Cdb<CR>:pwd<CR>
 
 " Switch between the last two files.
-nnoremap <Leader><Tab> <C-^>
-
-" Adapt for Swedish keyboard layout.
-noremap å {
-noremap ä }
+noremap <Leader><Tab> <C-^>
 
 " Uniform split.
 noremap <Ctrl-W>n :split<CR>
@@ -101,4 +89,3 @@ noremap <C-Right> <C-w>l
 
 " Spell completion.
 inoremap <C-x><C-s> <C-x>s
-
