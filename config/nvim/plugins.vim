@@ -78,7 +78,7 @@ let g:ale_sign_warning = '••'
 let g:ale_linters = {
   \ 'awk': ['gawk'],
   \ 'javascript': ['eslint'],
-  \ 'typescript': ['tsserver', 'typecheck', 'eslint', 'tslint'],
+  \ 'typescript': ['tsserver', 'typecheck', 'tslint'],
   \ 'sh': ['shellcheck'],
   \ }
 let g:ale_fixers = {
@@ -88,7 +88,7 @@ let g:ale_fixers = {
   \ 'less': ['prettier'],
   \ 'markdown': ['prettier'],
   \ 'scss': ['prettier'],
-  \ 'typescript': ['prettier', 'eslint', 'tslint'],
+  \ 'typescript': ['prettier',  'tslint'],
   \ }
 
 " Better Whitespace.
