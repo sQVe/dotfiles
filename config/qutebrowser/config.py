@@ -1253,8 +1253,10 @@ config.bind('zH', 'hint links spawn term "http \'{hint-url}\' | less"')
 config.bind('zM', 'hint links spawn mpv --name "mpv-qutebrowser" \'{hint-url}\'')
 config.bind('zh', 'spawn term "http \'{url}\' | less"')
 config.bind('zm', 'spawn mpv --name "mpv-qutebrowser" \'{url}\'')
-config.bind('Ö', 'set-cmd-text -s :open -t')
-config.bind('ö', 'set-cmd-text -s :open')
+config.bind('Ä', 'set-cmd-text -s :open -t')
+config.bind('Ö', 'set-cmd-text :')
+config.bind('ä', 'set-cmd-text -s :open')
+config.bind('ö', 'set-cmd-text :')
 
 # Bindings for insert mode
 config.bind('<Ctrl+e>', 'open-editor', mode='insert')
