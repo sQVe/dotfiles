@@ -30,14 +30,14 @@ noremap <Leader>L g_
 noremap <Leader><Leader> :write<CR>
 
 " Quit and close buffer.
-noremap <Leader>q :quit<CR>
+noremap <Leader>q :bdelete<CR>
 noremap <Leader>d :Bclose<CR>
 
 " Start a new terminal at current pwd.
 noremap <Leader>u :!urxvt & disown<CR><CR>
 
 " Remove highlighted search result.
-noremap <Esc><Esc> :nohl<CR>
+nnoremap <Esc><Esc> :nohl<CR>
 
 " Search for selected text, forwards or backwards.
 vnoremap <silent> * :<C-U>
