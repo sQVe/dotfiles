@@ -35,6 +35,7 @@ Plug 'w0rp/ale'
 " Integration.
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'heavenshell/vim-jsdoc'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'sickill/vim-pasta'
@@ -174,6 +175,9 @@ command! -bang -nargs=* Ag
 
 " JavaScript.
 let g:javascript_plugin_jsdoc = 1
+
+" JsDoc.
+let g:jsdoc_enable_es6 = 1
 
 " JSX.
 let g:vim_jsx_pretty_enable_jsx_highlight = 1
