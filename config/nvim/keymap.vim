@@ -31,7 +31,9 @@ noremap <Leader><Leader> :write<CR>
 
 " Quit and close buffer.
 noremap <Leader>q :bdelete<CR>
+noremap <Leader>Q :bdelete!<CR>
 noremap <Leader>d :Bclose<CR>
+noremap <Leader>D :Bclose!<CR>
 
 " Start a new terminal at current pwd.
 noremap <Leader>u :!urxvt & disown<CR><CR>
