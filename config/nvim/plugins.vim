@@ -92,6 +92,9 @@ let g:ale_fixers = {
   \ 'typescript': ['prettier',  'tslint'],
   \ }
 
+" Bclose.
+let g:no_plugin_maps = 1
+
 " Better Whitespace.
 autocmd BufEnter * EnableStripWhitespaceOnSave
 
@@ -142,6 +145,9 @@ autocmd BufReadPost *.git/index  set nobuflisted
 
 " Fugitive Gitlab.
 let g:fugitive_gitlab_domains = ['http://AnimechGitLab']
+
+" GitGutter.
+let g:gitgutter_map_keys = 0
 
 " FZF.
 let $FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
@@ -268,6 +274,7 @@ nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gf :Gfetch<CR>
 nnoremap <Leader>gfm :Gpull<CR>
+nnoremap <Leader>gh :GitGutterPreviewHunk<CR>
 nnoremap <Leader>gj :GitGutterNextHunk<CR>
 nnoremap <Leader>gk :GitGutterPrevHunk<CR>
 nnoremap <Leader>gm :Gmerge<CR>
