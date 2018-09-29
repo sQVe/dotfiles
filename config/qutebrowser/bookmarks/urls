@@ -50,11 +50,12 @@ https://docs.emmet.io/cheat-sheet/ Development / Information | Emmet Cheatsheet
 https://hackr.io/ Development / Information | Hackr.io
 https://ponyfoo.com/ Development / Information | Pony Foo
 https://stackoverflow.com/ Development / Information | Stack Overflow
+https://github.com/30-seconds/30-seconds-of-code Development / JavaScript | 30 seconds of code
 http://ramdajs.com/docs/ Development / JavaScript / FP | Ramda
 https://char0n.github.io/ramda-adjunct/2.5.0/ Development / JavaScript / FP | Ramda Adjunct
 https://github.com/ramda/ramda/wiki/What-Function-Should-I-Use%3F Development / JavaScript / FP | Ramda (What?)
+https://lodash.com/docs Development / JavaScript / FP | Lodash
 https://sanctuary.js.org/ Development / JavaScript / FP | Sanctuary
-https://lodash.com/docs Development / JavaScript / FP | Lodash Documentation
 https://reactjs.org/docs/hello-world.html Development / JavaScript / React & Redux | React
 https://reacttraining.com/react-router/web/guides/philosophy Development / JavaScript / React & Redux | React Router
 https://redux-saga.js.org/docs/api/index.html Development / JavaScript / React & Redux | React Saga
@@ -63,9 +64,11 @@ https://redux-form.com/7.3.0/docs/api/ Development / JavaScript / React & Redux 
 http://expressjs.com/en/api.html Development / JavaScript / Node.js | Express
 https://nodejs.org/api/ Development / JavaScript / Node.js | Node.js
 http://koajs.com/ Development / JavaScript / Node.js | Koa
-https://www.chaijs.com/api/bdd/ Development / JavaScript / Testing | Chai
 http://airbnb.io/enzyme/docs/api/index.html Development / JavaScript / Testing | Enzyme
 https://facebook.github.io/jest/docs/en/api.html Development / JavaScript / Testing | Jest
+https://mochajs.org/ Development / JavaScript / Testing | Mocha
+https://sinonjs.org/ Development / JavaScript / Testing | Sinon
+https://www.chaijs.com/api/bdd/ Development / JavaScript / Testing | Chai
 https://www.haskell.org/ Development / Haskell | Haskell Language
 https://hackage.haskell.org/ Development / Haskell | Hackage
 https://docs.haskellstack.org/en/stable/README/ Development / Haskell | Stack Tool
