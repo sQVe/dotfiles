@@ -1,14 +1,14 @@
-#-------------------------------------------------
-# NODE SPECIFIC
-#-------------------------------------------------
+extends 30secondsofcode
+
+# Node specific
+# -------------
 
 snippet #! "Shebang"
 #!/usr/bin/env node
 endsnippet
 
-#-------------------------------------------------
-# CONSOLE
-#-------------------------------------------------
+# Console
+# -------
 
 snippet cl "Log to the console" b
 console.log($1);
@@ -34,9 +34,8 @@ snippet cwc "Warn to the console with context" b
 console.warn('`!v expand("%:t")`:`!v line(".")` ==>'', $1);
 endsnippet
 
-#-------------------------------------------------
-# DISABLE ESLINT
-#-------------------------------------------------
+# Disable ESLint
+# --------------
 
 snippet eslint-disable "ESLint disable" b
 /* eslint-disable ${1:rule} */
@@ -52,18 +51,17 @@ snippet eslint-disable-next-line "ESLint disable next line" b
 // eslint-disable-next-line ${1:rule}
 endsnippet
 
-#-------------------------------------------------
-# FUNCTIONS
-#-------------------------------------------------
+# Functions
+# ---------
 
-snippet f "Function declaration" w
-function ${1:name}(${2:arguments}) {
+snippet f "Anonymous function" w
+function(${1:arguments}) {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet fa "Anonymous function" w
-function(${1:arguments}) {
+snippet fn "Function declaration" w
+function ${1:name}(${2:arguments}) {
 	${VISUAL}$0
 }
 endsnippet
@@ -74,14 +72,14 @@ snippet fr "Rocket function" w
 }
 endsnippet
 
-snippet af "Async function declaration" w
-async function ${1:name}(${2:arguments}) {
+snippet af "Async anonymous function" w
+async function(${1:arguments}) {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet afa "Async anonymous function" w
-async function(${1:arguments}) {
+snippet afn "Async function declaration" w
+async function ${1:name}(${2:arguments}) {
 	${VISUAL}$0
 }
 endsnippet
@@ -92,9 +90,8 @@ async (${1:arguments}) => {
 }
 endsnippet
 
-#-------------------------------------------------
-# TESTING
-#-------------------------------------------------
+# Testing
+# -------
 
 snippet before "Test before block" b
 before(() => {
@@ -160,9 +157,8 @@ snippet expect "Test expect statement" b
 expect(${1:subject})${VISUAL}$0
 endsnippet
 
-#-------------------------------------------------
-# MISC
-#-------------------------------------------------
+# Misc
+# ----
 
 snippet import "Import module" b
 import ${1:name} from "${2:path}";
