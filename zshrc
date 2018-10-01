@@ -83,13 +83,14 @@ alias dud='du -chd'
 alias free='free -m'
 alias ga='cat $ZIM_HOME/modules/git/init.zsh | ag "^alias" | sed -e "s/alias //" -e "s/=/%%/" | column -t -s "%%" | ag'
 alias grep='grep --color=auto -d skip'
+alias mkdir="mkdir -pv"
 alias more=less
 alias np='nvim -w PKGBUILD'
 alias open='mimeo -q'
+alias q=exit
 alias root='sudo -i'
 alias sudo='sudo '
 alias sudoedit='sudo edit'
-alias q=exit
 
 # Listing.
 alias cla='clear;la'
@@ -103,8 +104,6 @@ alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=au
 alias lsg='ls | ag'
 
 # Apps.
-alias :Q=exit
-alias :q=exit
 alias R='ramda --js'
 alias ag='ag --hidden --ignore .git --follow'
 alias bc='bc -l -q'
