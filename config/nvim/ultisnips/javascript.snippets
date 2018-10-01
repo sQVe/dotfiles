@@ -10,27 +10,27 @@ endsnippet
 # Console
 # -------
 
-snippet cl "Log to the console" b
+snippet cl "Log to the console" w
 console.log($1);
 endsnippet
 
-snippet clc "Log to the console with context" b
+snippet clc "Log to the console with context" w
 console.log('`!v expand("%:t")`:`!v line(".")` ==>', $1);
 endsnippet
 
-snippet ci "Info to the console" b
+snippet ci "Info to the console" w
 console.info($1);
 endsnippet
 
-snippet cic "Info to the console with context" b
+snippet cic "Info to the console with context" w
 console.info('`!v expand("%:t")`:`!v line(".")`' ==>', $1);
 endsnippet
 
-snippet cw "Warn to the console" b
+snippet cw "Warn to the console" w
 console.warn($1);
 endsnippet
 
-snippet cwc "Warn to the console with context" b
+snippet cwc "Warn to the console with context" w
 console.warn('`!v expand("%:t")`:`!v line(".")` ==>'', $1);
 endsnippet
 
