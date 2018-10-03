@@ -293,6 +293,7 @@ nnoremap <Leader>/ :Ag<Space>
 nnoremap <Leader>m :Marks<CR>
 nnoremap <Leader>ä :Buffers<CR>
 nnoremap <Leader>Ä :Window<CR>
+autocmd! FileType fzf tnoremap <buffer> <Esc> <C-c>
 
 " LanguageClient.
 nnoremap <Leader>ed :call LanguageClient#textDocument_definition()<CR>
