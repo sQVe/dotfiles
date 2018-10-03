@@ -174,7 +174,6 @@ bindsym $mod+c exec $menu-clipboard
 bindsym $mod+comma exec $brightness-up
 bindsym $mod+d exec $menu-run
 bindsym $mod+e exec $menu-exit
-bindsym $mod+f exec $ranger
 bindsym $mod+h focus left
 bindsym $mod+i [instance="^(?!(dropdown|node))"] scratchpad show
 bindsym $mod+j focus down
@@ -187,7 +186,7 @@ bindsym $mod+o floating toggle
 bindsym $mod+p focus parent
 bindsym $mod+period exec $volume-up
 bindsym $mod+q kill
-bindsym $mod+r mode "resize"
+bindsym $mod+r exec $ranger
 bindsym $mod+s split toggle
 bindsym $mod+t exec $todo
 bindsym $mod+v exec $vim
@@ -210,7 +209,7 @@ bindsym $mod+Shift+n exec $music-next
 bindsym $mod+Shift+o focus mode_toggle
 bindsym $mod+Shift+p focus child
 bindsym $mod+Shift+period exec $volume-down
-bindsym $mod+Shift+r restart
+bindsym $mod+Shift+r mode "resize"
 bindsym $mod+Shift+s layout toggle splitv splith
 bindsym $mod+Shift+v exec $music-prev
 bindsym $mod+Shift+z exec $menu-projects
