@@ -174,6 +174,7 @@ bindsym $mod+c exec $menu-clipboard
 bindsym $mod+comma exec $brightness-up
 bindsym $mod+d exec $menu-run
 bindsym $mod+e exec $menu-exit
+bindsym $mod+f mode "resize"
 bindsym $mod+h focus left
 bindsym $mod+i [instance="^(?!(dropdown|node))"] scratchpad show
 bindsym $mod+j focus down
@@ -209,7 +210,6 @@ bindsym $mod+Shift+n exec $music-next
 bindsym $mod+Shift+o focus mode_toggle
 bindsym $mod+Shift+p focus child
 bindsym $mod+Shift+period exec $volume-down
-bindsym $mod+Shift+r mode "resize"
 bindsym $mod+Shift+s layout toggle splitv splith
 bindsym $mod+Shift+v exec $music-prev
 bindsym $mod+Shift+z exec $menu-projects
@@ -268,7 +268,7 @@ bindsym $mod+space fullscreen toggle
 # ¤¤¤¤  Modes  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-mode "RESIZE" {
+mode "resize" {
   bindsym h resize grow width 40
   bindsym j resize grow height 40
   bindsym k resize shrink height 40
