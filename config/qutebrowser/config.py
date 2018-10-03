@@ -171,15 +171,17 @@ c.content.host_blocking.enabled = True
 # List of URLs of lists which contain hosts to block.  The file can be
 # in one of the following formats:  - An `/etc/hosts`-like file - One
 # host per line - A zip-file of any of the above, with either only one
-# file, or a file   named `hosts` (with any extension).
+# file, or a file   named `hosts` (with any extension).  It's also
+# possible to add a local file or directory via a `file://` URL. In case
+# of a directory, all files in the directory are read as adblock lists.
+# The file `~/.config/qutebrowser/blocked-hosts` is always read if it
+# exists.
 # Type: List of Url
 c.content.host_blocking.lists = ['https://www.malwaredomainlist.com/hostslist/hosts.txt', 'http://someonewhocares.org/hosts/hosts', 'http://winhelp2002.mvps.org/hosts.zip', 'http://malwaredomains.lehigh.edu/files/justdomains.zip', 'https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext']
 
-# List of domains that should always be loaded, despite being ad-
-# blocked. Domains may contain * and ? wildcards and are otherwise
-# required to exactly match the requested domain. Local domains are
-# always exempt from hostblocking.
-# Type: List of String
+# A list of patterns that should always be loaded, despite being ad-
+# blocked. Local domains are always exempt from hostblocking.
+# Type: List of UrlPattern
 c.content.host_blocking.whitelist = ['piwik.org']
 
 # Enable hyperlink auditing (`<a ping>`).
@@ -299,7 +301,7 @@ c.content.webgl = True
 
 # Monitor load requests for cross-site scripting attempts. Suspicious
 # scripts will be blocked and reported in the inspector's JavaScript
-# console. Enabling this feature might have an impact on performance.
+# console.
 # Type: Bool
 c.content.xss_auditing = False
 
@@ -345,7 +347,7 @@ c.completion.timestamp_format = '%Y-%m-%d'
 # Number of URLs to show in the web history. 0: no history / -1:
 # unlimited
 # Type: Int
-c.completion.web_history_max_items = -1
+c.completion.web_history.max_items = -1
 
 # Delay (in milliseconds) before updating completions after typing a
 # character.
@@ -544,10 +546,6 @@ c.prompt.filebrowser = True
 # Rounding radius (in pixels) for the edges of prompts.
 # Type: Int
 c.prompt.radius = 8
-
-# Show a scrollbar.
-# Type: Bool
-c.scrolling.bar = False
 
 # Enable smooth scrolling for web pages. Note smooth scrolling does not
 # work with the `:scroll-px` command.
