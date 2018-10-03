@@ -22,7 +22,7 @@ mons -a &
 # Start URxvt daemon.
 urxvtd -q -f -o &
 
-# Start greenclip.
+# Start greenclip daemon.
 greenclip daemon &
 
 # XSS Lock - handle lid close, suspend etc.
@@ -34,14 +34,15 @@ libinput-gestures-setup start &
 # Set background color.
 xsetroot -solid "#343434"
 
-# Set initial wallpaper.
+# Set initial random wallpaper.
 random-wallpaper
 
 # Set screen power timer.
 xset dpms 240 240 240
 
 # Setup peek cache symlink to tmp (solves large file issues as cache is limited to 1G).
-ln -s "/tmp" "$HOME/.cache/peek"
+mkdir /tmp/peek
+ln -s "/tmp/peek" "$HOME/.cache/peek"
 
 # Run the scripts in xinitrc.d.
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
