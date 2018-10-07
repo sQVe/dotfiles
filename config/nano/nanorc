@@ -63,7 +63,7 @@ set functioncolor green
 
 ## Syntax highlighting.
 include /usr/share/nano/*.nanorc
-include /usr/share/nano-syntax-highlighting/*.nanorc 
+include /usr/share/nano-syntax-highlighting/*.nanorc
 
 ## Unbinds.
 unbind ^K main
@@ -94,7 +94,6 @@ bind ^V uncut main
 bind ^U uncut main
 
 bind ^F whereis main
-bind ^N searchagain main
 bind ^J replace main
 
 bind ^Z undo main
