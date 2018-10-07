@@ -99,14 +99,26 @@ before(() => {
 });
 endsnippet
 
-snippet after "Test after block" b
-after(() => {
+snippet beforeAll "Test beforeAll block" b
+beforeAll(() => {
 	${VISUAL}$0
 });
 endsnippet
 
 snippet beforeEach "Test beforeEach block" b
 beforeEach(() => {
+	${VISUAL}$0
+});
+endsnippet
+
+snippet after "Test after block" b
+after(() => {
+	${VISUAL}$0
+});
+endsnippet
+
+snippet afterAll "Test afterAll block" b
+afterAll(() => {
 	${VISUAL}$0
 });
 endsnippet
