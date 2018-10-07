@@ -23,6 +23,9 @@ fi
 autoload -z edit-command-line
 zle -N edit-command-line
 
+# Disable terminal close on <C-c>.
+set -o ignoreeof
+
 
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 # ¤¤¤¤  Functions  ¤¤¤¤
