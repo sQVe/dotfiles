@@ -36,7 +36,7 @@ const ary = (fn, n) => (...args) => fn(...args.slice(0, n));
 endsnippet
 
 snippet atob "Decodes a string of data which has been encoded using base-64 encoding.  Create a `Buffer` for the given string with base-64 encoding and use `Buffer.toString('binary')` to return the decoded string." b
-const atob = str => new Buffer(str, 'base64').toString('binary');
+const atob = str => Buffer.from(str, 'base64').toString('binary');
 endsnippet
 
 snippet attempt "Attempts to invoke a function with the provided arguments, returning either the result or the caught error object.  Use a `try... catch` block to return either the result of the function or an appropriate error." b
@@ -110,7 +110,7 @@ const bottomVisible = () =>
 endsnippet
 
 snippet btoa "Creates a base-64 encoded ASCII string from a String object in which each character in the string is treated as a byte of binary data.  Create a `Buffer` for the given string with binary encoding and use `Buffer.toString('base64')` to return the encoded string." b
-const btoa = str => new Buffer(str, 'binary').toString('base64');
+const btoa = str => Buffer.from(str, 'binary').toString('base64');
 endsnippet
 
 snippet byteSize "Returns the length of a string in bytes.  Convert a given string to a [`Blob` Object](https://developer.mozilla.org/en-US/docs/Web/API/Blob) and find its `size`." b
@@ -671,6 +671,13 @@ const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
   (dateFinal - dateInitial) / (1000 * 3600 * 24);
 endsnippet
 
+snippet getImages "Fetches all images from within an element and puts them into an array  Use `Element.prototype.getElementsByTagName()` to fetch all `<img>` elements inside the provided element, `Array.prototype.map()` to map every `src` attribute of their respective `<img>` element, then create a `Set` to eliminate duplicates and return the array." b
+const getImages = (el, includeDuplicates = false) => {
+  const images = [...el.getElementsByTagName('img')].map(img => img.getAttribute('src'));
+  return includeDuplicates ? images : [...new Set(images)];
+};
+endsnippet
+
 snippet getMeridiemSuffixOfInteger "Converts an integer to a suffixed string, adding `am` or `pm` based on its value.  Use the modulo operator (`%`) and conditional checks to transform an integer to a stringified 12-hour format with meridiem suffix." b
 const getMeridiemSuffixOfInteger = num =>
   num === 0 || num === 24
@@ -952,6 +959,17 @@ snippet isDivisible "Checks if the first numeric argument is divisible by the se
 const isDivisible = (dividend, divisor) => dividend % divisor === 0;
 endsnippet
 
+snippet isDuplexStream "Checks if the given argument is a duplex (readable and writable) stream.  Check if the value is different from `null`, use `typeof` to check if a value is of type `object` and the `pipe` property is of type `function`. Additionally check if the `typeof` the `_read`, `_write` and `_readableState`, `_writableState` properties are `function` and `object` respectively." b
+const isDuplexStream = val =>
+  val !== null &&
+  typeof val === 'object' &&
+  typeof val.pipe === 'function' &&
+  typeof val._read === 'function' &&
+  typeof val._readableState === 'object' &&
+  typeof val._write === 'function' &&
+  typeof val._writableState === 'object';
+endsnippet
+
 snippet isEmpty "Returns true if the a value is an empty object, collection, map or set, has no enumerable properties or is any type that is not considered a collection.  Check if the provided value is `null` or if its `length` is equal to `0`." b
 const isEmpty = val => val == null || !(Object.keys(val) || val).length;
 endsnippet
@@ -1011,6 +1029,15 @@ const isPromiseLike = obj =>
   typeof obj.then === 'function';
 endsnippet
 
+snippet isReadableStream "Checks if the given argument is a readable stream.  Check if the value is different from `null`, use `typeof` to check if the value is of type `object` and the `pipe` property is of type `function`. Additionally check if the `typeof` the `_read` and `_readableState` properties are `function` and `object` respectively." b
+const isReadableStream = val =>
+  val !== null &&
+  typeof val === 'object' &&
+  typeof val.pipe === 'function' &&
+  typeof val._read === 'function' &&
+  typeof val._readableState === 'object';
+endsnippet
+
 snippet isSameDate "Check if a date is the same as another date.  Use `Date.prototype.toISOString()` and strict equality checking (`===`) to check if the first date is the same as the second one." b
 const isSameDate = (dateA, dateB) => dateA.toISOString() === dateB.toISOString();
 endsnippet
@@ -1026,7 +1053,11 @@ const isSorted = arr => {
 };
 endsnippet
 
-snippet isString "Checks if the given argument is a string.  Use `typeof` to check if a value is classified as a string primitive." b
+snippet isStream "Checks if the given argument is a stream.  Check if the value is different from `null`, use `typeof` to check if the value is of type `object` and the `pipe` property is of type `function`." b
+const isStream = val => val !== null && typeof val === 'object' && typeof val.pipe === 'function';
+endsnippet
+
+snippet isString "Checks if the given argument is a string. Only works for string primitives.  Use `typeof` to check if a value is classified as a string primitive." b
 const isString = val => typeof val === 'string';
 endsnippet
 
@@ -1055,6 +1086,15 @@ const isValidJSON = obj => {
     return false;
   }
 };
+endsnippet
+
+snippet isWritableStream "Checks if the given argument is a writable stream.  Check if the value is different from `null`, use `typeof` to check if the value is of type `object` and the `pipe` property is of type `function`. Additionally check if the `typeof` the `_write` and `_writableState` properties are `function` and `object` respectively." b
+const isWritableStream = val =>
+  val !== null &&
+  typeof val === 'object' &&
+  typeof val.pipe === 'function' &&
+  typeof val._write === 'function' &&
+  typeof val._writableState === 'object';
 endsnippet
 
 snippet join "Joins all elements of an array into a string and returns this string. Uses a separator and an end separator.  Use `Array.prototype.reduce()` to combine elements into a string. Omit the second argument, `separator`, to use a default separator of `','`. Omit the third argument, `end`, to use the same value as `separator` by default." b
@@ -1934,12 +1974,9 @@ snippet takeRight "Returns an array with n elements removed from the end.  Use `
 const takeRight = (arr, n = 1) => arr.slice(arr.length - n, arr.length);
 endsnippet
 
-snippet takeRightWhile "Removes elements from the end of an array until the passed function returns `true`. Returns the removed elements.  Loop through the array, using a `for...of` loop over `Array.prototype.keys()` until the returned value from the function is `true`. Return the removed elements, using `Array.prototype.reverse()` and `Array.prototype.slice()`." b
-const takeRightWhile = (arr, func) => {
-  for (let i of arr.reverse().keys())
-    if (func(arr[i])) return arr.reverse().slice(arr.length - i, arr.length);
-  return arr;
-};
+snippet takeRightWhile "Removes elements from the end of an array until the passed function returns `true`. Returns the removed elements.  Loop through the array, using a `Array.prototype.reduceRight()` and accumulating elements while the function returns falsy value." b
+const takeRightWhile = (arr, func) =>
+  arr.reduceRight((acc, el) => (func(el) ? acc : [el, ...acc]), []);
 endsnippet
 
 snippet takeWhile "Removes elements in an array until the passed function returns `true`. Returns the removed elements.  Loop through the array, using a `for...of` loop over `Array.prototype.entries()` until the returned value from the function is `true`. Return the removed elements, using `Array.prototype.slice()`." b
@@ -2074,8 +2111,8 @@ const transform = (obj, fn, acc) => Object.keys(obj).reduce((a, k) => fn(a, obj[
 endsnippet
 
 snippet triggerEvent "Triggers a specific event on a given element, optionally passing custom data.  Use `new CustomEvent()` to create an event from the specified `eventType` and details. Use `el.dispatchEvent()` to trigger the newly created event on the given element. Omit the third argument, `detail`, if you do not want to pass custom data to the triggered event." b
-const triggerEvent = (el, eventType, detail = undefined) =>
-  el.dispatchEvent(new CustomEvent(eventType, { detail: detail }));
+const triggerEvent = (el, eventType, detail) =>
+  el.dispatchEvent(new CustomEvent(eventType, { detail }));
 endsnippet
 
 snippet truncateString "Truncates a string up to a specified length.  Determine if the string's `length` is greater than `num`. Return the string truncated to the desired length, with `'...'` appended to the end or the original string." b
