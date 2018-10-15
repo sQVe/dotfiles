@@ -32,7 +32,7 @@ set -o ignoreeof
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 function nvm() {
   source /usr/share/nvm/nvm.sh --no-use
-  nvm "$*"
+  nvm "$@"
 }
 
 
