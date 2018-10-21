@@ -2,8 +2,8 @@
 
 case "$BLOCK_BUTTON" in
   1) light -S 10;;
-  2) light -S 40;;
-  3) light -S 80;;
+  2) light -S 80;;
+  3) light -S 40;;
   4) light -A 5;;
   5) light -U 5;;
 esac

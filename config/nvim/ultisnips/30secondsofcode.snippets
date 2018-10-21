@@ -228,7 +228,7 @@ endsnippet
 
 snippet countBy "Groups the elements of an array based on the given function and returns the count of elements in each group.  Use `Array.prototype.map()` to map the values of an array to a function or property name. Use `Array.prototype.reduce()` to create an object, where the keys are produced from the mapped results." b
 const countBy = (arr, fn) =>
-  arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val, i) => {
+  arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val) => {
     acc[val] = (acc[val] || 0) + 1;
     return acc;
   }, {});
@@ -345,7 +345,7 @@ snippet deepFreeze "Deep freezes an object.  Calls `Object.freeze(obj)` recursiv
 const deepFreeze = obj =>
   Object.keys(obj).forEach(
     prop =>
-      !obj[prop] instanceof Object || Object.isFrozen(obj[prop]) ? null : deepFreeze(obj[prop])
+      !(obj[prop] instanceof Object) || Object.isFrozen(obj[prop]) ? null : deepFreeze(obj[prop])
   ) || Object.freeze(obj);
 endsnippet
 
@@ -381,7 +381,7 @@ endsnippet
 
 snippet differenceBy "Returns the difference between two arrays, after applying the provided function to each array element of both.  Create a `Set` by applying `fn` to each element in `b`, then use `Array.prototype.filter()` in combination with `fn` on `a` to only keep values not contained in the previously created set." b
 const differenceBy = (a, b, fn) => {
-  const s = new Set(b.map(v => fn(v)));
+  const s = new Set(b.map(fn));
   return a.filter(x => !s.has(fn(x)));
 };
 endsnippet
@@ -395,9 +395,9 @@ const dig = (obj, target) =>
   target in obj
     ? obj[target]
     : Object.values(obj).reduce((acc, val) => {
-        if (acc !== undefined) return acc;
-        if (typeof val === 'object') return dig(val, target);
-      }, undefined);
+      if (acc !== undefined) return acc;
+      if (typeof val === 'object') return dig(val, target);
+    }, undefined);
 endsnippet
 
 snippet digitize "Converts a number to an array of digits.  Convert the number to a string, using the spread operator (`...`) to build an array. Use `Array.prototype.map()` and `parseInt()` to transform each value to an integer." b
@@ -451,9 +451,8 @@ const elo = ([...ratings], kFactor = 32, selfRating) => {
   const expectedScore = (self, opponent) => 1 / (1 + 10 ** ((opponent - self) / 400));
   const newRating = (rating, i) =>
     (selfRating || rating) + kFactor * (i - expectedScore(i ? a : b, i ? b : a));
-  if (ratings.length === 2) {
-    return [newRating(a, 1), newRating(b, 0)];
-  }
+  if (ratings.length === 2) return [newRating(a, 1), newRating(b, 0)];
+
   for (let i = 0, len = ratings.length; i < len; i++) {
     let j = i;
     while (j < len - 1) {
@@ -515,8 +514,8 @@ snippet factorial "Calculates the factorial of a number.  Use recursion. If `n` 
 const factorial = n =>
   n < 0
     ? (() => {
-        throw new TypeError('Negative numbers are not allowed!');
-      })()
+      throw new TypeError('Negative numbers are not allowed!');
+    })()
     : n <= 1
       ? 1
       : n * factorial(n - 1);
@@ -1018,8 +1017,8 @@ const isPrime = num => {
 };
 endsnippet
 
-snippet isPrimitive "Returns a boolean determining if the passed value is primitive or not.  Use `Array.prototype.includes()` on an array of type strings which are not primitive, supplying the type using `typeof`. Since `typeof null` evaluates to `'object'`, it needs to be directly compared." b
-const isPrimitive = val => !['object', 'function'].includes(typeof val) || val === null;
+snippet isPrimitive "Returns a boolean determining if the passed value is primitive or not.  Create an object from `val` and compare it with `val` to determine if the passed value is primitive (i.e. not equal to the created object)." b
+const isPrimitive = val => Object(val) !== val;
 endsnippet
 
 snippet isPromiseLike "Returns `true` if an object looks like a [`Promise`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise), `false` otherwise.  Check if the object is not `null`, its `typeof` matches either `object` or `function` and if it has a `.then` property, which is also a `function`." b
@@ -1110,7 +1109,7 @@ const join = (arr, separator = ',', end = separator) =>
   );
 endsnippet
 
-snippet JSONtoCSV "Converts an array of objects to a comma-separated values (CSV) string that contains only the `columns` specified.  Use `Array.prototype.join(demiliter)` to combine all the names in `columns` to create the first row. Use `Array.prototype.map()` and `Array.prototype.reduce()` to create a row for each object, substituting non-existent values with empty strings and only mapping values in `columns`. Use `Array.prototype.join('\n')` to combine all rows into a string. Omit the third argument, `delimiter`, to use a default delimiter of `,`." b
+snippet JSONtoCSV "Converts an array of objects to a comma-separated values (CSV) string that contains only the `columns` specified.  Use `Array.prototype.join(delimiter)` to combine all the names in `columns` to create the first row. Use `Array.prototype.map()` and `Array.prototype.reduce()` to create a row for each object, substituting non-existent values with empty strings and only mapping values in `columns`. Use `Array.prototype.join('\n')` to combine all rows into a string. Omit the third argument, `delimiter`, to use a default delimiter of `,`." b
 const JSONtoCSV = (arr, columns, delimiter = ',') =>
   [
     columns.join(delimiter),
@@ -1423,7 +1422,7 @@ const pad = (str, length, char = ' ') =>
   str.padStart((str.length + length) / 2, char).padEnd(length, char);
 endsnippet
 
-snippet palindrome "Returns `true` if the given string is a palindrome, `false` otherwise.  Convert string `String.toLowerCase()` and use `String.prototype.replace()` to remove non-alphanumeric characters from it. Then, use the spread operator (`...`) to split string into individual characters, `Array.prototype.reverse()`, `String.prototype.join('')` and compare to the original, unreversed string, after converting it `String.tolowerCase()`." b
+snippet palindrome "Returns `true` if the given string is a palindrome, `false` otherwise.  Convert the string to `String.prototype.toLowerCase()` and use `String.prototype.replace()` to remove non-alphanumeric characters from it. Then, use the spread operator (`...`) to split the string into individual characters, `Array.prototype.reverse()`, `String.prototype.join('')` and compare it to the original, unreversed string, after converting it to `String.prototype.toLowerCase()`." b
 const palindrome = str => {
   const s = str.toLowerCase().replace(/[\W_]/g, '');
   return s === [...s].reverse().join('');
@@ -1686,9 +1685,9 @@ snippet remove "Removes elements from an array for which the given function retu
 const remove = (arr, func) =>
   Array.isArray(arr)
     ? arr.filter(func).reduce((acc, val) => {
-        arr.splice(arr.indexOf(val), 1);
-        return acc.concat(val);
-      }, [])
+      arr.splice(arr.indexOf(val), 1);
+      return acc.concat(val);
+    }, [])
     : [];
 endsnippet
 
@@ -1741,7 +1740,7 @@ snippet runPromisesInSeries "Runs an array of promises in series.  Use `Array.pr
 const runPromisesInSeries = ps => ps.reduce((p, next) => p.then(next), Promise.resolve());
 endsnippet
 
-snippet sample "Returns a random element from an array.  Use `Math.random()` to generate a random number, multiply it by `length` and round it of to the nearest whole number using `Math.floor()`. This method also works with strings." b
+snippet sample "Returns a random element from an array.  Use `Math.random()` to generate a random number, multiply it by `length` and round it off to the nearest whole number using `Math.floor()`. This method also works with strings." b
 const sample = arr => arr[Math.floor(Math.random() * arr.length)];
 endsnippet
 
@@ -2003,7 +2002,7 @@ const throttle = (fn, wait) => {
           fn.apply(context, args);
           lastTime = Date.now();
         }
-      }, wait - (Date.now() - lastTime));
+      }, Math.max(wait - (Date.now() - lastTime), 0));
     }
   };
 };
@@ -2185,7 +2184,7 @@ endsnippet
 
 snippet unionBy "Returns every element that exists in any of the two arrays once, after applying the provided function to each array element of both.  Create a `Set` by applying all `fn` to all values of `a`. Create a `Set` from `a` and all elements in `b` whose value, after applying `fn` does not match a value in the previously created set. Return the last set converted to an array." b
 const unionBy = (a, b, fn) => {
-  const s = new Set(a.map(v => fn(v)));
+  const s = new Set(a.map(fn));
   return Array.from(new Set([...a, ...b.filter(x => !s.has(fn(x)))]));
 };
 endsnippet
