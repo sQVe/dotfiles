@@ -1,8 +1,5 @@
 extends 30secondsofcode
 
-# Node specific
-# -------------
-
 snippet #! "Shebang"
 #!/usr/bin/env node
 endsnippet
@@ -166,7 +163,7 @@ When('${1:and}', () => {
 endsnippet
 
 snippet expect "Test expect statement" b
-expect(${1:subject})${VISUAL}$0
+expect(${1:subject}).to${VISUAL}$0
 endsnippet
 
 # Misc
