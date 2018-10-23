@@ -26,6 +26,10 @@ zle -N edit-command-line
 # Disable terminal close on <C-c>.
 set -o ignoreeof
 
+# Repair kill line, word and char when jumping between modes.
+zle -A kill-whole-line vi-kill-line
+zle -A backward-kill-word vi-backward-kill-word
+zle -A backward-delete-char vi-backward-delete-char
 
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 # ¤¤¤¤  Functions  ¤¤¤¤
@@ -153,4 +157,3 @@ alias cfg-zimrc='nvim ~/.dotfiles/zimrc'
 alias cfg-zshenv='nvim ~/.dotfiles/zshenv'
 alias cfg-zshrc='nvim ~/.dotfiles/zshrc'
 alias doc-vim-cheat='nvim ~/docs/vim-cheat.txt'
-
