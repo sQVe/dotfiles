@@ -16,7 +16,7 @@ command Bda bufdo bd
 command Bdo %bd|e#|bd#
 
 " Show full path to open buffer.
-command Bpath echo expand('%:p')
+command Bpwd echo expand('%:p')
 
 " Shortened plug commands.
 command Clean PlugClean
