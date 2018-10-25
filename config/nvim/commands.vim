@@ -3,11 +3,11 @@
 "  ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃┗━┓
 "  ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛┗━┛
 
-" Set pwd to path of open buffer.
-command Cdb :cd %:p:h
+" Enable ALE Fix on save.
+command ALEEnableFixOnSave let g:ale_fix_on_save = 1
 
-" Copy.
-command Copy !xsel -b < %
+" Disable ALE Fix on save.
+command ALEDisableFixOnSave let g:ale_fix_on_save = 0
 
 " Delete all open buffers.
 command Bda bufdo bd
@@ -17,6 +17,11 @@ command Bdo %bd|e#|bd#
 
 " Show full path to open buffer.
 command Bpwd echo expand('%:p')
+" Set pwd to path of open buffer.
+command Cdb :cd %:p:h
+
+" Copy.
+command Copy !xsel -b < %
 
 " Shortened plug commands.
 command Clean PlugClean

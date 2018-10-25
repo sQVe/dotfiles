@@ -89,14 +89,14 @@ let g:ale_fixers = {
   \ 'less': ['prettier'],
   \ 'markdown': ['prettier'],
   \ 'scss': ['prettier'],
-  \ 'typescript': ['prettier',  'tslint'],
+  \ 'typescript': ['prettier', 'tslint'],
   \ }
 
 " Bclose.
 let g:no_plugin_maps = 1
 
 " Better Whitespace.
-autocmd BufEnter * EnableStripWhitespaceOnSave
+let g:strip_whitespace_on_save = 1
 
 " BufTabLine.
 highlight default link BufTabLineCurrent Identifier
@@ -277,6 +277,8 @@ nnoremap <Leader>gfm :Gpull<CR>
 nnoremap <Leader>gh :GitGutterPreviewHunk<CR>
 nnoremap <Leader>gj :GitGutterNextHunk<CR>
 nnoremap <Leader>gk :GitGutterPrevHunk<CR>
+nnoremap <Leader>gl :Commits<CR>
+nnoremap <Leader>gL :BCommits<CR>
 nnoremap <Leader>gm :Gmerge<CR>
 nnoremap <Leader>go :Gbrowse<CR>
 nnoremap <Leader>gp :Gpush<CR>
@@ -287,12 +289,11 @@ nnoremap <Leader>gw :Gwrite<CR>
 " FZF.
 nnoremap ä :Files<CR>
 nnoremap Ä :HistoryFiles<CR>
-nnoremap <Leader>ö :Commands<CR>
-nnoremap <Leader>Ö :Commands<CR>
 nnoremap <Leader>/ :Ag<Space>
-nnoremap <Leader>m :Marks<CR>
-nnoremap <Leader>ä :Buffers<CR>
 nnoremap <Leader>Ä :Window<CR>
+nnoremap <Leader>ä :Buffers<CR>
+nnoremap <Leader>Ö :Commands<CR>
+nnoremap <Leader>ö :Commands<CR>
 autocmd! FileType fzf tnoremap <buffer> <Esc> <C-c>
 
 " LanguageClient.
