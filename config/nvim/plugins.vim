@@ -90,6 +90,7 @@ let g:ale_fixers = {
   \ 'markdown': ['prettier'],
   \ 'scss': ['prettier'],
   \ 'typescript': ['prettier', 'tslint'],
+  \ 'yaml': ['prettier'],
   \ }
 
 " Bclose.
@@ -177,7 +178,7 @@ command! -bang -nargs=? -complete=dir Files
 command! -bang -nargs=* HistoryFiles
   \ call fzf#vim#history(fzf#vim#with_preview('right:50%', '?'))
 command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
+  \ call fzf#vim#ag(<q-args>, '--hidden --follow --ignore .git', fzf#vim#with_preview('right:50%', '?'), <bang>0)
 
 " JavaScript.
 let g:javascript_plugin_jsdoc = 1
