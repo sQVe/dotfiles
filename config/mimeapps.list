@@ -1,7 +1,7 @@
 [Added Associations]
 application/javascript=urxvt-nvim.desktop;
 application/json=urxvt-nvim.desktop;
-application/pdf=mupdf.desktop;chromium.desktop;
+application/pdf=org.pwmt.zathura.desktop;chromium.desktop;
 application/vnd.snap=urxvt-nvim.desktop;
 application/x-awk=urxvt-nvim.desktop;
 application/x-darktable=urxvt-nvim.desktop;
