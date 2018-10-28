@@ -175,6 +175,7 @@ bindsym $mod+comma exec $brightness-up
 bindsym $mod+d exec $menu-run
 bindsym $mod+e exec $menu-exit
 bindsym $mod+f mode "resize"
+bindsym $mod+g gaps inner current plus 20
 bindsym $mod+h focus left
 bindsym $mod+i [instance="^(?!(dropdown|node))"] scratchpad show
 bindsym $mod+j focus down
@@ -199,6 +200,7 @@ bindsym $mod+z exec $menu-apps
 bindsym $mod+Shift+b exec $music-toggle
 bindsym $mod+Shift+comma exec $brightness-down
 bindsym $mod+Shift+d exec $menu-windows
+bindsym $mod++Shift+g gaps inner current minus 20
 bindsym $mod+Shift+h move left 80
 bindsym $mod+Shift+i move scratchpad
 bindsym $mod+Shift+j move down 80
