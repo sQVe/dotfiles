@@ -63,28 +63,29 @@ URxvt.italicFont:        xft:Iosevka Term:size=10:italic:antialias=true:hinting=
 ! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 ! ¤¤¤¤  URxvt settings  ¤¤¤¤
 ! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-URxvt.internalBorder:    6
-URxvt.iso14755:          false
-URxvt.letterSpace:       0
-URxvt.matcher.button:    3
-URxvt.matcher.rend.0:    Uline fg5
-URxvt.perl-ext-common:   default,matcher,keyboard-select,selection-to-clipboard
-URxvt.scrollBar:         false
-URxvt.scrollTtyKeypress: true
-URxvt.scrollTtyOutput:   false
-URxvt.scrollWithBuffer:  true
-URxvt.urgentOnBell:      true
-URxvt.url-launcher:      /usr/bin/mimeo
-URxvt.url-select.launcher: /usr/bin/mimeo
-URxvt.url-select.underline: true
+URxvt.internalBorder:         6
+URxvt.iso14755:               false
+URxvt.letterSpace:            0
+URxvt.matcher.button:         3
+URxvt.matcher.rend.0:         Uline fg5
+URxvt.perl-ext-common:        default,matcher,keyboard-select,selection-to-clipboard
+URxvt.scrollBar:              false
+URxvt.scrollTtyKeypress:      true
+URxvt.scrollTtyOutput:        false
+URxvt.scrollWithBuffer:       true
+URxvt.urgentOnBell:           true
+URxvt.url-launcher:           /usr/bin/mimeo
+URxvt.url-select.launcher:    /usr/bin/mimeo
+URxvt.url-select.underline:   true
 
 
 ! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 ! ¤¤¤¤  URxvt keybinding  ¤¤¤¤
 ! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-s: perl:keyboard-select:search
-URxvt.keysym.M-u: perl:matcher:list
+URxvt.keysym.M-n:      perl:keyboard-select:activate
+URxvt.keysym.M-o:      perl:matcher:list
+URxvt.keysym.M-s:      perl:keyboard-select:search
 
 URxvt.keysym.Control-Up:      \033[1;5A
 URxvt.keysym.Control-Down:    \033[1;5B

@@ -7,7 +7,7 @@
 # ¤¤¤¤  Sourcing  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 source ${ZIM_HOME}/init.zsh
-
+source ${ZIM_HOME}/modules/external/zsh-system-clipboard/zsh-system-clipboard.zsh
 
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 # ¤¤¤¤  Settings  ¤¤¤¤
