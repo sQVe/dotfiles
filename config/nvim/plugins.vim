@@ -36,6 +36,7 @@ Plug 'w0rp/ale'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'heavenshell/vim-jsdoc'
+Plug 'metakirby5/codi.vim'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'sickill/vim-pasta'
@@ -105,6 +106,10 @@ highlight default link BufTabLineActive  Character
 highlight default link BufTabLineHidden  Comment
 highlight default link BufTabLineFill    LineNr
 
+" Codi.
+let g:codi#autoclose = 1
+let g:codi#rightsplit = 0
+
 " EasyMotion.
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_grouping = 2
@@ -157,8 +162,8 @@ let g:fzf_action = {
   \ 'ctrl-s': 'vsplit',
   \ 'ctrl-t': 'tab split',
   \ }
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
+let g:fzf_colors = {
+  \ 'fg':      ['fg', 'Normal'],
   \ 'bg':      ['bg', 'Normal'],
   \ 'hl':      ['fg', 'Boolean'],
   \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
