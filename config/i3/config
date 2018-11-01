@@ -21,9 +21,9 @@ set $workspace-0 "0 "
 set $workspace-1 "1 "
 set $workspace-2 "2 "
 set $workspace-3 "3 "
-set $workspace-4 "4 "
-set $workspace-5 "5 "
-set $workspace-6 "6 "
+set $workspace-4 "4 "
+set $workspace-5 "5 "
+set $workspace-6 "6 "
 set $workspace-7 "7 "
 set $workspace-8 "8 "
 set $workspace-9 "9 "
@@ -112,13 +112,12 @@ bar {
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 # Assign workspaces.
-assign [class="qutebrowser"]                               → $workspace-3
-assign [class="GitKraken"]                                 → $workspace-4
-assign [class="URxvt" instance="weechat"]                  → $workspace-6
-assign [class="Gimp"]                                      → $workspace-7
-assign [class="Darktable"]                                 → $workspace-7
-assign [class="Inkscape"]                                  → $workspace-7
-assign [class="streamlink-twitch-gui"]                     → $workspace-8
+assign [class="qutebrowser"]               → $workspace-3
+assign [class="URxvt" instance="weechat"]  → $workspace-5
+assign [class="Spotify"]                   → $workspace-4
+assign [class="Gimp"]                      → $workspace-7
+assign [class="Darktable"]                 → $workspace-7
+assign [class="Inkscape"]                  → $workspace-7
 
 # Specific window settings.
 for_window [class="Darktable"] focus
@@ -130,7 +129,6 @@ for_window [class="URxvt"] resize set 1280 800
 for_window [class="mpv"] focus
 for_window [class="mpv"] resize set 1920 1280
 for_window [class="qutebrowser"] focus
-for_window [class="streamlink-twitch-gui"] focus
 for_window [instance="dropdown"] floating enable
 for_window [instance="dropdown"] move scratchpad
 for_window [instance="mpv-qutebrowser"] floating enable
@@ -168,11 +166,11 @@ bindsym $mod+Shift+8 move container to workspace number $workspace-8
 bindsym $mod+Shift+9 move container to workspace number $workspace-9
 
 # Letter & symbol based bindings
-bindsym $mod+a [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
+bindsym $mod+a exec $menu-projects
 bindsym $mod+b exec $qutebrowser
 bindsym $mod+c exec $menu-clipboard
 bindsym $mod+comma exec $brightness-up
-bindsym $mod+d exec $menu-run
+bindsym $mod+d exec $menu-apps
 bindsym $mod+e exec $menu-exit
 bindsym $mod+f mode "resize"
 bindsym $mod+g gaps inner current plus 20
@@ -195,12 +193,13 @@ bindsym $mod+v exec $vim
 bindsym $mod+w layout toggle tabbed split
 bindsym $mod+x exec $lock
 bindsym $mod+y sticky toggle
-bindsym $mod+z exec $menu-apps
+bindsym $mod+z [instance="dropdown"] scratchpad show; [instance="dropdown"] move position center
 
+bindsym $mod+Shift+a exec $menu-windows
 bindsym $mod+Shift+b exec $music-toggle
 bindsym $mod+Shift+comma exec $brightness-down
-bindsym $mod+Shift+d exec $menu-windows
-bindsym $mod++Shift+g gaps inner current minus 20
+bindsym $mod+Shift+d exec $menu-run
+bindsym $mod+Shift+g gaps inner current minus 20
 bindsym $mod+Shift+h move left 80
 bindsym $mod+Shift+i move scratchpad
 bindsym $mod+Shift+j move down 80
@@ -214,7 +213,6 @@ bindsym $mod+Shift+p focus child
 bindsym $mod+Shift+period exec $volume-down
 bindsym $mod+Shift+s layout toggle splitv splith
 bindsym $mod+Shift+v exec $music-prev
-bindsym $mod+Shift+z exec $menu-projects
 
 bindsym $mod+$alt+h move workspace to output left
 bindsym $mod+$alt+j move workspace to output down
