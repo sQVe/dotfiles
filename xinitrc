@@ -44,9 +44,9 @@ xset dpms 240 240 240
 mkdir /tmp/peek
 ln -s /tmp/peek "$HOME/.cache/peek"
 
-# Clear js-playground tmp file.
+# Restore js-playground boxes.
 if [[ -d  "$HOME/code/js-playground" ]]; then
-  $HOME/code/js-playground/scripts/clean.sh
+  git -C "$HOME/code/js-playground" checkout -- boxes
 fi
 
 # Run the scripts in xinitrc.d.

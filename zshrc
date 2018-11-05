@@ -100,9 +100,6 @@ alias sudo='sudo '
 alias sudoedit='sudo edit'
 
 # Listing.
-alias cla='clear;la'
-alias cll='clear;ll'
-alias cls='clear;ls'
 alias la='ls -lhA'
 alias lag='la | ag'
 alias ll='ls -lh'
