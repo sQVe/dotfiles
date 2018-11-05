@@ -269,15 +269,15 @@ bindsym $mod+Shift+Return [instance="overlay-term"] scratchpad show; [instance="
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 mode "resize" {
-  bindsym h resize grow width 40
-  bindsym j resize grow height 40
-  bindsym k resize shrink height 40
-  bindsym l resize shrink width 40
+  bindsym h resize grow width 80
+  bindsym j resize grow height 80
+  bindsym k resize shrink height 80
+  bindsym l resize shrink width 80
 
-  bindsym Down resize shrink height 40
-  bindsym Left resize grow width 40
-  bindsym Right resize shrink width 40
-  bindsym Up resize grow height 40
+  bindsym Down resize shrink height 80
+  bindsym Left resize grow width 80
+  bindsym Right resize shrink width 80
+  bindsym Up resize grow height 80
 
   bindsym BackSpace mode "default"
   bindsym Delete mode "default"

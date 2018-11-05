@@ -37,10 +37,10 @@ Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'metakirby5/codi.vim'
+Plug 'mg979/vim-visual-multi'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'sickill/vim-pasta'
-Plug 'terryma/vim-multiple-cursors'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
@@ -251,6 +251,9 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:UltiSnipsExpandTrigger = '<C-Space>'
 let g:UltiSnipsSnippetsDir = $HOME.'/.config/nvim/ultisnips'
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/ultisnips']
+
+" Visual Multi.
+let g:VM_theme = 'pray'
 
 
 " ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
