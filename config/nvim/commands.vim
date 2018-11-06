@@ -21,7 +21,7 @@ command Bpwd echo expand('%:p')
 command Cdb :cd %:p:h
 
 " Copy.
-command Copy !xsel -b < %
+command Copy :norm ggyG
 
 " Shortened plug commands.
 command Clean PlugClean
