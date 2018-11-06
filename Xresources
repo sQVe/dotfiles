@@ -83,7 +83,7 @@ URxvt.url-select.underline:   true
 ! ¤¤¤¤  URxvt keybinding  ¤¤¤¤
 ! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 URxvt.keysym.M-Escape: perl:keyboard-select:activate
-URxvt.keysym.M-n:      perl:keyboard-select:activate
+URxvt.keysym.C-Escape: perl:keyboard-select:activate
 URxvt.keysym.M-u:      perl:matcher:list
 URxvt.keysym.M-s:      perl:keyboard-select:search
 

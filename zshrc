@@ -149,6 +149,7 @@ alias cfg-keymap='nvim ~/code/qmk_firmware/keyboards/ergodox_ez/keymaps/sqve/key
 alias cfg-nvim='nvim ~/.dotfiles/config/nvim/'
 alias cfg-ranger='nvim ~/.dotfiles/config/ranger'
 alias cfg-vim='nvim ~/.dotfiles/config/nvim/'
+alias cfg-weechat='nvim ~/.dotfiles/weechat'
 alias cfg-xinitrc='nvim ~/.dotfiles/xinitrc'
 alias cfg-xresources='nvim ~/.dotfiles/Xresources'
 alias cfg-zimrc='nvim ~/.dotfiles/zimrc'
