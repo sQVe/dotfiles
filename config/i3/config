@@ -198,11 +198,11 @@ bindsym $mod+Shift+b exec $music-toggle
 bindsym $mod+Shift+comma exec $brightness-down
 bindsym $mod+Shift+d exec $menu-run
 bindsym $mod+Shift+g gaps inner current minus 20
-bindsym $mod+Shift+h move left 80
+bindsym $mod+Shift+h move left 180
 bindsym $mod+Shift+i move scratchpad
-bindsym $mod+Shift+j move down 80
-bindsym $mod+Shift+k move up 80
-bindsym $mod+Shift+l move right 80
+bindsym $mod+Shift+j move down 180
+bindsym $mod+Shift+k move up 180
+bindsym $mod+Shift+l move right 180
 bindsym $mod+Shift+m exec $redshift
 bindsym $mod+Shift+minus exec $volume-toggle
 bindsym $mod+Shift+n exec $music-next
@@ -228,8 +228,8 @@ bindsym $mod+Left focus left
 bindsym $mod+Right focus right
 bindsym $mod+Up focus up
 
-bindsym $mod+Shift+Down move down 80
-bindsym $mod+Shift+Left move left 80
+bindsym $mod+Shift+Down move down 180
+bindsym $mod+Shift+Left move left 180
 bindsym $mod+Shift+Right move right 80
 bindsym $mod+Shift+Up move up 80
 
@@ -269,15 +269,15 @@ bindsym $mod+Shift+Return [instance="overlay-term"] scratchpad show; [instance="
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 mode "resize" {
-  bindsym h resize grow width 80
-  bindsym j resize grow height 80
-  bindsym k resize shrink height 80
-  bindsym l resize shrink width 80
+  bindsym h resize grow width 180
+  bindsym j resize grow height 180
+  bindsym k resize shrink height 180
+  bindsym l resize shrink width 180
 
-  bindsym Down resize shrink height 80
-  bindsym Left resize grow width 80
-  bindsym Right resize shrink width 80
-  bindsym Up resize grow height 80
+  bindsym Down resize shrink height 180
+  bindsym Left resize grow width 180
+  bindsym Right resize shrink width 180
+  bindsym Up resize grow height 180
 
   bindsym BackSpace mode "default"
   bindsym Delete mode "default"
