@@ -178,7 +178,7 @@ bindsym $mod+i [instance="^(?!(overlay-term|js-playground))"] scratchpad show
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+m exec $kill-redshift
+bindsym $mod+m exec $redshift
 bindsym $mod+minus exec $volume-toggle
 bindsym $mod+n [instance="js-playground"] scratchpad show; [instance="js-playground"] resize set 1920 1280; [instance="js-playground"] move position center
 bindsym $mod+o floating toggle; resize set 1200 800; move position center
@@ -203,7 +203,7 @@ bindsym $mod+Shift+i move scratchpad
 bindsym $mod+Shift+j move down 180
 bindsym $mod+Shift+k move up 180
 bindsym $mod+Shift+l move right 180
-bindsym $mod+Shift+m exec $redshift
+bindsym $mod+Shift+m exec $kill-redshift
 bindsym $mod+Shift+minus exec $volume-toggle
 bindsym $mod+Shift+n exec $music-next
 bindsym $mod+Shift+o focus mode_toggle
