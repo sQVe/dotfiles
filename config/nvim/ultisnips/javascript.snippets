@@ -31,6 +31,18 @@ snippet cwc "Warn to the console with context" w
 console.warn('`!v expand("%:t")`:`!v line(".")` ==>'', $1);
 endsnippet
 
+snippet ce "Error to the console" w
+console.error($1);
+endsnippet
+
+snippet cec "Error to the console with context" w
+console.error('`!v expand("%:t")`:`!v line(".")` ==>'', $1);
+endsnippet
+
+snippet cc "Clear the console" w
+console.clear();
+endsnippet
+
 # Disable ESLint
 # --------------
 
