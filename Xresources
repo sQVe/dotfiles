@@ -44,20 +44,20 @@ Xcursor.size:  48
 ! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 ! ¤¤¤¤  URxvt fonts  ¤¤¤¤
 ! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-URxvt.font:              xft:Iosevka Term:size=10:antialias=true:hinting=slight, \
-                         xft:Symbola:size=10, \
-                         xft:Font Awesome 5 Pro:size=10, \
-                         xft:Font Awesome 5 Brands:size=10
+URxvt.font:              xft:Iosevka Term:pixelsize=26:antialias=true:hinting=slight, \
+                         xft:Symbola:size=26, \
+                         xft:Font Awesome 5 Pro:pixelsize=26, \
+                         xft:Font Awesome 5 Brands:pixelsize=26
 
-URxvt.boldfont:          xft:Iosevka Term:size=10:bold:antialias=true:hinting=slight, \
-                         xft:Symbola:size=10, \
-                         xft:Font Awesome 5 Pro:size=10, \
-                         xft:Font Awesome 5 Brands:size=10
+URxvt.boldfont:          xft:Iosevka Term:pixelsize=26:bold:antialias=true:hinting=slight, \
+                         xft:Symbola:size=26, \
+                         xft:Font Awesome 5 Pro:pixelsize=26, \
+                         xft:Font Awesome 5 Brands:pixelsize=26
 
-URxvt.italicFont:        xft:Iosevka Term:size=10:italic:antialias=true:hinting=slight, \
-                         xft:Symbola:size=10, \
-                         xft:Font Awesome 5 Pro:size=10, \
-                         xft:Font Awesome 5 Brands:size=10
+URxvt.italicFont:        xft:Iosevka Term:pixelsize=26:italic:antialias=true:hinting=slight, \
+                         xft:Symbola:size=26, \
+                         xft:Font Awesome 5 Pro:pixelsize=26, \
+                         xft:Font Awesome 5 Brands:pixelsize=26
 
 
 ! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
@@ -68,7 +68,7 @@ URxvt.iso14755:               false
 URxvt.letterSpace:            0
 URxvt.matcher.button:         3
 URxvt.matcher.rend.0:         Uline fg5
-URxvt.perl-ext-common:        default,matcher,keyboard-select,selection-to-clipboard
+URxvt.perl-ext-common:        default,matcher,resize-font,keyboard-select,selection-to-clipboard
 URxvt.scrollBar:              false
 URxvt.scrollTtyKeypress:      true
 URxvt.scrollTtyOutput:        false
