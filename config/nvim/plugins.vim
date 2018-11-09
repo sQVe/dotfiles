@@ -33,6 +33,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
 
 " Integration.
+Plug 'Galooshi/vim-import-js'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'heavenshell/vim-jsdoc'
@@ -85,6 +86,7 @@ let g:ale_linters = {
   \ }
 let g:ale_fixers = {
   \ 'css': ['prettier'],
+  \ 'html': ['prettier'],
   \ 'javascript': ['prettier', 'eslint'],
   \ 'json': ['prettier', 'eslint'],
   \ 'less': ['prettier'],
@@ -152,9 +154,6 @@ autocmd BufReadPost *.git/index  set nobuflisted
 " Fugitive Gitlab.
 let g:fugitive_gitlab_domains = ['http://AnimechGitLab']
 
-" GitGutter.
-let g:gitgutter_map_keys = 0
-
 " FZF.
 let $FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
 let g:fzf_action = {
@@ -184,6 +183,9 @@ command! -bang -nargs=* HistoryFiles
   \ call fzf#vim#history(fzf#vim#with_preview('right:50%', '?'))
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>, '--hidden --follow --ignore .git', fzf#vim#with_preview('right:50%', '?'), <bang>0)
+
+" GitGutter.
+let g:gitgutter_map_keys = 0
 
 " JavaScript.
 let g:javascript_plugin_jsdoc = 1
@@ -230,7 +232,7 @@ let g:vim_markdown_no_extensions_in_markdown = 1
 
 " TComment.
 let g:tcomment_mapleader1 = "<C-_>"
-let g:tcomment_mapleader2 = "<Leader>-"
+let g:tcomment_mapleader2 = "<Leader>_"
 
 " Rainbow.
 let g:rainbow_active = 1
@@ -305,6 +307,11 @@ nnoremap <Leader>ä :Buffers<CR>
 nnoremap <Leader>Ö :Commands<CR>
 nnoremap <Leader>ö :Commands<CR>
 autocmd! FileType fzf tnoremap <buffer> <Esc> <C-c>
+
+" Import JS.
+nnoremap <Leader>ii :ImportJSFix<CR>
+nnoremap <Leader>iw :ImportJSWord<CR>
+nnoremap <Leader>id :ImportJSGoto<CR>
 
 " LanguageClient.
 nnoremap <Leader>ed :call LanguageClient#textDocument_definition()<CR>
