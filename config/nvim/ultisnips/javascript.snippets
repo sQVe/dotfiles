@@ -8,39 +8,39 @@ endsnippet
 # -------
 
 snippet cl "Log to the console" w
-console.log($1);
+console.log($1)
 endsnippet
 
 snippet clc "Log to the console with context" w
-console.log('`!v expand("%:t")`:`!v line(".")` ==>', $1);
+console.log('`!v expand("%:t")`:`!v line(".")` ==>', $1)
 endsnippet
 
 snippet ci "Info to the console" w
-console.info($1);
+console.info($1)
 endsnippet
 
 snippet cic "Info to the console with context" w
-console.info('`!v expand("%:t")`:`!v line(".")`' ==>', $1);
+console.info('`!v expand("%:t")`:`!v line(".")`' ==>', $1)
 endsnippet
 
 snippet cw "Warn to the console" w
-console.warn($1);
+console.warn($1)
 endsnippet
 
 snippet cwc "Warn to the console with context" w
-console.warn('`!v expand("%:t")`:`!v line(".")` ==>'', $1);
+console.warn('`!v expand("%:t")`:`!v line(".")` ==>'', $1)
 endsnippet
 
 snippet ce "Error to the console" w
-console.error($1);
+console.error($1)
 endsnippet
 
 snippet cec "Error to the console with context" w
-console.error('`!v expand("%:t")`:`!v line(".")` ==>'', $1);
+console.error('`!v expand("%:t")`:`!v line(".")` ==>'', $1)
 endsnippet
 
 snippet cc "Clear the console" w
-console.clear();
+console.clear()
 endsnippet
 
 # Disable ESLint
@@ -105,73 +105,73 @@ endsnippet
 snippet before "Test before block" b
 before(() => {
 	${VISUAL}$0
-});
+})
 endsnippet
 
 snippet beforeAll "Test beforeAll block" b
 beforeAll(() => {
 	${VISUAL}$0
-});
+})
 endsnippet
 
 snippet beforeEach "Test beforeEach block" b
 beforeEach(() => {
 	${VISUAL}$0
-});
+})
 endsnippet
 
 snippet after "Test after block" b
 after(() => {
 	${VISUAL}$0
-});
+})
 endsnippet
 
 snippet afterAll "Test afterAll block" b
 afterAll(() => {
 	${VISUAL}$0
-});
+})
 endsnippet
 
 snippet afterEach "Test afterEach block" b
 afterEach(() => {
 	${VISUAL}$0
-});
+})
 endsnippet
 
 snippet describe "Test describe block" b
 describe('${1:context}', () => {
 	${VISUAL}$0
-});
+})
 endsnippet
 
 snippet it "Test it block" b
 it('${1:action}', () => {
 	${VISUAL}$0
-});
+})
 endsnippet
 
 snippet test "Test test block" b
 test('${1:action}', () => {
 	${VISUAL}$0
-});
+})
 endsnippet
 
 snippet When "Test When block" b
 When('${1:when}', () => {
 	${VISUAL}$0
-});
+})
 endsnippet
 
 snippet Then "Test Then block" b
 When('${1:then}', () => {
 	${VISUAL}$0
-});
+})
 endsnippet
 
 snippet And "Test And block" b
 When('${1:and}', () => {
 	${VISUAL}$0
-});
+})
 endsnippet
 
 snippet expect "Test expect statement" b
@@ -182,14 +182,14 @@ endsnippet
 # ----
 
 snippet import "Import module" b
-import ${1:name} from "${2:path}";
+import ${1:name} from "${2:path}"
 endsnippet
 
 snippet switch "Switch statement" b
 switch(${VISUAL}${1:expression}) {
 	case '${VISUAL}${2:case}':
 		${3}
-		break;
+		break
 	${0}
 	default:
 		${4}
@@ -199,5 +199,5 @@ endsnippet
 snippet case "Switch case" b
 case '${VISUAL}${1:case}':
 	${VISUAL}$0
-	break;
+	break
 endsnippet

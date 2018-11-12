@@ -46,6 +46,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
+Plug 'wellle/visual-split.vim'
 
 " Commands.
 Plug 'godlygeek/tabular'

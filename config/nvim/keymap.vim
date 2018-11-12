@@ -11,6 +11,9 @@ inoremap <F1> <Esc>
 noremap ö :
 noremap Ö :
 
+" Escape terminal.
+tnoremap <C-c> <C-\><C-n>
+
 " Motion.
 noremap <Up> gk
 noremap <Down> gj
@@ -68,7 +71,6 @@ noremap <M-h> :bprev<CR>
 noremap <M-l> :bnext<CR>
 noremap <M-Left> :bprev<CR>
 noremap <M-Right> :bnext<CR>
-
 
 " Move between open windows.
 noremap <C-h> <C-w>h
