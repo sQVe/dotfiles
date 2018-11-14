@@ -17,7 +17,7 @@ Plug 'hail2u/vim-css3-syntax'
 Plug 'leafgarland/typescript-vim'
 Plug 'luochen1990/rainbow'
 Plug 'mattn/emmet-vim'
-Plug 'maxmellon/vim-jsx-pretty'
+Plug 'mxw/vim-jsx'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
@@ -82,15 +82,15 @@ let g:ale_sign_warning = '•'
 let g:ale_linters = {
   \ 'awk': ['gawk'],
   \ 'javascript': ['eslint'],
-  \ 'typescript': ['tsserver', 'typecheck', 'tslint'],
+  \ 'scss': ['sasslint'],
   \ 'sh': ['shellcheck'],
+  \ 'typescript': ['tsserver', 'typecheck', 'tslint'],
   \ }
 let g:ale_fixers = {
   \ 'css': ['prettier'],
   \ 'html': ['prettier'],
   \ 'javascript': ['prettier', 'eslint'],
   \ 'json': ['prettier', 'eslint'],
-  \ 'less': ['prettier'],
   \ 'markdown': ['prettier'],
   \ 'scss': ['prettier'],
   \ 'typescript': ['prettier', 'tslint'],

@@ -33,19 +33,27 @@ function! LightlineFilename()
   return filename . modified
 endfunction
 
-" Disable deoplete when entering multiple cursor mode.
-function! Multiple_cursors_before()
-  call deoplete#custom#buffer_option('auto_complete', v:false)
-endfunction
+" Fasd.
+command -nargs=1 Fasd call Fasd('-a', 'e', <q-args>)
+command -nargs=1 FasdCd call Fasd('-d', 'cd', <q-args>)
 
-" Enable deoplete when leaving multiple cursor mode.
-function! Multiple_cursors_after()
-  call deoplete#custom#buffer_option('auto_complete', v:true)
+function Fasd(type, executeWith, fragment)
+  let l:fragment = system('fasd -1 ' . a:type . ' ' . shellescape(a:fragment))
+
+  if !empty(l:fragment)
+    execute a:executeWith . ' ' . l:fragment
+    redraw
+    echo split(l:fragment, '\n')[0]
+  endif
 endfunction
 
 
 " ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 " ¤¤¤¤  Function bindings  ¤¤¤¤
 " ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-nnoremap <Leader>r :call NumberToggle()<CR>
+
 nnoremap <C-s> :call SpellToggle()<CR>
+nnoremap <Leader>r :call NumberToggle()<CR>
+nnoremap <Leader>z :Fasd<Space>
+nnoremap <Leader>zo :Fasd<Space>
+nnoremap <Leader>zz :FasdCd<Space>

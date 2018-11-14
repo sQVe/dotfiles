@@ -23,6 +23,10 @@ command Cdb :cd %:p:h
 " Copy.
 command Copy :norm ggyG
 
+" Fasd.
+command Z :Fasd
+command Zz :FasdCd
+
 " Shortened plug commands.
 command Clean PlugClean
 command Install PlugInstall
