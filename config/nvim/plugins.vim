@@ -75,7 +75,6 @@ colorscheme dracula
 
 " Ale.
 let g:ale_fix_on_save = 1
-let g:ale_lint_on_enter = 1
 let g:ale_sign_column_always = 1
 let g:ale_sign_error = '-›'
 let g:ale_sign_warning = '•'
@@ -300,13 +299,15 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 
 " FZF.
-nnoremap ä :Files<CR>
-nnoremap Ä :HistoryFiles<CR>
 nnoremap <Leader>/ :Ag<Space>
+nnoremap <Leader>Å :Ag<Space>
+nnoremap <Leader>å :Ag<Space>
 nnoremap <Leader>Ä :Window<CR>
-nnoremap <Leader>ä :Buffers<CR>
 nnoremap <Leader>Ö :Commands<CR>
+nnoremap <Leader>ä :Buffers<CR>
 nnoremap <Leader>ö :Commands<CR>
+nnoremap Ä :HistoryFiles<CR>
+nnoremap ä :Files<CR>
 autocmd! FileType fzf tnoremap <buffer> <Esc> <C-c>
 
 " Import JS.
