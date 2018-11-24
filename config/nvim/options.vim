@@ -20,6 +20,7 @@ set tildeop                       " Enable ~ operator.
 set timeoutlen=400                " Timeout Leader after 400 ms.
 set updatetime=100                " Set update time to 100 ms.
 set virtualedit=block             " Enable virtualedit when in Visual Block mode.
+set conceallevel=2                " Conceal characters when possible.
 
 " Searching.
 set ignorecase                    " Make searching case insensitive.

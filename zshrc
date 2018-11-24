@@ -141,7 +141,7 @@ alias vim=nvim
 alias wifi-menu='wifi-menu -o'
 alias xsel='xsel -b'
 
-# Config & docs.
+# Config.
 alias cfg-env='nvim /etc/environment'
 alias cfg-hosts='nvim /etc/hosts'
 alias cfg-i3='nvim ~/.dotfiles/config/i3/config'
@@ -155,4 +155,9 @@ alias cfg-xresources='nvim ~/.dotfiles/Xresources'
 alias cfg-zimrc='nvim ~/.dotfiles/zimrc'
 alias cfg-zshenv='nvim ~/.dotfiles/zshenv'
 alias cfg-zshrc='nvim ~/.dotfiles/zshrc'
-alias doc-vim-cheat='nvim ~/docs/vim-cheat.txt'
+
+# Notes.
+alias notes='nvim ~/notes'
+alias todo='nvim ~/notes/todo'
+
+# Misc.

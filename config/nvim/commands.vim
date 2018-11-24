@@ -9,6 +9,9 @@ command ALEEnableFixOnSave let g:ale_fix_on_save = 1
 " Disable ALE Fix on save.
 command ALEDisableFixOnSave let g:ale_fix_on_save = 0
 
+" Add explanatory command name for Bdelete (vim-bbye)
+command -bang -complete=buffer -nargs=? Bclose Bdelete<bang> <args>
+
 " Delete all open buffers.
 command Bda bufdo bd
 
@@ -17,20 +20,20 @@ command Bdo %bd|e#|bd#
 
 " Show full path to open buffer.
 command Bpwd echo expand('%:p')
+
 " Set pwd to path of open buffer.
-command Cdb :cd %:p:h
+command Cdb cd %:p:h
 
 " Copy.
-command Copy :norm ggyG
-
-" Fasd.
-command Z :Fasd
-command Zz :FasdCd
+command Copy norm ggyG
 
 " Shortened plug commands.
 command Clean PlugClean
 command Install PlugInstall
 command Update PlugUpdate
+
+" Notes / Todo.
+command Todo Note todo
 
 " Edit current file with sudo.
 command Esudo e suda://%

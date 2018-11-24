@@ -19,6 +19,9 @@ xiccd &
 # Start mons daemon.
 mons -a &
 
+# Start mailspring.
+mailspring -b &
+
 # Start URxvt daemon.
 urxvtd -q -f -o &
 

@@ -15,12 +15,13 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 " Language, syntax and formatting.
 Plug 'hail2u/vim-css3-syntax'
 Plug 'leafgarland/typescript-vim'
-Plug 'luochen1990/rainbow'
 Plug 'mattn/emmet-vim'
 Plug 'mxw/vim-jsx'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
+Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
+Plug 'thiagoalessio/rainbow_levels.vim'
 
 " Interface.
 Plug 'airblade/vim-gitgutter'
@@ -29,15 +30,17 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'mattn/gist-vim'
+Plug 'metakirby5/codi.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
+Plug 'wellle/visual-split.vim'
 
 " Integration.
 Plug 'Galooshi/vim-import-js'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'heavenshell/vim-jsdoc'
-Plug 'metakirby5/codi.vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'shumphrey/fugitive-gitlab.vim'
@@ -46,12 +49,13 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'wellle/visual-split.vim'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-notes'
 
 " Commands.
 Plug 'godlygeek/tabular'
 Plug 'lambdalisue/suda.vim'
-Plug 'rbgrouleff/bclose.vim'
+Plug 'moll/vim-bbye'
 
 " Completion.
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -230,17 +234,33 @@ let g:vim_markdown_folding_level = 2
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_no_extensions_in_markdown = 1
 
+" Notes.
+let g:notes_directories = [$HOME.'/notes']
+let g:notes_tab_indents = 0
+
+hi! link notesDoneMarker DraculaGreenBold
+hi! link notesInProgress DraculaCyanBold
+hi! link notesListBullet DraculaPurple
+hi! link notesListNumber DraculaPurple
+hi! link notesTodo DraculaOrangeBold
+hi! link notesXXX DraculaOrangeBold
+
+autocmd Filetype notes setlocal tabstop=2 shiftwidth=2
+
 " TComment.
 let g:tcomment_mapleader1 = "<C-_>"
 let g:tcomment_mapleader2 = "<Leader>_"
 
 " Rainbow.
-let g:rainbow_active = 1
-let g:rainbow_conf = {
-  \ 'separately': {
-  \   'sh': 0,
-  \ }
-  \ }
+hi! link RainbowLevel0 DraculaPink
+hi! link RainbowLevel1 DraculaCyan
+hi! link RainbowLevel2 DraculaPurple
+hi! link RainbowLevel3 DraculaGreen
+hi! link RainbowLevel4 DraculaYellow
+hi! link RainbowLevel5 DraculaRed
+hi! link RainbowLevel6 DraculaOrange
+hi! link RainbowLevel7 DraculaComment
+hi! link RainbowLevel8 DraculaPink
 
 " Ranger.
 let g:ranger_map_keys = 0
@@ -327,6 +347,9 @@ nnoremap <Leader>et :call LanguageClient#textDocument_typeDefinition()<CR>
 " Ranger.
 nnoremap å :Ranger<CR>
 nnoremap Å :RangerWorkingDirectory<CR>
+
+" Rainbow.
+nnoremap <Leader><Return> :RainbowLevelsToggle<CR>
 
 " UltiSnips.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
