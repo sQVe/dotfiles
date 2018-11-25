@@ -245,7 +245,7 @@ hi! link notesListNumber DraculaPurple
 hi! link notesTodo DraculaOrangeBold
 hi! link notesXXX DraculaOrangeBold
 
-autocmd Filetype notes setlocal tabstop=2 shiftwidth=2
+autocmd Filetype notes setlocal shiftwidth=2 tabstop=2 textwidth=80
 
 " TComment.
 let g:tcomment_mapleader1 = "<C-_>"
