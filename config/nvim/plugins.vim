@@ -235,6 +235,7 @@ let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_no_extensions_in_markdown = 1
 
 " Notes.
+let g:notes_conceal_url = 0
 let g:notes_directories = [$HOME.'/notes']
 let g:notes_tab_indents = 0
 
