@@ -32,9 +32,6 @@ command Clean PlugClean
 command Install PlugInstall
 command Update PlugUpdate
 
-" Notes / Todo.
-command Todo Note todo
-
 " Edit current file with sudo.
 command Esudo e suda://%
 
