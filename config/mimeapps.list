@@ -118,3 +118,7 @@ video/x-msvideo=mpv.desktop;
 video/x-ogm+ogg=mpv.desktop;
 video/x-theora=mpv.desktop;
 x-scheme-handler/http=scaled-qutebrowser.desktop;
+x-scheme-handler/https=scaled-qutebrowser.desktop;
+
+[Default Applications]
+x-scheme-handler/mailspring=mailspring.desktop
