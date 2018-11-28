@@ -100,12 +100,10 @@ alias sudo='sudo '
 alias sudoedit='sudo edit'
 
 # Listing.
-alias la='ls -lhA'
-alias lag='la | ag'
-alias ll='ls -lh'
-alias llg='ll | ag'
-alias ls='ls --group-directories-first --time-style=+"%d.%m.%Y %H:%M" --color=auto -F'
-alias lsg='ls | ag'
+alias exa='exa --group-directories-first'
+alias la='exa -la'
+alias ll='exa -l'
+alias ls='exa'
 
 # Apps.
 alias R='ramda --js'
