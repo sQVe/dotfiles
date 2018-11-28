@@ -238,6 +238,7 @@ let g:vim_markdown_no_extensions_in_markdown = 1
 let g:notes_conceal_url = 0
 let g:notes_directories = [$HOME.'/notes']
 let g:notes_tab_indents = 0
+let g:notes_word_boundaries = 1
 
 hi! link notesDoneMarker DraculaGreenBold
 hi! link notesInProgress DraculaCyanBold
