@@ -123,7 +123,6 @@ let g:EasyMotion_keys = 'fjdkslaöruvmeic,wox.qpz-ghtybn'
 let g:EasyMotion_smartcase = 1
 
 " Emmet.
-let g:user_emmet_leader_key = ',,'
 let g:user_emmet_settings = {
   \ 'javascript' : { 'extends' : 'jsx' },
   \ 'javascript.jsx' : { 'extends' : 'jsx' },
