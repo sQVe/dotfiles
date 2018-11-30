@@ -15,8 +15,6 @@ if [[ "$state" == "down" ]]; then
   exit 0
 fi
 
-speed="$(cat "$instance/speed" 2> /dev/null)"
-
-echo "$label $speed"
-echo "$label $speed"
+echo "$label"
+echo "$label"
 echo "#8BE9FD"
