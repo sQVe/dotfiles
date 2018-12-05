@@ -50,8 +50,7 @@ set listchars=extends:›,precedes:‹,tab:→\ ,nbsp:•,trail:•
 " Folding.
 set foldenable                    " Enable folding.
 set foldlevelstart=99             " Folding level.
-set foldmethod=indent             " Folding method.
-set foldnestmax=2                 " Max amount of fold nesting.
+set foldmethod=syntax             " Folding method.
 
 " Linenumber.
 set number                        " Show the line numbers on the left side.

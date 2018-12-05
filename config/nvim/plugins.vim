@@ -119,6 +119,7 @@ let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_grouping = 2
 let g:EasyMotion_keys = 'fjdkslaöruvmeic,wox.qpz-ghtybn'
 let g:EasyMotion_smartcase = 1
+let g:EasyMotion_skipfoldedline = 0
 
 " Emmet.
 let g:user_emmet_settings = {
