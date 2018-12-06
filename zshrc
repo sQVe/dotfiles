@@ -119,7 +119,6 @@ alias git=hub
 alias hc="highlight -O xterm256 --force -s dracula --stdout"
 alias hcat="highlight -O xterm256 --force -s dracula --stdout"
 alias l=less
-alias lazy=lazygit
 alias leave='i3-msg exit'
 alias loc=locate
 alias mixer=ncpamixer
