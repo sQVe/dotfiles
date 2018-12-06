@@ -78,8 +78,8 @@ colorscheme dracula
 " Ale.
 let g:ale_fix_on_save = 1
 let g:ale_sign_column_always = 1
-let g:ale_sign_error = '-›'
-let g:ale_sign_warning = '•'
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
 let g:ale_linters = {
   \ 'awk': ['gawk'],
   \ 'javascript': ['eslint'],
@@ -188,6 +188,9 @@ command! -bang -nargs=* Ag
 
 " GitGutter.
 let g:gitgutter_map_keys = 0
+let g:gitgutter_sign_added = ' '
+let g:gitgutter_sign_modified = ' '
+let g:gitgutter_sign_removed = ''
 
 " JavaScript.
 let g:javascript_plugin_jsdoc = 1
