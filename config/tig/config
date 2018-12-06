@@ -1,4 +1,5 @@
-set refresh-mode = periodic
 set refresh-interval = 60
+set refresh-mode = periodic
+set main-view-date = relative-compact
 
-color cursor	black magenta
+color cursor black magenta
