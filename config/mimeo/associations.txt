@@ -1,2 +1,19 @@
-scaled-qutebrowser %F
+# Open YouTube links in mpv.
+mpv %U
+  ^https?:\/\/(www.)?youtube.com/watch\?.*v=
+
+# Open gifs in mpv.
+mpv %U
+  ^https?:\/\/.+?\.gif
+
+# Open Twitch links in streamlink.
+streamlink %U
+  ^https?:\/\/(www.)?twitch.tv/.+
+
+# Open image URLs in feh.
+feh %U
+  ^https?:\/\/.+?\.(jpe?g|png)
+
+# Open URLs that starts with `www` in qutebrowser.
+scaled-qutebrowser :open %F
   ^www\..+?\.\w+
