@@ -3,7 +3,7 @@ separator_block_width=20
 
 [cpu_usage]
 interval=2
-label=
+label=
 
 [load_average]
 interval=5

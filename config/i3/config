@@ -18,7 +18,7 @@ set $color-purple #BD93F9
 set $color-green #50FA7B
 
 set $workspace-0 "0 "
-set $workspace-1 "1 "
+set $workspace-1 "1 "
 set $workspace-2 "2 "
 set $workspace-3 "3 "
 set $workspace-4 "4 "
