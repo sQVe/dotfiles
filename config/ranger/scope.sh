@@ -59,7 +59,8 @@ handle_extension() {
         # PDF
         pdf)
             # Preview as text conversion
-            pdftotext -l 10 -nopgbrk -q -- "${FILE_PATH}" - && exit 5
+            pdftotext -l 10 -nopgbrk -q -- "${FILE_PATH}" - | fmt -w ${PV_WIDTH} && exit 5
+            mutool draw -F txt -i -- "${FILE_PATH}" 1-10 | fmt -w ${PV_WIDTH} && exit 5
             exiftool "${FILE_PATH}" && exit 5
             exit 1;;
 
@@ -76,12 +77,22 @@ handle_extension() {
             lynx -dump -- "${FILE_PATH}" && exit 5
             elinks -dump "${FILE_PATH}" && exit 5
             ;; # Continue with next handler on failure
+        # JSON
+        json)
+            jq --color-output . "${FILE_PATH}" && exit 5
+            python -m json.tool -- "${FILE_PATH}" && exit 5
+            ;;
     esac
 }
 
 handle_image() {
     local mimetype="${1}"
     case "${mimetype}" in
+        # SVG
+        image/svg+xml)
+            convert "${FILE_PATH}" "${IMAGE_CACHE_PATH}" && exit 6
+            exit 1;;
+
         # Image
         image/*)
             local orientation
@@ -96,6 +107,12 @@ handle_image() {
             # `w3mimgdisplay` will be called for all images (unless overriden as above),
             # but might fail for unsupported types.
             exit 7;;
+
+        # Video
+        video/*)
+            # Thumbnail
+            ffmpegthumbnailer -i "${FILE_PATH}" -o "${IMAGE_CACHE_PATH}" -s 0 && exit 6
+            exit 1;;
     esac
 }
 
@@ -103,7 +120,7 @@ handle_mime() {
     local mimetype="${1}"
     case "${mimetype}" in
         # Text
-        text/* | */xml)
+        application/* | text/* | */xml)
             # Syntax highlight
             if [[ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]]; then
                 exit 2
@@ -115,7 +132,6 @@ handle_mime() {
             fi
             highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="${highlight_format}" \
                 --style="${HIGHLIGHT_STYLE}" --force -- "${FILE_PATH}" && exit 5
-            # pygmentize -f "${pygmentize_format}" -O "style=${PYGMENTIZE_STYLE}" -- "${FILE_PATH}" && exit 5
             exit 2;;
 
         # Image
