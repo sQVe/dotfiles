@@ -11,5 +11,8 @@ streamlink %U
 feh %U
   ^https?:\/\/.+?\.(jpe?g|png)
 
+term rtv %U
+  ^https?:\/\/(www.)?reddit.com/.+
+
 scaled-qutebrowser %F
   ^www\..+?\.\w+
