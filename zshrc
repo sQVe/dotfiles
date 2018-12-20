@@ -39,6 +39,15 @@ function nvm() {
   nvm "$@"
 }
 
+function ranger-cd {
+  tmp="$(mktemp -t tmp.XXXXXX)"
+  ranger --choosedir="$tmp" "${@:-$(pwd)}"
+  test -f "$tmp" &&
+  if [ "$(cat -- "$tmp")" != "$(echo -n `pwd`)" ]; then
+      cd -- "$(cat "$tmp")"
+  fi
+  rm -f -- "$tmp"
+}
 
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 # ¤¤¤¤  Exports  ¤¤¤¤
@@ -127,7 +136,7 @@ alias o=open
 alias pass=lpass
 alias r=ranger
 alias ramda='ramda --js'
-alias ranger='ranger --choosedir=$HOME/.config/ranger/latest-dir; cd "`cat $HOME/.config/ranger/latest-dir`"'
+alias ranger='ranger-cd'
 alias s=sudo
 alias se=sudoedit
 alias t=term
@@ -157,5 +166,3 @@ alias cfg-zshrc='nvim ~/.dotfiles/zshrc'
 # Notes.
 alias notes='nvim ~/notes'
 alias todo='nvim ~/notes/todo'
-
-# Misc.
