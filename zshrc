@@ -84,6 +84,7 @@ alias rm='rm -I --preserve-root'
 
 # Goodies & Misc.
 alias cl=clear
+alias cmd=command
 alias df='df -h'
 alias du='du -ch'
 alias dud='du -chd'
