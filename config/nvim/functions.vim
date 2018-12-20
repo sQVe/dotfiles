@@ -7,8 +7,21 @@
 " ¤¤¤¤  Functions  ¤¤¤¤
 " ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
+" Toggle conceal.
+command -nargs=0 ToggleConceal call ToggleConceal()
+
+function! ToggleConceal()
+  if(&conceallevel == 2)
+    set conceallevel=0
+  else
+    set conceallevel=2
+  endif
+endfunc
+
 " Toggle relative numbering.
-function! NumberToggle()
+command -nargs=0 ToggleRelativeNumber call ToggleRelativeNumber()
+
+function! ToggleRelativeNumber()
   if(&relativenumber == 1)
     set nornu
     set number
@@ -18,7 +31,9 @@ function! NumberToggle()
 endfunc
 
 " Toggle spelling.
-function! SpellToggle()
+command -nargs=0 ToggleSpellCheck call ToggleSpellCheck()
+
+function! ToggleSpellCheck()
   if(&spell == 1)
     set nospell
   else
@@ -52,8 +67,9 @@ endfunction
 " ¤¤¤¤  Function bindings  ¤¤¤¤
 " ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-nnoremap <C-s> :call SpellToggle()<CR>
-nnoremap <Leader>r :call NumberToggle()<CR>
+nnoremap <C-s> :ToggleSpellCheck<CR>
+nnoremap <Leader>c :ToggleConceal<CR>
+nnoremap <Leader>r :ToggleRelativeNumber<CR>
 nnoremap <Leader>z :Fasd<Space>
 nnoremap <Leader>zo :Fasd<Space>
 nnoremap <Leader>zz :FasdCd<Space>
