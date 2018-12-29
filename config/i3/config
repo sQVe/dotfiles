@@ -30,7 +30,7 @@ set $workspace-9 "9 "
 
 set $overlay-term --no-startup-id term --name overlay-term
 set $lock --no-startup-id lock
-set $menu-apps --no-startup-id ~/scripts/menu-apps.sh
+set $menu-main --no-startup-id ~/scripts/menu-main.sh
 set $menu-clipboard --no-startup-id "rofi -modi 'clipboard:greenclip print' -run-command '{cmd}' -show clipboard"
 set $menu-exit --no-startup-id ~/scripts/menu-exit.sh
 set $menu-notes --no-startup-id ~/scripts/menu-notes.sh
@@ -169,7 +169,7 @@ bindsym $mod+a exec $menu-windows
 bindsym $mod+b exec $qutebrowser
 bindsym $mod+c exec $menu-clipboard
 bindsym $mod+comma exec $brightness-up
-bindsym $mod+d exec $menu-apps
+bindsym $mod+d exec $menu-main
 bindsym $mod+e exec $menu-exit
 bindsym $mod+f mode "resize"
 bindsym $mod+g gaps inner current plus 20
