@@ -16,7 +16,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'hail2u/vim-css3-syntax'
 Plug 'leafgarland/typescript-vim'
 Plug 'mattn/emmet-vim'
-Plug 'mxw/vim-jsx'
+Plug 'maxmellon/vim-jsx-pretty'
 Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
@@ -28,7 +28,6 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-buftabline'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'metakirby5/codi.vim'
 Plug 'tpope/vim-fugitive'
@@ -143,10 +142,11 @@ call deoplete#custom#option('ignore_sources', {
   \ 'sh': ['look'],
   \ 'typescript': ['look'],
   \ })
+call deoplete#custom#source('look', 'min_pattern_length', 2)
+call deoplete#custom#source('LanguageClient', 'min_pattern_length', 2)
 call deoplete#custom#source('dictionary', 'matchers', ['matcher_head'])
 call deoplete#custom#source('dictionary', 'sorters', [])
 call deoplete#custom#source('file', 'rank', 8888)
-call deoplete#custom#source('look', 'min_pattern_length', 2)
 call deoplete#custom#source('ultisnips', 'rank', 9999)
 call deoplete#custom#var('file', 'enable_buffer_path', v:true)
 
@@ -197,10 +197,6 @@ let g:javascript_plugin_jsdoc = 1
 
 " JsDoc.
 let g:jsdoc_enable_es6 = 1
-
-" JSX.
-let g:vim_jsx_pretty_enable_jsx_highlight = 1
-let g:vim_jsx_pretty_colorful_config = 1
 
 " LanguageClient.
 let g:LanguageClient_autoStart = 1
