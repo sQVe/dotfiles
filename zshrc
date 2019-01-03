@@ -41,7 +41,7 @@ function nvm() {
 
 function ranger-cd {
   tmp="$(mktemp -t tmp.XXXXXX)"
-  ranger --choosedir="$tmp" "${@:-$(pwd)}"
+  command ranger --choosedir="$tmp" "${@:-$(pwd)}"
   test -f "$tmp" &&
   if [ "$(cat -- "$tmp")" != "$(echo -n `pwd`)" ]; then
       cd -- "$(cat "$tmp")"
