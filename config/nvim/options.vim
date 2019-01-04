@@ -10,7 +10,6 @@ set clipboard=unnamedplus         " Use the + (clipboard) register.
 set formatoptions+=o              " Continue comment marker in new lines.
 set gdefault                      " Use 'g' flag by default with :s/foo/bar/.
 set hidden                        " Set buffer as hidden when abandoned.
-set lazyredraw                    " Only redraw when needed.
 set mouse=a                       " Enable mouse.
 set noshowmode                    " Disable show mode.
 set nostartofline                 " Do not jump to first character with page commands.
