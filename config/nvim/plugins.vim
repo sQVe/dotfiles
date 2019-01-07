@@ -28,6 +28,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'ap/vim-buftabline'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'itchyny/lightline.vim'
+Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'metakirby5/codi.vim'
 Plug 'tpope/vim-fugitive'
