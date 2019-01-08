@@ -275,6 +275,10 @@ let g:UltiSnipsSnippetsDir = $HOME.'/.config/nvim/ultisnips'
 let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/ultisnips']
 
 " Visual Multi.
+let g:VM_maps = {}
+let g:VM_maps["Add Cursor Down"] = '<M-Down>'
+let g:VM_maps["Add Cursor Up"] = '<M-Up>'
+
 let g:VM_mouse_mappings = 1
 let g:VM_theme = 'pray'
 
