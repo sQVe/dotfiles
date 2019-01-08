@@ -55,13 +55,14 @@ Plug 'godlygeek/tabular'
 Plug 'lambdalisue/suda.vim'
 Plug 'moll/vim-bbye'
 
-" Completion.
+" Completion and spelling.
 Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 Plug 'autozimu/LanguageClient-neovim', {
   \ 'branch': 'next',
   \ 'do': 'bash install.sh',
   \ }
 Plug 'ervandew/supertab'
+Plug 'rhysd/vim-grammarous'
 Plug 'sirver/ultisnips'
 Plug 'ujihisa/neco-look'
 
@@ -192,6 +193,10 @@ let g:gitgutter_map_keys = 0
 let g:gitgutter_sign_added = ' '
 let g:gitgutter_sign_modified = ' '
 let g:gitgutter_sign_removed = ''
+
+" Grammarous.
+let g:grammarous#languagetool_cmd = 'languagetool'
+let g:grammarous#show_first_error = 1
 
 " JavaScript.
 let g:javascript_plugin_jsdoc = 1

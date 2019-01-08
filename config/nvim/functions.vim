@@ -7,7 +7,7 @@
 " ¤¤¤¤  Functions  ¤¤¤¤
 " ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-" Toggle conceal.
+" Toggle concealing.
 command -nargs=0 ToggleConceal call ToggleConceal()
 
 function! ToggleConceal()
@@ -30,7 +30,7 @@ function! ToggleRelativeNumber()
   endif
 endfunc
 
-" Toggle spelling.
+" Toggle spell checking.
 command -nargs=0 ToggleSpellCheck call ToggleSpellCheck()
 
 function! ToggleSpellCheck()
@@ -38,6 +38,20 @@ function! ToggleSpellCheck()
     set nospell
   else
     set spell
+  endif
+endfunc
+
+" Toggle grammar checking.
+command -nargs=0 ToggleGrammarCheck call ToggleGrammarCheck()
+
+let grammarcheck = 0
+function! ToggleGrammarCheck()
+  if(g:grammarcheck == 1)
+    let g:grammarcheck = 0
+    :GrammarousReset
+  else
+    let g:grammarcheck = 1
+    :GrammarousCheck
   endif
 endfunc
 
@@ -68,6 +82,10 @@ endfunction
 " ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 nnoremap <C-s> :ToggleSpellCheck<CR>
+nnoremap <C-s>s :ToggleSpellCheck<CR>
+nnoremap <C-s><C-s> :ToggleSpellCheck<CR>
+nnoremap <C-s>g :ToggleGrammarCheck<CR>
+nnoremap <C-s><C-g> :ToggleGrammarCheck<CR>
 nnoremap <Leader>c :ToggleConceal<CR>
 nnoremap <Leader>r :ToggleRelativeNumber<CR>
 nnoremap <Leader>z :Fasd<Space>
