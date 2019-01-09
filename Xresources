@@ -45,17 +45,17 @@ Xcursor.size:  48
 ! ¤¤¤¤  URxvt fonts  ¤¤¤¤
 ! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 URxvt.font:       xft:Iosevka Term:pixelsize=26:antialias=true:hinting=slight, \
-                  xft:Symbola:size=24, \
+                  xft:Symbola:pixelsize=24, \
                   xft:Font Awesome 5 Pro Light:pixelsize=24, \
                   xft:Font Awesome 5 Brands:pixelsize=24
 
 URxvt.boldfont:   xft:Iosevka Term:pixelsize=24:bold:antialias=true:hinting=slight, \
-                  xft:Symbola:size=24, \
+                  xft:Symbola:pixelsize=24, \
                   xft:Font Awesome 5 Pro Light:pixelsize=24, \
                   xft:Font Awesome 5 Brands:pixelsize=24
 
 URxvt.italicFont: xft:Iosevka Term:pixelsize=24:italic:antialias=true:hinting=slight, \
-                  xft:Symbola:size=24, \
+                  xft:Symbola:pixelsize=24, \
                   xft:Font Awesome 5 Pro Light:pixelsize=24, \
                   xft:Font Awesome 5 Brands:pixelsize=24
 
