@@ -1,3 +1,6 @@
+scaled-qutebrowser %U
+  ^https?:\/\/files.slack.com\/.+?\.(gif|jpe?g|png)
+
 mpv %U
   ^https?:\/\/(www.)?youtube.com/watch\?.*v=
 mpv %U
@@ -16,3 +19,4 @@ term rtv %U
 
 scaled-qutebrowser %F
   ^www\..+?\.\w+
+
