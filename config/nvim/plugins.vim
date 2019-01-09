@@ -195,6 +195,21 @@ let g:gitgutter_sign_modified = ' '
 let g:gitgutter_sign_removed = ''
 
 " Grammarous.
+let g:grammarous#default_comments_only_filetypes = {
+  \ '*': 1,
+  \ '': 0,
+  \ 'help': 0,
+  \ 'markdown': 0,
+  \ 'notes': 0,
+  \ 'text': 0,
+  \ }
+
+let g:grammarous#disabled_rules = {
+  \ '*' : ['DASH_RULE'],
+  \ 'markdown' : ['COMMA_PARENTHESIS_WHITESPACE', 'DASH_RULE', 'WHITESPACE_RULE'],
+  \ 'notes' : ['COMMA_PARENTHESIS_WHITESPACE', 'DASH_RULE', 'WHITESPACE_RULE'],
+  \ }
+
 let g:grammarous#languagetool_cmd = 'languagetool'
 let g:grammarous#show_first_error = 1
 
