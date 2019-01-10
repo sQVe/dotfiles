@@ -346,7 +346,7 @@ nnoremap <Leader>gw :Gwrite<CR>
 nnoremap <Leader>/ :Ag<Space>
 nnoremap <Leader>Å :Ag<Space>
 nnoremap <Leader>å :Ag<Space>
-nnoremap <Leader>Ä :Window<CR>
+nnoremap <Leader>Ä :Buffers<CR>
 nnoremap <Leader>Ö :Commands<CR>
 nnoremap <Leader>ä :Buffers<CR>
 nnoremap <Leader>ö :Commands<CR>
