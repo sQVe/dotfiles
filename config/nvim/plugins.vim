@@ -347,9 +347,7 @@ nnoremap <Leader>/ :Ag<Space>
 nnoremap <Leader>Å :Ag<Space>
 nnoremap <Leader>å :Ag<Space>
 nnoremap <Leader>Ä :Buffers<CR>
-nnoremap <Leader>Ö :Commands<CR>
 nnoremap <Leader>ä :Buffers<CR>
-nnoremap <Leader>ö :Commands<CR>
 nnoremap Ä :HistoryFiles<CR>
 nnoremap ä :Files<CR>
 autocmd! FileType fzf tnoremap <buffer> <Esc> <C-c>
