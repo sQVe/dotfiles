@@ -27,6 +27,9 @@ set incsearch                     " Highlight search results as you type.
 set showmatch                     " Show matching brackets.
 set smartcase                     " Use case sensitive search when query has mixed case.
 
+" Spelling.
+set spellfile=~/.config/nvim/spell/en.utf-8.add
+
 " Complete.
 set wildmenu                      " Enable wildmenu.
 set wildmode=longest,full         " Set wildmenu modes.
