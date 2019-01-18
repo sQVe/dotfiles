@@ -21,11 +21,9 @@ Plug 'othree/html5.vim'
 Plug 'pangloss/vim-javascript'
 Plug 'plasticboy/vim-markdown'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
-Plug 'thiagoalessio/rainbow_levels.vim'
 
 " Interface.
 Plug 'airblade/vim-gitgutter'
-Plug 'ap/vim-buftabline'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './install --bin' }
@@ -105,12 +103,6 @@ let g:no_plugin_maps = 1
 " Better Whitespace.
 let g:strip_whitespace_on_save = 1
 
-" BufTabLine.
-highlight default link BufTabLineCurrent Identifier
-highlight default link BufTabLineActive  Character
-highlight default link BufTabLineHidden  Comment
-highlight default link BufTabLineFill    LineNr
-
 " Codi.
 let g:codi#autoclose = 1
 let g:codi#rightsplit = 0
@@ -161,8 +153,8 @@ let g:fugitive_gitlab_domains = ['http://AnimechGitLab']
 " FZF.
 let $FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
 let g:fzf_action = {
-  \ 'ctrl-S': 'split',
-  \ 'ctrl-s': 'vsplit',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit',
   \ 'ctrl-t': 'tab split',
   \ }
 let g:fzf_colors = {
@@ -271,17 +263,6 @@ autocmd Filetype notes setlocal shiftwidth=2 tabstop=2 textwidth=80
 let g:tcomment_mapleader1 = "<C-_>"
 let g:tcomment_mapleader2 = "<Leader>_"
 
-" Rainbow.
-hi! link RainbowLevel0 DraculaPink
-hi! link RainbowLevel1 DraculaCyan
-hi! link RainbowLevel2 DraculaPurple
-hi! link RainbowLevel3 DraculaGreen
-hi! link RainbowLevel4 DraculaYellow
-hi! link RainbowLevel5 DraculaRed
-hi! link RainbowLevel6 DraculaOrange
-hi! link RainbowLevel7 DraculaComment
-hi! link RainbowLevel8 DraculaPink
-
 " Ranger.
 let g:ranger_map_keys = 0
 let g:ranger_replace_netrw = 1
@@ -343,14 +324,15 @@ nnoremap <Leader>gs :Gstatus<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 
 " FZF.
+nnoremap <Backspace> :Buffers<CR>
 nnoremap <Leader>/ :Ag<Space>
-nnoremap <Leader>Å :Ag<Space>
-nnoremap <Leader>å :Ag<Space>
-nnoremap <Leader>Ä :Buffers<CR>
-nnoremap <Leader>ä :Buffers<CR>
-nnoremap Ä :HistoryFiles<CR>
+nnoremap Ä :Ag<Space>
 nnoremap ä :Files<CR>
 autocmd! FileType fzf tnoremap <buffer> <Esc> <C-c>
+
+" Ranger.
+nnoremap å :Ranger<CR>
+nnoremap Å :RangerWorkingDirectory<CR>
 
 " Import JS.
 nnoremap <Leader>ii :ImportJSFix<CR>
@@ -365,13 +347,6 @@ nnoremap <Leader>en :call LanguageClient#textDocument_rename()<CR>
 nnoremap <Leader>er :call LanguageClient#textDocument_references()<CR>
 nnoremap <Leader>es :call LanguageClient#textDocument_documentSymbol()<CR>
 nnoremap <Leader>et :call LanguageClient#textDocument_typeDefinition()<CR>
-
-" Ranger.
-nnoremap å :Ranger<CR>
-nnoremap Å :RangerWorkingDirectory<CR>
-
-" Rainbow.
-nnoremap <Leader><Return> :RainbowLevelsToggle<CR>
 
 " UltiSnips.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
