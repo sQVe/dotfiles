@@ -28,6 +28,7 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
+Plug 'junegunn/goyo.vim'
 Plug 'metakirby5/codi.vim'
 Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
@@ -185,6 +186,10 @@ let g:gitgutter_map_keys = 0
 let g:gitgutter_sign_added = ' '
 let g:gitgutter_sign_modified = ' '
 let g:gitgutter_sign_removed = ''
+
+" Goyo.
+let g:goyo_width = 80
+let g:goyo_height = "90%"
 
 " Grammarous.
 let g:grammarous#default_comments_only_filetypes = {
