@@ -38,6 +38,8 @@ Plug 'Galooshi/vim-import-js'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'heavenshell/vim-jsdoc'
+Plug 'justinmk/vim-sneak'
+Plug 'markonm/traces.vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'shumphrey/fugitive-gitlab.vim'
@@ -336,10 +338,6 @@ nnoremap Ä :Ag<Space>
 nnoremap ä :Files<CR>
 autocmd! FileType fzf tnoremap <buffer> <Esc> <C-c>
 
-" Ranger.
-nnoremap å :Ranger<CR>
-nnoremap Å :RangerWorkingDirectory<CR>
-
 " Import JS.
 nnoremap <Leader>ii :ImportJSFix<CR>
 nnoremap <Leader>iw :ImportJSWord<CR>
@@ -353,6 +351,16 @@ nnoremap <Leader>en :call LanguageClient#textDocument_rename()<CR>
 nnoremap <Leader>er :call LanguageClient#textDocument_references()<CR>
 nnoremap <Leader>es :call LanguageClient#textDocument_documentSymbol()<CR>
 nnoremap <Leader>et :call LanguageClient#textDocument_typeDefinition()<CR>
+
+" Ranger.
+nnoremap å :Ranger<CR>
+nnoremap Å :RangerWorkingDirectory<CR>
+
+" Sneak.
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 
 " UltiSnips.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
