@@ -7,6 +7,11 @@
 " ¤¤¤¤  Functions  ¤¤¤¤
 " ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
+" GetBuffersCount
+function! GetBuffersCount()
+  return len(getbufinfo({'buflisted':1}))
+endfunc
+
 " Toggle concealing.
 command -nargs=0 ToggleConceal call ToggleConceal()
 

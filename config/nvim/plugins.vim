@@ -236,13 +236,14 @@ let g:lightline = {
   \ 'colorscheme': 'Dracula',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'readonly', 'filename' ] ],
+  \             [ 'readonly', 'bufferscount', 'filename' ] ],
   \   'right': [ [ 'lineinfo' ],
   \              [ 'percent' ],
   \              [ 'filetype', 'fileencoding', 'fileformat' ] ]
   \ },
   \ 'component_function': {
   \   'filename': 'LightlineFilename',
+  \   'bufferscount': 'GetBuffersCount',
   \ },
   \ }
 
