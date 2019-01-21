@@ -48,8 +48,6 @@ Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-notes'
 
 " Commands.
 Plug 'godlygeek/tabular'
@@ -199,14 +197,12 @@ let g:grammarous#default_comments_only_filetypes = {
   \ '': 0,
   \ 'help': 0,
   \ 'markdown': 0,
-  \ 'notes': 0,
   \ 'text': 0,
   \ }
 
 let g:grammarous#disabled_rules = {
   \ '*' : ['DASH_RULE'],
   \ 'markdown' : ['COMMA_PARENTHESIS_WHITESPACE', 'DASH_RULE', 'WHITESPACE_RULE'],
-  \ 'notes' : ['COMMA_PARENTHESIS_WHITESPACE', 'DASH_RULE', 'WHITESPACE_RULE'],
   \ }
 
 let g:grammarous#languagetool_cmd = 'languagetool'
@@ -251,21 +247,6 @@ let g:lightline = {
 let g:vim_markdown_folding_level = 2
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_no_extensions_in_markdown = 1
-
-" Notes.
-let g:notes_conceal_url = 0
-let g:notes_directories = [$HOME.'/notes']
-let g:notes_tab_indents = 0
-let g:notes_word_boundaries = 1
-
-hi! link notesDoneMarker DraculaGreenBold
-hi! link notesInProgress DraculaCyanBold
-hi! link notesListBullet DraculaPurple
-hi! link notesListNumber DraculaPurple
-hi! link notesTodo DraculaOrangeBold
-hi! link notesXXX DraculaOrangeBold
-
-autocmd Filetype notes setlocal shiftwidth=2 tabstop=2 textwidth=80
 
 " TComment.
 let g:tcomment_mapleader1 = "<C-_>"
