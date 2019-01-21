@@ -154,9 +154,11 @@ let g:fugitive_gitlab_domains = ['http://AnimechGitLab']
 " FZF.
 let $FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
 let g:fzf_action = {
+  \ 'ctrl-q': 'bdelete',
+  \ 'ctrl-d': 'bdelete',
   \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit',
   \ 'ctrl-t': 'tab split',
+  \ 'ctrl-v': 'vsplit',
   \ }
 let g:fzf_colors = {
   \ 'fg':      ['fg', 'Normal'],
