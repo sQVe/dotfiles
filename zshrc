@@ -163,6 +163,5 @@ alias cfg-zimrc='nvim ~/.dotfiles/zimrc'
 alias cfg-zshenv='nvim ~/.dotfiles/zshenv'
 alias cfg-zshrc='nvim ~/.dotfiles/zshrc'
 
-# Notes.
-alias notes='nvim ~/notes'
-alias todo='nvim ~/notes/todo'
+# Todo.
+alias todo='nvim ~/notes/todo.md'
