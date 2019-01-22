@@ -1,5 +1,6 @@
 scaled-qutebrowser %U
   ^https?:\/\/files.slack.com\/.+?\.(gif|jpe?g|png)
+  ^https?:\/\/(www.)?reddit.com/api/.+
 
 mpv %U
   ^https?:\/\/(www.)?youtube.com/watch\?.*v=
