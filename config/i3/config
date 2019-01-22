@@ -70,7 +70,6 @@ workspace_layout default
 # ¤¤¤¤  Windows & Bars  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-floating_maximum_size 2560 x 1620
 font pango: $font
 hide_edge_borders smart
 new_float pixel 2
