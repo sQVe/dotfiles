@@ -85,7 +85,7 @@ let g:ale_linters = {
   \ 'javascript': ['eslint'],
   \ 'scss': ['sasslint'],
   \ 'sh': ['shellcheck'],
-  \ 'typescript': ['tsserver', 'typecheck', 'tslint'],
+  \ 'typescript': ['tslint', 'tsserver', 'typecheck'],
   \ }
 let g:ale_fixers = {
   \ 'css': ['prettier'],

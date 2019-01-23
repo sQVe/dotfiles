@@ -52,7 +52,7 @@ set listchars=extends:›,precedes:‹,tab:→\ ,nbsp:•,trail:•
 " Folding.
 set foldenable                    " Enable folding.
 set foldlevelstart=99             " Folding level.
-set foldmethod=syntax             " Folding method.
+set foldmethod=indent             " Folding method.
 
 let g:is_sh = 1                   " Enable sh syntax folding.
 let g:sh_fold_enabled = 4         " Fold down to if/do/for etc.
