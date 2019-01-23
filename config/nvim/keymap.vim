@@ -24,11 +24,6 @@ noremap j gj
 noremap gk k
 noremap gj j
 
-noremap <Leader>h ^
-noremap <Leader>l g_
-noremap <Leader>H ^
-noremap <Leader>L g_
-
 " Quick save.
 noremap <Leader><Leader> :write<CR>
 

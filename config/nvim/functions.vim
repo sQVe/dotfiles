@@ -7,7 +7,7 @@
 " ¤¤¤¤  Functions  ¤¤¤¤
 " ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-" GetBuffersCount
+" Get count of all active buffers.
 function! GetBuffersCount()
   return len(getbufinfo({'buflisted':1}))
 endfunc
@@ -20,6 +20,22 @@ function! ToggleConceal()
     set conceallevel=0
   else
     set conceallevel=2
+  endif
+endfunc
+
+" Toggle golden ratio.
+command -nargs=0 ToggleGoldenRatio call ToggleGoldenRatio()
+
+let g:goldenratio = 1
+function! ToggleGoldenRatio()
+  :GoldenRatioToggle
+
+  if(g:goldenratio == 1)
+    let g:goldenratio = 0
+    :wincmd =
+  else
+    let g:goldenratio = 1
+    :GoldenRatioResize
   endif
 endfunc
 
@@ -49,7 +65,7 @@ endfunc
 " Toggle grammar checking.
 command -nargs=0 ToggleGrammarCheck call ToggleGrammarCheck()
 
-let grammarcheck = 0
+let g:grammarcheck = 0
 function! ToggleGrammarCheck()
   if(g:grammarcheck == 1)
     let g:grammarcheck = 0
@@ -87,12 +103,13 @@ endfunction
 " ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 nnoremap <C-s> :ToggleSpellCheck<CR>
-nnoremap <C-s>s :ToggleSpellCheck<CR>
+nnoremap <C-s><C-g> :ToggleGrammarCheck<CR>
 nnoremap <C-s><C-s> :ToggleSpellCheck<CR>
 nnoremap <C-s>g :ToggleGrammarCheck<CR>
-nnoremap <C-s><C-g> :ToggleGrammarCheck<CR>
+nnoremap <C-s>s :ToggleSpellCheck<CR>
 nnoremap <Leader>c :ToggleConceal<CR>
-nnoremap <Leader>r :ToggleRelativeNumber<CR>
+nnoremap <Leader>n :ToggleRelativeNumber<CR>
+nnoremap <Leader>r :ToggleGoldenRatio<CR>
 nnoremap <Leader>z :Fasd<Space>
 nnoremap <Leader>zo :Fasd<Space>
 nnoremap <Leader>zz :FasdCd<Space>

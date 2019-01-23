@@ -30,6 +30,7 @@ Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './insta
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/goyo.vim'
 Plug 'metakirby5/codi.vim'
+Plug 'roman/golden-ratio'
 Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
 
