@@ -1,11 +1,8 @@
 
-"  ┏━┓┏━┓╺┳╸╻┏━┓┏┓╻┏━┓
-"  ┃ ┃┣━┛ ┃ ┃┃ ┃┃┗┫┗━┓
-"  ┗━┛╹   ╹ ╹┗━┛╹ ╹┗━┛
+"  ┏┓ ┏━┓┏━┓┏━╸   ┏━┓┏━┓╺┳╸╻┏━┓┏┓╻┏━┓
+"  ┣┻┓┣━┫┗━┓┣╸    ┃ ┃┣━┛ ┃ ┃┃ ┃┃┗┫┗━┓
+"  ┗━┛╹ ╹┗━┛┗━╸   ┗━┛╹   ╹ ╹┗━┛╹ ╹┗━┛
 
-" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-" ¤¤¤¤  General options  ¤¤¤¤
-" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 set clipboard=unnamedplus         " Use the + (clipboard) register.
 set formatoptions+=o              " Continue comment marker in new lines.
 set gdefault                      " Use 'g' flag by default with :s/foo/bar/.
@@ -77,9 +74,203 @@ set undodir=$HOME/.local/share/nvim/.undo,/tmp
 set undofile                      " Keep a persistent backup file.
 
 
-" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-" ¤¤¤¤  File and event specific options  ¤¤¤¤
-" ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+"  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ┏━┓┏━┓╺┳╸╻┏━┓┏┓╻┏━┓
+"  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┃ ┃┣━┛ ┃ ┃┃ ┃┃┗┫┗━┓
+"  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ┗━┛╹   ╹ ╹┗━┛╹ ╹┗━┛
 
-" Reload buffer on enter or focus.
-au FocusGained,BufEnter * :silent! !
+" Colorschemes.
+colorscheme dracula
+
+" Ale.
+let g:ale_fix_on_save = 1
+let g:ale_sign_column_always = 1
+let g:ale_sign_error = ''
+let g:ale_sign_warning = ''
+let g:ale_linters = {
+  \ 'awk': ['gawk'],
+  \ 'javascript': ['eslint'],
+  \ 'scss': ['sasslint'],
+  \ 'sh': ['shellcheck'],
+  \ 'typescript': ['tslint', 'tsserver', 'typecheck'],
+  \ }
+let g:ale_fixers = {
+  \ 'css': ['prettier'],
+  \ 'html': ['prettier'],
+  \ 'javascript': ['prettier', 'eslint'],
+  \ 'json': ['prettier', 'eslint'],
+  \ 'markdown': ['prettier'],
+  \ 'scss': ['prettier'],
+  \ 'typescript': ['prettier', 'tslint'],
+  \ 'yaml': ['prettier'],
+  \ }
+
+" Bclose.
+let g:no_plugin_maps = 1
+
+" Better Whitespace.
+let g:strip_whitespace_on_save = 1
+
+" Codi.
+let g:codi#autoclose = 1
+let g:codi#rightsplit = 0
+
+" EasyMotion.
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_grouping = 2
+let g:EasyMotion_keys = 'fjdkslaöruvmeic,wox.qpz-ghtybn'
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_skipfoldedline = 0
+
+" Emmet.
+let g:user_emmet_settings = {
+  \ 'javascript' : { 'extends' : 'jsx' },
+  \ 'javascript.jsx' : { 'extends' : 'jsx' },
+  \ 'less' : { 'extends' : 'css' },
+  \ 'scss' : { 'extends' : 'css' },
+  \ 'typescript' : { 'extends' : 'jsx' },
+  \ }
+
+" Deoplete.
+let g:deoplete#enable_at_startup = 1
+call deoplete#custom#option('ignore_sources', {
+  \ 'awk': ['look'],
+  \ 'css': ['look'],
+  \ 'haskell': ['look'],
+  \ 'javascript': ['look'],
+  \ 'javascript.jsx': ['look'],
+  \ 'less': ['look'],
+  \ 'scss': ['look'],
+  \ 'sh': ['look'],
+  \ 'typescript': ['look'],
+  \ })
+call deoplete#custom#source('look', 'min_pattern_length', 2)
+call deoplete#custom#source('LanguageClient', 'min_pattern_length', 2)
+call deoplete#custom#source('dictionary', 'matchers', ['matcher_head'])
+call deoplete#custom#source('dictionary', 'sorters', [])
+call deoplete#custom#source('file', 'rank', 8888)
+call deoplete#custom#source('ultisnips', 'rank', 9999)
+call deoplete#custom#var('file', 'enable_buffer_path', v:true)
+
+" Fugitive Gitlab.
+let g:fugitive_gitlab_domains = ['http://AnimechGitLab']
+
+" FZF.
+let $FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
+let g:fzf_action = {
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-v': 'vsplit',
+  \ }
+let g:fzf_colors = {
+  \ 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Boolean'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'Normal'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'PreProc'],
+  \ 'border':  ['fg', 'Ignore'],
+  \ 'prompt':  ['fg', 'Conditional'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'],
+  \ }
+
+command! -bang -nargs=? -complete=dir Files
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
+command! -bang -nargs=* HistoryFiles
+  \ call fzf#vim#history(fzf#vim#with_preview('right:50%', '?'))
+command! -bang -nargs=* Ag
+  \ call fzf#vim#ag(<q-args>, '--hidden --follow --ignore .git', fzf#vim#with_preview('right:50%', '?'), <bang>0)
+
+" GitGutter.
+let g:gitgutter_map_keys = 0
+let g:gitgutter_sign_added = ' '
+let g:gitgutter_sign_modified = ' '
+let g:gitgutter_sign_removed = ''
+
+" Goyo.
+let g:goyo_width = 80
+let g:goyo_height = "90%"
+
+" Grammarous.
+let g:grammarous#default_comments_only_filetypes = {
+  \ '*': 1,
+  \ '': 0,
+  \ 'help': 0,
+  \ 'markdown': 0,
+  \ 'text': 0,
+  \ }
+
+let g:grammarous#disabled_rules = {
+  \ '*' : ['DASH_RULE'],
+  \ 'markdown' : ['COMMA_PARENTHESIS_WHITESPACE', 'DASH_RULE', 'WHITESPACE_RULE'],
+  \ }
+
+let g:grammarous#languagetool_cmd = 'languagetool'
+let g:grammarous#show_first_error = 1
+
+" JavaScript.
+let g:javascript_plugin_jsdoc = 1
+
+" JsDoc.
+let g:jsdoc_enable_es6 = 1
+
+" LanguageClient.
+let g:LanguageClient_autoStart = 1
+let g:LanguageClient_diagnosticsEnable = 0
+let g:LanguageClient_hoverPreview = "Always"
+let g:LanguageClient_selectionUI = "fzf"
+let g:LanguageClient_serverCommands = {
+  \ 'haskell': ['hie', '--lsp'],
+  \ 'javascript': ['javascript-typescript-stdio'],
+  \ 'javascript.jsx': ['javascript-typescript-stdio'],
+  \ 'sh': ['bash-language-server', 'start'],
+  \ 'typescript': ['javascript-typescript-stdio'],
+  \ }
+
+" Lightline.
+let g:lightline = {
+  \ 'colorscheme': 'Dracula',
+  \ 'active': {
+  \   'left': [ [ 'mode', 'paste' ],
+  \             [ 'readonly', 'bufferscount', 'filename' ] ],
+  \   'right': [ [ 'lineinfo' ],
+  \              [ 'percent' ],
+  \              [ 'filetype', 'fileencoding', 'fileformat' ] ]
+  \ },
+  \ 'component_function': {
+  \   'filename': 'LightlineFilename',
+  \   'bufferscount': 'GetBuffersCount',
+  \ },
+  \ }
+
+" Markdown.
+let g:vim_markdown_folding_level = 2
+let g:vim_markdown_new_list_item_indent = 2
+let g:vim_markdown_no_extensions_in_markdown = 1
+
+" TComment.
+let g:tcomment_mapleader1 = "<C-_>"
+let g:tcomment_mapleader2 = "<Leader>_"
+
+" Ranger.
+let g:ranger_map_keys = 0
+let g:ranger_replace_netrw = 1
+
+" Supertab.
+let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" UltiSnips.
+let g:UltiSnipsExpandTrigger = '<C-Space>'
+let g:UltiSnipsSnippetsDir = $HOME.'/.config/nvim/ultisnips'
+let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/ultisnips']
+
+" Visual Multi.
+let g:VM_maps = {}
+let g:VM_maps["Add Cursor Down"] = '<M-Down>'
+let g:VM_maps["Add Cursor Up"] = '<M-Up>'
+
+let g:VM_mouse_mappings = 1
+let g:VM_theme = 'pray'

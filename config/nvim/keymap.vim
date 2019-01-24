@@ -1,7 +1,7 @@
 
-"  ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
-"  ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
-"  ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
+"  ┏┓ ┏━┓┏━┓┏━╸   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
+"  ┣┻┓┣━┫┗━┓┣╸    ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
+"  ┗━┛╹ ╹┗━┛┗━╸   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
 " Escape.
 inoremap jj <Esc>
@@ -79,3 +79,92 @@ noremap <C-Right> <C-w>l
 
 " Spell completion.
 inoremap <C-x><C-s> <C-x>s
+
+
+"  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
+"  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
+"  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
+
+nnoremap <C-s> :ToggleSpellCheck<CR>
+nnoremap <C-s><C-g> :ToggleGrammarCheck<CR>
+nnoremap <C-s><C-s> :ToggleSpellCheck<CR>
+nnoremap <C-s>g :ToggleGrammarCheck<CR>
+nnoremap <C-s>s :ToggleSpellCheck<CR>
+
+nnoremap <Leader>c :ToggleConceal<CR>
+nnoremap <Leader>n :ToggleRelativeNumber<CR>
+nnoremap <Leader>r :ToggleGoldenRatio<CR>
+nnoremap <Leader>z :Fasd<Space>
+nnoremap <Leader>zo :Fasd<Space>
+nnoremap <Leader>zz :FasdCd<Space>
+
+
+"  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
+"  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
+"  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
+
+" Ale.
+noremap <Leader>ej :ALENextWrap<CR>
+noremap <Leader>ek :ALEPreviousWrap<CR>
+
+" Easymotion.
+map <Leader> <Plug>(easymotion-prefix)
+map <Return> <Plug>(easymotion-s)
+map <Leader>s <Plug>(easymotion-s)
+map <Leader>S <Plug>(easymotion-overwin-f)
+map <Leader>f <Plug>(easymotion-f)
+map <Leader>F <Plug>(easymotion-F)
+map <Leader>t <Plug>(easymotion-t)
+map <Leader>T <Plug>(easymotion-T)
+map <Leader>b <Plug>(easymotion-linebackward)
+map <Leader>w <Plug>(easymotion-lineforward)
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+
+" Fugitive and Git Gutter.
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gc :Gcommit<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gf :Gfetch<CR>
+nnoremap <Leader>gfm :Gpull<CR>
+nnoremap <Leader>gh :GitGutterPreviewHunk<CR>
+nnoremap <Leader>gj :GitGutterNextHunk<CR>
+nnoremap <Leader>gk :GitGutterPrevHunk<CR>
+nnoremap <Leader>gl :Commits<CR>
+nnoremap <Leader>gL :BCommits<CR>
+nnoremap <Leader>gm :Gmerge<CR>
+nnoremap <Leader>go :Gbrowse<CR>
+nnoremap <Leader>gp :Gpush<CR>
+nnoremap <Leader>gr :Gread<CR>
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gw :Gwrite<CR>
+
+" FZF.
+nnoremap <Backspace> :Buffers<CR>
+nnoremap <Leader>/ :Ag<Space>
+nnoremap Ä :Ag<Space>
+nnoremap ä :Files<CR>
+
+" Import JS.
+nnoremap <Leader>ii :ImportJSFix<CR>
+nnoremap <Leader>iw :ImportJSWord<CR>
+nnoremap <Leader>id :ImportJSGoto<CR>
+
+" LanguageClient.
+nnoremap <Leader>ed :call LanguageClient#textDocument_definition()<CR>
+nnoremap <Leader>eh :call LanguageClient#textDocument_hover()<CR>
+nnoremap <Leader>em :call LanguageClient_contextMenu()<CR>
+nnoremap <Leader>en :call LanguageClient#textDocument_rename()<CR>
+nnoremap <Leader>er :call LanguageClient#textDocument_references()<CR>
+nnoremap <Leader>es :call LanguageClient#textDocument_documentSymbol()<CR>
+nnoremap <Leader>et :call LanguageClient#textDocument_typeDefinition()<CR>
+
+" Ranger.
+nnoremap å :Ranger<CR>
+nnoremap Å :RangerWorkingDirectory<CR>
+
+" Sneak.
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
