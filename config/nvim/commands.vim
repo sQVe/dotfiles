@@ -21,6 +21,9 @@ command Bdo %bd|e#|bd#
 " Show full path to open buffer.
 command Bpwd echo expand('%:p')
 
+" Delete marks.
+command DeleteMarks :delm! | delm A-Z0-9
+
 " Set pwd to path of open buffer.
 command Cdb cd %:p:h
 
