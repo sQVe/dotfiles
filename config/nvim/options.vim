@@ -190,10 +190,6 @@ let g:gitgutter_sign_added = ' '
 let g:gitgutter_sign_modified = ' '
 let g:gitgutter_sign_removed = ''
 
-" Goyo.
-let g:goyo_width = 80
-let g:goyo_height = "90%"
-
 " Grammarous.
 let g:grammarous#default_comments_only_filetypes = {
   \ '*': 1,
