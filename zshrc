@@ -39,7 +39,18 @@ function nvm() {
   nvm "$@"
 }
 
-function ranger-cd {
+function nvim-cd() {
+  if [[ -d "$1" ]]; then
+    (cd "$1" && nvim +Ranger)
+  elif [[ -f "$1" ]]; then
+    dirname="$(dirname "$1")/"
+    (cd "$dirname" && nvim "${1/$dirname/}")
+  else
+    nvim "$1"
+  fi
+}
+
+function ranger-cd() {
   tmp="$(mktemp -t tmp.XXXXXX)"
   command ranger --choosedir="$tmp" "${@:-$(pwd)}"
   test -f "$tmp" &&
@@ -149,19 +160,19 @@ alias wifi-menu='wifi-menu -o'
 alias xsel='xsel -b'
 
 # Config.
-alias cfg-env='nvim /etc/environment'
-alias cfg-hosts='nvim /etc/hosts'
-alias cfg-i3='nvim ~/.dotfiles/config/i3/config'
-alias cfg-keymap='nvim ~/code/qmk_firmware/keyboards/ergodox_ez/keymaps/sqve/keymap.c'
-alias cfg-nvim='nvim ~/.dotfiles/config/nvim/'
-alias cfg-ranger='nvim ~/.dotfiles/config/ranger'
-alias cfg-vim='nvim ~/.dotfiles/config/nvim/'
-alias cfg-weechat='nvim ~/.dotfiles/weechat'
-alias cfg-xinitrc='nvim ~/.dotfiles/xinitrc'
-alias cfg-xresources='nvim ~/.dotfiles/Xresources'
-alias cfg-zimrc='nvim ~/.dotfiles/zimrc'
-alias cfg-zshenv='nvim ~/.dotfiles/zshenv'
-alias cfg-zshrc='nvim ~/.dotfiles/zshrc'
+alias cfg-env='nvim-cd /etc/environment'
+alias cfg-hosts='nvim-cd /etc/hosts'
+alias cfg-i3='nvim-cd ~/.dotfiles/config/i3/config'
+alias cfg-keymap='nvim-cd ~/code/qmk_firmware/keyboards/ergodox_ez/keymaps/sqve'
+alias cfg-nvim-cd='nvim-cd ~/.dotfiles/config/nvim/'
+alias cfg-ranger='nvim-cd ~/.dotfiles/config/ranger'
+alias cfg-vim='nvim-cd ~/.dotfiles/config/nvim/'
+alias cfg-weechat='nvim-cd ~/.dotfiles/weechat'
+alias cfg-xinitrc='nvim-cd ~/.dotfiles/xinitrc'
+alias cfg-xresources='nvim-cd ~/.dotfiles/Xresources'
+alias cfg-zimrc='nvim-cd ~/.dotfiles/zimrc'
+alias cfg-zshenv='nvim-cd ~/.dotfiles/zshenv'
+alias cfg-zshrc='nvim-cd ~/.dotfiles/zshrc'
 
 # Todo.
-alias todo='nvim ~/notes/todo.md'
+alias todo='nvim-cd ~/notes/todo.md'
