@@ -28,7 +28,6 @@ Plug 'francoiscabrol/ranger.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
-Plug 'metakirby5/codi.vim'
 Plug 'roman/golden-ratio'
 Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'

@@ -110,10 +110,6 @@ let g:no_plugin_maps = 1
 " Better Whitespace.
 let g:strip_whitespace_on_save = 1
 
-" Codi.
-let g:codi#autoclose = 1
-let g:codi#rightsplit = 0
-
 " EasyMotion.
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_grouping = 2
