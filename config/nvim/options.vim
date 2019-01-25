@@ -108,6 +108,7 @@ let g:no_plugin_maps = 1
 
 " Better Whitespace.
 let g:strip_whitespace_on_save = 1
+let g:strip_whitespace_confirm = 0
 
 " EasyMotion.
 let g:EasyMotion_do_mapping = 0
