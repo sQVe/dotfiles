@@ -21,6 +21,12 @@ augroup ReloadBuffer
   autocmd FocusGained,BufEnter * :silent! !
 augroup END
 
+" Save notes.
+augroup SaveNotes
+  autocmd!
+  autocmd BufWritePost $HOME/notes/*.md :silent exec "!($HOME/scripts/notes-send.sh &)"
+augroup END
+
 " Quick terminal exit.
 augroup QuickTerminalExit
   autocmd!
