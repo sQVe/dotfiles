@@ -28,7 +28,7 @@ set spellfile=~/.config/nvim/spell/en.utf-8.add
 
 " Complete.
 set wildmenu                      " Enable wildmenu.
-set wildmode=longest,full         " Set wildmenu modes.
+set wildmode=longest:full,full    " Set wildmenu modes.
 set completeopt=longest,menuone   " Set compete options.
 
 " Cursor.
