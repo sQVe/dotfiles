@@ -12,7 +12,7 @@ noremap ö :
 noremap Ö :
 
 " Escape terminal.
-tnoremap <C-c> <C-\><C-n>
+tnoremap <Leader><Esc> <C-\><C-n>
 
 " Motion.
 noremap <Up> gk
