@@ -4,7 +4,6 @@
 "  ┗━┛╹ ╹┗━┛┗━╸   ┗━┛╹   ╹ ╹┗━┛╹ ╹┗━┛
 
 set clipboard=unnamedplus         " Use the + (clipboard) register.
-set formatoptions+=o              " Continue comment marker in new lines.
 set gdefault                      " Use 'g' flag by default with :s/foo/bar/.
 set hidden                        " Set buffer as hidden when abandoned.
 set mouse=a                       " Enable mouse.
