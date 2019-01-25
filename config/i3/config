@@ -40,7 +40,7 @@ set $menu-windows --no-startup-id "rofi -kb-accept-entry 'Return' -show window"
 set $music-next --no-startup-id playerctl next
 set $music-prev --no-startup-id playerctl previous
 set $music-toggle --no-startup-id playerctl play-pause
-set $js-playground --no-startup-id term --name js-playground nvim -c 'Codi' "$HOME/code/js-playground/boxes/clean.js"
+set $js-playground --no-startup-id term --name js-playground "js-clean"
 set $qutebrowser --no-startup-id scaled-qutebrowser
 set $ranger --no-startup-id term ranger
 set $redshift --no-startup-id $HOME/scripts/safe-load-redshift.sh

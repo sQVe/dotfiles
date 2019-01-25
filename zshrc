@@ -34,6 +34,11 @@ zle -A backward-delete-char vi-backward-delete-char
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 # ¤¤¤¤  Functions  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+
+function js-box() {
+  (cd ~/code/js-playground && nvim +vsplit +"terminal npm run $1" +'wincmd h' +GoldenRatioResize +'norm G$' "boxes/$1.js")
+}
+
 function nvm() {
   source /usr/share/nvm/nvm.sh --no-use
   nvm "$@"
@@ -173,6 +178,10 @@ alias cfg-xresources='nvim-cd ~/.dotfiles/Xresources'
 alias cfg-zimrc='nvim-cd ~/.dotfiles/zimrc'
 alias cfg-zshenv='nvim-cd ~/.dotfiles/zshenv'
 alias cfg-zshrc='nvim-cd ~/.dotfiles/zshrc'
+
+# JS Playground.
+alias js-clean="js-box clean"
+alias js-fp="js-box fp"
 
 # Todo.
 alias todo='nvim-cd ~/notes/todo.md'
