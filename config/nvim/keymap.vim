@@ -136,7 +136,7 @@ nnoremap <Leader>gm :Gmerge<CR>
 nnoremap <Leader>go :Gbrowse<CR>
 nnoremap <Leader>gp :Gpush<CR>
 nnoremap <Leader>gr :Gread<CR>
-nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gs :vertical Gstatus<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 
 " FZF.
