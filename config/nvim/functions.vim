@@ -17,23 +17,27 @@ function! ToggleConceal()
   endif
 endfunc
 
+" ToggleWindowFocus.
+function! ToggleWindowFocus(focused)
+  if(a:focused)
+    set cursorline
+  else
+    set nocursorline
+  endif
+endfunction
+
 " Toggle relative numbering.
 function! ToggleRelativeNumber()
   if(&relativenumber == 1)
-    set nornu
-    set number
+    set norelativenumber
   else
-    set rnu
+    set relativenumber
   endif
 endfunc
 
 " Toggle spell checking.
 function! ToggleSpellCheck()
-  if(&spell == 1)
-    set nospell
-  else
-    set spell
-  endif
+  set spell!
 endfunc
 
 

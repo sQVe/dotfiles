@@ -3,16 +3,23 @@
 "  ┣━┫┃ ┃ ┃ ┃ ┃┃  ┃┃┃ ┃┃
 "  ╹ ╹┗━┛ ╹ ┗━┛┗━╸╹ ╹╺┻┛
 
+" Force formatoptions to exclude 'o'.
+augroup ExcludeFormatOptions
+  autocmd!
+  autocmd FileType * setlocal formatoptions-=o
+augroup END
+
 " Add all buffers to Fasd database.
 augroup FasdUpdate
   autocmd!
   autocmd BufWinEnter,BufFilePost * call FasdUpdate()
 augroup END
 
-" Force formatoptions to exclude 'o'.
-augroup ExcludeFormatOptions
+" Focus active window.
+augroup FocusActiveWindow
   autocmd!
-  autocmd FileType * setlocal formatoptions-=o
+  autocmd WinLeave * call ToggleWindowFocus(0)
+  autocmd BufWinEnter,VimEnter,WinEnter * call ToggleWindowFocus(1)
 augroup END
 
 " Reload buffer on enter or focus.
