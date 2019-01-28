@@ -157,7 +157,6 @@ alias s=sudo
 alias se=sudoedit
 alias t=term
 alias tiga='tig --all'
-alias todo='nvim $HOME/todo.md'
 alias v=nvim
 alias vi=nvim
 alias vim=nvim
@@ -167,21 +166,21 @@ alias xsel='xsel -b'
 # Config.
 alias cfg-env='nvim-cd /etc/environment'
 alias cfg-hosts='nvim-cd /etc/hosts'
-alias cfg-i3='nvim-cd ~/.dotfiles/config/i3/config'
-alias cfg-keymap='nvim-cd ~/code/qmk_firmware/keyboards/ergodox_ez/keymaps/sqve'
-alias cfg-nvim-cd='nvim-cd ~/.dotfiles/config/nvim/'
-alias cfg-ranger='nvim-cd ~/.dotfiles/config/ranger'
-alias cfg-vim='nvim-cd ~/.dotfiles/config/nvim/'
-alias cfg-weechat='nvim-cd ~/.dotfiles/weechat'
-alias cfg-xinitrc='nvim-cd ~/.dotfiles/xinitrc'
-alias cfg-xresources='nvim-cd ~/.dotfiles/Xresources'
-alias cfg-zimrc='nvim-cd ~/.dotfiles/zimrc'
-alias cfg-zshenv='nvim-cd ~/.dotfiles/zshenv'
-alias cfg-zshrc='nvim-cd ~/.dotfiles/zshrc'
+alias cfg-i3='nvim-cd $HOME/.dotfiles/config/i3/config'
+alias cfg-keymap='nvim-cd $HOME/code/qmk_firmware/keyboards/ergodox_ez/keymaps/sqve'
+alias cfg-nvim='nvim-cd $HOME/.dotfiles/config/nvim/'
+alias cfg-ranger='nvim-cd $HOME/.dotfiles/config/ranger'
+alias cfg-vim='nvim-cd $HOME/.dotfiles/config/nvim/'
+alias cfg-weechat='nvim-cd $HOME/.dotfiles/weechat'
+alias cfg-xinitrc='nvim-cd $HOME/.dotfiles/xinitrc'
+alias cfg-xresources='nvim-cd $HOME/.dotfiles/Xresources'
+alias cfg-zimrc='nvim-cd $HOME/.dotfiles/zimrc'
+alias cfg-zshenv='nvim-cd $HOME/.dotfiles/zshenv'
+alias cfg-zshrc='nvim-cd $HOME/.dotfiles/zshrc'
 
 # JS Playground.
 alias js-clean="js-box clean"
 alias js-fp="js-box fp"
 
 # Todo.
-alias todo='nvim-cd ~/notes/todo.md'
+alias todo='nvim-cd $HOME/notes/todo.md'

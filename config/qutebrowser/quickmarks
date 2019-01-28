@@ -1,5 +1,6 @@
 bin https://github.com/sQVe/bin
 binds qute://bindings/
+books https://github.com/sQVe/books
 books https://play.google.com/books
 cal https://calendar.google.com/calendar/r
 coveralls https://coveralls.io/github/sQVe/
@@ -17,6 +18,8 @@ lastpass https://lastpass.com/
 mail https://mail.google.com/mail/u/0/#inbox
 mdn https://developer.mozilla.org/en-US/docs/Web
 mega https://mega.nz/
+notes https://github.com/sQVe/notes
+pictures https://github.com/sQVe/pictures
 reddit https://www.reddit.com/
 regex https://regex101.com/
 scripts https://github.com/sQVe/scripts
