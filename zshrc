@@ -44,17 +44,6 @@ function nvm() {
   nvm "$@"
 }
 
-function nvim-cd() {
-  if [[ -d "$1" ]]; then
-    (cd "$1" && nvim +Ranger)
-  elif [[ -f "$1" ]]; then
-    dirname="$(dirname "$1")/"
-    (cd "$dirname" && nvim "${1/$dirname/}")
-  else
-    nvim "$1"
-  fi
-}
-
 function ranger-cd() {
   tmp="$(mktemp -t tmp.XXXXXX)"
   command ranger --choosedir="$tmp" "${@:-$(pwd)}"
