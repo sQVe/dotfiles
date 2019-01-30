@@ -111,13 +111,6 @@ let g:no_plugin_maps = 1
 let g:strip_whitespace_on_save = 1
 let g:strip_whitespace_confirm = 0
 
-" EasyMotion.
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_grouping = 2
-let g:EasyMotion_keys = 'fjdkslaöruvmeic,wox.qpz-ghtybn'
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_skipfoldedline = 0
-
 " Emmet.
 let g:user_emmet_settings = {
   \ 'javascript' : { 'extends' : 'jsx' },
@@ -254,6 +247,10 @@ let g:ranger_replace_netrw = 1
 
 " Supertab.
 let g:SuperTabDefaultCompletionType = '<C-n>'
+
+" Sneak.
+let g:sneak#s_next = 1
+let g:sneak#target_labels = "fjdkslaruvmeic,wox.qpz-ghtybn"
 
 " UltiSnips.
 let g:UltiSnipsExpandTrigger = '<C-Space>'

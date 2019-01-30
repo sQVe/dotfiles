@@ -110,19 +110,6 @@ nnoremap <Leader>zz :FasdCd<Space>
 noremap <Leader>ej :ALENextWrap<CR>
 noremap <Leader>ek :ALEPreviousWrap<CR>
 
-" Easymotion.
-map <Leader> <Plug>(easymotion-prefix)
-map <Leader>s <Plug>(easymotion-s)
-map <Leader>S <Plug>(easymotion-overwin-f)
-map <Leader>f <Plug>(easymotion-f)
-map <Leader>F <Plug>(easymotion-F)
-map <Leader>t <Plug>(easymotion-t)
-map <Leader>T <Plug>(easymotion-T)
-map <Leader>b <Plug>(easymotion-linebackward)
-map <Leader>w <Plug>(easymotion-lineforward)
-map <Leader>j <Plug>(easymotion-j)
-map <Leader>k <Plug>(easymotion-k)
-
 " Fugitive and Git Gutter.
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gc :Gcommit<CR>

@@ -3,6 +3,7 @@
 "  ┣━┫┃ ┃ ┃ ┃ ┃┃  ┃┃┃ ┃┃
 "  ╹ ╹┗━┛ ╹ ┗━┛┗━╸╹ ╹╺┻┛
 
+
 " Force formatoptions to exclude 'o'.
 augroup ExcludeFormatOptions
   autocmd!
@@ -26,6 +27,12 @@ augroup END
 augroup ReloadBuffer
   autocmd!
   autocmd FocusGained,BufEnter * :silent! !
+augroup END
+
+" Override Sneak highligting.
+augroup OverrideSneakHighlighting
+  autocmd!
+  autocmd ColorScheme * hi! link Sneak DraculaOrangeInverse
 augroup END
 
 " Save notes.
