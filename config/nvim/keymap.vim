@@ -10,6 +10,8 @@ inoremap <F1> <Esc>
 " Quick command.
 noremap ö :
 noremap Ö :
+noremap qö q:
+noremap qÖ q:
 
 " Escape terminal.
 tnoremap <C-q> <C-\><C-n>
@@ -35,6 +37,7 @@ noremap <Leader>D :Bclose!<CR>
 
 " Start a new terminal at current pwd.
 noremap <Leader>u :!urxvt & disown<CR><CR>
+noremap <Leader><CR> :!urxvt & disown<CR><CR>
 
 " Remove highlighted search result.
 nnoremap <Esc><Esc> :nohl<CR>
@@ -109,7 +112,6 @@ noremap <Leader>ek :ALEPreviousWrap<CR>
 
 " Easymotion.
 map <Leader> <Plug>(easymotion-prefix)
-map <Return> <Plug>(easymotion-s)
 map <Leader>s <Plug>(easymotion-s)
 map <Leader>S <Plug>(easymotion-overwin-f)
 map <Leader>f <Plug>(easymotion-f)
