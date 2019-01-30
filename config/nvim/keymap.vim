@@ -36,7 +36,7 @@ noremap <Leader>d :Bclose<CR>
 noremap <Leader>D :Bclose!<CR>
 
 " Start a new terminal at current pwd.
-noremap <Leader>u :!urxvt & disown<CR><CR>
+noremap <Leader>t :!urxvt & disown<CR><CR>
 noremap <Leader><CR> :!urxvt & disown<CR><CR>
 
 " Remove highlighted search result.
@@ -110,6 +110,12 @@ nnoremap <Leader>zz :FasdCd<Space>
 noremap <Leader>ej :ALENextWrap<CR>
 noremap <Leader>ek :ALEPreviousWrap<CR>
 
+" EasyMotion.
+map s <Plug>(easymotion-s)
+map S <Plug>(easymotion-s2)
+vmap s <Plug>(easymotion-s)
+vmap S <Plug>(easymotion-s2)
+
 " Fugitive and Git Gutter.
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gc :Gcommit<CR>
@@ -151,9 +157,3 @@ nnoremap <Leader>et :call LanguageClient#textDocument_typeDefinition()<CR>
 " Ranger.
 nnoremap å :Ranger<CR>
 nnoremap Å :RangerWorkingDirectory<CR>
-
-" Sneak.
-map f <Plug>Sneak_f
-map F <Plug>Sneak_F
-map t <Plug>Sneak_t
-map T <Plug>Sneak_T

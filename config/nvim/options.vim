@@ -111,15 +111,6 @@ let g:no_plugin_maps = 1
 let g:strip_whitespace_on_save = 1
 let g:strip_whitespace_confirm = 0
 
-" Emmet.
-let g:user_emmet_settings = {
-  \ 'javascript' : { 'extends' : 'jsx' },
-  \ 'javascript.jsx' : { 'extends' : 'jsx' },
-  \ 'less' : { 'extends' : 'css' },
-  \ 'scss' : { 'extends' : 'css' },
-  \ 'typescript' : { 'extends' : 'jsx' },
-  \ }
-
 " Deoplete.
 let g:deoplete#enable_at_startup = 1
 call deoplete#custom#option('ignore_sources', {
@@ -140,6 +131,22 @@ call deoplete#custom#source('dictionary', 'sorters', [])
 call deoplete#custom#source('file', 'rank', 8888)
 call deoplete#custom#source('ultisnips', 'rank', 9999)
 call deoplete#custom#var('file', 'enable_buffer_path', v:true)
+
+" EasyMotion.
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_grouping = 2
+let g:EasyMotion_keys = 'fjdkslaruvmeic,wox.qpz-ghtybn'
+let g:EasyMotion_smartcase = 1
+let g:EasyMotion_skipfoldedline = 0
+
+" Emmet.
+let g:user_emmet_settings = {
+  \ 'javascript' : { 'extends' : 'jsx' },
+  \ 'javascript.jsx' : { 'extends' : 'jsx' },
+  \ 'less' : { 'extends' : 'css' },
+  \ 'scss' : { 'extends' : 'css' },
+  \ 'typescript' : { 'extends' : 'jsx' },
+  \ }
 
 " Fugitive Gitlab.
 let g:fugitive_gitlab_domains = ['http://AnimechGitLab']
@@ -247,10 +254,6 @@ let g:ranger_replace_netrw = 1
 
 " Supertab.
 let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" Sneak.
-let g:sneak#s_next = 1
-let g:sneak#target_labels = "fjdkslaruvmeic,wox.qpz-ghtybn"
 
 " UltiSnips.
 let g:UltiSnipsExpandTrigger = '<C-Space>'

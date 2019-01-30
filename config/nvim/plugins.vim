@@ -34,9 +34,10 @@ Plug 'w0rp/ale'
 
 " Integration.
 Plug 'Galooshi/vim-import-js'
+Plug 'easymotion/vim-easymotion'
+Plug 'dahu/vim-fanfingtastic'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'heavenshell/vim-jsdoc'
-Plug 'justinmk/vim-sneak'
 Plug 'markonm/traces.vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'ntpeters/vim-better-whitespace'
