@@ -116,6 +116,10 @@ map S <Plug>(easymotion-s2)
 vmap s <Plug>(easymotion-s)
 vmap S <Plug>(easymotion-s2)
 
+" EasyAlign.
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
 " Fugitive and Git Gutter.
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gc :Gcommit<CR>

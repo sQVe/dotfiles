@@ -40,16 +40,16 @@ Plug 'dahu/vim-fanfingtastic'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'heavenshell/vim-jsdoc'
+Plug 'junegunn/vim-easy-align'
+Plug 'machakann/vim-sandwich'
 Plug 'mg979/vim-visual-multi'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'shumphrey/fugitive-gitlab.vim'
 Plug 'sickill/vim-pasta'
 Plug 'tomtom/tcomment_vim'
 Plug 'tpope/vim-rhubarb'
-Plug 'machakann/vim-sandwich'
 
 " Commands.
-Plug 'godlygeek/tabular'
 Plug 'lambdalisue/suda.vim'
 Plug 'moll/vim-bbye'
 
