@@ -258,6 +258,9 @@ let g:ranger_replace_netrw = 1
 " Supertab.
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
+" Sandwich.
+runtime macros/sandwich/keymap/surround.vim
+
 " UltiSnips.
 let g:UltiSnipsExpandTrigger = '<C-Space>'
 let g:UltiSnipsSnippetsDir = $HOME.'/.config/nvim/ultisnips'
