@@ -29,10 +29,10 @@ augroup ReloadBuffer
   autocmd FocusGained,BufEnter * :silent! !
 augroup END
 
-" Override Sneak highligting.
-augroup OverrideSneakHighlighting
+" Override colorscheme.
+augroup OverrideColorScheme
   autocmd!
-  autocmd ColorScheme * hi! link Sneak DraculaOrangeInverse
+  autocmd ColorScheme * hi! link HighlightedyankRegion DraculaSearch
 augroup END
 
 " Save notes.
