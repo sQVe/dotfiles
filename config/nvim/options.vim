@@ -204,9 +204,6 @@ let g:grammarous#disabled_rules = {
 let g:grammarous#languagetool_cmd = 'languagetool'
 let g:grammarous#show_first_error = 1
 
-" Hightlight yank.
-let g:highlightedyank_highlight_duration = 400
-
 " JavaScript.
 let g:javascript_plugin_jsdoc = 1
 

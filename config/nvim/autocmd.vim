@@ -29,12 +29,6 @@ augroup ReloadBuffer
   autocmd FocusGained,BufEnter * :silent! !
 augroup END
 
-" Override colorscheme.
-augroup OverrideColorScheme
-  autocmd!
-  autocmd ColorScheme * hi! link HighlightedyankRegion DraculaOrangeInverse
-augroup END
-
 " Save notes.
 augroup SaveNotes
   autocmd!
