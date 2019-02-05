@@ -32,7 +32,7 @@ augroup END
 " Override colorscheme.
 augroup OverrideColorScheme
   autocmd!
-  autocmd ColorScheme * hi! link HighlightedyankRegion DraculaSearch
+  autocmd ColorScheme * hi! link HighlightedyankRegion DraculaOrangeInverse
 augroup END
 
 " Save notes.
