@@ -244,9 +244,8 @@ let g:vim_markdown_folding_level = 2
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_no_extensions_in_markdown = 1
 
-" TComment.
-let g:tcomment_mapleader1 = "<C-_>"
-let g:tcomment_mapleader2 = "<Leader>_"
+" Pasta.
+let g:pasta_disabled_filetypes = ['fugitive', 'markdown', 'yaml']
 
 " Ranger.
 let g:ranger_map_keys = 0
@@ -257,6 +256,10 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " Sandwich.
 runtime macros/sandwich/keymap/surround.vim
+
+" TComment.
+let g:tcomment_mapleader1 = "<C-_>"
+let g:tcomment_mapleader2 = "<Leader>_"
 
 " UltiSnips.
 let g:UltiSnipsExpandTrigger = '<C-Space>'
