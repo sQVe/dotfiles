@@ -225,7 +225,7 @@ let g:LanguageClient_serverCommands = {
 
 " Lightline.
 let g:lightline = {
-  \ 'colorscheme': 'Dracula',
+  \ 'colorscheme': 'dracula',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
   \             [ 'readonly', 'bufferscount', 'filename' ] ],
