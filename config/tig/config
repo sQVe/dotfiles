@@ -1,5 +1,11 @@
-set refresh-interval = 60
-set refresh-mode = periodic
-set main-view-date = relative-compact
-
 color cursor black magenta
+
+set focus-child      = no
+set main-view-date   = relative-compact
+set main-view-id     = yes
+set refresh-interval = 60
+set refresh-mode     = periodic
+
+bind generic <Esc> view-close
+bind generic I @sh -c "echo -n %(commit) | xsel -ib"
+bind generic ö prompt
