@@ -1,1 +1,18 @@
 extends javascript
+
+# Disable TSLint
+# --------------
+
+snippet tslint-disable "TSLint disable" b
+/* tslint:disable ${1:rule} */
+${VISUAL}$0
+/* tslint:enable */
+endsnippet
+
+snippet tslint-disable-line "TSLint disable line" w
+// tslint:disable-line ${1:rule}
+endsnippet
+
+snippet tslint-disable-next-line "TSLint disable next line" b
+// tslint:disable-next-line ${1:rule}
+endsnippet
