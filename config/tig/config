@@ -1,6 +1,5 @@
 color cursor black magenta
 
-set focus-child      = no
 set main-view-date   = relative-compact
 set main-view-id     = yes
 set refresh-interval = 60

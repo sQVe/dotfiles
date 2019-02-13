@@ -134,9 +134,8 @@ nnoremap <Leader>gL :BCommits<CR>
 nnoremap <Leader>gm :Gmerge<CR>
 nnoremap <Leader>go :Gbrowse<CR>
 nnoremap <Leader>gp :Gpush<CR>
-nnoremap <Leader>gr :Gread<CR>
+nnoremap <Leader>gr :Grebase<CR>
 nnoremap <Leader>gs :vertical Gstatus<CR>
-nnoremap <Leader>gw :Gwrite<CR>
 
 " FZF.
 nnoremap <Backspace> :Buffers<CR>
