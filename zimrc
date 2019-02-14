@@ -15,7 +15,7 @@ ztermtitle='%n@%m:%~'
 # ¤¤¤¤  Modules  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 zmodules=(directory environment fzf git git-info history input utility syntax-highlighting \
-          history-substring-search prompt archive completion fasd)
+          history-substring-search prompt completion fasd)
 
 
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
