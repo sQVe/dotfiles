@@ -9,7 +9,12 @@
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
 # Type: Dict
-c.aliases = {'q': 'quit', 'w': 'session-save', 'wq': 'quit --save'}
+c.aliases = {
+    'q': 'close',
+    'qa': 'quit',
+    'w': 'session-save',
+    'wqa': 'quit --save'
+}
 
 # Require a confirmation before quitting the application.
 # Type: ConfirmQuit
