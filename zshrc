@@ -123,7 +123,7 @@ alias ls='exa'
 
 # Apps.
 alias R='ramda --js'
-alias ag='ag --hidden --ignore .git --follow'
+alias ag='ag --follow --hidden --ignore .git'
 alias bc='bc -l -q'
 alias bluetooth=bluetoothctl
 alias c=cat
