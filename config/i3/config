@@ -47,6 +47,7 @@ set $term --no-startup-id term
 set $vim --no-startup-id term nvim
 
 set $brightness-down --no-startup-id light -U 5 && pkill -RTMIN+10 i3blocks
+set $brightness-full --no-startup-id light -S 80 && pkill -RTMIN+10 i3blocks
 set $brightness-up --no-startup-id light -A 5 && pkill -RTMIN+10 i3blocks
 set $kill-redshift --no-startup-id pkill redshift & pkill -RTMIN+2 i3blocks
 set $volume-down --no-startup-id amixer -D pulse set Master 5%- && pkill -RTMIN+8 i3blocks
@@ -210,12 +211,13 @@ bindsym $mod+Ctrl+h workspace prev
 
 # Symbol based bindings.
 bindsym $mod+comma exec $brightness-up
-bindsym $mod+minus exec $volume-toggle
 bindsym $mod+period exec $volume-up
 
 bindsym $mod+Shift+comma exec $brightness-down
-bindsym $mod+Shift+minus exec $volume-toggle
 bindsym $mod+Shift+period exec $volume-down
+
+bindsym $mod+$alt+comma exec $brightness-full
+bindsym $mod+$alt+period exec $volume-toggle
 
 # Direction based bindings.
 bindsym $mod+Down focus down
