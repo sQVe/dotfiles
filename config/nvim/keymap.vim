@@ -125,7 +125,6 @@ nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gf :Gfetch<CR>
-nnoremap <Leader>gfm :Gpull<CR>
 nnoremap <Leader>gh :GitGutterPreviewHunk<CR>
 nnoremap <Leader>gj :GitGutterNextHunk<CR>
 nnoremap <Leader>gk :GitGutterPrevHunk<CR>
@@ -136,6 +135,7 @@ nnoremap <Leader>go :Gbrowse<CR>
 nnoremap <Leader>gp :Gpush<CR>
 nnoremap <Leader>gr :Grebase<CR>
 nnoremap <Leader>gs :vertical Gstatus<CR>
+nnoremap <Leader>gw :Gwrite<CR>
 
 " FZF.
 nnoremap <Backspace> :Buffers<CR>
