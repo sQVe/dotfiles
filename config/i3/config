@@ -47,7 +47,7 @@ set $term --no-startup-id term
 set $vim --no-startup-id term nvim
 
 set $brightness-down --no-startup-id light -U 5 && pkill -RTMIN+10 i3blocks
-set $brightness-full --no-startup-id light -S 80 && pkill -RTMIN+10 i3blocks
+set $brightness-full --no-startup-id $HOME/scripts/toggle-brightness.sh && pkill -RTMIN+10 i3blocks
 set $brightness-up --no-startup-id light -A 5 && pkill -RTMIN+10 i3blocks
 set $kill-redshift --no-startup-id pkill redshift & pkill -RTMIN+2 i3blocks
 set $volume-down --no-startup-id amixer -D pulse set Master 5%- && pkill -RTMIN+8 i3blocks
