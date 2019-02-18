@@ -135,7 +135,7 @@ for_window [window_role="bubble"] sticky enable
 # ¤¤¤¤  Bindings  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-# Number based bindings
+# Number based bindings.
 bindsym $mod+0 workspace number $workspace-0
 bindsym $mod+1 workspace number $workspace-1
 bindsym $mod+2 workspace number $workspace-2
@@ -158,11 +158,10 @@ bindsym $mod+Shift+7 move container to workspace number $workspace-7
 bindsym $mod+Shift+8 move container to workspace number $workspace-8
 bindsym $mod+Shift+9 move container to workspace number $workspace-9
 
-# Letter & symbol based bindings
+# Letter based bindings.
 bindsym $mod+a exec $menu-windows
 bindsym $mod+b exec $qutebrowser
 bindsym $mod+c exec $menu-clipboard
-bindsym $mod+comma exec $brightness-up
 bindsym $mod+d exec $menu-main
 bindsym $mod+e exec $menu-exit
 bindsym $mod+f mode "resize"
@@ -173,11 +172,9 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+m exec $redshift
-bindsym $mod+minus exec $volume-toggle
 bindsym $mod+n exec $js-playground
 bindsym $mod+o floating toggle; resize set 1200 800; move position center
 bindsym $mod+p focus parent
-bindsym $mod+period exec $volume-up
 bindsym $mod+q kill
 bindsym $mod+r exec $ranger
 bindsym $mod+s split toggle
@@ -189,7 +186,6 @@ bindsym $mod+y sticky toggle
 bindsym $mod+z exec $menu-projects
 
 bindsym $mod+Shift+b exec $music-toggle
-bindsym $mod+Shift+comma exec $brightness-down
 bindsym $mod+Shift+d exec $menu-run
 bindsym $mod+Shift+g gaps inner current minus 20
 bindsym $mod+Shift+h move left 180
@@ -198,11 +194,9 @@ bindsym $mod+Shift+j move down 180
 bindsym $mod+Shift+k move up 180
 bindsym $mod+Shift+l move right 180
 bindsym $mod+Shift+m exec $kill-redshift
-bindsym $mod+Shift+minus exec $volume-toggle
 bindsym $mod+Shift+n exec $music-next
 bindsym $mod+Shift+o focus mode_toggle
 bindsym $mod+Shift+p focus child
-bindsym $mod+Shift+period exec $volume-down
 bindsym $mod+Shift+s layout toggle splitv splith
 bindsym $mod+Shift+v exec $music-prev
 
@@ -214,7 +208,16 @@ bindsym $mod+$alt+l move workspace to output right
 bindsym $mod+Ctrl+l workspace next
 bindsym $mod+Ctrl+h workspace prev
 
-# Direction based bindings
+# Symbol based bindings.
+bindsym $mod+comma exec $brightness-up
+bindsym $mod+minus exec $volume-toggle
+bindsym $mod+period exec $volume-up
+
+bindsym $mod+Shift+comma exec $brightness-down
+bindsym $mod+Shift+minus exec $volume-toggle
+bindsym $mod+Shift+period exec $volume-down
+
+# Direction based bindings.
 bindsym $mod+Down focus down
 bindsym $mod+End workspace next
 bindsym $mod+Home workspace prev
@@ -235,7 +238,7 @@ bindsym $mod+$alt+Up move workspace to output up
 bindsym $mod+Ctrl+Right workspace next
 bindsym $mod+Ctrl+Left workspace prev
 
-# Media based bindings
+# Media based bindings.
 bindsym XF86AudioLowerVolume exec $volume-down
 bindsym XF86AudioMute exec $volume-toggle
 bindsym XF86AudioNext exec $music-next
@@ -246,7 +249,7 @@ bindsym XF86MonBrightnessDown exec $brightness-down
 bindsym XF86MonBrightnessUp exec $brightness-up
 bindsym XF86PowerOff exec $menu-exit
 
-# Misc bindings
+# Misc bindings.
 bindsym $mod+BackSpace workspace back_and_forth
 bindsym $mod+Delete kill
 bindsym $mod+Escape workspace prev
