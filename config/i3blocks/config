@@ -24,7 +24,7 @@ interval=10
 interval=10
 signal=8
 
-[backlight]
+[brightness]
 interval=once
 signal=10
 label=
