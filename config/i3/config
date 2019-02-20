@@ -59,7 +59,6 @@ set $volume-up --no-startup-id amixer -D pulse set Master 5%+ && pkill -RTMIN+8 
 # ¤¤¤¤  Options  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-default_orientation horizontal
 floating_modifier $mod
 focus_wrapping no
 workspace_auto_back_and_forth no
