@@ -129,12 +129,14 @@ nnoremap <Leader>gh :GitGutterPreviewHunk<CR>
 nnoremap <Leader>gj :GitGutterNextHunk<CR>
 nnoremap <Leader>gk :GitGutterPrevHunk<CR>
 nnoremap <Leader>gl :Commits<CR>
-nnoremap <Leader>gL :BCommits<CR>
+nnoremap <Leader>glb :BCommits<CR>
 nnoremap <Leader>gm :Gmerge<CR>
 nnoremap <Leader>go :Gbrowse<CR>
 nnoremap <Leader>gp :Gpush<CR>
 nnoremap <Leader>gr :Grebase<CR>
 nnoremap <Leader>gs :vertical Gstatus<CR>
+nnoremap <Leader>gss :Gstatus<CR>
+nnoremap <Leader>gsv :vertical Gstatus<CR>
 nnoremap <Leader>gw :Gwrite<CR>
 
 " FZF.
