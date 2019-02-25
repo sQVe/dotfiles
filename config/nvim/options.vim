@@ -18,10 +18,8 @@ set virtualedit=block             " Enable virtualedit when in Visual Block mode
 set conceallevel=2                " Conceal characters when possible.
 
 " Searching.
-set ignorecase                    " Make searching case insensitive.
 set incsearch                     " Highlight search results as you type.
 set showmatch                     " Show matching brackets.
-set smartcase                     " Use case sensitive search when query has mixed case.
 
 " Spelling.
 set spellfile=~/.config/nvim/spell/en.utf-8.add
@@ -218,6 +216,7 @@ let g:LanguageClient_selectionUI = "fzf"
 let g:LanguageClient_serverCommands = {
   \ 'haskell': ['hie', '--lsp'],
   \ 'javascript': ['javascript-typescript-stdio'],
+  \ 'scss': ['css-languageserver', '--stdio'],
   \ 'javascript.jsx': ['javascript-typescript-stdio'],
   \ 'sh': ['bash-language-server', 'start'],
   \ 'typescript': ['javascript-typescript-stdio'],
