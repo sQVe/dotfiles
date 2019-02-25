@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 label=""
-state="$(cat "/sys/class/net/$BLOCK_INSTANCE/operstate")"
+ssid="$(iwgetid -r)"
 
-if [[ "$state" != "up" ]]; then
+if [[ -z "$ssid" ]]; then
 	echo "$label"
 	echo "$label"
 	echo "#FF5555"
@@ -11,7 +11,6 @@ if [[ "$state" != "up" ]]; then
 fi
 
 quality="$(grep "$BLOCK_INSTANCE" /proc/net/wireless | awk '{ print int($3 * 100 / 70) }')"
-ssid="$(iwgetid -r)"
 
 echo "$label $ssid @ $quality%"
 echo "$label $ssid @ $quality%"

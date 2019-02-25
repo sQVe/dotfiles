@@ -1,13 +1,9 @@
 command=~/.config/i3blocks/scripts/$BLOCK_NAME
 separator_block_width=20
 
-[cpu_usage]
+[cpu-usage]
 interval=2
 label=
-
-[load_average]
-interval=5
-label=
 
 [temperature]
 interval=2
@@ -37,6 +33,10 @@ label=
 [battery]
 interval=5
 markup=pango
+
+[github-notifications]
+interval=2
+label=
 
 [time]
 command=date '+%Y-%m-%d'
