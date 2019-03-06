@@ -3,6 +3,7 @@
 #  ┏━┛┗━┓┣━┫┣╸ ┃┗┫┃┏┛
 #  ┗━╸┗━┛╹ ╹┗━╸╹ ╹┗┛
 
+export GPG_TTY="$(tty)"
 export HTTPIE_CONFIG_DIR=$HOME/.config/httpie
 export KEYTIMEOUT=1
 export NVM_DIR=$HOME/.nvm

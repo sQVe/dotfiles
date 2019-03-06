@@ -3,12 +3,11 @@
 #  ┏╋┛┃┃┗┫┃ ┃ ┣┳┛┃
 #  ╹ ╹╹╹ ╹╹ ╹ ╹┗╸┗━╸
 
-# Start SSH agent.
-eval $(ssh-agent)
+# Start GPG agent.
+gpg-connect-agent updatestartuptty /bye
 
 # Start keyring.
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)
-export SSH_AUTH_SOCK
 
 # Load the Xresources settings.
 xrdb ~/.Xresources
