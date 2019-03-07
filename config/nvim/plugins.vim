@@ -62,9 +62,7 @@ Plug 'autozimu/LanguageClient-neovim', {
   \ }
 Plug 'ervandew/supertab'
 Plug 'rhysd/vim-grammarous'
-Plug 'rstacruz/vim-closer'
 Plug 'sirver/ultisnips'
-Plug 'tpope/vim-endwise'
 Plug 'ujihisa/neco-look'
 
 call plug#end()
