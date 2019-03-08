@@ -1,4 +1,4 @@
-command=~/.config/i3blocks/scripts/$BLOCK_NAME
+command=$HOME/scripts/i3blocks/$BLOCK_NAME
 separator_block_width=20
 
 [cpu-usage]
