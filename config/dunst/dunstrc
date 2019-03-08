@@ -150,7 +150,7 @@
     icon_position = left
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Papirus/64x64/status/:/usr/share/icons/Papirus/64x64/devices/
+    icon_path = /usr/share/icons/Papirus/64x64/apps/:/usr/share/icons/Papirus/64x64/devices/:/usr/share/icons/Papirus/64x64/status/
 
 [shortcuts]
 
