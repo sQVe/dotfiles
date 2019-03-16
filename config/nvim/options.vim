@@ -86,9 +86,12 @@ let g:ale_sign_error = ''
 let g:ale_sign_warning = ''
 let g:ale_linters = {
   \ 'awk': ['gawk'],
+  \ 'help': ['alex', 'proselint', 'write-good'],
   \ 'javascript': ['eslint'],
+  \ 'markdown': ['alex', 'proselint', 'write-good'],
   \ 'scss': ['sasslint'],
   \ 'sh': ['shellcheck'],
+  \ 'text': ['alex', 'proselint', 'write-good'],
   \ 'typescript': ['tslint', 'tsserver', 'typecheck'],
   \ }
 let g:ale_fixers = {
@@ -196,7 +199,7 @@ let g:grammarous#default_comments_only_filetypes = {
 
 let g:grammarous#disabled_rules = {
   \ '*' : ['DASH_RULE'],
-  \ 'markdown' : ['COMMA_PARENTHESIS_WHITESPACE', 'DASH_RULE', 'WHITESPACE_RULE'],
+  \ 'markdown' : ['COMMA_PARENTHESIS_WHITESPACE', 'DASH_RULE', 'EN_QUOTES', 'WHITESPACE_RULE'],
   \ }
 
 let g:grammarous#languagetool_cmd = 'languagetool'
