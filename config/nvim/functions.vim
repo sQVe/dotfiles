@@ -89,13 +89,10 @@ function! ToggleGoldenRatio()
 endfunc
 
 " Toggle grammar checking.
-let g:grammarcheck = 0
 function! ToggleGrammarCheck()
-  if(g:grammarcheck == 1)
-    let g:grammarcheck = 0
+  if exists('b:grammarous_result')
     :GrammarousReset
   else
-    let g:grammarcheck = 1
     :GrammarousCheck
   endif
 endfunc
