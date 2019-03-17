@@ -22,7 +22,8 @@
   old = red bold
   new = green bold
   whitespace = red reverse
-[mergetool "fugitive"]
-	cmd = nvim -f -c \"Gdiff\" \"$MERGED\"
 [merge]
-	tool = fugitive
+  conflictStyle = diff3
+  tool = vim_mergetool
+[mergetool "vim_mergetool"]
+  cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"

@@ -131,13 +131,14 @@ nnoremap <Leader>gj :GitGutterNextHunk<CR>
 nnoremap <Leader>gk :GitGutterPrevHunk<CR>
 nnoremap <Leader>gl :Commits<CR>
 nnoremap <Leader>glb :BCommits<CR>
+nnoremap <Leader>gmt :MergetoolToggle<CR>
 nnoremap <Leader>go :Gbrowse<CR>
 nnoremap <Leader>gp :Gpush<CR>
+nnoremap <Leader>gr :Gread<CR>
 nnoremap <Leader>gs :vertical Gstatus<CR>
 nnoremap <Leader>gss :Gstatus<CR>
 nnoremap <Leader>gsv :vertical Gstatus<CR>
 nnoremap <Leader>gw :Gwrite<CR>
-nnoremap <Leader>gr :Gread<CR>
 
 " FZF.
 nnoremap <Backspace> :Buffers<CR>

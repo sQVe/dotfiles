@@ -246,6 +246,10 @@ let g:vim_markdown_folding_level = 2
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_no_extensions_in_markdown = 1
 
+" Mergetool
+let g:mergetool_layout = 'mr'
+let g:mergetool_prefer_revision = 'local'
+
 " Pasta.
 let g:pasta_disabled_filetypes = ['fugitive', 'markdown', 'yaml']
 

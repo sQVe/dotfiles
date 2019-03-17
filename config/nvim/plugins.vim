@@ -31,6 +31,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'markonm/traces.vim'
 Plug 'roman/golden-ratio'
+Plug 'samoshkin/vim-mergetool'
 Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
 
