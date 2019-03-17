@@ -249,6 +249,19 @@ let g:vim_markdown_no_extensions_in_markdown = 1
 " Pasta.
 let g:pasta_disabled_filetypes = ['fugitive', 'markdown', 'yaml']
 
+" Pear Tree.
+let g:pear_tree_smart_openers = 1
+let g:pear_tree_smart_closers = 1
+let g:pear_tree_pairs = {
+  \ "'": { 'closer': "'" },
+  \ '"': { 'closer': '"' },
+  \ '(': { 'closer': ')' },
+  \ '<*>': { 'closer': '</*>',
+  \          'not_like': '/$' },
+  \ '[': { 'closer': ']' },
+  \ '{': { 'closer': '}' }
+  \ }
+
 " Ranger.
 let g:ranger_map_keys = 0
 let g:ranger_replace_netrw = 1
