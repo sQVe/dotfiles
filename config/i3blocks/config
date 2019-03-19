@@ -34,7 +34,7 @@ label=
 interval=5
 markup=pango
 
-[github-notifications]
+[github]
 interval=2
 label=
 
