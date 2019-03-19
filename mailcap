@@ -1,8 +1,11 @@
 # Replicate xdg/ranger mime settings for applications that use mailcap.
 
-image/gif; mpv '%s' --autofit 800x600 --loop=inf; test=test -n "$DISPLAY"
-image/x-imgur-album; feh -g 800x600 --scale-down --auto-zoom --image-bg "#343434" %s; test=test -n "$DISPLAY"
-image/*; feh 800x600 --scale-down --auto-zoom --image-bg "#343434" '%s'; test=test -n "$DISPLAY"
-text/*; nvim '%s'; test=test -n "$DISPLAY"
-video/x-youtube; mpv --ytdl-format=bestvideo+bestaudio/best '%s' --autofit 800x600; test=test -n "$DISPLAY"
-video/*; mpv '%s' --autofit 800x600 --loop=inf; test=test -n "$DISPLAY"
+audio/*; mpv %s; copiousoutput
+image/gif; sxiv -a %s; copiousoutput
+image/svg; qutebrowser %s; copiousoutput
+image/*; sxiv %s; copiousoutput
+text/html; w3m -I %{charset} -T text/html; copiousoutput
+text/*; nvim %s; copiousoutput
+video/*; mpv %s; copiousoutput
+
+application/*; /usr/bin/mimeo %s; copiousoutput
