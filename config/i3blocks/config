@@ -38,6 +38,10 @@ markup=pango
 interval=2
 label=
 
+[mail]
+interval=2
+label=
+
 [time]
 command=date '+%Y-%m-%d'
 label=
