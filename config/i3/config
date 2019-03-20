@@ -32,7 +32,7 @@ set $js-playground --no-startup-id term --name js-playground "js-clean"
 set $lock --no-startup-id lock
 set $menu-clipboard --no-startup-id $HOME/scripts/i3/menu-clipboard.sh
 set $menu-exit --no-startup-id $HOME/scripts/i3/menu-exit.sh
-set $menu-main --no-startup-id $HOME/scripts/i3/menu-main.sh
+set $menu-apps --no-startup-id $HOME/scripts/i3/menu-apps.sh
 set $menu-notes --no-startup-id $HOME/scripts/i3/menu-notes.sh
 set $menu-passwords --no-startup-id $HOME/scripts/i3/menu-passwords.sh
 set $menu-projects --no-startup-id $HOME/scripts/i3/menu-projects.sh
@@ -164,7 +164,7 @@ bindsym $mod+Shift+9 move container to workspace $workspace-9
 bindsym $mod+a exec $menu-windows
 bindsym $mod+b exec $qutebrowser
 bindsym $mod+c exec $menu-clipboard
-bindsym $mod+d exec $menu-main
+bindsym $mod+d exec $menu-apps
 bindsym $mod+e exec $menu-exit
 bindsym $mod+f mode "resize"
 bindsym $mod+g gaps inner current plus 20
