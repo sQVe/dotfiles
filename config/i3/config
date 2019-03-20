@@ -212,14 +212,14 @@ bindsym $mod+Ctrl+l workspace next
 bindsym $mod+Ctrl+h workspace prev
 
 # Symbol based bindings.
-bindsym $mod+comma exec $brightness-up
-bindsym $mod+period exec $volume-up
+bindsym $mod+comma exec $volume-up
+bindsym $mod+period exec $brightness-up
 
-bindsym $mod+Shift+comma exec $brightness-down
-bindsym $mod+Shift+period exec $volume-down
+bindsym $mod+Shift+comma exec $volume-down
+bindsym $mod+Shift+period exec $brightness-down
 
-bindsym $mod+$alt+comma exec $brightness-toggle
-bindsym $mod+$alt+period exec $volume-toggle
+bindsym $mod+$alt+comma exec $volume-toggle
+bindsym $mod+$alt+period exec $brightness-toggle
 
 # Direction based bindings.
 bindsym $mod+Down focus down
