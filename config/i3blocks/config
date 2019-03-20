@@ -39,7 +39,7 @@ interval=120
 label=
 
 [mail]
-interval=120
+interval=60
 signal=12
 label=
 
