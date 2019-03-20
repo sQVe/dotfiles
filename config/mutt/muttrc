@@ -1,0 +1,46 @@
+set alias_file = "~/.config/mutt/contacts"
+set confirmappend = no
+set date_format="%y/%m/%d %I:%M"
+set delete
+set editor = $EDITOR
+set fast_reply
+set fcc_attach
+set forward_decode
+set forward_format = "Fwd: %s"
+set forward_quote
+set include
+set index_format="%2C %zs %?X?A& ? %D %-15.15F %s (%-4.4c)"
+set mail_check = "10"
+set mail_check_stats
+set mark_old = no
+set markers = no
+set mime_forward = yes
+set reverse_alias = yes
+set reverse_name
+set rfc2047_parameters = yes
+set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%?S?%S?'
+set sidebar_next_new_wrap = yes
+set sidebar_short_path = yes
+set sidebar_visible = yes
+set sidebar_width = 30
+set sleep_time = 0
+set smtp_authenticators = 'gssapi:login'
+set sort = threads
+set sort_alias = alias
+set sort_aux = reverse-last-date-received
+set timeout = "5"
+set wait_key = no
+
+unset mime_forward
+
+auto_view text/html
+alternative_order text/plain text/html
+
+source colors.muttrc
+source gpg.muttrc
+source keybindings.muttrc
+
+source contacts
+source accounts.muttrc
+
+# vim: filetype=neomuttrc

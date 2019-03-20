@@ -1,0 +1,8 @@
+source /usr/share/doc/neomutt/samples/gpg.rc
+
+set pgp_sign_as = 0x2AEE792C763FEC19
+set pgp_use_gpg_agent = yes
+set crypt_autosign = yes
+set crypt_replyencrypt = yes
+
+# vim: filetype=neomuttrc

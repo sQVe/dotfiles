@@ -1,0 +1,48 @@
+source dracula.muttrc
+
+mono bold bold
+mono error bold
+mono indicator reverse
+mono underline underline
+
+color index yellow default '.*'
+color index_author red default '.*'
+color index_number blue default
+color index_subject cyan default '.*'
+
+color index brightyellow black "~N"
+color index_author brightred black "~N"
+color index_subject brightcyan black "~N"
+
+color header blue default ".*"
+color header brightmagenta default "^(From)"
+color header brightcyan default "^(Subject)"
+color header brightwhite default "^(CC|BCC)"
+
+color attachment white default
+color bold black default
+color error red default
+color hdrdefault brightgreen default
+color indicator brightblack white
+color markers red white
+color message cyan default
+color normal brightyellow default
+color normal default default
+color normal default default
+color quoted green default
+color quoted1 blue default
+color quoted2 cyan default
+color quoted3 yellow default
+color quoted4 red default
+color quoted5 brightred default
+color search brightmagenta default
+color sidebar_divider brightblack black
+color sidebar_flagged red black
+color sidebar_highlight red default
+color sidebar_new green black
+color signature brightgreen default
+color status brightyellow black
+color tilde black default
+color underline black default
+
+# vim: filetype=neomuttrc

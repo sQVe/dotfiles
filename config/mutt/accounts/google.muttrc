@@ -1,0 +1,40 @@
+set realname = "Oskar Grunning"
+set from = "oskargrunning@gmail.com"
+set sendmail = "/usr/bin/msmtp -a google"
+set folder = "~/.mail/google"
+
+# Cache settings. Initiate structure by running:
+# mkdir -p ~/.config/mutt/accounts/[mailbox]/cache/bodies"
+set header_cache = ~/.config/mutt/accounts/google/cache/headers
+set message_cachedir = ~/.config/mutt/accounts/google/cache/bodies
+set certificate_file = ~/.config/mutt/accounts/google/certificates
+
+source "~/scripts/mutt/mutt-pass.sh mutt/google |"
+
+alias me Oskar Grunning <oskargrunning@gmail.com>
+
+set mbox_type = Maildir
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+bind index,pager gi noop
+bind index,pager ga noop
+bind index,pager gd noop
+bind index,pager gs noop
+bind index,pager gt noop
+
+macro index,pager gi "<change-folder>=Inbox<enter>" "Go to Inbox folder"
+macro index,pager ga "<change-folder>=Archive<enter>" "Go to Archive folder"
+macro index,pager gd "<change-folder>=Draft<enter>" "Go to Draft folder"
+macro index,pager gs "<change-folder>=Sent<enter>" "Go to Sent folder"
+macro index,pager gt "<change-folder>=Trash<enter>" "Go to Trash folder"
+
+unmailboxes *
+mailboxes "Google" "=Inbox" "=Archive" "=Drafts" "=Sent" "=Trash" "=Spam" "=Starred" "=Arch Linux" "=Massdrop" "=NPM" "=Nintendo" "=Travis" "=Weeklies"
+
+set spoolfile = "+Inbox"
+set record = ""
+set postponed = ""
+set trash = ""
+
+# vim: ft=neomuttrc
