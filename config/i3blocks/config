@@ -26,7 +26,7 @@ signal=10
 label=
 
 [display-mode]
-interval=5
+interval=10
 signal=2
 label=
 
@@ -35,19 +35,20 @@ interval=5
 markup=pango
 
 [github]
-interval=2
+interval=120
 label=
 
 [mail]
-interval=2
+interval=120
+signal=12
 label=
 
 [time]
+interval=60
 command=date '+%Y-%m-%d'
 label=
-interval=60
 
 [time]
+interval=1
 command=date '+%H:%M:%S '
 label=
-interval=1
