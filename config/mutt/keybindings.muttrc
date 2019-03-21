@@ -30,8 +30,6 @@ bind pager,index                gT  previous-thread
 bind index                      za  collapse-thread
 bind index                      zA  collapse-all
 
-bind pager,index                dd  delete-message
-
 bind attach               <Return>  view-mailcap
 
 macro index                     C   "<copy-message>?<toggle-mailboxes>" "Copy mail to folder"

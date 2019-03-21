@@ -30,7 +30,7 @@ macro index,pager gs "<change-folder>=Sent<enter>" "Go to Sent folder"
 macro index,pager gt "<change-folder>=Trash<enter>" "Go to Trash folder"
 
 unmailboxes *
-mailboxes "Google" "=Inbox" "=Archive" "=Drafts" "=Sent" "=Trash" "=Spam" "=Starred" "=Arch Linux" "=Massdrop" "=NPM" "=Nintendo" "=Travis" "=Weeklies"
+mailboxes "Google" "=Inbox" "=Archive" "=Drafts" "=Sent" "=Trash" "=Spam" "=Arch Linux" "=Massdrop" "=NPM" "=Nintendo" "=Travis" "=Weeklies"
 
 set spoolfile = "+Inbox"
 set record = ""

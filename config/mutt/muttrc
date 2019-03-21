@@ -1,22 +1,22 @@
 set alias_file = "~/.config/mutt/contacts"
 set confirmappend = no
-set date_format="%y/%m/%d %I:%M"
-set delete
+set date_format = "%Y-%m-%d %I:%M"
+set delete = yes
 set editor = $EDITOR
-set fast_reply
-set fcc_attach
-set forward_decode
+set fast_reply = yes
+set fcc_attach = yes
+set forward_decode = yes
 set forward_format = "Fwd: %s"
-set forward_quote
-set include
-set index_format="%2C %zs %?X?A& ? %D %-15.15F %s (%-4.4c)"
+set forward_quote = yes
+set include = no
+set index_format = "%2C %Z %?X?A& ? %D %-25.25F %s (%-4.4c)"
 set mail_check = "10"
-set mail_check_stats
+set mail_check_stats = yes
 set mark_old = no
 set markers = no
 set mime_forward = yes
 set reverse_alias = yes
-set reverse_name
+set reverse_name = yes
 set rfc2047_parameters = yes
 set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%?S?%S?'
 set sidebar_next_new_wrap = yes
@@ -28,6 +28,7 @@ set smtp_authenticators = 'gssapi:login'
 set sort = threads
 set sort_alias = alias
 set sort_aux = reverse-last-date-received
+set status_format = "%f [M: %?M?%M/?%m%?n? N: %n?%?o? O: %o?%?d? D: %d?%?F? F: %F?%?t? T: %t?%?p? P: %p?%?b? I: %b?%?l? %l?] %s/%S%>"
 set timeout = "5"
 set wait_key = no
 
@@ -43,4 +44,4 @@ source keybindings.muttrc
 source contacts
 source accounts.muttrc
 
-# vim: filetype=neomuttrc
+# vim: filetype=n eomuttrc

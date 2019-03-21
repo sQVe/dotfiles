@@ -5,14 +5,14 @@ mono error bold
 mono indicator reverse
 mono underline underline
 
-color index yellow default '.*'
-color index_author red default '.*'
+color index white default '.*'
+color index_author cyan default '.*'
 color index_number blue default
-color index_subject cyan default '.*'
+color index_subject yellow default '.*'
 
-color index brightyellow black "~N"
-color index_author brightred black "~N"
-color index_subject brightcyan black "~N"
+color index brightyellow default "~N"
+color index_author brightred default "~N"
+color index_subject brightcyan default "~N"
 
 color header blue default ".*"
 color header brightmagenta default "^(From)"
@@ -36,12 +36,11 @@ color quoted3 yellow default
 color quoted4 red default
 color quoted5 brightred default
 color search brightmagenta default
-color sidebar_divider brightblack black
-color sidebar_flagged red black
-color sidebar_highlight red default
-color sidebar_new green black
+color sidebar_flagged blue default
+color sidebar_highlight cyan default
+color sidebar_new green default
 color signature brightgreen default
-color status brightyellow black
+color status white default
 color tilde black default
 color underline black default
 

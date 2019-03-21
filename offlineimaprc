@@ -10,7 +10,7 @@ pythonfile = ~/scripts/mutt/imap-pass.py
 localrepository = animech-local
 remoterepository = animech-remote
 
-autorefresh = 5
+autorefresh = 1
 quick = 10
 postsynchook = ~/scripts/mutt/imap-post-sync.sh animech
 
@@ -43,7 +43,7 @@ nametrans = lambda foldername: re.sub('^Arkiv$', 'Archive',
 localrepository = google-local
 remoterepository = google-remote
 
-autorefresh = 5
+autorefresh = 1
 quick = 10
 postsynchook = ~/scripts/mutt/imap-post-sync.sh google
 
@@ -65,7 +65,6 @@ folderfilter = lambda foldername: foldername in ['[Gmail]/All Mail',
                                                  '[Gmail]/Drafts',
                                                  '[Gmail]/Sent Mail',
                                                  '[Gmail]/Spam',
-                                                 '[Gmail]/Starred',
                                                  '[Gmail]/Trash',
                                                  'Arch Linux',
                                                  'INBOX',
@@ -81,10 +80,9 @@ nametrans = lambda foldername: re.sub('^\[Gmail\]/All Mail$', 'Archive',
                                re.sub('^\[Gmail\]/Drafts$', 'Drafts',
                                re.sub('^\[Gmail\]/Sent Mail$', 'Sent',
                                re.sub('^\[Gmail\]/Spam$', 'Spam',
-                               re.sub('^\[Gmail\]/Starred$', 'Starred',
                                re.sub('^\[Gmail\]/Trash$', 'Trash',
                                re.sub('^INBOX$', 'Inbox',
-                                 foldername)))))))
+                                 foldername))))))
 
 [Repository google-local]
 type = Maildir
