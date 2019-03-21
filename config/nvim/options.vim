@@ -88,6 +88,7 @@ let g:ale_linters = {
   \ 'awk': ['gawk'],
   \ 'help': ['alex', 'proselint', 'write-good'],
   \ 'javascript': ['eslint'],
+  \ 'mail': ['alex', 'proselint', 'write-good'],
   \ 'markdown': ['alex', 'proselint', 'write-good'],
   \ 'scss': ['sasslint'],
   \ 'sh': ['shellcheck'],
