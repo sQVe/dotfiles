@@ -23,7 +23,7 @@ set $workspace-2 "2 "
 set $workspace-3 "3 "
 set $workspace-4 "4 "
 set $workspace-5 "5 "
-set $workspace-6 "6 "
+set $workspace-6 "6 "
 set $workspace-7 "7 "
 set $workspace-8 "8 "
 set $workspace-9 "9 "
@@ -114,6 +114,7 @@ bar {
 # Assign workspaces.
 assign [class="qutebrowser"]               → $workspace-3
 assign [class="URxvt" instance="weechat"]  → $workspace-5
+assign [class="URxvt" instance="neomutt"]  → $workspace-6
 assign [class="Spotify"]                   → $workspace-4
 assign [class="Gimp"]                      → $workspace-7
 assign [class="Darktable"]                 → $workspace-7
