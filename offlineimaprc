@@ -1,6 +1,7 @@
 [general]
 accounts = animech,google
 maxsyncaccounts = 2
+socktimout = 60
 ssl = yes
 starttls = yes
 pythonfile = ~/scripts/mutt/imap-pass.py
