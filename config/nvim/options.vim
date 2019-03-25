@@ -255,8 +255,6 @@ let g:mergetool_prefer_revision = 'local'
 let g:pasta_disabled_filetypes = ['fugitive', 'markdown', 'yaml']
 
 " Pear Tree.
-let g:pear_tree_smart_openers = 1
-let g:pear_tree_smart_closers = 1
 let g:pear_tree_pairs = {
   \ "'": { 'closer': "'" },
   \ '"': { 'closer': '"' },
