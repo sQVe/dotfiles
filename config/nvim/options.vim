@@ -254,17 +254,6 @@ let g:mergetool_prefer_revision = 'local'
 " Pasta.
 let g:pasta_disabled_filetypes = ['fugitive', 'markdown', 'yaml']
 
-" Pear Tree.
-let g:pear_tree_pairs = {
-  \ "'": { 'closer': "'" },
-  \ '"': { 'closer': '"' },
-  \ '(': { 'closer': ')' },
-  \ '<*>': { 'closer': '</*>',
-  \          'not_like': '/$' },
-  \ '[': { 'closer': ']' },
-  \ '{': { 'closer': '}' }
-  \ }
-
 " Ranger.
 let g:ranger_map_keys = 0
 let g:ranger_replace_netrw = 1

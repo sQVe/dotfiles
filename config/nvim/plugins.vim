@@ -64,7 +64,6 @@ Plug 'autozimu/LanguageClient-neovim', {
 Plug 'ervandew/supertab'
 Plug 'rhysd/vim-grammarous'
 Plug 'sirver/ultisnips'
-Plug 'tmsvg/pear-tree'
 Plug 'ujihisa/neco-look'
 
 call plug#end()
