@@ -64,37 +64,3 @@ set functioncolor green
 ## Syntax highlighting.
 include /usr/share/nano/*.nanorc
 include /usr/share/nano-syntax-highlighting/*.nanorc
-
-## Unbinds.
-unbind ^K main
-unbind ^U main
-unbind ^W main
-
-## Mod binds.
-bind M-A nohelp main
-bind M-L constupdate main
-
-## Ctrl binds.
-bind ^O insert main
-bind ^S writeout main
-bind ^Q exit main
-bind ^P help main
-bind F1 help main
-
-bind ^B firstline main
-bind ^E lastline main
-bind ^L curpos main
-bind ^G gotoline main
-
-bind ^Space mark main
-bind ^X cut main
-bind ^K cut main
-bind ^C copytext main
-bind ^V uncut main
-bind ^U uncut main
-
-bind ^F whereis main
-bind ^J replace main
-
-bind ^Z undo main
-bind ^Y redo main
