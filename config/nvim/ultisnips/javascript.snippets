@@ -81,37 +81,37 @@ endsnippet
 # Functions
 # ---------
 
-snippet f "Anonymous function" w
-function(${1:arguments}) {
-	${VISUAL}$0
-}
-endsnippet
-
 snippet fn "Function declaration" w
 function ${1:name}(${2:arguments}) {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet fr "Rocket function" w
+snippet fna "Anonymous function" w
+function(${1:arguments}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fnr "Rocket function" w
 (${1:arguments}) => {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet af "Async anonymous function" w
-async function(${1:arguments}) {
-	${VISUAL}$0
-}
-endsnippet
-
-snippet afn "Async function declaration" w
+snippet fns "Async function declaration" w
 async function ${1:name}(${2:arguments}) {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet afr "Async rocket function" w
+snippet fnsa "Async anonymous function" w
+async function(${1:arguments}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet fnsr "Async rocket function" w
 async (${1:arguments}) => {
 	${VISUAL}$0
 }
