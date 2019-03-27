@@ -1,0 +1,294 @@
+snippet rc "React Component Module" b
+import React, { ${2:Pure}Component } from 'react';
+
+export default class ${1:`!v expand('%:t:r')`} extends $2Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {};
+	}
+
+	render() {
+		return ${3:null};$0
+	}
+}
+endsnippet
+
+snippet rcs "React Stateless Function Component Module" b
+import React from 'react';
+
+const ${1:`!v expand('%:t:r')`} = props => {
+	return ${2:null};$0
+};
+
+export default $1;
+endsnippet
+
+# Lifecycle
+# ---------
+
+snippet rlsdp "static defaultProps" b
+static defaultProps = {
+	$1
+};
+endsnippet
+
+snippet rlcdp "component defaultProps" b
+${1:`!v expand('%:t:r')`}.defaultProps = {
+	$2
+};
+endsnippet
+
+snippet rlspt "static propTypes" b
+static propTypes = {
+	${1:className}: ${2:PropTypes.string},$0
+};
+endsnippet
+
+snippet rlcpt "component propTypes" b
+${1:`!v expand('%:t:r')`}.propTypes = {
+	${2:className}: ${3:PropTypes.string},$0
+};
+endsnippet
+
+snippet rlgds "getDerivedStateFromProps" b
+static getDerivedStateFromProps(nextProps, prevState) {
+	return ${1:null};$0
+}
+endsnippet
+
+snippet rlgde "getDerivedStateFromError" b
+static getDerivedStateFromError(error) {
+	return ${1:null};$0
+}
+endsnippet
+
+snippet rlcdm "componentDidMount" b
+componentDidMount() {
+	$1
+}
+endsnippet
+
+snippet rlscu "shouldComponentUpdate" b
+shouldComponentUpdate(nextProps, nextState) {
+	return ${1:true};$0
+}
+endsnippet
+
+snippet rlgsbu "getSnapshotBeforeUpdate" b
+getSnapshotBeforeUpdate(prevProps, prevState) {
+	return ${1:null};$0
+}
+endsnippet
+
+snippet rlcdu "componentDidUpdate" b
+componentDidUpdate(prevProps, prevState, ${1:snapshot}) {
+	$0
+}
+endsnippet
+
+snippet rlcdc "componentDidCatch" b
+componentDidCatch(error, info) {
+	$0
+}
+endsnippet
+
+snippet rlcwum "componentWillUnmount" b
+componentWillUnmount() {
+	$1
+}
+endsnippet
+
+snippet rlcwm "componentWillMount" b
+componentWillMount() {
+	$1
+}
+endsnippet
+
+snippet rlcwrp "componentWillReceiveProps" b
+componentWillReceiveProps(nextProps) {
+	$1
+}
+endsnippet
+
+snippet rlcwu "componentWillUpdate" b
+componentWillUpdate(nextProps, nextState) {
+	$3
+}
+endsnippet
+
+# Hooks and effects
+# -----------------
+
+snippet ruseS "useState" b
+const [$1, set$3`!p snip.rv=upperfirst(t[1])`] = useState($2);
+endsnippet
+
+snippet ruseE "useEffect" b
+useEffect(() => {
+	$1$0
+}$2);
+endsnippet
+
+snippet ruseC "useContext" b
+${3:const ${1:context} =} useContext($2);
+endsnippet
+
+snippet ruseRed "useReducer" b
+const [${3:state}, ${4:dispatch}] = useReducer(${1:reducer}, ${2:null});
+endsnippet
+
+snippet ruseCB "useCallback" b
+const ${1:callback} = useCallback(($2) => ${3:{
+	$4
+}}, [$5]);
+endsnippet
+
+snippet ruseM "useMemo" b
+const ${1:memoized} = useMemo(() => ${2:{
+	$3
+}}, [$4]);
+endsnippet
+
+snippet ruseR "useRef" b
+const ${1:ref} = useRef(${2:null});
+endsnippet
+
+snippet ruseI "useImperitiveHandle" b
+useImperitiveHandle(${1:ref}, ${4:() => ({
+	$2
+})}, ${5:[$3]})
+endsnippet
+
+snippet ruseL "useLayoutEffect" b
+useLayoutEffect(() => {
+	$1
+});
+endsnippet
+
+snippet ruseD "useDebugValue" b
+useDebugValue(${1:null});
+endsnippet
+
+# PropTypes
+# -----------------
+
+snippet rpt.a "PropTypes.array" w
+PropTypes.array
+endsnippet
+
+snippet rpt.ar "PropTypes.array.isRequired" w
+PropTypes.array.isRequired
+endsnippet
+
+snippet rpt.b "PropTypes.bool" w
+PropTypes.bool
+endsnippet
+
+snippet rpt.br "PropTypes.bool.isRequired" w
+PropTypes.bool.isRequired
+endsnippet
+
+snippet rpt.f "PropTypes.func" w
+PropTypes.func
+endsnippet
+
+snippet rpt.fr "PropTypes.func.isRequired" w
+PropTypes.func.isRequired
+endsnippet
+
+snippet rpt.nu "PropTypes.number" w
+PropTypes.number
+endsnippet
+
+snippet rpt.nur "PropTypes.number.isRequired" w
+PropTypes.number.isRequired
+endsnippet
+
+snippet rpt.o "PropTypes.object" w
+PropTypes.object
+endsnippet
+
+snippet rpt.or "PropTypes.object.isRequired" w
+PropTypes.object.isRequired
+endsnippet
+
+snippet rpt.s "PropTyes.string" w
+PropTypes.string
+endsnippet
+
+snippet rpt.sr "PropTyes.string.isRequired" w
+PropTypes.string.isRequired
+endsnippet
+
+snippet rpt.no "PropTypes.node" w
+PropTypes.node
+endsnippet
+
+snippet rpt.nor "PropTypes.node.isRequired" w
+PropTypes.node.isRequired
+endsnippet
+
+snippet rpt.e "PropTypes.element" w
+PropTypes.element
+endsnippet
+
+snippet rpt.er "PropTypes.element.isRequired" w
+PropTypes.element.isRequired
+endsnippet
+
+snippet rpt.ao "PropTypes.arrayOf()" w
+PropTypes.arrayOf(${1:PropTypes.string})
+endsnippet
+
+snippet rpt.aor "PropTypes.arrayOf().isRequired" w
+PropTypes.arrayOf(${1:PropTypes.string}).isRequired
+endsnippet
+
+snippet rpt.io "PropTypes.instanceOf()" w
+PropTypes.instanceOf(${1:PropTypes.string})
+endsnippet
+
+snippet rpt.ior "PropTypes.instanceOf().isRequired" w
+PropTypes.instanceOf(${1:PropTypes.string}).isRequired
+endsnippet
+
+snippet rpt.oo "PropTypes.objectOf()" w
+PropTypes.objectOf(${1:PropTypes.string})
+endsnippet
+
+snippet rpt.oor "PropTypes.objectOf().isRequired" w
+PropTypes.objectOf(${1:PropTypes.string}).isRequired
+endsnippet
+
+snippet rpt.one "PropTypes.oneOf([])" w
+PropTypes.oneOf(['$1'$2])
+endsnippet
+
+snippet rpt.oner "PropTypes.oneOf([]).isRequired" w
+PropTypes.oneOf(['$1'$2]).isRequired
+endsnippet
+
+snippet rpt.onet "PropTYpes.oneOfType([])" w
+PropTypes.oneOfType([
+	$1
+])
+endsnippet
+
+snippet rpt.onetr "PropTYpes.oneOfType([]).isRequired" w
+PropTypes.oneOfType([
+	$1
+]).isRequired
+endsnippet
+
+snippet rpt.sh "PropTypes.shape" w
+PropTypes.shape({
+	$1
+})
+endsnippet
+
+snippet rpt.shr "PropTypes.shape.isRequired" w
+PropTypes.shape({
+	$1
+}).isRequired
+endsnippet
