@@ -8,7 +8,7 @@ set fcc_attach = yes
 set forward_decode = yes
 set forward_format = "Fwd: %s"
 set forward_quote = yes
-set include = no
+set include = yes
 set index_format = "%2C %Z %?X?A& ? %D %-25.25F %s (%-4.4c)"
 set mail_check = "10"
 set mail_check_stats = yes
@@ -44,4 +44,4 @@ source keybindings.muttrc
 source contacts
 source accounts.muttrc
 
-# vim: filetype=n eomuttrc
+# vim: filetype=neomuttrc
