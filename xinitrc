@@ -31,7 +31,7 @@ xss-lock -- lock &
 libinput-gestures-setup start &
 
 # Set background color.
-xsetroot -solid "#343434"
+xsetroot -solid '#343434'
 
 # Set initial random wallpaper.
 random-wallpaper

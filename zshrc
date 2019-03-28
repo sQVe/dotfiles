@@ -12,7 +12,7 @@ source ${ZIM_HOME}/modules/external/zsh-system-clipboard/zsh-system-clipboard.zs
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 # ¤¤¤¤  Settings  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-if [[ "$TERM" = "linux" ]]; then
+if [[ "$TERM" = 'linux' ]]; then
   # Replicate colors definied in .Xresources for virtual console.
   colors=$(sed -n 's/\*\.color\([0-9]\+\).*#\(\w\{6\}\)/\1 \2/p' "$HOME/.Xresources")
   echo -en $(awk '$1 < 16 {printf "\\e]P%X%s", $1, $2}' <<< "$colors")
@@ -105,7 +105,7 @@ alias dud='du -chd'
 alias free='free -m'
 alias ga='lookup-git-alias'
 alias grep='grep --color=auto -d skip'
-alias mkdir="mkdir -pv"
+alias mkdir='mkdir -pv'
 alias more=less
 alias np='nvim -w PKGBUILD'
 alias open='mimeo -q'
@@ -132,8 +132,8 @@ alias diff='git diff --no-index'
 alias fd='fd --hidden --follow'
 alias feh='feh --scale-down --auto-zoom --image-bg "#343434"'
 alias git=hub
-alias hc="highlight -O xterm256 --force -s dracula --stdout"
-alias hcat="highlight -O xterm256 --force -s dracula --stdout"
+alias hc='highlight -O xterm256 --force -s dracula --stdout'
+alias hcat='highlight -O xterm256 --force -s dracula --stdout'
 alias l=less
 alias leave='i3-msg exit'
 alias loc=locate
@@ -173,8 +173,8 @@ alias cfg-zshenv='nvim-cd $HOME/.dotfiles/zshenv'
 alias cfg-zshrc='nvim-cd $HOME/.dotfiles/zshrc'
 
 # JS Playground.
-alias js-clean="js-box clean"
-alias js-fp="js-box fp"
+alias js-clean='js-box clean'
+alias js-fp='js-box fp'
 
 # Todo.
 alias todo='nvim-cd $HOME/notes/todo.md'
