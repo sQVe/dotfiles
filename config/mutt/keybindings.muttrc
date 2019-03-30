@@ -34,7 +34,6 @@ bind attach               <Return>  view-mailcap
 
 macro index                     C   "<copy-message>?<toggle-mailboxes>" "Copy mail to folder"
 macro index                     M   "<save-message>?<toggle-mailboxes>" "Move mail to folder"
-macro index                   \Cr   "~N<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "Mark all messages as read"
 macro index                   \Cf \
   "<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
   <shell-escape>notmuch-mutt -r --prompt search<enter>\

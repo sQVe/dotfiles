@@ -5,7 +5,8 @@ image/gif; sxiv -a %s; copiousoutput
 image/svg; qutebrowser %s; copiousoutput
 image/*; sxiv %s; copiousoutput
 text/html; w3m -I %{charset} -T text/html; copiousoutput
-text/*; nvim %s; copiousoutput
+text/plain; nvim %s;
+text/*; nvim %s;
 video/*; mpv %s; copiousoutput
 
 application/*; /usr/bin/mimeo %s; copiousoutput
