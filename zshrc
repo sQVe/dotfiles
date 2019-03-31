@@ -153,6 +153,7 @@ alias wifi-menu='wifi-menu -o'
 alias xsel='xsel -b'
 
 # Config.
+alias cfg-alacritty='nvim-cd $HOME/.dotfiles/config/alacritty/alacritty.yml'
 alias cfg-env='nvim-cd /etc/environment'
 alias cfg-hosts='nvim-cd /etc/hosts'
 alias cfg-i3='nvim-cd $HOME/.dotfiles/config/i3/config'
