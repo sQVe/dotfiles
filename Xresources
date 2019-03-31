@@ -41,62 +41,6 @@ Xcursor.size:  48
 *.color15:    #E6E6E6
 
 
-! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-! ¤¤¤¤  URxvt fonts  ¤¤¤¤
-! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-URxvt.font:       xft:Iosevka Term:pixelsize=26:antialias=true:hinting=slight, \
-                  xft:Symbola:pixelsize=26, \
-                  xft:Font Awesome 5 Pro Light:pixelsize=26, \
-                  xft:Font Awesome 5 Brands:pixelsize=26
-
-URxvt.boldfont:   xft:Iosevka Term:pixelsize=26:bold:antialias=true:hinting=slight, \
-                  xft:Symbola:pixelsize=26, \
-                  xft:Font Awesome 5 Pro Light:pixelsize=26, \
-                  xft:Font Awesome 5 Brands:pixelsize=26
-
-URxvt.italicFont: xft:Iosevka Term:pixelsize=26:italic:antialias=true:hinting=slight, \
-                  xft:Symbola:pixelsize=26, \
-                  xft:Font Awesome 5 Pro Light:pixelsize=26, \
-                  xft:Font Awesome 5 Brands:pixelsize=26
-
-
-! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-! ¤¤¤¤  URxvt settings  ¤¤¤¤
-! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-URxvt.internalBorder:         6
-URxvt.iso14755:               false
-URxvt.letterSpace:            0
-URxvt.matcher.button:         3
-URxvt.matcher.rend.0:         Uline fg5
-URxvt.perl-ext-common:        default,matcher,resize-font,keyboard-select,selection-to-clipboard
-URxvt.scrollBar:              false
-URxvt.scrollTtyKeypress:      true
-URxvt.scrollTtyOutput:        false
-URxvt.scrollWithBuffer:       true
-URxvt.urgentOnBell:           true
-URxvt.url-launcher:           /usr/bin/mimeo
-URxvt.url-select.launcher:    /usr/bin/mimeo
-URxvt.url-select.underline:   true
-
-
-! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-! ¤¤¤¤  URxvt keybinding  ¤¤¤¤
-! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-URxvt.keysym.M-Escape:     perl:keyboard-select:activate
-URxvt.keysym.M-odiaeresis: perl:keyboard-select:activate
-URxvt.keysym.M-u:          perl:matcher:list
-URxvt.keysym.M-s:          perl:keyboard-select:search
-URxvt.keysym.M-slash:      perl:keyboard-select:search
-URxvt.keysym.M-0:          resize-font:reset
-URxvt.keysym.M-minus:      resize-font:smaller
-URxvt.keysym.M-plus:       resize-font:bigger
-
-URxvt.keysym.Control-Up:      \033[1;5A
-URxvt.keysym.Control-Down:    \033[1;5B
-URxvt.keysym.Control-Left:    \033[1;5D
-URxvt.keysym.Control-Right:   \033[1;5C
-
-
 ! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 ! ¤¤¤¤  rofi  ¤¤¤¤
 ! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
@@ -115,6 +59,6 @@ rofi.borderwidth:      4
 rofi.separator-style:  none
 rofi.hide-scrollbar:   true
 rofi.levenshtein-sort: true
-rofi.terminal:         urxvt
+rofi.terminal:         alacritty
 rofi.font:             Iosevka Term 18
 rofi.window-format:    {n} {t}

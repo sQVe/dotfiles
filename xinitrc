@@ -18,9 +18,6 @@ xiccd &
 # Start mons daemon.
 mons -a &
 
-# Start URxvt daemon.
-urxvtd -q -f -o &
-
 # Start greenclip daemon.
 greenclip daemon &
 

@@ -36,8 +36,7 @@ noremap <Leader>d :Bclose<CR>
 noremap <Leader>D :Bclose!<CR>
 
 " Start a new terminal at current pwd.
-noremap <Leader>t :!urxvt & disown<CR><CR>
-noremap <Leader><CR> :!urxvt & disown<CR><CR>
+noremap <Leader><CR> :!term<CR><CR>
 
 " Remove highlighted search result.
 nnoremap <Esc><Esc> :nohl<CR>

@@ -28,7 +28,7 @@ set $workspace-7 "7 "
 set $workspace-8 "8 "
 set $workspace-9 "9 "
 
-set $js-playground --no-startup-id term --name js-playground "js-clean"
+set $js-playground --no-startup-id term "js-clean"
 set $lock --no-startup-id lock
 set $menu-clipboard --no-startup-id $HOME/scripts/i3/menu-clipboard.sh
 set $menu-exit --no-startup-id $HOME/scripts/i3/menu-exit.sh
@@ -112,25 +112,22 @@ bar {
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 # Assign workspaces.
-assign [class="qutebrowser"]               → $workspace-3
-assign [class="URxvt" instance="weechat"]  → $workspace-5
-assign [class="URxvt" instance="neomutt"]  → $workspace-6
-assign [class="Spotify"]                   → $workspace-4
-assign [class="Gimp"]                      → $workspace-7
-assign [class="Darktable"]                 → $workspace-7
-assign [class="Inkscape"]                  → $workspace-7
+assign [class="qutebrowser"]                   → $workspace-3
+assign [class="Alacritty" instance="weechat"]  → $workspace-5
+assign [class="Alacritty" instance="neomutt"]  → $workspace-6
+assign [class="Spotify"]                       → $workspace-4
+assign [class="Gimp"]                          → $workspace-7
+assign [class="Darktable"]                     → $workspace-7
+assign [class="Inkscape"]                      → $workspace-7
 
 # Specific window settings.
+for_window [class="Alacritty"] focus
 for_window [class="Darktable"] focus
 for_window [class="Gimp"] focus
 for_window [class="GitKraken"] focus
 for_window [class="Inkscape"] focus
-for_window [class="URxvt"] focus
 for_window [class="mpv"] focus
-for_window [class="mpv"] resize set 1920 1280
 for_window [class="qutebrowser"] focus
-for_window [instance="mpv-qutebrowser"] floating enable
-for_window [instance="vim-qutebrowser"] floating enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="bubble"] sticky enable
 
