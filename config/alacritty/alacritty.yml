@@ -27,7 +27,7 @@ font:
   italic:
     family: Iosevka Term
     style: Italic
-  size: 6.5
+  size: 16
   offset:
     x: 0
     y: 0
@@ -88,7 +88,7 @@ cursor:
   style: Block
   unfocused_hollow: true
 
-live_config_reload: false
+live_config_reload: true
 
 shell:
  program: /usr/bin/zsh
