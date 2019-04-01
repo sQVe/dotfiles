@@ -42,6 +42,9 @@ colors:
   primary:
     background: '0x343434'
     foreground: '0xf8f8f2'
+  cursor:
+    text: '0x000000'
+    cursor: '0xf8f8f2'
   normal:
     black:   '0x000000'
     red:     '0xff5555'
