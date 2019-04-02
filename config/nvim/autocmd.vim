@@ -3,6 +3,11 @@
 "  ┣━┫┃ ┃ ┃ ┃ ┃┃  ┃┃┃ ┃┃
 "  ╹ ╹┗━┛ ╹ ┗━┛┗━╸╹ ╹╺┻┛
 
+" Disable ALE for specific file extensions.
+augroup DisableALEFileExt
+  autocmd!
+  autocmd BufWinEnter,VimEnter,WinEnter *.d.ts :ALEDisableBuffer
+augroup END
 
 " Force formatoptions to exclude 'o'.
 augroup ExcludeFormatOptions
