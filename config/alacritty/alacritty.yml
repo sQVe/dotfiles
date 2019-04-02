@@ -103,7 +103,9 @@ enable_experimental_conpty_backend: false
 alt_send_esc: true
 
 key_bindings:
+  - { key: C,        mods: Control|Alt,   action: Copy                             }
   - { key: C,        mods: Control|Shift, action: Copy                             }
+  - { key: V,        mods: Control|Alt,   action: Paste                            }
   - { key: V,        mods: Control|Shift, action: Paste                            }
   - { key: Insert,   mods: Shift,         action: PasteSelection                   }
   - { key: Key0,     mods: Control,       action: ResetFontSize                    }
