@@ -133,6 +133,7 @@ nnoremap <Leader>glb :BCommits<CR>
 nnoremap <Leader>gmt :MergetoolToggle<CR>
 nnoremap <Leader>go :Gbrowse<CR>
 nnoremap <Leader>gp :Gpush<CR>
+nnoremap <Leader>gpf :Gpush --force-with-lease<CR>
 nnoremap <Leader>gr :Gread<CR>
 nnoremap <Leader>gs :vertical Gstatus<CR>
 nnoremap <Leader>gss :Gstatus<CR>
