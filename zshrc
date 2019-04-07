@@ -174,8 +174,8 @@ alias cfg-zshenv='nvim-cd $HOME/.dotfiles/zshenv'
 alias cfg-zshrc='nvim-cd $HOME/.dotfiles/zshrc'
 
 # JS Playground.
-alias js-clean='js-box clean'
-alias js-fp='js-box fp'
+alias jsclean='js-box clean'
+alias jsfp='js-box fp'
 
 # Todo.
 alias todo='nvim-cd $HOME/notes/todo.md'
