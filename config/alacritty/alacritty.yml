@@ -27,7 +27,7 @@ font:
   italic:
     family: Iosevka Term
     style: Italic
-  size: 18
+  size: 9
   offset:
     x: 0
     y: 0
@@ -45,6 +45,9 @@ colors:
   cursor:
     text: '0x000000'
     cursor: '0xf8f8f2'
+  selection:
+    text: '0xf8f8f2'
+    background: '0x44475a'
   normal:
     black:   '0x000000'
     red:     '0xff5555'
@@ -112,6 +115,8 @@ key_bindings:
   - { key: Add,      mods: Control,       action: IncreaseFontSize                 }
   - { key: Subtract, mods: Control,       action: DecreaseFontSize                 }
   - { key: L,        mods: Control,       action: ClearLogNotice                   }
+  - { key: K,        mods: Alt,           action: ScrollLineUp,                    }
+  - { key: J,        mods: Alt,           action: ScrollLineDown,                  }
   - { key: U,        mods: Alt,           action: ScrollPageUp,                    }
   - { key: D,        mods: Alt,           action: ScrollPageDown,                  }
   - { key: Paste,                         action: Paste                            }
