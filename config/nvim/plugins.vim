@@ -57,14 +57,8 @@ Plug 'lambdalisue/suda.vim'
 Plug 'moll/vim-bbye'
 
 " Completion and spelling.
-Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-Plug 'autozimu/LanguageClient-neovim', {
-  \ 'branch': 'next',
-  \ 'do': 'bash install.sh',
-  \ }
 Plug 'ervandew/supertab'
+Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
 Plug 'rhysd/vim-grammarous'
-Plug 'sirver/ultisnips'
-Plug 'ujihisa/neco-look'
 
 call plug#end()

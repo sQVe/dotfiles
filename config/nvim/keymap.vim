@@ -110,6 +110,22 @@ noremap <Leader>ea :ALEToggleBuffer<CR>
 noremap <Leader>ej :ALENextWrap<CR>
 noremap <Leader>ek :ALEPreviousWrap<CR>
 
+" Coc.
+nmap <Leader>ec <Plug>(coc-codeaction)
+nmap <Leader>ed <Plug>(coc-definition)
+nmap <Leader>ef <Plug>(coc-fix-current)
+nmap <Leader>eh :ShowDocumention<CR>
+nmap <Leader>ei <Plug>(coc-implementation)
+nmap <Leader>en <Plug>(coc-rename)
+nmap <Leader>eo  :<C-u>CocList outline<cr>
+nmap <Leader>er <Plug>(coc-references)
+nmap <Leader>es  :<C-u>CocList -I symbols<cr>
+nmap <Leader>et <Plug>(coc-type-definition)
+
+imap <C-Space> <Plug>(coc-snippets-expand)
+imap <C-j> <Plug>(coc-snippets-expand-jump)
+vmap <C-j> <Plug>(coc-snippets-select)
+
 " EasyMotion.
 map s <Plug>(easymotion-s)
 map S <Plug>(easymotion-s2)
@@ -150,15 +166,6 @@ nnoremap ä :Files<CR>
 nnoremap <Leader>ii :ImportJSFix<CR>
 nnoremap <Leader>iw :ImportJSWord<CR>
 nnoremap <Leader>id :ImportJSGoto<CR>
-
-" LanguageClient.
-nnoremap <Leader>ed :call LanguageClient#textDocument_definition()<CR>
-nnoremap <Leader>eh :call LanguageClient#textDocument_hover()<CR>
-nnoremap <Leader>em :call LanguageClient_contextMenu()<CR>
-nnoremap <Leader>en :call LanguageClient#textDocument_rename()<CR>
-nnoremap <Leader>er :call LanguageClient#textDocument_references()<CR>
-nnoremap <Leader>es :call LanguageClient#textDocument_documentSymbol()<CR>
-nnoremap <Leader>et :call LanguageClient#textDocument_typeDefinition()<CR>
 
 " Ranger.
 nnoremap å :Ranger<CR>

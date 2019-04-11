@@ -28,16 +28,22 @@ augroup FocusActiveWindow
   autocmd BufWinEnter,VimEnter,WinEnter * call ToggleWindowFocus(1)
 augroup END
 
+" Highlight word under cursor.
+augroup HighlightWord
+  autocmd!
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+augroup END
+
 " Reload buffer on enter or focus.
 augroup ReloadBuffer
   autocmd!
-  autocmd FocusGained,BufEnter * :silent! !
+  autocmd FocusGained,BufEnter * silent! !
 augroup END
 
 " Save notes.
 augroup SaveNotes
   autocmd!
-  autocmd BufWritePost $HOME/notes/*.md :silent exec "!($HOME/scripts/notes-send.sh &)"
+  autocmd BufWritePost $HOME/notes/*.md silent exec "!($HOME/scripts/notes-send.sh &)"
 augroup END
 
 " Quick terminal exit.
@@ -45,4 +51,3 @@ augroup QuickTerminalExit
   autocmd!
   autocmd! FileType fzf tnoremap <buffer> <Esc> <C-c>
 augroup END
-

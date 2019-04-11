@@ -8,6 +8,15 @@ function! GetBuffersCount()
   return len(getbufinfo({'buflisted':1}))
 endfunc
 
+" Show documentation.
+function! ShowDocumention()
+  if &filetype == 'vim'
+    execute 'h '.expand('<cword>')
+  else
+    call CocActionAsync('doHover')
+  endif
+endfunction
+
 " Toggle concealing.
 function! ToggleConceal()
   if(&conceallevel == 2)

@@ -14,3 +14,5 @@ source $HOME/.config/nvim/functions.vim
 source $HOME/.config/nvim/autocmd.vim
 source $HOME/.config/nvim/keymap.vim
 source $HOME/.config/nvim/options.vim
+
+source $HOME/.config/nvim/highlight.vim

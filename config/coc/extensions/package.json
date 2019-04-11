@@ -1,0 +1,13 @@
+{
+  "dependencies": {
+    "coc-css": "^1.0.7",
+    "coc-dictionary": "^1.2.2",
+    "coc-emmet": "^1.0.9",
+    "coc-html": "^1.0.7",
+    "coc-json": "^1.0.14",
+    "coc-snippets": "^2.0.6",
+    "coc-tsserver": "^1.1.33",
+    "coc-yaml": "^1.0.0",
+    "coc-yank": "^1.0.2"
+  }
+}

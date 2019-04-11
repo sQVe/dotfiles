@@ -4,6 +4,7 @@
 "  ┗━┛╹ ╹┗━┛┗━╸   ┗━┛╹   ╹ ╹┗━┛╹ ╹┗━┛
 
 set clipboard=unnamedplus         " Use the + (clipboard) register.
+set conceallevel=2                " Conceal characters when possible.
 set gdefault                      " Use 'g' flag by default with :s/foo/bar/.
 set hidden                        " Set buffer as hidden when abandoned.
 set mouse=a                       " Enable mouse.
@@ -11,17 +12,18 @@ set noshowmode                    " Disable show mode.
 set nostartofline                 " Do not jump to first character with page commands.
 set ruler                         " Show the cursor position all the time.
 set showcmd                       " Display incomplete commands.
+set termguicolors                 " Enable 24-bit colors.
 set tildeop                       " Enable ~ operator.
 set timeoutlen=400                " Timeout Leader after 400 ms.
 set updatetime=100                " Set update time to 100 ms.
 set virtualedit=block             " Enable virtualedit when in Visual Block mode.
-set conceallevel=2                " Conceal characters when possible.
 
 " Searching.
 set incsearch                     " Highlight search results as you type.
 set showmatch                     " Show matching brackets.
 
-" Spelling.
+" Spelling and dictionary.
+set dictionary+=/usr/share/dict/words
 set spellfile=~/.config/nvim/spell/en.utf-8.add
 
 " Complete.
@@ -93,7 +95,7 @@ let g:ale_linters = {
   \ 'scss': ['sasslint'],
   \ 'sh': ['shellcheck'],
   \ 'text': ['alex', 'proselint', 'write-good'],
-  \ 'typescript': ['tslint', 'tsserver', 'typecheck'],
+  \ 'typescript': ['tslint'],
   \ }
 let g:ale_fixers = {
   \ 'css': ['prettier'],
@@ -112,27 +114,6 @@ let g:no_plugin_maps = 1
 " Better Whitespace.
 let g:strip_whitespace_on_save = 1
 let g:strip_whitespace_confirm = 0
-
-" Deoplete.
-let g:deoplete#enable_at_startup = 1
-call deoplete#custom#option('ignore_sources', {
-  \ 'awk': ['look'],
-  \ 'css': ['look'],
-  \ 'haskell': ['look'],
-  \ 'javascript': ['look'],
-  \ 'javascript.jsx': ['look'],
-  \ 'less': ['look'],
-  \ 'scss': ['look'],
-  \ 'sh': ['look'],
-  \ 'typescript': ['look'],
-  \ })
-call deoplete#custom#source('look', 'min_pattern_length', 2)
-call deoplete#custom#source('LanguageClient', 'min_pattern_length', 2)
-call deoplete#custom#source('dictionary', 'matchers', ['matcher_head'])
-call deoplete#custom#source('dictionary', 'sorters', [])
-call deoplete#custom#source('file', 'rank', 8888)
-call deoplete#custom#source('ultisnips', 'rank', 9999)
-call deoplete#custom#var('file', 'enable_buffer_path', v:true)
 
 " EasyMotion.
 let g:EasyMotion_do_mapping = 0
@@ -268,15 +249,10 @@ runtime macros/sandwich/keymap/surround.vim
 let g:tcomment_mapleader1 = "<C-_>"
 let g:tcomment_mapleader2 = "<Leader>_"
 
-" UltiSnips.
-let g:UltiSnipsExpandTrigger = '<C-Space>'
-let g:UltiSnipsSnippetsDir = $HOME.'/.config/nvim/ultisnips'
-let g:UltiSnipsSnippetDirectories = [$HOME.'/.config/nvim/ultisnips']
-
 " Visual Multi.
 let g:VM_maps = {}
 let g:VM_maps["Add Cursor Down"] = '<M-Down>'
 let g:VM_maps["Add Cursor Up"] = '<M-Up>'
 
 let g:VM_mouse_mappings = 1
-let g:VM_theme = 'pray'
+let g:VM_theme = 'codedark'
