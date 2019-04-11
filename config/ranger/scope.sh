@@ -125,12 +125,7 @@ handle_mime() {
             if [[ "$( stat --printf='%s' -- "${FILE_PATH}" )" -gt "${HIGHLIGHT_SIZE_MAX}" ]]; then
                 exit 2
             fi
-            if [[ "$( tput colors )" -ge 256 ]]; then
-                local highlight_format='xterm256'
-            else
-                local highlight_format='ansi'
-            fi
-            highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="${highlight_format}" \
+            highlight --replace-tabs="${HIGHLIGHT_TABWIDTH}" --out-format="ansi" \
                 --style="${HIGHLIGHT_STYLE}" --force -- "${FILE_PATH}" && exit 5
             exit 2;;
 
