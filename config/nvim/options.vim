@@ -250,9 +250,11 @@ let g:tcomment_mapleader1 = "<C-_>"
 let g:tcomment_mapleader2 = "<Leader>_"
 
 " Visual Multi.
-let g:VM_maps = {}
+let g:VM_maps                    = {}
 let g:VM_maps["Add Cursor Down"] = '<M-Down>'
-let g:VM_maps["Add Cursor Up"] = '<M-Up>'
+let g:VM_maps["Add Cursor Up"]   = '<M-Up>'
+let g:VM_maps["P Paste Regions"] = '<Leader>P'
+let g:VM_maps["p Paste Regions"] = '<Leader>p'
 
 let g:VM_mouse_mappings = 1
-let g:VM_theme = 'codedark'
+let g:VM_theme = 'pray'
