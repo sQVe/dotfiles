@@ -28,10 +28,11 @@ augroup FocusActiveWindow
   autocmd BufWinEnter,VimEnter,WinEnter * call ToggleWindowFocus(1)
 augroup END
 
-" Highlight word under cursor.
-augroup HighlightWord
+" Coc events.
+augroup CocEvents
   autocmd!
   autocmd CursorHold * silent call CocActionAsync('highlight')
+  autocmd CursorMovedI * silent! call CocActionAsync('showSignatureHelp')
 augroup END
 
 " Reload buffer on enter or focus.
