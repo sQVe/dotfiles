@@ -16,6 +16,14 @@ hi! link CocInfoSign           DraculaCyan
 hi! link CocWarningSign        DraculaOrange
 hi! link HighlightedyankRegion DraculaOrangeInverse
 
+" EasyMotion.
+hi! link EasyMotionTarget        DraculaPink
+hi! link EasyMotionShade         Comment
+hi! link EasyMotionTarget2First  DraculaOrange
+hi! link EasyMotionTarget2Second DraculaPink
+hi! link EasyMotionMoveHL        Search
+hi! link EasyMotionIncSearch     Search
+
 " GitGutter.
 hi! link GitGutterAdd          DraculaGreen
 hi! link GitGutterChange       DraculaYellow
