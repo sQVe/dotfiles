@@ -13,14 +13,7 @@ call plug#begin('$HOME/.local/share/nvim/plugged')
 Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Language, syntax and formatting.
-Plug 'hail2u/vim-css3-syntax'
-Plug 'leafgarland/typescript-vim'
-Plug 'mattn/emmet-vim'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'neovimhaskell/haskell-vim'
-Plug 'othree/html5.vim'
-Plug 'pangloss/vim-javascript'
-Plug 'plasticboy/vim-markdown'
+Plug 'sheerun/vim-polyglot'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " Interface.
@@ -44,6 +37,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'junegunn/vim-easy-align'
 Plug 'machakann/vim-sandwich'
+Plug 'mattn/emmet-vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'shumphrey/fugitive-gitlab.vim'
