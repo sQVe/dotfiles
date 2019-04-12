@@ -32,7 +32,7 @@ augroup END
 augroup CocEvents
   autocmd!
   autocmd CursorHold * silent call CocActionAsync('highlight')
-  autocmd CursorMovedI * silent! call CocActionAsync('showSignatureHelp')
+  autocmd CursorHoldI * silent! call CocActionAsync('showSignatureHelp')
 augroup END
 
 " Reload buffer on enter or focus.
