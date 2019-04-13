@@ -193,7 +193,6 @@ let g:javascript_plugin_jsdoc = 1
 " JsDoc.
 let g:jsdoc_allow_input_prompt = 1
 let g:jsdoc_enable_es6 = 1
-let g:jsdoc_param_description_separator = ' - '
 let g:jsdoc_return_description = 0
 
 " LanguageClient.
