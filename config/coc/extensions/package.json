@@ -5,7 +5,7 @@
     "coc-emmet": "^1.0.9",
     "coc-html": "^1.0.7",
     "coc-json": "^1.0.14",
-    "coc-snippets": "^2.0.6",
+    "coc-snippets": "^2.0.7",
     "coc-tsserver": "^1.1.35",
     "coc-yaml": "^1.0.0",
     "coc-yank": "^1.0.2"
