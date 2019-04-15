@@ -117,10 +117,11 @@ nmap <Leader>ef <Plug>(coc-fix-current)
 nmap <Leader>eh :ShowDocumention<CR>
 nmap <Leader>ei <Plug>(coc-implementation)
 nmap <Leader>en <Plug>(coc-rename)
-nmap <Leader>eo  :<C-u>CocList outline<cr>
+nmap <Leader>eo :CocList outline<CR>
 nmap <Leader>er <Plug>(coc-references)
-nmap <Leader>es  :<C-u>CocList -I symbols<cr>
+nmap <Leader>es :CocList -I symbols<CR>
 nmap <Leader>et <Plug>(coc-type-definition)
+nmap <Leader>eu :CocList snippets<CR>
 
 imap <C-Space> <Plug>(coc-snippets-expand)
 imap <C-j> <Plug>(coc-snippets-expand-jump)

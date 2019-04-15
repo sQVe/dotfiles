@@ -252,6 +252,7 @@ let g:tcomment_mapleader1 = "<C-_>"
 let g:tcomment_mapleader2 = "<Leader>_"
 
 " Visual Multi.
+let g:VM_leader                  = '<Leader>m'
 let g:VM_maps                    = {}
 let g:VM_maps["Add Cursor Down"] = '<M-Down>'
 let g:VM_maps["Add Cursor Up"]   = '<M-Up>'

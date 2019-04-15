@@ -13,5 +13,9 @@
       "filetypes": ["hs", "lhs", "haskell"],
       "initializationOptions": {}
     }
+  },
+  "snippets.extends": {
+    "typescript": ["javascript"],
+    "typescriptreact": ["javascript"]
   }
 }

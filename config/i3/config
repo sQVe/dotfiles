@@ -292,3 +292,5 @@ mode "resize" {
 
 # Safely start redshift.
 exec --no-startup-id "sh -c 'sleep 2; exec $HOME/scripts/i3/safe-load-redshift.sh'"
+
+# vim: ft=i3config
