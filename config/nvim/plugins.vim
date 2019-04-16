@@ -17,13 +17,13 @@ Plug 'sheerun/vim-polyglot'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " Interface.
-Plug 'airblade/vim-gitgutter'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
 Plug 'junegunn/vim-peekaboo'
 Plug 'markonm/traces.vim'
+Plug 'mhinz/vim-signify'
 Plug 'roman/golden-ratio'
 Plug 'samoshkin/vim-mergetool'
 Plug 'tpope/vim-fugitive'

@@ -137,14 +137,13 @@ vmap S <Plug>(easymotion-s2)
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
-" Fugitive and Git Gutter.
+" Fugitive and Signify.
 nnoremap <Leader>gb :Gblame<CR>
 nnoremap <Leader>gc :Gcommit<CR>
 nnoremap <Leader>gd :Gdiff<CR>
 nnoremap <Leader>gf :Gfetch<CR>
-nnoremap <Leader>gh :GitGutterPreviewHunk<CR>
-nnoremap <Leader>gj :GitGutterNextHunk<CR>
-nnoremap <Leader>gk :GitGutterPrevHunk<CR>
+nmap <Leader>gj <Plug>(signify-next-hunk)
+nmap <Leader>gk <Plug>(signify-prev-hunk)
 nnoremap <Leader>gl :Commits<CR>
 nnoremap <Leader>glb :BCommits<CR>
 nnoremap <Leader>gmt :MergetoolToggle<CR>

@@ -24,8 +24,9 @@ hi! link EasyMotionTarget2Second DraculaPink
 hi! link EasyMotionMoveHL        Search
 hi! link EasyMotionIncSearch     Search
 
-" GitGutter.
-hi! link GitGutterAdd          DraculaGreen
-hi! link GitGutterChange       DraculaYellow
-hi! link GitGutterChangeDelete DraculaOrange
-hi! link GitGutterDelete       DraculaRed
+" Signify.
+hi! link SignifySignAdd             DraculaGreen
+hi! link SignifySignChange          DraculaYellow
+hi! link SignifySignDelete          DraculaRed
+hi! link SignifySignChangeDelete    DraculaYellow
+hi! link SignifySignDeleteFirstLine DraculaRed

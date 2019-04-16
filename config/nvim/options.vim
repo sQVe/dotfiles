@@ -17,6 +17,7 @@ set tildeop                       " Enable ~ operator.
 set timeoutlen=400                " Timeout Leader after 400 ms.
 set updatetime=250                " Set update time to 250 ms.
 set virtualedit=block             " Enable virtualedit when in Visual Block mode.
+set signcolumn=yes                " Always show sign column.
 
 " Searching.
 set incsearch                     " Highlight search results as you type.
@@ -83,9 +84,8 @@ colorscheme dracula
 
 " Ale.
 let g:ale_fix_on_save = 1
-let g:ale_sign_column_always = 1
-let g:ale_sign_error = ''
-let g:ale_sign_warning = ''
+let g:ale_sign_error = '>>'
+let g:ale_sign_warning = '>>'
 let g:ale_linters = {
   \ 'awk': ['gawk'],
   \ 'help': ['alex', 'proselint', 'write-good'],
@@ -164,12 +164,6 @@ command! -bang -nargs=* HistoryFiles
 command! -bang -nargs=* Ag
   \ call fzf#vim#ag(<q-args>, '--hidden --follow --ignore .git', fzf#vim#with_preview('right:50%', '?'), <bang>0)
 
-" GitGutter.
-let g:gitgutter_map_keys = 0
-let g:gitgutter_sign_added = ' '
-let g:gitgutter_sign_modified = ' '
-let g:gitgutter_sign_removed = ''
-
 " Grammarous.
 let g:grammarous#default_comments_only_filetypes = {
   \ '*': 1,
@@ -241,11 +235,15 @@ let g:pasta_disabled_filetypes = ['fugitive', 'markdown', 'yaml']
 let g:ranger_map_keys = 0
 let g:ranger_replace_netrw = 1
 
-" Supertab.
-let g:SuperTabDefaultCompletionType = '<C-n>'
-
 " Sandwich.
 runtime macros/sandwich/keymap/surround.vim
+
+" Signify.
+let g:signify_realtime = 1
+let g:signify_vcs_list = ['git']
+
+" Supertab.
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " TComment.
 let g:tcomment_mapleader1 = "<C-_>"
