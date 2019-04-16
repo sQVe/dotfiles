@@ -147,7 +147,7 @@ nmap <Leader>gk <Plug>(signify-prev-hunk)
 nnoremap <Leader>gl :Commits<CR>
 nnoremap <Leader>glb :BCommits<CR>
 nnoremap <Leader>gmt :MergetoolToggle<CR>
-nnoremap <Leader>go :Gbrowse<CR>
+nnoremap <Leader>gu :Gbrowse<CR>
 nnoremap <Leader>gp :Gpush<CR>
 nnoremap <Leader>gpf :Gpush --force-with-lease<CR>
 nnoremap <Leader>gr :Gread<CR>

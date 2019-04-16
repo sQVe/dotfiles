@@ -131,9 +131,6 @@ let g:user_emmet_settings = {
   \ 'typescript' : { 'extends' : 'jsx' },
   \ }
 
-" Fugitive Gitlab.
-let g:fugitive_gitlab_domains = ['http://AnimechGitLab']
-
 " FZF.
 let $FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
 let g:fzf_action = {
