@@ -48,7 +48,7 @@ command! Wbc Wbc
 "  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹   ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛┗━┛
 
 " Fasd.
-command! -nargs=1 Fasd call Fasd('-a', 'e', <q-args>)
+command! -nargs=1 Fasd call Fasd('-f', 'e', <q-args>)
 command! -nargs=1 FasdCd call Fasd('-d', 'cd', <q-args>)
 
 " Show documentation.
