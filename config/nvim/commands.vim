@@ -31,6 +31,10 @@ command! Copy norm ggyG
 command! Bc Bclose
 command! WBc w | Bclose
 
+" Term.
+command! Term !term
+command! BTerm !term '%:p'
+
 " Write, close and quit typos.
 command! W write
 command! Q quit

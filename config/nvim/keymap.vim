@@ -35,8 +35,9 @@ noremap <Leader>Q :bdelete!<CR>
 noremap <Leader>d :Bclose<CR>
 noremap <Leader>D :Bclose!<CR>
 
-" Start a new terminal at current pwd.
-noremap <Leader><CR> :!term<CR><CR>
+" Term.
+noremap <silent> <Leader><CR> :Term<CR><CR>
+noremap <silent> <Leader>t :BTerm<CR><CR>
 
 " Remove highlighted search result.
 nnoremap <Esc><Esc> :nohl<CR>
