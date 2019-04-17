@@ -240,7 +240,6 @@ let g:ranger_replace_netrw = 1
 runtime macros/sandwich/keymap/surround.vim
 
 " Signify.
-let g:signify_realtime = 1
 let g:signify_vcs_list = ['git']
 
 " Supertab.
