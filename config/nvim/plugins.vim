@@ -31,6 +31,7 @@ Plug 'w0rp/ale'
 
 " Integration.
 Plug 'Galooshi/vim-import-js'
+Plug 'brooth/far.vim'
 Plug 'dahu/vim-fanfingtastic'
 Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'

@@ -132,6 +132,9 @@ let g:user_emmet_settings = {
   \ 'typescript' : { 'extends' : 'jsx' },
   \ }
 
+" Far.
+let g:far#source = 'agnvim'
+
 " FZF.
 let $FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
 let g:fzf_action = {
