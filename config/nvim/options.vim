@@ -7,17 +7,18 @@ set clipboard=unnamedplus         " Use the + (clipboard) register.
 set conceallevel=2                " Conceal characters when possible.
 set gdefault                      " Use 'g' flag by default with :s/foo/bar/.
 set hidden                        " Set buffer as hidden when abandoned.
+set lazyredraw                    " Enable lazy redraw.
 set mouse=a                       " Enable mouse.
 set noshowmode                    " Disable show mode.
 set nostartofline                 " Do not jump to first character with page commands.
 set ruler                         " Show the cursor position all the time.
 set showcmd                       " Display incomplete commands.
+set signcolumn=yes                " Always show sign column.
 set termguicolors                 " Enable 24-bit colors.
 set tildeop                       " Enable ~ operator.
 set timeoutlen=400                " Timeout Leader after 400 ms.
 set updatetime=250                " Set update time to 250 ms.
 set virtualedit=block             " Enable virtualedit when in Visual Block mode.
-set signcolumn=yes                " Always show sign column.
 
 " Searching.
 set incsearch                     " Highlight search results as you type.
