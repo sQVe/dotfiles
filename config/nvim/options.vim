@@ -133,7 +133,7 @@ let g:user_emmet_settings = {
   \ }
 
 " Far.
-let g:far#source = 'agnvim'
+let g:far#source = 'ag'
 
 " FZF.
 let $FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
