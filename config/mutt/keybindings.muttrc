@@ -1,10 +1,13 @@
 bind attach,browser,index,pager  d   noop
 bind attach,browser,index,pager  g   noop
+bind attach,browser,index,pager  r   noop
 bind pager                      dt   noop
 bind pager                      i    noop
 
 bind attach,browser,index       gg  first-entry
 bind attach,browser,index       G   last-entry
+bind attach,browser,index,pager ra  group-reply
+bind attach,browser,index,pager rr  reply
 bind pager                      gg  top
 bind pager                      G   bottom
 bind pager                      j   next-line
