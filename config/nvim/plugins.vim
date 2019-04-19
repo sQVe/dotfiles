@@ -17,6 +17,8 @@ Plug 'sheerun/vim-polyglot'
 Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " Interface.
+Plug 'brooth/far.vim'
+Plug 'easymotion/vim-easymotion'
 Plug 'francoiscabrol/ranger.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './install --bin' }
@@ -31,9 +33,7 @@ Plug 'w0rp/ale'
 
 " Integration.
 Plug 'Galooshi/vim-import-js'
-Plug 'brooth/far.vim'
 Plug 'dahu/vim-fanfingtastic'
-Plug 'easymotion/vim-easymotion'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'heavenshell/vim-jsdoc'
 Plug 'junegunn/vim-easy-align'
