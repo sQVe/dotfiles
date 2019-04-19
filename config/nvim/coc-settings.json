@@ -1,8 +1,8 @@
 {
   "diagnostic.checkCurrentLine": true,
-  "diagnostic.errorSign": "•",
-  "diagnostic.warningSign": "•",
-  "diagnostic.infoSign": "•",
+  "diagnostic.errorSign": "■",
+  "diagnostic.warningSign": "■",
+  "diagnostic.infoSign": "■",
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
