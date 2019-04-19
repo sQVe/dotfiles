@@ -1,0 +1,13 @@
+# Include hidden files.
+--hidden
+
+# Ignore .git directories
+--glob=!.git
+
+# Set colors.
+--colors=line:fg:yellow
+--colors=path:fg:blue
+--colors=match:fg:black
+--colors=match:bg:green
+
+# vim: ft=config
