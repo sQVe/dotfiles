@@ -136,7 +136,7 @@ let g:user_emmet_settings = {
 let g:far#source = 'rg'
 
 " FZF.
-let $FZF_DEFAULT_COMMAND='fd --hidden --follow --exclude .git'
+let $FZF_DEFAULT_COMMAND='fd --type file --hidden --follow --exclude .git'
 let g:fzf_action = {
   \ 'ctrl-s': 'split',
   \ 'ctrl-t': 'tab split',
