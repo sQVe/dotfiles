@@ -3,6 +3,9 @@
 "  ┣┻┓┣━┫┗━┓┣╸    ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
 "  ┗━┛╹ ╹┗━┛┗━╸   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
+" Use <Space> as Leader key.
+let mapleader = " "
+
 " Escape.
 inoremap jj <Esc>
 inoremap <F1> <Esc>

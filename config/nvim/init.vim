@@ -3,9 +3,6 @@
 "  ┃┃┗┫┃ ┃
 "  ╹╹ ╹╹ ╹
 
-" Use <Space> as Leader key.
-let mapleader = " "
-
 source $HOME/.config/nvim/plugins.vim
 
 source $HOME/.config/nvim/commands.vim
