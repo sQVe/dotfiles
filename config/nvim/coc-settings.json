@@ -1,5 +1,8 @@
 {
   "diagnostic.checkCurrentLine": true,
+  "diagnostic.errorSign": "•",
+  "diagnostic.warningSign": "•",
+  "diagnostic.infoSign": "•",
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
@@ -13,5 +16,6 @@
       "filetypes": ["hs", "lhs", "haskell"],
       "initializationOptions": {}
     }
-  }
+  },
+  "suggest.maxCompleteItemCount": 20
 }
