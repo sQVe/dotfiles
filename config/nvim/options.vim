@@ -144,26 +144,28 @@ let g:fzf_action = {
   \ }
 let g:fzf_colors = {
   \ 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Boolean'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'Normal'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'PreProc'],
+  \ 'bg':      ['bg', 'DraculaSelection'],
+  \ 'hl':      ['fg', 'DraculaPink'],
+  \ 'fg+':     ['fg', 'Normal'],
+  \ 'bg+':     ['bg', 'DraculaSelection'],
+  \ 'hl+':     ['fg', 'DraculaPurple'],
+  \ 'info':    ['fg', 'DraculaPurple'],
   \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'Conditional'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
+  \ 'prompt':  ['fg', 'DraculaPink'],
+  \ 'pointer': ['fg', 'DraculaPurple'],
+  \ 'marker':  ['fg', 'DraculaOranee'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'],
   \ }
+let g:fzf_layout = { 'window': 'call FloatingFZF()' }
 
 command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
-command! -bang -nargs=* HistoryFiles
-  \ call fzf#vim#history(fzf#vim#with_preview('right:50%', '?'))
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>, '--hidden --follow --ignore .git', fzf#vim#with_preview('right:50%', '?'), <bang>0)
+  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:65%'), <bang>0)
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
+  \   fzf#vim#with_preview('right:65%'),
+  \   <bang>0)
 
 " Grammarous.
 let g:grammarous#default_comments_only_filetypes = {
@@ -189,20 +191,6 @@ let g:javascript_plugin_jsdoc = 1
 let g:jsdoc_allow_input_prompt = 1
 let g:jsdoc_enable_es6 = 1
 let g:jsdoc_return_description = 0
-
-" LanguageClient.
-let g:LanguageClient_autoStart = 1
-let g:LanguageClient_diagnosticsEnable = 0
-let g:LanguageClient_hoverPreview = "Always"
-let g:LanguageClient_selectionUI = "fzf"
-let g:LanguageClient_serverCommands = {
-  \ 'haskell': ['hie', '--lsp'],
-  \ 'javascript': ['javascript-typescript-stdio'],
-  \ 'scss': ['css-languageserver', '--stdio'],
-  \ 'javascript.jsx': ['javascript-typescript-stdio'],
-  \ 'sh': ['bash-language-server', 'start'],
-  \ 'typescript': ['javascript-typescript-stdio'],
-  \ }
 
 " Lightline.
 let g:lightline = {

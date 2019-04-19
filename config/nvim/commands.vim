@@ -87,10 +87,8 @@ command! ALEDisableFixOnSave let g:ale_fix_on_save = 0
 " FZF.
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
-command! -bang -nargs=* HistoryFiles
-  \ call fzf#vim#history(fzf#vim#with_preview('right:50%', '?'))
-command! -bang -nargs=* Ag
-  \ call fzf#vim#ag(<q-args>, '--hidden --follow --ignore .git', fzf#vim#with_preview('right:50%', '?'), <bang>0)
+command! -bang -nargs=* Rg
+  \ call fzf#vim#rg(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
 
 " Edit current file with sudo.
 command! Esudo e suda://%

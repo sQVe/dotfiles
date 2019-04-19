@@ -5,6 +5,7 @@
 
 " General.
 hi! Normal ctermfg=255 ctermbg=236 guifg=#F8F8F2 guibg=#343434
+hi! link NormalFloat DraculaSelection
 
 " Better Whitespace.
 hi! ExtraWhitespace ctermfg=255 ctermbg=203 guifg=#F8F8F2 guibg=#FF5555
