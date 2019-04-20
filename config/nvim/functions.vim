@@ -82,7 +82,7 @@ function! FloatingFZF()
   call setbufvar(buf, '&signcolumn', 'no')
 
   let width = float2nr(&columns - (&columns * 2 / 10))
-  let height = 25
+  let height = 35
 
   let col = float2nr((&columns - width) / 2)
   let row = float2nr((&lines - height) / 2)
