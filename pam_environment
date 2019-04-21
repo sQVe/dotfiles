@@ -2,6 +2,7 @@ EDITOR=nvim
 PAGER=less
 VISUAL=nvim
 
+GTK2_RC_FILES       DEFAULT=@{HOME}/.config/gtk-2.0/gtkrc-2.0
 HTTPIE_CONFIG_DIR   DEFAULT=@{HOME}/.config/httpie
 NVM_DIR             DEFAULT=@{HOME}/.nvm
 PASSWORD_STORE_DIR  DEFAULT=@{HOME}/.passwords
