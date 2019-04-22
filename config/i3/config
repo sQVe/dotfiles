@@ -30,9 +30,9 @@ set $workspace-9 "9 "
 
 set $js-playground --no-startup-id term "jsclean"
 set $lock --no-startup-id lock
+set $menu-apps --no-startup-id $HOME/scripts/i3/menu-apps.sh
 set $menu-clipboard --no-startup-id $HOME/scripts/i3/menu-clipboard.sh
 set $menu-exit --no-startup-id $HOME/scripts/i3/menu-exit.sh
-set $menu-apps --no-startup-id $HOME/scripts/i3/menu-apps.sh
 set $menu-notes --no-startup-id $HOME/scripts/i3/menu-notes.sh
 set $menu-passwords --no-startup-id $HOME/scripts/i3/menu-passwords.sh
 set $menu-projects --no-startup-id $HOME/scripts/i3/menu-projects.sh
@@ -42,10 +42,10 @@ set $music-next --no-startup-id playerctl next
 set $music-prev --no-startup-id playerctl previous
 set $music-toggle --no-startup-id playerctl play-pause
 set $qutebrowser --no-startup-id scaled-qutebrowser
-set $ranger --no-startup-id term ranger
 set $redshift --no-startup-id $HOME/scripts/i3/safe-load-redshift.sh
 set $samedir --no-startup-id $HOME/scripts/i3/samedir.sh
 set $term --no-startup-id term
+set $vifm --no-startup-id term vifm
 set $vim --no-startup-id term nvim
 
 set $brightness-down --no-startup-id light -U 5 && pkill -RTMIN+10 i3blocks
@@ -164,7 +164,7 @@ bindsym $mod+b exec $qutebrowser
 bindsym $mod+c exec $menu-clipboard
 bindsym $mod+d exec $menu-apps
 bindsym $mod+e exec $menu-exit
-bindsym $mod+f mode "resize"
+bindsym $mod+f exec $vifm
 bindsym $mod+g gaps inner current plus 20
 bindsym $mod+h focus left
 bindsym $mod+i scratchpad show
@@ -176,7 +176,7 @@ bindsym $mod+n exec $js-playground
 bindsym $mod+o floating toggle; resize set 1200 800; move position center
 bindsym $mod+p focus parent
 bindsym $mod+q kill
-bindsym $mod+r exec $ranger
+bindsym $mod+r mode "resize"
 bindsym $mod+s split toggle
 bindsym $mod+t exec $menu-notes
 bindsym $mod+u exec $menu-passwords

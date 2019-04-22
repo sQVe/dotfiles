@@ -44,14 +44,13 @@ function nvm() {
   nvm "$@"
 }
 
-function ranger-cd() {
-  tmp="$(mktemp -t tmp.XXXXXX)"
-  command ranger --choosedir="$tmp" "${@:-$(pwd)}"
-  test -f "$tmp" &&
-  if [ "$(cat -- "$tmp")" != "$(echo -n `pwd`)" ]; then
-      cd -- "$(cat "$tmp")"
+function vifm-cd() {
+  local path="$(command vifm --choose-dir - "$@")"
+  if [[ -z "$path" ]]; then
+    echo 'Cancelling setting path.'
+    exit 0
   fi
-  rm -f -- "$tmp"
+  cd "$path"
 }
 
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
@@ -138,9 +137,7 @@ alias leave='i3-msg exit'
 alias loc=locate
 alias mixer=ncpamixer
 alias mutt=neomutt
-alias r=ranger
 alias ramda='ramda --js'
-alias ranger='ranger-cd'
 alias s=sudo
 alias se=sudoedit
 alias t=term

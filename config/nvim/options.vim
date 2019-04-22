@@ -217,10 +217,6 @@ let g:mergetool_prefer_revision = 'local'
 " Pasta.
 let g:pasta_disabled_filetypes = ['fugitive', 'markdown', 'yaml']
 
-" Ranger.
-let g:ranger_map_keys = 0
-let g:ranger_replace_netrw = 1
-
 " Sandwich.
 runtime macros/sandwich/keymap/surround.vim
 
@@ -233,6 +229,9 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 " TComment.
 let g:tcomment_mapleader1 = "<C-_>"
 let g:tcomment_mapleader2 = "<Leader>_"
+
+" Vifm.
+let g:vifm_term = "term"
 
 " Visual Multi.
 let g:VM_leader                  = '<Leader>m'

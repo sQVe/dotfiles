@@ -171,6 +171,6 @@ nnoremap <Leader>ii :ImportJSFix<CR>
 nnoremap <Leader>iw :ImportJSWord<CR>
 nnoremap <Leader>id :ImportJSGoto<CR>
 
-" Ranger.
-nnoremap å :Ranger<CR>
-nnoremap Å :RangerWorkingDirectory<CR>
+" Vifm.
+nnoremap å :EditVifm<CR>
+nnoremap Å :EditVifm .<CR>

@@ -3,8 +3,12 @@
 "  ┣━┫┃ ┃ ┃ ┃ ┃┃  ┃┃┃ ┃┃
 "  ╹ ╹┗━┛ ╹ ┗━┛┗━╸╹ ╹╺┻┛
 
+augroup DisableNetrw
+  autocmd VimEnter * silent! autocmd! FileExplorer
+augroup END
+
 " Disable ALE for specific file extensions.
-augroup DisableALEFileExt
+augroup DisableALEForFileExt
   autocmd!
   autocmd BufWinEnter,VimEnter,WinEnter *.d.ts :ALEDisableBuffer
 augroup END

@@ -19,7 +19,6 @@ Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 " Interface.
 Plug 'brooth/far.vim'
 Plug 'easymotion/vim-easymotion'
-Plug 'francoiscabrol/ranger.vim'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './install --bin' }
 Plug 'junegunn/fzf.vim'
@@ -30,6 +29,7 @@ Plug 'roman/golden-ratio'
 Plug 'samoshkin/vim-mergetool'
 Plug 'tpope/vim-fugitive'
 Plug 'w0rp/ale'
+Plug 'vifm/vifm.vim'
 
 " Integration.
 Plug 'Galooshi/vim-import-js'
