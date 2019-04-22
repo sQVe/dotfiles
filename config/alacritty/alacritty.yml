@@ -43,7 +43,7 @@ colors:
     background: '0x343434'
     foreground: '0xf8f8f2'
   cursor:
-    text: '0x000000'
+    text: '0x343434'
     cursor: '0xf8f8f2'
   selection:
     text: '0xf8f8f2'
