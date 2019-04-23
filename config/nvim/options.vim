@@ -75,13 +75,13 @@ set splitright                    " Vertical split to right of current.
 set undodir=$HOME/.local/share/nvim/.undo,/tmp
 set undofile                      " Keep a persistent backup file.
 
+" Colorscheme.
+colorscheme dracula
+
 
 "  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ┏━┓┏━┓╺┳╸╻┏━┓┏┓╻┏━┓
 "  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┃ ┃┣━┛ ┃ ┃┃ ┃┃┗┫┗━┓
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ┗━┛╹   ╹ ╹┗━┛╹ ╹┗━┛
-
-" Colorschemes.
-colorscheme dracula
 
 " Ale.
 let g:ale_fix_on_save = 1
