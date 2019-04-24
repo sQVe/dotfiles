@@ -9,6 +9,7 @@ PASSWORD_STORE_DIR  DEFAULT=@{HOME}/.passwords
 RIPGREP_CONFIG_PATH DEFAULT=@{HOME}/.config/ripgrep/config
 SSH_AGENT_PID       DEFAULT=
 SSH_AUTH_SOCK       DEFAULT=${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh
+TRASH               DEFAULT=@{HOME}/.local/share/Trash
 
 PASSWORD_STORE_GENERATED_LENGTH=24
 PASSWORD_STORE_GPG_OPTS=--no-throw-keyids
