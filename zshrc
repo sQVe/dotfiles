@@ -58,14 +58,15 @@ function vifm-cd() {
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 export FZF_ALT_C_COMMAND='command fd --type d --hidden --follow --exclude .git'
-export FZF_ALT_C_OPTS="--preview 'tree -C -L 1 --dirsfirst {}'"
-export FZF_CTRL_T_COMMAND='command fd --hidden --follow --exclude .git'
-export FZF_CTRL_T_OPTS="--preview '(highlight -l -O truecolor -s dracula --stdout {} 2> /dev/null || cat {} || tree -C -L 1 --dirsfirst {}) 2> /dev/null | head -200'"
-export FZF_DEFAULT_COMMAND='command fd --hidden --follow --exclude .git'
+export FZF_ALT_C_OPTS="--preview 'exa -T -L 1 --group-directories-first --color=always {}'"
+export FZF_CTRL_T_COMMAND='command fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_OPTS="--preview '(highlight -l -O truecolor -s dracula --stdout {} 2> /dev/null || cat {}) 2> /dev/null | head -200'"
+export FZF_DEFAULT_COMMAND='command fd --type f --hidden --follow --exclude .git'
 export FZF_DEFAULT_OPTS='
   --color=bg+:#343434,spinner:#BD93F9,hl:#BD93F9
   --color=fg:#F8F8F2,info:#FF79C6,pointer:#50FA7B
   --color=marker:#50FA7B,hl+:#50FA7B
+  --reverse
 '
 
 
