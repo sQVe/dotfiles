@@ -52,7 +52,7 @@ Plug 'moll/vim-bbye'
 
 " Completion and spelling.
 Plug 'ervandew/supertab'
-Plug 'neoclide/coc.nvim', {'do': { -> coc#util#install()}}
+Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
 Plug 'rhysd/vim-grammarous'
 
 call plug#end()
