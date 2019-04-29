@@ -148,6 +148,7 @@ alias vi=nvim
 alias vim=nvim
 alias wifi-menu='wifi-menu -o'
 alias xsel='xsel -b'
+alias vifm=fm
 
 # Config.
 alias cfg-alacritty='nvim-pwd $HOME/.dotfiles/config/alacritty/alacritty.yml'

@@ -12,6 +12,7 @@ highlight  CurrLine     cterm=bold           ctermfg=236       ctermbg=blue
 
 highlight  WildMenu     cterm=none,reverse   ctermfg=blue      ctermbg=238
 highlight  CmdLine      cterm=none           ctermfg=255       ctermbg=238
+highlight  TabLine      cterm=none           ctermfg=255       ctermbg=238
 highlight  ErrorMsg     cterm=none           ctermfg=red       ctermbg=black
 
 highlight  Directory    cterm=none           ctermfg=blue      ctermbg=default
