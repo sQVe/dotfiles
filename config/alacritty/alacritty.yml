@@ -7,7 +7,7 @@ window:
     y: 4
   decorations: full
   dynamic_padding: false
-  start_maximized: false
+  startup_mode: Windowed
 
 scrolling:
   auto_scroll: false
