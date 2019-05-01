@@ -7,7 +7,6 @@ set confirm="permdelete"
 set dotdirs="rootparent"
 set gdefault
 set history=100
-set millerview
 set nofollowlinks
 set norunexec
 set quickview
