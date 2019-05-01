@@ -83,7 +83,7 @@ command! trashlist exa -T -L 1 --group-directories-first ~/.local/share/Trash/vi
 "  ╹  ╹┗━╸┗━╸ ╹  ╹ ╹  ┗━╸┗━┛
 
 " Unpack archives.
-fileviewer *.tar.gz,*.tgz,*.tar.bz,*.tbz,*.tar.bz2,*.tbz2,*.tar.Z,*.tZ,
+filetype *.tar.gz,*.tgz,*.tar.bz,*.tbz,*.tar.bz2,*.tbz2,*.tar.Z,*.tZ,
   \*.tar.lzo,*.tzo,*.tar.lz,*.tlz,*.tar.xz,*.txz,*.tar.7z,*.t7z,*.tar,
   \*.zip,*.jar,*.war,*.rar,*.lha,*.lzh,*.alz,*.ace,*.a,*.arj,*.arc,
   \*.rpm,*.deb,*.cab,*.gz,*.bz,*.bz2,*.Z,*.lzma,*.lzo,*.lz,*.xz,
@@ -106,10 +106,17 @@ filetype *.sha512
 filetype *.asc
    \ !!gpg --verify %c,
 
-filetype <text/*> nvim
+" Open all text files with nvim.
+filetype <text/*>
+  \ nvim %f
+
+" Handle specific application MIME types.
+filetype <application/json>
+  \ nvim %f
 
 " Open all other with mimeo.
-filetype * mimeo
+filetype *
+  \ mimeo %f
 
 
 "  ┏━╸╻╻  ┏━╸╻ ╻╻┏━╸╻ ╻┏━╸┏━┓┏━┓
