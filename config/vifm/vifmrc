@@ -133,27 +133,24 @@ fileviewer *.tar.gz,*.tgz,*.tar.bz,*.tbz,*.tar.bz2,*.tbz2,*.tar.Z,*.tZ,
 
 " Pdf, video and image preview.
 fileviewer *.pdf
-  \ ~/scripts/vifm/vifmimg.sh pdfpreview %px %py %pw %ph %c
-  \ %pc
+  \ ~/scripts/vifm/vifmimg.sh pdfpreview %px %py %pw %ph %c %pc
   \ ~/scripts/vifm/vifmimg.sh clear
 
 fileviewer *.epub
-  \ ~/scripts/vifm/vifmimg.sh epubpreview %px %py %pw %ph %c
-  \ %pc
+  \ ~/scripts/vifm/vifmimg.sh epubpreview %px %py %pw %ph %c %pc
   \ ~/scripts/vifm/vifmimg.sh clear
 
 fileviewer *.avi,*.mp4,*.wmv,*.dat,*.3gp,*.ogv,*.mkv,*.mpg,*.mpeg,
   \*.vob,*.fl[icv],*.m2v,*.mov,*.webm,*.ts,*.mts,*.m4v,*.r[am],*.qt,*.divx
-  \ ~/scripts/vifm/vifmimg.sh videopreview %px %py %pw %ph %c
-  \ %pc
+  \ ~/scripts/vifm/vifmimg.sh videopreview %px %py %pw %ph %c %pc
   \ ~/scripts/vifm/vifmimg.sh clear
 
 fileviewer *.bmp,*.jpg,*.jpeg,*.png,*.xpm
-  \ ~/scripts/vifm/vifmimg.sh draw %px %py %pw %ph %c
+  \ ~/scripts/vifm/vifmimg.sh draw %px %py %pw %ph %c %pc
+  \ ~/scripts/vifm/vifmimg.sh clear
 
 fileviewer *.gif
-  \ ~/scripts/vifm/vifmimg.sh gifpreview %px %py %pw %ph %c
-  \ %pc
+  \ ~/scripts/vifm/vifmimg.sh gifpreview %px %py %pw %ph %c %pc
   \ ~/scripts/vifm/vifmimg.sh clear
 
 " Text and directory preview.
