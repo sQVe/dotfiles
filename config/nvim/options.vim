@@ -124,9 +124,9 @@ let g:EasyMotion_skipfoldedline = 0
 let g:user_emmet_settings = {
   \ 'javascript' : { 'extends' : 'jsx' },
   \ 'javascript.jsx' : { 'extends' : 'jsx' },
-  \ 'less' : { 'extends' : 'css' },
   \ 'scss' : { 'extends' : 'css' },
   \ 'typescript' : { 'extends' : 'jsx' },
+  \ 'typescript.jsx' : { 'extends' : 'jsx' },
   \ }
 
 " Far.

@@ -9,6 +9,7 @@ set gdefault
 set history=100
 set nofollowlinks
 set norunexec
+set nowrap
 set quickview
 set scrolloff=4
 set sortnumbers
