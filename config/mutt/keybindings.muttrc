@@ -1,13 +1,16 @@
-bind attach,browser,index,pager  d   noop
-bind attach,browser,index,pager  g   noop
-bind attach,browser,index,pager  r   noop
-bind pager                      dt   noop
-bind pager                      i    noop
+bind attach,browser,index,pager d   noop
+bind attach,browser,index,pager g   noop
+bind pager                      dt  noop
+bind pager                      i   noop
+bind index                      q   noop
+bind index                <Space>   noop
 
 bind attach,browser,index       gg  first-entry
 bind attach,browser,index       G   last-entry
-bind attach,browser,index,pager ra  group-reply
-bind attach,browser,index,pager rr  reply
+bind attach,browser,index,pager r   group-reply
+bind attach,browser,index,pager S   reply
+bind attach               <Return>  view-mailcap
+bind index                <Space>q  quit
 bind pager                      gg  top
 bind pager                      G   bottom
 bind pager                      j   next-line
@@ -33,21 +36,16 @@ bind pager,index                gT  previous-thread
 bind index                      za  collapse-thread
 bind index                      zA  collapse-all
 
-bind attach               <Return>  view-mailcap
+bind index,pager               \Ck  sidebar-prev
+bind index,pager               \Cj  sidebar-next
+bind index,pager               \Co  sidebar-open
+bind index,pager               \Cp  sidebar-prev-new
+bind index,pager               \Cn  sidebar-next-new
 
+macro index                     A   "<limit>all\n" "show all messages (undo limit)"
 macro index                     C   "<copy-message>?<toggle-mailboxes>" "Copy mail to folder"
 macro index                     M   "<save-message>?<toggle-mailboxes>" "Move mail to folder"
-macro index                   \Cf \
-  "<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
-  <shell-escape>notmuch-mutt -r --prompt search<enter>\
-  <change-folder-readonly>`echo $HOME/.cache/notmuch/mutt/results`<enter>\
-  <enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
-    "notmuch: search mail"
-macro index                  \Cr \
-  "<enter-command>set my_old_pipe_decode=\$pipe_decode my_old_wait_key=\$wait_key nopipe_decode nowait_key<enter>\
-  <pipe-message>notmuch-mutt -r thread<enter>\
-  <change-folder-readonly>`echo $$HOME/.cache/notmuch/mutt/results`<enter>\
-  <enter-command>set pipe_decode=\$my_old_pipe_decode wait_key=\$my_old_wait_key<enter>" \
-    "notmuch: reconstruct thread"
+macro index                    \Cr "T~U<enter><tag-prefix><clear-flag>N<untag-pattern>.<enter>" "mark all messages as read"
+macro index                    \Cf "<enter-command>unset wait_key<enter><shell-escape>read -p 'Query: ' x; echo \$x >~/.cache/mutt_terms<enter><limit>~i \"\`notmuch search --output=messages \$(cat ~/.cache/mutt_terms) | head -n 600 | perl -le '@a=<>;chomp@a;s/\^id:// for@a;$,=\"|\";print@a'\`\"<enter>" "show only messages matching a notmuch pattern"
 
 # vim: filetype=neomuttrc
