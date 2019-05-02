@@ -3,7 +3,7 @@
     "coc-css": "^1.0.7",
     "coc-dictionary": "^1.2.2",
     "coc-html": "^1.0.7",
-    "coc-json": "^1.0.14",
+    "coc-json": "^1.0.15",
     "coc-snippets": "^2.0.10",
     "coc-tsserver": "^1.2.1",
     "coc-yaml": "^1.0.1",
