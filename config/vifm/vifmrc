@@ -162,6 +162,7 @@ fileviewer */ exa -T -L 1 --group-directories-first --color=always
 
 " Use Space as leader key.
 noremap <Space> <NOP>
+noremap <Space><Space> <NOP>
 
 " Quick command.
 noremap ö :
@@ -172,6 +173,9 @@ noremap qÖ q:
 " Quit.
 noremap <Space>q :quit<CR>
 noremap <Space>Q :quit!<CR>
+
+" Sane tagging.
+noremap t tj
 
 " Open console in current directory
 nnoremap <Space><CR> :!term &<CR>
