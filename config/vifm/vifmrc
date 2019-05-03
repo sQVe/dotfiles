@@ -76,9 +76,6 @@ command! fasd :execute 'cd "'.system('fasd -dl | fzf 2> /dev/tty').'"'
 command! trashlist exa -T -L 1 --group-directories-first ~/.local/share/Trash/vifm
 
 
-" TODO: Empty trash command.
-
-
 "  ┏━╸╻╻  ┏━╸╺┳╸╻ ╻┏━┓┏━╸┏━┓
 "  ┣╸ ┃┃  ┣╸  ┃ ┗┳┛┣━┛┣╸ ┗━┓
 "  ╹  ╹┗━╸┗━╸ ╹  ╹ ╹  ┗━╸┗━┛
@@ -199,9 +196,13 @@ nnoremap yf :!echo %c:p | xsel --input --clipboard %i<CR>
 " Rename with clean start.
 nnoremap cc cw<C-u>
 
-" Create.
+" Create files or directories.
 nnoremap af :touch<Space>
 nnoremap ad :mkdir<Space>
+
+" Fasd.
+nnoremap <Space>z :fasd<Space>
+nnoremap <Space>zz :fasd<Space>
 
 " Move between open windows.
 noremap <C-h> <C-w>h
