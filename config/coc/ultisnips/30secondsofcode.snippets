@@ -20,7 +20,9 @@ endsnippet
 
 snippet arrayToCSV "Converts a 2D array to a comma-separated values (CSV) string.  Use `Array.prototype.map()` and `Array.prototype.join(delimiter)` to combine individual 1D arrays (rows) into strings. Use `Array.prototype.join('\n')` to combine all rows into a CSV string, separating each row with a newline. Omit the second argument, `delimiter`, to use a default delimiter of `,`." b
 const arrayToCSV = (arr, delimiter = ',') =>
-  arr.map(v => v.map(x => `"${x}"`).join(delimiter)).join('\n');
+  arr
+    .map(v => v.map(x => (isNaN(x) ? `"${x.replace(/"/g, '""')}"` : x)).join(delimiter))
+    .join('\n');
 endsnippet
 
 snippet arrayToHtmlList "Converts the given array elements into `<li>` tags and appends them to the list of the given id.  Use `Array.prototype.map()`, `document.querySelector()`, and an anonymous inner closure to create a list of html tags." b
@@ -146,6 +148,10 @@ const chainAsync = fns => {
 };
 endsnippet
 
+snippet checkProp "Given a `predicate` function and a `prop` string, this curried function will then take an `object` to inspect by calling the property and passing it to the predicate.  Summon `prop` on `obj`, pass it to a provided `predicate` function and return a masked boolean." b
+const checkProp = (predicate, prop) => obj => !!predicate(obj[prop]);
+endsnippet
+
 snippet chunk "Chunks an array into smaller arrays of a specified size.  Use `Array.from()` to create a new array, that fits the number of chunks that will be produced. Use `Array.prototype.slice()` to map each element of the new array to a chunk the length of `size`. If the original array can't be split evenly, the final chunk will contain the remaining elements." b
 const chunk = (arr, size) =>
   Array.from({ length: Math.ceil(arr.length / size) }, (v, i) =>
@@ -198,7 +204,7 @@ snippet compact "Removes falsey values from an array.  Use `Array.prototype.filt
 const compact = arr => arr.filter(Boolean);
 endsnippet
 
-snippet compactWhitespace "Returns a string with whitespaces compacted.  Use `String.prototype.replace()` with a regular expression to replace all occurences of 2 or more whitespace characters with a single space." b
+snippet compactWhitespace "Returns a string with whitespaces compacted.  Use `String.prototype.replace()` with a regular expression to replace all occurrences of 2 or more whitespace characters with a single space." b
 const compactWhitespace = str => str.replace(/\s{2,}/g, ' ');
 endsnippet
 
@@ -410,10 +416,10 @@ const difference = (a, b) => {
 };
 endsnippet
 
-snippet differenceBy "Returns the difference between two arrays, after applying the provided function to each array element of both.  Create a `Set` by applying `fn` to each element in `b`, then use `Array.prototype.filter()` in combination with `fn` on `a` to only keep values not contained in the previously created set." b
+snippet differenceBy "Returns the difference between two arrays, after applying the provided function to each array element of both.  Create a `Set` by applying `fn` to each element in `b`, then use `Array.prototype.map()` to apply `fn` to each element in `a`, then `Array.prototype.filter()`" b
 const differenceBy = (a, b, fn) => {
   const s = new Set(b.map(fn));
-  return a.filter(x => !s.has(fn(x)));
+  return a.map(fn).filter(el => !s.has(el));
 };
 endsnippet
 
@@ -426,9 +432,9 @@ const dig = (obj, target) =>
   target in obj
     ? obj[target]
     : Object.values(obj).reduce((acc, val) => {
-        if (acc !== undefined) return acc;
-        if (typeof val === 'object') return dig(val, target);
-      }, undefined);
+      if (acc !== undefined) return acc;
+      if (typeof val === 'object') return dig(val, target);
+    }, undefined);
 endsnippet
 
 snippet digitize "Converts a number to an array of digits.  Convert the number to a string, using the spread operator (`...`) to build an array. Use `Array.prototype.map()` and `parseInt()` to transform each value to an integer." b
@@ -439,11 +445,11 @@ snippet distance "Returns the distance between two points.  Use `Math.hypot()` t
 const distance = (x0, y0, x1, y1) => Math.hypot(x1 - x0, y1 - y0);
 endsnippet
 
-snippet drop "Returns a new array with `n` elements removed from the left.  Use `Array.prototype.slice()` to slice the remove the specified number of elements from the left." b
+snippet drop "Returns a new array with `n` elements removed from the left.  Use `Array.prototype.slice()` to remove the specified number of elements from the left." b
 const drop = (arr, n = 1) => arr.slice(n);
 endsnippet
 
-snippet dropRight "Returns a new array with `n` elements removed from the right.  Use `Array.prototype.slice()` to slice the remove the specified number of elements from the right." b
+snippet dropRight "Returns a new array with `n` elements removed from the right.  Use `Array.prototype.slice()` to remove the specified number of elements from the right." b
 const dropRight = (arr, n = 1) => arr.slice(0, -n);
 endsnippet
 
@@ -545,8 +551,8 @@ snippet factorial "Calculates the factorial of a number.  Use recursion. If `n` 
 const factorial = n =>
   n < 0
     ? (() => {
-        throw new TypeError('Negative numbers are not allowed!');
-      })()
+      throw new TypeError('Negative numbers are not allowed!');
+    })()
     : n <= 1
       ? 1
       : n * factorial(n - 1);
@@ -638,6 +644,17 @@ const formatDuration = ms => {
     .map(([key, val]) => `${val} ${key}${val !== 1 ? 's' : ''}`)
     .join(', ');
 };
+endsnippet
+
+snippet formToObject "Encode a set of form elements as an `object`.  Use the `FormData` constructor to convert the HTML `form` to `FormData`, `Array.from()` to convert to an array. Collect the object from the array, using `Array.prototype.reduce()`." b
+const formToObject = form =>
+  Array.from(new FormData(form)).reduce(
+    (acc, [key, value]) => ({
+      ...acc,
+      [key]: value
+    }),
+    {}
+  );
 endsnippet
 
 snippet forOwn "Iterates over all own properties of an object, running a callback for each one.  Use `Object.keys(obj)` to get all the properties of the object, `Array.prototype.forEach()` to run the provided function for each key-value pair. The callback receives three arguments - the value, the key and the object." b
@@ -1004,7 +1021,7 @@ const isDuplexStream = val =>
   typeof val._writableState === 'object';
 endsnippet
 
-snippet isEmpty "Returns true if the a value is an empty object, collection, map or set, has no enumerable properties or is any type that is not considered a collection.  Check if the provided value is `null` or if its `length` is equal to `0`." b
+snippet isEmpty "Returns true if the a value is an empty object, collection, has no enumerable properties or is any type that is not considered a collection.  Check if the provided value is `null` or if its `length` is equal to `0`." b
 const isEmpty = val => val == null || !(Object.keys(val) || val).length;
 endsnippet
 
@@ -1032,8 +1049,8 @@ snippet isNull "Returns `true` if the specified value is `null`, `false` otherwi
 const isNull = val => val === null;
 endsnippet
 
-snippet isNumber "Checks if the given argument is a number.  Use `typeof` to check if a value is classified as a number primitive." b
-const isNumber = val => typeof val === 'number';
+snippet isNumber "Checks if the given argument is a number.  Use `typeof` to check if a value is classified as a number primitive.  To safeguard against `NaN`, check if `val === val` (as `NaN` has a `typeof` equal to `number` and is the only value not equal to itself)." b
+const isNumber = val => typeof val === 'number' && val === val;
 endsnippet
 
 snippet isObject "Returns a boolean determining if the passed value is an object or not.  Uses the  `Object` constructor to create an object wrapper for the given value.  If the value is `null` or `undefined`, create and return an empty object. Οtherwise, return an object of a type that corresponds to the given value." b
@@ -1212,6 +1229,11 @@ const mapKeys = (obj, fn) =>
   }, {});
 endsnippet
 
+snippet mapNumRange "Maps a number from one range to another range.  Returns `num` mapped between `outMin`-`outMax` from `inMin`-`inMax`." b
+const mapNumRange = (num, inMin, inMax, outMin, outMax) =>
+  ((num - inMin) * (outMax - outMin)) / (inMax - inMin) + outMin;
+endsnippet
+
 snippet mapObject "Maps the values of an array to an object using a function, where the key-value pairs consist of the original value as the key and the mapped value.  Use an anonymous inner function scope to declare an undefined memory space, using closures to store a return value. Use a new `Array` to store the array with a map of the function over its data set and a comma operator to return a second step, without needing to move from one context to another (due to closures and order of operations)." b
 const mapObject = (arr, fn) =>
   (a => (
@@ -1301,7 +1323,7 @@ snippet midpoint "Calculates the midpoint between two pairs of (x,y) points.  De
 const midpoint = ([x1, y1], [x2, y2]) => [(x1 + x2) / 2, (y1 + y2) / 2];
 endsnippet
 
-snippet minBy "Returns the minimum value of an array, after mapping each element to a value using the provided function.  Use `Array.prototype.map()` to map each element to the value returned by `fn`, `Math.min()` to get the maximum value." b
+snippet minBy "Returns the minimum value of an array, after mapping each element to a value using the provided function.  Use `Array.prototype.map()` to map each element to the value returned by `fn`, `Math.min()` to get the minimum value." b
 const minBy = (arr, fn) => Math.min(...arr.map(typeof fn === 'function' ? fn : val => val[fn]));
 endsnippet
 
@@ -1822,6 +1844,11 @@ snippet serializeCookie "Serialize a cookie name-value pair into a Set-Cookie he
 const serializeCookie = (name, val) => `${encodeURIComponent(name)}=${encodeURIComponent(val)}`;
 endsnippet
 
+snippet serializeForm "Encode a set of form elements as a query string.  Use the `FormData` constructor to convert the HTML `form` to `FormData`, `Array.from()` to convert to an array, passing a map function as the second argument. Use `Array.prototype.map()` and `window.encodeURIComponent()` to encode each field's value. Use `Array.prototype.join()` with appropriate argumens to produce an appropriate query string." b
+const serializeForm = form =>
+  Array.from(new FormData(form), field => field.map(encodeURIComponent).join('=')).join('&');
+endsnippet
+
 snippet setStyle "Sets the value of a CSS rule for the specified element.  Use `element.style` to set the value of the CSS rule for the specified element to `val`." b
 const setStyle = (el, ruleName, val) => (el.style[ruleName] = val);
 endsnippet
@@ -2245,7 +2272,7 @@ snippet uniqueElements "Returns all unique values of an array.  Use ES6 `Set` an
 const uniqueElements = arr => [...new Set(arr)];
 endsnippet
 
-snippet uniqueElementsBy "Returns all unique values of an array, based on a provided comparator function.  Use `Array.prototype.reduce()` and `Array.prototype.some()` for an array containing only the first unique occurence of each value, based on the comparator function, `fn`. The comparator function takes two arguments: the values of the two elements being compared." b
+snippet uniqueElementsBy "Returns all unique values of an array, based on a provided comparator function.  Use `Array.prototype.reduce()` and `Array.prototype.some()` for an array containing only the first unique occurrence of each value, based on the comparator function, `fn`. The comparator function takes two arguments: the values of the two elements being compared." b
 const uniqueElementsBy = (arr, fn) =>
   arr.reduce((acc, v) => {
     if (!acc.some(x => fn(v, x))) acc.push(v);
@@ -2253,7 +2280,7 @@ const uniqueElementsBy = (arr, fn) =>
   }, []);
 endsnippet
 
-snippet uniqueElementsByRight "Returns all unique values of an array, based on a provided comparator function.  Use `Array.prototype.reduce()` and `Array.prototype.some()` for an array containing only the last unique occurence of each value, based on the comparator function, `fn`. The comparator function takes two arguments: the values of the two elements being compared." b
+snippet uniqueElementsByRight "Returns all unique values of an array, based on a provided comparator function.  Use `Array.prototype.reduce()` and `Array.prototype.some()` for an array containing only the last unique occurrence of each value, based on the comparator function, `fn`. The comparator function takes two arguments: the values of the two elements being compared." b
 const uniqueElementsByRight = (arr, fn) =>
   arr.reduceRight((acc, v) => {
     if (!acc.some(x => fn(v, x))) acc.push(v);
@@ -2322,6 +2349,16 @@ endsnippet
 
 snippet validateNumber "Returns `true` if the given value is a number, `false` otherwise.  Use `!isNaN()` in combination with `parseFloat()` to check if the argument is a number. Use `isFinite()` to check if the number is finite. Use `Number()` to check if the coercion holds." b
 const validateNumber = n => !isNaN(parseFloat(n)) && isFinite(n) && Number(n) == n;
+endsnippet
+
+snippet vectorDistance "Returns the distance between two vectors.  Use `Array.prototype.reduce()`, `Math.pow()` and `Math.sqrt()` to calculate the Euclidean distance between two vectors." b
+const vectorDistance = (...coords) => {
+  let pointLength = Math.trunc(coords.length / 2);
+  let sum = coords
+    .slice(0, pointLength)
+    .reduce((acc, val, i) => acc + Math.pow(val - coords[pointLength + i], 2), 0);
+  return Math.sqrt(sum);
+};
 endsnippet
 
 snippet when "Tests a value, `x`, against a predicate function. If `true`, return `fn(x)`. Else, return `x`.   Return a function expecting a single value, `x`, that returns the appropriate value based on `pred`." b
@@ -2516,7 +2553,6 @@ const kmphToMph = (kmph) => 0.621371192 * kmph;
 endsnippet
 
 snippet levenshteinDistance "Calculates the [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) between two strings.  Calculates the number of changes (substitutions, deletions or additions) required to convert `string1` to `string2`.  Can also be used to compare two strings as shown in the second example." b
-``` js
 const levenshteinDistance = (string1, string2) => {
   if (string1.length === 0) return string2.length;
   if (string2.length === 0) return string1.length;
@@ -2541,7 +2577,6 @@ const levenshteinDistance = (string1, string2) => {
   }
   return matrix[string2.length][string1.length];
 };
-```
 endsnippet
 
 snippet mphToKmph "Convert miles/hour to kilometers/hour.  Multiply the constant of proportionality with the argument." b
