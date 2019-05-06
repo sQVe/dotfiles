@@ -1,3 +1,8 @@
+
+#  ┏━╸┏━┓┏━╸
+#  ┃╺┓┣━┛┃╺┓
+#  ┗━┛╹  ┗━┛
+
 source /usr/share/doc/neomutt/samples/gpg.rc
 
 set pgp_sign_as = 0x2AEE792C763FEC19
