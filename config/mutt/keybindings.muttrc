@@ -20,9 +20,10 @@ bind attach,browser,index       G   last-entry
 bind attach,browser,index,pager r   group-reply
 bind attach,browser,index,pager S   reply
 bind attach               <Return>  view-mailcap
+bind editor                  <Tab>  complete-query
 bind index                <Space>q  quit
-bind index,pager                / search
-bind index,pager                ö enter-command
+bind index,pager                /   search
+bind index,pager                ö   enter-command
 bind pager                      gg  top
 bind pager                      G   bottom
 bind pager                      j   next-line
@@ -53,6 +54,7 @@ macro index,pager               \Cp <sidebar-prev-new><sidebar-open>
 macro index,pager               \Cn <sidebar-next-new><sidebar-open>
 
 macro index                     å   "<shell-escape>mbsync -a && ~/scripts/mutt/post-mbsync.sh<enter>" "Sync all mail"
+macro index,pager               Å   "|lbdb-fetchaddr\n" "Add address info to lbdb"
 macro index                     A   "<limit>all\n" "show all messages (undo limit)"
 macro index                     C   "<copy-message>?<toggle-mailboxes>" "Copy mail to folder"
 macro index                     M   "<save-message>?<toggle-mailboxes>" "Move mail to folder"

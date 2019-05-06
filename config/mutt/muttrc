@@ -38,6 +38,8 @@ set status_format = "%f [M: %?M?%M/?%m%?n? N: %n?%?o? O: %o?%?d? D: %d?%?F? F: %
 set timeout = "5"
 set wait_key = no
 
+set query_command = "lbdbq '%s'"
+
 unset mime_forward
 
 auto_view text/html
