@@ -1,0 +1,151 @@
+#  ┏━┓┏┓╻╻┏┳┓┏━╸┏━╸╻ ╻
+#  ┣━┫┃┗┫┃┃┃┃┣╸ ┃  ┣━┫
+#  ╹ ╹╹ ╹╹╹ ╹┗━╸┗━╸╹ ╹
+
+# Credentials.
+IMAPAccount animech
+Host outlook.office365.com
+User oskar.grunning@animech.com
+PassCmd "secret-tool lookup mutt animech"
+SSLType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+# Remote storage.
+IMAPStore animech-remote
+Account animech
+
+# Locale storage.
+MaildirStore animech-local
+Path ~/.local/share/mail/animech/
+Inbox ~/.local/share/mail/animech/Inbox
+Subfolders Verbatim
+Flatten .
+
+# Mailboxes.
+Channel animech-archive
+Master :animech-remote:"Arkiv"
+Slave :animech-local:"Archive"
+Create Both
+Expunge Both
+SyncState *
+
+Channel animech-drafts
+Master :animech-remote:"Utkast"
+Slave :animech-local:"Drafts"
+Create Both
+Expunge Both
+SyncState *
+
+Channel animech-inbox
+Master :animech-remote:"INBOX"
+Slave :animech-local:"Inbox"
+Create Both
+Expunge Both
+SyncState *
+
+Channel animech-sent
+Master :animech-remote:"Skickat"
+Slave :animech-local:"Sent"
+Create Both
+Expunge Both
+SyncState *
+
+Channel animech-trash
+Master :animech-remote:"Skr&AOQ-ppost"
+Slave :animech-local:"Trash"
+Create Both
+Expunge Both
+SyncState *
+
+Group animech
+Channel animech-archive
+Channel animech-drafts
+Channel animech-inbox
+Channel animech-sent
+Channel animech-trash
+
+
+#  ┏━╸┏━┓┏━┓┏━╸╻  ┏━╸
+#  ┃╺┓┃ ┃┃ ┃┃╺┓┃  ┣╸
+#  ┗━┛┗━┛┗━┛┗━┛┗━╸┗━╸
+
+# Credentials.
+IMAPAccount google
+Host imap.gmail.com
+User oskargrunning@gmail.com
+PassCmd "secret-tool lookup mutt google"
+SSLType IMAPS
+SSLVersions TLSv1.2
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+# Remote storage.
+IMAPStore google-remote
+Account google
+
+# Locale storage.
+MaildirStore google-local
+Path ~/.local/share/mail/google/
+Inbox ~/.local/share/mail/google/Inbox
+Subfolders Verbatim
+Flatten .
+
+# Mailboxes.
+Channel google
+Master :google-remote:
+Slave :google-local:
+Patterns "Arch Linux" "Drop" "NPM" "Nintendo" "Travis" "Weeklies"
+Create Both
+Expunge Both
+SyncState *
+
+Channel google-archive
+Master :google-remote:"[Gmail]/All Mail"
+Slave :google-local:"Archive"
+Create Both
+Expunge Both
+SyncState *
+
+Channel google-drafts
+Master :google-remote:"[Gmail]/Drafts"
+Slave :google-local:"Drafts"
+Create Both
+Expunge Both
+SyncState *
+
+Channel google-inbox
+Master :google-remote:"INBOX"
+Slave :google-local:"Inbox"
+Create Both
+Expunge Both
+SyncState *
+
+Channel google-sent
+Master :google-remote:"[Gmail]/Sent Mail"
+Slave :google-local:"Sent"
+Create Both
+Expunge Both
+SyncState *
+
+Channel google-spam
+Master :google-remote:"[Gmail]/Spam"
+Slave :google-local:"Spam"
+Create Both
+Expunge Both
+SyncState *
+
+Channel google-trash
+Master :google-remote:"[Gmail]/Trash"
+Slave :google-local:"Trash"
+Create Both
+Expunge Both
+SyncState *
+
+Group google
+Channel google
+Channel google-archive
+Channel google-drafts
+Channel google-inbox
+Channel google-sent
+Channel google-spam
+Channel google-trash
+

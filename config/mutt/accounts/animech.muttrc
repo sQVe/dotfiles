@@ -1,7 +1,7 @@
 set realname = "Oskar Grunning"
 set from = "oskar.grunning@animech.com"
 set sendmail = "/usr/bin/msmtp -a animech"
-set folder = "~/.mail/animech"
+set folder = "~/.local/share/mail/animech"
 
 # Cache settings. Initiate structure by running:
 # mkdir -p ~/.config/mutt/accounts/[mailbox]/cache/bodies"
@@ -9,7 +9,7 @@ set header_cache = ~/.config/mutt/accounts/animech/cache/headers
 set message_cachedir = ~/.config/mutt/accounts/animech/cache/bodies
 set certificate_file = ~/.config/mutt/accounts/animech/certificates
 
-source "~/scripts/mutt/mutt-pass.sh mutt/animech |"
+source "~/scripts/mutt/mutt-pass.sh animech |"
 
 alias me Oskar Grunning <oskar.grunning@animech.com>
 

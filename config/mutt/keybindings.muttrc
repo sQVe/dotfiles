@@ -36,11 +36,10 @@ bind pager,index                gT  previous-thread
 bind index                      za  collapse-thread
 bind index                      zA  collapse-all
 
-bind index,pager               \Ck  sidebar-prev
-bind index,pager               \Cj  sidebar-next
-bind index,pager               \Co  sidebar-open
-bind index,pager               \Cp  sidebar-prev-new
-bind index,pager               \Cn  sidebar-next-new
+macro index,pager               \Ck  <sidebar-prev><sidebar-open>
+macro index,pager               \Cj  <sidebar-next><sidebar-open>
+macro index,pager               \Cp  <sidebar-prev-new><sidebar-open>
+macro index,pager               \Cn  <sidebar-next-new><sidebar-open>
 
 macro index                     A   "<limit>all\n" "show all messages (undo limit)"
 macro index                     C   "<copy-message>?<toggle-mailboxes>" "Copy mail to folder"

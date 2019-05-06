@@ -1,14 +1,11 @@
-bind pager  i  noop
-bind pager  ia noop
-bind pager  ig noop
+bind pager i  noop
+bind pager ia noop
+bind pager ig noop
 
 macro index,pager ia "<sync-mailbox><enter-command>source ~/.config/mutt/accounts/animech.muttrc<enter><change-folder>!<enter>;<check-stats>" "Go to Animech Mailbox"
 macro index,pager ig "<sync-mailbox><enter-command>source ~/.config/mutt/accounts/google.muttrc<enter><change-folder>!<enter>;<check-stats>" "Go to Google Mailbox"
 
 source ~/.config/mutt/accounts/animech.muttrc
 source ~/.config/mutt/accounts/google.muttrc
-
-startup-hook 'echo `systemctl --user start offlineimap@animech.service`'
-startup-hook 'echo `systemctl --user start offlineimap@google.service`'
 
 # vim: filetype=neomuttrc

@@ -1,7 +1,7 @@
 set realname = "Oskar Grunning"
 set from = "oskargrunning@gmail.com"
 set sendmail = "/usr/bin/msmtp -a google"
-set folder = "~/.mail/google"
+set folder = "~/.local/share/mail/google"
 
 # Cache settings. Initiate structure by running:
 # mkdir -p ~/.config/mutt/accounts/[mailbox]/cache/bodies"
@@ -9,7 +9,7 @@ set header_cache = ~/.config/mutt/accounts/google/cache/headers
 set message_cachedir = ~/.config/mutt/accounts/google/cache/bodies
 set certificate_file = ~/.config/mutt/accounts/google/certificates
 
-source "~/scripts/mutt/mutt-pass.sh mutt/google |"
+source "~/scripts/mutt/mutt-pass.sh google |"
 
 alias me Oskar Grunning <oskargrunning@gmail.com>
 
@@ -30,7 +30,7 @@ macro index,pager gs "<change-folder>=Sent<enter>" "Go to Sent folder"
 macro index,pager gt "<change-folder>=Trash<enter>" "Go to Trash folder"
 
 unmailboxes *
-mailboxes "Google" "=Inbox" "=Archive" "=Drafts" "=Sent" "=Trash" "=Spam" "=Arch Linux" "=Massdrop" "=NPM" "=Nintendo" "=Travis" "=Weeklies"
+mailboxes "Google" "=Inbox" "=Archive" "=Drafts" "=Sent" "=Trash" "=Spam" "=Arch Linux" "=Drop" "=NPM" "=Nintendo" "=Travis" "=Weeklies"
 
 set spoolfile = "+Inbox"
 set record = ""
