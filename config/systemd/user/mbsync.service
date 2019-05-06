@@ -1,0 +1,7 @@
+[Unit]
+Description=Synchronize service for mailboxes
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/mbsync -Va
+ExecStartPost=%h/scripts/mutt/post-mbsync.sh
