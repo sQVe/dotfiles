@@ -3,6 +3,11 @@
 #  ┣┻┓┣╸ ┗┳┛┣┻┓┃┃┗┫ ┃┃┃┃┗┫┃╺┓┗━┓
 #  ╹ ╹┗━╸ ╹ ┗━┛╹╹ ╹╺┻┛╹╹ ╹┗━┛┗━┛
 
+# attach = viewing attachments
+# bowser = list of mailboxes
+# index = list of messages
+# pager = viewing a mail
+
 bind attach,browser,index,pager d   noop
 bind attach,browser,index,pager g   noop
 bind pager                      dt  noop
@@ -16,11 +21,12 @@ bind attach,browser,index,pager r   group-reply
 bind attach,browser,index,pager S   reply
 bind attach               <Return>  view-mailcap
 bind index                <Space>q  quit
+bind index,pager                / search
+bind index,pager                ö enter-command
 bind pager                      gg  top
 bind pager                      G   bottom
 bind pager                      j   next-line
 bind pager                      k   previous-line
-bind pager                      /   search
 
 bind attach,browser,pager,index \CF next-page
 bind attach,browser,pager,index \CB previous-page
