@@ -8,6 +8,12 @@ function! GetBuffersCount()
   return len(getbufinfo({'buflisted':1}))
 endfunc
 
+" Create and print ascii header.
+function! PrintAsciiHeader(title)
+  execute "read !toilet -f future " . a:title
+  norm VkkgcjjA jj
+endfunc
+
 " Show documentation.
 function! ShowDocumention()
   if &filetype == 'vim'

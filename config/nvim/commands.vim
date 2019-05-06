@@ -51,7 +51,10 @@ command! Wbc Wbc
 "  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫   ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃┗━┓
 "  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹   ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛┗━┛
 
-" Fasd.
+" Create and print Ascii Header.
+command! -nargs=1 AsciiHeader call PrintAsciiHeader(<q-args>)
+
+" Fasd lookup.
 command! -nargs=1 Fasd call Fasd('-f', 'e', <q-args>)
 command! -nargs=1 FasdCd call Fasd('-d', 'cd', <q-args>)
 
