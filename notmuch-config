@@ -11,7 +11,7 @@
 # configured here named ".notmuch".
 #
 [database]
-path=/home/sqve/.mail
+path=/home/sqve/.local/share/mail
 
 # User configuration
 #
