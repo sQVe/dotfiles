@@ -1,0 +1,6 @@
+KEEP_DUPES=no
+METHODS="m_muttalias m_inmail"
+MUNGE_LIMITCOUNT=3
+MUNGE_LIMITDATE=`date --date='-3 month' +"%F %R"`
+MUTTALIAS_FILES="contacts"
+MUTT_DIRECTORY="$HOME/.config/mutt"
