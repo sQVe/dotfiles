@@ -36,9 +36,13 @@ random-wallpaper
 # Set screen power timer.
 xset dpms 300 300 300
 
-# Setup peek cache symlink to tmp (solves large file issues as cache is limited to 1G).
+# Setup peek cache symlink to tmp.
 mkdir /tmp/peek
 ln -s /tmp/peek "$HOME/.cache/peek"
+
+# Setup coc yank data symlink to tmp.
+mkdir /tmp/coc-yank-data
+ln -s /tmp/coc-yank-data "$HOME/.config/coc/extensions/coc-yank-data"
 
 # Restore js-playground boxes.
 if [[ -d  "$HOME/code/js-playground" ]]; then
