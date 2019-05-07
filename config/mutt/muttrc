@@ -5,40 +5,43 @@
 
 set alias_file = "~/.config/mutt/contacts"
 set confirmappend = no
-set date_format = "%Y-%m-%d %I:%M"
 set delete = yes
 set edit_headers = yes
 set editor = ~/scripts/mutt/compose.sh
 set fast_reply = yes
 set fcc_attach = yes
-set forward_decode = yes
-set forward_format = "Fwd: %s"
-set forward_quote = yes
 set include = yes
-set index_format = "%2C %Z %?X?A& ? %D %-25.25F %s (%-4.4c)"
 set mail_check = "10"
 set mail_check_stats = yes
 set mark_old = no
 set markers = no
 set mime_forward = yes
+set query_command = "lbdbq '%s'"
 set reverse_alias = yes
 set reverse_name = yes
 set rfc2047_parameters = yes
+set sleep_time = 0
+set smtp_authenticators = 'gssapi:login'
+set timeout = "5"
+set wait_key = no
+
+set date_format = "%Y-%m-%d %I:%M"
+set index_format = "%2C %Z %?X?A& ? %D %-25.25F %s (%-4.4c)"
+set status_format = "%f [M: %?M?%M/?%m%?n? N: %n?%?o? O: %o?%?d? D: %d?%?F? F: %F?%?t? T: %t?%?p? P: %p?%?b? I: %b?%?l? %l?] %s/%S%>"
+
+set forward_decode = yes
+set forward_format = "Fwd: %s"
+set forward_quote = yes
+
+set sort = threads
+set sort_alias = alias
+set sort_aux = reverse-last-date-received
+
 set sidebar_format = '%B%?F? [%F]?%* %?N?%N/?%?S?%S?'
 set sidebar_next_new_wrap = yes
 set sidebar_short_path = yes
 set sidebar_visible = yes
 set sidebar_width = 30
-set sleep_time = 0
-set smtp_authenticators = 'gssapi:login'
-set sort = threads
-set sort_alias = alias
-set sort_aux = reverse-last-date-received
-set status_format = "%f [M: %?M?%M/?%m%?n? N: %n?%?o? O: %o?%?d? D: %d?%?F? F: %F?%?t? T: %t?%?p? P: %p?%?b? I: %b?%?l? %l?] %s/%S%>"
-set timeout = "5"
-set wait_key = no
-
-set query_command = "lbdbq '%s'"
 
 unset mime_forward
 
