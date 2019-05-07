@@ -5,48 +5,38 @@
 
 source dracula.muttrc
 
-mono bold bold
-mono error bold
-mono indicator reverse
-mono underline underline
+mono    body                  bold        "^gpg: BAD signature from.*"
+mono    body                  bold        "^gpg: Good signature"
+mono    bold                  bold
+mono    error                 bold
+mono    index                 bold        ~D
+mono    index                 bold        ~F
+mono    index                 bold        ~N
+mono    index                 bold        ~T
+mono    indicator             reverse
+mono    underline             underline
 
-color index white default '.*'
-color index_author cyan default '.*'
-color index_number blue default
-color index_subject yellow default '.*'
+color   bold                  black           default
 
-color index brightyellow default "~N"
-color index_author brightred default "~N"
-color index_subject brightcyan default "~N"
+color   index_author          cyan            default   '.*'
+color   index_author          brightred       default   "~N"
+color   index_number          yellow          default
+color   index_subject         white           default   '.*'
+color   index_subject         brightcyan      default   "~N"
 
-color header blue default ".*"
-color header brightmagenta default "^(From)"
-color header brightcyan default "^(Subject)"
-color header brightwhite default "^(CC|BCC)"
+color   header                blue            default   ".*"
+color   header                brightmagenta   default   "^(From)"
+color   header                brightcyan      default   "^(Subject)"
+color   header                brightwhite     default   "^(CC|BCC)"
 
-color attachment white default
-color bold black default
-color error red default
-color hdrdefault brightgreen default
-color indicator brightblack white
-color markers red white
-color message cyan default
-color normal brightyellow default
-color normal default default
-color normal default default
-color quoted green default
-color quoted1 blue default
-color quoted2 cyan default
-color quoted3 yellow default
-color quoted4 red default
-color quoted5 brightred default
-color search brightmagenta default
-color sidebar_flagged blue default
-color sidebar_highlight cyan default
-color sidebar_new green default
-color signature brightgreen default
-color status white default
-color tilde black default
-color underline black default
+color   sidebar_flagged       blue            default
+color   sidebar_highlight     cyan            default
+color   sidebar_new           green           default
+
+color   body                  green           default   "^gpg: Good signature .*"
+color   body                  green           default   "(Good signature)"
+color   body                  red             default   "^gpg: BAD signature from.*"
+color   body                  red             default   "(BAD signature)"
+color   body                  yellow          default   "^gpg: "
 
 # vim: filetype=neomuttrc
