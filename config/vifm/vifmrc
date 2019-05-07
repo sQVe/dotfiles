@@ -164,6 +164,9 @@ fileviewer */ exa -T -L 1 --group-directories-first --color=always
 noremap <Space> <NOP>
 noremap <Space><Space> <NOP>
 
+" Open selected files.
+noremap <CR> :edit %f<CR>
+
 " Quick command.
 noremap ö :
 noremap Ö :
