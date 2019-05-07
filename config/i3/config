@@ -31,6 +31,7 @@ set $workspace-9 "9 "
 set $js-playground --no-startup-id term "jsclean"
 set $lock --no-startup-id lock
 set $menu-apps --no-startup-id $HOME/scripts/i3/menu-apps.sh
+set $menu-calculator --no-startup-id $HOME/scripts/i3/menu-calculator.sh
 set $menu-clipboard --no-startup-id $HOME/scripts/i3/menu-clipboard.sh
 set $menu-exit --no-startup-id $HOME/scripts/i3/menu-exit.sh
 set $menu-notes --no-startup-id $HOME/scripts/i3/menu-notes.sh
@@ -212,6 +213,7 @@ bindsym $mod+Ctrl+h workspace prev
 # Symbol based bindings.
 bindsym $mod+comma exec $volume-up
 bindsym $mod+period exec $brightness-up
+bindsym $mod+plus exec $menu-calculator
 
 bindsym $mod+Shift+comma exec $volume-down
 bindsym $mod+Shift+period exec $brightness-down
