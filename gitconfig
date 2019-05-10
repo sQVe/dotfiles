@@ -1,20 +1,5 @@
-[user]
-  email = oskargrunning@gmail.com
-  name = Oskar Grunning
-  signingkey = 0x2FBF988E19D47B6E
-[pull]
-  rebase = preserve
-[push]
-  default = simple
-[core]
-  pager = diff-so-fancy | less --tabs=4 -RFX
 [color]
   ui = true
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
 [color "diff"]
   meta = 227
   frag = magenta bold
@@ -22,8 +7,25 @@
   old = red bold
   new = green bold
   whitespace = red reverse
+[color "diff-highlight"]
+  oldNormal = red bold
+  oldHighlight = red bold 52
+  newNormal = green bold
+  newHighlight = green bold 22
+[commit]
+  gpgSign = true
+[core]
+  pager = diff-so-fancy | less --tabs=4 -RFX
 [merge]
   conflictStyle = diff3
   tool = vim_mergetool
 [mergetool "vim_mergetool"]
   cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+[pull]
+  rebase = preserve
+[push]
+  default = simple
+[user]
+  email = oskargrunning@gmail.com
+  name = Oskar Grunning
+  signingkey = 0x2FBF988E19D47B6E
