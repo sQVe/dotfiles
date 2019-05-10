@@ -138,6 +138,7 @@ alias leave='i3-msg exit'
 alias loc=locate
 alias mixer=ncpamixer
 alias mutt=neomutt
+alias peekhl='peek --no-headerbar'
 alias ramda='ramda --js'
 alias s=sudo
 alias se=sudoedit
@@ -145,10 +146,10 @@ alias t=term
 alias tiga='tig --all'
 alias v=nvim
 alias vi=nvim
+alias vifm=fm
 alias vim=nvim
 alias wifi-menu='wifi-menu -o'
 alias xsel='xsel -b'
-alias vifm=fm
 
 # Config.
 alias cfg-alacritty='nvim-pwd $HOME/.dotfiles/config/alacritty/alacritty.yml'
