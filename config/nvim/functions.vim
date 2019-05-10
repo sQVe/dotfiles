@@ -11,7 +11,7 @@ endfunc
 " Create and print ascii header.
 function! PrintAsciiHeader(title)
   execute "read !toilet -f future " . a:title
-  norm VkkgcjjA jj
+  norm VkkgcejjA jj
 endfunc
 
 " Show documentation.
