@@ -52,7 +52,7 @@ Plug 'moll/vim-bbye'
 
 " Completion and spelling.
 Plug 'ervandew/supertab'
-Plug 'neoclide/coc.nvim', {'do': './install.sh nightly'}
+Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'rhysd/vim-grammarous'
 
 call plug#end()
