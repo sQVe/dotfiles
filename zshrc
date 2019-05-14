@@ -36,7 +36,7 @@ zle -A backward-delete-char vi-backward-delete-char
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 function js-box() {
-  (cd ~/code/js-playground && nvim +vsplit +"terminal npm run $1" +'wincmd h' +GoldenRatioResize +'norm G$' "boxes/$1.js")
+  cd ~/code/js-playground && nvim +vsplit +"terminal npm run $1" +'wincmd h' +GoldenRatioResize +'norm G$' "boxes/$1.js"
 }
 
 function nvm() {
@@ -45,11 +45,13 @@ function nvm() {
 }
 
 function vifm-cd() {
-  local path="$(command vifm --choose-dir - "$@")"
+  local path="$(uberfm "$@")"
+
   if [[ -z "$path" ]]; then
     echo 'Cancelling setting path.'
     exit 0
   fi
+
   cd "$path"
 }
 
@@ -130,6 +132,7 @@ alias camera=gphoto2
 alias diff='git diff --no-index'
 alias fd='fd --hidden --follow'
 alias feh='feh --scale-down --auto-zoom --image-bg "#343434"'
+alias fm=vifm-cd
 alias git=hub
 alias hc='highlight -O truecolor --force -s dracula --stdout'
 alias hcat='highlight -O truecolor --force -s dracula --stdout'
@@ -146,7 +149,7 @@ alias t=term
 alias tiga='tig --all'
 alias v=nvim
 alias vi=nvim
-alias vifm=fm
+alias vifm=vifm-cd
 alias vim=nvim
 alias wifi-menu='wifi-menu -o'
 alias xsel='xsel -b'
