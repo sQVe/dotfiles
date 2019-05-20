@@ -226,10 +226,6 @@ let g:signify_vcs_list = ['git']
 " Supertab.
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
-" TComment.
-let g:tcomment_mapleader1 = "<C-_>"
-let g:tcomment_mapleader2 = "<Leader>_"
-
 " Vifm.
 let g:vifm_term = "term"
 

@@ -42,7 +42,7 @@ Plug 'mattn/emmet-vim'
 Plug 'mg979/vim-visual-multi'
 Plug 'ntpeters/vim-better-whitespace'
 Plug 'sickill/vim-pasta'
-Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
 
