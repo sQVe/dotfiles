@@ -5,6 +5,7 @@
     "coc-html": "^1.0.7",
     "coc-json": "^1.0.17",
     "coc-lbdbq": "^0.1.1",
+    "coc-sh": "^0.2.1",
     "coc-snippets": "^2.0.10",
     "coc-tsserver": "^1.2.1",
     "coc-yaml": "^1.0.1",
