@@ -38,11 +38,11 @@ xset dpms 300 300 300
 
 # Setup peek cache symlink to tmp.
 mkdir /tmp/peek
-ln -sf /tmp/peek "$HOME/.cache/peek"
+[[ ! -h "$HOME/.cache/peek" ]] && ln -s /tmp/peek "$HOME/.cache/peek"
 
 # Setup coc yank data symlink to tmp.
 mkdir /tmp/coc-yank-data
-ln -sf /tmp/coc-yank-data "$HOME/.config/coc/extensions/coc-yank-data"
+[[ ! -h "$HOME/.config/coc/extensions/coc-yank-data" ]] && ln -s /tmp/coc-yank-data "$HOME/.config/coc/extensions/coc-yank-data"
 
 # Restore js-playground boxes.
 if [[ -d  "$HOME/code/js-playground" ]]; then
@@ -50,11 +50,11 @@ if [[ -d  "$HOME/code/js-playground" ]]; then
 fi
 
 # Run the scripts in xinitrc.d.
-if [ -d /etc/X11/xinit/xinitrc.d ] ; then
- for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
-  [ -x "$f" ] && . "$f"
- done
- unset f
+if [[ -d /etc/X11/xinit/xinitrc.d ]]; then
+  for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
+    [[ -x "$f" ]] && . "$f"
+  done
+  unset f
 fi
 
 # Start i3.
