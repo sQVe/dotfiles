@@ -117,16 +117,10 @@ assign [class="qutebrowser"]                   → $workspace-3
 assign [class="Alacritty" instance="weechat"]  → $workspace-5
 assign [class="Alacritty" instance="neomutt"]  → $workspace-6
 assign [class="Spotify"]                       → $workspace-4
-assign [class="Gimp"]                          → $workspace-7
-assign [class="Darktable"]                     → $workspace-7
-assign [class="Inkscape"]                      → $workspace-7
 
 # Specific window settings.
 for_window [class="Alacritty"] focus
-for_window [class="Darktable"] focus
-for_window [class="Gimp"] focus
 for_window [class="GitKraken"] focus
-for_window [class="Inkscape"] focus
 for_window [class="mpv"] focus
 for_window [class="qutebrowser"] focus
 for_window [window_role="bubble"] floating enable
