@@ -10,23 +10,23 @@
 set $alt Mod1
 set $mod Mod4
 
-set $font Iosevka, Font Awesome 5 Pro Light, Font Awesome 5 Brands 7
+set $font Iosevka, Font Awesome 5 Pro, Font Awesome 5 Brands 7
 set $color-bg #343434
 set $color-bg-hi #444444
 set $color-text #999999
 set $color-purple #BD93F9
 set $color-green #50FA7B
 
-set $workspace-0 "0 "
-set $workspace-1 "1 "
-set $workspace-2 "2 "
+set $workspace-0 "0 "
+set $workspace-1 "1 "
+set $workspace-2 "2 "
 set $workspace-3 "3 "
-set $workspace-4 "4 "
-set $workspace-5 "5 "
+set $workspace-4 "4 "
+set $workspace-5 "5 "
 set $workspace-6 "6 "
-set $workspace-7 "7 "
-set $workspace-8 "8 "
-set $workspace-9 "9 "
+set $workspace-7 "7 "
+set $workspace-8 "8 "
+set $workspace-9 "9 "
 
 set $js-playground --no-startup-id term "jsclean"
 set $lock --no-startup-id lock
