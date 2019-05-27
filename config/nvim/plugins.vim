@@ -28,8 +28,8 @@ Plug 'mhinz/vim-signify'
 Plug 'roman/golden-ratio'
 Plug 'samoshkin/vim-mergetool'
 Plug 'tpope/vim-fugitive'
-Plug 'w0rp/ale'
 Plug 'vifm/vifm.vim'
+Plug 'w0rp/ale'
 
 " Integration.
 Plug 'Galooshi/vim-import-js'
