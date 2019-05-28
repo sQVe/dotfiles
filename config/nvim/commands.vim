@@ -70,9 +70,6 @@ command! -nargs=0 ToggleRelativeNumber call ToggleRelativeNumber()
 " Toggle spell checking.
 command! -nargs=0 ToggleSpellCheck call ToggleSpellCheck()
 
-" Toggle golden ratio.
-command! -nargs=0 ToggleGoldenRatio call ToggleGoldenRatio()
-
 " Toggle grammar checking.
 command! -nargs=0 ToggleGrammarCheck call ToggleGrammarCheck()
 

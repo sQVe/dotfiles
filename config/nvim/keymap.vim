@@ -99,7 +99,6 @@ nnoremap <C-s>s :ToggleSpellCheck<CR>
 
 nnoremap <Leader>c :ToggleConceal<CR>
 nnoremap <Leader>n :ToggleRelativeNumber<CR>
-nnoremap <Leader>r :ToggleGoldenRatio<CR>
 nnoremap <Leader>z :Fasd<Space>
 nnoremap <Leader>zo :Fasd<Space>
 nnoremap <Leader>zz :FasdCd<Space>

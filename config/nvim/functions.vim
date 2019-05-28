@@ -113,20 +113,6 @@ function! LightlineFilename()
   return filename . modified
 endfunction
 
-" Toggle golden ratio.
-let g:goldenratio = 1
-function! ToggleGoldenRatio()
-  :GoldenRatioToggle
-
-  if(g:goldenratio == 1)
-    let g:goldenratio = 0
-    :wincmd =
-  else
-    let g:goldenratio = 1
-    :GoldenRatioResize
-  endif
-endfunc
-
 " Toggle grammar checking.
 function! ToggleGrammarCheck()
   if exists('b:grammarous_result')
