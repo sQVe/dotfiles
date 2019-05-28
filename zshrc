@@ -36,7 +36,7 @@ zle -A backward-delete-char vi-backward-delete-char
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 function js-box() {
-  cd ~/code/js-playground && nvim +vsplit +"terminal npm run $1" +'wincmd h' +GoldenRatioResize +'norm G$' "boxes/$1.js"
+  cd ~/code/js-playground && nvim +vsplit +"terminal npm run $1" +'wincmd h' +'norm G$' "boxes/$1.js"
 }
 
 function nvm() {

@@ -83,6 +83,12 @@ noremap <C-Down> <C-w>j
 noremap <C-Up> <C-w>k
 noremap <C-Right> <C-w>l
 
+" Quicker window resize.
+noremap <C-w>+ 10<C-w>+
+noremap <C-w>- 10<C-w>-
+noremap <C-w>< 20<C-w><
+noremap <C-w>> 20<C-w>>
+
 " Spell completion.
 inoremap <C-x><C-s> <C-x>s
 
