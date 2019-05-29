@@ -177,5 +177,5 @@ nnoremap <Leader>iw :ImportJSWord<CR>
 nnoremap <Leader>id :ImportJSGoto<CR>
 
 " Vifm.
-nnoremap å :EditVifm<CR>
-nnoremap Å :EditVifm .<CR>
+nnoremap å :Vifm<CR>
+nnoremap Å :Vifm .<CR>
