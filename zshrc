@@ -129,7 +129,7 @@ alias bc='bc -l -q'
 alias bluetooth=bluetoothctl
 alias c=cat
 alias camera=gphoto2
-alias diff='git diff --no-index'
+alias diff='diff --color=always --unified'
 alias fd='fd --hidden --follow'
 alias feh='feh --scale-down --auto-zoom --image-bg "#343434"'
 alias fm=vifm-cd
