@@ -11,5 +11,6 @@
       "initializationOptions": {}
     }
   },
+  "snippets.snipmate.enable": false,
   "suggest.maxCompleteItemCount": 20
 }
