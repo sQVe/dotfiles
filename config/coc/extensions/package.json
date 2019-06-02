@@ -7,7 +7,7 @@
     "coc-json": "^1.0.17",
     "coc-lbdbq": "^0.1.2",
     "coc-sh": "^0.2.1",
-    "coc-snippets": "^2.0.11",
+    "coc-snippets": "^2.0.13",
     "coc-tsserver": "^1.2.2",
     "coc-yaml": "^1.0.1",
     "coc-yank": "^1.0.2"
