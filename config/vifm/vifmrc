@@ -93,16 +93,20 @@ filetype *.md5
   \ md5sum -c %f %S,
 
 filetype *.sha1
-   \ sha1sum -c %f %S,
+  \ sha1sum -c %f %S,
 
 filetype *.sha256
-   \ sha256sum -c %f %S,
+  \ sha256sum -c %f %S,
 
 filetype *.sha512
-   \ sha512sum -c %f %S,
+  \ sha512sum -c %f %S,
 
 filetype *.asc
-   \ !!gpg --verify %c,
+  \ !!gpg --verify %c,
+
+" Open html files in qutebrowser.
+filetype *.html,*htm
+  \ scaled-qutebrowser %f
 
 " Open all text files with nvim.
 filetype <text/*>
