@@ -22,6 +22,7 @@ set reverse_name = yes
 set rfc2047_parameters = yes
 set sleep_time = 0
 set smtp_authenticators = 'gssapi:login'
+set text_flowed = yes
 set timeout = "5"
 set wait_key = no
 

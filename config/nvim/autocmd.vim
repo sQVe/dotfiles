@@ -3,6 +3,13 @@
 "  ┣━┫┃ ┃ ┃ ┃ ┃┃  ┃┃┃ ┃┃
 "  ╹ ╹┗━┛ ╹ ┗━┛┗━╸╹ ╹╺┻┛
 
+" Coc events.
+augroup CocEvents
+  autocmd!
+  autocmd CursorHold * silent call CocActionAsync('highlight')
+  autocmd CursorHoldI * silent! call CocActionAsync('showSignatureHelp')
+augroup END
+
 " Disable ALE for specific file extensions.
 augroup DisableALEForFileExt
   autocmd!
@@ -28,11 +35,13 @@ augroup FocusActiveWindow
   autocmd BufWinEnter,VimEnter,WinEnter * call ToggleWindowFocus(1)
 augroup END
 
-" Coc events.
-augroup CocEvents
+" Handle textwidth newlines by adding a trailing whitespace, indicating that
+" the paragraph continues on the next line. This is used by mutts
+" 'text_flowed' option.
+augroup HandleMailNewlines
   autocmd!
-  autocmd CursorHold * silent call CocActionAsync('highlight')
-  autocmd CursorHoldI * silent! call CocActionAsync('showSignatureHelp')
+  autocmd FileType mail setlocal formatoptions+=w
+  autocmd FileType mail DisableStripWhitespaceOnSave
 augroup END
 
 " Reload buffer on enter or focus.
