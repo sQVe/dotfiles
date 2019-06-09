@@ -123,10 +123,8 @@ let g:EasyMotion_skipfoldedline = 0
 " Emmet.
 let g:user_emmet_settings = {
   \ 'javascript' : { 'extends' : 'jsx' },
-  \ 'javascript.jsx' : { 'extends' : 'jsx' },
   \ 'scss' : { 'extends' : 'css' },
-  \ 'typescript' : { 'extends' : 'jsx' },
-  \ 'typescript.jsx' : { 'extends' : 'jsx' },
+  \ 'typescript.tsx' : { 'extends' : 'jsx' },
   \ }
 
 " Far.
