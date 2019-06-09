@@ -14,7 +14,6 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 
 " Language, syntax and formatting.
 Plug 'sheerun/vim-polyglot'
-Plug 'styled-components/vim-styled-components', { 'branch': 'main' }
 
 " Interface.
 Plug 'brooth/far.vim'
