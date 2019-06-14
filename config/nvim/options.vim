@@ -226,7 +226,6 @@ let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " Vifm.
 let g:vifm_term = "term"
-let g:vifm_replace_netrw = 1
 
 " Visual Multi.
 let g:VM_leader                  = '<Leader>m'

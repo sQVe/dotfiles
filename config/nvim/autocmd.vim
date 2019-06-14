@@ -16,6 +16,11 @@ augroup DisableALEForFileExt
   autocmd BufWinEnter,VimEnter,WinEnter *.d.ts :ALEDisableBuffer
 augroup END
 
+" Disable Netrw.
+augroup DisableNetrw
+  autocmd VimEnter * silent! autocmd! FileExplorer
+augroup END
+
 " Force formatoptions to exclude 'o'.
 augroup ExcludeFormatOptions
   autocmd!
