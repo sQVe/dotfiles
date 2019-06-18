@@ -22,7 +22,7 @@
 [mergetool "vim_mergetool"]
   cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
 [pull]
-  rebase = preserve
+  rebase = merges
 [push]
   default = simple
 [user]
