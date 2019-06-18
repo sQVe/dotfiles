@@ -27,7 +27,7 @@ font:
   italic:
     family: Iosevka Term
     style: Italic
-  size: 9
+  size: 18
   offset:
     x: 0
     y: 0
@@ -35,8 +35,9 @@ font:
     x: 0
     y: 0
 
-render_timer: false
-persistent_logging: false
+debug:
+  render_timer: false
+  persistent_logging: false
 
 colors:
   primary:
