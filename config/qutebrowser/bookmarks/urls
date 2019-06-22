@@ -1,13 +1,14 @@
-https://bundlephobia.com/ Development / Apps | BundlePhobia
+https://bundlephobia.com Development / Apps | BundlePhobia
 https://carbon.now.sh Development / Apps | Carbon
 https://explainshell.com Development / Apps / Explain Shell
-https://jsfiddle.net/ Development / Apps | JSFiddle
+https://jsfiddle.net Development / Apps | JSFiddle
 https://jsonlint.com Development / Apps | JSON Lint
 https://jwt.io Development / Apps | JWT
 https://regex101.com Development / Apps | RegEx 101
-https://wordoid.com/ Development / Apps | Wordoid
+https://shields.io Development / Apps | Shields and badges
+https://wordoid.com Development / Apps | Wordoid
 https://www.draw.io Development / Apps | Draw
-https://www.figma.com/ Development / Apps | Figma
+https://www.figma.com Development / Apps | Figma
 https://www.json-generator.com Development / Apps | JSON Generator
 http://guide.bash.academy Development / Bash | Bash Academy
 http://mywiki.wooledge.org/BashGuide Development / Bash | Bash Guide
@@ -17,7 +18,7 @@ http://materialuicolors.co Development / Colors | Material Colors
 https://fontawesome.com/icons?d=gallery Development / Fonts | Font Awesome
 https://fonts.google.com Development / Fonts | Google Fonts
 https://jmattthew.github.io/better-font-finder/better-font-finder.html Development / Fonts | Google Font Finder
-https://materialdesignicons.com/ Development / Fonts | Material Design Icons
+https://materialdesignicons.com Development / Fonts | Material Design Icons
 https://hackage.haskell.org Development / Haskell | Hackage
 https://www.haskell.org Development / Haskell | Haskell Language
 https://docs.haskellstack.org/en/stable/README Development / Haskell | Stack Tool
@@ -51,7 +52,7 @@ https://sinonjs.org Development / JavaScript / Testing | Sinon
 https://microsoft.github.io/TypeSearch Development / JavaScript / Types | TypeSearch
 https://github.com/30-seconds/30-seconds-of-code Development / JavaScript / Snippets | 30 seconds of code
 https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore Development / JavaScript / Snippets | You Don't Need Lodash or Underscore
-http://learnvimscriptthehardway.stevelosh.com/ Development / Vimscript | Learn Vimscript the hard way
+http://learnvimscriptthehardway.stevelosh.com Development / Vimscript | Learn Vimscript the hard way
 http://flexbox.help Development / Styling | Flexbox Help
 https://polished.js.org/docs Development / Styling | Polished
 https://www.styled-components.com Development / Styling | Styled Components
@@ -74,7 +75,7 @@ https://www.youtube.com Entertainment | YouTube
 http://www.gnu.org/software/gawk/manual/gawk.html Linux / Apps | Awk Manual
 http://www.gnu.org/software/grep/manual/grep.html Linux / Apps | Grep Manual
 https://stedolan.github.io/jq/manual/#del%28path_expression%29 Linux / Apps | JQ Manual
-http://www.mutt.org/doc/manual/ Linux / Apps | Mutt
+http://www.mutt.org/doc/manual Linux / Apps | Mutt
 https://github.com/raine/ramda-cli Linux / Apps | Ramda CLI
 http://ranger.nongnu.org/cheatsheet.svg Linux / Apps | Ranger Cheatsheet
 http://www.gnu.org/software/sed/manual/sed.html Linux / Apps | Sed Manual
@@ -118,14 +119,14 @@ https://mail.google.com/mail/u/0/#inbox Services | Mail
 https://web.whatsapp.com Services | WhatsApp
 https://www.drop.com Shopping | Drop
 https://dognzb.cr/login Usenet | DOGnzb
-https://drunkenslug.com/ Usenet | Drunkenslug
+https://drunkenslug.com Usenet | Drunkenslug
 https://nzbindex.com Usenet | NZBIndex
 https://www.oznzb.com Usenet | OZnzb
 http://animechgitlab Work | GitLab
 https://animech.harvestapp.com Work | Harvest
-https://animechtechnologies.sharepoint.com/ Work | Sharepoint
-https://app.zeplin.io/ Work | Zeplin
+https://animechtechnologies.sharepoint.com Work | Sharepoint
+https://app.zeplin.io Work | Zeplin
 https://devanimechtech.slack.com Work | Slack
 https://favro.com/organization/09dfc860e89bb8b855fca866/dedc44a99862ce9b4f43f639 Work | Favro
 https://outlook.office.com/owa Work | Outlook
-https://vismaspcs.se/ Work | Visma
+https://vismaspcs.se Work | Visma
