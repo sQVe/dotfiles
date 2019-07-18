@@ -132,9 +132,28 @@ nmap <Leader>es :CocList -I symbols<CR>
 nmap <Leader>et <Plug>(coc-type-definition)
 nmap <Leader>eu :CocList snippets<CR>
 
-imap <C-Space> <Plug>(coc-snippets-expand)
+imap <C-l> <Plug>(coc-snippets-expand)
 imap <C-j> <Plug>(coc-snippets-expand-jump)
 vmap <C-j> <Plug>(coc-snippets-select)
+
+" Use <Tab> to move to next completion item.
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <C-Space> to open completion menu.
+inoremap <silent><expr> <c-space> coc#refresh()
+
+" Use <CR> to confirm completion.
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " EasyMotion.
 map s <Plug>(easymotion-s)
