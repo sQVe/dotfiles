@@ -9,12 +9,7 @@
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
 # Type: Dict
-c.aliases = {
-    'q': 'close',
-    'qa': 'quit',
-    'w': 'session-save',
-    'wqa': 'quit --save'
-}
+c.aliases = {'q': 'close', 'qa': 'quit', 'w': 'session-save', 'wqa': 'quit --save'}
 
 # Require a confirmation before quitting the application.
 # Type: ConfirmQuit
@@ -33,7 +28,7 @@ c.confirm_quit = ['never']
 c.history_gap_interval = 30
 
 # When to find text on a page case-insensitively.
-# Type: String
+# Type: IgnoreCase
 # Valid values:
 #   - always: Search case-insensitively.
 #   - never: Search case-sensitively.
@@ -59,7 +54,7 @@ c.search.incremental = True
 c.new_instance_open_target = 'tab'
 
 # Which window to choose when opening links as new tabs. When
-# `new_instance_open_target` is not set to `window`, this is ignored.
+# `new_instance_open_target` is set to `window`, this is ignored.
 # Type: String
 # Valid values:
 #   - first-opened: Open new tabs in the first (oldest) opened window.
@@ -185,7 +180,12 @@ c.content.host_blocking.enabled = True
 c.content.host_blocking.lists = ['https://www.malwaredomainlist.com/hostslist/hosts.txt', 'http://someonewhocares.org/hosts/hosts', 'http://winhelp2002.mvps.org/hosts.zip', 'http://malwaredomains.lehigh.edu/files/justdomains.zip', 'https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext']
 
 # A list of patterns that should always be loaded, despite being ad-
-# blocked. Local domains are always exempt from hostblocking.
+# blocked. Note this whitelists blocked hosts, not first-party URLs. As
+# an example, if `example.org` loads an ad from `ads.example.org`, the
+# whitelisted host should be `ads.example.org`. If you want to disable
+# the adblocker on a given page, use the `content.host_blocking.enabled`
+# setting with a URL pattern instead. Local domains are always exempt
+# from hostblocking.
 # Type: List of UrlPattern
 c.content.host_blocking.whitelist = ['piwik.org']
 
@@ -345,8 +345,9 @@ c.completion.scrollbar.width = 12
 # Type: Int
 c.completion.scrollbar.padding = 2
 
-# Format of timestamps (e.g. for the history completion).
-# Type: TimestampTemplate
+# Format of timestamps (e.g. for the history completion). See
+# https://sqlite.org/lang_datefunc.html for allowed substitutions.
+# Type: String
 c.completion.timestamp_format = '%Y-%m-%d'
 
 # Number of URLs to show in the web history. 0: no history / -1:
@@ -662,7 +663,8 @@ c.tabs.last_close = 'ignore'
 # Type: Bool
 c.tabs.mousewheel_switching = True
 
-# Position of new tabs opened from another tab.
+# Position of new tabs opened from another tab. See
+# `tabs.new_position.stacking` for controlling stacking behavior.
 # Type: NewTabPosition
 # Valid values:
 #   - prev: Before the current tab.
@@ -671,7 +673,8 @@ c.tabs.mousewheel_switching = True
 #   - last: At the end.
 c.tabs.new_position.related = 'next'
 
-# Position of new tabs which aren't opened from another tab.
+# Position of new tabs which are not opened from another tab. See
+# `tabs.new_position.stacking` for controlling stacking behavior.
 # Type: NewTabPosition
 # Valid values:
 #   - prev: Before the current tab.
@@ -726,20 +729,6 @@ c.tabs.tabs_are_windows = False
 #   - right
 #   - center
 c.tabs.title.alignment = 'left'
-
-# Format to use for the tab title. The following placeholders are
-# defined:  * `{perc}`: Percentage as a string like `[10%]`. *
-# `{perc_raw}`: Raw percentage, e.g. `10`. * `{title}`: Title of the
-# current web page. * `{title_sep}`: The string ` - ` if a title is set,
-# empty otherwise. * `{index}`: Index of this tab. * `{id}`: Internal
-# tab ID of this tab. * `{scroll_pos}`: Page scroll position. *
-# `{host}`: Host of the current web page. * `{backend}`: Either
-# ''webkit'' or ''webengine'' * `{private}`: Indicates when private mode
-# is enabled. * `{current_url}`: URL of the current web page. *
-# `{protocol}`: Protocol (http/https/...) of the current web page. *
-# `{audio}`: Indicator for audio/mute status.
-# Type: FormatString
-c.tabs.title.format = '{index}: {title}'
 
 # Format to use for the tab title for pinned tabs. The same placeholders
 # like for `tabs.title.format` are defined.
@@ -815,11 +804,6 @@ c.url.start_pages = 'https://devdocs.io'
 # Type: List of String
 c.url.yank_ignored_parameters = ['ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
 
-# Format to use for the window title. The same placeholders like for
-# `tabs.title.format` are defined.
-# Type: FormatString
-c.window.title_format = '{perc}{title}{title_sep}qutebrowser'
-
 # Default zoom level.
 # Type: Perc
 c.zoom.default = '100%'
@@ -869,7 +853,7 @@ c.colors.completion.item.selected.fg = '#343434'
 # Type: QssColor
 c.colors.completion.item.selected.bg = '#50fa7b'
 
-# Top border color of the completion widget category headers.
+# Top border color of the selected completion item.
 # Type: QssColor
 c.colors.completion.item.selected.border.top = '#50fa7b'
 
@@ -878,7 +862,7 @@ c.colors.completion.item.selected.border.top = '#50fa7b'
 c.colors.completion.item.selected.border.bottom = '#50fa7b'
 
 # Foreground color of the matched text in the completion.
-# Type: QssColor
+# Type: QtColor
 c.colors.completion.match.fg = '#ff5555'
 
 # Color of the scrollbar handle in the completion view.
@@ -936,7 +920,7 @@ c.colors.hints.fg = 'black'
 c.colors.hints.bg = '#ffb86c'
 
 # Font color for the matched part of hints.
-# Type: QssColor
+# Type: QtColor
 c.colors.hints.match.fg = '#bd93f9'
 
 # Text color for the keyhint widget.
@@ -1098,7 +1082,7 @@ c.colors.statusbar.url.success.https.fg = '#aaaaaa'
 c.colors.statusbar.url.warn.fg = '#55ffff'
 
 # Background color of the tab bar.
-# Type: QtColor
+# Type: QssColor
 c.colors.tabs.bar.bg = '#343434'
 
 # Color gradient start for the tab indicator.
@@ -1257,11 +1241,11 @@ config.bind('zM', 'hint links spawn mpv --x11-name "mpv-qutebrowser" \'{hint-url
 config.bind('zO', 'hint links spawn term "mimeo \'{hint-url}\'"')
 config.bind('zdS', 'hint links spawn term "cd ~/download; svtplay-dl \'{hint-url}\'"')
 config.bind('zdY', 'hint links spawn term "cd ~/download; youtube-dl \'{hint-url}\'"')
+config.bind('zds', 'spawn term "cd ~/download; svtplay-dl \'{url}\'"')
+config.bind('zdy', 'spawn term "cd ~/download; youtube-dl \'{url}\'"')
 config.bind('zh', 'spawn term "http \'{url}\' | less"')
 config.bind('zm', 'spawn mpv --x11-name "mpv-qutebrowser" \'{url}\'')
 config.bind('zo', 'spawn term "mimeo \'{url}\'"')
-config.bind('zds', 'spawn term "cd ~/download; svtplay-dl \'{url}\'"')
-config.bind('zdy', 'spawn term "cd ~/download; youtube-dl \'{url}\'"')
 config.bind('Ä', 'set-cmd-text -s :open -t')
 config.bind('Ö', 'set-cmd-text :')
 config.bind('ä', 'set-cmd-text -s :open')
