@@ -105,6 +105,7 @@ let g:ale_fixers = {
   \ 'json': ['prettier', 'eslint'],
   \ 'markdown': ['prettier'],
   \ 'scss': ['prettier'],
+  \ 'sh': ['shfmt'],
   \ 'typescript': ['prettier', 'tslint'],
   \ 'yaml': ['prettier'],
   \ }
