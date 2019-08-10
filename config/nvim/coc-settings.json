@@ -12,5 +12,12 @@
     }
   },
   "snippets.snipmate.enable": false,
-  "suggest.maxCompleteItemCount": 20
+  "suggest.maxCompleteItemCount": 20,
+  "tabnine.disable_filetyps": [
+    "gitcommit",
+    "help",
+    "mail",
+    "markdown",
+    "text"
+  ]
 }
