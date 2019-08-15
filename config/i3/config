@@ -201,8 +201,8 @@ bindsym $mod+$alt+j move workspace to output down
 bindsym $mod+$alt+k move workspace to output up
 bindsym $mod+$alt+l move workspace to output right
 
-bindsym $mod+Ctrl+l workspace next
-bindsym $mod+Ctrl+h workspace prev
+bindsym $mod+Ctrl+l workspace next_on_output
+bindsym $mod+Ctrl+h workspace prev_on_output
 
 # Symbol based bindings.
 bindsym $mod+comma exec $volume-up
@@ -217,8 +217,8 @@ bindsym $mod+$alt+period exec $brightness-toggle
 
 # Direction based bindings.
 bindsym $mod+Down focus down
-bindsym $mod+End workspace next
-bindsym $mod+Home workspace prev
+bindsym $mod+End workspace next_on_output
+bindsym $mod+Home workspace prev_on_output
 bindsym $mod+Left focus left
 bindsym $mod+Right focus right
 bindsym $mod+Up focus up
@@ -233,8 +233,8 @@ bindsym $mod+$alt+Left move workspace to output left
 bindsym $mod+$alt+Right move workspace to output right
 bindsym $mod+$alt+Up move workspace to output up
 
-bindsym $mod+Ctrl+Right workspace next
-bindsym $mod+Ctrl+Left workspace prev
+bindsym $mod+Ctrl+Right workspace next_on_output
+bindsym $mod+Ctrl+Left workspace prev_on_output
 
 # Media based bindings.
 bindsym XF86AudioLowerVolume exec $volume-down
@@ -253,8 +253,8 @@ bindsym $mod+Delete kill
 bindsym $mod+Escape workspace prev
 
 bindsym $mod+Return exec $term
-bindsym $mod+Tab workspace next
-bindsym $mod+section workspace prev
+bindsym $mod+Tab workspace next_on_output
+bindsym $mod+section workspace prev_output
 bindsym $mod+space fullscreen toggle
 
 bindsym $mod+Shift+Return exec $samedir
