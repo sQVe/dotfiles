@@ -3,6 +3,13 @@
 "  ┣┻┓┣━┫┗━┓┣╸    ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
 "  ┗━┛╹ ╹┗━┛┗━╸   ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
+" Check BackSpace helper for coc.nvim.
+function! CheckBackSpace() abort
+  let col = col('.') - 1
+
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
 " Get count of all active buffers.
 function! GetBuffersCount()
   return len(getbufinfo({'buflisted':1}))
@@ -16,7 +23,7 @@ endfunc
 
 " Show documentation.
 function! ShowDocumention()
-  if &filetype == 'vim'
+  if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
     call CocActionAsync('doHover')

@@ -33,10 +33,10 @@ noremap gj j
 noremap <Leader><Leader> :write<CR>
 
 " Quit and close buffer.
-noremap <Leader>q :bdelete<CR>
-noremap <Leader>Q :bdelete!<CR>
-noremap <Leader>d :Bclose<CR>
-noremap <Leader>D :Bclose!<CR>
+noremap <silent> <Leader>q :bdelete<CR>
+noremap <silent> <Leader>Q :bdelete!<CR>
+noremap <silent> <Leader>d :Bclose<CR>
+noremap <silent> <Leader>D :Bclose!<CR>
 
 " Term.
 noremap <silent> <Leader><CR> :Term<CR><CR>
@@ -64,14 +64,14 @@ noremap cd :Cdb<CR>:pwd<CR>
 noremap <Leader><Tab> <C-^>
 
 " Move between buffers.
-nnoremap <S-Tab> :bprev<CR>
-nnoremap <Tab> :bnext<CR>
-vnoremap <S-Tab> :bprev<CR>
-vnoremap <Tab> :bnext<CR>
-noremap <M-h> :bprev<CR>
-noremap <M-l> :bnext<CR>
-noremap <M-Left> :bprev<CR>
-noremap <M-Right> :bnext<CR>
+nnoremap <silent> <S-Tab> :bprev<CR>
+nnoremap <silent> <Tab> :bnext<CR>
+vnoremap <silent> <S-Tab> :bprev<CR>
+vnoremap <silent> <Tab> :bnext<CR>
+noremap <silent> <M-h> :bprev<CR>
+noremap <silent> <M-l> :bnext<CR>
+noremap <silent> <M-Left> :bprev<CR>
+noremap <silent> <M-Right> :bnext<CR>
 
 " Move between open windows.
 noremap <C-h> <C-w>h
@@ -97,17 +97,17 @@ inoremap <C-x><C-s> <C-x>s
 "  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
 "  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
-nnoremap <C-s> :ToggleSpellCheck<CR>
-nnoremap <C-s><C-g> :ToggleGrammarCheck<CR>
-nnoremap <C-s><C-s> :ToggleSpellCheck<CR>
-nnoremap <C-s>g :ToggleGrammarCheck<CR>
-nnoremap <C-s>s :ToggleSpellCheck<CR>
+nnoremap <silent> <C-s> :ToggleSpellCheck<CR>
+nnoremap <silent> <C-s><C-g> :ToggleGrammarCheck<CR>
+nnoremap <silent> <C-s><C-s> :ToggleSpellCheck<CR>
+nnoremap <silent> <C-s>g :ToggleGrammarCheck<CR>
+nnoremap <silent> <C-s>s :ToggleSpellCheck<CR>
 
-nnoremap <Leader>c :ToggleConceal<CR>
-nnoremap <Leader>n :ToggleRelativeNumber<CR>
-nnoremap <Leader>z :Fasd<Space>
-nnoremap <Leader>zo :Fasd<Space>
-nnoremap <Leader>zz :FasdCd<Space>
+nnoremap <silent> <Leader>c :ToggleConceal<CR>
+nnoremap <silent> <Leader>n :ToggleRelativeNumber<CR>
+nnoremap <silent> <Leader>z :Fasd<Space>
+nnoremap <silent> <Leader>zo :Fasd<Space>
+nnoremap <silent> <Leader>zz :FasdCd<Space>
 
 
 "  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
@@ -115,86 +115,78 @@ nnoremap <Leader>zz :FasdCd<Space>
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
 " Ale.
-noremap <Leader>ea :ALEToggleBuffer<CR>
-noremap <Leader>ej :ALENextWrap<CR>
-noremap <Leader>ek :ALEPreviousWrap<CR>
+noremap <silent> <Leader>a :ALEToggleBuffer<CR>
+noremap <silent> [c :ALEPreviousWrap<CR>
+noremap <silent> ]c :ALENextWrap<CR>
 
 " Coc.
-nmap <Leader>ec <Plug>(coc-codeaction)
-nmap <Leader>ed <Plug>(coc-definition)
-nmap <Leader>ef <Plug>(coc-fix-current)
-nmap <Leader>eh :ShowDocumention<CR>
-nmap <Leader>ei <Plug>(coc-implementation)
-nmap <Leader>en <Plug>(coc-rename)
-nmap <Leader>eo :CocList outline<CR>
-nmap <Leader>er <Plug>(coc-references)
-nmap <Leader>es :CocList -I symbols<CR>
-nmap <Leader>et <Plug>(coc-type-definition)
-nmap <Leader>eu :CocList snippets<CR>
+nmap <silent> <Leader>o :CocList outline<CR>
+nmap <silent> <Leader>O :CocList -I symbols<CR>
+nmap <silent> <Leader>f <Plug>(coc-fix-current)
+nmap <silent> <Leader>r <Plug>(coc-rename)
+nmap <silent> K :ShowDocumention<CR>
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gy <Plug>(coc-type-definition)
 
-imap <C-l> <Plug>(coc-snippets-expand)
-imap <C-j> <Plug>(coc-snippets-expand-jump)
-vmap <C-j> <Plug>(coc-snippets-select)
+imap <silent> <C-l> <Plug>(coc-snippets-expand)
+imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
+vmap <silent> <C-j> <Plug>(coc-snippets-select)
 
 " Use <Tab> to move to next completion item.
 inoremap <silent><expr> <Tab>
       \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
+      \ CheckBackSpace() ? "\<Tab>" :
       \ coc#refresh()
 inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 
-function! s:check_back_space() abort
-  let col = col('.') - 1
-
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-
 " Use <C-Space> to open completion menu.
-inoremap <silent><expr> <c-space> coc#refresh()
+inoremap <silent><expr> <C-Space> coc#refresh()
 
 " Use <CR> to confirm completion.
-inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 " EasyMotion.
-map s <Plug>(easymotion-s)
-map S <Plug>(easymotion-s2)
-vmap s <Plug>(easymotion-s)
-vmap S <Plug>(easymotion-s2)
+map <silent> s <Plug>(easymotion-s)
+map <silent> S <Plug>(easymotion-s2)
+vmap <silent> s <Plug>(easymotion-s)
+vmap <silent> S <Plug>(easymotion-s2)
 
 " EasyAlign.
-xmap ga <Plug>(EasyAlign)
-nmap ga <Plug>(EasyAlign)
+xmap <silent> ga <Plug>(EasyAlign)
+nmap <silent> ga <Plug>(EasyAlign)
 
 " Fugitive and Signify.
-nnoremap <Leader>gb :Gblame<CR>
-nnoremap <Leader>gc :Gcommit<CR>
-nnoremap <Leader>gd :Gdiff<CR>
-nnoremap <Leader>gf :Gfetch<CR>
-nmap <Leader>gj <Plug>(signify-next-hunk)
-nmap <Leader>gk <Plug>(signify-prev-hunk)
-nnoremap <Leader>gl :Commits<CR>
-nnoremap <Leader>glb :BCommits<CR>
-nnoremap <Leader>gmt :MergetoolToggle<CR>
-nnoremap <Leader>gu :Gbrowse<CR>
-nnoremap <Leader>gp :Gpush<CR>
-nnoremap <Leader>gpf :Gpush --force-with-lease<CR>
-nnoremap <Leader>gr :Gread<CR>
-nnoremap <Leader>gs :vertical Gstatus<CR>
-nnoremap <Leader>gss :Gstatus<CR>
-nnoremap <Leader>gsv :vertical Gstatus<CR>
-nnoremap <Leader>gw :Gwrite<CR>
+nnoremap <silent> <Leader>gb :Gblame<CR>
+nnoremap <silent> <Leader>gc :Gcommit<CR>
+nnoremap <silent> <Leader>gd :Gdiff<CR>
+nnoremap <silent> <Leader>gf :Gfetch<CR>
+nmap <silent> <Leader>gj <Plug>(signify-next-hunk)
+nmap <silent> <Leader>gk <Plug>(signify-prev-hunk)
+nnoremap <silent> <Leader>gl :Commits<CR>
+nnoremap <silent> <Leader>glb :BCommits<CR>
+nnoremap <silent> <Leader>gmt :MergetoolToggle<CR>
+nnoremap <silent> <Leader>gu :Gbrowse<CR>
+nnoremap <silent> <Leader>gp :Gpush<CR>
+nnoremap <silent> <Leader>gpf :Gpush --force-with-lease<CR>
+nnoremap <silent> <Leader>gr :Gread<CR>
+nnoremap <silent> <Leader>gs :vertical Gstatus<CR>
+nnoremap <silent> <Leader>gss :Gstatus<CR>
+nnoremap <silent> <Leader>gsv :vertical Gstatus<CR>
+nnoremap <silent> <Leader>gw :Gwrite<CR>
 
 " FZF.
-nnoremap <Backspace> :Buffers<CR>
-nnoremap <Leader>/ :Rg<Space>
-nnoremap Ä :Rg<Space>
-nnoremap ä :Files<CR>
+nnoremap <silent> <Backspace> :Buffers<CR>
+nnoremap <silent> <Leader>/ :Rg<Space>
+nnoremap <silent> Ä :Rg<Space>
+nnoremap <silent> ä :Files<CR>
 
 " Import JS.
-nnoremap <Leader>ii :ImportJSFix<CR>
-nnoremap <Leader>iw :ImportJSWord<CR>
-nnoremap <Leader>id :ImportJSGoto<CR>
+nnoremap <silent> <Leader>ii :ImportJSFix<CR>
+nnoremap <silent> <Leader>iw :ImportJSWord<CR>
+nnoremap <silent> <Leader>id :ImportJSGoto<CR>
 
 " Vifm.
-nnoremap å :Vifm<CR>
-nnoremap Å :Vifm .<CR>
+nnoremap <silent> å :Vifm<CR>
+nnoremap <silent> Å :Vifm .<CR>
