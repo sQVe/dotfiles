@@ -10,7 +10,7 @@
 set $alt Mod1
 set $mod Mod4
 
-set $font Iosevka, Font Awesome 5 Pro, Font Awesome 5 Brands 7
+set $font Iosevka Term, Font Awesome 5 Pro, Font Awesome 5 Brands 7
 set $color-bg #343434
 set $color-bg-hi #444444
 set $color-text #999999
