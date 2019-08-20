@@ -4,34 +4,34 @@
 "  ┗━┛╹ ╹┗━┛┗━╸   ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
 " Check BackSpace helper for coc.nvim.
-function! CheckBackSpace() abort
+func! CheckBackSpace() abort
   let col = col('.') - 1
 
   return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
+endfunc
 
 " Get count of all active buffers.
-function! GetBuffersCount()
+func! GetBuffersCount()
   return len(getbufinfo({'buflisted':1}))
 endfunc
 
 " Create and print ascii header.
-function! PrintAsciiHeader(title)
+func! PrintAsciiHeader(title)
   execute "read !toilet -f future " . a:title
   norm VkkgcejjA kddjj
 endfunc
 
 " Show documentation.
-function! ShowDocumention()
+func! ShowDocumention()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
     call CocActionAsync('doHover')
   endif
-endfunction
+endfunc
 
 " Toggle concealing.
-function! ToggleConceal()
+func! ToggleConceal()
   if(&conceallevel == 2)
     set conceallevel=0
   else
@@ -40,16 +40,16 @@ function! ToggleConceal()
 endfunc
 
 " ToggleWindowFocus.
-function! ToggleWindowFocus(focused)
+func! ToggleWindowFocus(focused)
   if(a:focused)
     set cursorline
   else
     set nocursorline
   endif
-endfunction
+endfunc
 
 " Toggle relative numbering.
-function! ToggleRelativeNumber()
+func! ToggleRelativeNumber()
   if(&relativenumber == 1)
     set norelativenumber
   else
@@ -58,7 +58,7 @@ function! ToggleRelativeNumber()
 endfunc
 
 " Toggle spell checking.
-function! ToggleSpellCheck()
+func! ToggleSpellCheck()
   set spell!
 endfunc
 
@@ -68,7 +68,7 @@ endfunc
 "  ┗━┛ ╹ ┗━┛ ╹ ┗━╸╹ ╹   ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
 " Fasd.
-function! Fasd(type, executeWith, fragment)
+func! Fasd(type, executeWith, fragment)
   let l:fragment = system('fasd -1 ' . a:type . ' ' . shellescape(a:fragment))
 
   if !empty(l:fragment)
@@ -76,13 +76,13 @@ function! Fasd(type, executeWith, fragment)
     redraw
     echo split(l:fragment, '\n')[0]
   endif
-endfunction
+endfunc
 
-function! FasdUpdate() abort
+func! FasdUpdate() abort
   if empty(&buftype) || &filetype ==# 'dirvish'
     call jobstart(['fasd', '-A', expand('%:p')])
   endif
-endfunction
+endfunc
 
 
 "  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓
@@ -90,7 +90,7 @@ endfunction
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
 " Start FZF in floating window.
-function! FloatingFZF()
+func! FloatingFZF()
   let buf = nvim_create_buf(v:false, v:true)
   call setbufvar(buf, '&signcolumn', 'no')
 
@@ -111,17 +111,17 @@ function! FloatingFZF()
   let win = nvim_open_win(buf, v:true, opts)
   call setwinvar(win, '&number', 0)
   call setwinvar(win, '&relativenumber', 0)
-endfunction
+endfunc
 
 " Merge filename and modified flag for vim-lightline.
-function! LightlineFilename()
+func! LightlineFilename()
   let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
   let modified = &modified ? ' +' : ''
   return filename . modified
-endfunction
+endfunc
 
 " Toggle grammar checking.
-function! ToggleGrammarCheck()
+func! ToggleGrammarCheck()
   if exists('b:grammarous_result')
     :GrammarousReset
   else
