@@ -43,6 +43,7 @@ Plug 'sickill/vim-pasta'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rhubarb'
+Plug 'wellle/targets.vim'
 
 " Commands.
 Plug 'lambdalisue/suda.vim'
