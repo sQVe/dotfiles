@@ -133,6 +133,8 @@ alias diff='diff --color=always --unified'
 alias fd='fd --hidden --follow'
 alias feh='feh --scale-down --auto-zoom --image-bg "#343434"'
 alias fm=vifm-cd
+alias format='npx prettier --write'
+alias format-opinionated='npx prettier --no-semi --single-quote --trailing-comma es5 --write'
 alias git=hub
 alias hc='highlight -O truecolor --force -s dracula --stdout'
 alias hcat='highlight -O truecolor --force -s dracula --stdout'
