@@ -178,8 +178,8 @@ nnoremap <silent> <Leader>gw :Gwrite<CR>
 
 " FZF.
 nnoremap <silent> <Backspace> :Buffers<CR>
-nnoremap <silent> <Leader>/ :Rg<Space>
-nnoremap <silent> Ä :Rg<Space>
+nnoremap <Leader>/ :Rg<Space>
+nnoremap Ä :Rg<Space>
 nnoremap <silent> ä :Files<CR>
 
 " Import JS.
