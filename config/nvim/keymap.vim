@@ -115,7 +115,7 @@ nnoremap <silent> <Leader>zz :FasdCd<Space>
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
 " Ale.
-noremap <silent> <Leader>a :ALEToggleBuffer<CR>
+noremap <Leader>a :ALEToggleBuffer<CR>
 noremap <silent> [c :ALEPreviousWrap<CR>
 noremap <silent> ]c :ALENextWrap<CR>
 

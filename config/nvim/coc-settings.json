@@ -1,8 +1,9 @@
 {
   "diagnostic.checkCurrentLine": true,
+  "diagnostic.displayByAle": true,
   "diagnostic.errorSign": "■",
-  "diagnostic.warningSign": "■",
   "diagnostic.infoSign": "■",
+  "diagnostic.warningSign": "■",
   "languageserver": {
     "haskell": {
       "command": "hie-wrapper",
