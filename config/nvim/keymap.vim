@@ -103,11 +103,11 @@ nnoremap <silent> <C-s><C-s> :ToggleSpellCheck<CR>
 nnoremap <silent> <C-s>g :ToggleGrammarCheck<CR>
 nnoremap <silent> <C-s>s :ToggleSpellCheck<CR>
 
-nnoremap <silent> <Leader>c :ToggleConceal<CR>
-nnoremap <silent> <Leader>n :ToggleRelativeNumber<CR>
-nnoremap <silent> <Leader>z :Fasd<Space>
-nnoremap <silent> <Leader>zo :Fasd<Space>
-nnoremap <silent> <Leader>zz :FasdCd<Space>
+nnoremap <Leader>c :ToggleConceal<CR>
+nnoremap <Leader>n :ToggleRelativeNumber<CR>
+nnoremap <Leader>z :Fasd<Space>
+nnoremap <Leader>zo :Fasd<Space>
+nnoremap <Leader>zz :FasdCd<Space>
 
 
 "  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓

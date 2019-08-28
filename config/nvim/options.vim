@@ -117,7 +117,7 @@ let g:strip_whitespace_confirm = 0
 " EasyMotion.
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_grouping = 2
-let g:EasyMotion_keys = 'fjdkslaruvmeic,wox.qpz-ghtybn'
+let g:EasyMotion_keys = 'fjdkslaörueiwoqpvncmxz'
 let g:EasyMotion_smartcase = 1
 let g:EasyMotion_skipfoldedline = 0
 
