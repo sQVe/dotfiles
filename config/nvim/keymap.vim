@@ -97,11 +97,7 @@ inoremap <C-x><C-s> <C-x>s
 "  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
 "  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
-nnoremap <silent> <C-s> :ToggleSpellCheck<CR>
-nnoremap <silent> <C-s><C-g> :ToggleGrammarCheck<CR>
-nnoremap <silent> <C-s><C-s> :ToggleSpellCheck<CR>
-nnoremap <silent> <C-s>g :ToggleGrammarCheck<CR>
-nnoremap <silent> <C-s>s :ToggleSpellCheck<CR>
+nnoremap <silent> <C-s> :ToggleGrammarCheck<CR>
 
 nnoremap <Leader>c :ToggleConceal<CR>
 nnoremap <Leader>n :ToggleRelativeNumber<CR>
@@ -124,7 +120,7 @@ nmap <silent> <Leader>o :CocList outline<CR>
 nmap <silent> <Leader>O :CocList -I symbols<CR>
 nmap <silent> <Leader>f <Plug>(coc-fix-current)
 nmap <silent> <Leader>r <Plug>(coc-rename)
-nmap <silent> K :ShowDocumention<CR>
+nmap <silent> K :ShowDocumentation<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
@@ -186,6 +182,15 @@ nnoremap <silent> ä :Files<CR>
 nnoremap <silent> <Leader>ii :ImportJSFix<CR>
 nnoremap <silent> <Leader>iw :ImportJSWord<CR>
 nnoremap <silent> <Leader>id :ImportJSGoto<CR>
+
+" Spelunker.
+map z= Zl
+map zG ZG
+map zW ZW
+map zg Zg
+map zuG ZUG
+map zuw ZUW
+map zuw Zuw
 
 " Vifm.
 nnoremap <silent> å :Vifm<CR>

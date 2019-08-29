@@ -56,7 +56,7 @@ set foldmethod=indent             " Folding method.
 let g:is_sh = 1                   " Enable sh syntax folding.
 let g:sh_fold_enabled = 4         " Fold down to if/do/for etc.
 
-" Linenumber.
+" Line number.
 set number                        " Show the line numbers on the left side.
 set relativenumber                " Relative line numbers.
 
@@ -221,6 +221,11 @@ runtime macros/sandwich/keymap/surround.vim
 
 " Signify.
 let g:signify_vcs_list = ['git']
+
+" Spelunker.
+let g:spelunker_check_type = 2
+let g:spelunker_spell_bad_group = 'DraculaWarnLine'
+let g:spelunker_white_list_for_user = ['endfunc']
 
 " Supertab.
 let g:SuperTabDefaultCompletionType = '<C-n>'

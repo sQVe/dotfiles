@@ -59,16 +59,13 @@ command! -nargs=1 Fasd call Fasd('-f', 'e', <q-args>)
 command! -nargs=1 FasdCd call Fasd('-d', 'cd', <q-args>)
 
 " Show documentation.
-command! -nargs=0 ShowDocumention call ShowDocumention()
+command! -nargs=0 ShowDocumentation call ShowDocumentation()
 
 " Toggle concealing.
 command! -nargs=0 ToggleConceal call ToggleConceal()
 
 " Toggle relative numbering.
 command! -nargs=0 ToggleRelativeNumber call ToggleRelativeNumber()
-
-" Toggle spell checking.
-command! -nargs=0 ToggleSpellCheck call ToggleSpellCheck()
 
 " Toggle grammar checking.
 command! -nargs=0 ToggleGrammarCheck call ToggleGrammarCheck()
