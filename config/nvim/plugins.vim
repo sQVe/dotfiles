@@ -17,6 +17,7 @@ Plug 'sheerun/vim-polyglot'
 
 " Interface.
 Plug 'brooth/far.vim'
+Plug 'dense-analysis/ale'
 Plug 'easymotion/vim-easymotion'
 Plug 'itchyny/lightline.vim'
 Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './install --bin' }
@@ -27,7 +28,6 @@ Plug 'mhinz/vim-signify'
 Plug 'samoshkin/vim-mergetool'
 Plug 'tpope/vim-fugitive'
 Plug 'vifm/vifm.vim'
-Plug 'w0rp/ale'
 
 " Integration.
 Plug 'Galooshi/vim-import-js'
