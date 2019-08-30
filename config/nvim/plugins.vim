@@ -50,7 +50,6 @@ Plug 'lambdalisue/suda.vim'
 Plug 'moll/vim-bbye'
 
 " Completion and spelling.
-Plug 'kamykn/spelunker.vim'
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
 Plug 'rhysd/vim-grammarous'
 

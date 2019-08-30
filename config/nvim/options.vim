@@ -222,11 +222,6 @@ runtime macros/sandwich/keymap/surround.vim
 " Signify.
 let g:signify_vcs_list = ['git']
 
-" Spelunker.
-let g:spelunker_check_type = 2
-let g:spelunker_spell_bad_group = 'DraculaWarnLine'
-let g:spelunker_white_list_for_user = ['endfunc']
-
 " Supertab.
 let g:SuperTabDefaultCompletionType = '<C-n>'
 

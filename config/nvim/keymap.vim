@@ -183,15 +183,6 @@ nnoremap <silent> <Leader>ii :ImportJSFix<CR>
 nnoremap <silent> <Leader>iw :ImportJSWord<CR>
 nnoremap <silent> <Leader>id :ImportJSGoto<CR>
 
-" Spelunker.
-map z= Zl
-map zG ZG
-map zW ZW
-map zg Zg
-map zuG ZUG
-map zuw ZUW
-map zuw Zuw
-
 " Vifm.
 nnoremap <silent> å :Vifm<CR>
 nnoremap <silent> Å :Vifm .<CR>
