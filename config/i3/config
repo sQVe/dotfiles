@@ -123,6 +123,9 @@ for_window [class="Alacritty"] focus
 for_window [class="GitKraken"] focus
 for_window [class="mpv"] focus
 for_window [class="qutebrowser"] focus
+for_window [class="scrcpy"] floating enable
+for_window [class="scrcpy"] resize set 702 1474
+for_window [class="scrcpy"] sticky enable
 for_window [window_role="bubble"] floating enable
 for_window [window_role="bubble"] sticky enable
 
