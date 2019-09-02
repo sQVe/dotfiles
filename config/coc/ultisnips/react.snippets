@@ -1,3 +1,7 @@
+#  ┏━╸┏━┓┏┳┓┏━┓┏━┓┏┓╻┏━╸┏┓╻╺┳╸   ┏┳┓┏━┓╺┳┓╻ ╻╻  ┏━╸
+#  ┃  ┃ ┃┃┃┃┣━┛┃ ┃┃┗┫┣╸ ┃┗┫ ┃    ┃┃┃┃ ┃ ┃┃┃ ┃┃  ┣╸
+#  ┗━╸┗━┛╹ ╹╹  ┗━┛╹ ╹┗━╸╹ ╹ ╹    ╹ ╹┗━┛╺┻┛┗━┛┗━╸┗━╸
+
 snippet rc "React Component Module" b
 import React, { ${2:Pure}Component } from 'react';
 
@@ -24,8 +28,9 @@ const ${1:`!v expand('%:t:r')`} = props => {
 export default $1;
 endsnippet
 
-# Lifecycle
-# ---------
+#  ╻  ╻┏━╸┏━╸┏━╸╻ ╻┏━╸╻  ┏━╸
+#  ┃  ┃┣╸ ┣╸ ┃  ┗┳┛┃  ┃  ┣╸
+#  ┗━╸╹╹  ┗━╸┗━╸ ╹ ┗━╸┗━╸┗━╸
 
 snippet rlsdp "static defaultProps" b
 static defaultProps = {
@@ -117,8 +122,9 @@ componentWillUpdate(nextProps, nextState) {
 }
 endsnippet
 
-# Hooks and effects
-# -----------------
+#  ╻ ╻┏━┓┏━┓╻┏ ┏━┓   ┏━┓┏┓╻╺┳┓   ┏━╸┏━╸┏━╸┏━╸┏━╸╺┳╸┏━┓
+#  ┣━┫┃ ┃┃ ┃┣┻┓┗━┓   ┣━┫┃┗┫ ┃┃   ┣╸ ┣╸ ┣╸ ┣╸ ┃   ┃ ┗━┓
+#  ╹ ╹┗━┛┗━┛╹ ╹┗━┛   ╹ ╹╹ ╹╺┻┛   ┗━╸╹  ╹  ┗━╸┗━╸ ╹ ┗━┛
 
 snippet ruseS "useState" b
 const [$1, set$3`!p snip.rv=upperfirst(t[1])`] = useState($2);
@@ -170,8 +176,9 @@ snippet ruseD "useDebugValue" b
 useDebugValue(${1:null});
 endsnippet
 
-# PropTypes
-# -----------------
+#  ┏━┓┏━┓┏━┓┏━┓   ╺┳╸╻ ╻┏━┓┏━╸┏━┓
+#  ┣━┛┣┳┛┃ ┃┣━┛    ┃ ┗┳┛┣━┛┣╸ ┗━┓
+#  ╹  ╹┗╸┗━┛╹      ╹  ╹ ╹  ┗━╸┗━┛
 
 snippet rpt.a "PropTypes.array" w
 PropTypes.array

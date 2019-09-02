@@ -1,7 +1,8 @@
 extends 30secondsofcode, react
 
-# Comment
-# -------
+#  ┏━╸┏━┓┏┳┓┏┳┓┏━╸┏┓╻╺┳╸
+#  ┃  ┃ ┃┃┃┃┃┃┃┣╸ ┃┗┫ ┃
+#  ┗━╸┗━┛╹ ╹╹ ╹┗━╸╹ ╹ ╹
 
 snippet #! "Shebang" b
 #!/usr/bin/env node
@@ -17,8 +18,9 @@ snippet **! "JsDoc compact comment" b
 /** ${VISUAL}$0 */
 endsnippet
 
-# Console
-# -------
+#  ┏━╸┏━┓┏┓╻┏━┓┏━┓╻  ┏━╸
+#  ┃  ┃ ┃┃┗┫┗━┓┃ ┃┃  ┣╸
+#  ┗━╸┗━┛╹ ╹┗━┛┗━┛┗━╸┗━╸
 
 snippet cc "Clear the console" w
 console.clear()
@@ -70,8 +72,9 @@ snippet cwc "Warn to the console with context" w
 console.warn('`!v expand("%:t")`:`!v line(".")` ==>'', $1)
 endsnippet
 
-# Disable ESLint
-# --------------
+#  ╺┳┓╻┏━┓┏━┓┏┓ ╻  ┏━╸   ┏━╸┏━┓╻  ╻┏┓╻╺┳╸
+#   ┃┃┃┗━┓┣━┫┣┻┓┃  ┣╸    ┣╸ ┗━┓┃  ┃┃┗┫ ┃
+#  ╺┻┛╹┗━┛╹ ╹┗━┛┗━╸┗━╸   ┗━╸┗━┛┗━╸╹╹ ╹ ╹
 
 snippet eslint-disable "ESLint disable" b
 /* eslint-disable ${1:rule} */
@@ -87,15 +90,17 @@ snippet eslint-disable-next-line "ESLint disable next line" b
 // eslint-disable-next-line ${1:rule}
 endsnippet
 
-# Disable Prettier
-# ----------------
+#  ╺┳┓╻┏━┓┏━┓┏┓ ╻  ┏━╸   ┏━┓┏━┓┏━╸╺┳╸╺┳╸╻┏━╸┏━┓
+#   ┃┃┃┗━┓┣━┫┣┻┓┃  ┣╸    ┣━┛┣┳┛┣╸  ┃  ┃ ┃┣╸ ┣┳┛
+#  ╺┻┛╹┗━┛╹ ╹┗━┛┗━╸┗━╸   ╹  ╹┗╸┗━╸ ╹  ╹ ╹┗━╸╹┗╸
 
 snippet prettier-ignore "Prettier ignore next node" b
 // prettier-ignore
 endsnippet
 
-# Functions
-# ---------
+#  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓
+#  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
+#  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
 snippet fn "Function declaration" w
 function ${1:name}(${2:arguments}) {
@@ -133,8 +138,9 @@ async (${1:arguments}) => {
 }
 endsnippet
 
-# Testing
-# -------
+#  ╺┳╸┏━╸┏━┓╺┳╸╻┏┓╻┏━╸
+#   ┃ ┣╸ ┗━┓ ┃ ┃┃┗┫┃╺┓
+#   ╹ ┗━╸┗━┛ ╹ ╹╹ ╹┗━┛
 
 snippet before "Test before block" b
 before(() => {
@@ -212,8 +218,9 @@ snippet expect "Test expect statement" b
 expect(${1:subject}).to${VISUAL}$0
 endsnippet
 
-# Misc
-# ----
+#  ┏┳┓╻┏━┓┏━╸
+#  ┃┃┃┃┗━┓┃
+#  ╹ ╹╹┗━┛┗━╸
 
 snippet import "Import module" b
 import ${1:name} from "${2:path}"
@@ -236,8 +243,9 @@ case '${VISUAL}${1:case}':
 	break
 endsnippet
 
-# Variables
-# ---------
+#  ╻ ╻┏━┓┏━┓╻┏━┓┏┓ ╻  ┏━╸┏━┓
+#  ┃┏┛┣━┫┣┳┛┃┣━┫┣┻┓┃  ┣╸ ┗━┓
+#  ┗┛ ╹ ╹╹┗╸╹╹ ╹┗━┛┗━╸┗━╸┗━┛
 
 snippet vc "Const variable" b
 const ${1:name} = ${VISUAL}${0:value}
