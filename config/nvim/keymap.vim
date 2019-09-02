@@ -97,7 +97,11 @@ inoremap <C-x><C-s> <C-x>s
 "  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
 "  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
-nnoremap <silent> <C-s> :ToggleGrammarCheck<CR>
+nnoremap <silent> <C-s> :ToggleSpellCheck<CR>
+nnoremap <silent> <C-s><C-g> :ToggleGrammarCheck<CR>
+nnoremap <silent> <C-s><C-s> :ToggleSpellCheck<CR>
+nnoremap <silent> <C-s>g :ToggleGrammarCheck<CR>
+nnoremap <silent> <C-s>s :ToggleSpellCheck<CR>
 
 nnoremap <Leader>c :ToggleConceal<CR>
 nnoremap <Leader>n :ToggleRelativeNumber<CR>
