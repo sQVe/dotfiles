@@ -18,11 +18,11 @@ endfunc
 " Create and print ascii header.
 func! PrintAsciiHeader(title)
   execute "read !toilet -f future " . a:title
-  norm VkkgcejjA kddjj
+  norm 0VkkgcwjjI kddjj
 endfunc
 
 " Show documentation.
-func! ShowDocumention()
+func! ShowDocumentation()
   if (index(['vim','help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
