@@ -145,7 +145,7 @@ inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
 inoremap <silent><expr> <C-Space> coc#refresh()
 
 " Use <CR> to confirm completion.
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
 " EasyMotion.
 map <silent> s <Plug>(easymotion-s)
