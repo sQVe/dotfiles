@@ -96,7 +96,7 @@ let g:ale_linters = {
   \ 'scss': ['sasslint'],
   \ 'sh': ['shellcheck'],
   \ 'text': ['alex', 'proselint', 'write-good'],
-  \ 'typescript': ['tslint'],
+  \ 'typescript': ['eslint', 'tslint'],
   \ }
 let g:ale_fixers = {
   \ 'css': ['prettier'],
@@ -106,7 +106,7 @@ let g:ale_fixers = {
   \ 'markdown': ['prettier'],
   \ 'scss': ['prettier'],
   \ 'sh': ['shfmt'],
-  \ 'typescript': ['prettier', 'tslint'],
+  \ 'typescript': ['prettier', 'eslint', 'tslint'],
   \ 'yaml': ['prettier'],
   \ }
 
