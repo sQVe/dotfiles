@@ -253,11 +253,11 @@ bindsym XF86PowerOff exec $menu-exit
 # Misc bindings.
 bindsym $mod+BackSpace workspace back_and_forth
 bindsym $mod+Delete kill
-bindsym $mod+Escape workspace prev
+bindsym $mod+Escape workspace prev_on_output
 
 bindsym $mod+Return exec $term
 bindsym $mod+Tab workspace next_on_output
-bindsym $mod+section workspace prev_output
+bindsym $mod+section workspace prev_on_output
 bindsym $mod+space fullscreen toggle
 
 bindsym $mod+Shift+Return exec $samedir
