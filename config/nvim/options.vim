@@ -109,6 +109,13 @@ let g:ale_fixers = {
   \ 'typescript': ['prettier', 'eslint', 'tslint'],
   \ 'yaml': ['prettier'],
   \ }
+let g:ale_pattern_options = {
+  \ '\/work\/': {
+  \   'ale_linters': {
+  \     'typescript': ['tslint'],
+  \   },
+  \ },
+  \ }
 
 " Better Whitespace.
 let g:strip_whitespace_on_save = 1
