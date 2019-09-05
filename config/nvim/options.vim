@@ -220,7 +220,7 @@ let g:pasta_disabled_filetypes = ['fugitive', 'markdown', 'yaml']
 
 " Polyglot.
 " typescript = yats.vim.
-" let g:polyglot_disabled = ['typescript']
+let g:polyglot_disabled = ['typescript']
 
 " Sandwich.
 runtime macros/sandwich/keymap/surround.vim
@@ -241,6 +241,5 @@ let g:VM_maps["Add Cursor Down"] = '<M-Down>'
 let g:VM_maps["Add Cursor Up"]   = '<M-Up>'
 let g:VM_maps["P Paste Regions"] = '<Leader>P'
 let g:VM_maps["p Paste Regions"] = '<Leader>p'
-
 let g:VM_mouse_mappings = 1
 let g:VM_theme = 'pray'
