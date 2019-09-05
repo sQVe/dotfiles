@@ -45,18 +45,6 @@ noremap <silent> <Leader>t :BTerm<CR><CR>
 " Remove highlighted search result.
 nnoremap <Esc><Esc> :nohl<CR>
 
-" Search for selected text, forwards or backwards.
-vnoremap <silent> * :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy/<C-R><C-R>=substitute(
-  \escape(@", '/\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
-vnoremap <silent> # :<C-U>
-  \let old_reg=getreg('"')<Bar>let old_regtype=getregtype('"')<CR>
-  \gvy?<C-R><C-R>=substitute(
-  \escape(@", '?\.*$^~['), '\_s\+', '\\_s\\+', 'g')<CR><CR>
-  \gV:call setreg('"', old_reg, old_regtype)<CR>
-
 " Set pwd to current open buffer path.
 noremap cd :Cdb<CR>:pwd<CR>
 
@@ -186,6 +174,9 @@ nnoremap <silent> ä :Files<CR>
 nnoremap <silent> <Leader>ii :ImportJSFix<CR>
 nnoremap <silent> <Leader>iw :ImportJSWord<CR>
 nnoremap <silent> <Leader>id :ImportJSGoto<CR>
+
+" Slash.
+noremap <plug>(slash-after) zz
 
 " Vifm.
 nnoremap <silent> å :Vifm<CR>
