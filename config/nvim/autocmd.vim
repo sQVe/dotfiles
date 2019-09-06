@@ -18,7 +18,15 @@ augroup END
 
 " Disable Netrw.
 augroup DisableNetrw
+  autocmd!
   autocmd VimEnter * silent! autocmd! FileExplorer
+augroup END
+
+" Ignore case for the cmd line.
+augroup IgnoreCaseForCmdLine
+  autocmd!
+  autocmd CmdLineEnter : set ignorecase
+  autocmd CmdLineLeave : set noignorecase
 augroup END
 
 " Force formatoptions to exclude 'o'.
