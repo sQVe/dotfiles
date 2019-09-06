@@ -22,20 +22,14 @@ set mbox_type = Maildir
 set ssl_starttls = yes
 set ssl_force_tls = yes
 
-bind index,pager gi noop
-bind index,pager ga noop
-bind index,pager gd noop
-bind index,pager gs noop
-bind index,pager gt noop
-
-macro index,pager gi "<change-folder>=Inbox<enter>" "Go to Inbox folder"
-macro index,pager ga "<change-folder>=Archive<enter>" "Go to Archive folder"
-macro index,pager gd "<change-folder>=Draft<enter>" "Go to Draft folder"
-macro index,pager gs "<change-folder>=Sent<enter>" "Go to Sent folder"
-macro index,pager gt "<change-folder>=Trash<enter>" "Go to Trash folder"
+macro index,pager äi "<change-folder>=Inbox<enter>" "Go to Inbox folder"
+macro index,pager ät "<change-folder>=Todo<enter>" "Go to Todo folder"
+macro index,pager äa "<change-folder>=Archive<enter>" "Go to Archive folder"
+macro index,pager äd "<change-folder>=Draft<enter>" "Go to Draft folder"
+macro index,pager äs "<change-folder>=Sent<enter>" "Go to Sent folder"
 
 unmailboxes *
-mailboxes "Google" "=Inbox" "=Archive" "=Drafts" "=Sent" "=Trash" "=Spam" "=Arch Linux" "=Drop" "=NPM" "=Nintendo" "=Travis" "=Weeklies"
+mailboxes "Google" "=Inbox" "=Todo" "=Archive" "=Drafts" "=Sent" "=Trash" "=Spam" "=Arch Linux" "=Drop" "=NPM" "=Nintendo" "=Travis" "=Weeklies"
 
 set spoolfile = "+Inbox"
 set record = ""

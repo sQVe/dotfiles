@@ -22,6 +22,14 @@ Subfolders Verbatim
 Flatten .
 
 # Mailboxes.
+Channel animech
+Master :animech-remote:
+Slave :animech-local:
+Patterns "Todo"
+Create Both
+Expunge Both
+SyncState *
+
 Channel animech-archive
 Master :animech-remote:"Arkiv"
 Slave :animech-local:"Archive"
@@ -58,6 +66,7 @@ Expunge Both
 SyncState *
 
 Group animech
+Channel animech
 Channel animech-archive
 Channel animech-drafts
 Channel animech-inbox
@@ -93,7 +102,7 @@ Flatten .
 Channel google
 Master :google-remote:
 Slave :google-local:
-Patterns "Arch Linux" "Drop" "NPM" "Nintendo" "Travis" "Weeklies"
+Patterns "Arch Linux" "Drop" "NPM" "Nintendo" "Todo" "Travis" "Weeklies"
 Create Both
 Expunge Both
 SyncState *

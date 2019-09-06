@@ -53,8 +53,9 @@ macro index,pager               \Cj <sidebar-next><sidebar-open>
 macro index,pager               \Cp <sidebar-prev-new><sidebar-open>
 macro index,pager               \Cn <sidebar-next-new><sidebar-open>
 
-macro index                     å   "<shell-escape>mbsync -a && ~/scripts/mutt/post-mbsync.sh<enter>" "Sync all mail"
-macro index,pager               Å   "|lbdb-fetchaddr\n" "Add address info to lbdb"
+macro index                     å   "<sync-mailbox>" "Sync mailboxes"
+macro index                     Å   "<shell-escape>mbsync -a && ~/scripts/mutt/post-mbsync.sh<enter>" "Run mbsync"
+macro index                     ää   "<change-folder>?" "List mailboxes"
 macro index                     A   "<limit>all\n" "show all messages (undo limit)"
 macro index                     C   "<copy-message>?<toggle-mailboxes>" "Copy mail to folder"
 macro index                     M   "<save-message>?<toggle-mailboxes>" "Move mail to folder"
