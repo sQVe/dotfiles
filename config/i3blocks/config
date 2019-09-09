@@ -46,9 +46,9 @@ label=
 [time]
 interval=60
 command=date '+%Y-%m-%d'
-label=
+label= 
 
 [time]
 interval=1
 command=date '+%H:%M:%S '
-label=
+label= 
