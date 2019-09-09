@@ -218,10 +218,6 @@ let g:mergetool_prefer_revision = 'local'
 " Pasta.
 let g:pasta_disabled_filetypes = ['fugitive', 'markdown', 'yaml']
 
-" Polyglot.
-" typescript = yats.vim.
-let g:polyglot_disabled = ['typescript']
-
 " Sandwich.
 runtime macros/sandwich/keymap/surround.vim
 

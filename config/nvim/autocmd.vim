@@ -22,7 +22,7 @@ augroup DisableNetrw
   autocmd VimEnter * silent! autocmd! FileExplorer
 augroup END
 
-" Ignore case for the cmd line.
+" Ignore case for the command line.
 augroup IgnoreCaseForCmdLine
   autocmd!
   autocmd CmdLineEnter : set ignorecase
