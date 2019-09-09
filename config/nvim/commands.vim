@@ -96,7 +96,5 @@ command! Esudo e suda://%
 " Write current file with sudo.
 command! Wsudo w suda://%
 
-" Quick Plug commands.
-command! Clean PlugClean
-command! Install PlugInstall
-command! Update PlugUpdate
+" Update plugins and coc extensions.
+command! Update PlugUpdate | CocUpdateSync
