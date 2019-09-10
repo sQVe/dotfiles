@@ -226,9 +226,20 @@ snippet import "Import module" b
 import ${1:name} from "${2:path}"
 endsnippet
 
+snippet if "If statement" b
+if (${1:condition}) {
+	${VISUAL}$0
+}
+endsnippet
+
+snippet tern "Ternary operator" b
+${1:condition} ? ${2} : ${3}
+endsnippet
+
+
 snippet switch "Switch statement" b
-switch(${VISUAL}${1:expression}) {
-	case '${VISUAL}${2:case}':
+switch (${VISUAL}${1:expression}) {
+	case '${2}':
 		${3}
 		break
 	${0}
@@ -238,7 +249,7 @@ switch(${VISUAL}${1:expression}) {
 endsnippet
 
 snippet case "Switch case" b
-case '${VISUAL}${1:case}':
+case '${VISUAL}${1}':
 	${VISUAL}$0
 	break
 endsnippet
