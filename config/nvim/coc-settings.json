@@ -15,9 +15,8 @@
   "snippets.priority": 80,
   "snippets.snipmate.enable": false,
   "suggest.languageSourcePriority": 100,
-  "suggest.maxCompleteItemCount": 20,
   "suggest.numberSelect": true,
-  "tabnine.disable_filetyps": [
+  "tabnine.disable_filetypes": [
     "gitcommit",
     "help",
     "mail",
