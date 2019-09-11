@@ -5,7 +5,6 @@
     "coc-github": ">=1.0.1",
     "coc-html": ">=1.2.1",
     "coc-json": ">=1.2.3",
-    "coc-lbdbq": ">=0.1.2",
     "coc-sh": ">=0.2.1",
     "coc-tsserver": ">=1.4.0",
     "coc-snippets": ">=2.1.11",
