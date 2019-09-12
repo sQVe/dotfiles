@@ -9,7 +9,7 @@
     "coc-tsserver": ">=1.4.0",
     "coc-snippets": ">=2.1.11",
     "coc-yank": ">=1.1.2",
-    "coc-tabnine": ">=1.2.0",
+    "coc-tabnine": ">=1.2.1",
     "coc-emmet": ">=1.1.3"
   }
 }
