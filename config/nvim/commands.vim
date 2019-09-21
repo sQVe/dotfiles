@@ -70,9 +70,6 @@ command! -nargs=0 ToggleRelativeNumber call ToggleRelativeNumber()
 " Toggle grammar checking.
 command! -nargs=0 ToggleGrammarCheck call ToggleGrammarCheck()
 
-" Toggle spell checking.
-command! -nargs=0 ToggleSpellCheck call ToggleSpellCheck()
-
 
 "  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓┏━┓
 "  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃┗━┓
