@@ -33,8 +33,8 @@ noremap gj j
 noremap <Leader><Leader> :write<CR>
 
 " Quit and close buffer.
-noremap <silent> <Leader>q :bdelete<CR>
-noremap <silent> <Leader>Q :bdelete!<CR>
+noremap <silent> <Leader>q :quit<CR>
+noremap <silent> <Leader>Q :quit!<CR>
 noremap <silent> <Leader>d :Bclose<CR>
 noremap <silent> <Leader>D :Bclose!<CR>
 
