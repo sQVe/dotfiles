@@ -12,6 +12,7 @@ set mouse=a                       " Enable mouse.
 set noshowmode                    " Disable show mode.
 set nostartofline                 " Do not jump to first character with page commands.
 set ruler                         " Show the cursor position all the time.
+set shortmess+=I                  " Disable version intro text.
 set showcmd                       " Display incomplete commands.
 set signcolumn=yes                " Always show sign column.
 set termguicolors                 " Enable 24-bit colors.
