@@ -10,11 +10,6 @@ func! CheckBackSpace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunc
 
-" Get count of all active buffers.
-func! GetBuffersCount()
-  return len(getbufinfo({'buflisted':1}))
-endfunc
-
 " Create and print ascii header.
 func! PrintAsciiHeader(title)
   execute "read !toilet -f future " . a:title

@@ -9,6 +9,12 @@ hi! Normal ctermfg=255 ctermbg=236 guifg=#F8F8F2 guibg=#343434
 " Better Whitespace.
 hi! ExtraWhitespace ctermfg=255 ctermbg=203 guifg=#F8F8F2 guibg=#FF5555
 
+" Buftabline.
+hi! link BufTabLineCurrent DraculaPink
+hi! link BufTabLineActive  DraculaPurple
+hi! link BufTabLineHidden  Comment
+hi! link BufTabLineFill    Comment
+
 " Coc.
 hi! link CocErrorHighlight     DraculaErrorLine
 hi! link CocErrorSign          DraculaRed

@@ -16,6 +16,7 @@ Plug 'dracula/vim', { 'as': 'dracula' }
 Plug 'sheerun/vim-polyglot'
 
 " Interface.
+Plug 'ap/vim-buftabline'
 Plug 'brooth/far.vim'
 Plug 'dense-analysis/ale'
 Plug 'easymotion/vim-easymotion'
