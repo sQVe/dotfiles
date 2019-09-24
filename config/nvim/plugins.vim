@@ -31,6 +31,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'vifm/vifm.vim'
 
 " Integration.
+Plug 'AndrewRadev/tagalong.vim'
 Plug 'Galooshi/vim-import-js'
 Plug 'dahu/vim-fanfingtastic'
 Plug 'editorconfig/editorconfig-vim'
