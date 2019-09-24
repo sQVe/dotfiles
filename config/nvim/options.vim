@@ -196,14 +196,15 @@ let g:javascript_plugin_jsdoc = 1
 let g:lightline = {
   \ 'colorscheme': 'dracula',
   \ 'active': {
-  \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'readonly', 'filename' ] ],
-  \   'right': [ [ 'lineinfo' ],
-  \              [ 'percent' ],
-  \              [ 'filetype', 'fileencoding', 'fileformat' ] ]
+  \   'left': [[ 'mode', 'paste' ],
+  \            [ 'readonly', 'filename', 'gitbranch' ]],
+  \   'right': [[ 'lineinfo' ],
+  \             [ 'percent' ],
+  \             [ 'filetype', 'fileencoding', 'fileformat' ]]
   \ },
   \ 'component_function': {
   \   'filename': 'LightlineFilename',
+  \   'gitbranch': 'fugitive#head'
   \ },
   \ }
 
