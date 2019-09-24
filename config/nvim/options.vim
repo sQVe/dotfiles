@@ -197,7 +197,7 @@ let g:lightline = {
   \ 'colorscheme': 'dracula',
   \ 'active': {
   \   'left': [ [ 'mode', 'paste' ],
-  \             [ 'readonly' ] ],
+  \             [ 'readonly', 'filename' ] ],
   \   'right': [ [ 'lineinfo' ],
   \              [ 'percent' ],
   \              [ 'filetype', 'fileencoding', 'fileformat' ] ]
