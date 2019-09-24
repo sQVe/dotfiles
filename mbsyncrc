@@ -102,7 +102,7 @@ Flatten .
 Channel google
 Master :google-remote:
 Slave :google-local:
-Patterns "Arch Linux" "Drop" "NPM" "Nintendo" "Todo" "Travis" "Weeklies"
+Patterns "Arch Linux" "Drop" "GitHub" "NPM" "Nintendo" "Todo" "Travis" "Weeklies"
 Create Both
 Expunge Both
 SyncState *
