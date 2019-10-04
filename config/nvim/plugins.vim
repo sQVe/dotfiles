@@ -49,6 +49,7 @@ Plug 'wellle/targets.vim'
 " Commands.
 Plug 'lambdalisue/suda.vim'
 Plug 'moll/vim-bbye'
+Plug 'tpope/vim-abolish'
 
 " Completion and spelling.
 Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}

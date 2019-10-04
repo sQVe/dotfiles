@@ -83,6 +83,9 @@ colorscheme dracula
 "  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┃ ┃┣━┛ ┃ ┃┃ ┃┃┗┫┗━┓
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ┗━┛╹   ╹ ╹┗━┛╹ ╹┗━┛
 
+" Abolish.
+let g:abolish_save_file = ".config/nvim/after/plugin/abolish.vim"
+
 " Ale.
 let g:ale_disable_lsp = 1
 let g:ale_fix_on_save = 1
