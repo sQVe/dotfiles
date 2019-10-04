@@ -4,6 +4,7 @@ endif
 
 " English words.
 Abolish despara{te,tely,tion}                despera{}
+Abolish reponse{,s}                          response{}
 Abolish seperat{e,es,ed,ing,ely,ion,ions,or} separat{}
 Abolish {,in}consistan{cy,cies,t,tly}        {}consisten{}
 Abolish {,non}existan{ce,t}                  {}existen{}
