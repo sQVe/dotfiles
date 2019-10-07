@@ -44,9 +44,9 @@ mkdir /tmp/peek
 mkdir /tmp/coc-yank-data
 [[ ! -h "$HOME/.config/coc/extensions/coc-yank-data" ]] && ln -s /tmp/coc-yank-data "$HOME/.config/coc/extensions/coc-yank-data"
 
-# Restore js-playground boxes.
-if [[ -d  "$HOME/code/js-playground" ]]; then
-  git -C "$HOME/code/js-playground" checkout -- boxes
+# Restore playground boxes.
+if [[ -d  "$HOME/code/playground" ]]; then
+  git -C "$HOME/code/playground" checkout -- boxes
 fi
 
 # Run the scripts in xinitrc.d.
