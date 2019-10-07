@@ -347,8 +347,9 @@ const decapitalize = ([first, ...rest], upperRest = false) =>
   first.toLowerCase() + (upperRest ? rest.join('').toUpperCase() : rest.join(''));
 endsnippet
 
-snippet deepClone "Creates a deep clone of an object.  Use recursion. Use `Object.assign()` and an empty object (`{}`) to create a shallow clone of the original. Use `Object.keys()` and `Array.prototype.forEach()` to determine which key-value pairs need to be deep cloned.  " b
+snippet deepClone "Creates a deep clone of an object.  Use recursion. Check if the passed object is `null` and, if so, return `null`. Use `Object.assign()` and an empty object (`{}`) to create a shallow clone of the original. Use `Object.keys()` and `Array.prototype.forEach()` to determine which key-value pairs need to be deep cloned.  " b
 const deepClone = obj => {
+  if (obj === null) return null;
   let clone = Object.assign({}, obj);
   Object.keys(clone).forEach(
     key => (clone[key] = typeof obj[key] === 'object' ? deepClone(obj[key]) : obj[key])
@@ -1064,6 +1065,10 @@ endsnippet
 
 snippet isObjectLike "Checks if a value is object-like.  Check if the provided value is not `null` and its `typeof` is equal to `'object'`.  " b
 const isObjectLike = val => val !== null && typeof val === 'object';
+endsnippet
+
+snippet isOdd "Returns `true` if the given number is odd, `false` otherwise.  Checks whether a number is odd or even using the modulo (`%`) operator. Returns `true` if the number is odd, `false` if the number is even.  " b
+const isOdd = num => num % 2 === 1;
 endsnippet
 
 snippet isPlainObject "Checks if the provided value is an object created by the Object constructor.  Check if the provided value is truthy, use `typeof` to check if it is an object and `Object.constructor` to make sure the constructor is equal to `Object`.  " b
