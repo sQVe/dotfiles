@@ -93,6 +93,7 @@ let g:ale_sign_error = '■'
 let g:ale_sign_info = '■'
 let g:ale_sign_warning = '■'
 let g:ale_linters = {
+  \ 'css': ['stylelint'],
   \ 'help': ['alex', 'proselint', 'write-good'],
   \ 'javascript': ['eslint'],
   \ 'mail': ['alex', 'proselint', 'write-good'],
@@ -103,7 +104,7 @@ let g:ale_linters = {
   \ 'typescript': ['eslint', 'tslint'],
   \ }
 let g:ale_fixers = {
-  \ 'css': ['prettier'],
+  \ 'css': ['prettier', 'stylelint'],
   \ 'html': ['prettier'],
   \ 'javascript': ['prettier', 'eslint'],
   \ 'json': ['prettier', 'eslint'],
