@@ -4,7 +4,19 @@ extends javascript
 #   ┃┃┃┗━┓┣━┫┣┻┓┃  ┣╸     ┃ ┗━┓┃  ┃┃┗┫ ┃
 #  ╺┻┛╹┗━┛╹ ╹┗━┛┗━╸┗━╸    ╹ ┗━┛┗━╸╹╹ ╹ ╹
 
-snippet tslint-disable "TSLint disable" b
+snippet ts-check "Enable TypeScript type-checking" b
+// @ts-check
+endsnippet
+
+snippet ts-ignore "Ignore TypeScript errors on next line" b
+// @ts-ignore
+endsnippet
+
+snippet ts-nocheck "Disable TypeScript type-checking" b
+// @ts-nocheck
+endsnippet
+
+snippet tslint-disable "Disable TSLint" b
 /* tslint:disable ${1:rule} */
 ${VISUAL}$0
 /* tslint:enable */
