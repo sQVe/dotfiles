@@ -8,13 +8,13 @@ snippet #! "Shebang" b
 #!/usr/bin/env node
 endsnippet
 
-snippet ** "JsDoc comment" b
+snippet ** "JsDoc Comment" b
 /**
  * ${VISUAL}$0
  */
 endsnippet
 
-snippet **! "JsDoc compact comment" b
+snippet **! "Compact JsDoc Comment" b
 /** ${VISUAL}$0 */
 endsnippet
 
@@ -22,53 +22,53 @@ endsnippet
 #  ┃  ┃ ┃┃┗┫┗━┓┃ ┃┃  ┣╸
 #  ┗━╸┗━┛╹ ╹┗━┛┗━┛┗━╸┗━╸
 
-snippet cc "Clear the console" w
+snippet cc "Console clear" w
 console.clear()
 endsnippet
 
-snippet ce "Error to the console" w
+snippet ce "Console error" w
 console.error($1)
 endsnippet
 
-snippet cec "Error to the console with context" w
+snippet cec "Console error with context" w
 console.error('`!v expand("%:t")`:`!v line(".")` ==>'', $1)
 endsnippet
 
-snippet cg "Group console" w
+snippet cg "Console group" w
 console.group()
 console.groupEnd()
 endsnippet
 
-snippet cg "Group collapsed console" w
+snippet cg "Console collapsed group" w
 console.groupCollapsed()
 console.groupEnd()
 endsnippet
 
-snippet cl "Log to the console" w
+snippet cl "Console log" w
 console.log($1)
 endsnippet
 
-snippet clc "Log to the console with context" w
+snippet clc "Console log with context" w
 console.log('`!v expand("%:t")`:`!v line(".")` ==>', $1)
 endsnippet
 
-snippet ci "Info to the console" w
+snippet ci "Console info" w
 console.info($1)
 endsnippet
 
-snippet cic "Info to the console with context" w
+snippet cic "Console info with context" w
 console.info('`!v expand("%:t")`:`!v line(".")`' ==>', $1)
 endsnippet
 
-snippet ct "Table to the console" w
+snippet ct "Console table" w
 console.table($1)
 endsnippet
 
-snippet cw "Warn to the console" w
+snippet cw "Console warn" w
 console.warn($1)
 endsnippet
 
-snippet cwc "Warn to the console with context" w
+snippet cwc "Console warn with context" w
 console.warn('`!v expand("%:t")`:`!v line(".")` ==>'', $1)
 endsnippet
 
@@ -76,17 +76,17 @@ endsnippet
 #   ┃┃┃┗━┓┣━┫┣┻┓┃  ┣╸    ┣╸ ┗━┓┃  ┃┃┗┫ ┃
 #  ╺┻┛╹┗━┛╹ ╹┗━┛┗━╸┗━╸   ┗━╸┗━┛┗━╸╹╹ ╹ ╹
 
-snippet eslint-disable "ESLint disable" b
+snippet eslint-disable "Disable ESLint" b
 /* eslint-disable ${1:rule} */
 ${VISUAL}$0
 /* eslint-enable */
 endsnippet
 
-snippet eslint-disable-line "ESLint disable line" w
+snippet eslint-disable-line "Disable ESLint for current line" w
 // eslint-disable-line ${1:rule}
 endsnippet
 
-snippet eslint-disable-next-line "ESLint disable next line" b
+snippet eslint-disable-next-line "Disable ESLint disable next line" b
 // eslint-disable-next-line ${1:rule}
 endsnippet
 
@@ -94,7 +94,7 @@ endsnippet
 #   ┃┃┃┗━┓┣━┫┣┻┓┃  ┣╸    ┣━┛┣┳┛┣╸  ┃  ┃ ┃┣╸ ┣┳┛
 #  ╺┻┛╹┗━┛╹ ╹┗━┛┗━╸┗━╸   ╹  ╹┗╸┗━╸ ╹  ╹ ╹┗━╸╹┗╸
 
-snippet prettier-ignore "Prettier ignore next node" b
+snippet prettier-ignore "Ignore Prettier formatting for next block" b
 // prettier-ignore
 endsnippet
 
