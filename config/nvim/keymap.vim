@@ -166,11 +166,6 @@ nnoremap <Leader>/ :Rg<Space>
 nnoremap Ä :Rg<Space>
 nnoremap <silent> ä :Files<CR>
 
-" Import JS.
-nnoremap <silent> <Leader>ii :ImportJSFix<CR>
-nnoremap <silent> <Leader>iw :ImportJSWord<CR>
-nnoremap <silent> <Leader>id :ImportJSGoto<CR>
-
 " Slash.
 noremap <plug>(slash-after) zz
 

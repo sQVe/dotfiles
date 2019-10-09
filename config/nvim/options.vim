@@ -101,7 +101,7 @@ let g:ale_linters = {
   \ 'scss': ['sasslint'],
   \ 'sh': ['shellcheck'],
   \ 'text': ['alex', 'proselint', 'write-good'],
-  \ 'typescript': ['eslint', 'tslint'],
+  \ 'typescript': ['eslint'],
   \ }
 let g:ale_fixers = {
   \ 'css': ['prettier', 'stylelint'],

@@ -30,7 +30,6 @@ Plug 'tpope/vim-fugitive'
 Plug 'vifm/vifm.vim'
 
 " Integration.
-Plug 'Galooshi/vim-import-js'
 Plug 'dahu/vim-fanfingtastic'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'junegunn/vim-easy-align'
