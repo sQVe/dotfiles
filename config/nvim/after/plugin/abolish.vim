@@ -2,6 +2,10 @@ if !exists(":Abolish")
   finish
 endif
 
+" Code syntax.
+Abolish cosnt const
+Abolish flase false
+
 " English words.
 Abolish despara{te,tely,tion}                despera{}
 Abolish reponse{,s}                          response{}
