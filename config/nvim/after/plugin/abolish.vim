@@ -5,6 +5,8 @@ endif
 " Code syntax.
 Abolish cosnt const
 Abolish flase false
+Abolish retunr return
+Abolish reutnr return
 
 " English words.
 Abolish despara{te,tely,tion}                despera{}
