@@ -243,11 +243,12 @@ let g:vifm_term = "term"
 
 " Visual Multi.
 let g:VM_leader = '<Leader>m'
+let g:VM_mouse_mappings = 1
+let g:VM_theme = 'purplegray'
+
 let g:VM_maps = {}
 let g:VM_maps["Add Cursor At Pos"] = '<M-Space>'
 let g:VM_maps["Add Cursor Down"] = '<M-Down>'
 let g:VM_maps["Add Cursor Up"] = '<M-Up>'
 let g:VM_maps["Select All"] = '<M-a>'
 let g:VM_maps["p Paste Regions"] = '<M-p>'
-let g:VM_mouse_mappings = 1
-let g:VM_theme = 'purplegray'
