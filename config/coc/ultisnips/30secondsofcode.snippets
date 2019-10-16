@@ -512,7 +512,6 @@ const equals = (a, b) => {
   if (a === b) return true;
   if (a instanceof Date && b instanceof Date) return a.getTime() === b.getTime();
   if (!a || !b || (typeof a !== 'object' && typeof b !== 'object')) return a === b;
-  if (a === null || a === undefined || b === null || b === undefined) return false;
   if (a.prototype !== b.prototype) return false;
   let keys = Object.keys(a);
   if (keys.length !== Object.keys(b).length) return false;
@@ -817,6 +816,17 @@ const hashNode = val =>
       0
     )
   );
+endsnippet
+
+snippet hasKey "Returns `true` if the target value exists in a JSON object, `false` otherwise.  Check if the key contains `.`, use `String.prototype.split('.')[0]` to get the first part and store as `_key`. Use `typeof` to check if the contents of `obj[key]` are an `object` and, if so, call `hasKey` with that object and the remainder of the `key`. Otherwise, use `Object.keys(obj)` in combination with `Array.prototype.includes()` to check if the given `key` exists.  " b
+const hasKey = (obj, key) => {
+  if (key.includes('.')) {
+    let _key = key.split('.')[0];
+    if (typeof obj[_key] === 'object')
+      return hasKey(obj[_key], key.slice(key.indexOf('.') + 1));
+  }
+  return Object.keys(obj).includes(key);
+};
 endsnippet
 
 snippet head "Returns the head of a list.  Use `arr[0]` to return the first element of the passed array.  " b
