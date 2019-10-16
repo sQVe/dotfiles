@@ -108,12 +108,3 @@ func! LightlineFilename()
   let modified = &modified ? ' +' : ''
   return filename . modified
 endfunc
-
-" Toggle grammar checking.
-func! ToggleGrammarCheck()
-  if exists('b:grammarous_result')
-    :GrammarousReset
-  else
-    :GrammarousCheck
-  endif
-endfunc

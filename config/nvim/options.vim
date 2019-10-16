@@ -122,6 +122,8 @@ let g:ale_pattern_options = {
   \ },
   \ }
 
+let g:ale_writegood_options = '--no-passive'
+
 " Better Whitespace.
 let g:strip_whitespace_on_save = 1
 let g:strip_whitespace_confirm = 0
@@ -183,14 +185,11 @@ let g:grammarous#default_comments_only_filetypes = {
   \ 'markdown': 0,
   \ 'text': 0,
   \ }
-
 let g:grammarous#disabled_rules = {
   \ '*' : ['DASH_RULE'],
   \ 'markdown' : ['COMMA_PARENTHESIS_WHITESPACE', 'DASH_RULE', 'EN_QUOTES', 'WHITESPACE_RULE'],
   \ }
-
 let g:grammarous#languagetool_cmd = 'languagetool'
-let g:grammarous#show_first_error = 1
 
 " JavaScript.
 let g:javascript_plugin_jsdoc = 1

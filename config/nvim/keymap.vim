@@ -84,9 +84,6 @@ inoremap <C-x><C-s> <C-x>s
 "  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
 "  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
-nnoremap <silent> <C-s><C-g> :ToggleGrammarCheck<CR>
-nnoremap <silent> <C-s>g :ToggleGrammarCheck<CR>
-
 nnoremap <Leader>c :ToggleConceal<CR>
 nnoremap <Leader>n :ToggleRelativeNumber<CR>
 nnoremap <Leader>z :Fasd<Space>
