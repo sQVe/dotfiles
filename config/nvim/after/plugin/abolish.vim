@@ -3,10 +3,9 @@ if !exists(":Abolish")
 endif
 
 " Code syntax.
-Abolish cosnt const
-Abolish flase false
-Abolish retunr return
-Abolish reutnr return
+Abolish cosnt        const
+Abolish flase        false
+Abolish re{tun,utn}r return
 
 " English words.
 Abolish despara{te,tely,tion}                despera{}
