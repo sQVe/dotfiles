@@ -111,13 +111,16 @@ let g:ale_fixers = {
   \ 'markdown': ['prettier'],
   \ 'scss': ['prettier'],
   \ 'sh': ['shfmt'],
-  \ 'typescript': ['prettier', 'eslint', 'tslint'],
+  \ 'typescript': ['prettier', 'eslint'],
   \ 'yaml': ['prettier'],
   \ }
 let g:ale_pattern_options = {
   \ '\/work\/': {
   \   'ale_linters': {
   \     'typescript': ['tslint'],
+  \   },
+  \   'ale_fixers': {
+  \     'typescript': ['prettier', 'tslint'],
   \   },
   \ },
   \ }
