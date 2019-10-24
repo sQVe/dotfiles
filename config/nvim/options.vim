@@ -131,6 +131,11 @@ let g:ale_writegood_options = '--no-passive'
 let g:strip_whitespace_on_save = 1
 let g:strip_whitespace_confirm = 0
 
+" DoGe.
+let g:doge_enable_mappings = 0
+let g:doge_mapping_comment_jump_forward = '<C-j>'
+let g:doge_mapping_comment_jump_backward = '<C-k>'
+
 " EasyMotion.
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_grouping = 2
