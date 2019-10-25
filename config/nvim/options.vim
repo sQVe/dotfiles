@@ -92,6 +92,7 @@ let g:ale_fix_on_save = 1
 let g:ale_sign_error = '■'
 let g:ale_sign_info = '■'
 let g:ale_sign_warning = '■'
+
 let g:ale_linters = {
   \ 'css': ['stylelint'],
   \ 'help': ['alex', 'proselint', 'write-good'],
@@ -117,10 +118,24 @@ let g:ale_fixers = {
 let g:ale_pattern_options = {
   \ '\/work\/': {
   \   'ale_linters': {
+  \     'css': ['stylelint'],
+  \     'javascript': ['eslint'],
+  \     'markdown': ['alex', 'proselint', 'write-good'],
+  \     'scss': ['sasslint'],
+  \     'sh': ['shellcheck'],
+  \     'text': ['alex', 'proselint', 'write-good'],
   \     'typescript': ['tslint'],
   \   },
   \   'ale_fixers': {
+  \     'css': ['prettier', 'stylelint'],
+  \     'html': ['prettier'],
+  \     'javascript': ['prettier', 'eslint'],
+  \     'json': ['prettier', 'eslint'],
+  \     'markdown': ['prettier'],
+  \     'scss': ['prettier'],
+  \     'sh': ['shfmt'],
   \     'typescript': ['prettier', 'tslint'],
+  \     'yaml': ['prettier'],
   \   },
   \ },
   \ }
