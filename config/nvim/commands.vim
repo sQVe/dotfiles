@@ -6,7 +6,7 @@
 command! -bang -complete=buffer -nargs=? Bclose Bdelete<bang> <args>
 
 " Clear marks.
-command! ClearMarks :delm! | delm A-Z0-9
+command! ClearMarks :delm! | delm A-Z0-9 | wshada!
 
 " Clear registers.
 command! ClearRegisters for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor

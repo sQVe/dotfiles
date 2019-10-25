@@ -176,7 +176,6 @@ map zuG ZUG
 map zuw ZUW
 map zuw Zuw
 
-
 " Vifm.
 nnoremap <silent> å :Vifm<CR>
 nnoremap <silent> Å :Vifm .<CR>
