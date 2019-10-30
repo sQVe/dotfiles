@@ -53,6 +53,7 @@ augroup END
 augroup HandleMailNewlines
   autocmd!
   autocmd FileType mail setlocal formatoptions+=aw
+  autocmd FileType mail setlocal textwidth=72
   autocmd FileType mail DisableStripWhitespaceOnSave
 augroup END
 
