@@ -52,7 +52,7 @@ augroup END
 " 'text_flowed' option.
 augroup HandleMailNewlines
   autocmd!
-  autocmd FileType mail setlocal formatoptions+=w
+  autocmd FileType mail setlocal formatoptions+=aw
   autocmd FileType mail DisableStripWhitespaceOnSave
 augroup END
 
