@@ -10,6 +10,7 @@ Abolish re{tun,utn}r return
 " English words.
 Abolish despara{te,tely,tion}                despera{}
 Abolish reponse{,s}                          response{}
+Abolish scopr{e,es,ed,ing}                   scop{}
 Abolish seperat{e,es,ed,ing,ely,ion,ions,or} separat{}
 Abolish soruc{e,es,ing}                      sourc{}
 Abolish {,in}consistan{cy,cies,t,tly}        {}consisten{}
