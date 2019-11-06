@@ -22,54 +22,68 @@ endsnippet
 #  ┃  ┃ ┃┃┗┫┗━┓┃ ┃┃  ┣╸
 #  ┗━╸┗━┛╹ ╹┗━┛┗━┛┗━╸┗━╸
 
-snippet cc "Console clear" w
+snippet ca "console.assert" w
+console.assert(${1:expression}, ${2:value})
+endsnippet
+
+snippet cc "console.clear" w
 console.clear()
 endsnippet
 
-snippet ce "Console error" w
-console.error($1)
+snippet cd "console.dir" w
+console.dir(${1:value})
 endsnippet
 
-snippet cec "Console error with context" w
-console.error('`!v expand("%:t")`:`!v line(".")` ==>'', $1)
+snippet ce "console.error" w
+console.error(${1:value})
 endsnippet
 
-snippet cg "Console group" w
+snippet cec "console.error with file and line context" w
+console.error('`!v expand("%:t")`:`!v line(".")` ==>'', ${1:value})
+endsnippet
+
+snippet cg "console.group" w
 console.group()
-console.groupEnd()
 endsnippet
 
-snippet cg "Console collapsed group" w
+snippet cgc "console.groupCollapsed" w
 console.groupCollapsed()
+endsnippet
+
+snippet cge "console.groupEnd" w
 console.groupEnd()
 endsnippet
 
-snippet cl "Console log" w
-console.log($1)
+snippet cl "console.log" w
+console.log(${1:value})
 endsnippet
 
-snippet clc "Console log with context" w
-console.log('`!v expand("%:t")`:`!v line(".")` ==>', $1)
+snippet clc "console.log with file and line context" w
+console.log('`!v expand("%:t")`:`!v line(".")` ==>', ${1:value})
 endsnippet
 
-snippet ci "Console info" w
-console.info($1)
+snippet ci "console.info" w
+console.info(${1:value})
 endsnippet
 
-snippet cic "Console info with context" w
-console.info('`!v expand("%:t")`:`!v line(".")`' ==>', $1)
+snippet cic "console.info with file and line context" w
+console.info('`!v expand("%:t")`:`!v line(".")`' ==>', ${1:value})
 endsnippet
 
-snippet ct "Console table" w
-console.table($1)
+snippet ct "console.table" w
+console.table(${1:value})
 endsnippet
 
-snippet cw "Console warn" w
-console.warn($1)
+snippet ctr "console.trace" w
+console.trace(${1:value})
 endsnippet
 
-snippet cwc "Console warn with context" w
-console.warn('`!v expand("%:t")`:`!v line(".")` ==>'', $1)
+snippet cw "console.warn" w
+console.warn(${1:value})
+endsnippet
+
+snippet cwc "console.warn with file and line context" w
+console.warn('`!v expand("%:t")`:`!v line(".")` ==>'', ${1:value})
 endsnippet
 
 #  ╺┳┓╻┏━┓┏━┓┏┓ ╻  ┏━╸   ┏━╸┏━┓╻  ╻┏┓╻╺┳╸
