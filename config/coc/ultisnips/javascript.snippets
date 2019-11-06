@@ -10,12 +10,12 @@ endsnippet
 
 snippet ** "JsDoc Comment" b
 /**
- * ${VISUAL}$0
+ * $0
  */
 endsnippet
 
 snippet **! "Compact JsDoc Comment" b
-/** ${VISUAL}$0 */
+/** $0 */
 endsnippet
 
 
@@ -119,7 +119,7 @@ endsnippet
 
 snippet eslint-disable "Disable ESLint" b
 /* eslint-disable ${1:rule} */
-${VISUAL}$0
+$0
 /* eslint-enable */
 endsnippet
 
@@ -145,37 +145,37 @@ endsnippet
 
 snippet fn "function name() { ... }" w
 function ${1:name}(${2:arguments}) {
-	${VISUAL}$0
+	$0
 }
 endsnippet
 
 snippet fna "function () { ... } " w
 function(${1:arguments}) {
-	${VISUAL}$0
+	$0
 }
 endsnippet
 
 snippet fnr "() => { ... }" w
 (${1:arguments}) => {
-	${VISUAL}$0
+	$0
 }
 endsnippet
 
 snippet fns "async function name() { ... }" w
 async function ${1:name}(${2:arguments}) {
-	${VISUAL}$0
+	$0
 }
 endsnippet
 
 snippet fnsa "async function() { ... }" w
 async function(${1:arguments}) {
-	${VISUAL}$0
+	$0
 }
 endsnippet
 
 snippet fnsr "async () => { ... }" w
 async (${1:arguments}) => {
-	${VISUAL}$0
+	$0
 }
 endsnippet
 
@@ -185,97 +185,97 @@ endsnippet
 
 snippet before "before(() => { ... })" b
 before(() => {
-	${VISUAL}$0
+	$0
 })
 endsnippet
 
 snippet beforeAll "beforeAll(() => { ... })" b
 beforeAll(() => {
-	${VISUAL}$0
+	$0
 })
 endsnippet
 
 snippet beforeEach "beforeEach(() => { ... })" b
 beforeEach(() => {
-	${VISUAL}$0
+	$0
 })
 endsnippet
 
 snippet after "after(() => { ... }" b
 after(() => {
-	${VISUAL}$0
+	$0
 })
 endsnippet
 
 snippet afterAll "afterAll(() => { ... })" b
 afterAll(() => {
-	${VISUAL}$0
+	$0
 })
 endsnippet
 
 snippet afterEach "afterEach(() => { ... })" b
 afterEach(() => {
-	${VISUAL}$0
+	$0
 })
 endsnippet
 
 snippet describe "describe(context, () => { ... })" b
 describe('${1:context}', () => {
-	${VISUAL}$0
+	$0
 })
 endsnippet
 
 snippet it "it(action, () => { ... })" b
 it('${1:action}', () => {
-	${VISUAL}$0
+	$0
 })
 endsnippet
 
 snippet test "test(action, () => { ... })" b
 test('${1:action}', () => {
-	${VISUAL}$0
+	$0
 })
 endsnippet
 
 snippet When "When(when, () => { ... })" b
 When('${1:when}', () => {
-	${VISUAL}$0
+	$0
 })
 endsnippet
 
 snippet Then "Then(then, () => { ... })" b
 Then('${1:then}', () => {
-	${VISUAL}$0
+	$0
 })
 endsnippet
 
 snippet And "And(and,() => { ... })" b
 And('${1:and}', () => {
-	${VISUAL}$0
+	$0
 })
 endsnippet
 
 snippet expect "expect(subject).to" b
-expect(${1:subject}).to${VISUAL}$0
+expect(${1:subject}).to$0
 endsnippet
 
 #  ┏┳┓╻┏━┓┏━╸
 #  ┃┃┃┃┗━┓┃
 #  ╹ ╹╹┗━┛┗━╸
 
-snippet if "If statement" b
+snippet if "if(condition) { ... }" b
 if (${1:condition}) {
-	${VISUAL}$0
+	$0
 }
 endsnippet
 
-snippet tern "Ternary operator" b
+snippet tern "condition ? then : else" b
 ${1:condition} ? ${2} : ${3}
 endsnippet
 
 
-snippet switch "Switch statement" b
-switch (${VISUAL}${1:expression}) {
+snippet switch "switch (expression) { ... }" b
+switch (${1:expression}) {
 	case '${2}':
 		${3}
 		break
@@ -296,13 +296,13 @@ endsnippet
 #  ┗┛ ╹ ╹╹┗╸╹╹ ╹┗━┛┗━╸┗━╸┗━┛
 
 snippet vc "Const variable" b
-const ${1:name} = ${VISUAL}${0:value}
+const ${1:name} = ${0:value}
 endsnippet
 
 snippet vl "Let variable" b
-let ${1:name} = ${VISUAL}${0:value}
+let ${1:name} = ${0:value}
 endsnippet
 
 snippet vv "Var variable" b
-let ${1:name} = ${VISUAL}${0:value}
+let ${1:name} = ${0:value}
 endsnippet
