@@ -18,6 +18,33 @@ snippet **! "Compact JsDoc Comment" b
 /** ${VISUAL}$0 */
 endsnippet
 
+
+#  ╻┏┳┓┏━┓┏━┓┏━┓╺┳╸
+#  ┃┃┃┃┣━┛┃ ┃┣┳┛ ┃
+#  ╹╹ ╹╹  ┗━┛╹┗╸ ╹
+
+snippet imp "import module from 'path'" b
+import ${2:name} from '${1:path}'
+endsnippet
+
+snippet imn "import 'path'" b
+import '${1:path}'
+endsnippet
+
+snippet imd "import {} from 'path'" b
+import { $2 } from '${1:path}'
+endsnippet
+
+snippet ime "import * as name from 'path'" b
+import * as ${2:name} from '${1:path}'
+endsnippet
+
+snippet ima "import {name as newName} from 'path'" b
+import { $2 as ${3:alias} } from '${1:path}'
+endsnippet
+endsnippet
+
+
 #  ┏━╸┏━┓┏┓╻┏━┓┏━┓╻  ┏━╸
 #  ┃  ┃ ┃┃┗┫┗━┓┃ ┃┃  ┣╸
 #  ┗━╸┗━┛╹ ╹┗━┛┗━┛┗━╸┗━╸
@@ -235,10 +262,6 @@ endsnippet
 #  ┏┳┓╻┏━┓┏━╸
 #  ┃┃┃┃┗━┓┃
 #  ╹ ╹╹┗━┛┗━╸
-
-snippet import "Import module" b
-import ${1:name} from "${2:path}"
-endsnippet
 
 snippet if "If statement" b
 if (${1:condition}) {
