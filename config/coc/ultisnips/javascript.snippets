@@ -116,37 +116,37 @@ endsnippet
 #  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
 #  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
-snippet fn "Function declaration" w
+snippet fn "function name() { ... }" w
 function ${1:name}(${2:arguments}) {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet fna "Anonymous function" w
+snippet fna "function () { ... } " w
 function(${1:arguments}) {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet fnr "Rocket function" w
+snippet fnr "() => { ... }" w
 (${1:arguments}) => {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet fns "Async function declaration" w
+snippet fns "async function name() { ... }" w
 async function ${1:name}(${2:arguments}) {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet fnsa "Async anonymous function" w
+snippet fnsa "async function() { ... }" w
 async function(${1:arguments}) {
 	${VISUAL}$0
 }
 endsnippet
 
-snippet fnsr "Async rocket function" w
+snippet fnsr "async () => { ... }" w
 async (${1:arguments}) => {
 	${VISUAL}$0
 }
