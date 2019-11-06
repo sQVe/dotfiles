@@ -284,7 +284,19 @@ endsnippet
 #  ┃┃┃┃┗━┓┃
 #  ╹ ╹╹┗━┛┗━╸
 
-snippet if "if(condition) { ... }" b
+snippet forOf "for (prop of object) { ... }" b
+for (let ${2:prop} of ${1:object}) {
+	$0
+}
+endsnippet
+
+snippet forIn "for (prop in object) { ... }" b
+for (let ${2:prop} in ${1:object}) {
+	$0
+}
+endsnippet
+
+snippet if "if (condition) { ... }" b
 if (${1:condition}) {
 	$0
 }
@@ -317,14 +329,14 @@ endsnippet
 #  ┃┏┛┣━┫┣┳┛┃┣━┫┣┻┓┃  ┣╸ ┗━┓
 #  ┗┛ ╹ ╹╹┗╸╹╹ ╹┗━┛┗━╸┗━╸┗━┛
 
-snippet vc "Const variable" b
+snippet vc "const" b
 const ${1:name} = ${0:value}
 endsnippet
 
-snippet vl "Let variable" b
+snippet vl "let" b
 let ${1:name} = ${0:value}
 endsnippet
 
-snippet vv "Var variable" b
+snippet vv "var" b
 var ${1:name} = ${0:value}
 endsnippet
