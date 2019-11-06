@@ -156,79 +156,79 @@ endsnippet
 #   ┃ ┣╸ ┗━┓ ┃ ┃┃┗┫┃╺┓
 #   ╹ ┗━╸┗━┛ ╹ ╹╹ ╹┗━┛
 
-snippet before "Test before block" b
+snippet before "before(() => { ... })" b
 before(() => {
 	${VISUAL}$0
 })
 endsnippet
 
-snippet beforeAll "Test beforeAll block" b
+snippet beforeAll "beforeAll(() => { ... })" b
 beforeAll(() => {
 	${VISUAL}$0
 })
 endsnippet
 
-snippet beforeEach "Test beforeEach block" b
+snippet beforeEach "beforeEach(() => { ... })" b
 beforeEach(() => {
 	${VISUAL}$0
 })
 endsnippet
 
-snippet after "Test after block" b
+snippet after "after(() => { ... }" b
 after(() => {
 	${VISUAL}$0
 })
 endsnippet
 
-snippet afterAll "Test afterAll block" b
+snippet afterAll "afterAll(() => { ... })" b
 afterAll(() => {
 	${VISUAL}$0
 })
 endsnippet
 
-snippet afterEach "Test afterEach block" b
+snippet afterEach "afterEach(() => { ... })" b
 afterEach(() => {
 	${VISUAL}$0
 })
 endsnippet
 
-snippet describe "Test describe block" b
+snippet describe "describe(context, () => { ... })" b
 describe('${1:context}', () => {
 	${VISUAL}$0
 })
 endsnippet
 
-snippet it "Test it block" b
+snippet it "it(action, () => { ... })" b
 it('${1:action}', () => {
 	${VISUAL}$0
 })
 endsnippet
 
-snippet test "Test test block" b
+snippet test "test(action, () => { ... })" b
 test('${1:action}', () => {
 	${VISUAL}$0
 })
 endsnippet
 
-snippet When "Test When block" b
+snippet When "When(when, () => { ... })" b
 When('${1:when}', () => {
 	${VISUAL}$0
 })
 endsnippet
 
-snippet Then "Test Then block" b
-When('${1:then}', () => {
+snippet Then "Then(then, () => { ... })" b
+Then('${1:then}', () => {
 	${VISUAL}$0
 })
 endsnippet
 
-snippet And "Test And block" b
-When('${1:and}', () => {
+snippet And "And(and,() => { ... })" b
+And('${1:and}', () => {
 	${VISUAL}$0
 })
 endsnippet
 
-snippet expect "Test expect statement" b
+snippet expect "expect(subject).to" b
 expect(${1:subject}).to${VISUAL}$0
 endsnippet
 
