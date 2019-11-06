@@ -3,9 +3,9 @@
 #  ┗━╸┗━┛╹ ╹╹  ┗━┛╹ ╹┗━╸╹ ╹ ╹    ╹ ╹┗━┛╺┻┛┗━┛┗━╸┗━╸
 
 snippet rc "React Component Module" b
-import React, { ${2:Pure}Component } from 'react';
+import React, { ${1:Pure}Component } from 'react';
 
-export default class ${1:`!v expand('%:t:r')`} extends $2Component {
+export default class ${2:`!v expand('%:t:r')`} extends $1Component {
 	constructor(props) {
 		super(props);
 
@@ -40,8 +40,8 @@ static defaultProps = {
 endsnippet
 
 snippet rlcdp "component defaultProps" b
-${0:`!v expand('%:t:r')`}.defaultProps = {
-	$1
+${1:`!v expand('%:t:r')`}.defaultProps = {
+	$0
 };
 endsnippet
 
@@ -109,53 +109,53 @@ endsnippet
 #  ┣━┫┃ ┃┃ ┃┣┻┓┗━┓   ┣━┫┃┗┫ ┃┃   ┣╸ ┣╸ ┣╸ ┣╸ ┃   ┃ ┗━┓
 #  ╹ ╹┗━┛┗━┛╹ ╹┗━┛   ╹ ╹╹ ╹╺┻┛   ┗━╸╹  ╹  ┗━╸┗━╸ ╹ ┗━┛
 
-snippet ruseS "useState" b
+snippet rhs "useState" b
 const [$0, set$2`!p snip.rv=upperfirst(t[1])`] = useState($1);
 endsnippet
 
-snippet ruseE "useEffect" b
+snippet rhe "useEffect" b
 useEffect(() => {
 	$1$0
 }$2);
 endsnippet
 
-snippet ruseC "useContext" b
+snippet rhc "useContext" b
 ${2:const ${0:context} =} useContext($1);
 endsnippet
 
-snippet ruseRed "useReducer" b
+snippet rhred "useReducer" b
 const [${2:state}, ${3:dispatch}] = useReducer(${0:reducer}, ${1:null});
 endsnippet
 
-snippet ruseCB "useCallback" b
+snippet rhcb "useCallback" b
 const ${0:callback} = useCallback(($1) => ${2:{
 	$3
 }}, [$4]);
 endsnippet
 
-snippet ruseM "useMemo" b
+snippet rhm "useMemo" b
 const ${0:memoized} = useMemo(() => ${1:{
 	$2
 }}, [$3]);
 endsnippet
 
-snippet ruseR "useRef" b
+snippet rhr "useRef" b
 const ${0:ref} = useRef(${1:null});
 endsnippet
 
-snippet ruseI "useImperitiveHandle" b
+snippet rhi "useImperitiveHandle" b
 useImperitiveHandle(${0:ref}, ${3:() => ({
 	$1
 })}, ${4:[$2]})
 endsnippet
 
-snippet ruseL "useLayoutEffect" b
+snippet rhl "useLayoutEffect" b
 useLayoutEffect(() => {
 	$0
 });
 endsnippet
 
-snippet ruseD "useDebugValue" b
+snippet rhd "useDebugValue" b
 useDebugValue(${0:null});
 endsnippet
 

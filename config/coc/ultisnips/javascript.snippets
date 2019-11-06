@@ -40,7 +40,7 @@ import * as ${1:name} from '${0:path}'
 endsnippet
 
 snippet ima "import { name as newName } from 'path'" b
-import { $1 as ${2:alias} } from '${0:path}'
+import { $2 as ${0:alias} } from '${1:path}'
 endsnippet
 
 
@@ -57,7 +57,7 @@ export { $1 } from '${0:path}'
 endsnippet
 
 snippet exa "export { name as newName } from 'path'" b
-export { $1 as ${2:alias}} } from '${0:path}'
+export { $2 as ${0:alias}} } from '${1:path}'
 endsnippet
 
 
@@ -309,9 +309,8 @@ snippet iife "(() => { ... })()" b
 endsnippet
 
 snippet tern "condition ? then : else" b
-${1:condition} ? ${2} : ${3}
+${1:condition} ? ${2} : ${0}
 endsnippet
-
 
 snippet switch "switch (expression) { ... }" b
 switch (${1:expression}) {
