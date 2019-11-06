@@ -34,13 +34,13 @@ endsnippet
 
 snippet rlsdp "static defaultProps" b
 static defaultProps = {
-	$1
+	$0
 };
 endsnippet
 
 snippet rlcdp "component defaultProps" b
-${1:`!v expand('%:t:r')`}.defaultProps = {
-	$2
+${0:`!v expand('%:t:r')`}.defaultProps = {
+	$1
 };
 endsnippet
 
@@ -70,7 +70,7 @@ endsnippet
 
 snippet rlcdm "componentDidMount" b
 componentDidMount() {
-	$1
+	$0
 }
 endsnippet
 
@@ -100,25 +100,25 @@ endsnippet
 
 snippet rlcwum "componentWillUnmount" b
 componentWillUnmount() {
-	$1
+	$0
 }
 endsnippet
 
 snippet rlcwm "componentWillMount" b
 componentWillMount() {
-	$1
+	$0
 }
 endsnippet
 
 snippet rlcwrp "componentWillReceiveProps" b
 componentWillReceiveProps(nextProps) {
-	$1
+	$0
 }
 endsnippet
 
 snippet rlcwu "componentWillUpdate" b
 componentWillUpdate(nextProps, nextState) {
-	$3
+	$0
 }
 endsnippet
 
@@ -127,7 +127,7 @@ endsnippet
 #  ╹ ╹┗━┛┗━┛╹ ╹┗━┛   ╹ ╹╹ ╹╺┻┛   ┗━╸╹  ╹  ┗━╸┗━╸ ╹ ┗━┛
 
 snippet ruseS "useState" b
-const [$1, set$3`!p snip.rv=upperfirst(t[1])`] = useState($2);
+const [$0, set$2`!p snip.rv=upperfirst(t[1])`] = useState($1);
 endsnippet
 
 snippet ruseE "useEffect" b
@@ -137,43 +137,43 @@ useEffect(() => {
 endsnippet
 
 snippet ruseC "useContext" b
-${3:const ${1:context} =} useContext($2);
+${2:const ${0:context} =} useContext($1);
 endsnippet
 
 snippet ruseRed "useReducer" b
-const [${3:state}, ${4:dispatch}] = useReducer(${1:reducer}, ${2:null});
+const [${2:state}, ${3:dispatch}] = useReducer(${0:reducer}, ${1:null});
 endsnippet
 
 snippet ruseCB "useCallback" b
-const ${1:callback} = useCallback(($2) => ${3:{
-	$4
-}}, [$5]);
-endsnippet
-
-snippet ruseM "useMemo" b
-const ${1:memoized} = useMemo(() => ${2:{
+const ${0:callback} = useCallback(($1) => ${2:{
 	$3
 }}, [$4]);
 endsnippet
 
+snippet ruseM "useMemo" b
+const ${0:memoized} = useMemo(() => ${1:{
+	$2
+}}, [$3]);
+endsnippet
+
 snippet ruseR "useRef" b
-const ${1:ref} = useRef(${2:null});
+const ${0:ref} = useRef(${1:null});
 endsnippet
 
 snippet ruseI "useImperitiveHandle" b
-useImperitiveHandle(${1:ref}, ${4:() => ({
-	$2
-})}, ${5:[$3]})
+useImperitiveHandle(${0:ref}, ${3:() => ({
+	$1
+})}, ${4:[$2]})
 endsnippet
 
 snippet ruseL "useLayoutEffect" b
 useLayoutEffect(() => {
-	$1
+	$0
 });
 endsnippet
 
 snippet ruseD "useDebugValue" b
-useDebugValue(${1:null});
+useDebugValue(${0:null});
 endsnippet
 
 #  ┏━┓┏━┓┏━┓┏━┓   ╺┳╸╻ ╻┏━┓┏━╸┏━┓
@@ -245,57 +245,57 @@ PropTypes.element.isRequired
 endsnippet
 
 snippet rpt.ao "PropTypes.arrayOf()" w
-PropTypes.arrayOf(${1:PropTypes.string})
+PropTypes.arrayOf(${0:PropTypes.string})
 endsnippet
 
 snippet rpt.aor "PropTypes.arrayOf().isRequired" w
-PropTypes.arrayOf(${1:PropTypes.string}).isRequired
+PropTypes.arrayOf(${0:PropTypes.string}).isRequired
 endsnippet
 
 snippet rpt.io "PropTypes.instanceOf()" w
-PropTypes.instanceOf(${1:PropTypes.string})
+PropTypes.instanceOf(${0:PropTypes.string})
 endsnippet
 
 snippet rpt.ior "PropTypes.instanceOf().isRequired" w
-PropTypes.instanceOf(${1:PropTypes.string}).isRequired
+PropTypes.instanceOf(${0:PropTypes.string}).isRequired
 endsnippet
 
 snippet rpt.oo "PropTypes.objectOf()" w
-PropTypes.objectOf(${1:PropTypes.string})
+PropTypes.objectOf(${0:PropTypes.string})
 endsnippet
 
 snippet rpt.oor "PropTypes.objectOf().isRequired" w
-PropTypes.objectOf(${1:PropTypes.string}).isRequired
+PropTypes.objectOf(${0:PropTypes.string}).isRequired
 endsnippet
 
 snippet rpt.one "PropTypes.oneOf([])" w
-PropTypes.oneOf(['$1'$2])
+PropTypes.oneOf(['$0'$1])
 endsnippet
 
 snippet rpt.oner "PropTypes.oneOf([]).isRequired" w
-PropTypes.oneOf(['$1'$2]).isRequired
+PropTypes.oneOf(['$0'$1]).isRequired
 endsnippet
 
 snippet rpt.onet "PropTYpes.oneOfType([])" w
 PropTypes.oneOfType([
-	$1
+	$0
 ])
 endsnippet
 
 snippet rpt.onetr "PropTYpes.oneOfType([]).isRequired" w
 PropTypes.oneOfType([
-	$1
+	$0
 ]).isRequired
 endsnippet
 
 snippet rpt.sh "PropTypes.shape" w
 PropTypes.shape({
-	$1
+	$0
 })
 endsnippet
 
 snippet rpt.shr "PropTypes.shape.isRequired" w
 PropTypes.shape({
-	$1
+	$0
 }).isRequired
 endsnippet

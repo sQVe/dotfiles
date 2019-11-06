@@ -24,23 +24,23 @@ endsnippet
 #  ╹╹ ╹╹  ┗━┛╹┗╸ ╹
 
 snippet imp "import module from 'path'" b
-import ${2:name} from '${1:path}'
+import ${1:name} from '${0:path}'
 endsnippet
 
 snippet imn "import 'path'" b
-import '${1:path}'
+import '${0:path}'
 endsnippet
 
 snippet imd "import { name } from 'path'" b
-import { $2 } from '${1:path}'
+import { $1 } from '${0:path}'
 endsnippet
 
 snippet ime "import * as name from 'path'" b
-import * as ${2:name} from '${1:path}'
+import * as ${1:name} from '${0:path}'
 endsnippet
 
 snippet ima "import { name as newName } from 'path'" b
-import { $2 as ${3:alias} } from '${1:path}'
+import { $1 as ${2:alias} } from '${0:path}'
 endsnippet
 
 
@@ -49,15 +49,15 @@ endsnippet
 #  ┗━╸╹ ╹╹  ┗━┛╹┗╸ ╹
 
 snippet exp "export default module" b
-export default $1
+export default $0
 endsnippet
 
 snippet exd "export { name } from 'path'" b
-export { $2 } from '${1:path}'
+export { $1 } from '${0:path}'
 endsnippet
 
 snippet exa "export { name as newName } from 'path'" b
-export { $2 as ${3:alias}} } from '${1:path}'
+export { $1 as ${2:alias}} } from '${0:path}'
 endsnippet
 
 
@@ -66,7 +66,7 @@ endsnippet
 #  ┗━╸┗━┛╹ ╹┗━┛┗━┛┗━╸┗━╸
 
 snippet ca "console.assert" w
-console.assert(${1:expression}, ${2:value})
+console.assert(${0:expression}, ${1:value})
 endsnippet
 
 snippet cc "console.clear" w
@@ -74,15 +74,15 @@ console.clear()
 endsnippet
 
 snippet cd "console.dir" w
-console.dir(${1:value})
+console.dir(${0:value})
 endsnippet
 
 snippet ce "console.error" w
-console.error(${1:value})
+console.error(${0:value})
 endsnippet
 
 snippet cec "console.error with file and line context" w
-console.error('`!v expand("%:t")`:`!v line(".")` ==>'', ${1:value})
+console.error('`!v expand("%:t")`:`!v line(".")` ==>'', ${0:value})
 endsnippet
 
 snippet cg "console.group" w
@@ -98,35 +98,35 @@ console.groupEnd()
 endsnippet
 
 snippet cl "console.log" w
-console.log(${1:value})
+console.log(${0:value})
 endsnippet
 
 snippet clc "console.log with file and line context" w
-console.log('`!v expand("%:t")`:`!v line(".")` ==>', ${1:value})
+console.log('`!v expand("%:t")`:`!v line(".")` ==>', ${0:value})
 endsnippet
 
 snippet ci "console.info" w
-console.info(${1:value})
+console.info(${0:value})
 endsnippet
 
 snippet cic "console.info with file and line context" w
-console.info('`!v expand("%:t")`:`!v line(".")`' ==>', ${1:value})
+console.info('`!v expand("%:t")`:`!v line(".")`' ==>', ${0:value})
 endsnippet
 
 snippet ct "console.table" w
-console.table(${1:value})
+console.table(${0:value})
 endsnippet
 
 snippet ctr "console.trace" w
-console.trace(${1:value})
+console.trace(${0:value})
 endsnippet
 
 snippet cw "console.warn" w
-console.warn(${1:value})
+console.warn(${0:value})
 endsnippet
 
 snippet cwc "console.warn with file and line context" w
-console.warn('`!v expand("%:t")`:`!v line(".")` ==>'', ${1:value})
+console.warn('`!v expand("%:t")`:`!v line(".")` ==>'', ${0:value})
 endsnippet
 
 #  ╺┳┓╻┏━┓┏━┓┏┓ ╻  ┏━╸   ┏━╸┏━┓╻  ╻┏┓╻╺┳╸
@@ -140,11 +140,11 @@ $0
 endsnippet
 
 snippet eslint-disable-line "Disable ESLint for current line" w
-// eslint-disable-line ${1:rule}
+// eslint-disable-line ${0:rule}
 endsnippet
 
 snippet eslint-disable-next-line "Disable ESLint disable next line" b
-// eslint-disable-next-line ${1:rule}
+// eslint-disable-next-line ${0:rule}
 endsnippet
 
 #  ╺┳┓╻┏━┓┏━┓┏┓ ╻  ┏━╸   ┏━┓┏━┓┏━╸╺┳╸╺┳╸╻┏━╸┏━┓
@@ -320,5 +320,5 @@ let ${1:name} = ${0:value}
 endsnippet
 
 snippet vv "Var variable" b
-let ${1:name} = ${0:value}
+var ${1:name} = ${0:value}
 endsnippet
