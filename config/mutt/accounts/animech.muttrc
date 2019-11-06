@@ -25,7 +25,7 @@ set ssl_force_tls = yes
 macro index,pager äi "<change-folder>=Inbox<enter>" "Go to Inbox folder"
 macro index,pager ät "<change-folder>=Todo<enter>" "Go to Todo folder"
 macro index,pager äa "<change-folder>=Archive<enter>" "Go to Archive folder"
-macro index,pager äd "<change-folder>=Draft<enter>" "Go to Draft folder"
+macro index,pager äd "<change-folder>=Drafts<enter>" "Go to Drafts folder"
 macro index,pager äs "<change-folder>=Sent<enter>" "Go to Sent folder"
 
 unmailboxes *
