@@ -818,14 +818,16 @@ const hashNode = val =>
   );
 endsnippet
 
-snippet hasKey "Returns `true` if the target value exists in a JSON object, `false` otherwise.  Check if the key contains `.`, use `String.prototype.split('.')[0]` to get the first part and store as `_key`. Use `typeof` to check if the contents of `obj[key]` are an `object` and, if so, call `hasKey` with that object and the remainder of the `key`. Otherwise, use `Object.keys(obj)` in combination with `Array.prototype.includes()` to check if the given `key` exists.  " b
-const hasKey = (obj, key) => {
-  if (key.includes('.')) {
-    let _key = key.split('.')[0];
-    if (typeof obj[_key] === 'object')
-      return hasKey(obj[_key], key.slice(key.indexOf('.') + 1));
-  }
-  return Object.keys(obj).includes(key);
+snippet hasKey "Returns `true` if the target value exists in a JSON object, `false` otherwise.  Check if `keys` is non-empty and use `Array.prototype.every()` to sequentially check its keys to internal depth of the object, `obj`.  Use `Object.prototype.hasOwnProperty()` to check if `obj` does not have the current key or is not an object, stop propagation and return `false`. Otherwise assign the key's value to `obj` to use on the next iteration.  Return `false` beforehand if given key list is empty.  " b
+const hasKey = (obj, keys) => {
+  return (
+    keys.length > 0 &&
+    keys.every(key => {
+      if (typeof obj !== 'object' || !obj.hasOwnProperty(key)) return false;
+      obj = obj[key];
+      return true;
+    })
+  );
 };
 endsnippet
 
@@ -892,6 +894,14 @@ const hz = (fn, iterations = 100) => {
   for (let i = 0; i < iterations; i++) fn();
   return (1000 * iterations) / (performance.now() - before);
 };
+endsnippet
+
+snippet includesAll "Returns `true` if all the elements ιν `values` are included in `arr`, `false` otherwise.  Use `Array.prototype.every()` and `Array.prototype.includes()` to check if all elements of `values` are included in `arr`.  " b
+const includesAll = (arr, values) => values.every(v => arr.includes(v));
+endsnippet
+
+snippet includesAny "Returns `true` if at least one element of values is included in arr , `false` otherwise.  Use `Array.prototype.some()` and `Array.prototype.includes()` to check if at least one element of `values` is included in `arr`.  " b
+const includesAny = (arr, values) => values.some(v => arr.includes(v));
 endsnippet
 
 snippet indentString "Indents each line in the provided string.  Use `String.replace` and a regular expression to add the character specified by `indent` `count` times at the start of each line. Omit the third parameter, `indent`, to use a default indentation character of `' '`.  " b
@@ -1410,6 +1420,18 @@ endsnippet
 
 snippet objectToPairs "Creates an array of key-value pair arrays from an object.  Use `Object.keys()` and `Array.prototype.map()` to iterate over the object's keys and produce an array with key-value pairs.  " b
 const objectToPairs = obj => Object.keys(obj).map(k => [k, obj[k]]);
+endsnippet
+
+snippet objectToQueryString "Returns a query string generated from the key-value pairs of the given object.  Use `Array.prototype.reduce()` on `Object.entries(queryParameters)` to create the query string. Determine the `symbol` to be either `?` or `&` based on the `index` and concatenate `val` to `queryString` only if it's a string. Return the `queryString` or an empty string when the `queryParameters` are falsy.  " b
+const objectToQueryString = queryParameters => {
+  return queryParameters
+    ? Object.entries(queryParameters).reduce((queryString, [key, val], index) => {
+        const symbol = index === 0 ? '?' : '&';
+        queryString += typeof val === 'string' ? `${symbol}${key}=${val}` : '';
+        return queryString;
+      }, '')
+    : '';
+};
 endsnippet
 
 snippet observeMutations "Returns a new MutationObserver and runs the provided callback for each mutation on the specified element.  Use a [`MutationObserver`](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) to observe mutations on the given element. Use `Array.prototype.forEach()` to run the callback for each mutation that is observed. Omit the third argument, `options`, to use the default [options](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver#MutationObserverInit) (all `true`).  " b
