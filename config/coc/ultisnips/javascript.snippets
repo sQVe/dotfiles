@@ -31,7 +31,7 @@ snippet imn "import 'path'" b
 import '${1:path}'
 endsnippet
 
-snippet imd "import {} from 'path'" b
+snippet imd "import { name } from 'path'" b
 import { $2 } from '${1:path}'
 endsnippet
 
@@ -39,9 +39,25 @@ snippet ime "import * as name from 'path'" b
 import * as ${2:name} from '${1:path}'
 endsnippet
 
-snippet ima "import {name as newName} from 'path'" b
+snippet ima "import { name as newName } from 'path'" b
 import { $2 as ${3:alias} } from '${1:path}'
 endsnippet
+
+
+#  ┏━╸╻ ╻┏━┓┏━┓┏━┓╺┳╸
+#  ┣╸ ┏╋┛┣━┛┃ ┃┣┳┛ ┃
+#  ┗━╸╹ ╹╹  ┗━┛╹┗╸ ╹
+
+snippet exp "export default module" b
+export default $1
+endsnippet
+
+snippet exd "export { name } from 'path'" b
+export { $2 } from '${1:path}'
+endsnippet
+
+snippet exa "export { name as newName } from 'path'" b
+export { $2 as ${3:alias}} } from '${1:path}'
 endsnippet
 
 
@@ -285,9 +301,9 @@ switch (${1:expression}) {
 }
 endsnippet
 
-snippet case "Switch case" b
-case '${VISUAL}${1}':
-	${VISUAL}$0
+snippet case "case ... break" b
+case '${1}':
+	$0
 	break
 endsnippet
 
