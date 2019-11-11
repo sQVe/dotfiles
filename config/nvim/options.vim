@@ -11,7 +11,7 @@ set mouse=a                       " Enable mouse.
 set noshowmode                    " Disable show mode.
 set nostartofline                 " Do not jump to first character with page commands.
 set ruler                         " Show the cursor position all the time.
-set shortmess+=I                  " Disable version intro text.
+set shortmess+=Ic                 " Disable version intro text.
 set showcmd                       " Display incomplete commands.
 set signcolumn=yes                " Always show sign column.
 set termguicolors                 " Enable 24-bit colors.
@@ -261,7 +261,7 @@ let g:signify_vcs_list = ['git']
 
 " Spelunker.
 let g:enable_spelunker_vim = 0
-let g:spelunker_check_type = 2
+let g:spelunker_check_type = 1
 let g:spelunker_spell_bad_group = 'DraculaWarnLine'
 let g:spelunker_white_list_for_user = []
 
