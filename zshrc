@@ -71,7 +71,6 @@ export FZF_DEFAULT_OPTS='
   --reverse
 '
 
-
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 # ¤¤¤¤  Keybindings  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
@@ -83,7 +82,6 @@ bindkey '^[^H' backward-kill-word
 bindkey '^E' edit-command-line
 bindkey '^F' fzf-file-widget
 bindkey '^G' fzf-cd-widget
-
 
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 # ¤¤¤¤  Aliases  ¤¤¤¤
