@@ -66,7 +66,7 @@ endsnippet
 #  ┗━╸┗━┛╹ ╹┗━┛┗━┛┗━╸┗━╸
 
 snippet ca "console.assert" w
-console.assert(${0:expression}, ${1:value})
+console.assert(${0:expression}, $1)
 endsnippet
 
 snippet cc "console.clear" w
@@ -74,15 +74,15 @@ console.clear()
 endsnippet
 
 snippet cd "console.dir" w
-console.dir(${0:value})
+console.dir($0)
 endsnippet
 
 snippet ce "console.error" w
-console.error(${0:value})
+console.error($0)
 endsnippet
 
 snippet cec "console.error with file and line context" w
-console.error('`!v expand("%:t")`:`!v line(".")` ==>'', ${0:value})
+console.error('`!v expand("%:t")`:`!v line(".")` ==>'', $0)
 endsnippet
 
 snippet cg "console.group" w
@@ -98,35 +98,35 @@ console.groupEnd()
 endsnippet
 
 snippet cl "console.log" w
-console.log(${0:value})
+console.log($0)
 endsnippet
 
 snippet clc "console.log with file and line context" w
-console.log('`!v expand("%:t")`:`!v line(".")` ==>', ${0:value})
+console.log('`!v expand("%:t")`:`!v line(".")` ==>', $0)
 endsnippet
 
 snippet ci "console.info" w
-console.info(${0:value})
+console.info($0)
 endsnippet
 
 snippet cic "console.info with file and line context" w
-console.info('`!v expand("%:t")`:`!v line(".")`' ==>', ${0:value})
+console.info('`!v expand("%:t")`:`!v line(".")`' ==>', $0)
 endsnippet
 
 snippet ct "console.table" w
-console.table(${0:value})
+console.table($0)
 endsnippet
 
 snippet ctr "console.trace" w
-console.trace(${0:value})
+console.trace()
 endsnippet
 
 snippet cw "console.warn" w
-console.warn(${0:value})
+console.warn($0)
 endsnippet
 
 snippet cwc "console.warn with file and line context" w
-console.warn('`!v expand("%:t")`:`!v line(".")` ==>'', ${0:value})
+console.warn('`!v expand("%:t")`:`!v line(".")` ==>'', $0)
 endsnippet
 
 
