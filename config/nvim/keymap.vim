@@ -101,8 +101,8 @@ noremap <silent> [c :ALEPreviousWrap<CR>
 noremap <silent> ]c :ALENextWrap<CR>
 
 " Coc.
-nmap <silent> <Leader>o :CocList outline<CR>
-nmap <silent> <Leader>O :CocList -I symbols<CR>
+nmap <silent> <Leader>o :CocList --auto-preview --tab outline<CR>
+nmap <silent> <Leader>O :CocList --auto-preview --interactive --tab symbols<CR>
 nmap <silent> <Leader>f <Plug>(coc-fix-current)
 nmap <silent> <Leader>r <Plug>(coc-rename)
 nmap <silent> K :ShowDocumentation<CR>
