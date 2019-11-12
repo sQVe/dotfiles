@@ -10,10 +10,10 @@
 
 bind attach,browser,index,pager d   noop
 bind attach,browser,index,pager g   noop
-bind pager                      dt  noop
-bind pager                      i   noop
 bind index                      q   noop
 bind index                <Space>   noop
+bind index,pager                i   noop
+bind pager                      dt  noop
 
 bind attach,browser,index       gg  first-entry
 bind attach,browser,index       G   last-entry
