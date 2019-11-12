@@ -23,7 +23,6 @@ hi! link CocInfoHighlight      DraculaInfoLine
 hi! link CocInfoSign           DraculaCyan
 hi! link CocWarningHighlight   DraculaWarnLine
 hi! link CocWarningSign        DraculaOrange
-hi! link HighlightedyankRegion DraculaOrangeInverse
 
 " EasyMotion.
 hi! link EasyMotionTarget        DraculaPink
