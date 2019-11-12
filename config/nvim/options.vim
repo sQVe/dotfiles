@@ -53,7 +53,7 @@ set foldenable                    " Enable folding.
 set foldlevelstart=99             " Folding level.
 set foldmethod=indent             " Folding method.
 
-let g:is_sh = 1                   " Enable sh syntax folding.
+let g:is_sh = 1                   " Enable default sh syntax.
 let g:sh_fold_enabled = 4         " Fold down to if/do/for etc.
 
 " Line number.
@@ -194,7 +194,7 @@ let g:fzf_colors = {
   \ 'border':  ['fg', 'Ignore'],
   \ 'prompt':  ['fg', 'DraculaPink'],
   \ 'pointer': ['fg', 'DraculaPurple'],
-  \ 'marker':  ['fg', 'DraculaOranee'],
+  \ 'marker':  ['fg', 'DraculaOrange'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'],
   \ }
