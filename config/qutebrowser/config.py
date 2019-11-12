@@ -1146,7 +1146,7 @@ c.colors.webpage.bg = 'white'
 # Default monospace fonts. Whenever "monospace" is used in a font
 # setting, it's replaced with the fonts listed here.
 # Type: Font
-c.fonts.monospace = 'Iosevka, monospace'
+c.fonts.monospace = 'Iosevka Term, monospace'
 
 # Font used in the completion widget.
 # Type: Font
