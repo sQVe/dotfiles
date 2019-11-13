@@ -2,14 +2,14 @@
   "dependencies": {
     "coc-css": ">=1.2.2",
     "coc-dictionary": ">=1.2.2",
+    "coc-emmet": ">=1.1.3",
     "coc-github": ">=1.0.1",
     "coc-html": ">=1.2.1",
     "coc-json": ">=1.2.4",
     "coc-sh": ">=0.2.1",
-    "coc-tsserver": ">=1.4.5",
     "coc-snippets": ">=2.1.13",
-    "coc-yank": ">=1.1.2",
     "coc-tabnine": ">=1.2.1",
-    "coc-emmet": ">=1.1.3"
+    "coc-tsserver": ">=1.4.6",
+    "coc-yank": ">=1.1.2"
   }
 }
