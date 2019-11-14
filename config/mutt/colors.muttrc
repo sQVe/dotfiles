@@ -1,9 +1,8 @@
-
 #  ┏━╸┏━┓╻  ┏━┓┏━┓┏━┓
 #  ┃  ┃ ┃┃  ┃ ┃┣┳┛┗━┓
 #  ┗━╸┗━┛┗━╸┗━┛╹┗╸┗━┛
 
-source dracula.muttrc
+source gruvbox-theme.muttrc
 
 mono    body                  bold        "^gpg: BAD signature from.*"
 mono    body                  bold        "^gpg: Good signature"
@@ -18,9 +17,9 @@ mono    underline             underline
 
 color   bold                  black           default
 
-color   index_author          cyan            default   '.*'
+color   index_author          brightblue      default   '.*'
 color   index_author          brightred       default   "~N"
-color   index_number          yellow          default
+color   index_number          green            default
 color   index_subject         white           default   '.*'
 color   index_subject         brightcyan      default   "~N"
 

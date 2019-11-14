@@ -11,11 +11,11 @@ set $alt Mod1
 set $mod Mod4
 
 set $font Iosevka Nerd Font 7
-set $color-bg #343434
-set $color-bg-hi #444444
-set $color-text #999999
-set $color-purple #BD93F9
-set $color-green #50FA7B
+set $color-bg #282828
+set $color-bg-hi #3c3836
+set $color-text #a89984
+set $color-purple #b16286
+set $color-green #8ec07c
 
 set $workspace-0 "0 "
 set $workspace-1 "1 "

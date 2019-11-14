@@ -76,7 +76,10 @@ set undodir=$HOME/.local/share/nvim/.undo,/tmp
 set undofile                      " Keep a persistent backup file.
 
 " Colorscheme.
-colorscheme dracula
+let g:gruvbox_italic = 1
+let g:gruvbox_sign_column = 'bg0'
+
+colorscheme gruvbox
 
 
 "  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ┏━┓┏━┓╺┳╸╻┏━┓┏┓╻┏━┓
@@ -185,16 +188,16 @@ let g:fzf_action = {
   \ }
 let g:fzf_colors = {
   \ 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'DraculaSelection'],
-  \ 'hl':      ['fg', 'DraculaPink'],
+  \ 'bg':      ['bg', 'ColorColumn'],
+  \ 'hl':      ['fg', 'GruvboxRed'],
   \ 'fg+':     ['fg', 'Normal'],
-  \ 'bg+':     ['bg', 'DraculaSelection'],
-  \ 'hl+':     ['fg', 'DraculaPurple'],
-  \ 'info':    ['fg', 'DraculaPurple'],
+  \ 'bg+':     ['bg', 'ColorColumn'],
+  \ 'hl+':     ['fg', 'GruvboxPurple'],
+  \ 'info':    ['fg', 'GruvboxPurple'],
   \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'DraculaPink'],
-  \ 'pointer': ['fg', 'DraculaPurple'],
-  \ 'marker':  ['fg', 'DraculaOrange'],
+  \ 'prompt':  ['fg', 'GruvboxRed'],
+  \ 'pointer': ['fg', 'GruvboxPurple'],
+  \ 'marker':  ['fg', 'GruvboxOrange'],
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'],
   \ }
@@ -227,7 +230,7 @@ let g:javascript_plugin_jsdoc = 1
 
 " Lightline.
 let g:lightline = {
-  \ 'colorscheme': 'dracula',
+  \ 'colorscheme': 'gruvbox',
   \ 'active': {
   \   'left': [[ 'mode', 'paste' ],
   \            [ 'readonly', 'filename', 'gitbranch' ]],
@@ -261,9 +264,8 @@ let g:signify_vcs_list = ['git']
 
 " Spelunker.
 let g:enable_spelunker_vim = 0
-let g:spelunker_check_type = 1
-let g:spelunker_spell_bad_group = 'DraculaWarnLine'
-let g:spelunker_white_list_for_user = []
+let g:spelunker_check_type = 1        " Check whole file on open and save.
+let g:spelunker_highlight_type = 2    " Only check SpellBad words.
 
 " Supertab.
 let g:SuperTabDefaultCompletionType = '<C-n>'

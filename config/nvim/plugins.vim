@@ -9,7 +9,7 @@
 call plug#begin('$HOME/.local/share/nvim/plugged')
 
 " Colorschemes.
-Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'morhetz/gruvbox'
 
 " Language, syntax and formatting.
 Plug 'sheerun/vim-polyglot'

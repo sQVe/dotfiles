@@ -14,8 +14,10 @@ source ${ZIM_HOME}/modules/external/zsh-system-clipboard/zsh-system-clipboard.zs
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 if [[ "$TERM" = 'linux' ]]; then
   # Replicate colors definied in .Xresources for virtual console.
-  colors=$(sed -n 's/\*\.color\([0-9]\+\).*#\(\w\{6\}\)/\1 \2/p' "$HOME/.Xresources")
-  echo -en $(awk '$1 < 16 {printf "\\e]P%X%s", $1, $2}' <<< "$colors")
+  _SEDCMD='s/.*\*color\([0-9]\{1,\}\).*#\([0-9a-fA-F]\{6\}\).*/\1 \2/p'
+  for i in $(sed -n "$_SEDCMD" $HOME/.Xresources | awk '$1 < 16 {printf "\\e]P%X%s", $1, $2}'); do
+      echo -en "$i"
+  done
   clear
 fi
 
@@ -62,12 +64,12 @@ function vifm-cd() {
 export FZF_ALT_C_COMMAND='command fd --type d --hidden --follow --exclude .git'
 export FZF_ALT_C_OPTS="--preview 'exa -T -L 1 --group-directories-first --color=always {}'"
 export FZF_CTRL_T_COMMAND='command fd --type f --hidden --follow --exclude .git'
-export FZF_CTRL_T_OPTS="--preview '(highlight -l -O truecolor -s dracula --stdout {} 2> /dev/null || cat {}) 2> /dev/null | head -200'"
+export FZF_CTRL_T_OPTS="--preview '(highlight -l -O truecolor --base16=gruvbox-dark-medium --stdout {} 2> /dev/null || cat {}) 2> /dev/null | head -200'"
 export FZF_DEFAULT_COMMAND='command fd --type f --hidden --follow --exclude .git'
 export FZF_DEFAULT_OPTS='
-  --color=bg+:#343434,spinner:#BD93F9,hl:#BD93F9
-  --color=fg:#F8F8F2,info:#FF79C6,pointer:#50FA7B
-  --color=marker:#50FA7B,hl+:#50FA7B
+  --color=bg+:#282828,spinner:#b16286,hl:#b16286
+  --color=fg:#ebdbb2,info:#458588,pointer:#98971a
+  --color=marker:#98971a,hl+:#98971a
   --reverse
 '
 
@@ -129,13 +131,13 @@ alias c=cat
 alias camera=gphoto2
 alias diff='diff --color=always --unified'
 alias fd='fd --hidden --follow'
-alias feh='feh --scale-down --auto-zoom --image-bg "#343434"'
+alias feh='feh --scale-down --auto-zoom --image-bg "#282828"'
 alias fm=vifm-cd
 alias format='npx prettier --write'
 alias format-opinionated='npx prettier --no-semi --single-quote --trailing-comma es5 --write'
 alias git=hub
-alias hc='highlight -O truecolor --force -s dracula --stdout'
-alias hcat='highlight -O truecolor --force -s dracula --stdout'
+alias hc='highlight -O truecolor --force --base16=gruvbox-dark-medium --stdout'
+alias hcat='highlight -O truecolor --force --base16=gruvbox-dark-medium --stdout'
 alias l=less
 alias leave='i3-msg exit'
 alias loc=locate

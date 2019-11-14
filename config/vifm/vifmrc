@@ -41,8 +41,27 @@ set suggestoptions=normal,visual,view,otherpane,keys,marks,registers
 set wildmenu
 set wildstyle=popup
 
-" Colorscheme.
-colorscheme dracula
+" Colorscheme Gruvbox.
+highlight clear
+highlight Border     cterm=none          ctermfg=none    ctermbg=default
+highlight BrokenLink cterm=bold          ctermfg=167     ctermbg=default
+highlight CmdLine    cterm=none          ctermfg=223     ctermbg=default
+highlight CurrLine   cterm=bold,inverse  ctermfg=default ctermbg=default
+highlight Device     cterm=none,standout ctermfg=214     ctermbg=default
+highlight Directory  cterm=bold          ctermfg=109     ctermbg=default
+highlight ErrorMsg   cterm=bold          ctermfg=167     ctermbg=default
+highlight Executable cterm=bold          ctermfg=142     ctermbg=default
+highlight Fifo       cterm=none          ctermfg=172     ctermbg=default
+highlight JobLine    cterm=bold          ctermfg=116     ctermbg=238
+highlight Link       cterm=none          ctermfg=132     ctermbg=default
+highlight OtherLine  cterm=bold          ctermfg=default ctermbg=235
+highlight Selected   cterm=none          ctermfg=223     ctermbg=237
+highlight Socket     cterm=bold          ctermfg=223     ctermbg=default
+highlight StatusLine cterm=bold          ctermfg=144     ctermbg=236
+highlight TopLine    cterm=none          ctermfg=214     ctermbg=235
+highlight TopLineSel cterm=bold          ctermfg=214     ctermbg=237
+highlight WildMenu   cterm=bold          ctermfg=235     ctermbg=144
+highlight Win        cterm=none          ctermfg=223     ctermbg=default
 
 
 "  ┏┳┓┏━┓┏━┓╻┏ ┏━┓
@@ -156,7 +175,7 @@ fileviewer *.gif
   \ ~/scripts/vifm/vifmimg.sh clear
 
 " Text and directory preview.
-fileviewer *[^/] highlight -O ansi -s dracula --stdout --force
+fileviewer *[^/] highlight -O ansi --base16=gruvbox-dark-medium --stdout --force
 fileviewer */ exa -T -L 1 --group-directories-first --color=always
 
 
