@@ -163,7 +163,7 @@ bindsym $mod+c exec $menu-clipboard
 bindsym $mod+d exec $menu-apps
 bindsym $mod+e exec $menu-exit
 bindsym $mod+f exec $vifm
-bindsym $mod+g gaps inner current plus 20
+bindsym $mod+g gaps inner current plus 40
 bindsym $mod+h focus left
 bindsym $mod+i scratchpad show
 bindsym $mod+j focus down
@@ -186,7 +186,7 @@ bindsym $mod+z exec $menu-projects
 
 bindsym $mod+Shift+b exec $music-toggle
 bindsym $mod+Shift+d exec $menu-run
-bindsym $mod+Shift+g gaps inner current minus 20
+bindsym $mod+Shift+g gaps inner current minus 40
 bindsym $mod+Shift+h move left 180
 bindsym $mod+Shift+i move scratchpad
 bindsym $mod+Shift+j move down 180
