@@ -162,13 +162,6 @@ let g:doge_enable_mappings = 0
 let g:doge_mapping_comment_jump_forward = '<C-j>'
 let g:doge_mapping_comment_jump_backward = '<C-k>'
 
-" EasyMotion.
-let g:EasyMotion_do_mapping = 0
-let g:EasyMotion_grouping = 2
-let g:EasyMotion_keys = 'fjdkslaörueiwoqpvncmxz'
-let g:EasyMotion_smartcase = 1
-let g:EasyMotion_skipfoldedline = 0
-
 " Emmet.
 let g:user_emmet_settings = {
   \ 'javascript' : { 'extends' : 'jsx' },
@@ -261,6 +254,12 @@ runtime macros/sandwich/keymap/surround.vim
 
 " Signify.
 let g:signify_vcs_list = ['git']
+
+" Sneak.
+let g:sneak#label = 1
+let g:sneak#prompt = '> '
+let g:sneak#s_next = 1
+let g:sneak#target_labels = ";fjdkslarueiwoqpvncmxz"
 
 " Spelunker.
 let g:enable_spelunker_vim = 0

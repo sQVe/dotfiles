@@ -128,12 +128,6 @@ inoremap <silent><expr> <C-Space> coc#refresh()
 " Use <CR> to confirm completion.
 inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 
-" EasyMotion.
-map <silent> s <Plug>(easymotion-s)
-map <silent> S <Plug>(easymotion-s2)
-vmap <silent> s <Plug>(easymotion-s)
-vmap <silent> S <Plug>(easymotion-s2)
-
 " EasyAlign.
 xmap <silent> ga <Plug>(EasyAlign)
 nmap <silent> ga <Plug>(EasyAlign)
@@ -165,6 +159,12 @@ nnoremap <silent> ä :Files<CR>
 
 " Slash.
 noremap <plug>(slash-after) zz
+
+" Sneak.
+map f <Plug>Sneak_f
+map F <Plug>Sneak_F
+map t <Plug>Sneak_t
+map T <Plug>Sneak_T
 
 " Spelunker.
 map <C-s> ZT
