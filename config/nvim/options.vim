@@ -261,11 +261,6 @@ let g:sneak#prompt = '> '
 let g:sneak#s_next = 1
 let g:sneak#target_labels = ";fjdkslarueiwoqpvncmxz"
 
-" Spelunker.
-let g:enable_spelunker_vim = 0
-let g:spelunker_check_type = 1        " Check whole file on open and save.
-let g:spelunker_highlight_type = 2    " Only check SpellBad words.
-
 " Supertab.
 let g:SuperTabDefaultCompletionType = '<C-n>'
 

@@ -51,6 +51,11 @@ func! ToggleRelativeNumber()
   endif
 endfunc
 
+" Toggle spell checking.
+func! ToggleSpellCheck()
+  set spell!
+endfunc
+
 
 "  ┏━┓╻ ╻┏━┓╺┳╸┏━╸┏┳┓   ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓
 "  ┗━┓┗┳┛┗━┓ ┃ ┣╸ ┃┃┃   ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓

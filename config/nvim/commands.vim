@@ -63,11 +63,14 @@ command! -nargs=0 ShowDocumentation call ShowDocumentation()
 " Toggle concealing.
 command! -nargs=0 ToggleConceal call ToggleConceal()
 
+" Toggle grammar checking.
+command! -nargs=0 ToggleGrammarCheck call ToggleGrammarCheck()
+
 " Toggle relative numbering.
 command! -nargs=0 ToggleRelativeNumber call ToggleRelativeNumber()
 
-" Toggle grammar checking.
-command! -nargs=0 ToggleGrammarCheck call ToggleGrammarCheck()
+" Toggle spell checking.
+command! -nargs=0 ToggleSpellCheck call ToggleSpellCheck()
 
 
 "  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓┏━┓

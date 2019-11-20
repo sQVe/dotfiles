@@ -84,6 +84,7 @@ inoremap <C-x><C-s> <C-x>s
 "  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
 "  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
+nnoremap <C-s> :ToggleSpellCheck<CR>
 nnoremap <Leader>c :ToggleConceal<CR>
 nnoremap <Leader>n :ToggleRelativeNumber<CR>
 nnoremap <Leader>z :Fasd<Space>
@@ -165,16 +166,6 @@ map f <Plug>Sneak_f
 map F <Plug>Sneak_F
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T
-
-" Spelunker.
-map <C-s> ZT
-map z= Zl
-map zG ZG
-map zW ZW
-map zg Zg
-map zuG ZUG
-map zuw ZUW
-map zuw Zuw
 
 " Vifm.
 nnoremap <silent> å :Vifm<CR>
