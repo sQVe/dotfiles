@@ -5,6 +5,12 @@
   "diagnostic.infoSign": "■",
   "diagnostic.warningSign": "■",
   "languageserver": {
+    "bash": {
+      "command": "bash-language-server",
+      "args": ["start"],
+      "filetypes": ["sh"],
+      "ignoredRootPaths": ["~"]
+    },
     "haskell": {
       "command": "hie-wrapper",
       "rootPatterns": ["stack.yaml", "cabal.config", "package.yaml"],
