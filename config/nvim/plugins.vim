@@ -8,48 +8,57 @@
 
 call plug#begin('$HOME/.local/share/nvim/plugged')
 
+" Align, surround and repeat.
+Plug 'junegunn/vim-easy-align'          " Alignment.
+Plug 'machakann/vim-sandwich'           " Surround text.
+Plug 'tpope/vim-repeat'                 " Repeat for plugins.
+
 " Colorschemes.
-Plug 'morhetz/gruvbox'
-
-" Language, syntax and formatting.
-Plug 'sheerun/vim-polyglot'
-
-" Interface.
-Plug 'ap/vim-buftabline'
-Plug 'brooth/far.vim'
-Plug 'dense-analysis/ale'
-Plug 'itchyny/lightline.vim'
-Plug 'junegunn/fzf', { 'dir': '$HOME/.local/share/nvim/apps/fzf', 'do': './install --bin' }
-Plug 'junegunn/fzf.vim'
-Plug 'junegunn/vim-peekaboo'
-Plug 'justinmk/vim-sneak'
-Plug 'markonm/traces.vim'
-Plug 'mhinz/vim-signify'
-Plug 'samoshkin/vim-mergetool'
-Plug 'tpope/vim-fugitive'
-Plug 'vifm/vifm.vim'
-
-" Integration.
-Plug 'editorconfig/editorconfig-vim'
-Plug 'junegunn/vim-easy-align'
-Plug 'junegunn/vim-slash'
-Plug 'kkoomen/vim-doge'
-Plug 'machakann/vim-sandwich'
-Plug 'mg979/vim-visual-multi'
-Plug 'ntpeters/vim-better-whitespace'
-Plug 'sickill/vim-pasta'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-rhubarb'
-Plug 'wellle/targets.vim'
+Plug 'morhetz/gruvbox'                  " Gruvbox colorscheme.
 
 " Commands.
-Plug 'lambdalisue/suda.vim'
-Plug 'moll/vim-bbye'
-Plug 'tpope/vim-abolish'
+Plug 'lambdalisue/suda.vim'             " Read and write with sudo.
+Plug 'moll/vim-bbye'                    " Delete buffers without closing window.
+Plug 'tpope/vim-abolish'                " Substitute and abbreviate variants of a word.
 
-" Completion and spelling.
-Plug 'neoclide/coc.nvim', {'do': 'yarn install --frozen-lockfile'}
-Plug 'rhysd/vim-grammarous'
+" Comments and documentation.
+Plug 'kkoomen/vim-doge'                 " Generate documentation.
+Plug 'tpope/vim-commentary'             " Comment text.
+
+" Completion, diagnostics and spelling.
+Plug 'dense-analysis/ale'               " Lint and fix files.
+Plug 'neoclide/coc.nvim', {
+  \ 'do': 'yarn install --frozen-lockfile'
+  \ }                                   " Intellisense with LSP.
+Plug 'rhysd/vim-grammarous'             " Grammary check with languagetool.
+
+" Integration.
+Plug 'tpope/vim-fugitive'               " Git.
+Plug 'editorconfig/editorconfig-vim'    " Editorconfig.
+Plug 'sickill/vim-pasta'                " Paste with smart indentation.
+Plug 'tpope/vim-rhubarb'                " Use hub instead of git.
+
+" Interface.
+Plug 'ap/vim-buftabline'                " Buffer tabs.
+Plug 'itchyny/lightline.vim'            " Status line.
+Plug 'mhinz/vim-signify'                " Git sign column.
+Plug 'ntpeters/vim-better-whitespace'   " Highlight trailing whitespace.
+Plug 'samoshkin/vim-mergetool'          " Git mergetool
+Plug 'vifm/vifm.vim'                    " Vifm.
+
+" Search, replace and navigation.
+Plug 'brooth/far.vim'                   " Find and replace.
+Plug 'junegunn/fzf.vim'                 " Fzf.
+Plug 'junegunn/vim-peekaboo'            " View content of registers.
+Plug 'junegunn/vim-slash'               " Improve search with centering and clearing.
+Plug 'justinmk/vim-sneak'               " Quick jump.
+Plug 'markonm/traces.vim'               " Range, pattern and substitute preview.
+Plug 'mg979/vim-visual-multi'           " Multiple cursors.
+
+" Syntax.
+Plug 'sheerun/vim-polyglot'             " Language pack.
+
+" Text objects.
+Plug 'wellle/targets.vim'               " Additional text objects.
 
 call plug#end()
