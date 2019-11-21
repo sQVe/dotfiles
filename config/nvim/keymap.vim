@@ -41,6 +41,9 @@ noremap <silent> <Leader>D :Bclose!<CR>
 noremap <silent> <Leader><CR> :Term<CR><CR>
 noremap <silent> <Leader>t :BTerm<CR><CR>
 
+" Remove highlighted search result.
+nnoremap <Esc><Esc> :nohl<CR>
+
 " Set pwd to current open buffer path.
 noremap cd :Cdb<CR>:pwd<CR>
 
