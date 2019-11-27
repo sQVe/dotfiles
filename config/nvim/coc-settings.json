@@ -1,5 +1,4 @@
 {
-  "diagnostic.checkCurrentLine": true,
   "diagnostic.displayByAle": true,
   "diagnostic.errorSign": "■",
   "diagnostic.infoSign": "■",
