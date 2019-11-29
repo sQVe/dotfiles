@@ -34,8 +34,8 @@ noremap <Leader><Leader> :write<CR>
 " Quit and close buffer.
 noremap <silent> <Leader>q :quit<CR>
 noremap <silent> <Leader>Q :quit!<CR>
-noremap <silent> <Leader>d :Bclose<CR>
-noremap <silent> <Leader>D :Bclose!<CR>
+noremap <silent> <Leader>d :Bdelete<CR>
+noremap <silent> <Leader>D :Bdelete!<CR>
 
 " Term.
 noremap <silent> <Leader><CR> :Term<CR><CR>

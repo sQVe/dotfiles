@@ -2,9 +2,6 @@
 "  ┣┻┓┣━┫┗━┓┣╸    ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃┗━┓
 "  ┗━┛╹ ╹┗━┛┗━╸   ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛┗━┛
 
-" Add explanatory command! name for Bdelete (vim-bbye)
-command! -bang -complete=buffer -nargs=? Bclose Bdelete<bang> <args>
-
 " Clear marks.
 command! ClearMarks :delm! | delm A-Z0-9 | wshada!
 
@@ -27,8 +24,8 @@ command! Cdb cd %:p:h
 command! Copy norm ggyG
 
 " Write and close helpers.
-command! Bc Bclose
-command! WBc w | Bclose
+command! Bd Bdelete
+command! WBd w | Bdelete
 
 " Term.
 command! Term !term
