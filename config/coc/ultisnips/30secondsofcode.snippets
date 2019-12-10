@@ -33,7 +33,7 @@ const arrayToHtmlList = (arr, listID) =>
   ))();
 endsnippet
 
-snippet ary "Creates a function that accepts up to `n` arguments, ignoring any additional arguments.  Call the provided function, `fn`, with up to `n` arguments, using `Array.prototype.slice(0,n)` and the spread operator (`...`).  " b
+snippet ary "Creates a function that accepts up to `n` arguments, ignoring any additional arguments.  Call the provided function, `fn`, with up to `n` arguments, using `Array.prototype.slice(0, n)` and the spread operator (`...`).  " b
 const ary = (fn, n) => (...args) => fn(...args.slice(0, n));
 endsnippet
 
@@ -220,7 +220,7 @@ snippet converge "Accepts a converging function and a list of branching function
 const converge = (converger, fns) => (...args) => converger(...fns.map(fn => fn.apply(null, args)));
 endsnippet
 
-snippet copyToClipboard "⚠️ **NOTICE:** The same functionality can be easily implemented by using the new asynchronous Clipboard API, which is still experimental but should be used in the future instead of this snippet. Find out more about it [here](https://github.com/w3c/clipboard-apis/blob/master/explainer.adoc#writing-to-the-clipboard).  Copy a string to the clipboard.  Only works as a result of user action (i.e. inside a `click` event listener).  Create a new `<textarea>` element, fill it with the supplied data and add it to the HTML document. Use `Selection.getRangeAt()`to store the selected range (if any). Use `document.execCommand('copy')` to copy to the clipboard. Remove the `<textarea>` element from the HTML document. Finally, use `Selection().addRange()` to recover the original selected range (if any).  " b
+snippet copyToClipboard "Copy a string to the clipboard.  Only works as a result of user action (i.e. inside a `click` event listener).  ⚠️ **NOTICE:** The same functionality can be easily implemented by using the new asynchronous Clipboard API, which is still experimental but should be used in the future instead of this snippet. Find out more about it [here](https://github.com/w3c/clipboard-apis/blob/master/explainer.adoc#writing-to-the-clipboard).  Create a new `<textarea>` element, fill it with the supplied data and add it to the HTML document. Use `Selection.getRangeAt()`to store the selected range (if any). Use `document.execCommand('copy')` to copy to the clipboard. Remove the `<textarea>` element from the HTML document. Finally, use `Selection().addRange()` to recover the original selected range (if any).  " b
 const copyToClipboard = str => {
   const el = document.createElement('textarea');
   el.value = str;
@@ -382,13 +382,13 @@ const deepMapKeys = (obj, f) =>
   Array.isArray(obj)
     ? obj.map(val => deepMapKeys(val, f))
     : typeof obj === 'object'
-      ? Object.keys(obj).reduce((acc, current) => {
+    ? Object.keys(obj).reduce((acc, current) => {
         const val = obj[current];
         acc[f(current)] =
           val !== null && typeof val === 'object' ? deepMapKeys(val, f) : (acc[f(current)] = val);
         return acc;
       }, {})
-      : obj;
+    : obj;
 endsnippet
 
 snippet defaults "Assigns default values for all properties in an object that are `undefined`.  Use `Object.assign()` to create a new empty object and copy the original one to maintain key order, use `Array.prototype.reverse()` and the spread operator `...` to combine the default values from left to right, finally use `obj` again to overwrite properties that originally had a value.  " b
@@ -437,9 +437,9 @@ const dig = (obj, target) =>
   target in obj
     ? obj[target]
     : Object.values(obj).reduce((acc, val) => {
-      if (acc !== undefined) return acc;
-      if (typeof val === 'object') return dig(val, target);
-    }, undefined);
+        if (acc !== undefined) return acc;
+        if (typeof val === 'object') return dig(val, target);
+      }, undefined);
 endsnippet
 
 snippet digitize "Converts a number to an array of digits.  Convert the number to a string, using the spread operator (`...`) to build an array. Use `Array.prototype.map()` and `parseInt()` to transform each value to an integer.  " b
@@ -556,11 +556,11 @@ snippet factorial "Calculates the factorial of a number.  Use recursion. If `n` 
 const factorial = n =>
   n < 0
     ? (() => {
-      throw new TypeError('Negative numbers are not allowed!');
-    })()
+        throw new TypeError('Negative numbers are not allowed!');
+      })()
     : n <= 1
-      ? 1
-      : n * factorial(n - 1);
+    ? 1
+    : n * factorial(n - 1);
 endsnippet
 
 snippet fibonacci "Generates an array, containing the Fibonacci sequence, up until the nth term.  Create an empty array of the specific length, initializing the first two values (`0` and `1`). Use `Array.prototype.reduce()` to add values into the array, using the sum of the last two values, except for the first two.  " b
@@ -818,7 +818,7 @@ const hashNode = val =>
   );
 endsnippet
 
-snippet hasKey "Returns `true` if the target value exists in a JSON object, `false` otherwise.  Check if `keys` is non-empty and use `Array.prototype.every()` to sequentially check its keys to internal depth of the object, `obj`.  Use `Object.prototype.hasOwnProperty()` to check if `obj` does not have the current key or is not an object, stop propagation and return `false`. Otherwise assign the key's value to `obj` to use on the next iteration.  Return `false` beforehand if given key list is empty.  " b
+snippet hasKey "Returns `true` if the target value exists in a JSON object, `false` otherwise.  Check if `keys` is non-empty and use `Array.prototype.every()` to sequentially check its keys to internal depth of the object, `obj`.  Use `Object.prototype.hasOwnProperty()` to check if `obj` does not have the current key or is not an object, stop propagation and return `false`. Otherwise assign the key's value to `obj` to use on the next iteration. Return `false` beforehand if given key list is empty.  " b
 const hasKey = (obj, keys) => {
   return (
     keys.length > 0 &&
@@ -1581,7 +1581,7 @@ const percentile = (arr, val) =>
   (100 * arr.reduce((acc, v) => acc + (v < val ? 1 : 0) + (v === val ? 0.5 : 0), 0)) / arr.length;
 endsnippet
 
-snippet permutations "⚠️ **WARNING**: This function's execution time increases exponentially with each array element. Anything more than 8 to 10 entries will cause your browser to hang as it tries to solve all the different combinations.  Generates all permutations of an array's elements (contains duplicates).  Use recursion. For each element in the given array, create all the partial permutations for the rest of its elements. Use `Array.prototype.map()` to combine the element with each partial permutation, then `Array.prototype.reduce()` to combine all permutations in one array. Base cases are for array `length` equal to `2` or `1`.  " b
+snippet permutations "Generates all permutations of an array's elements (contains duplicates).  ⚠️ **WARNING**: This function's execution time increases exponentially with each array element. Anything more than 8 to 10 entries will cause your browser to hang as it tries to solve all the different combinations.  Use recursion. For each element in the given array, create all the partial permutations for the rest of its elements. Use `Array.prototype.map()` to combine the element with each partial permutation, then `Array.prototype.reduce()` to combine all permutations in one array. Base cases are for array `length` equal to `2` or `1`.  " b
 const permutations = arr => {
   if (arr.length <= 2) return arr.length === 2 ? [arr, [arr[1], arr[0]]] : arr;
   return arr.reduce(
@@ -1802,9 +1802,9 @@ snippet remove "Removes elements from an array for which the given function retu
 const remove = (arr, func) =>
   Array.isArray(arr)
     ? arr.filter(func).reduce((acc, val) => {
-        arr.splice(arr.indexOf(val), 1);
-        return acc.concat(val);
-      }, [])
+      arr.splice(arr.indexOf(val), 1);
+      return acc.concat(val);
+    }, [])
     : [];
 endsnippet
 
@@ -1942,10 +1942,10 @@ const size = val =>
   Array.isArray(val)
     ? val.length
     : val && typeof val === 'object'
-    ? val.size || val.length || Object.keys(val).length
-    : typeof val === 'string'
-    ? new Blob([val]).size
-    : 0;
+      ? val.size || val.length || Object.keys(val).length
+      : typeof val === 'string'
+        ? new Blob([val]).size
+        : 0;
 endsnippet
 
 snippet sleep "Delays the execution of an asynchronous function.  Delay executing part of an `async` function, by putting it to sleep, returning a `Promise`.  " b
@@ -2026,7 +2026,7 @@ const standardDeviation = (arr, usePopulation = false) => {
 };
 endsnippet
 
-snippet stringPermutations "⚠️ **WARNING**: This function's execution time increases exponentially with each character. Anything more than 8 to 10 characters will cause your browser to hang as it tries to solve all the different combinations.  Generates all permutations of a string (contains duplicates).  Use recursion. For each letter in the given string, create all the partial permutations for the rest of its letters. Use `Array.prototype.map()` to combine the letter with each partial permutation, then `Array.prototype.reduce()` to combine all permutations in one array. Base cases are for string `length` equal to `2` or `1`.  " b
+snippet stringPermutations "Generates all permutations of a string (contains duplicates).  ⚠️ **WARNING**: This function's execution time increases exponentially with each character. Anything more than 8 to 10 characters will cause your browser to hang as it tries to solve all the different combinations.  Use recursion. For each letter in the given string, create all the partial permutations for the rest of its letters. Use `Array.prototype.map()` to combine the letter with each partial permutation, then `Array.prototype.reduce()` to combine all permutations in one array. Base cases are for string `length` equal to `2` or `1`.  " b
 const stringPermutations = str => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
