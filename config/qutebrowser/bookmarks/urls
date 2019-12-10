@@ -57,6 +57,13 @@ https://mochajs.org                                                             
 https://sinonjs.org                                                              Development / JavaScript / Testing | Sinon
 https://microsoft.github.io/TypeSearch                                           Development / JavaScript / Types | TypeSearch
 https://cheatsheetseries.owasp.org                                               Development / Security | OWASP Cheat Sheet Series
+https://www.gnu.org/software/bash/manual/bash.html                               Development / Specification | Bash
+https://www.ecma-international.org/ecma-262                                      Development / Specification | ECMAScript 2019
+https://github.com/fantasyland/fantasy-land                                      Development / Specification | Fantasy Land
+https://www.haskell.org/onlinereport/haskell2010/                                Development / Specification | Haskell 2010
+https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md                  Development / Specification | TypeScript
+https://www.w3.org/TR/?status=rec&version=latest                                 Development / Specification | W3C
+https://spec.whatwg.org/                                                         Development / Specification | WHATWG
 http://flexbox.help                                                              Development / Styling | Flexbox Help
 https://polished.js.org/docs                                                     Development / Styling | Polished
 https://www.styled-components.com                                                Development / Styling | Styled Components
