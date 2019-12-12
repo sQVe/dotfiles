@@ -4,6 +4,7 @@ endif
 
 " Code syntax.
 Abolish cosnt        const
+Abolish ehco         echo
 Abolish flase        false
 Abolish re{tun,utn}r return
 
