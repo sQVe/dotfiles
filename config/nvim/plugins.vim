@@ -33,9 +33,10 @@ Plug 'neoclide/coc.nvim', {
 Plug 'rhysd/vim-grammarous'             " Grammary check with languagetool.
 
 " Integration.
-Plug 'tpope/vim-fugitive'               " Git.
+Plug 'airblade/vim-rooter'              " Set pwd to root directory.
 Plug 'editorconfig/editorconfig-vim'    " Editorconfig.
 Plug 'sickill/vim-pasta'                " Paste with smart indentation.
+Plug 'tpope/vim-fugitive'               " Git.
 Plug 'tpope/vim-rhubarb'                " Use hub instead of git.
 
 " Interface.

@@ -249,6 +249,11 @@ let g:mergetool_prefer_revision = 'local'
 " Pasta.
 let g:pasta_disabled_filetypes = ['fugitive', 'markdown', 'yaml']
 
+" Rooter.
+let g:rooter_patterns = ['.git', '.git/', 'package.json', '.editorconfig']
+let g:rooter_resolve_links = 1
+let g:rooter_silent_chdir = 1
+
 " Sandwich.
 runtime macros/sandwich/keymap/surround.vim
 
