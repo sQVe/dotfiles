@@ -250,7 +250,7 @@ let g:mergetool_prefer_revision = 'local'
 let g:pasta_disabled_filetypes = ['fugitive', 'markdown', 'yaml']
 
 " Rooter.
-let g:rooter_patterns = ['.git', '.git/', 'package.json', '.editorconfig']
+let g:rooter_patterns = ['.git', '.git/', '.editorconfig', 'package.json', 'Setup.hs']
 let g:rooter_resolve_links = 1
 let g:rooter_silent_chdir = 1
 
