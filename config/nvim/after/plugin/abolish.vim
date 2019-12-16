@@ -12,6 +12,7 @@ Abolish re{tun,utn}r return
 Abolish despara{te,tely,tion}                despera{}
 Abolish fo{mra,ram}t{,s}                     fo{rma}t{}
 Abolish reponse{,s}                          response{}
+Abolish resovl{e,es,ing,ed}                  resolv{}
 Abolish scopr{e,es,ed,ing}                   scop{}
 Abolish seperat{e,es,ed,ing,ely,ion,ions,or} separat{}
 Abolish soruc{e,es,ing}                      sourc{}
