@@ -7,6 +7,7 @@ Abolish cosnt        const
 Abolish ehco         echo
 Abolish flase        false
 Abolish re{tun,utn}r return
+Abolish asycn              async
 
 " English words.
 Abolish despara{te,tely,tion}                despera{}
