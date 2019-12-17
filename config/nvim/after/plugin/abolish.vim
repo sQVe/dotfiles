@@ -30,6 +30,7 @@ Abolish häl{st,lre}                                hel{st,lre}
 Abolish iakt{,t}{a,ar,og,agit}                     iakt{t}{}
 Abolish iallafall                                  i alla fall
 Abolish igentligen                                 egentligen
+Abolish jga                                        jag
 Abolish nog{,g}ra{,n}{,n,nt,na,nare,nast,naste}    nog{g}ra{n}{n,n,nt,na,nare,nast,naste}
 Abolish näm{a,ande,d,de,dade,er,t}                 nämn{}
 Abolish religös{,a,are,ast,aste,t}                 religiös{}
