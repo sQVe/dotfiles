@@ -238,9 +238,7 @@ let g:lightline = {
   \ }
 
 " Markdown.
-let g:vim_markdown_folding_level = 2
-let g:vim_markdown_new_list_item_indent = 2
-let g:vim_markdown_no_extensions_in_markdown = 1
+let g:markdown_enable_conceal = 1
 
 " Mergetool
 let g:mergetool_layout = 'mr'
