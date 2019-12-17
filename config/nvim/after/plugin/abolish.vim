@@ -3,11 +3,11 @@ if !exists(":Abolish")
 endif
 
 " Code syntax.
-Abolish cosnt        const
-Abolish ehco         echo
-Abolish flase        false
-Abolish re{tun,utn}r return
 Abolish asycn              async
+Abolish cosnt              const
+Abolish ehco               echo
+Abolish flase              false
+Abolish re{utrn,tunr,utnr} return
 
 " English words.
 Abolish despara{te,tely,tion}                despera{}
