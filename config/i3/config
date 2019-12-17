@@ -28,7 +28,6 @@ set $workspace-7 "7 "
 set $workspace-8 "8 "
 set $workspace-9 "9 "
 
-set $playground --no-startup-id term "playground-clean.js"
 set $lock --no-startup-id lock
 set $menu-apps --no-startup-id $HOME/scripts/i3/menu-apps.sh
 set $menu-calculator --no-startup-id $HOME/scripts/i3/menu-calculator.sh
@@ -36,6 +35,7 @@ set $menu-clipboard --no-startup-id $HOME/scripts/i3/menu-clipboard.sh
 set $menu-exit --no-startup-id $HOME/scripts/i3/menu-exit.sh
 set $menu-notes --no-startup-id $HOME/scripts/i3/menu-notes.sh
 set $menu-passwords --no-startup-id $HOME/scripts/i3/menu-passwords.sh
+set $menu-playground --no-startup-id $HOME/scripts/i3/menu-playground.sh
 set $menu-projects --no-startup-id $HOME/scripts/i3/menu-projects.sh
 set $menu-run --no-startup-id $HOME/scripts/i3/menu-run.sh
 set $menu-windows --no-startup-id $HOME/scripts/i3/menu-windows.sh
@@ -170,7 +170,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+m exec $redshift
-bindsym $mod+n exec $playground
+bindsym $mod+n exec $menu-playground
 bindsym $mod+o floating toggle; resize set 1200 800; move position center
 bindsym $mod+p focus parent
 bindsym $mod+q kill
