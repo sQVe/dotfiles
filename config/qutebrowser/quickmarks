@@ -4,7 +4,7 @@ binds                        qute://bindings/
 books                        https://github.com/sQVe/books
 books                        https://play.google.com/books
 cal                          https://calendar.google.com/calendar/r
-coveralls                    https://coveralls.io/github/sQVe/
+codecov                      https://codecov.io/gh/sQVe
 ddg                          https://start.duckduckgo.com/
 dependabot                   https://app.dependabot.com/accounts/sQVe/
 devdocs                      https://devdocs.io/
