@@ -4,10 +4,10 @@ endif
 
 " Code syntax.
 Abolish asycn              async
-Abolish cosnt              const
 Abolish ehco               echo
 Abolish flase              false
 Abolish re{utrn,tunr,utnr} return
+Abolish {cosn,ocns}t       const
 
 " English words.
 Abolish despara{te,tely,tion}                despera{}
