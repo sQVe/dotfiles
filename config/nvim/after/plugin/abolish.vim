@@ -17,6 +17,7 @@ Abolish resovl{e,es,ing,ed}                  resolv{}
 Abolish scopr{e,es,ed,ing}                   scop{}
 Abolish seperat{e,es,ed,ing,ely,ion,ions,or} separat{}
 Abolish soruc{e,es,ing}                      sourc{}
+Abolish udpat{e,ed,es,ing}                   updat{}
 Abolish {,in}consistan{cy,cies,t,tly}        {}consisten{}
 Abolish {,non}existan{ce,t}                  {}existen{}
 Abolish {,un}orgin{,al,ally}                 {}origin{}
