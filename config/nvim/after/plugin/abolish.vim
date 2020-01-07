@@ -7,6 +7,7 @@ Abolish asycn              async
 Abolish ehco               echo
 Abolish flase              false
 Abolish re{utrn,tunr,utnr} return
+Abolish treu               true
 Abolish {cosn,ocns}t       const
 
 " English words.
