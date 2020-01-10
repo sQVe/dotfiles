@@ -154,13 +154,17 @@ let g:ale_pattern_options = {
 let g:ale_writegood_options = '--no-passive'
 
 " Better Whitespace.
-let g:strip_whitespace_on_save = 1
+let g:strip_only_modified_lines = 1
 let g:strip_whitespace_confirm = 0
+let g:strip_whitespace_on_save = 1
 
 " DoGe.
 let g:doge_enable_mappings = 0
 let g:doge_mapping_comment_jump_forward = '<C-j>'
 let g:doge_mapping_comment_jump_backward = '<C-k>'
+
+" Editorconfig.
+let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
 
 " Emmet.
 let g:user_emmet_settings = {
