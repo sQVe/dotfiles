@@ -311,9 +311,9 @@ if (${1:condition}) {
 endsnippet
 
 snippet iife "(() => { ... })()" b
-((${2:argument}) => {
+(() => {
 	$0
-})(${1:value})
+})()
 endsnippet
 
 snippet tern "condition ? then : else" b
