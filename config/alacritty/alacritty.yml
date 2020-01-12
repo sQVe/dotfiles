@@ -24,7 +24,7 @@ font:
   italic:
     family: Iosevka Nerd Font
     style: Italic
-  size: 9
+  size: 18
   offset:
     x: 0
     y: 0
