@@ -357,8 +357,8 @@ const deepClone = obj => {
   return Array.isArray(obj) && obj.length
     ? (clone.length = obj.length) && Array.from(clone)
     : Array.isArray(obj)
-      ? Array.from(obj)
-      : clone;
+    ? Array.from(obj)
+    : clone;
 };
 endsnippet
 
@@ -673,6 +673,14 @@ const forOwnRight = (obj, fn) =>
     .forEach(key => fn(obj[key], key, obj));
 endsnippet
 
+snippet frequencies "Returns an object with the unique values of an array as keys and their frequencies as the values.  Use `Array.prototype.reduce()` to map unique values to an object's keys, adding to existing keys every time the same value is encountered.  " b
+const frequencies = arr =>
+  arr.reduce((a, v) => {
+    a[v] = a[v] ? a[v] + 1 : 1;
+    return a;
+  }, {});
+endsnippet
+
 snippet fromCamelCase "Converts a string from camelcase.  Use `String.prototype.replace()` to remove underscores, hyphens, and spaces and convert words to camelcase. Omit the second argument to use a default `separator` of `_`.  " b
 const fromCamelCase = (str, separator = '_') =>
   str
@@ -739,10 +747,10 @@ const getMeridiemSuffixOfInteger = num =>
   num === 0 || num === 24
     ? 12 + 'am'
     : num === 12
-      ? 12 + 'pm'
-      : num < 12
-        ? (num % 12) + 'am'
-        : (num % 12) + 'pm';
+    ? 12 + 'pm'
+    : num < 12
+    ? (num % 12) + 'am'
+    : (num % 12) + 'pm';
 endsnippet
 
 snippet getScrollPosition "Returns the scroll position of the current page.  Use `pageXOffset` and `pageYOffset` if they are defined, otherwise `scrollLeft` and `scrollTop`. You can omit `el` to use a default value of `window`.  " b
@@ -831,8 +839,16 @@ const hasKey = (obj, keys) => {
 };
 endsnippet
 
-snippet head "Returns the head of a list.  Use `arr[0]` to return the first element of the passed array.  " b
-const head = arr => arr[0];
+snippet haveSameContents "Returns `true` if two arrays contain the same elements regardless of order, `false` otherwise.  Use a `for...of` loop over a `Set` created from the values of both arrays. Use `Array.prototype.filter()` to compare the amount of occurences of each distinct value in both arrays. Return `false` if the counts do not match for any element, `true` otherwise.  " b
+const haveSameContents = (a, b) => {
+  for (const v of new Set([...a, ...b]))
+    if (a.filter(e => e === v).length !== b.filter(e => e === v).length) return false;
+  return true;
+};
+endsnippet
+
+snippet head "Returns the head of a list.  Check if `arr` is truthy and has a `length` property, use `arr[0]` if possible to return the first element, otherwise return `undefined`.  " b
+const head = arr => (arr && arr.length ? arr[0] : undefined);
 endsnippet
 
 snippet hexToRGB "Converts a color code to a `rgb()` or `rgba()` string if alpha value is provided.  Use bitwise right-shift operator and mask bits with `&` (and) operator to convert a hexadecimal color code (with or without prefixed with `#`) to a string with the RGB values. If it's 3-digit color code, first convert to 6-digit version. If an alpha value is provided alongside 6-digit hex, give `rgba()` string in return.  " b
@@ -1032,6 +1048,16 @@ snippet isBrowserTabFocused "Returns `true` if the browser tab of the page is fo
 const isBrowserTabFocused = () => !document.hidden;
 endsnippet
 
+snippet isContainedIn "Returns `true` if the elements of the first array are contained in the second one regardless of order, `false` otherwise.  Use a `for...of` loop over a `Set` created from the first array. Use `Array.prototype.some()` to check if all distinct values are contained in the second array, use `Array.prototype.filter()` to compare the amount of occurences of each distinct value in both arrays. Return `false` if the count of any element is greater in the first array than the second one, `true` otherwise.  " b
+const isContainedIn = (a, b) => {
+  for (const v of new Set(a)) {
+    if (!b.some(e => e === v) || a.filter(e => e === v).length > b.filter(e => e === v).length)
+      return false;
+  }
+  return true;
+};
+endsnippet
+
 snippet isDivisible "Checks if the first numeric argument is divisible by the second one.  Use the modulo operator (`%`) to check if the remainder is equal to `0`.  " b
 const isDivisible = (dividend, divisor) => dividend % divisor === 0;
 endsnippet
@@ -1093,6 +1119,10 @@ endsnippet
 
 snippet isPlainObject "Checks if the provided value is an object created by the Object constructor.  Check if the provided value is truthy, use `typeof` to check if it is an object and `Object.constructor` to make sure the constructor is equal to `Object`.  " b
 const isPlainObject = val => !!val && typeof val === 'object' && val.constructor === Object;
+endsnippet
+
+snippet isPowerOfTwo "Returns `true` if the given number is a power of `2`, `false` otherwise.  Use the bitwise binary AND operator (`&`) to determine if `n is a power of `2.  Additionally, check that `n` is not falsy.  " b
+const isPowerOfTwo = n => !!n && (n & (n - 1)) == 0;
 endsnippet
 
 snippet isPrime "Checks if the provided integer is a prime number.  Check numbers from `2` to the square root of the given number. Return `false` if any of them divides the given number, else return `true`, unless the number is less than `2`.  " b
@@ -1226,8 +1256,8 @@ const JSONToFile = (obj, filename) =>
   fs.writeFile(`${filename}.json`, JSON.stringify(obj, null, 2));
 endsnippet
 
-snippet last "Returns the last element in an array.  Use `arr.length - 1` to compute the index of the last element of the given array and returning it.  " b
-const last = arr => arr[arr.length - 1];
+snippet last "Returns the last element in an array.  Check if `arr` is truthy and has a `length` property, use `arr.length - 1` to compute the index of the last element of the given array and return it, otherwise return `undefined`.  " b
+const last = arr => (arr && arr.length ? arr[arr.length - 1] : undefined);
 endsnippet
 
 snippet lcm "Returns the least common multiple of two or more numbers.  Use the greatest common divisor (GCD) formula and the fact that `lcm(x,y) = x * y / gcd(x,y)` to determine the least common multiple. The GCD formula uses recursion.  " b
@@ -1376,6 +1406,16 @@ snippet minN "Returns the `n` minimum elements from the provided array. If `n` i
 const minN = (arr, n = 1) => [...arr].sort((a, b) => a - b).slice(0, n);
 endsnippet
 
+snippet mostFrequent "Returns the most frequent element in an array.  Use `Array.prototype.reduce()` to map unique values to an object's keys, adding to existing keys every time the same value is encountered. Use `Object.entries()` on the result in combination with `Array.prototype.reduce()` to get the most frequent value in the array.  " b
+const mostFrequent = arr =>
+  Object.entries(
+    arr.reduce((a, v) => {
+      a[v] = a[v] ? a[v] + 1 : 1;
+      return a;
+    }, {})
+  ).reduce((a, v) => (v[1] >= a[1] ? v : a), [null, 0])[0];
+endsnippet
+
 snippet mostPerformant "Returns the index of the function in an array of functions which executed the fastest.  Use `Array.prototype.map()` to generate an array where each value is the total time taken to execute the function after `iterations` times. Use the difference in `performance.now()` values before and after to get the total time in milliseconds to a high degree of accuracy. Use `Math.min()` to find the minimum execution time, and return the index of that shortest time which corresponds to the index of the most performant function. Omit the second argument, `iterations`, to use a default of 10,000 iterations. The more iterations, the more reliable the result but the longer it will take.  " b
 const mostPerformant = (fns, iterations = 10000) => {
   const times = fns.map(fn => {
@@ -1422,14 +1462,14 @@ snippet objectToPairs "Creates an array of key-value pair arrays from an object.
 const objectToPairs = obj => Object.keys(obj).map(k => [k, obj[k]]);
 endsnippet
 
-snippet objectToQueryString "Returns a query string generated from the key-value pairs of the given object.  Use `Array.prototype.reduce()` on `Object.entries(queryParameters)` to create the query string. Determine the `symbol` to be either `?` or `&` based on the `index` and concatenate `val` to `queryString` only if it's a string. Return the `queryString` or an empty string when the `queryParameters` are falsy.  " b
+snippet objectToQueryString "Returns a query string generated from the key-value pairs of the given object.  Use `Array.prototype.reduce()` on `Object.entries(queryParameters)` to create the query string. Determine the `symbol` to be either `?` or `&` based on the `length` of `queryString` and concatenate `val` to `queryString` only if it's a string. Return the `queryString` or an empty string when the `queryParameters` are falsy.  " b
 const objectToQueryString = queryParameters => {
   return queryParameters
     ? Object.entries(queryParameters).reduce((queryString, [key, val], index) => {
-        const symbol = index === 0 ? '?' : '&';
-        queryString += typeof val === 'string' ? `${symbol}${key}=${val}` : '';
-        return queryString;
-      }, '')
+      const symbol = queryString.length === 0 ? '?' : '&';
+      queryString += typeof val === 'string' ? `${symbol}${key}=${val}` : '';
+      return queryString;
+    }, '')
     : '';
 };
 endsnippet
@@ -1668,7 +1708,7 @@ endsnippet
 snippet pull "Mutates the original array to filter out the values specified.  Use `Array.prototype.filter()` and `Array.prototype.includes()` to pull out the values that are not needed. Use `Array.prototype.length = 0` to mutate the passed in an array by resetting it's length to zero and `Array.prototype.push()` to re-populate it with only the pulled values.  " b
 const pull = (arr, ...args) => {
   let argState = Array.isArray(args[0]) ? args[0] : args;
-  let pulled = arr.filter((v, i) => !argState.includes(v));
+  let pulled = arr.filter(v => !argState.includes(v));
   arr.length = 0;
   pulled.forEach(v => arr.push(v));
 };
@@ -1802,9 +1842,9 @@ snippet remove "Removes elements from an array for which the given function retu
 const remove = (arr, func) =>
   Array.isArray(arr)
     ? arr.filter(func).reduce((acc, val) => {
-      arr.splice(arr.indexOf(val), 1);
-      return acc.concat(val);
-    }, [])
+        arr.splice(arr.indexOf(val), 1);
+        return acc.concat(val);
+      }, [])
     : [];
 endsnippet
 
@@ -1922,7 +1962,7 @@ snippet show "Shows all the elements specified.  Use the spread operator (`...`)
 const show = (...el) => [...el].forEach(e => (e.style.display = ''));
 endsnippet
 
-snippet shuffle "Randomizes the order of the values of an array, returning a new array.  Uses the [Fisher-Yates algorithm](https://github.com/30-seconds/30-seconds-of-code#shuffle) to reorder the elements of the array.  " b
+snippet shuffle "Randomizes the order of the values of an array, returning a new array.  Use the [Fisher-Yates algorithm](https://en.wikipedia.org/wiki/Fisher%E2%80%93Yates_shuffle#Fisher_and_Yates'_original_method) to reorder the elements of the array.  " b
 const shuffle = ([...arr]) => {
   let m = arr.length;
   while (m) {
@@ -1937,7 +1977,7 @@ snippet similarity "Returns an array of elements that appear in both arrays.  Us
 const similarity = (arr, values) => arr.filter(v => values.includes(v));
 endsnippet
 
-snippet size "Get size of arrays, objects or strings.  Get type of `val` (`array`, `object` or `string`).  Use `length` property for arrays. Use `length` or `size` value if available or number of keys for objects. Use `size` of a [`Blob` object](https://developer.mozilla.org/en-US/docs/Web/API/Blob) created from `val` for strings. Split strings into array of characters with `split('')` and return its length.  " b
+snippet size "Gets the size of an array, object or string.  Get type of `val` (`array`, `object` or `string`).  Use `length` property for arrays. Use `length` or `size` value if available or number of keys for objects. Use `size` of a [`Blob` object](https://developer.mozilla.org/en-US/docs/Web/API/Blob) created from `val` for strings. Split strings into array of characters with `split('')` and return its length.  " b
 const size = val =>
   Array.isArray(val)
     ? val.length
@@ -2411,6 +2451,17 @@ const vectorDistance = (...coords) => {
     .slice(0, pointLength)
     .reduce((acc, val, i) => acc + Math.pow(val - coords[pointLength + i], 2), 0);
   return Math.sqrt(sum);
+};
+endsnippet
+
+snippet weightedSample "Returns a random element from an array, using the provided `weights` as the probabilities for each element.  Use `Array.prototype.reduce()` to create an array of partial sums for each value in `weights`. Use `Math.random()` to generate a random number and `Array.prototype.findIndex()` to find the correct index based on the array previously produced. Finally, return the element of `arr` with the produced index.   " b
+const weightedSample = (arr, weights) => {
+  let roll = Math.random();
+  return arr[
+    weights
+      .reduce((acc, w, i) => (i === 0 ? [w] : [...acc, acc[acc.length - 1] + w]), [])
+      .findIndex((v, i, s) => roll >= (i === 0 ? 0 : s[i - 1]) && roll < v)
+  ];
 };
 endsnippet
 
