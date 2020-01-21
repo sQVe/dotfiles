@@ -67,6 +67,10 @@ set nobackup
 set noswapfile
 set nowritebackup
 
+" Disable Netrw.
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
 " More natural splits.
 set splitbelow                    " Horizontal split below current.
 set splitright                    " Vertical split to right of current.
@@ -276,6 +280,7 @@ let g:sneak#target_labels = ";sftunqåäöSFGHLTUNRMQZÅÄÖ/?0"
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " Vifm.
+let g:vifm_replace_netrw = 1
 let g:vifm_term = "term"
 
 " Visual Multi.

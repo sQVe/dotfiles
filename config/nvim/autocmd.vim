@@ -15,12 +15,6 @@ augroup DisableALEForFileExt
   autocmd BufWinEnter,VimEnter,WinEnter *.d.ts :ALEDisableBuffer
 augroup END
 
-" Disable Netrw.
-augroup DisableNetrw
-  autocmd!
-  autocmd VimEnter * silent! autocmd! FileExplorer
-augroup END
-
 " Ignore case for the command line.
 augroup IgnoreCaseForCmdLine
   autocmd!
