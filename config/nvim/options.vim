@@ -276,7 +276,6 @@ let g:sneak#target_labels = ";sftunqåäöSFGHLTUNRMQZÅÄÖ/?0"
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " Vifm.
-let g:vifm_replace_netrw = 1
 let g:vifm_term = "term"
 
 " Visual Multi.
