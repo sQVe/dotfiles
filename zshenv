@@ -1,4 +1,3 @@
-
 #  ╺━┓┏━┓╻ ╻┏━╸┏┓╻╻ ╻
 #  ┏━┛┗━┓┣━┫┣╸ ┃┗┫┃┏┛
 #  ┗━╸┗━┛╹ ╹┗━╸╹ ╹┗┛
@@ -7,8 +6,11 @@ export GPG_TTY="$(tty)"
 
 export KEYTIMEOUT=1
 export PROMPT_LEAN_VIMODE=1
-export PROMPT_LEAN_VIMODE_FORMAT='%F{green}NORMAL%f '
+export PROMPT_LEAN_VIMODE_FORMAT='%F{magenta}NORMAL%f '
 export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
+export ZSH_AUTOSUGGEST_USE_ASYNC=true
+export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets root)
 
 node_versions=$NVM_DIR/versions/node
 export PATH=$PATH:$HOME/.local/bin:$node_versions/$(ls -1 $node_versions | sort -V | tail -n 1)/bin

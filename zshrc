@@ -1,17 +1,18 @@
+#  ┏━┓┏━┓╻ ╻┏━┓┏━╸┏━╸
+#  ┗━┓┃ ┃┃ ┃┣┳┛┃  ┣╸
+#  ┗━┛┗━┛┗━┛╹┗╸┗━╸┗━╸
 
-#  ╺━┓┏━┓╻ ╻┏━┓┏━╸
-#  ┏━┛┗━┓┣━┫┣┳┛┃
-#  ┗━╸┗━┛╹ ╹╹┗╸┗━╸
+zstyle ':zim:git' aliases-prefix 'g'
+zstyle ':zim:input' double-dot-expand yes
 
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-# ¤¤¤¤  Sourcing  ¤¤¤¤
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 source ${ZIM_HOME}/init.zsh
-source ${ZIM_HOME}/modules/external/zsh-system-clipboard/zsh-system-clipboard.zsh
+source /usr/share/fzf/key-bindings.zsh
 
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-# ¤¤¤¤  Settings  ¤¤¤¤
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+
+#  ┏━┓┏━╸╺┳╸╺┳╸╻┏┓╻┏━╸┏━┓
+#  ┗━┓┣╸  ┃  ┃ ┃┃┗┫┃╺┓┗━┓
+#  ┗━┛┗━╸ ╹  ╹ ╹╹ ╹┗━┛┗━┛
+
 if [[ "$TERM" = 'linux' ]]; then
   # Replicate colors definied in .Xresources for virtual console.
   _SEDCMD='s/.*\*color\([0-9]\{1,\}\).*#\([0-9a-fA-F]\{6\}\).*/\1 \2/p'
@@ -20,6 +21,15 @@ if [[ "$TERM" = 'linux' ]]; then
   done
   clear
 fi
+
+# Remove older command from the history if a duplicate is to be added.
+setopt HIST_IGNORE_ALL_DUPS
+
+# Enable vi mode.
+bindkey -v
+
+# Remove path separator from WORDCHARS.
+WORDCHARS=${WORDCHARS//[\/]}
 
 # Enable command edit in $EDITOR.
 autoload -z edit-command-line
@@ -33,13 +43,10 @@ zle -A kill-whole-line vi-kill-line
 zle -A backward-kill-word vi-backward-kill-word
 zle -A backward-delete-char vi-backward-delete-char
 
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-# ¤¤¤¤  Functions  ¤¤¤¤
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-function playground() {
-  cd ~/code/playground && nvim +vsplit +"terminal npm run $1" +'wincmd h' +'norm G$' "boxes/$1"
-}
+#  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓
+#  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
+#  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
 function nvm() {
   source /usr/share/nvm/nvm.sh --no-use
@@ -57,9 +64,10 @@ function vifm-cd() {
   cd "$path"
 }
 
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-# ¤¤¤¤  Exports  ¤¤¤¤
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+
+#  ┏━╸╻ ╻┏━┓┏━┓┏━┓╺┳╸┏━┓
+#  ┣╸ ┏╋┛┣━┛┃ ┃┣┳┛ ┃ ┗━┓
+#  ┗━╸╹ ╹╹  ┗━┛╹┗╸ ╹ ┗━┛
 
 export FZF_ALT_C_COMMAND='command fd --type d --hidden --follow --exclude .git'
 export FZF_ALT_C_OPTS="--preview 'exa -T -L 1 --group-directories-first --color=always {}'"
@@ -73,21 +81,39 @@ export FZF_DEFAULT_OPTS='
   --reverse
 '
 
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-# ¤¤¤¤  Keybindings  ¤¤¤¤
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+
+#  ╻┏ ┏━╸╻ ╻┏┓ ╻┏┓╻╺┳┓╻┏┓╻┏━╸┏━┓
+#  ┣┻┓┣╸ ┗┳┛┣┻┓┃┃┗┫ ┃┃┃┃┗┫┃╺┓┗━┓
+#  ╹ ╹┗━╸ ╹ ┗━┛╹╹ ╹╺┻┛╹╹ ╹┗━┛┗━┛
+
 bindkey -r '^T'
 
-bindkey '^[' vi-cmd-mode
-bindkey '^[^?' backward-kill-word
-bindkey '^[^H' backward-kill-word
+bindkey '^ ' autosuggest-accept
 bindkey '^E' edit-command-line
 bindkey '^F' fzf-file-widget
 bindkey '^G' fzf-cd-widget
+bindkey '^[' vi-cmd-mode
+bindkey '^[^?' backward-kill-word
+bindkey '^[^H' backward-kill-word
 
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-# ¤¤¤¤  Aliases  ¤¤¤¤
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+
+bindkey '^N' history-substring-search-down
+bindkey '^P' history-substring-search-up
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey -M vicmd 'k' history-substring-search-up
+bindkey -M vicmd 'j' history-substring-search-down
+
+zmodload -F zsh/terminfo +p:terminfo
+if [[ -n ${terminfo[kcuu1]} && -n ${terminfo[kcud1]} ]]; then
+  bindkey ${terminfo[kcuu1]} history-substring-search-up
+  bindkey ${terminfo[kcud1]} history-substring-search-down
+fi
+
+
+#  ┏━┓╻  ╻┏━┓┏━┓┏━╸┏━┓
+#  ┣━┫┃  ┃┣━┫┗━┓┣╸ ┗━┓
+#  ╹ ╹┗━╸╹╹ ╹┗━┛┗━╸┗━┛
 
 # Safety.
 alias chgrp='chgrp --preserve-root'

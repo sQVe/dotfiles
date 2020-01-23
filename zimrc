@@ -1,25 +1,35 @@
+#  ┏┳┓┏━┓╺┳┓╻ ╻╻  ┏━╸┏━┓
+#  ┃┃┃┃ ┃ ┃┃┃ ┃┃  ┣╸ ┗━┓
+#  ╹ ╹┗━┛╺┻┛┗━┛┗━╸┗━╸┗━┛
 
-#  ╺━┓╻┏┳┓┏━┓┏━╸
-#  ┏━┛┃┃┃┃┣┳┛┃
-#  ┗━╸╹╹ ╹╹┗╸┗━╸
-
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-# ¤¤¤¤  Settings  ¤¤¤¤
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-zdouble_dot_expand='true'
-zinput_mode='vi'
-ztermtitle='%n@%m:%~'
-
-
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-# ¤¤¤¤  Modules  ¤¤¤¤
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-zmodules=(directory environment fzf git git-info history input utility syntax-highlighting \
-          history-substring-search prompt completion fasd)
+zmodule environment
+zmodule fasd
+zmodule git
+zmodule input
+zmodule termtitle
+zmodule utility
 
 
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-# ¤¤¤¤  Theme and highlighting  ¤¤¤¤
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-zhighlighters=(main brackets root)
-zprompt_theme='lean'
+#  ┏━┓┏━┓┏━┓┏┳┓┏━┓╺┳╸
+#  ┣━┛┣┳┛┃ ┃┃┃┃┣━┛ ┃
+#  ╹  ╹┗╸┗━┛╹ ╹╹   ╹
+
+zmodule completion
+zmodule git-info
+
+zmodule miekg/lean
+zmodule kutsan/zsh-system-clipboard
+zmodule zsh-users/zsh-completions
+
+
+#  ┏━┓╻ ╻╺┳╸┏━┓┏━╸┏━┓┏┳┓┏━┓╻  ┏━╸╺┳╸┏━╸
+#  ┣━┫┃ ┃ ┃ ┃ ┃┃  ┃ ┃┃┃┃┣━┛┃  ┣╸  ┃ ┣╸
+#  ╹ ╹┗━┛ ╹ ┗━┛┗━╸┗━┛╹ ╹╹  ┗━╸┗━╸ ╹ ┗━╸
+
+# Do not touch order.
+zmodule zsh-users/zsh-autosuggestions
+zmodule zsh-users/zsh-syntax-highlighting
+zmodule zsh-users/zsh-history-substring-search
+
+zmodule lukechilds/zsh-better-npm-completion
+zmodule unixorn/git-extra-commands
