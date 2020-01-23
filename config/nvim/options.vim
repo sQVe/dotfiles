@@ -67,10 +67,6 @@ set nobackup
 set noswapfile
 set nowritebackup
 
-" Disable Netrw.
-let g:loaded_netrw = 1
-let g:loaded_netrwPlugin = 1
-
 " More natural splits.
 set splitbelow                    " Horizontal split below current.
 set splitright                    " Vertical split to right of current.
