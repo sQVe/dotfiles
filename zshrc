@@ -53,6 +53,10 @@ function nvm() {
   nvm "$@"
 }
 
+function playground() {
+  cd ~/code/playground && nvim +vsplit +"terminal npm run $1" +'wincmd h' +'norm G$' "boxes/$1"
+}
+
 function vifm-cd() {
   local path="$(uberfm "$@")"
 
