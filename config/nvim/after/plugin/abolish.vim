@@ -13,7 +13,7 @@ Abolish {cosn,ocns}t       const
 " English words.
 Abolish despara{te,tely,tion}                despera{}
 Abolish fo{mra,ram}t{,s}                     fo{rma}t{}
-Abolish jsut                                 just
+Abolish jsut{,ly,ness}                       just{}
 Abolish reponse{,s}                          response{}
 Abolish resovl{e,es,ing,ed}                  resolv{}
 Abolish scopr{e,es,ed,ing}                   scop{}
