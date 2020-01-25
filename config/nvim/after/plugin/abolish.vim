@@ -14,6 +14,7 @@ Abolish {cosn,ocns}t       const
 Abolish despara{te,tely,tion}                despera{}
 Abolish fo{mra,ram}t{,s}                     fo{rma}t{}
 Abolish jsut{,ly,ness}                       just{}
+Abolish isntall{,s,ing,ed,ation,er,ment}     install{}
 Abolish reponse{,s}                          response{}
 Abolish resovl{e,es,ing,ed}                  resolv{}
 Abolish scopr{e,es,ed,ing}                   scop{}
