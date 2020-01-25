@@ -3,11 +3,12 @@
 #  ╹ ╹┗━┛╺┻┛┗━┛┗━╸┗━╸┗━┛
 
 zmodule environment
-zmodule fasd
 zmodule git
 zmodule input
 zmodule termtitle
 zmodule utility
+
+zmodule sQVe/fasd
 
 
 #  ┏━┓┏━┓┏━┓┏┳┓┏━┓╺┳╸
