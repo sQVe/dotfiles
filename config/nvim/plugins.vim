@@ -43,6 +43,7 @@ Plug 'tpope/vim-rhubarb'                " Use hub instead of git.
 Plug 'ap/vim-buftabline'                " Buffer tabs.
 Plug 'itchyny/lightline.vim'            " Status line.
 Plug 'mhinz/vim-signify'                " Git sign column.
+Plug 'mhinz/vim-startify'               " Launch screen.
 Plug 'ntpeters/vim-better-whitespace'   " Highlight trailing whitespace.
 Plug 'samoshkin/vim-mergetool'          " Git mergetool
 Plug 'vifm/vifm.vim'                    " Vifm.

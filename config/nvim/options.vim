@@ -272,6 +272,19 @@ let g:sneak#prompt = '> '
 let g:sneak#s_next = 1
 let g:sneak#target_labels = ";sftunqåäöSFGHLTUNRMQZÅÄÖ/?0"
 
+" Startify.
+let g:startify_custom_header = startify#pad([
+  \ '┏┓╻┏━╸┏━┓╻ ╻╻┏┳┓',
+  \ '┃┗┫┣╸ ┃ ┃┃┏┛┃┃┃┃',
+  \ '╹ ╹┗━╸┗━┛┗┛ ╹╹ ╹',
+  \ '----------------',
+  \ ])
+let g:startify_commands = [
+  \ { 'pc': 'PlugClean' },
+  \ { 'pi': 'PlugInstall' },
+  \ { 'pu': 'PlugUpdate | CocUpdateSync' },
+  \ ]
+
 " Supertab.
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
