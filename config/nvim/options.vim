@@ -173,9 +173,6 @@ let g:user_emmet_settings = {
   \ 'typescript.tsx' : { 'extends' : 'jsx' },
   \ }
 
-" Far.
-let g:far#source = 'rg'
-
 " FZF.
 let $FZF_DEFAULT_COMMAND='fd --type file --hidden --follow --exclude .git'
 let g:fzf_action = {
@@ -207,6 +204,12 @@ command! -bang -nargs=* Rg
   \   'rg --column --line-number --no-heading --color=always --smart-case '.shellescape(<q-args>), 1,
   \   fzf#vim#with_preview('down:50%'),
   \   <bang>0)
+
+" Far.
+let g:far#source = 'rg'
+
+" Fugitive.
+let g:fugitive_pty = 0
 
 " Grammarous.
 let g:grammarous#default_comments_only_filetypes = {
