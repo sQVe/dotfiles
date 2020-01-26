@@ -11,10 +11,11 @@ Abolish treu               true
 Abolish {cosn,ocns}t       const
 
 " English words.
+Abolish adn                                  and
 Abolish despara{te,tely,tion}                despera{}
 Abolish fo{mra,ram}t{,s}                     fo{rma}t{}
-Abolish jsut{,ly,ness}                       just{}
 Abolish isntall{,s,ing,ed,ation,er,ment}     install{}
+Abolish jsut{,ly,ness}                       just{}
 Abolish reponse{,s}                          response{}
 Abolish resovl{e,es,ing,ed}                  resolv{}
 Abolish scopr{e,es,ed,ing}                   scop{}
