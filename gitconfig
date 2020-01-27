@@ -25,6 +25,9 @@
   rebase = merges
 [push]
   default = simple
+[rebase]
+  autostash = true
+  autosquash = true
 [user]
   email = oskargrunning@gmail.com
   name = Oskar Grunning
