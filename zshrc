@@ -135,7 +135,7 @@ alias df='df -h'
 alias du='du -ch'
 alias dud='du -chd'
 alias free='free -m'
-alias ga='lookup-git-alias'
+alias ga='git-alias-lookup'
 alias grep='grep --color=auto -d skip'
 alias mkdir='mkdir -pv'
 alias more=less
