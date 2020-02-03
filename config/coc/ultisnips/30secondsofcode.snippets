@@ -357,8 +357,8 @@ const deepClone = obj => {
   return Array.isArray(obj) && obj.length
     ? (clone.length = obj.length) && Array.from(clone)
     : Array.isArray(obj)
-    ? Array.from(obj)
-    : clone;
+      ? Array.from(obj)
+      : clone;
 };
 endsnippet
 
@@ -382,13 +382,13 @@ const deepMapKeys = (obj, f) =>
   Array.isArray(obj)
     ? obj.map(val => deepMapKeys(val, f))
     : typeof obj === 'object'
-    ? Object.keys(obj).reduce((acc, current) => {
+      ? Object.keys(obj).reduce((acc, current) => {
         const val = obj[current];
         acc[f(current)] =
           val !== null && typeof val === 'object' ? deepMapKeys(val, f) : (acc[f(current)] = val);
         return acc;
       }, {})
-    : obj;
+      : obj;
 endsnippet
 
 snippet defaults "Assigns default values for all properties in an object that are `undefined`.  Use `Object.assign()` to create a new empty object and copy the original one to maintain key order, use `Array.prototype.reverse()` and the spread operator `...` to combine the default values from left to right, finally use `obj` again to overwrite properties that originally had a value.  " b
@@ -437,9 +437,9 @@ const dig = (obj, target) =>
   target in obj
     ? obj[target]
     : Object.values(obj).reduce((acc, val) => {
-        if (acc !== undefined) return acc;
-        if (typeof val === 'object') return dig(val, target);
-      }, undefined);
+      if (acc !== undefined) return acc;
+      if (typeof val === 'object') return dig(val, target);
+    }, undefined);
 endsnippet
 
 snippet digitize "Converts a number to an array of digits.  Convert the number to a string, using the spread operator (`...`) to build an array. Use `Array.prototype.map()` and `parseInt()` to transform each value to an integer.  " b
@@ -556,11 +556,11 @@ snippet factorial "Calculates the factorial of a number.  Use recursion. If `n` 
 const factorial = n =>
   n < 0
     ? (() => {
-        throw new TypeError('Negative numbers are not allowed!');
-      })()
+      throw new TypeError('Negative numbers are not allowed!');
+    })()
     : n <= 1
-    ? 1
-    : n * factorial(n - 1);
+      ? 1
+      : n * factorial(n - 1);
 endsnippet
 
 snippet fibonacci "Generates an array, containing the Fibonacci sequence, up until the nth term.  Create an empty array of the specific length, initializing the first two values (`0` and `1`). Use `Array.prototype.reduce()` to add values into the array, using the sum of the last two values, except for the first two.  " b
@@ -747,10 +747,10 @@ const getMeridiemSuffixOfInteger = num =>
   num === 0 || num === 24
     ? 12 + 'am'
     : num === 12
-    ? 12 + 'pm'
-    : num < 12
-    ? (num % 12) + 'am'
-    : (num % 12) + 'pm';
+      ? 12 + 'pm'
+      : num < 12
+        ? (num % 12) + 'am'
+        : (num % 12) + 'pm';
 endsnippet
 
 snippet getScrollPosition "Returns the scroll position of the current page.  Use `pageXOffset` and `pageYOffset` if they are defined, otherwise `scrollLeft` and `scrollTop`. You can omit `el` to use a default value of `window`.  " b
@@ -1015,7 +1015,7 @@ snippet isAfterDate "Check if a date is after another date.  Use the greater tha
 const isAfterDate = (dateA, dateB) => dateA > dateB;
 endsnippet
 
-snippet isAnagram "Checks if a string is an anagram of another string (case-insensitive, ignores spaces, punctuation and special characters).  Use `String.toLowerCase()`, `String.prototype.replace()` with an appropriate regular expression to remove unnecessary characters, `String.prototype.split('')`, `Array.prototype.sort()` and `Array.prototype.join('')` on both strings to normalize them, then check if their normalized forms are equal.  " b
+snippet isAnagram "Checks if a string is an anagram of another string (case-insensitive, ignores spaces, punctuation and special characters).  Use `String.prototype.toLowerCase()`, `String.prototype.replace()` with an appropriate regular expression to remove unnecessary characters, `String.prototype.split('')`, `Array.prototype.sort()` and `Array.prototype.join('')` on both strings to normalize them, then check if their normalized forms are equal.  " b
 const isAnagram = (str1, str2) => {
   const normalize = str =>
     str
@@ -1048,7 +1048,7 @@ snippet isBrowserTabFocused "Returns `true` if the browser tab of the page is fo
 const isBrowserTabFocused = () => !document.hidden;
 endsnippet
 
-snippet isContainedIn "Returns `true` if the elements of the first array are contained in the second one regardless of order, `false` otherwise.  Use a `for...of` loop over a `Set` created from the first array. Use `Array.prototype.some()` to check if all distinct values are contained in the second array, use `Array.prototype.filter()` to compare the amount of occurences of each distinct value in both arrays. Return `false` if the count of any element is greater in the first array than the second one, `true` otherwise.  " b
+snippet isContainedIn "Returns `true` if the elements of the first array are contained in the second one regardless of order, `false` otherwise.  Use a `for...of` loop over a `Set` created from the first array. Use `Array.prototype.some()` to check if all distinct values are contained in the second array, use `Array.prototype.filter()` to compare the number of occurrences of each distinct value in both arrays. Return `false` if the count of any element is greater in the first array than the second one, `true` otherwise.  " b
 const isContainedIn = (a, b) => {
   for (const v of new Set(a)) {
     if (!b.some(e => e === v) || a.filter(e => e === v).length > b.filter(e => e === v).length)
@@ -1231,8 +1231,8 @@ const join = (arr, separator = ',', end = separator) =>
       i === arr.length - 2
         ? acc + val + end
         : i === arr.length - 1
-          ? acc + val
-          : acc + val + separator,
+        ? acc + val
+        : acc + val + separator,
     ''
   );
 endsnippet
@@ -1466,10 +1466,10 @@ snippet objectToQueryString "Returns a query string generated from the key-value
 const objectToQueryString = queryParameters => {
   return queryParameters
     ? Object.entries(queryParameters).reduce((queryString, [key, val], index) => {
-      const symbol = queryString.length === 0 ? '?' : '&';
-      queryString += typeof val === 'string' ? `${symbol}${key}=${val}` : '';
-      return queryString;
-    }, '')
+        const symbol = queryString.length === 0 ? '?' : '&';
+        queryString += typeof val === 'string' ? `${symbol}${key}=${val}` : '';
+        return queryString;
+      }, '')
     : '';
 };
 endsnippet
@@ -1842,9 +1842,9 @@ snippet remove "Removes elements from an array for which the given function retu
 const remove = (arr, func) =>
   Array.isArray(arr)
     ? arr.filter(func).reduce((acc, val) => {
-        arr.splice(arr.indexOf(val), 1);
-        return acc.concat(val);
-      }, [])
+      arr.splice(arr.indexOf(val), 1);
+      return acc.concat(val);
+    }, [])
     : [];
 endsnippet
 
@@ -1982,10 +1982,10 @@ const size = val =>
   Array.isArray(val)
     ? val.length
     : val && typeof val === 'object'
-      ? val.size || val.length || Object.keys(val).length
-      : typeof val === 'string'
-        ? new Blob([val]).size
-        : 0;
+    ? val.size || val.length || Object.keys(val).length
+    : typeof val === 'string'
+    ? new Blob([val]).size
+    : 0;
 endsnippet
 
 snippet sleep "Delays the execution of an asynchronous function.  Delay executing part of an `async` function, by putting it to sleep, returning a `Promise`.  " b
