@@ -1247,55 +1247,62 @@ c.colors.webpage.bg = '#282828'
 # font setting, it's replaced with the fonts listed here. If set to an
 # empty value, a system-specific monospace default is used.
 # Type: List of Font, or Font
-c.fonts.default_family = ["Iosevka Nerd Font Mono", "monospace"]
+c.fonts.default_family = ['Iosevka', 'monospace']
+
+# Default font size to use. Whenever "default_size" is used in a font
+# setting, it's replaced with the size listed here. Valid values are
+# either a float value with a "pt" suffix, or an integer value with a
+# "px" suffix.
+# Type: String
+c.fonts.default_size = '11px'
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = '12px monospace'
+c.fonts.completion.entry = '11px monospace'
 
 # Font used in the completion categories.
 # Type: Font
-c.fonts.completion.category = 'bold 12px monospace'
+c.fonts.completion.category = 'bold 11px monospace'
 
 # Font used for the debugging console.
 # Type: QtFont
-c.fonts.debug_console = '12px monospace'
+c.fonts.debug_console = '11px monospace'
 
 # Font used for the downloadbar.
 # Type: Font
-c.fonts.downloads = '12px monospace'
+c.fonts.downloads = '11px monospace'
 
 # Font used for the hints.
 # Type: Font
-c.fonts.hints = 'bold 12px monospace'
+c.fonts.hints = 'bold 11px monospace'
 
 # Font used in the keyhint widget.
 # Type: Font
-c.fonts.keyhint = '12px monospace'
+c.fonts.keyhint = '11px monospace'
 
 # Font used for error messages.
 # Type: Font
-c.fonts.messages.error = '12px monospace'
+c.fonts.messages.error = '11px monospace'
 
 # Font used for info messages.
 # Type: Font
-c.fonts.messages.info = '12px monospace'
+c.fonts.messages.info = '11px monospace'
 
 # Font used for warning messages.
 # Type: Font
-c.fonts.messages.warning = '12px monospace'
+c.fonts.messages.warning = '11px monospace'
 
 # Font used for prompts.
 # Type: Font
-c.fonts.prompts = '12px sans-serif'
+c.fonts.prompts = '11px monospace'
 
 # Font used in the statusbar.
 # Type: Font
-c.fonts.statusbar = '12px monospace'
+c.fonts.statusbar = '11px monospace'
 
 # Font used in the tab bar.
 # Type: QtFont
-c.fonts.tabs = '12px monospace'
+c.fonts.tabs = '11px monospace'
 
 # Font family for standard fonts.
 # Type: FontFamily
