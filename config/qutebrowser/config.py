@@ -1243,10 +1243,11 @@ c.colors.tabs.pinned.selected.even.bg = '#3c3836'
 # Type: QtColor
 c.colors.webpage.bg = '#282828'
 
-# Default monospace fonts. Whenever "monospace" is used in a font
-# setting, it's replaced with the fonts listed here.
-# Type: Font
-c.fonts.monospace = 'Iosevka Nerd Font Mono, monospace'
+# Default font families to use. Whenever "default_family" is used in a
+# font setting, it's replaced with the fonts listed here. If set to an
+# empty value, a system-specific monospace default is used.
+# Type: List of Font, or Font
+c.fonts.default_family = ["Iosevka Nerd Font Mono", "monospace"]
 
 # Font used in the completion widget.
 # Type: Font
