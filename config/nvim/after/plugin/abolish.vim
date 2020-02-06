@@ -13,6 +13,7 @@ Abolish {cosn,ocns}t       const
 " English words.
 Abolish adn                                  and
 Abolish despara{te,tely,tion}                despera{}
+Abolish exec{tu,tur,utr}{e,es,ing,ed}        exec{ut}{}
 Abolish fo{mra,ram}t{,s}                     fo{rma}t{}
 Abolish isntall{,s,ing,ed,ation,er,ment}     install{}
 Abolish jsut{,ly,ness}                       just{}
