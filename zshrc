@@ -49,6 +49,16 @@ zle -A backward-delete-char vi-backward-delete-char
 #  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
 #  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
+# Use fd in fzf completion for path listing.
+function _fzf_compgen_path() {
+  command fd --hidden --follow --exclude ".git" . "$1"
+}
+
+# # Use fd in fzf completion for directory listing.
+function _fzf_compgen_dir() {
+  command fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
 # Disable nvm "use version" check.
 function nvm() {
   source /usr/share/nvm/nvm.sh --no-use
@@ -79,9 +89,9 @@ function vifm-cd() {
 
 export FZF_ALT_C_COMMAND='command fd --type d --hidden --follow --exclude .git'
 export FZF_ALT_C_OPTS="--preview 'exa -T -L 1 --group-directories-first --color=always {}'"
-export FZF_CTRL_T_COMMAND='command fd --type f --hidden --follow --exclude .git'
+export FZF_CTRL_T_COMMAND='command fd --hidden --follow --exclude .git'
 export FZF_CTRL_T_OPTS="--preview '(highlight -l -O truecolor --base16=gruvbox-dark-medium --stdout {} 2> /dev/null || cat {}) 2> /dev/null | head -200'"
-export FZF_DEFAULT_COMMAND='command fd --type f --hidden --follow --exclude .git'
+export FZF_DEFAULT_COMMAND='command fd --hidden --follow --exclude .git'
 export FZF_DEFAULT_OPTS='
   --color=bg+:#282828,spinner:#b16286,hl:#b16286
   --color=fg:#ebdbb2,info:#458588,pointer:#98971a
