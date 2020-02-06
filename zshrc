@@ -6,6 +6,7 @@ zstyle ':zim:git' aliases-prefix 'g'
 zstyle ':zim:input' double-dot-expand yes
 
 source ${ZIM_HOME}/init.zsh
+source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
 
@@ -48,15 +49,18 @@ zle -A backward-delete-char vi-backward-delete-char
 #  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
 #  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
+# Disable nvm "use version" check.
 function nvm() {
   source /usr/share/nvm/nvm.sh --no-use
   nvm "$@"
 }
 
+# Open playground helper.
 function playground() {
   cd ~/code/playground && nvim +vsplit +"terminal npm run $1" +'wincmd h' +'norm G$' "boxes/$1"
 }
 
+# Open vifm and cd into selected directory on exit.
 function vifm-cd() {
   local path="$(uberfm "$@")"
 
