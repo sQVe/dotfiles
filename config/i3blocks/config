@@ -3,11 +3,11 @@ separator_block_width=20
 
 [cpu-usage]
 interval=2
-label=
+label=﬙ 
 
 [temperature]
 interval=2
-label=
+label= 
 
 [ethernet]
 interval=10
@@ -20,15 +20,15 @@ interval=10
 interval=10
 signal=8
 
-[brightness]
-interval=once
-signal=10
-label=
-
 [display-mode]
 interval=10
 signal=2
-label=
+label= 
+
+[brightness]
+interval=once
+signal=10
+label=
 
 [battery]
 interval=5
@@ -36,19 +36,13 @@ markup=pango
 
 [github]
 interval=120
-label=
+label= 
 
 [mail]
 interval=60
 signal=12
-label=
+label= 
 
 [time]
 interval=60
-command=date '+%Y-%m-%d'
-label= 
-
-[time]
-interval=1
-command=date '+%H:%M:%S '
-label= 
+command=date '+%Y-%m-%d %H:%M '
