@@ -31,5 +31,6 @@
     "markdown",
     "text"
   ],
-  "tabnine.priority": 90
+  "tabnine.priority": 90,
+  "tsserver.formatOnType": false
 }
