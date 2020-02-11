@@ -208,6 +208,19 @@ command! -bang -nargs=* Rg
 
 " Far.
 let g:far#source = 'rg'
+let g:far#file_mask_favorites = [
+  \ '**/*.*',
+  \ '**/*.{js,jsx,ts,tsx}',
+  \ '**/*.{js,jsx}',
+  \ '**/*.{ts,tsx}',
+  \ '**/*.{css,scss}',
+  \ '**/*.{html,htm}',
+  \ '**/*.md',
+  \ '**/*.json',
+  \ '**/*.yaml',
+  \ '**/*.sh',
+  \ ]
+let g:far#default_file_mask = '**/*.*'
 
 " Fugitive.
 let g:fugitive_pty = 0
