@@ -208,22 +208,6 @@ command! -bang -nargs=* Rg
   \   fzf#vim#with_preview('down:50%'),
   \   <bang>0)
 
-" Far.
-let g:far#default_file_mask = '**/*.*'
-let g:far#file_mask_favorites = [
-  \ '**/*.*',
-  \ '**/*.{js,jsx,ts,tsx}',
-  \ '**/*.{js,jsx}',
-  \ '**/*.{ts,tsx}',
-  \ '**/*.{css,scss}',
-  \ '**/*.{html,htm}',
-  \ '**/*.md',
-  \ '**/*.json',
-  \ '**/*.yaml',
-  \ '**/*.sh',
-  \ ]
-let g:far#source = 'rgnvim'
-
 " Fugitive.
 let g:fugitive_pty = 0
 

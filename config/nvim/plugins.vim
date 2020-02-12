@@ -50,7 +50,6 @@ Plug 'samoshkin/vim-mergetool'          " Git mergetool
 Plug 'vifm/vifm.vim'                    " Vifm.
 
 " Search, replace and navigation.
-Plug 'brooth/far.vim'                   " Find and replace.
 Plug 'junegunn/fzf.vim'                 " Fzf.
 Plug 'junegunn/vim-peekaboo'            " View content of registers.
 Plug 'junegunn/vim-slash'               " Improve search with centering and clearing.
