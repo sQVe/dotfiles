@@ -2,6 +2,7 @@
   "diagnostic.checkCurrentLine": true,
   "diagnostic.errorSign": "■",
   "diagnostic.infoSign": "■",
+  "diagnostic.refreshAfterSave": true,
   "diagnostic.warningSign": "■",
   "languageserver": {
     "bash": {
