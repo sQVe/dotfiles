@@ -102,6 +102,7 @@ noremap <silent> [c :ALEPreviousWrap<CR>
 noremap <silent> ]c :ALENextWrap<CR>
 
 " Coc.
+nmap <Leader>/ :CocSearch<Space>
 nmap <silent> <Leader>o :CocList --auto-preview --tab outline<CR>
 nmap <silent> <Leader>O :CocList --auto-preview --interactive --tab symbols<CR>
 nmap <silent> <Leader>f <Plug>(coc-fix-current)
@@ -154,7 +155,6 @@ nnoremap <silent> <Leader>gw :Gwrite<CR>
 
 " FZF.
 nnoremap <silent> <Backspace> :Buffers<CR>
-nnoremap <Leader>/ :Rg<Space>
 nnoremap Ä :Rg<Space>
 nnoremap <silent> ä :Files<CR>
 

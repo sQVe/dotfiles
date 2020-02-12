@@ -304,9 +304,9 @@ let g:startify_custom_header = startify#pad([
   \ '----------------',
   \ ])
 let g:startify_commands = [
-  \ { 'pc': 'PlugClean' },
-  \ { 'pi': 'PlugInstall' },
-  \ { 'pu': 'PlugUpdate | CocUpdateSync' },
+  \ { 'C': 'PlugClean' },
+  \ { 'I': 'PlugInstall' },
+  \ { 'U': 'PlugUpdate | CocUpdateSync' },
   \ ]
 let g:startify_lists = [
   \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
