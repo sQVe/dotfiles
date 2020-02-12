@@ -22,5 +22,6 @@
     "text"
   ],
   "tabnine.priority": 90,
-  "tsserver.formatOnType": false
+  "tsserver.formatOnType": false,
+  "typescript.suggestionActions.enabled": false
 }
