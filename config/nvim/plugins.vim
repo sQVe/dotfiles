@@ -42,6 +42,7 @@ Plug 'tpope/vim-rhubarb'                " Use hub instead of git.
 " Interface.
 Plug 'ap/vim-buftabline'                " Buffer tabs.
 Plug 'itchyny/lightline.vim'            " Status line.
+Plug 'maximbaz/lightline-ale'           " Lint information in status line.
 Plug 'mhinz/vim-signify'                " Git sign column.
 Plug 'mhinz/vim-startify'               " Launch screen.
 Plug 'ntpeters/vim-better-whitespace'   " Highlight trailing whitespace.

@@ -245,6 +245,12 @@ let g:grammarous#languagetool_cmd = 'languagetool'
 let g:javascript_plugin_jsdoc = 1
 
 " Lightline.
+let g:lightline#ale#indicator_checking = "\uf110 "
+let g:lightline#ale#indicator_infos = "\uf129 "
+let g:lightline#ale#indicator_warnings = "\uf071 "
+let g:lightline#ale#indicator_errors = "\uf05e "
+let g:lightline#ale#indicator_ok = "\uf00c "
+
 let g:lightline = {
   \ 'colorscheme': 'gruvbox',
   \ 'active': {
@@ -252,7 +258,22 @@ let g:lightline = {
   \            [ 'readonly', 'filename', 'gitbranch' ]],
   \   'right': [[ 'lineinfo' ],
   \             [ 'percent' ],
+  \             [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
   \             [ 'filetype', 'fileencoding', 'fileformat' ]]
+  \ },
+  \ 'component_expand': {
+  \   'linter_checking': 'lightline#ale#checking',
+  \   'linter_infos': 'lightline#ale#infos',
+  \   'linter_warnings': 'lightline#ale#warnings',
+  \   'linter_errors': 'lightline#ale#errors',
+  \   'linter_ok': 'lightline#ale#ok',
+  \ },
+  \ 'component_type': {
+  \   'linter_checking': 'right',
+  \   'linter_infos': 'right',
+  \   'linter_warnings': 'warning',
+  \   'linter_errors': 'error',
+  \   'linter_ok': 'right',
   \ },
   \ 'component_function': {
   \   'filename': 'LightlineFilename',
