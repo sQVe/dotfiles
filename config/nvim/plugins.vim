@@ -19,7 +19,6 @@ Plug 'morhetz/gruvbox'                  " Gruvbox colorscheme.
 " Commands.
 Plug 'lambdalisue/suda.vim'             " Read and write with sudo.
 Plug 'moll/vim-bbye'                    " Delete buffers without closing window.
-Plug 'tpope/vim-abolish'                " Substitute and abbreviate variants of a word.
 
 " Comments and documentation.
 Plug 'kkoomen/vim-doge'                 " Generate documentation.
