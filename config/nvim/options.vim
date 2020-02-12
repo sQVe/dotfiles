@@ -209,7 +209,7 @@ command! -bang -nargs=* Rg
   \   <bang>0)
 
 " Far.
-let g:far#source = 'rg'
+let g:far#default_file_mask = '**/*.*'
 let g:far#file_mask_favorites = [
   \ '**/*.*',
   \ '**/*.{js,jsx,ts,tsx}',
@@ -222,7 +222,7 @@ let g:far#file_mask_favorites = [
   \ '**/*.yaml',
   \ '**/*.sh',
   \ ]
-let g:far#default_file_mask = '**/*.*'
+let g:far#source = 'rgnvim'
 
 " Fugitive.
 let g:fugitive_pty = 0
