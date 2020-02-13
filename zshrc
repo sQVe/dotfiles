@@ -90,7 +90,7 @@ function vifm-cd() {
 export FZF_ALT_C_COMMAND='command fd --type d --hidden --follow --exclude .git'
 export FZF_ALT_C_OPTS="--preview 'exa -T -L 1 --group-directories-first --color=always {}'"
 export FZF_CTRL_T_COMMAND='command fd --hidden --follow --exclude .git'
-export FZF_CTRL_T_OPTS="--preview '(highlight -l -O truecolor --base16=gruvbox-dark-medium --stdout {} 2> /dev/null || cat {}) 2> /dev/null | head -200'"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always {} 2> /dev/null || exa -T -L 1 --group-directories-first --color=always {}'"
 export FZF_DEFAULT_COMMAND='command fd --hidden --follow --exclude .git'
 export FZF_DEFAULT_OPTS='
   --color=bg+:#282828,spinner:#b16286,hl:#b16286
