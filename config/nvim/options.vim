@@ -185,7 +185,7 @@ let g:fzf_action = {
   \ }
 let g:fzf_colors = {
   \ 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'ColorColumn'],
+  \ 'bg':      ['bg', 'Normal'],
   \ 'hl':      ['fg', 'GruvboxRed'],
   \ 'fg+':     ['fg', 'Normal'],
   \ 'bg+':     ['bg', 'ColorColumn'],
