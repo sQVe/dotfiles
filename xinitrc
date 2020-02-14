@@ -45,9 +45,10 @@ mkdir /tmp/coc-yank-data
 [[ ! -h "$HOME/.config/coc/extensions/coc-yank-data" ]] && ln -s /tmp/coc-yank-data "$HOME/.config/coc/extensions/coc-yank-data"
 
 # Setup bat cache files.
-if [[ -d "$HOME/.local/share/bat" ]]; then
+if [[ -f "$HOME/.local/share/bat/themes.bin" ]] && [[ -f "$HOME/.local/share/bat/syntaxes.bin" ]]; then
   mkdir "$HOME/.cache/bat"
-  ln -s "$HOME/.local/share/bat/*" "$HOME/.cache/bat"
+  cp "$HOME/.local/share/bat/themes.bin" "$HOME/.cache/bat"
+  cp "$HOME/.local/share/bat/syntaxes.bin" "$HOME/.cache/bat"
 fi
 
 # Restore playground boxes.
