@@ -297,17 +297,18 @@ let g:sneak#s_next = 1
 let g:sneak#target_labels = ";sftunqåäöSFGHLTUNRMQZÅÄÖ/?0"
 
 " Startify.
+let g:startify_change_to_dir = 0
+let g:startify_commands = [
+  \ { 'C': 'PlugClean' },
+  \ { 'I': 'PlugInstall' },
+  \ { 'U': 'PlugUpdate | CocUpdateSync' },
+  \ ]
 let g:startify_custom_header = startify#pad([
   \ '┏┓╻┏━╸┏━┓╻ ╻╻┏┳┓',
   \ '┃┗┫┣╸ ┃ ┃┃┏┛┃┃┃┃',
   \ '╹ ╹┗━╸┗━┛┗┛ ╹╹ ╹',
   \ '----------------',
   \ ])
-let g:startify_commands = [
-  \ { 'C': 'PlugClean' },
-  \ { 'I': 'PlugInstall' },
-  \ { 'U': 'PlugUpdate | CocUpdateSync' },
-  \ ]
 let g:startify_lists = [
   \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
   \ { 'type': 'files',     'header': ['   MRU']            },
