@@ -2,7 +2,6 @@
   "diagnostic.checkCurrentLine": true,
   "diagnostic.errorSign": "■",
   "diagnostic.infoSign": "■",
-  "diagnostic.refreshAfterSave": true,
   "diagnostic.warningSign": "■",
   "languageserver": {
     "bash": {
@@ -23,6 +22,5 @@
     "text"
   ],
   "tabnine.priority": 90,
-  "tsserver.formatOnType": false,
   "typescript.suggestionActions.enabled": false
 }
