@@ -175,7 +175,7 @@ fileviewer *.gif
   \ ~/scripts/vifm/vifmimg.sh clear
 
 " Text and directory preview.
-fileviewer *[^/] highlight -O ansi --base16=gruvbox-dark-medium --stdout --force
+fileviewer *[^/] env -u COLORTERM bat --color=always --wrap=never --pager=never %c -p
 fileviewer */ exa -T -L 1 --group-directories-first --color=always
 
 
