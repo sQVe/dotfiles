@@ -3,6 +3,7 @@
     "coc-css": ">=1.2.2",
     "coc-dictionary": ">=1.2.2",
     "coc-emmet": ">=1.1.4",
+    "coc-emoji": ">=1.2.3",
     "coc-github": ">=1.0.1",
     "coc-html": ">=1.2.3",
     "coc-json": ">=1.2.5",

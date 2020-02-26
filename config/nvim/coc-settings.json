@@ -1,4 +1,9 @@
 {
+  "coc.source.emoji.filetypes": [
+    "mail",
+    "markdown",
+    "text"
+  ],
   "diagnostic.checkCurrentLine": true,
   "diagnostic.errorSign": "■",
   "diagnostic.infoSign": "■",
