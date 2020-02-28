@@ -292,14 +292,14 @@ endsnippet
 #  ┃┃┃┃┗━┓┃
 #  ╹ ╹╹┗━┛┗━╸
 
-snippet forOf "for (prop of object) { ... }" b
-for (let ${2:prop} of ${1:object}) {
+snippet forof "for (x of iterable) { ... }" b
+for (const ${2:x} of ${1:iterable}) {
 	$0
 }
 endsnippet
 
-snippet forIn "for (prop in object) { ... }" b
-for (let ${2:prop} in ${1:object}) {
+snippet forin "for (prop in object) { ... }" b
+for (const ${2:prop} in ${1:object}) {
 	$0
 }
 endsnippet
