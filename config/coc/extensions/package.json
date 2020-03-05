@@ -7,7 +7,7 @@
     "coc-github": ">=1.0.1",
     "coc-html": ">=1.2.3",
     "coc-json": ">=1.2.5",
-    "coc-snippets": ">=2.1.19",
+    "coc-snippets": ">=2.1.20",
     "coc-tabnine": ">=1.2.2",
     "coc-tsserver": ">=1.4.9",
     "coc-yaml": ">=1.0.3",
