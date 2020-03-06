@@ -31,7 +31,6 @@ path=/home/sqve/.local/share/mail
 [user]
 name=Oskar Grunning
 primary_email=oskargrunning@gmail.com
-other_email=oskar.grunning@animech.com;
 
 # Configuration for "notmuch new"
 #

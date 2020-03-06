@@ -190,6 +190,7 @@ alias mutt=neomutt
 alias peekhl='peek --no-headerbar'
 alias qutebrowser=scaled-qutebrowser
 alias ramda='ramda --js'
+alias rg='rg --follow'
 alias s=sudo
 alias se=sudoedit
 alias spotify=scaled-spotify
