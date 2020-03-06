@@ -94,3 +94,6 @@ command! Wsudo w suda://%
 
 " Update plugins and coc extensions.
 command! Update PlugUpdate | CocUpdateSync
+
+" Yank list.
+command! YankList CocList -A --normal yank
