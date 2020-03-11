@@ -372,6 +372,24 @@ c.content.private_browsing = False
 #   - none: Don't use any proxy
 c.content.proxy = 'system'
 
+# Allow websites to register protocol handlers via
+# `navigator.registerProtocolHandler`.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.register_protocol_handler', False, 'https://mail.google.com?extsrc=mailto&url=%25s')
+
+# Allow websites to register protocol handlers via
+# `navigator.registerProtocolHandler`.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.register_protocol_handler', False, 'https://calendar.google.com?cid=%25s')
+
 # Validate SSL handshakes.
 # Type: BoolAsk
 # Valid values:
