@@ -7,7 +7,8 @@ export GPG_TTY="$(tty)"
 export KEYTIMEOUT=1
 export PROMPT_LEAN_VIMODE=1
 export PROMPT_LEAN_VIMODE_FORMAT='%F{magenta}NORMAL%f '
-export ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+export ZIM_HOME=${ZDOTDIR:-$HOME}/.zim
+export YVM_DIR=$HOME/.yvm
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets root)

@@ -5,7 +5,8 @@
 zstyle ':zim:git' aliases-prefix 'g'
 zstyle ':zim:input' double-dot-expand yes
 
-source ${ZIM_HOME}/init.zsh
+source $YVM_DIR/yvm.sh
+source $ZIM_HOME/init.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
