@@ -100,7 +100,7 @@ bar {
   status_command i3blocks
 
   # Set to either primary or output name.
-  tray_output primary
+  tray_output eDP-1
 
   # Disable mouse scroll.
   bindsym button4 nop
