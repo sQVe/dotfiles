@@ -226,6 +226,10 @@ alias cfg-zimrc='nvim-dir $HOME/.dotfiles/zimrc'
 alias cfg-zshenv='nvim-dir $HOME/.dotfiles/zshenv'
 alias cfg-zshrc='nvim-dir $HOME/.dotfiles/zshrc'
 
+# Dunst.
+alias dunst-pause='notify-send "DUNST_COMMAND_PAUSE"'
+alias dunst-resume='notify-send "DUNST_COMMAND_RESUME"'
+
 # Playground.
 alias playground-clean.js='playground clean.js'
 alias playground-clean.ts='playground clean.ts'
