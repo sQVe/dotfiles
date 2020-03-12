@@ -13,7 +13,6 @@ label=
 interval=10
 
 [wifi]
-instance=wlp58s0
 interval=10
 
 [volume]
