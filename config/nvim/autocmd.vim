@@ -2,13 +2,6 @@
 "  ┣━┫┃ ┃ ┃ ┃ ┃┃  ┃┃┃ ┃┃
 "  ╹ ╹┗━┛ ╹ ┗━┛┗━╸╹ ╹╺┻┛
 
-" Coc events.
-augroup CocEvents
-  autocmd!
-  autocmd CursorHold * silent call CocActionAsync('highlight')
-  autocmd CursorHoldI * silent! call CocActionAsync('showSignatureHelp')
-augroup END
-
 " Disable ALE for specific file extensions.
 augroup DisableALEForFileExt
   autocmd!
