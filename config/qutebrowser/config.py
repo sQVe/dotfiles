@@ -347,9 +347,28 @@ c.content.local_storage = True
 #   - ask
 c.content.media_capture = 'ask'
 
+# Allow websites to record audio/video.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.media_capture', True, 'https://meet.google.com')
+
 # Netrc-file for HTTP authentication. If unset, `~/.netrc` is used.
 # Type: File
 c.content.netrc_file = None
+
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
+config.set('content.notifications', False, 'https://meet.google.com')
+config.set('content.notifications', True, 'https://calendar.google.com')
+config.set('content.notifications', False, 'https://www.reddit.com')
+config.set('content.notifications', True, 'https://app.slack.com')
 
 # Enable plugins in Web pages.
 # Type: Bool
@@ -380,14 +399,6 @@ c.content.proxy = 'system'
 #   - false
 #   - ask
 config.set('content.register_protocol_handler', False, 'https://mail.google.com?extsrc=mailto&url=%25s')
-
-# Allow websites to register protocol handlers via
-# `navigator.registerProtocolHandler`.
-# Type: BoolAsk
-# Valid values:
-#   - true
-#   - false
-#   - ask
 config.set('content.register_protocol_handler', False, 'https://calendar.google.com?cid=%25s')
 
 # Validate SSL handshakes.
