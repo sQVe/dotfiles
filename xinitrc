@@ -34,7 +34,7 @@ xsetroot -solid '#282828'
 random-wallpaper
 
 # Set screen power timer.
-xset dpms 300 300 300
+xset dpms 240 240 240
 
 # Setup peek cache symlink to tmp.
 mkdir /tmp/peek
