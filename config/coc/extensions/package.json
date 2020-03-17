@@ -11,6 +11,6 @@
     "coc-tabnine": ">=1.2.2",
     "coc-tsserver": ">=1.4.11",
     "coc-yaml": ">=1.0.4",
-    "coc-yank": ">=1.1.3"
+    "coc-yank": ">=1.1.4"
   }
 }
