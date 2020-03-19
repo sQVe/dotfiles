@@ -1,149 +1,154 @@
-https://asciinema.org                                                            Development / Apps | Asciinema
-https://bundlephobia.com                                                         Development / Apps | BundlePhobia
-https://carbon.now.sh                                                            Development / Apps | Carbon
-https://www.draw.io                                                              Development / Apps | Draw
-https://explainshell.com                                                         Development / Apps | Explain Shell
-https://www.figma.com                                                            Development / Apps | Figma
-https://gitignore.io                                                             Development / Apps | Generate gitignore
-https://js.coach/                                                                Development / Apps | JS Coach
-https://jsfiddle.net                                                             Development / Apps | JSFiddle
-https://www.json-generator.com                                                   Development / Apps | JSON Generator
-https://jsonlint.com                                                             Development / Apps | JSON Lint
-https://jwt.io                                                                   Development / Apps | JWT
-https://www.nerdfonts.com/cheat-sheet                                            Development / Apps | Nerd Fonts
-https://regex101.com                                                             Development / Apps | RegEx 101
-https://shields.io                                                               Development / Apps | Shields and badges
-https://wordoid.com                                                              Development / Apps | Wordoid
-http://guide.bash.academy                                                        Development / Bash | Bash Academy
-http://mywiki.wooledge.org/BashGuide                                             Development / Bash | Bash Guide
-http://www.color-blindness.com/color-name-hue                                    Development / Colors | Color Name & Hue
-https://color.adobe.com                                                          Development / Colors | Color Wheel
-http://www.flatuicolorpicker.com                                                 Development / Colors | Flat UI Picker
-http://materialuicolors.co                                                       Development / Colors | Material Colors
-https://fontawesome.com/icons?d=gallery                                          Development / Fonts | Font Awesome
-https://jmattthew.github.io/better-font-finder/better-font-finder.html           Development / Fonts | Google Font Finder
-https://fonts.google.com                                                         Development / Fonts | Google Fonts
-https://materialdesignicons.com                                                  Development / Fonts | Material Design Icons
-https://hackage.haskell.org                                                      Development / Haskell | Hackage
-https://www.haskell.org                                                          Development / Haskell | Haskell Language
-https://docs.haskellstack.org/en/stable/README                                   Development / Haskell | Stack Tool
-https://www.stackage.org                                                         Development / Haskell | Stackage
-https://bigocheatsheet.io                                                        Development / Information | Big-O Cheatsheet
-https://css-tricks.com/snippets                                                  Development / Information | CSS Tricks
-https://devhints.io                                                              Development / Information | Devhints
-https://docs.emmet.io/cheat-sheet                                                Development / Information | Emmet Cheatsheet
-https://hackr.io                                                                 Development / Information | Hackr.io
-https://developer.mozilla.org/en-US/docs/Web                                     Development / Information | MDN
-https://app.pluralsight.com/library                                              Development / Information | Pluralsight
-https://ponyfoo.com                                                              Development / Information | Pony Foo
-https://stackoverflow.com                                                        Development / Information | Stack Overflow
-https://lodash.com/docs                                                          Development / JavaScript / FP | Lodash
-http://ramdajs.com/docs                                                          Development / JavaScript / FP | Ramda
-https://github.com/ramda/ramda/wiki/What-Function-Should-I-Use                   Development / JavaScript / FP | Ramda (What?)
-https://char0n.github.io/ramda-adjunct/2.5.0                                     Development / JavaScript / FP | Ramda Adjunct
-https://sanctuary.js.org                                                         Development / JavaScript / FP | Sanctuary
-http://expressjs.com/en/api.html                                                 Development / JavaScript / Node.js | Express
-http://koajs.com                                                                 Development / JavaScript / Node.js | Koa
-https://docs.nestjs.com                                                          Development / JavaScript / Node.js | Nest.js
-https://nodejs.org/api                                                           Development / JavaScript / Node.js | Node.js
-https://nextjs.org/docs                                                          Development / JavaScript / React & Redux | Next.js
-https://reactjs.org/docs/hello-world.html                                        Development / JavaScript / React & Redux | React
-https://reacttraining.com/react-router/web/guides/philosophy                     Development / JavaScript / React & Redux | React Router
-https://redux-saga.js.org/docs/api/index.html                                    Development / JavaScript / React & Redux | React Saga
-https://redux.js.org                                                             Development / JavaScript / React & Redux | Redux
-https://github.com/30-seconds/30-seconds-of-code                                 Development / JavaScript / Snippets | 30 seconds of code
-https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore                 Development / JavaScript / Snippets | You Don't Need Lodash or Underscore
-https://www.chaijs.com/api/bdd                                                   Development / JavaScript / Testing | Chai
-http://airbnb.io/enzyme/docs/api/index.html                                      Development / JavaScript / Testing | Enzyme
-https://facebook.github.io/jest/docs/en/api.html                                 Development / JavaScript / Testing | Jest
-https://mochajs.org                                                              Development / JavaScript / Testing | Mocha
-https://sinonjs.org                                                              Development / JavaScript / Testing | Sinon
-https://microsoft.github.io/TypeSearch                                           Development / JavaScript / Types | TypeSearch
-https://cheatsheetseries.owasp.org                                               Development / Security | OWASP Cheat Sheet Series
-https://www.gnu.org/software/bash/manual/bash.html                               Development / Specification | Bash
-https://www.ecma-international.org/ecma-262                                      Development / Specification | ECMAScript 2019
-https://github.com/fantasyland/fantasy-land                                      Development / Specification | Fantasy Land
-https://www.haskell.org/onlinereport/haskell2010/                                Development / Specification | Haskell 2010
-https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md                  Development / Specification | TypeScript
-https://www.w3.org/TR/?status=rec&version=latest                                 Development / Specification | W3C
-https://spec.whatwg.org/                                                         Development / Specification | WHATWG
-http://flexbox.help                                                              Development / Styling | Flexbox Help
-https://polished.js.org/docs                                                     Development / Styling | Polished
-https://www.styled-components.com                                                Development / Styling | Styled Components
-http://learnvimscriptthehardway.stevelosh.com                                    Development / Vim Script | Learn Vim Script the hard way
-https://w0rp.com/blog/post/vim-script-for-the-javascripter                       Development / Vim Script | Vim Script for the JavaScripter
-https://www.browserstack.com                                                     Development / Web / Compatibility | BrowserStack
-http://browserl.ist                                                              Development / Web / Compatibility | Browserlist
-https://caniuse.com                                                              Development / Web / Compatibility | Can I Use
-https://kangax.github.io/compat-table/es6                                        Development / Web / Compatibility | ECMAScript Compatibility Table
-http://www.grumpicon.com                                                         Development / Web / Compatibility | Grumpicon
-http://html5please.com                                                           Development / Web / Compatibility | HTML5 Please
-https://node.green/                                                              Development / Web / Compatibility | Node Compatibility Table
-https://securityheaders.com                                                      Development / Web / Compatibility | Security Headers
-http://www.heropatterns.com                                                      Development / Web / Resources | Hero Patterns
-https://resourcecards.com                                                        Development / Web / Resources | Resource Cards
-http://www.svgeneration.com                                                      Development / Web / Resources | SVGeneration
-https://www.toptal.com/designers/subtlepatterns                                  Development / Web / Resources | Subtle Patterns
-https://coveralls.io                                                             Development | Coveralls
-https://www.github.com                                                           Development | GitHub
-https://gist.github.com/sQVe                                                     Development | GitHub Gist
-https://help.github.com                                                          Development | GitHub Help
-https://help.github.com/en/articles/keyboard-shortcuts                           Development | GitHub Keymap
-https://www.hackerrank.com                                                       Development | HackerRank
-https://leetcode.com                                                             Development | LeetCode
-https://travis-ci.org                                                            Development | Travis CI
-https://www.drop.com                                                             Forum | Drop
-https://geekhack.org                                                             Forum | GeekHack
-https://www.keebtalk.com                                                         Forum | KeebTalk
-https://www.reddit.com                                                           Forum | Reddit
-http://www.gnu.org/software/gawk/manual/gawk.html                                Linux / Apps | Awk Manual
-http://www.gnu.org/software/grep/manual/grep.html                                Linux / Apps | Grep Manual
-https://stedolan.github.io/jq/manual/#del%28path_expression%29                   Linux / Apps | JQ Manual
-http://www.mutt.org/doc/manual                                                   Linux / Apps | Mutt
-https://github.com/raine/ramda-cli                                               Linux / Apps | Ramda CLI
-http://www.gnu.org/software/sed/manual/sed.html                                  Linux / Apps | Sed Manual
-http://sed.sourceforge.net/sed1line.txt                                          Linux / Apps | Sed One Liners
-https://vimawesome.com                                                           Linux / Apps | Vim Awesome
-http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html                Linux / Apps | Vim Cheatsheet
-https://vim.rtorr.com                                                            Linux / Apps | Vim Commands
-https://i3wm.org/docs/userguide.html                                             Linux / Apps | i3 Manual
-https://archlinuxarm.org                                                         Linux / Arch Linux | ARM
-https://aur.archlinux.org                                                        Linux / Arch Linux | AUR
-https://www.archlinux.org                                                        Linux / Arch Linux | Arch Linux
-https://archive.archlinux.org                                                    Linux / Arch Linux | Archive
-https://bbs.archlinux.org                                                        Linux / Arch Linux | Forum
-https://www.archlinux.org/packages                                               Linux / Arch Linux | Packages
-https://wiki.archlinux.org                                                       Linux / Arch Linux | Wiki
-http://susuwatari:2080                                                           Local | Kodi
-http://kamajii:2020                                                              Local | NZBGet
-http://kamajii:2060                                                              Local | Radarr
-http://shishigami:5000                                                           Local | Shishigami
-http://kamajii:2040                                                              Local | Sonarr
-http://www.imdb.com                                                              Movies | IMDb
-https://www.justwatch.com/se                                                     Movies | JustWatch
-https://www.netflix.com/se-en/browse                                             Movies | Netflix
-https://www.rottentomatoes.com                                                   Movies | Rotten Tomatoes
-https://genius.com                                                               Music | Genius
-https://hiphopdx.com                                                             Music | HiphopDX
-https://pitchfork.com                                                            Music | Pitchfork
-http://ukhh.com                                                                  Music | UKHH
-https://www.aftonbladet.se                                                       News / Newspaper | Aftonbladet
-https://www.expressen.se                                                         News / Newspaper | Expressen
-https://www.sydsvenskan.se                                                       News / Newspaper | Sydsvenskan
-https://www.theguardian.com/international                                        News / Newspaper | The Guardian
-https://www.washingtonpost.com                                                   News / Newspaper | The Washington Post
-https://news.ycombinator.com                                                     News / Tech | Hacker News
-http://slashdot.org                                                              News / Tech | Slashdot
-https://thenextweb.com                                                           News / Tech | TNW
-http://techcrunch.com                                                            News / Tech | Tech Crunch
-https://start.duckduckgo.com                                                     Search engine | DuckDuckGo
-https://www.google.com                                                           Search engine | Google
-https://calendar.google.com/calendar/r                                           Services | Calendar
-https://mail.google.com/mail/u/0/#inbox                                          Services | Mail
-https://web.whatsapp.com                                                         Services | WhatsApp
-https://dognzb.cr/login                                                          Usenet | DOGnzb
-https://drunkenslug.com                                                          Usenet | Drunkenslug
-https://nzbindex.com                                                             Usenet | NZBIndex
-https://www.oznzb.com                                                            Usenet | OZnzb
-https://www.twitch.tv                                                            VOD | Twitch
-https://www.youtube.com                                                          VOD | YouTube
+https://asciinema.org                                                  Development / Apps | Asciinema
+https://bundlephobia.com                                               Development / Apps | BundlePhobia
+https://carbon.now.sh                                                  Development / Apps | Carbon
+https://www.draw.io                                                    Development / Apps | Draw
+https://explainshell.com                                               Development / Apps | Explain Shell
+https://www.figma.com                                                  Development / Apps | Figma
+https://gitignore.io                                                   Development / Apps | Generate gitignore
+https://js.coach/                                                      Development / Apps | JS Coach
+https://jsfiddle.net                                                   Development / Apps | JSFiddle
+https://www.json-generator.com                                         Development / Apps | JSON Generator
+https://jsonlint.com                                                   Development / Apps | JSON Lint
+https://jwt.io                                                         Development / Apps | JWT
+https://www.nerdfonts.com/cheat-sheet                                  Development / Apps | Nerd Fonts
+https://regex101.com                                                   Development / Apps | RegEx 101
+https://shields.io                                                     Development / Apps | Shields and badges
+https://wordoid.com                                                    Development / Apps | Wordoid
+http://guide.bash.academy                                              Development / Bash | Bash Academy
+http://mywiki.wooledge.org/BashGuide                                   Development / Bash | Bash Guide
+http://www.color-blindness.com/color-name-hue                          Development / Colors | Color Name & Hue
+https://color.adobe.com                                                Development / Colors | Color Wheel
+http://www.flatuicolorpicker.com                                       Development / Colors | Flat UI Picker
+http://materialuicolors.co                                             Development / Colors | Material Colors
+https://fontawesome.com/icons?d=gallery                                Development / Fonts | Font Awesome
+https://jmattthew.github.io/better-font-finder/better-font-finder.html Development / Fonts | Google Font Finder
+https://fonts.google.com                                               Development / Fonts | Google Fonts
+https://materialdesignicons.com                                        Development / Fonts | Material Design Icons
+https://hackage.haskell.org                                            Development / Haskell | Hackage
+https://www.haskell.org                                                Development / Haskell | Haskell Language
+https://docs.haskellstack.org/en/stable/README                         Development / Haskell | Stack Tool
+https://www.stackage.org                                               Development / Haskell | Stackage
+https://bigocheatsheet.io                                              Development / Information | Big-O Cheatsheet
+https://css-tricks.com/snippets                                        Development / Information | CSS Tricks
+https://devhints.io                                                    Development / Information | Devhints
+https://docs.emmet.io/cheat-sheet                                      Development / Information | Emmet Cheatsheet
+https://hackr.io                                                       Development / Information | Hackr.io
+https://developer.mozilla.org/en-US/docs/Web                           Development / Information | MDN
+https://app.pluralsight.com/library                                    Development / Information | Pluralsight
+https://ponyfoo.com                                                    Development / Information | Pony Foo
+https://stackoverflow.com                                              Development / Information | Stack Overflow
+https://lodash.com/docs                                                Development / JavaScript / FP | Lodash
+http://ramdajs.com/docs                                                Development / JavaScript / FP | Ramda
+https://github.com/ramda/ramda/wiki/What-Function-Should-I-Use         Development / JavaScript / FP | Ramda (What?)
+https://char0n.github.io/ramda-adjunct/2.5.0                           Development / JavaScript / FP | Ramda Adjunct
+https://sanctuary.js.org                                               Development / JavaScript / FP | Sanctuary
+http://expressjs.com/en/api.html                                       Development / JavaScript / Node.js | Express
+http://koajs.com                                                       Development / JavaScript / Node.js | Koa
+https://docs.nestjs.com                                                Development / JavaScript / Node.js | Nest.js
+https://nodejs.org/api                                                 Development / JavaScript / Node.js | Node.js
+https://nextjs.org/docs                                                Development / JavaScript / React & Redux | Next.js
+https://reactjs.org/docs/hello-world.html                              Development / JavaScript / React & Redux | React
+https://reacttraining.com/react-router/web/guides/philosophy           Development / JavaScript / React & Redux | React Router
+https://redux-saga.js.org/docs/api/index.html                          Development / JavaScript / React & Redux | React Saga
+https://redux.js.org                                                   Development / JavaScript / React & Redux | Redux
+https://github.com/30-seconds/30-seconds-of-code                       Development / JavaScript / Snippets | 30 seconds of code
+https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore       Development / JavaScript / Snippets | You Don't Need Lodash or Underscore
+https://www.chaijs.com/api/bdd                                         Development / JavaScript / Testing | Chai
+http://airbnb.io/enzyme/docs/api/index.html                            Development / JavaScript / Testing | Enzyme
+https://facebook.github.io/jest/docs/en/api.html                       Development / JavaScript / Testing | Jest
+https://mochajs.org                                                    Development / JavaScript / Testing | Mocha
+https://sinonjs.org                                                    Development / JavaScript / Testing | Sinon
+https://microsoft.github.io/TypeSearch                                 Development / JavaScript / Types | TypeSearch
+https://cheatsheetseries.owasp.org                                     Development / Security | OWASP Cheat Sheet Series
+https://www.gnu.org/software/bash/manual/bash.html                     Development / Specification | Bash
+https://www.ecma-international.org/ecma-262                            Development / Specification | ECMAScript 2019
+https://github.com/fantasyland/fantasy-land                            Development / Specification | Fantasy Land
+https://www.haskell.org/onlinereport/haskell2010/                      Development / Specification | Haskell 2010
+https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md        Development / Specification | TypeScript
+https://www.w3.org/TR/?status=rec&version=latest                       Development / Specification | W3C
+https://spec.whatwg.org/                                               Development / Specification | WHATWG
+http://flexbox.help                                                    Development / Styling | Flexbox Help
+https://polished.js.org/docs                                           Development / Styling | Polished
+https://www.styled-components.com                                      Development / Styling | Styled Components
+http://learnvimscriptthehardway.stevelosh.com                          Development / Vim Script | Learn Vim Script the hard way
+https://w0rp.com/blog/post/vim-script-for-the-javascripter             Development / Vim Script | Vim Script for the JavaScripter
+https://www.browserstack.com                                           Development / Web / Compatibility | BrowserStack
+http://browserl.ist                                                    Development / Web / Compatibility | Browserlist
+https://caniuse.com                                                    Development / Web / Compatibility | Can I Use
+https://kangax.github.io/compat-table/es6                              Development / Web / Compatibility | ECMAScript Compatibility Table
+http://www.grumpicon.com                                               Development / Web / Compatibility | Grumpicon
+http://html5please.com                                                 Development / Web / Compatibility | HTML5 Please
+https://node.green/                                                    Development / Web / Compatibility | Node Compatibility Table
+https://securityheaders.com                                            Development / Web / Compatibility | Security Headers
+http://www.heropatterns.com                                            Development / Web / Resources | Hero Patterns
+https://resourcecards.com                                              Development / Web / Resources | Resource Cards
+http://www.svgeneration.com                                            Development / Web / Resources | SVGeneration
+https://www.toptal.com/designers/subtlepatterns                        Development / Web / Resources | Subtle Patterns
+https://coveralls.io                                                   Development | Coveralls
+https://www.github.com                                                 Development | GitHub
+https://gist.github.com/sQVe                                           Development | GitHub Gist
+https://help.github.com                                                Development | GitHub Help
+https://help.github.com/en/articles/keyboard-shortcuts                 Development | GitHub Keymap
+https://www.hackerrank.com                                             Development | HackerRank
+https://leetcode.com                                                   Development | LeetCode
+https://travis-ci.org                                                  Development | Travis CI
+https://dreams.1password.com/signin                                    Dreams | 1Password
+https://console.aws.amazon.com/console/home                            Dreams | AWS Console
+https://calendar.google.com/calendar/b/1/r                             Dreams | Calendar
+https://getdreams.atlassian.net/                                       Dreams | Jira
+https://mail.google.com/mail/u/1/#inbox                                Dreams | Mail
+https://www.drop.com                                                   Forum | Drop
+https://geekhack.org                                                   Forum | GeekHack
+https://www.keebtalk.com                                               Forum | KeebTalk
+https://www.reddit.com                                                 Forum | Reddit
+http://www.gnu.org/software/gawk/manual/gawk.html                      Linux / Apps | Awk Manual
+http://www.gnu.org/software/grep/manual/grep.html                      Linux / Apps | Grep Manual
+https://stedolan.github.io/jq/manual/#del%28path_expression%29         Linux / Apps | JQ Manual
+http://www.mutt.org/doc/manual                                         Linux / Apps | Mutt
+https://github.com/raine/ramda-cli                                     Linux / Apps | Ramda CLI
+http://www.gnu.org/software/sed/manual/sed.html                        Linux / Apps | Sed Manual
+http://sed.sourceforge.net/sed1line.txt                                Linux / Apps | Sed One Liners
+https://vimawesome.com                                                 Linux / Apps | Vim Awesome
+http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html      Linux / Apps | Vim Cheatsheet
+https://vim.rtorr.com                                                  Linux / Apps | Vim Commands
+https://i3wm.org/docs/userguide.html                                   Linux / Apps | i3 Manual
+https://archlinuxarm.org                                               Linux / Arch Linux | ARM
+https://aur.archlinux.org                                              Linux / Arch Linux | AUR
+https://www.archlinux.org                                              Linux / Arch Linux | Arch Linux
+https://archive.archlinux.org                                          Linux / Arch Linux | Archive
+https://bbs.archlinux.org                                              Linux / Arch Linux | Forum
+https://www.archlinux.org/packages                                     Linux / Arch Linux | Packages
+https://wiki.archlinux.org                                             Linux / Arch Linux | Wiki
+http://susuwatari:2080                                                 Local | Kodi
+http://kamajii:2020                                                    Local | NZBGet
+http://kamajii:2060                                                    Local | Radarr
+http://shishigami:5000                                                 Local | Shishigami
+http://kamajii:2040                                                    Local | Sonarr
+http://www.imdb.com                                                    Movies | IMDb
+https://www.justwatch.com/se                                           Movies | JustWatch
+https://www.netflix.com/se-en/browse                                   Movies | Netflix
+https://www.rottentomatoes.com                                         Movies | Rotten Tomatoes
+https://genius.com                                                     Music | Genius
+https://hiphopdx.com                                                   Music | HiphopDX
+https://pitchfork.com                                                  Music | Pitchfork
+http://ukhh.com                                                        Music | UKHH
+https://www.aftonbladet.se                                             News / Newspaper | Aftonbladet
+https://www.expressen.se                                               News / Newspaper | Expressen
+https://www.sydsvenskan.se                                             News / Newspaper | Sydsvenskan
+https://www.theguardian.com/international                              News / Newspaper | The Guardian
+https://www.washingtonpost.com                                         News / Newspaper | The Washington Post
+https://news.ycombinator.com                                           News / Tech | Hacker News
+http://slashdot.org                                                    News / Tech | Slashdot
+https://thenextweb.com                                                 News / Tech | TNW
+http://techcrunch.com                                                  News / Tech | Tech Crunch
+https://start.duckduckgo.com                                           Search engine | DuckDuckGo
+https://www.google.com                                                 Search engine | Google
+https://calendar.google.com/calendar/r                                 Services | Calendar
+https://mail.google.com/mail/u/0/#inbox                                Services | Mail
+https://web.whatsapp.com                                               Services | WhatsApp
+https://dognzb.cr/login                                                Usenet | DOGnzb
+https://drunkenslug.com                                                Usenet | Drunkenslug
+https://nzbindex.com                                                   Usenet | NZBIndex
+https://www.oznzb.com                                                  Usenet | OZnzb
+https://www.twitch.tv                                                  VOD | Twitch
+https://www.youtube.com                                                VOD | YouTube
