@@ -174,6 +174,7 @@ alias bc='bc -l -q'
 alias bluetooth=bluetoothctl
 alias c=cat
 alias camera=gphoto2
+alias ctop='sudo ctop'
 alias diff='diff --color=always --unified'
 alias fd='fd --hidden --follow'
 alias feh='feh --scale-down --auto-zoom --image-bg "#282828"'
