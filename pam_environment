@@ -2,6 +2,7 @@ EDITOR=nvim
 PAGER=less
 VISUAL=nvim
 
+BAT_CACHE_PATH      DEFAULT=@{HOME}/.local/share/bat
 GTK2_RC_FILES       DEFAULT=@{HOME}/.config/gtk-2.0/gtkrc-2.0
 HTTPIE_CONFIG_DIR   DEFAULT=@{HOME}/.config/httpie
 NVM_DIR             DEFAULT=@{HOME}/.nvm

@@ -44,13 +44,6 @@ mkdir /tmp/peek
 mkdir /tmp/coc-yank-data
 [[ ! -h "$HOME/.config/coc/extensions/coc-yank-data" ]] && ln -s /tmp/coc-yank-data "$HOME/.config/coc/extensions/coc-yank-data"
 
-# Setup bat cache files.
-if [[ -f "$HOME/.local/share/bat/themes.bin" ]] && [[ -f "$HOME/.local/share/bat/syntaxes.bin" ]]; then
-  mkdir "$HOME/.cache/bat"
-  cp "$HOME/.local/share/bat/themes.bin" "$HOME/.cache/bat"
-  cp "$HOME/.local/share/bat/syntaxes.bin" "$HOME/.cache/bat"
-fi
-
 # Restore playground boxes.
 if [[ -d  "$HOME/code/playground" ]]; then
   git -C "$HOME/code/playground" checkout -- boxes
