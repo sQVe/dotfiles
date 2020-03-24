@@ -4,15 +4,15 @@
 
 export GPG_TTY="$(tty)"
 
+node_versions=$NVM_DIR/versions/node
+export PATH=$PATH:$HOME/.local/bin:$node_versions/$(ls -1 $node_versions | sort -V | tail -n 1)/bin
+
 export KEYTIMEOUT=1
 export PROMPT_LEAN_VIMODE=1
 export PROMPT_LEAN_VIMODE_FORMAT='%F{magenta}NORMAL%f '
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
-
-node_versions=$NVM_DIR/versions/node
-export PATH=$PATH:$HOME/.local/bin:$node_versions/$(ls -1 $node_versions | sort -V | tail -n 1)/bin
 
 export TLDR_COLOR_COMMAND='magenta'
 export TLDR_COLOR_EXAMPLE='cyan'
