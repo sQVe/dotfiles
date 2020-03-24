@@ -2,6 +2,7 @@
   "coc.source.emoji.filetypes": [
     "mail",
     "markdown",
+    "markdown.mdx",
     "text"
   ],
   "diagnostic.checkCurrentLine": true,
