@@ -239,3 +239,4 @@ alias playground-fp.ts='playground fp.ts'
 
 # Todo.
 alias todo='nvim-dir $HOME/notes/todo.md'
+alias dreams='nvim-dir $HOME/notes/dreams.md'
