@@ -67,6 +67,7 @@ https://www.haskell.org/onlinereport/haskell2010/                      Developme
 https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md        Development / Specification | TypeScript
 https://www.w3.org/TR/?status=rec&version=latest                       Development / Specification | W3C
 https://spec.whatwg.org/                                               Development / Specification | WHATWG
+https://emotion.sh/docs                                                Development / Styling | Emotions
 http://flexbox.help                                                    Development / Styling | Flexbox Help
 https://polished.js.org/docs                                           Development / Styling | Polished
 https://www.styled-components.com                                      Development / Styling | Styled Components
@@ -95,6 +96,7 @@ https://travis-ci.org                                                  Developme
 https://dreams.1password.com/signin                                    Dreams | 1Password
 https://console.aws.amazon.com/console/home                            Dreams | AWS Console
 https://calendar.google.com/calendar/b/1/r                             Dreams | Calendar
+http://deg.dream-tools.io/                                             Dreams | Deg
 https://getdreams.atlassian.net/                                       Dreams | Jira
 https://mail.google.com/mail/u/1/#inbox                                Dreams | Mail
 https://getdreams.io                                                   Dreams | Production
