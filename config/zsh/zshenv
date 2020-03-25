@@ -4,9 +4,11 @@
 
 export GPG_TTY="$(tty)"
 
-node_versions=$NVM_DIR/versions/node
-export PATH=$PATH:$HOME/.local/bin:$node_versions/$(ls -1 $node_versions | sort -V | tail -n 1)/bin
+# Set last node version as default.
+export NVM_NODE_VERIONS=$NVM_DIR/versions/node
+export PATH=$PATH:$HOME/.local/bin:$NVM_NODE_VERIONS/$(ls -1 $NVM_NODE_VERIONS | sort -V | tail -n 1)/bin
 
+# Terminal options.
 export KEYTIMEOUT=1
 export PROMPT_LEAN_VIMODE=1
 export PROMPT_LEAN_VIMODE_FORMAT='%F{magenta}NORMAL%f '
@@ -14,11 +16,21 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
+# TLDR option TLDR optionss
 export TLDR_COLOR_COMMAND='magenta'
 export TLDR_COLOR_EXAMPLE='cyan'
 export TLDR_COLOR_NAME='green'
 
+# Pass options.
+export PASSWORD_STORE_GENERATED_LENGTH=24
+export PASSWORD_STORE_GPG_OPTS=--no-throw-keyids
+
+# Color options.
 export EXA_COLORS='da=38;5;244:gr=37:gu=1;37:gw=36:gx=35:tr=37:tw=36:tx=35:ue=35:ur=37:uu=1;37:uw=36:ux=35'
 export GREP_COLORS='mt=30;44'
 export LESS='-R'
 export LESSOPEN='| bat --color=always %s'
+export LESSHISTFILE=-
+
+# Misc options.
+export WINIT_HIDPI_FACTOR=1

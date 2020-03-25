@@ -1,5 +1,5 @@
 {
-	"buildDir": "/home/sqve/.builds/aur",
+	"buildDir": "/home/sqve/.local/share/builds/aur",
 	"editor": "",
 	"editorflags": "",
 	"makepkgbin": "makepkg",

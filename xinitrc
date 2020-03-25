@@ -10,7 +10,7 @@ gpg-connect-agent updatestartuptty /bye
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)
 
 # Load the Xresources settings.
-xrdb ~/.Xresources
+xrdb "$XDG_CONFIG_HOME/Xresources"
 
 # Start xiccd colord daemon.
 xiccd &
@@ -38,15 +38,15 @@ xset dpms 240 240 240
 
 # Setup peek cache symlink to tmp.
 mkdir /tmp/peek
-[[ ! -h "$HOME/.cache/peek" ]] && ln -s /tmp/peek "$HOME/.cache/peek"
+[[ ! -h "$XDG_CACHE_HOME/peek" ]] && ln -s /tmp/peek "$XDG_CACHE_HOME/peek"
 
 # Setup coc yank data symlink to tmp.
 mkdir /tmp/coc-yank-data
-[[ ! -h "$HOME/.config/coc/extensions/coc-yank-data" ]] && ln -s /tmp/coc-yank-data "$HOME/.config/coc/extensions/coc-yank-data"
+[[ ! -h "$XDG_CONFIG_HOME/coc/extensions/coc-yank-data" ]] && ln -s /tmp/coc-yank-data "$XDG_CONFIG_HOME/coc/extensions/coc-yank-data"
 
 # Restore playground boxes.
-if [[ -d  "$HOME/code/playground" ]]; then
-  git -C "$HOME/code/playground" checkout -- boxes
+if [[ -d  "$CODE/playground" ]]; then
+  git -C "$CODE/playground" checkout -- boxes
 fi
 
 # Run the scripts in xinitrc.d.

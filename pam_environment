@@ -1,21 +1,49 @@
+# Apps.
 BROWSER=qutebrowser
 EDITOR=nvim
 PAGER=less
 TERMINAL=term
 VISUAL=nvim
 
-BAT_CACHE_PATH      DEFAULT=@{HOME}/.local/share/bat
-GTK2_RC_FILES       DEFAULT=@{HOME}/.config/gtk-2.0/gtkrc-2.0
-HTTPIE_CONFIG_DIR   DEFAULT=@{HOME}/.config/httpie
-NVM_DIR             DEFAULT=@{HOME}/.local/share/nvm
-PASSWORD_STORE_DIR  DEFAULT=@{HOME}/.passwords
-RIPGREP_CONFIG_PATH DEFAULT=@{HOME}/.config/ripgrep/config
-SSH_AGENT_PID       DEFAULT=
-SSH_AUTH_SOCK       DEFAULT=${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh
-TRASH               DEFAULT=@{HOME}/.local/share/Trash
-YVM_DIR             DEFAULT=@{HOME}/.local/share/yvm
-ZIM_HOME            DEFAULT=@{HOME}/.local/share/zim
+# XDG.
+XDG_CACHE_HOME  DEFAULT=@{HOME}/.cache
+XDG_CONFIG_HOME DEFAULT=@{HOME}/.config
+XDG_DATA_HOME   DEFAULT=@{HOME}/.local/share
 
-PASSWORD_STORE_GENERATED_LENGTH=24
-PASSWORD_STORE_GPG_OPTS=--no-throw-keyids
-WINIT_HIDPI_FACTOR=1
+# User specific.
+BIN       DEFAULT=@{HOME}/.bin
+BOOKS     DEFAULT=@{HOME}/books
+CODE      DEFAULT=@{HOME}/code
+DOTFILES  DEFAULT=@{HOME}/.dotfiles
+DOWNLOAD  DEFAULT=@{HOME}/download
+NOTES     DEFAULT=@{HOME}/notes
+PASSWORDS DEFAULT=@{HOME}/.passwords
+PICTURES  DEFAULT=@{HOME}/pictures
+SCRIPTS   DEFAULT=@{HOME}/scripts
+WORK      DEFAULT=@{HOME}/work
+
+# Runtime.
+SSH_AGENT_PID DEFAULT=
+SSH_AUTH_SOCK DEFAULT=${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh
+XAUTHORITY    DEFAULT=${XDG_RUNTIME_DIR}/Xauthority
+
+# Application config.
+ANDROID_SDK_HOME      DEFAULT=${XDG_DATA_HOME}/android
+BAT_CACHE_PATH        DEFAULT=${XDG_DATA_HOME}/bat
+CUDA_CACHE_PATH       DEFAULT=${XDG_CACHE_HOME}/nv
+DOCKER_CONFIG         DEFAULT=${XDG_CONFIG_HOME}/docker
+GNUPGHOME             DEFAULT=${XDG_DATA_HOME}/gnupg
+GTK2_RC_FILES         DEFAULT=${XDG_CONFIG_HOME}/gtk-2.0/gtkrc-2.0
+HISTFILE              DEFAULT=${XDG_CONFIG_HOME}/zsh/history
+HTTPIE_CONFIG_DIR     DEFAULT=${XDG_CONFIG_HOME}/httpie
+NODE_REPL_HISTORY     DEFAULT=${XDG_CACHE_HOME}/node_repl_history
+NPM_CONFIG_USERCONFIG DEFAULT=${XDG_CONFIG_HOME}/npm/npmrc
+NVM_DIR               DEFAULT=${XDG_DATA_HOME}/nvm
+PASSWORD_STORE_DIR    DEFAULT=${PASSWORDS}
+RCRC                  DEFAULT=${XDG_CONFIG_HOME}/rcrc
+RIPGREP_CONFIG_PATH   DEFAULT=${XDG_CONFIG_HOME}/ripgrep/config
+TRASH                 DEFAULT=${XDG_DATA_HOME}/Trash
+WEECHAT_HOME          DEFAULT=${XDG_DATA_HOME}/weechat
+YVM_DIR               DEFAULT=${XDG_DATA_HOME}/yvm
+ZDOTDIR               DEFAULT=${XDG_CONFIG_HOME}/zsh
+ZIM_HOME              DEFAULT=${XDG_DATA_HOME}/zim

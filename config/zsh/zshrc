@@ -18,7 +18,7 @@ source /usr/share/fzf/key-bindings.zsh
 if [[ "$TERM" = 'linux' ]]; then
   # Replicate colors definied in .Xresources for virtual console.
   _SEDCMD='s/.*\*color\([0-9]\{1,\}\).*#\([0-9a-fA-F]\{6\}\).*/\1 \2/p'
-  for i in $(sed -n "$_SEDCMD" $HOME/.Xresources | awk '$1 < 16 {printf "\\e]P%X%s", $1, $2}'); do
+  for i in $(sed -n "$_SEDCMD" $XDG_CONFIG_HOME/Xresources | awk '$1 < 16 {printf "\\e]P%X%s", $1, $2}'); do
       echo -en "$i"
   done
   clear
@@ -169,7 +169,6 @@ alias ll='exa -l'
 alias ls='exa'
 
 # Apps.
-alias R='ramda --js'
 alias bc='bc -l -q'
 alias bluetooth=bluetoothctl
 alias c=cat
@@ -187,11 +186,11 @@ alias hcat='highlight -O truecolor --force --base16=gruvbox-dark-medium --stdout
 alias l=less
 alias leave='i3-msg exit'
 alias loc=locate
-alias mixer=ncpamixer
+alias mixer=pavucontrol
 alias mutt=neomutt
 alias peekhl='peek --no-headerbar'
 alias qutebrowser=scaled-qutebrowser
-alias ramda='ramda --js'
+alias rcup="$SCRIPTS/extended-rcup.sh"
 alias rg='rg --follow'
 alias s=sudo
 alias se=sudoedit
@@ -206,26 +205,26 @@ alias wifi-menu='wifi-menu -o'
 alias xsel='xsel -b'
 
 # Config.
-alias cfg-alacritty='nvim-dir $HOME/.dotfiles/config/alacritty/alacritty.yml'
+alias cfg-alacritty='nvim-dir $DOTFILES/config/alacritty/alacritty.yml'
 alias cfg-env='nvim-dir /etc/environment'
 alias cfg-hosts='nvim-dir /etc/hosts'
-alias cfg-i3='nvim-dir $HOME/.dotfiles/config/i3/config'
-alias cfg-keymap-ergodox='nvim-dir $HOME/code/qmk_firmware/keyboards/ergodox_ez/keymaps/sqve/keymap.c'
-alias cfg-keymap-preonic='nvim-dir $HOME/code/qmk_firmware/keyboards/preonic/keymaps/sqve/keymap.c'
-alias cfg-mbsyncrc='nvim-dir $HOME/.dotfiles/mbsyncrc'
-alias cfg-msmtprc='nvim-dir $HOME/.dotfiles/msmtprc'
-alias cfg-mutt='nvim-dir $HOME/.dotfiles/config/mutt'
-alias cfg-notmuch='nvim-dir $HOME/.dotfiles/notmuch-config'
-alias cfg-nvim='nvim-dir $HOME/.dotfiles/config/nvim/'
-alias cfg-pam='nvim-dir $HOME/.dotfiles/pam_environment'
-alias cfg-vifm='nvim-dir $HOME/.dotfiles/config/vifm/vifmrc'
-alias cfg-vim='nvim-dir $HOME/.dotfiles/config/nvim/'
-alias cfg-weechat='nvim-dir $HOME/.dotfiles/weechat'
-alias cfg-xinitrc='nvim-dir $HOME/.dotfiles/xinitrc'
-alias cfg-xresources='nvim-dir $HOME/.dotfiles/Xresources'
-alias cfg-zimrc='nvim-dir $HOME/.dotfiles/zimrc'
-alias cfg-zshenv='nvim-dir $HOME/.dotfiles/zshenv'
-alias cfg-zshrc='nvim-dir $HOME/.dotfiles/zshrc'
+alias cfg-i3='nvim-dir $DOTFILES/config/i3/config'
+alias cfg-keymap-ergodox='nvim-dir $CODE/qmk_firmware/keyboards/ergodox_ez/keymaps/sqve/keymap.c'
+alias cfg-keymap-preonic='nvim-dir $CODE/qmk_firmware/keyboards/preonic/keymaps/sqve/keymap.c'
+alias cfg-mbsyncrc='nvim-dir $DOTFILES/mbsyncrc'
+alias cfg-msmtprc='nvim-dir $DOTFILES/msmtprc'
+alias cfg-mutt='nvim-dir $DOTFILES/config/mutt'
+alias cfg-notmuch='nvim-dir $DOTFILES/notmuch-config'
+alias cfg-nvim='nvim-dir $DOTFILES/config/nvim/'
+alias cfg-pam='nvim-dir $DOTFILES/pam_environment'
+alias cfg-vifm='nvim-dir $DOTFILES/config/vifm/vifmrc'
+alias cfg-vim='nvim-dir $DOTFILES/config/nvim/'
+alias cfg-weechat='nvim-dir $DOTFILES/local/share/weechat/'
+alias cfg-xinitrc='nvim-dir $DOTFILES/xinitrc'
+alias cfg-xresources='nvim-dir $DOTFILES/config/Xresources'
+alias cfg-zimrc='nvim-dir $DOTFILES/config/zsh/zimrc'
+alias cfg-zshenv='nvim-dir $DOTFILES/config/zsh/zshenv'
+alias cfg-zshrc='nvim-dir $DOTFILES/config/zsh/zshrc'
 
 # Dunst.
 alias dunst-pause='notify-send "DUNST_COMMAND_PAUSE"'
@@ -238,5 +237,5 @@ alias playground-fp.js='playground fp.js'
 alias playground-fp.ts='playground fp.ts'
 
 # Todo.
-alias todo='nvim-dir $HOME/notes/todo.md'
-alias dreams='nvim-dir $HOME/notes/dreams.md'
+alias todo='nvim-dir $NOTES/todo.md'
+alias dreams='nvim-dir $NOTES/dreams.md'
