@@ -2,6 +2,9 @@ scaled-qutebrowser %U
   ^https?:\/\/files.slack.com\/.+?\.(gif|jpe?g|png)
   ^https?:\/\/(www.)?reddit.com/api/.+
 
+google-chrome-stable %U
+  ^https?:\/\/meet.google.com/.+
+
 mpv %U
   ^https?:\/\/(www.)?youtube.com/watch\?.*v=
 mpv %U
