@@ -167,8 +167,8 @@ snippet cloneRegExp "Clones a regular expression.  Use `new RegExp()`, `RegExp.s
 const cloneRegExp = regExp => new RegExp(regExp.source, regExp.flags);
 endsnippet
 
-snippet coalesce "Returns the first non-null/undefined argument.  Use `Array.prototype.find()` to return the first non `null`/`undefined` argument.  " b
-const coalesce = (...args) => args.find(_ => ![undefined, null].includes(_));
+snippet coalesce "Returns the first defined, non-null argument.  Use `Array.prototype.find()` and `Array.prototype.includes()` to find the first value that is not equal to `undefined` or `null`.  " b
+const coalesce = (...args) => args.find(v => ![undefined, null].includes(v));
 endsnippet
 
 snippet coalesceFactory "Returns a customized coalesce function that returns the first argument that returns `true` from the provided argument validation function.  Use `Array.prototype.find()` to return the first argument that returns `true` from the provided argument validation function.  " b
@@ -214,6 +214,10 @@ endsnippet
 
 snippet composeRight "Performs left-to-right function composition.  Use `Array.prototype.reduce()` to perform left-to-right function composition. The first (leftmost) function can accept one or more arguments; the remaining functions must be unary.  " b
 const composeRight = (...fns) => fns.reduce((f, g) => (...args) => g(f(...args)));
+endsnippet
+
+snippet containsWhitespace "Returns `true` if the given string contains any whitespace characters, `false` otherwise.  Use `RegExp.prototype.test()` with an appropriate regular expression to check if the given string contains any whitespace characters.  " b
+const containsWhitespace = str => /\s/.test(str);
 endsnippet
 
 snippet converge "Accepts a converging function and a list of branching functions and returns a function that applies each branching function to the arguments and the results of the branching functions are passed as arguments to the converging function.  Use `Array.prototype.map()` and `Function.prototype.apply()` to apply each function to the given arguments. Use the spread operator (`...`) to call `coverger` with the results of all other functions.  " b
@@ -318,7 +322,7 @@ const CSVToJSON = (data, delimiter = ',') => {
 };
 endsnippet
 
-snippet currentURL "Returns the current URL.  Use `window.location.href` to get current URL.  " b
+snippet currentURL "Returns the current URL.  Use `window.location.href` to get the current URL.  " b
 const currentURL = () => window.location.href;
 endsnippet
 
@@ -366,11 +370,13 @@ snippet deepFlatten "Deep flattens an array.  Use recursion. Use `Array.prototyp
 const deepFlatten = arr => [].concat(...arr.map(v => (Array.isArray(v) ? deepFlatten(v) : v)));
 endsnippet
 
-snippet deepFreeze "Deep freezes an object.  Calls `Object.freeze(obj)` recursively on all unfrozen properties of passed object that are `instanceof` object.  " b
-const deepFreeze = obj =>
-  Object.keys(obj).forEach(prop =>
-    !(obj[prop] instanceof Object) || Object.isFrozen(obj[prop]) ? null : deepFreeze(obj[prop])
-  ) || Object.freeze(obj);
+snippet deepFreeze "Deep freezes an object.  Use `Object.keys()` to get all the properties of the passed object, `Array.prototype.forEach()` to iterate over them. Call `Object.freeze(obj)` recursively on all properties, checking if each one is frozen using `Object.isFrozen()` and applying `deepFreeze()` as necessary. Finally, use `Object.freeze()` to freeze the given object.  " b
+const deepFreeze = obj => {
+  Object.keys(obj).forEach(prop => {
+    if (obj[prop] === 'object' && !Object.isFrozen(obj[prop])) deepFreeze(v[prop]);
+  });
+  return Object.freeze(obj);
+};
 endsnippet
 
 snippet deepGet "Returns the target value in a nested JSON object, based on the `keys` array.  Compare the keys you want in the nested JSON object as an `Array`. Use `Array.prototype.reduce()` to get value from nested JSON object one by one.  If the key exists in object, return target value, otherwise, return `null`.  " b
@@ -571,10 +577,6 @@ const fibonacci = n =>
   );
 endsnippet
 
-snippet filterFalsy "Filters out the falsy values in an array.  Use `Array.prototype.filter()` to get an array containing only truthy values.  " b
-const filterFalsy = arr => arr.filter(Boolean);
-endsnippet
-
 snippet filterNonUnique "Filters out the non-unique values in an array.  Use `Array.prototype.filter()` for an array containing only the unique values.  " b
 const filterNonUnique = arr => arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i));
 endsnippet
@@ -764,7 +766,7 @@ snippet getStyle "Returns the value of a CSS rule for the specified element.  Us
 const getStyle = (el, ruleName) => getComputedStyle(el)[ruleName];
 endsnippet
 
-snippet getType "Returns the native type of a value.  Returns lowercased constructor name of value, `undefined` or `null` if value is `undefined` or `null`.  " b
+snippet getType "Returns the native type of a value.  Return `undefined` or `null` if the value is `undefined` or `null`. Otherwise, use `Object.prototype.constructor.name` to get the name of the constructor, `String.prototype.toLowerCase()` to return it in lowercase.  " b
 const getType = v =>
   v === undefined ? 'undefined' : v === null ? 'null' : v.constructor.name.toLowerCase();
 endsnippet
@@ -785,7 +787,7 @@ const groupBy = (arr, fn) =>
   }, {});
 endsnippet
 
-snippet hammingDistance "Calculates the Hamming distance between two values.  Use XOR operator (`^`) to find the bit difference between the two numbers, convert to a binary string using `toString(2)`. Count and return the number of `1`s in the string, using `match(/1/g)`.  " b
+snippet hammingDistance "Calculates the Hamming distance between two values.  Use the XOR operator (`^`) to find the bit difference between the two numbers, convert to a binary string using `toString(2)`. Count and return the number of `1`s in the string, using `match(/1/g)`.  " b
 const hammingDistance = (num1, num2) => ((num1 ^ num2).toString(2).match(/1/g) || '').length;
 endsnippet
 
@@ -839,7 +841,7 @@ const hasKey = (obj, keys) => {
 };
 endsnippet
 
-snippet haveSameContents "Returns `true` if two arrays contain the same elements regardless of order, `false` otherwise.  Use a `for...of` loop over a `Set` created from the values of both arrays. Use `Array.prototype.filter()` to compare the amount of occurences of each distinct value in both arrays. Return `false` if the counts do not match for any element, `true` otherwise.  " b
+snippet haveSameContents "Returns `true` if two arrays contain the same elements regardless of order, `false` otherwise.  Use a `for...of` loop over a `Set` created from the values of both arrays. Use `Array.prototype.filter()` to compare the amount of occurrences of each distinct value in both arrays. Return `false` if the counts do not match for any element, `true` otherwise.  " b
 const haveSameContents = (a, b) => {
   for (const v of new Set([...a, ...b]))
     if (a.filter(e => e === v).length !== b.filter(e => e === v).length) return false;
@@ -912,7 +914,7 @@ const hz = (fn, iterations = 100) => {
 };
 endsnippet
 
-snippet includesAll "Returns `true` if all the elements ιν `values` are included in `arr`, `false` otherwise.  Use `Array.prototype.every()` and `Array.prototype.includes()` to check if all elements of `values` are included in `arr`.  " b
+snippet includesAll "Returns `true` if all the elements in `values` are included in `arr`, `false` otherwise.  Use `Array.prototype.every()` and `Array.prototype.includes()` to check if all elements of `values` are included in `arr`.  " b
 const includesAll = (arr, values) => values.every(v => arr.includes(v));
 endsnippet
 
@@ -978,14 +980,14 @@ endsnippet
 snippet intersection "Returns a list of elements that exist in both arrays.  Create a `Set` from `b`, then use `Array.prototype.filter()` on `a` to only keep values contained in `b`.  " b
 const intersection = (a, b) => {
   const s = new Set(b);
-  return a.filter(x => s.has(x));
+  return [...new Set(a)].filter(x => s.has(x));
 };
 endsnippet
 
 snippet intersectionBy "Returns a list of elements that exist in both arrays, after applying the provided function to each array element of both.  Create a `Set` by applying `fn` to all elements in `b`, then use `Array.prototype.filter()` on `a` to only keep elements, which produce values contained in `b` when `fn` is applied to them.  " b
 const intersectionBy = (a, b, fn) => {
   const s = new Set(b.map(fn));
-  return a.filter(x => s.has(fn(x)));
+  return [...new Set(a)].filter(x => s.has(fn(x)));
 };
 endsnippet
 
@@ -1093,11 +1095,11 @@ snippet isNegativeZero "Checks if the given value is equal to negative zero (`-0
 const isNegativeZero = val => val === 0 && 1 / val === -Infinity;
 endsnippet
 
-snippet isNil "Returns `true` if the specified value is `null` or `undefined`, `false` otherwise.  Use the strict equality operator to check if the value and of `val` are equal to `null` or `undefined`.  " b
+snippet isNil "Returns `true` if the specified value is `null` or `undefined`, `false` otherwise.  Use the strict equality operator to check if the value of `val` is equal to `null` or `undefined`.  " b
 const isNil = val => val === undefined || val === null;
 endsnippet
 
-snippet isNull "Returns `true` if the specified value is `null`, `false` otherwise.  Use the strict equality operator to check if the value and of `val` are equal to `null`.  " b
+snippet isNull "Returns `true` if the specified value is `null`, `false` otherwise.  Use the strict equality operator to check if the value of `val` is equal to `null`.  " b
 const isNull = val => val === null;
 endsnippet
 
@@ -1184,7 +1186,7 @@ snippet isTravisCI "Checks if the current environment is [Travis CI](https://tra
 const isTravisCI = () => 'TRAVIS' in process.env && 'CI' in process.env;
 endsnippet
 
-snippet isUndefined "Returns `true` if the specified value is `undefined`, `false` otherwise.  Use the strict equality operator to check if the value and of `val` are equal to `undefined`.  " b
+snippet isUndefined "Returns `true` if the specified value is `undefined`, `false` otherwise.  Use the strict equality operator to check if `val` is equal to `undefined`.  " b
 const isUndefined = val => val === undefined;
 endsnippet
 
@@ -1231,8 +1233,8 @@ const join = (arr, separator = ',', end = separator) =>
       i === arr.length - 2
         ? acc + val + end
         : i === arr.length - 1
-        ? acc + val
-        : acc + val + separator,
+          ? acc + val
+          : acc + val + separator,
     ''
   );
 endsnippet
@@ -1458,18 +1460,18 @@ snippet objectFromPairs "Creates an object from the given key-value pairs.  Use 
 const objectFromPairs = arr => arr.reduce((a, [key, val]) => ((a[key] = val), a), {});
 endsnippet
 
-snippet objectToPairs "Creates an array of key-value pair arrays from an object.  Use `Object.keys()` and `Array.prototype.map()` to iterate over the object's keys and produce an array with key-value pairs.  " b
-const objectToPairs = obj => Object.keys(obj).map(k => [k, obj[k]]);
+snippet objectToPairs "Creates an array of key-value pair arrays from an object.  Use `Object.entries()` to get an array of key-value pair arrays from the given object.  " b
+const objectToPairs = obj => Object.entries(obj);
 endsnippet
 
 snippet objectToQueryString "Returns a query string generated from the key-value pairs of the given object.  Use `Array.prototype.reduce()` on `Object.entries(queryParameters)` to create the query string. Determine the `symbol` to be either `?` or `&` based on the `length` of `queryString` and concatenate `val` to `queryString` only if it's a string. Return the `queryString` or an empty string when the `queryParameters` are falsy.  " b
 const objectToQueryString = queryParameters => {
   return queryParameters
     ? Object.entries(queryParameters).reduce((queryString, [key, val], index) => {
-        const symbol = queryString.length === 0 ? '?' : '&';
-        queryString += typeof val === 'string' ? `${symbol}${key}=${val}` : '';
-        return queryString;
-      }, '')
+      const symbol = queryString.length === 0 ? '?' : '&';
+      queryString += typeof val === 'string' ? `${symbol}${key}=${val}` : '';
+      return queryString;
+    }, '')
     : '';
 };
 endsnippet
@@ -1574,7 +1576,7 @@ snippet overArgs "Creates a function that invokes the provided function with its
 const overArgs = (fn, transforms) => (...args) => fn(...args.map((val, i) => transforms[i](val)));
 endsnippet
 
-snippet pad "Pads a string on both sides with the specified character, if it's shorter than the specified length.  Use `String.padStart()` and `String.padEnd()` to pad both sides of the given string. Omit the third argument, `char`, to use the whitespace character as the default padding character.  " b
+snippet pad "Pads a string on both sides with the specified character, if it's shorter than the specified length.  Use `String.prototype.padStart()` and `String.prototype.padEnd()` to pad both sides of the given string. Omit the third argument, `char`, to use the whitespace character as the default padding character.  " b
 const pad = (str, length, char = ' ') =>
   str.padStart((str.length + length) / 2, char).padEnd(length, char);
 endsnippet
@@ -1838,13 +1840,13 @@ snippet reject "Filters an array's values based on a predicate function, returni
 const reject = (pred, array) => array.filter((...args) => !pred(...args));
 endsnippet
 
-snippet remove "Removes elements from an array for which the given function returns `false`.  Use `Array.prototype.filter()` to find array elements that return truthy values and `Array.prototype.reduce()` to remove elements using `Array.prototype.splice()`. The `func` is invoked with three arguments (`value, index, array`).  " b
+snippet remove "Mutates an array by removing elements for which the given function returns `false`.  Use `Array.prototype.filter()` to find array elements that return truthy values and `Array.prototype.reduce()` to remove elements using `Array.prototype.splice()`. The `func` is invoked with three arguments (`value, index, array`).  " b
 const remove = (arr, func) =>
   Array.isArray(arr)
     ? arr.filter(func).reduce((acc, val) => {
-      arr.splice(arr.indexOf(val), 1);
-      return acc.concat(val);
-    }, [])
+        arr.splice(arr.indexOf(val), 1);
+        return acc.concat(val);
+      }, [])
     : [];
 endsnippet
 
@@ -1942,7 +1944,7 @@ const serializeForm = form =>
   Array.from(new FormData(form), field => field.map(encodeURIComponent).join('=')).join('&');
 endsnippet
 
-snippet setStyle "Sets the value of a CSS rule for the specified element.  Use `element.style` to set the value of the CSS rule for the specified element to `val`.  " b
+snippet setStyle "Sets the value of a CSS rule for the specified HTML element.  Use `element.style` to set the value of the CSS rule for the specified element to `val`.  " b
 const setStyle = (el, ruleName, val) => (el.style[ruleName] = val);
 endsnippet
 
@@ -1982,10 +1984,10 @@ const size = val =>
   Array.isArray(val)
     ? val.length
     : val && typeof val === 'object'
-    ? val.size || val.length || Object.keys(val).length
-    : typeof val === 'string'
-    ? new Blob([val]).size
-    : 0;
+      ? val.size || val.length || Object.keys(val).length
+      : typeof val === 'string'
+        ? new Blob([val]).size
+        : 0;
 endsnippet
 
 snippet sleep "Delays the execution of an asynchronous function.  Delay executing part of an `async` function, by putting it to sleep, returning a `Promise`.  " b
@@ -2203,11 +2205,11 @@ const toCurrency = (n, curr, LanguageFormat = undefined) =>
   Intl.NumberFormat(LanguageFormat, { style: 'currency', currency: curr }).format(n);
 endsnippet
 
-snippet toDecimalMark "Use `toLocaleString()` to convert a float-point arithmetic to the [Decimal mark](https://en.wikipedia.org/wiki/Decimal_mark) form. It makes a comma separated string from a number.  " b
+snippet toDecimalMark "Converts a number to a decimal mark formatted string.  Use `Number.prototype.toLocaleString()` to convert the numbre to decimal mark format.  " b
 const toDecimalMark = num => num.toLocaleString('en-US');
 endsnippet
 
-snippet toggleClass "Toggle a class for an element.  Use `element.classList.toggle()` to toggle the specified class for the element.  " b
+snippet toggleClass "Toggles a class for an HTML element.  Use `element.classList.toggle()` to toggle the specified class for the element.  " b
 const toggleClass = (el, className) => el.classList.toggle(className);
 endsnippet
 
@@ -2248,6 +2250,13 @@ const toOrdinalSuffix = num => {
     ? int + ordinals[digits[0] - 1]
     : int + ordinals[3];
 };
+endsnippet
+
+snippet toPairs "Creates an array of key-value pair arrays from an object or other iterable (object, array, string, set etc.).  Check if `Symbol.iterator` is defined and, if so, use `Array.prototype.entries()` to get an iterator for the given iterable, `Array.from()` to convert the result to an array of key-value pair arrays. If `Symbol.iterator` is not defined for `obj`, use `Object.entries()` instead.  " b
+const toPairs = obj =>
+  obj[Symbol.iterator] instanceof Function && obj.entries instanceof Function
+    ? Array.from(obj.entries())
+    : Object.entries(obj);
 endsnippet
 
 snippet toSafeInteger "Converts a value to a safe integer.  Use `Math.max()` and `Math.min()` to find the closest safe value. Use `Math.round()` to convert to an integer.  " b
@@ -2391,7 +2400,7 @@ snippet untildify "Converts a tilde path to an absolute path.  Use `String.proto
 const untildify = str => str.replace(/^~($|\/|\\)/, `${require('os').homedir()}$1`);
 endsnippet
 
-snippet unzip "Creates an array of arrays, ungrouping the elements in an array produced by [zip](#zip).  Use `Math.max.apply()` to get the longest subarray in the array, `Array.prototype.map()` to make each element an array. Use `Array.prototype.reduce()` and `Array.prototype.forEach()` to map grouped values to individual arrays.  " b
+snippet unzip "Creates an array of arrays, ungrouping the elements in an array produced by [zip](/js/s/zip).  Use `Math.max.apply()` to get the longest subarray in the array, `Array.prototype.map()` to make each element an array. Use `Array.prototype.reduce()` and `Array.prototype.forEach()` to map grouped values to individual arrays.  " b
 const unzip = arr =>
   arr.reduce(
     (acc, val) => (val.forEach((v, i) => acc[i].push(v)), acc),
