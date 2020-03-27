@@ -32,5 +32,6 @@ zmodule zsh-users/zsh-autosuggestions
 zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-history-substring-search
 
+zmodule BuonOmo/yarn-completion
 zmodule lukechilds/zsh-better-npm-completion
 zmodule unixorn/git-extra-commands
