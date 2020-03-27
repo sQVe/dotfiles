@@ -1,14 +1,13 @@
 {
-  "coc.source.emoji.filetypes": [
-    "mail",
-    "markdown",
-    "markdown.mdx",
-    "text"
-  ],
+  "coc.source.emoji.filetypes": ["mail", "markdown", "markdown.mdx", "text"],
   "diagnostic.checkCurrentLine": true,
   "diagnostic.errorSign": "■",
   "diagnostic.infoSign": "■",
   "diagnostic.warningSign": "■",
+  "emmet.includeLanguages": {
+    "javascript": "javascriptreact",
+    "typescript": "typescriptreact"
+  },
   "languageserver": {
     "bash": {
       "command": "bash-language-server",

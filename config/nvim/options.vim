@@ -167,13 +167,6 @@ let g:doge_mapping_comment_jump_backward = '<C-k>'
 " Editorconfig.
 let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
 
-" Emmet.
-let g:user_emmet_settings = {
-  \ 'javascript' : { 'extends' : 'jsx' },
-  \ 'scss' : { 'extends' : 'css' },
-  \ 'typescript.tsx' : { 'extends' : 'jsx' },
-  \ }
-
 " FZF.
 let $FZF_DEFAULT_COMMAND='fd --type file --hidden --follow --exclude .git'
 let g:fzf_action = {
