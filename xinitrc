@@ -38,11 +38,16 @@ xset dpms 240 240 240
 
 # Setup peek cache symlink to tmp.
 mkdir /tmp/peek
-[[ ! -h "$XDG_CACHE_HOME/peek" ]] && ln -s /tmp/peek "$XDG_CACHE_HOME/peek"
+ln -sf /tmp/peek "$XDG_CACHE_HOME/peek"
 
 # Setup coc yank data symlink to tmp.
 mkdir /tmp/coc-yank-data
-[[ ! -h "$XDG_CONFIG_HOME/coc/extensions/coc-yank-data" ]] && ln -s /tmp/coc-yank-data "$XDG_CONFIG_HOME/coc/extensions/coc-yank-data"
+ln -sf /tmp/coc-yank-data "$XDG_CONFIG_HOME/coc/extensions/coc-yank-data"
+
+# Setup rofi-calc to only save history per session.
+touch /tmp/rofi_calc_history
+mkdir "$XDG_DATA_HOME/rofi"
+ln -sf /tmp/rofi_calc_history "$XDG_DATA_HOME/rofi/rofi_calc_history"
 
 # Restore playground boxes.
 if [[ -d  "$CODE/playground" ]]; then
