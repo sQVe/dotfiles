@@ -19,14 +19,6 @@
   "snippets.priority": 80,
   "snippets.snipmate.enable": false,
   "suggest.languageSourcePriority": 100,
-  "tabnine.disable_filetypes": [
-    "gitcommit",
-    "help",
-    "mail",
-    "markdown",
-    "text"
-  ],
-  "tabnine.priority": 90,
   "tsserver.npm": "/home/sqve/.nvm/versions/node/v12.16.1/bin/npm",
   "typescript.suggestionActions.enabled": false
 }
