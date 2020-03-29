@@ -8,6 +8,11 @@
     "javascript": "javascriptreact",
     "typescript": "typescriptreact"
   },
+  "git.addedSign.hlGroup": "GruvboxGreenSign",
+  "git.changeRemovedSign.hlGroup": "GruvboxRedSign",
+  "git.changedSign.hlGroup": "GruvboxYellowSign",
+  "git.removedSign.hlGroup": "GruvboxRedSign",
+  "git.topRemovedSign.hlGroup": "GruvboxRedSign",
   "languageserver": {
     "bash": {
       "command": "bash-language-server",

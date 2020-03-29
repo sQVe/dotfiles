@@ -92,6 +92,12 @@ command! Esudo e suda://%
 " Write current file with sudo.
 command! Wsudo w suda://%
 
+" Coc.
+command! GChunkInfo CocCommand git.chunkInfo
+command! GChunkStage CocCommand git.chunkStage
+command! GChunkUndo CocCommand git.chunkUndo
+command! GCopyUrl CocCommand git.copyUrl
+
 " Update plugins and coc extensions.
 command! Update PlugUpdate | CocUpdateSync
 

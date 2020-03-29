@@ -10,10 +10,3 @@ hi! CocFloating         ctermfg=223 ctermbg=235 guifg=#ebdbb2 guibg=#282828
 hi! link CocErrorSign   GruvboxRedSign
 hi! link CocInfoSign    GruvboxBlueSign
 hi! link CocWarningSign GruvboxYellowSign
-
-" Signify.
-hi! link SignifySignAdd             GruvboxGreenSign
-hi! link SignifySignChange          GruvboxYellowSign
-hi! link SignifySignDelete          GruvboxRedSign
-hi! link SignifySignChangeDelete    GruvboxYellowSign
-hi! link SignifySignDeleteFirstLine GruvboxRedSign

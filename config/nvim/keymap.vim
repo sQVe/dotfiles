@@ -136,23 +136,27 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 xmap <silent> ga <Plug>(EasyAlign)
 nmap <silent> ga <Plug>(EasyAlign)
 
-" Fugitive and Signify.
+" Fugitive and coc-git.
+nmap <silent> <Leader>gj <Plug>(coc-git-prevchunk)
+nmap <silent> <Leader>gk <Plug>(coc-git-nextchunk)
+omap <silent> ig <Plug>(coc-git-chunk-inner)
+xmap <silent> ig <Plug>(coc-git-chunk-inner)
+omap <silent> ag <Plug>(coc-git-chunk-outer)
+xmap <silent> ag <Plug>(coc-git-chunk-outer)
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>gc :Gcommit<CR>
 nnoremap <silent> <Leader>gd :Gdiff<CR>
 nnoremap <silent> <Leader>gf :Gfetch<CR>
-nmap <silent> <Leader>gj <Plug>(signify-next-hunk)
-nmap <silent> <Leader>gk <Plug>(signify-prev-hunk)
 nnoremap <silent> <Leader>gl :Commits<CR>
 nnoremap <silent> <Leader>glb :BCommits<CR>
 nnoremap <silent> <Leader>gmt :MergetoolToggle<CR>
-nnoremap <silent> <Leader>gu :Gbrowse<CR>
 nnoremap <silent> <Leader>gp :Gpush<CR>
 nnoremap <silent> <Leader>gpf :Gpush --force-with-lease<CR>
 nnoremap <silent> <Leader>gr :Gread<CR>
 nnoremap <silent> <Leader>gs :vertical Gstatus<CR>
 nnoremap <silent> <Leader>gss :Gstatus<CR>
 nnoremap <silent> <Leader>gsv :vertical Gstatus<CR>
+nnoremap <silent> <Leader>gu :GCopyUrl<CR>
 nnoremap <silent> <Leader>gw :Gwrite<CR>
 
 " FZF.
