@@ -366,8 +366,29 @@ c.content.netrc_file = None
 #   - false
 #   - ask
 config.set('content.notifications', False, 'https://meet.google.com')
+
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
 config.set('content.notifications', True, 'https://calendar.google.com')
+
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
 config.set('content.notifications', False, 'https://www.reddit.com')
+
+# Allow websites to show notifications.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
 config.set('content.notifications', True, 'https://app.slack.com')
 
 # Enable plugins in Web pages.
@@ -399,6 +420,14 @@ c.content.proxy = 'system'
 #   - false
 #   - ask
 config.set('content.register_protocol_handler', False, 'https://mail.google.com?extsrc=mailto&url=%25s')
+
+# Allow websites to register protocol handlers via
+# `navigator.registerProtocolHandler`.
+# Type: BoolAsk
+# Valid values:
+#   - true
+#   - false
+#   - ask
 config.set('content.register_protocol_handler', False, 'https://calendar.google.com?cid=%25s')
 
 # Validate SSL handshakes.
