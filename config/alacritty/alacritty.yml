@@ -103,13 +103,14 @@ enable_experimental_conpty_backend: false
 alt_send_esc: true
 
 key_bindings:
-  - { key: Paste,                                action: Paste          }
-  - { key: Copy,                                 action: Copy           }
-  - { key: L,         mods: Control,             action: ClearLogNotice }
-  - { key: PageUp,    mods: Shift,   mode: ~Alt, action: ScrollPageUp,  }
-  - { key: PageDown,  mods: Shift,   mode: ~Alt, action: ScrollPageDown }
-  - { key: Home,      mods: Shift,   mode: ~Alt, action: ScrollToTop,   }
-  - { key: End,       mods: Shift,   mode: ~Alt, action: ScrollToBottom }
+  - { key: Paste,                                     action: Paste }
+  - { key: Copy,                                      action: Copy }
+  - { key: L,          mods: Control,                 action: ClearLogNotice }
+  - { key: L,          mods: Control,                 chars: "\x0c" }
+  - { key: PageUp,     mods: Shift,     mode: ~Alt,   action: ScrollPageUp }
+  - { key: PageDown,   mods: Shift,     mode: ~Alt,   action: ScrollPageDown }
+  - { key: Home,       mods: Shift,     mode: ~Alt,   action: ScrollToTop }
+  - { key: End,        mods: Shift,     mode: ~Alt,   action: ScrollToBottom }
 
   - { key: V,        mods: Control|Shift,           action: Paste            }
   - { key: C,        mods: Control|Shift,           action: Copy             }
