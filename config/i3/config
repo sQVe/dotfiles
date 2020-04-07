@@ -122,7 +122,6 @@ assign [class="Spotify"]                       → $workspace-4
 # Specific window settings.
 for_window [class="Alacritty"] focus
 for_window [class="Slack"] focus
-for_window [class="GitKraken"] focus
 for_window [class="mpv"] focus
 for_window [class="qutebrowser"] focus
 for_window [window_role="bubble"] floating enable

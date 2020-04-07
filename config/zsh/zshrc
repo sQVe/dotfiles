@@ -173,6 +173,7 @@ alias bc='bc -l -q'
 alias bluetooth=bluetoothctl
 alias c=cat
 alias camera=gphoto2
+alias chrome=google-chrome-stable
 alias ctop='sudo ctop'
 alias diff='diff --color=always --unified'
 alias fd='fd --hidden --follow'
