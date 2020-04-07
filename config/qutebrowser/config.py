@@ -1299,7 +1299,11 @@ c.colors.tabs.pinned.selected.even.bg = '#3c3836'
 # Background color for webpages if unset (or empty to use the theme's
 # color).
 # Type: QtColor
-c.colors.webpage.bg = '#282828'
+c.colors.webpage.bg = '#f8f8f8'
+
+# Force `prefers-color-scheme: dark` colors for websites.
+# Type: Bool
+c.colors.webpage.prefers_color_scheme_dark = True
 
 # Default font families to use. Whenever "default_family" is used in a
 # font setting, it's replaced with the fonts listed here. If set to an
