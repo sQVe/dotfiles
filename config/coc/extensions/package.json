@@ -7,7 +7,7 @@
     "coc-git": ">=1.7.9",
     "coc-html": ">=1.2.4",
     "coc-json": ">=1.2.5",
-    "coc-snippets": ">=2.1.23",
+    "coc-snippets": ">=2.1.24",
     "coc-styled-components": ">=0.3.0",
     "coc-tsserver": ">=1.4.12",
     "coc-yaml": ">=1.0.4",
