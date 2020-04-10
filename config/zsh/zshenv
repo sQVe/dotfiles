@@ -28,6 +28,7 @@ export PASSWORD_STORE_GPG_OPTS=--no-throw-keyids
 # Color options.
 export EXA_COLORS='da=38;5;244:gr=37:gu=1;37:gw=36:gx=35:tr=37:tw=36:tx=35:ue=35:ur=37:uu=1;37:uw=36:ux=35'
 export GREP_COLORS='mt=30;44'
+export LS_COLORS='di=1;34:ln=35:so=32:pi=33:ex=31:bd=1;36:cd=1;33:su=30;41:sg=30;46:tw=30;42:ow=30;43'
 export LESS='-R'
 export LESSOPEN='| bat --color=always %s'
 export LESSHISTFILE=-

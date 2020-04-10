@@ -2,6 +2,7 @@
 #  ┗━┓┃ ┃┃ ┃┣┳┛┃  ┣╸
 #  ┗━┛┗━┛┗━┛╹┗╸┗━╸┗━╸
 
+zstyle ':zim:completion' dumpfile "$XDG_CACHE_HOME/.zcompdump"
 zstyle ':zim:git' aliases-prefix 'g'
 zstyle ':zim:input' double-dot-expand yes
 
@@ -93,12 +94,7 @@ export FZF_ALT_C_OPTS="--preview 'exa -T -L 1 --group-directories-first --color=
 export FZF_CTRL_T_COMMAND='command fd --hidden --follow --exclude .git'
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always {} 2> /dev/null || exa -T -L 1 --group-directories-first --color=always {}'"
 export FZF_DEFAULT_COMMAND='command fd --hidden --follow --exclude .git'
-export FZF_DEFAULT_OPTS='
-  --color=bg+:#282828,spinner:#b16286,hl:#b16286
-  --color=fg:#ebdbb2,info:#458588,pointer:#98971a
-  --color=marker:#98971a,hl+:#98971a
-  --reverse
-'
+export FZF_DEFAULT_OPTS='--color=bg+:#282828,spinner:#b16286,hl:#b16286 --color=fg:#ebdbb2,info:#458588,pointer:#98971a --color=marker:#98971a,hl+:#98971a --reverse'
 
 
 #  ╻┏ ┏━╸╻ ╻┏┓ ╻┏┓╻╺┳┓╻┏┓╻┏━╸┏━┓
@@ -135,9 +131,9 @@ fi
 #  ╹ ╹┗━╸╹╹ ╹┗━┛┗━╸┗━┛
 
 # Safety.
-alias chgrp='chgrp --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chown='chown --preserve-root'
+alias chgrp='chgrp --preserve-root -v'
+alias chmod='chmod --preserve-root -v'
+alias chown='chown --preserve-root -v'
 alias cp='cp -ir'
 alias ln='ln -i'
 alias mv='mv -i'
@@ -151,19 +147,20 @@ alias du='du -ch'
 alias dud='du -chd'
 alias free='free -m'
 alias ga='git-alias-lookup'
+alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
 alias grep='grep --color=auto -d skip'
 alias mkdir='mkdir -pv'
 alias more=less
 alias np='nvim -w PKGBUILD'
-alias open='mimeo -q'
 alias o=open
+alias open='mimeo -q'
 alias q=exit
 alias root='sudo -i'
 alias sudo='sudo '
 alias sudoedit='sudo edit'
 
 # Listing.
-alias exa='exa --group-directories-first'
+alias exa='exa --group-directories-first --color=auto'
 alias la='exa -la'
 alias ll='exa -l'
 alias ls='exa'

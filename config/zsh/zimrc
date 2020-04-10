@@ -6,7 +6,6 @@ zmodule environment
 zmodule git
 zmodule input
 zmodule termtitle
-zmodule utility
 
 zmodule sQVe/fasd
 
@@ -16,7 +15,6 @@ zmodule sQVe/fasd
 #  ╹  ╹┗╸┗━┛╹ ╹╹   ╹
 
 zmodule completion
-zmodule git-info
 
 zmodule miekg/lean
 zmodule kutsan/zsh-system-clipboard
