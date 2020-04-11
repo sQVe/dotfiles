@@ -27,10 +27,10 @@ augroup ExcludeFormatOptions
   autocmd FileType * setlocal formatoptions-=o
 augroup END
 
-" Add all buffers to Fasd database.
-augroup FasdUpdate
+" Add all buffers to Z database.
+augroup ZUpdate
   autocmd!
-  autocmd BufWinEnter,BufFilePost * call FasdUpdate()
+  autocmd BufWinEnter,BufFilePost * call ZUpdate()
 augroup END
 
 " Focus active window.

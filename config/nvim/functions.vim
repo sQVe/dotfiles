@@ -61,20 +61,19 @@ endfunc
 "  ┗━┓┗┳┛┗━┓ ┃ ┣╸ ┃┃┃   ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
 "  ┗━┛ ╹ ┗━┛ ╹ ┗━╸╹ ╹   ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
-" Fasd.
-func! Fasd(type, executeWith, fragment)
-  let l:fragment = system('fasd -1 ' . a:type . ' ' . shellescape(a:fragment))
+" Z.
+func! Z(fragment)
+  let l:directory = system('~/scripts/z/find.zsh ' . shellescape(a:fragment))
 
-  if !empty(l:fragment)
-    execute a:executeWith . ' ' . l:fragment
-    redraw
-    echo split(l:fragment, '\n')[0]
+  if !empty(l:directory)
+    execute 'cd' . ' ' . l:directory
+    pwd
   endif
 endfunc
 
-func! FasdUpdate() abort
+func! ZUpdate() abort
   if empty(&buftype) || &filetype ==# 'dirvish'
-    call jobstart(['fasd', '-A', expand('%:p')])
+    call jobstart(['~/scripts/z/add-directory.zsh', expand('%:p:h')])
   endif
 endfunc
 

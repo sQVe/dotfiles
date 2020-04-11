@@ -91,7 +91,7 @@ command! archive apack %a %f &> /dev/null &
 command! df df -h %m 2> /dev/null
 command! diff nvim -d %f %F
 command! extract aunpack %f &> /dev/null &
-command! fasd :execute 'cd "'.system('fasd -dl | fzf 2> /dev/tty').'"'
+command! z :execute 'cd "'.system('~/scripts/z/list-directories.zsh | fzf 2> /dev/tty').'"'
 command! trashlist exa -T -L 1 --group-directories-first ~/.local/share/Trash/vifm
 
 
@@ -231,8 +231,7 @@ nnoremap af :touch<Space>
 nnoremap ad :mkdir<Space>
 
 " Fasd.
-nnoremap <Space>z :fasd<Space>
-nnoremap <Space>zz :fasd<Space>
+nnoremap <Space>z :z<Space>
 
 " Move between open windows.
 noremap <C-h> <C-w>h

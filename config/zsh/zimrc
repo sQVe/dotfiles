@@ -1,35 +1,27 @@
-#  ┏┳┓┏━┓╺┳┓╻ ╻╻  ┏━╸┏━┓
-#  ┃┃┃┃ ┃ ┃┃┃ ┃┃  ┣╸ ┗━┓
-#  ╹ ╹┗━┛╺┻┛┗━┛┗━╸┗━╸┗━┛
+#  ╺━┓╻┏┳┓┏━┓┏━╸
+#  ┏━┛┃┃┃┃┣┳┛┃
+#  ┗━╸╹╹ ╹╹┗╸┗━╸
 
 zmodule environment
 zmodule git
 zmodule input
 zmodule termtitle
 
-zmodule sQVe/fasd
-
-
-#  ┏━┓┏━┓┏━┓┏┳┓┏━┓╺┳╸
-#  ┣━┛┣┳┛┃ ┃┃┃┃┣━┛ ┃
-#  ╹  ╹┗╸┗━┛╹ ╹╹   ╹
-
+# Completion.
 zmodule completion
-
-zmodule miekg/lean
-zmodule kutsan/zsh-system-clipboard
 zmodule zsh-users/zsh-completions
-
-
-#  ┏━┓╻ ╻╺┳╸┏━┓┏━╸┏━┓┏┳┓┏━┓╻  ┏━╸╺┳╸┏━╸
-#  ┣━┫┃ ┃ ┃ ┃ ┃┃  ┃ ┃┃┃┃┣━┛┃  ┣╸  ┃ ┣╸
-#  ╹ ╹┗━┛ ╹ ┗━┛┗━╸┗━┛╹ ╹╹  ┗━╸┗━╸ ╹ ┗━╸
-
-# Do not touch order.
-zmodule zsh-users/zsh-autosuggestions
-zmodule zsh-users/zsh-syntax-highlighting
-zmodule zsh-users/zsh-history-substring-search
-
 zmodule BuonOmo/yarn-completion
 zmodule lukechilds/zsh-better-npm-completion
 zmodule unixorn/git-extra-commands
+
+# Prompt & color.
+zmodule miekg/lean
+zmodule zuxfoucault/colored-man-pages_mod
+zmodule zsh-users/zsh-syntax-highlighting
+
+# Do not touch order.
+zmodule zsh-users/zsh-autosuggestions
+zmodule zsh-users/zsh-history-substring-search
+
+# Misc
+zmodule kutsan/zsh-system-clipboard

@@ -8,8 +8,10 @@ zstyle ':zim:input' double-dot-expand yes
 
 source $YVM_DIR/yvm.sh
 source $ZIM_HOME/init.zsh
+
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
+source /usr/share/z/z.sh
 
 
 #  ┏━┓┏━╸╺┳╸╺┳╸╻┏┓╻┏━╸┏━┓

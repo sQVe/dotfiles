@@ -50,9 +50,8 @@ command! Wbc Wbc
 " Create and print Ascii Header.
 command! -nargs=1 AsciiHeader call PrintAsciiHeader(<q-args>)
 
-" Fasd lookup.
-command! -nargs=1 Fasd call Fasd('-f', 'e', <q-args>)
-command! -nargs=1 FasdCd call Fasd('-d', 'cd', <q-args>)
+" Z lookup.
+command! -nargs=1 Z call Z(<q-args>)
 
 " Show documentation.
 command! -nargs=0 ShowDocumentation call ShowDocumentation()
