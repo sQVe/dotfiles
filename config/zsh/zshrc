@@ -141,7 +141,6 @@ alias mv='mv -i'
 alias rm='rm -I --preserve-root'
 
 # Goodies & Misc.
-alias cl=clear
 alias cmd=command
 alias df='df -h'
 alias du='du -ch'
@@ -159,6 +158,12 @@ alias q=exit
 alias root='sudo -i'
 alias sudo='sudo '
 alias sudoedit='sudo edit'
+alias s=sudo
+alias se=sudoedit
+
+# Globals.
+alias -g C='| xsel -ib'
+alias -g V='| vim'
 
 # Listing.
 alias exa='exa --group-directories-first --color=auto'
@@ -167,7 +172,6 @@ alias ll='exa -l'
 alias ls='exa'
 
 # Apps.
-alias bc='bc -l -q'
 alias bluetooth=bluetoothctl
 alias c=cat
 alias camera=gphoto2
@@ -180,20 +184,14 @@ alias fm=vifm-cd
 alias format-opinionated='npx prettier --no-semi --single-quote --trailing-comma es5 --write'
 alias format='npx prettier --write'
 alias git=hub
-alias hc='highlight -O truecolor --force --base16=gruvbox-dark-medium --stdout'
-alias hcat='highlight -O truecolor --force --base16=gruvbox-dark-medium --stdout'
 alias l=less
 alias leave='i3-msg exit'
-alias loc=locate
 alias mixer=pavucontrol
 alias mutt=neomutt
 alias peekhl='peek --no-headerbar'
 alias qutebrowser=scaled-qutebrowser
 alias rcup="$SCRIPTS/extended-rcup.sh"
 alias rg='rg --follow'
-alias s=sudo
-alias se=sudoedit
-alias spotify=scaled-spotify
 alias t=term
 alias tiga='tig --all'
 alias v=nvim
