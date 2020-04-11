@@ -9,7 +9,7 @@
     "coc-json": ">=1.2.5",
     "coc-snippets": ">=2.1.24",
     "coc-styled-components": ">=0.3.0",
-    "coc-tsserver": ">=1.4.12",
+    "coc-tsserver": ">=1.4.13",
     "coc-yaml": ">=1.0.4",
     "coc-yank": ">=1.1.4"
   }
