@@ -12,6 +12,7 @@ XDG_DATA_HOME   DEFAULT=@{HOME}/.local/share
 
 # User specific.
 BIN       DEFAULT=@{HOME}/.bin
+BIN_HOME  DEFAULT=@{HOME}/.local/bin
 BOOKS     DEFAULT=@{HOME}/books
 CODE      DEFAULT=@{HOME}/code
 DOTFILES  DEFAULT=@{HOME}/.dotfiles
