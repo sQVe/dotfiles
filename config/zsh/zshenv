@@ -4,9 +4,8 @@
 
 export GPG_TTY="$(tty)"
 
-# Set last node version as default.
-export NVM_NODE_VERIONS=$NVM_DIR/versions/node
-export PATH=$PATH:$HOME/.local/bin:$NVM_NODE_VERIONS/$(ls -1 $NVM_NODE_VERIONS | sort -V | tail -n 1)/bin
+# Set default node version.
+export PATH="$PATH:$BIN_HOME:$($SCRIPTS/default-node-version.sh)"
 
 # Terminal options.
 export KEYTIMEOUT=1
