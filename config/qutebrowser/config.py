@@ -1399,6 +1399,7 @@ c.fonts.web.size.default = 16
 c.fonts.web.size.default_fixed = 13
 
 # Bindings for normal mode
+config.bind("sp", "spawn --userscript qutepocket")
 config.bind('<', 'tab-move -')
 config.bind('<Ctrl+e>', 'open-editor')
 config.bind('>', 'tab-move +')
