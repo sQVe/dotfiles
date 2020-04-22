@@ -4,10 +4,11 @@
   "diagnostic.errorSign": "■",
   "diagnostic.infoSign": "■",
   "diagnostic.warningSign": "■",
-  "emmet.includeLanguages": {
-    "javascript": "javascriptreact",
-    "typescript": "typescriptreact"
-  },
+  "emmet.excludeLanguages": [
+    "javascriptreact",
+    "markdown",
+    "typescriptreact"
+  ],
   "git.addedSign.hlGroup": "GruvboxGreenSign",
   "git.changeRemovedSign.hlGroup": "GruvboxRedSign",
   "git.changedSign.hlGroup": "GruvboxYellowSign",
