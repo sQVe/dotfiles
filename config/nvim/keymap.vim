@@ -71,10 +71,10 @@ noremap <C-Up> <C-w>k
 noremap <C-Right> <C-w>l
 
 " Quicker window resize.
-noremap <C-w>+ 10<C-w>+
-noremap <C-w>- 10<C-w>-
-noremap <C-w>< 20<C-w><
-noremap <C-w>> 20<C-w>>
+noremap <silent> <C-S-Up> :resize +10<CR>
+noremap <silent> <C-S-Down> :resize -10<CR>
+noremap <silent> <C-S-Left> :vertical resize -10<CR>
+noremap <silent> <C-S-Right> :vertical resize +10<CR>
 
 " Spell completion.
 inoremap <C-x><C-s> <C-x>s
