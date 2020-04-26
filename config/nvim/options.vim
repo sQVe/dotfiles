@@ -234,15 +234,16 @@ let g:lightline#ale#indicator_errors = "\uf05e "
 let g:lightline#ale#indicator_ok = "\uf00c "
 
 let g:lightline = {
-  \ 'colorscheme': 'gruvbox',
   \ 'active': {
   \   'left': [[ 'mode', 'paste' ],
-  \            [ 'readonly', 'filename', 'gitbranch' ]],
+  \            [ 'gitbranch' ],
+  \            [ 'filename', 'readonly' ]],
   \   'right': [[ 'lineinfo' ],
   \             [ 'percent' ],
   \             [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
-  \             [ 'filetype', 'fileencoding', 'fileformat' ]]
+  \             [ 'filetype' ]]
   \ },
+  \ 'colorscheme': 'gruvbox',
   \ 'component_expand': {
   \   'linter_checking': 'lightline#ale#checking',
   \   'linter_infos': 'lightline#ale#infos',
@@ -252,15 +253,24 @@ let g:lightline = {
   \ },
   \ 'component_type': {
   \   'linter_checking': 'right',
-  \   'linter_infos': 'right',
-  \   'linter_warnings': 'warning',
   \   'linter_errors': 'error',
+  \   'linter_infos': 'right',
   \   'linter_ok': 'right',
+  \   'linter_warnings': 'warning',
   \ },
   \ 'component_function': {
   \   'filename': 'LightlineFilename',
-  \   'gitbranch': 'fugitive#head'
+  \   'gitbranch': 'fugitive#head',
   \ },
+  \ 'mode_map': {
+  \   'R' : 'R',
+  \   'V' : 'VL',
+  \   'c' : 'C',
+  \   'i' : 'I',
+  \   'n' : 'N',
+  \   'v' : 'V',
+  \   "\<C-v>": 'VB',
+  \   },
   \ }
 
 " Markdown.
