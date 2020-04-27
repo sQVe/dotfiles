@@ -109,9 +109,7 @@ nmap <silent> K :ShowDocumentation<CR>
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gs <Plug>(coc-range-select)
 nmap <silent> gy <Plug>(coc-type-definition)
-xmap <silent> gs <Plug>(coc-range-select)
 
 imap <silent> <C-l> <Plug>(coc-snippets-expand)
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
