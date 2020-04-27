@@ -132,11 +132,6 @@ c.content.cookies.store = True
 # Type: String
 c.content.default_encoding = 'iso-8859-1'
 
-# Limit fullscreen to the browser window (does not expand to fill the
-# screen).
-# Type: Bool
-c.content.windowed_fullscreen = False
-
 # Allow websites to request geolocations.
 # Type: BoolAsk
 # Valid values:
@@ -689,7 +684,7 @@ c.keyhint.delay = 500
 # Type: Int
 c.messages.timeout = 2000
 
-# Show a filebrowser in upload/download prompts.
+# Show a filebrowser in download prompts.
 # Type: Bool
 c.prompt.filebrowser = True
 
@@ -929,14 +924,23 @@ c.url.incdec_segments = ['path', 'query']
 # Type: Bool
 c.url.open_base_url = True
 
-# Search engines which can be used via the address bar. Maps a search
+# Search engines which can be used via the address bar.  Maps a search
 # engine name (such as `DEFAULT`, or `ddg`) to a URL with a `{}`
 # placeholder. The placeholder will be replaced by the search term, use
-# `{{` and `}}` for literal `{`/`}` signs. The search engine named
-# `DEFAULT` is used when `url.auto_search` is turned on and something
-# else than a URL was entered to be opened. Other search engines can be
-# used by prepending the search engine name to the search term, e.g.
-# `:open google qutebrowser`.
+# `{{` and `}}` for literal `{`/`}` braces.  The following further
+# placeholds are defined to configure how special characters in the
+# search terms are replaced by safe characters (called 'quoting'):  *
+# `{}` and `{semiquoted}` quote everything except slashes; this is the
+# most   sensible choice for almost all search engines (for the search
+# term   `slash/and&amp` this placeholder expands to `slash/and%26amp`).
+# * `{quoted}` quotes all characters (for `slash/and&amp` this
+# placeholder   expands to `slash%2Fand%26amp`). * `{unquoted}` quotes
+# nothing (for `slash/and&amp` this placeholder   expands to
+# `slash/and&amp`).  The search engine named `DEFAULT` is used when
+# `url.auto_search` is turned on and something else than a URL was
+# entered to be opened. Other search engines can be used by prepending
+# the search engine name to the search term, e.g.  `:open google
+# qutebrowser`.
 # Type: Dict
 c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 
@@ -1399,7 +1403,6 @@ c.fonts.web.size.default = 16
 c.fonts.web.size.default_fixed = 13
 
 # Bindings for normal mode
-config.bind("sp", "spawn --userscript qutepocket")
 config.bind('<', 'tab-move -')
 config.bind('<Ctrl+e>', 'open-editor')
 config.bind('>', 'tab-move +')
@@ -1407,6 +1410,7 @@ config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
 config.bind('W', 'open -w')
 config.bind('e', 'open-editor')
+config.bind('sp', 'spawn --userscript qutepocket')
 config.bind('zH', 'hint links spawn term "http \'{hint-url}\' | less"')
 config.bind('zM', 'hint links spawn mpv --x11-name "mpv-qutebrowser" \'{hint-url}\'')
 config.bind('zO', 'hint links spawn term "mimeo \'{hint-url}\'"')
