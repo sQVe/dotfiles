@@ -43,6 +43,7 @@ Plug 'tpope/vim-rhubarb'                " Use hub instead of git.
 
 " Interface.
 Plug 'ap/vim-buftabline'                " Buffer tabs.
+Plug 'camspiers/lens.vim'               " Resize windows based on content.
 Plug 'itchyny/lightline.vim'            " Status line.
 Plug 'maximbaz/lightline-ale'           " Lint information in status line.
 Plug 'mhinz/vim-startify'               " Launch screen.

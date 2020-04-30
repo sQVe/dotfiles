@@ -226,6 +226,13 @@ let g:grammarous#languagetool_cmd = 'languagetool'
 " JavaScript.
 let g:javascript_plugin_jsdoc = 1
 
+" Lens.
+let g:lens#animate = 0
+let g:lens#height_resize_max = 30
+let g:lens#height_resize_min = 10
+let g:lens#width_resize_max = 100
+let g:lens#width_resize_min = 20
+
 " Lightline.
 let g:lightline#ale#indicator_checking = "\uf110 "
 let g:lightline#ale#indicator_infos = "\uf129 "
