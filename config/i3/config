@@ -44,7 +44,7 @@ set $music-prev --no-startup-id playerctl previous
 set $music-toggle --no-startup-id playerctl play-pause
 set $qutebrowser --no-startup-id scaled-qutebrowser
 set $redshift --no-startup-id $HOME/scripts/i3/safe-load-redshift.sh
-set $samedir --no-startup-id $HOME/scripts/i3/samedir.sh
+set $samedir --no-startup-id term $(xcwd)
 set $term --no-startup-id term
 set $vifm --no-startup-id term vifm
 set $vim --no-startup-id term nvim
