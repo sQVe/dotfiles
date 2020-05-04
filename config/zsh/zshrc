@@ -6,8 +6,12 @@ zstyle ':zim:completion' dumpfile "$XDG_CACHE_HOME/.zcompdump"
 zstyle ':zim:git' aliases-prefix 'g'
 zstyle ':zim:input' double-dot-expand yes
 
-source $YVM_DIR/yvm.sh
 source $ZIM_HOME/init.zsh
+
+# Ensure that node is loaded before sourcing yvm.
+if [[ -x $(which node) ]]; then
+  source $YVM_DIR/yvm.sh
+fi
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
@@ -57,7 +61,7 @@ function _fzf_compgen_path() {
   command fd --hidden --follow --exclude ".git" . "$1"
 }
 
-# # Use fd in fzf completion for directory listing.
+# Use fd in fzf completion for directory listing.
 function _fzf_compgen_dir() {
   command fd --type d --hidden --follow --exclude ".git" . "$1"
 }
