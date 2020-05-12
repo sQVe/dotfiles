@@ -290,4 +290,7 @@ mode "resize" {
 # Safely start redshift.
 exec --no-startup-id "sh -c 'sleep 2; exec $HOME/scripts/i3/safe-load-redshift.sh'"
 
+# Enable prime-offloading, which is used by optimus-manager.
+exec --no-startup-id "prime-offload"
+
 # vim: ft=i3config
