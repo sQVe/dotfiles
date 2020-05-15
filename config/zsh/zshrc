@@ -178,7 +178,6 @@ alias ls='exa'
 # Apps.
 alias bluetooth=bluetoothctl
 alias c=cat
-alias camera=gphoto2
 alias chrome=google-chrome-stable
 alias ctop='sudo ctop'
 alias diff='diff --color=always --unified'
