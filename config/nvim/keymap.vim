@@ -28,6 +28,10 @@ noremap j gj
 noremap gk k
 noremap gj j
 
+" Move selected code up and down.
+vnoremap J :m '>+1<CR>gv=gv
+vnoremap K :m '<-2<CR>gv=gv
+
 " Quick save.
 noremap <Leader><Leader> :write<CR>
 
@@ -95,7 +99,6 @@ nnoremap <Leader>z :Z<Space>
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
 " Ale.
-noremap <Leader>a :ALEToggleBuffer<CR>
 noremap <silent> [c :ALEPreviousWrap<CR>
 noremap <silent> ]c :ALENextWrap<CR>
 
@@ -159,6 +162,7 @@ nnoremap <silent> <Leader>gw :Gwrite<CR>
 
 " FZF.
 nnoremap <silent> <Backspace> :Buffers<CR>
+nnoremap <silent> mm :Marks<CR>
 nnoremap Ä :Rg<Space>
 nnoremap <silent> ä :Files<CR>
 
