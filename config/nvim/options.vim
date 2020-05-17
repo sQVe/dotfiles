@@ -320,7 +320,7 @@ let g:startify_change_to_dir = 0
 let g:startify_commands = [
   \ { 'C': 'PlugClean' },
   \ { 'I': 'PlugInstall' },
-  \ { 'U': 'PlugUpdate | CocUpdateSync' },
+  \ { 'U': 'PlugUpdate | CocUpdate' },
   \ ]
 let g:startify_custom_header = startify#pad([
   \ '┏┓╻┏━╸┏━┓╻ ╻╻┏┳┓',

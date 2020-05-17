@@ -15,9 +15,9 @@ Plug 'tpope/vim-repeat'                 " Repeat for plugins.
 
 " Colorschemes.
 Plug 'morhetz/gruvbox'                  " Gruvbox colorscheme.
+Plug 'tpope/vim-eunuch'                 " Unix helpers.
 
 " Commands.
-Plug 'lambdalisue/suda.vim'             " Read and write with sudo.
 Plug 'moll/vim-bbye'                    " Delete buffers without closing window.
 
 " Comments and documentation.
@@ -40,6 +40,7 @@ Plug 'iamcco/markdown-preview.nvim', {
 Plug 'sickill/vim-pasta'                " Paste with smart indentation.
 Plug 'tpope/vim-fugitive'               " Git.
 Plug 'tpope/vim-rhubarb'                " Use hub instead of git.
+Plug 'tpope/vim-speeddating'            " Increment / decrement dates, times and more.
 
 " Interface.
 Plug 'ap/vim-buftabline'                " Buffer tabs.
