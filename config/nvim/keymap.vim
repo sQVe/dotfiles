@@ -42,32 +42,38 @@ noremap <silent> <Leader><CR> :Term<CR><CR>
 noremap <silent> <Leader>t :BTerm<CR><CR>
 
 " Move between buffers.
-noremap <silent> <M-h> :bprev<CR>
-noremap <silent> <M-l> :bnext<CR>
-noremap <silent> <M-Left> :bprev<CR>
-noremap <silent> <M-Right> :bnext<CR>
+nnoremap <silent> <Tab> :bnext<CR>
+nnoremap <silent> <S-Tab> :bprev<CR>
+
+" Move between jumps.
+nnoremap <silent> <C-o> <C-o>
+nnoremap <silent> <C-p> <C-i>
 
 " Move between open windows.
-noremap <silent> <C-h> :wincmd h<CR>
-noremap <silent> <C-j> :wincmd j<CR>
-noremap <silent> <C-k> :wincmd k<CR>
-noremap <silent> <C-l> :wincmd l<CR>
-noremap <silent> <C-Left> :wincmd h<CR>
-noremap <silent> <C-Down> :wincmd j<CR>
-noremap <silent> <C-Up> :wincmd k<CR>
-noremap <silent> <C-Right> :wincmd l<CR>
+nnoremap <silent> <C-h> :wincmd h<CR>
+nnoremap <silent> <C-j> :wincmd j<CR>
+nnoremap <silent> <C-k> :wincmd k<CR>
+nnoremap <silent> <C-l> :wincmd l<CR>
+nnoremap <silent> <C-Left> :wincmd h<CR>
+nnoremap <silent> <C-Down> :wincmd j<CR>
+nnoremap <silent> <C-Up> :wincmd k<CR>
+nnoremap <silent> <C-Right> :wincmd l<CR>
 
 " Quicker window resize.
-noremap <silent> <C-S-Up> :resize +10<CR>
-noremap <silent> <C-S-Down> :resize -10<CR>
-noremap <silent> <C-S-Left> :vertical resize -10<CR>
-noremap <silent> <C-S-Right> :vertical resize +10<CR>
+nnoremap <silent> <C-S-h> :vertical resize -10<CR>
+nnoremap <silent> <C-S-j> :resize -10<CR>
+nnoremap <silent> <C-S-k> :resize +10<CR>
+nnoremap <silent> <C-S-l> :vertical resize +10<CR>
+nnoremap <silent> <C-S-Left> :vertical resize -10<CR>
+nnoremap <silent> <C-S-Down> :resize -10<CR>
+nnoremap <silent> <C-S-Up> :resize +10<CR>
+nnoremap <silent> <C-S-Right> :vertical resize +10<CR>
 
 " Spell completion.
 inoremap <C-x><C-s> <C-x>s
 
 " Set pwd to current open buffer path.
-noremap cd :Cdb<CR>:pwd<CR>
+nnoremap cd :Cdb<CR>:pwd<CR>
 
 
 "  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
