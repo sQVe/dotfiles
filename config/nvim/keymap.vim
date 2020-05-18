@@ -46,8 +46,8 @@ nnoremap <silent> <Tab> :bnext<CR>
 nnoremap <silent> <S-Tab> :bprev<CR>
 
 " Move between jumps.
-nnoremap <silent> <C-o> <C-o>
-nnoremap <silent> <C-p> <C-i>
+nnoremap <C-o> <C-o>
+nnoremap <C-p> <C-i>
 
 " Move between open windows.
 nnoremap <silent> <C-h> :wincmd h<CR>
@@ -60,10 +60,6 @@ nnoremap <silent> <C-Up> :wincmd k<CR>
 nnoremap <silent> <C-Right> :wincmd l<CR>
 
 " Quicker window resize.
-nnoremap <silent> <C-S-h> :vertical resize -10<CR>
-nnoremap <silent> <C-S-j> :resize -10<CR>
-nnoremap <silent> <C-S-k> :resize +10<CR>
-nnoremap <silent> <C-S-l> :vertical resize +10<CR>
 nnoremap <silent> <C-S-Left> :vertical resize -10<CR>
 nnoremap <silent> <C-S-Down> :resize -10<CR>
 nnoremap <silent> <C-S-Up> :resize +10<CR>
@@ -129,6 +125,19 @@ inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
 xmap <silent> ga <Plug>(EasyAlign)
 nmap <silent> ga <Plug>(EasyAlign)
 
+" FZF.
+nnoremap <Leader>ä :Rg<Space>
+nnoremap <Leader>Ä :Rg<Space>
+nnoremap <silent> <Backspace> :Buffers<CR>
+nnoremap <silent> <Leader><Backspace> :Wipeouts<CR>
+nnoremap <silent> mm :Marks<CR>
+nnoremap <silent> Ä :Files<CR>
+nnoremap <silent> ä :BFiles<CR>
+
+" Floaterm.
+nnoremap <silent> Å :FloatermNew vifm .<CR>
+nnoremap <silent> å :FloatermNew vifm<CR>
+
 " Fugitive and coc-git.
 nmap <silent> <Leader>gj <Plug>(coc-git-prevchunk)
 nmap <silent> <Leader>gk <Plug>(coc-git-nextchunk)
@@ -149,15 +158,6 @@ nnoremap <silent> <Leader>gs :vertical Gstatus<CR>
 nnoremap <silent> <Leader>gu :GCopyUrl<CR>
 nnoremap <silent> <Leader>gw :Gwrite<CR>
 
-" FZF.
-nnoremap <Leader>ä :Rg<Space>
-nnoremap <Leader>Ä :Rg<Space>
-nnoremap <silent> <Backspace> :Buffers<CR>
-nnoremap <silent> <Leader><Backspace> :Wipeouts<CR>
-nnoremap <silent> mm :Marks<CR>
-nnoremap <silent> Ä :Files<CR>
-nnoremap <silent> ä :BFiles<CR>
-
 " Slash.
 noremap <plug>(slash-after) zz
 
@@ -167,6 +167,14 @@ map F <Plug>Sneak_F
 map t <Plug>Sneak_t
 map T <Plug>Sneak_T
 
-" Floaterm.
-nnoremap <silent> Å :FloatermNew vifm .<CR>
-nnoremap <silent> å :FloatermNew vifm<CR>
+" Visual Multi.
+nmap <M-Down> <M-j>
+nmap <M-Up> <M-k>
+
+let g:VM_leader = '<Leader>m'
+let g:VM_maps = {}
+let g:VM_maps["Add Cursor At Pos"] = '<M-Space>'
+let g:VM_maps["Add Cursor Down"] = '<M-j>'
+let g:VM_maps["Add Cursor Up"] = '<M-k>'
+let g:VM_maps["Select All"] = '<M-a>'
+let g:VM_maps["p Paste Regions"] = '<M-p>'

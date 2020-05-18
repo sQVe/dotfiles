@@ -86,9 +86,6 @@ colorscheme gruvbox
 "  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┃ ┃┣━┛ ┃ ┃┃ ┃┃┗┫┗━┓
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ┗━┛╹   ╹ ╹┗━┛╹ ╹┗━┛
 
-" Abolish.
-let g:abolish_save_file = ".config/nvim/after/plugin/abolish.vim"
-
 " Ale.
 let g:ale_disable_lsp = 1
 let g:ale_echo_msg_format = '[%linter%] %s (%code%)'
@@ -313,6 +310,7 @@ runtime macros/sandwich/keymap/surround.vim
 let g:signify_vcs_list = ['git']
 
 " Sneak.
+let g:sneak#absolute_dir = 1
 let g:sneak#label = 1
 let g:sneak#label_esc = "\<CR>"
 let g:sneak#prompt = '> '
@@ -344,13 +342,6 @@ let g:startify_lists = [
 let g:SuperTabDefaultCompletionType = '<C-n>'
 
 " Visual Multi.
-let g:VM_leader = '<Leader>m'
 let g:VM_mouse_mappings = 1
 let g:VM_theme = 'purplegray'
 
-let g:VM_maps = {}
-let g:VM_maps["Add Cursor At Pos"] = '<M-Space>'
-let g:VM_maps["Add Cursor Down"] = '<M-Down>'
-let g:VM_maps["Add Cursor Up"] = '<M-Up>'
-let g:VM_maps["Select All"] = '<M-a>'
-let g:VM_maps["p Paste Regions"] = '<M-p>'
