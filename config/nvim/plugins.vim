@@ -50,7 +50,7 @@ Plug 'maximbaz/lightline-ale'           " Lint information in status line.
 Plug 'mhinz/vim-startify'               " Launch screen.
 Plug 'ntpeters/vim-better-whitespace'   " Highlight trailing whitespace.
 Plug 'samoshkin/vim-mergetool'          " Git mergetool
-Plug 'vifm/vifm.vim'                    " Vifm.
+Plug 'voldikss/vim-floaterm'            " Floating terminal.
 
 " Search, replace and navigation.
 Plug 'junegunn/fzf.vim'                 " Fzf.

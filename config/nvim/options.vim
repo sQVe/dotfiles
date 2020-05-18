@@ -206,6 +206,10 @@ command! -bang -nargs=* Rg
   \   fzf#vim#with_preview('down:50%'),
   \   <bang>0)
 
+" Floaterm.
+let g:floaterm_autoclose = 1
+let g:floaterm_wintitle = 0
+
 " Fugitive.
 let g:fugitive_pty = 0
 
@@ -338,9 +342,6 @@ let g:startify_lists = [
 
 " Supertab.
 let g:SuperTabDefaultCompletionType = '<C-n>'
-
-" Vifm.
-let g:vifm_term = "term"
 
 " Visual Multi.
 let g:VM_leader = '<Leader>m'

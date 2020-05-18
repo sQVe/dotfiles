@@ -23,10 +23,6 @@ command! Cdb cd %:p:h
 " Copy.
 command! Copy norm ggyG
 
-" Write and close helpers.
-command! Bd Bdelete
-command! WBd w | Bdelete
-
 " Term.
 command! Term !term
 command! BTerm !term '%:p'
@@ -82,23 +78,18 @@ command! ALEDisableFixOnSave let g:ale_fix_on_save = 0
 " FZF.
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
+command! -bang BFiles
+  \ call fzf#vim#files(expand('%:p:h'), fzf#vim#with_preview('right:50%', '?'), <bang>0)
 command! -bang -nargs=* Rg
   \ call fzf#vim#rg(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
 
-" Edit current file with sudo.
-command! Esudo e suda://%
-
-" Write current file with sudo.
-command! Wsudo w suda://%
-
-" Coc.
+" Coc command helpers.
+command! -bang -nargs=+ SearchAndReplace call coc#rpc#notify('search', [<f-args>])
 command! GChunkInfo CocCommand git.chunkInfo
 command! GChunkStage CocCommand git.chunkStage
 command! GChunkUndo CocCommand git.chunkUndo
 command! GCopyUrl CocCommand git.copyUrl
+command! YankList CocList -A --normal yank
 
 " Update plugins and coc extensions.
 command! Update PlugUpdate | CocUpdateSync
-
-" Yank list.
-command! YankList CocList -A --normal yank
