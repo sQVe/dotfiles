@@ -15,10 +15,11 @@ Plug 'tpope/vim-repeat'                 " Repeat for plugins.
 
 " Colorschemes.
 Plug 'morhetz/gruvbox'                  " Gruvbox colorscheme.
-Plug 'tpope/vim-eunuch'                 " Unix helpers.
 
 " Commands.
+Plug 'lambdalisue/suda.vim'             " Read and write with sudo.
 Plug 'moll/vim-bbye'                    " Delete buffers without closing window.
+Plug 'tpope/vim-eunuch'                 " Unix helpers.
 
 " Comments and documentation.
 Plug 'kkoomen/vim-doge'                 " Generate documentation.

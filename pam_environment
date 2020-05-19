@@ -41,6 +41,7 @@ NVM_DIR               DEFAULT=${XDG_DATA_HOME}/nvm
 PASSWORD_STORE_DIR    DEFAULT=${PASSWORDS}
 RCRC                  DEFAULT=${XDG_CONFIG_HOME}/rcrc
 RIPGREP_CONFIG_PATH   DEFAULT=${XDG_CONFIG_HOME}/ripgrep/config
+SUDO_ASKPASS          DEFAULT=/usr/lib/seahorse/ssh-askpass
 TRASH                 DEFAULT=${XDG_DATA_HOME}/Trash
 WEECHAT_HOME          DEFAULT=${XDG_DATA_HOME}/weechat
 YVM_DIR               DEFAULT=${XDG_DATA_HOME}/yvm

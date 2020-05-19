@@ -161,7 +161,7 @@ alias open='mimeo -q'
 alias q=exit
 alias root='sudo -i'
 alias sudo='sudo '
-alias sudoedit='sudo edit'
+alias sudoedit='sudoedit '
 alias s=sudo
 alias se=sudoedit
 

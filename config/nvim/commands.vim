@@ -91,5 +91,11 @@ command! GChunkUndo CocCommand git.chunkUndo
 command! GCopyUrl CocCommand git.copyUrl
 command! YankList CocList -A --normal yank
 
+" Edit current file with sudo.
+command! Esudo e suda://%
+
+" Write current file with sudo.
+command! Wsudo w suda://%
+
 " Update plugins and coc extensions.
 command! Update PlugUpdate | CocUpdateSync
