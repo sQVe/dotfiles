@@ -15,13 +15,13 @@ scrolling:
 
 font:
   normal:
-    family: Iosevka Nerd Font
+    family: term
     style: Regular
   bold:
-    family: Iosevka Nerd Font
+    family: term
     style: Bold
   italic:
-    family: Iosevka Nerd Font
+    family: term
     style: Italic
   size: 18
   offset:

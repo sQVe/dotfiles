@@ -10,7 +10,7 @@
 set $alt Mod1
 set $mod Mod4
 
-set $font Iosevka Nerd Font 7
+set $font term 7
 set $color-bg #282828
 set $color-bg-hi #3c3836
 set $color-text #a89984

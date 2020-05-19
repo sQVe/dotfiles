@@ -1,5 +1,5 @@
 [global]
-    font = Iosevka Nerd Font Mono 9
+    font = term 9
 
     frame_width = 4
     frame_color = "#888888"

@@ -60,5 +60,5 @@ rofi.separator-style:  none
 rofi.hide-scrollbar:   true
 rofi.levenshtein-sort: true
 rofi.terminal:         alacritty
-rofi.font:             Iosevka Nerd Font Mono, 18
+rofi.font:             term, 18
 rofi.window-format:    {n} {t}

@@ -207,6 +207,7 @@ alias xsel='xsel -b'
 # Config.
 alias cfg-alacritty='nvim-dir $DOTFILES/config/alacritty/alacritty.yml'
 alias cfg-env='nvim-dir /etc/environment'
+alias cfg-fonts='nvim-dir $DOTFILES/config/fontconfig/fonts.conf'
 alias cfg-hosts='nvim-dir /etc/hosts'
 alias cfg-i3='nvim-dir $DOTFILES/config/i3/config'
 alias cfg-keymap-ergodox='nvim-dir $CODE/qmk_firmware/keyboards/ergodox_ez/keymaps/sqve/keymap.c'
