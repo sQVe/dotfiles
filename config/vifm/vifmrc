@@ -91,7 +91,7 @@ command! archive apack %a %f &> /dev/null &
 command! df df -h %m 2> /dev/null
 command! diff nvim -d %f %F
 command! extract aunpack %f &> /dev/null &
-command! z :execute 'cd "'.system('~/scripts/z/list-directories.zsh | fzf 2> /dev/tty').'"'
+command! z :execute 'cd "'.system('~/scripts/zlua/list-directories.zsh | fzf 2> /dev/tty').'"'
 command! trashlist exa -T -L 1 --group-directories-first ~/.local/share/Trash/vifm
 
 

@@ -15,7 +15,6 @@ fi
 
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
-source /usr/share/z/z.sh
 
 
 #  ┏━┓┏━╸╺┳╸╺┳╸╻┏┓╻┏━╸┏━┓
@@ -203,6 +202,7 @@ alias vifm=vifm-cd
 alias vim=nvim
 alias wifi-menu='wifi-menu -o'
 alias xsel='xsel -b'
+alias zf="z -I "
 
 # Config.
 alias cfg-alacritty='nvim-dir $DOTFILES/config/alacritty/alacritty.yml'

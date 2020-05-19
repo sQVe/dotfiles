@@ -63,7 +63,7 @@ endfunc
 
 " Z.
 func! Z(fragment)
-  let l:directory = system('~/scripts/z/find.zsh ' . shellescape(a:fragment))
+  let l:directory = system('~/scripts/zlua/find.zsh ' . shellescape(a:fragment))
 
   if !empty(l:directory)
     execute 'cd' . ' ' . l:directory
@@ -73,7 +73,7 @@ endfunc
 
 func! ZUpdate() abort
   if empty(&buftype) || &filetype ==# 'dirvish'
-    call jobstart(['~/scripts/z/add-directory.zsh', expand('%:p:h')])
+    silent execute "!~/scripts/zlua/add-directory.zsh" . ' ' . expand('%:p:h')
   endif
 endfunc
 

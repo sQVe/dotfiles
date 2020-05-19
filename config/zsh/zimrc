@@ -25,3 +25,4 @@ zmodule zsh-users/zsh-history-substring-search
 
 # Misc
 zmodule kutsan/zsh-system-clipboard
+zmodule skywind3000/z.lua

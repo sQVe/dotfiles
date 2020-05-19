@@ -47,4 +47,4 @@ WEECHAT_HOME          DEFAULT=${XDG_DATA_HOME}/weechat
 YVM_DIR               DEFAULT=${XDG_DATA_HOME}/yvm
 ZDOTDIR               DEFAULT=${XDG_CONFIG_HOME}/zsh
 ZIM_HOME              DEFAULT=${XDG_DATA_HOME}/zim
-_Z_DATA               DEFAULT=${XDG_CONFIG_HOME}/.z
+_ZL_DATA              DEFAULT=${XDG_CONFIG_HOME}/.zlua
