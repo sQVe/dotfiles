@@ -37,6 +37,9 @@ noremap <silent> <Leader>Q :quit!<CR>
 noremap <silent> <Leader>d :Bwipeout<CR>
 noremap <silent> <Leader>D :Bwipeout!<CR>
 
+" Easy and consistent search.
+noremap + /
+
 " Term.
 noremap <silent> <Leader><CR> :Term<CR><CR>
 noremap <silent> <Leader>t :BTerm<CR><CR>
@@ -91,7 +94,6 @@ nnoremap <silent> [c :ALEPreviousWrap<CR>
 nnoremap <silent> ]c :ALENextWrap<CR>
 
 " Coc.
-nnoremap <Leader>/ :SearchAndReplace<Space>
 nnoremap <silent> <Leader>o :CocList --auto-preview --tab outline<CR>
 nnoremap <silent> <Leader>O :CocList --auto-preview --interactive --tab symbols<CR>
 nmap <silent> <Leader>f <Plug>(coc-fix-current)
@@ -126,10 +128,10 @@ xmap <silent> ga <Plug>(EasyAlign)
 nmap <silent> ga <Plug>(EasyAlign)
 
 " FZF.
-nnoremap <Leader>ä :Rg<Space>
-nnoremap <Leader>Ä :Rg<Space>
-nnoremap <silent> <Backspace> :Buffers<CR>
-nnoremap <silent> <Leader><Backspace> :Wipeouts<CR>
+nnoremap <Leader>+ :Rg<Space>
+nnoremap <Leader>/ :Rg<Space>
+nnoremap <silent> <Leader>gL :Commits<CR>
+nnoremap <silent> <Leader>gl :BCommits<CR>
 nnoremap <silent> mm :Marks<CR>
 nnoremap <silent> Ä :Files<CR>
 nnoremap <silent> ä :BFiles<CR>
@@ -145,11 +147,9 @@ omap <silent> ig <Plug>(coc-git-chunk-inner)
 xmap <silent> ig <Plug>(coc-git-chunk-inner)
 omap <silent> ag <Plug>(coc-git-chunk-outer)
 xmap <silent> ag <Plug>(coc-git-chunk-outer)
-nnoremap <silent> <Leader>gL :Commits<CR>
 nnoremap <silent> <Leader>gb :Gblame<CR>
 nnoremap <silent> <Leader>gd :Gdiff<CR>
 nnoremap <silent> <Leader>gf :Gfetch<CR>
-nnoremap <silent> <Leader>gl :BCommits<CR>
 nnoremap <silent> <Leader>gmt :MergetoolToggle<CR>
 nnoremap <silent> <Leader>gp :Gpush<CR>
 nnoremap <silent> <Leader>gpf :Gpush --force-with-lease<CR>
