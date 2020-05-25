@@ -9,10 +9,13 @@ label=﬙
 interval=2
 label= 
 
-[ethernet]
+[vpn]
 interval=10
 
 [wifi]
+interval=10
+
+[ethernet]
 interval=10
 
 [volume]
