@@ -130,6 +130,7 @@ nmap <silent> ga <Plug>(EasyAlign)
 " FZF.
 nnoremap <Leader>+ :Rg<Space>
 nnoremap <Leader>/ :Rg<Space>
+nnoremap <silent> <Backspace> :Buffers<CR>
 nnoremap <silent> <Leader>gL :Commits<CR>
 nnoremap <silent> <Leader>gl :BCommits<CR>
 nnoremap <silent> mm :Marks<CR>

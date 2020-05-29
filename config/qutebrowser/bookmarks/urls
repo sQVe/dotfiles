@@ -68,7 +68,6 @@ https://facebook.github.io/jest/docs/en/api.html                       Developme
 https://mochajs.org                                                    Development / JavaScript / Testing | Mocha
 https://sinonjs.org                                                    Development / JavaScript / Testing | Sinon
 https://testing-library.com/docs/intro                                 Development / JavaScript / Testing | Testing Library
-https://microsoft.github.io/TypeSearch                                 Development / JavaScript / Types | TypeSearch
 https://cheatsheetseries.owasp.org                                     Development / Security | OWASP Cheat Sheet Series
 https://www.gnu.org/software/bash/manual/bash.html                     Development / Specification | Bash
 https://www.ecma-international.org/ecma-262                            Development / Specification | ECMAScript 2019
@@ -81,6 +80,8 @@ https://emotion.sh/docs                                                Developme
 http://flexbox.help                                                    Development / Styling | Flexbox Help
 https://polished.js.org/docs                                           Development / Styling | Polished
 https://www.styled-components.com                                      Development / Styling | Styled Components
+https://basarat.gitbook.io/typescript                                  Development / TypeScript | TypeScript Deep Dive
+https://microsoft.github.io/typesearch                                 Development / TypeScript | TypeSearch
 http://learnvimscriptthehardway.stevelosh.com                          Development / Vim Script | Learn Vim Script the hard way
 https://w0rp.com/blog/post/vim-script-for-the-javascripter             Development / Vim Script | Vim Script for the JavaScripter
 https://www.browserstack.com                                           Development / Web / Compatibility | BrowserStack
