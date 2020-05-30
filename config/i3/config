@@ -32,7 +32,7 @@ set $lock --no-startup-id lock
 set $menu-apps --no-startup-id $HOME/scripts/i3/menu-apps.sh
 set $menu-calculator --no-startup-id $HOME/scripts/i3/menu-calculator.sh
 set $menu-clipboard --no-startup-id $HOME/scripts/i3/menu-clipboard.sh
-set $menu-exit --no-startup-id $HOME/scripts/i3/menu-exit.sh
+set $menu-state --no-startup-id $HOME/scripts/i3/menu-state.sh
 set $menu-notes --no-startup-id $HOME/scripts/i3/menu-notes.sh
 set $menu-passwords --no-startup-id $HOME/scripts/i3/menu-passwords.sh
 set $menu-playground --no-startup-id $HOME/scripts/i3/menu-playground.sh
@@ -159,7 +159,7 @@ bindsym $mod+a exec $menu-windows
 bindsym $mod+b exec $qutebrowser
 bindsym $mod+c exec $menu-clipboard
 bindsym $mod+d exec $menu-apps
-bindsym $mod+e exec $menu-exit
+bindsym $mod+e exec $menu-state
 bindsym $mod+f exec $vifm
 bindsym $mod+g gaps inner current plus 40
 bindsym $mod+h focus left
@@ -246,7 +246,7 @@ bindsym XF86AudioPrev exec $music-prev
 bindsym XF86AudioRaiseVolume exec $volume-up
 bindsym XF86MonBrightnessDown exec $brightness-down
 bindsym XF86MonBrightnessUp exec $brightness-up
-bindsym XF86PowerOff exec $menu-exit
+bindsym XF86PowerOff exec $menu-state
 
 # Misc bindings.
 bindsym $mod+BackSpace workspace back_and_forth
