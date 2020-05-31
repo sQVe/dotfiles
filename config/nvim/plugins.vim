@@ -14,7 +14,7 @@ Plug 'machakann/vim-sandwich'           " Surround text.
 Plug 'tpope/vim-repeat'                 " Repeat for plugins.
 
 " Colorschemes.
-Plug 'morhetz/gruvbox'                  " Gruvbox colorscheme.
+Plug 'gruvbox-community/gruvbox'        " Gruvbox colorscheme.
 
 " Commands.
 Plug 'lambdalisue/suda.vim'             " Read and write with sudo.
