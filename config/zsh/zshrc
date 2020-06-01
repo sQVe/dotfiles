@@ -81,7 +81,7 @@ function vifm-cd() {
   local path="$(uberfm "$@")"
 
   if [[ -z "$path" ]]; then
-    echo 'Cancelling setting path.'
+    echo "Cancelling setting path."
     exit 0
   fi
 
