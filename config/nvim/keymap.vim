@@ -134,12 +134,13 @@ nnoremap <silent> <Backspace> :Buffers<CR>
 nnoremap <silent> <Leader>gL :Commits<CR>
 nnoremap <silent> <Leader>gl :BCommits<CR>
 nnoremap <silent> mm :Marks<CR>
-nnoremap <silent> Ä :Files<CR>
-nnoremap <silent> ä :BFiles<CR>
+nnoremap <silent> ä :Files<CR>
+nnoremap <silent> å :BFiles<CR>
+
 
 " Floaterm.
-nnoremap <silent> Å :FloatermNew vifm .<CR>
-nnoremap <silent> å :FloatermNew vifm<CR>
+nnoremap <silent> Ä :FloatermNew vifm .<CR>
+nnoremap <silent> Å :FloatermNew vifm<CR>
 
 " Fugitive and coc-git.
 nmap <silent> <Leader>gj <Plug>(coc-git-prevchunk)

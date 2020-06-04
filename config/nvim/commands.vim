@@ -84,7 +84,6 @@ command! -bang -nargs=* Rg
   \ call fzf#vim#rg(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
 
 " Coc command helpers.
-command! -bang -nargs=+ Replace call coc#rpc#notify('search', [<f-args>])
 command! GChunkInfo CocCommand git.chunkInfo
 command! GChunkStage CocCommand git.chunkStage
 command! GChunkUndo CocCommand git.chunkUndo
