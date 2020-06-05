@@ -1403,15 +1403,40 @@ c.fonts.web.size.default = 16
 c.fonts.web.size.default_fixed = 13
 
 # Bindings for normal mode
-config.bind(';x', 'hint links spawn qb-mpv {hint-url}')
+
+# Essential additions and modifications.
 config.bind('<', 'tab-move -')
-config.bind('<Ctrl+e>', 'open-editor')
 config.bind('>', 'tab-move +')
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
 config.bind('W', 'open -w')
+config.bind('ww', 'open -w')
+config.bind('Ä', 'set-cmd-text -s :open -t')
+config.bind('Ö', 'set-cmd-text :')
+config.bind('ä', 'set-cmd-text -s :open')
+config.bind('ö', 'set-cmd-text :')
+
+# Bookmarks and quickmarks.
+config.unbind('m')
+
+config.bind('mb', 'bookmark-add -t')
+config.bind('b', 'set-cmd-text -s :bookmark-load')
+config.bind('B', 'set-cmd-text -s :bookmark-load -t')
+config.bind('wb', 'set-cmd-text -s :bookmark-load -w')
+
+config.bind('mq', 'quickmark-save')
+config.bind('q', 'set-cmd-text -s :quickmark-load')
+config.bind('Q', 'set-cmd-text -s :quickmark-load -t')
+config.bind('wq', 'set-cmd-text -s :quickmark-load -w')
+
+# Open editor.
+config.bind('<Ctrl+e>', 'open-editor')
 config.bind('e', 'open-editor')
+
+# Userscripts.
 config.bind('sp', 'spawn --userscript qutepocket')
+
+# Spawns.
 config.bind('zH', 'hint links spawn term "http \'{hint-url}\' | less"')
 config.bind('zM', 'hint links spawn mpv \'{hint-url}\'')
 config.bind('zO', 'hint links spawn term "mimeo \'{hint-url}\'"')
@@ -1422,10 +1447,6 @@ config.bind('zdy', 'spawn term "cd ~/download; youtube-dl \'{url}\'"')
 config.bind('zh', 'spawn term "http \'{url}\' | less"')
 config.bind('zm', 'spawn mpv \'{url}\'')
 config.bind('zo', 'spawn term "mimeo \'{url}\'"')
-config.bind('Ä', 'set-cmd-text -s :open -t')
-config.bind('Ö', 'set-cmd-text :')
-config.bind('ä', 'set-cmd-text -s :open')
-config.bind('ö', 'set-cmd-text :')
 
 # Bindings for insert mode
 config.bind('<Ctrl+e>', 'open-editor', mode='insert')
