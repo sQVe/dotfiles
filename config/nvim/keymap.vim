@@ -9,6 +9,9 @@ let mapleader = " "
 inoremap jj <Esc>
 inoremap <F1> <Esc>
 
+" Remove search highlight.
+nnoremap <silent> <Esc><Esc> :nohl<CR>
+
 " Quick command.
 noremap ö :
 noremap Ö :
@@ -99,11 +102,11 @@ nnoremap <silent> <Leader>O :CocList --auto-preview --interactive --tab symbols<
 nmap <silent> <Leader>f <Plug>(coc-fix-current)
 nmap <silent> <Leader>r <Plug>(coc-rename)
 nnoremap <silent> K :ShowDocumentation<CR>
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
+nmap <silent> gD <Plug>(coc-implementation)
 nmap <silent> gb <Plug>(coc-range-select)
 xmap <silent> gb <Plug>(coc-range-select)
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gy <Plug>(coc-type-definition)
 
 imap <silent> <C-l> <Plug>(coc-snippets-expand)

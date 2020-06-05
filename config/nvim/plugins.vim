@@ -56,7 +56,6 @@ Plug 'voldikss/vim-floaterm'            " Floating terminal.
 " Search, replace and navigation.
 Plug 'junegunn/fzf.vim'                 " Fzf.
 Plug 'junegunn/vim-peekaboo'            " View content of registers.
-Plug 'junegunn/vim-slash'               " Improve search with centering and clearing.
 Plug 'justinmk/vim-sneak'               " Quick jump.
 Plug 'markonm/traces.vim'               " Range, pattern and substitute preview.
 Plug 'mg979/vim-visual-multi'           " Multiple cursors.
