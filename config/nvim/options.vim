@@ -3,7 +3,7 @@
 "  ┗━┛╹ ╹┗━┛┗━╸   ┗━┛╹   ╹ ╹┗━┛╹ ╹┗━┛
 
 set clipboard=unnamedplus         " Use the + (clipboard) register.
-set conceallevel=0                " Disable character conceal.
+set conceallevel=2                " Disable character conceal.
 set gdefault                      " Use 'g' flag by default with :s/foo/bar/.
 set hidden                        " Set buffer as hidden when abandoned.
 set lazyredraw                    " Enable lazy redraw.
