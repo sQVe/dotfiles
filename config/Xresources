@@ -39,26 +39,3 @@ Xcursor.size:  48
 *.color13:    #d3869b
 *.color14:    #8ec07c
 *.color15:    #ebdbb2
-
-
-! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-! ¤¤¤¤  rofi  ¤¤¤¤
-! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-rofi.color-enabled:    true
-rofi.color-window:     #3c3836, #b16286, #3c3836, #32302f, #b16286
-rofi.color-normal:     #3c3836, #ebdbb2, #3c3836, #32302f, #8ec07c
-rofi.color-active:     #3c3836, #ebdbb2, #3c3836, #32302f, #8ec07c
-rofi.color-urgent:     #3c3836, #ebdbb2, #3c3836, #32302f, #8ec07c
-rofi.lines:            10
-rofi.columns:          2
-rofi.padding:          20
-rofi.width:            30
-rofi.location:         0
-rofi.yoffset:          0
-rofi.borderwidth:      4
-rofi.separator-style:  none
-rofi.hide-scrollbar:   true
-rofi.levenshtein-sort: true
-rofi.terminal:         alacritty
-rofi.font:             term, 18
-rofi.window-format:    {n} {t}
