@@ -32,12 +32,13 @@ set $lock --no-startup-id lock
 set $menu-apps --no-startup-id $HOME/scripts/i3/menu-apps.sh
 set $menu-calculator --no-startup-id $HOME/scripts/i3/menu-calculator.sh
 set $menu-clipboard --no-startup-id $HOME/scripts/i3/menu-clipboard.sh
-set $menu-state --no-startup-id $HOME/scripts/i3/menu-state.sh
+set $menu-emoji --no-startup-id $HOME/scripts/i3/menu-emoji.sh
 set $menu-notes --no-startup-id $HOME/scripts/i3/menu-notes.sh
 set $menu-passwords --no-startup-id $HOME/scripts/i3/menu-passwords.sh
 set $menu-playground --no-startup-id $HOME/scripts/i3/menu-playground.sh
 set $menu-projects --no-startup-id $HOME/scripts/i3/menu-projects.sh
 set $menu-run --no-startup-id $HOME/scripts/i3/menu-run.sh
+set $menu-state --no-startup-id $HOME/scripts/i3/menu-state.sh
 set $menu-windows --no-startup-id $HOME/scripts/i3/menu-windows.sh
 set $music-next --no-startup-id playerctl next
 set $music-prev --no-startup-id playerctl previous
@@ -167,7 +168,7 @@ bindsym $mod+i scratchpad show
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+m exec $redshift
+bindsym $mod+m exec $menu-emoji
 bindsym $mod+n exec $menu-playground
 bindsym $mod+o floating toggle; resize set 1200 800; move position center
 bindsym $mod+p focus parent
@@ -190,7 +191,6 @@ bindsym $mod+Shift+i move scratchpad
 bindsym $mod+Shift+j move down 180
 bindsym $mod+Shift+k move up 180
 bindsym $mod+Shift+l move right 180
-bindsym $mod+Shift+m exec $kill-redshift
 bindsym $mod+Shift+n exec $music-next
 bindsym $mod+Shift+o focus mode_toggle
 bindsym $mod+Shift+p focus child
@@ -206,15 +206,17 @@ bindsym $mod+Ctrl+l workspace next_on_output
 bindsym $mod+Ctrl+h workspace prev_on_output
 
 # Symbol based bindings.
-bindsym $mod+comma exec $volume-up
-bindsym $mod+period exec $brightness-up
+bindsym $mod+comma exec $redshift
+bindsym $mod+minus exec $brightness-up
+bindsym $mod+period exec $volume-up
 bindsym $mod+plus exec $menu-calculator
 
-bindsym $mod+Shift+comma exec $volume-down
-bindsym $mod+Shift+period exec $brightness-down
+bindsym $mod+Shift+comma exec $kill-redshift
+bindsym $mod+Shift+minus exec $brightness-down
+bindsym $mod+Shift+period exec $volume-down
 
-bindsym $mod+$alt+comma exec $volume-toggle
-bindsym $mod+$alt+period exec $brightness-toggle
+bindsym $mod+$alt+minus exec $brightness-toggle
+bindsym $mod+$alt+period exec $volume-toggle
 
 # Direction based bindings.
 bindsym $mod+Down focus down
