@@ -2,9 +2,9 @@
   "dependencies": {
     "coc-css": ">=1.2.4",
     "coc-dictionary": ">=1.2.2",
-    "coc-emmet": ">=1.1.4",
+    "coc-emmet": ">=1.1.6",
     "coc-emoji": ">=1.2.3",
-    "coc-git": ">=1.7.15",
+    "coc-git": ">=1.8.0",
     "coc-html": ">=1.2.4",
     "coc-json": ">=1.2.6",
     "coc-snippets": ">=2.1.28",

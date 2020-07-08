@@ -103,6 +103,7 @@ nmap <silent> <Leader>f <Plug>(coc-fix-current)
 nmap <silent> <Leader>r <Plug>(coc-rename)
 nnoremap <silent> K :ShowDocumentation<CR>
 nmap <silent> gD <Plug>(coc-implementation)
+nmap <silent> gR :CocSearch \b<C-R>=expand("<cword>")<CR>\b<CR>
 nmap <silent> gb <Plug>(coc-range-select)
 xmap <silent> gb <Plug>(coc-range-select)
 nmap <silent> gd <Plug>(coc-definition)
