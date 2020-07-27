@@ -193,7 +193,7 @@ let g:fzf_colors = {
   \ 'spinner': ['fg', 'Label'],
   \ 'header':  ['fg', 'Comment'],
   \ }
-let g:fzf_layout = { 'window': 'call FloatingFZF()' }
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:50%'), <bang>0)

@@ -4,12 +4,12 @@
     "coc-dictionary": ">=1.2.2",
     "coc-emmet": ">=1.1.6",
     "coc-emoji": ">=1.2.3",
-    "coc-git": ">=1.8.0",
+    "coc-git": ">=1.8.1",
     "coc-html": ">=1.2.4",
     "coc-json": ">=1.2.6",
     "coc-snippets": ">=2.1.28",
     "coc-styled-components": ">=0.3.0",
-    "coc-tsserver": ">=1.5.2",
+    "coc-tsserver": ">=1.5.3",
     "coc-yaml": ">=1.0.4",
     "coc-yank": ">=1.1.4"
   }

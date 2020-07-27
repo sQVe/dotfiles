@@ -82,30 +82,6 @@ endfunc
 "  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
-" Start FZF in floating window.
-func! FloatingFZF()
-  let buf = nvim_create_buf(v:false, v:true)
-  call setbufvar(buf, '&signcolumn', 'no')
-
-  let width = float2nr(&columns - (&columns * 2 / 10))
-  let height = 35
-
-  let col = float2nr((&columns - width) / 2)
-  let row = float2nr((&lines - height) / 2)
-
-  let opts = {
-        \ 'relative': 'editor',
-        \ 'row': row,
-        \ 'col': col,
-        \ 'width': width,
-        \ 'height': height
-        \ }
-
-  let win = nvim_open_win(buf, v:true, opts)
-  call setwinvar(win, '&number', 0)
-  call setwinvar(win, '&relativenumber', 0)
-endfunc
-
 " Merge filename and modified flag for vim-lightline.
 func! LightlineFilename()
   let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
