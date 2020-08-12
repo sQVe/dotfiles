@@ -114,18 +114,20 @@ imap <silent> <C-l> <Plug>(coc-snippets-expand)
 imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
 vmap <silent> <C-j> <Plug>(coc-snippets-select)
 
-" Use <Tab> to move to next completion item.
+" Use <Tab> tigger completion and to navigate the completion list.
 inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ CheckBackSpace() ? "\<Tab>" :
-      \ coc#refresh()
-inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<C-h>"
+  \ pumvisible() ? "\<C-n>" :
+  \ CheckBackSpace() ? "\<Tab>" :
+  \ coc#refresh()
+
+" Use <S-Tab> to navigate the completion list.
+inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
 " Use <C-Space> to open completion menu.
 inoremap <silent><expr> <C-Space> coc#refresh()
 
 " Use <CR> to confirm completion.
-inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 " EasyAlign.
 xmap <silent> ga <Plug>(EasyAlign)
