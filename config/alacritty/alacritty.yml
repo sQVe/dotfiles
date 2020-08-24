@@ -116,7 +116,6 @@ key_bindings:
   - { key: W,      mods: Shift,         mode: Vi, action: WordRight               }
   - { key: E,      mods: Shift,         mode: Vi, action: WordRightEnd            }
   - { key: Key5,   mods: Shift,         mode: Vi, action: Bracket                 }
-  - { key: Slash,                       mode: Vi, action: SearchForward           }
   - { key: Slash,  mods: Shift,         mode: Vi, action: SearchBackward          }
   - { key: N,                           mode: Vi, action: SearchNext              }
   - { key: N,      mods: Shift,         mode: Vi, action: SearchPrevious          }
