@@ -23,10 +23,10 @@ const CSVToJSON = (data, delimiter = ',') => {
 };
 endsnippet
 
-snippet JSONToFile "Writes a JSON object to a file.  Use `fs.writeFile()`, template literals and `JSON.stringify()` to write a `json` object to a `.json` file." b
+snippet JSONToFile "Writes a JSON object to a file.  Use `fs.writeFileSync()`, template literals and `JSON.stringify()` to write a `json` object to a `.json` file." b
 const fs = require('fs');
 const JSONToFile = (obj, filename) =>
-  fs.writeFile(\`\${filename}.json\`, JSON.stringify(obj, null, 2));
+  fs.writeFileSync(\`\${filename}.json\`, JSON.stringify(obj, null, 2));
 endsnippet
 
 snippet JSONtoCSV "Converts an array of objects to a comma-separated values (CSV) string that contains only the `columns` specified.  Use `Array.prototype.join(delimiter)` to combine all the names in `columns` to create the first row. Use `Array.prototype.map()` and `Array.prototype.reduce()` to create a row for each object, substituting non-existent values with empty strings and only mapping values in `columns`. Use `Array.prototype.join('\n')` to combine all rows into a string. Omit the third argument, `delimiter`, to use a default delimiter of `,`." b
@@ -97,7 +97,7 @@ snippet aperture "Returns an array of `n`-tuples of consecutive elements.  Use `
 const aperture = (n, arr) =>
   n > arr.length
     ? []
-    : arr.slice(n - 1).map((v, i) => [...arr.slice(i, i + n - 1), v]);
+    : arr.slice(n - 1).map((v, i) => arr.slice(i, i + n));
 endsnippet
 
 snippet approximatelyEqual "Checks if two numbers are approximately equal to each other.  Use `Math.abs()` to compare the absolute difference of the two values to `epsilon`. Omit the third parameter, `epsilon`, to use a default value of `0.001`." b
@@ -463,7 +463,7 @@ endsnippet
 snippet deepFreeze "Deep freezes an object.  Use `Object.keys()` to get all the properties of the passed object, `Array.prototype.forEach()` to iterate over them. Call `Object.freeze(obj)` recursively on all properties, checking if each one is frozen using `Object.isFrozen()` and applying `deepFreeze()` as necessary. Finally, use `Object.freeze()` to freeze the given object." b
 const deepFreeze = obj => {
   Object.keys(obj).forEach(prop => {
-    if (obj[prop] === 'object' && !Object.isFrozen(obj[prop])) deepFreeze(v[prop]);
+    if (typeof(obj[prop]) === 'object' && !Object.isFrozen(obj[prop])) deepFreeze(obj[prop]);
   });
   return Object.freeze(obj);
 };
@@ -578,6 +578,10 @@ snippet elementContains "Returns `true` if the `parent` element contains the `ch
 const elementContains = (parent, child) => parent !== child && parent.contains(child);
 endsnippet
 
+snippet elementIsFocused "Returns `true` if the given element is focused, `false` otherwise.  Use `document.activeElement` to determine if the given element is focused." b
+const elementIsFocused = el => (el === document.activeElement);
+endsnippet
+
 snippet elementIsVisibleInViewport "Returns `true` if the element specified is visible in the viewport, `false` otherwise.  Use `Element.getBoundingClientRect()` and the `window.inner(Width|Height)` values to determine if a given element is visible in the viewport. Omit the second argument to determine if the element is entirely visible, or specify `true` to determine if it is partially visible." b
 const elementIsVisibleInViewport = (el, partiallyVisible = false) => {
   const { top, left, bottom, right } = el.getBoundingClientRect();
@@ -641,6 +645,10 @@ endsnippet
 
 snippet everyNth "Returns every nth element in an array.  Use `Array.prototype.filter()` to create a new array that contains every nth element of a given array." b
 const everyNth = (arr, nth) => arr.filter((e, i) => i % nth === nth - 1);
+endsnippet
+
+snippet expandTabs "Convert tabs to spaces, where each tab corresponds to `count` spaces.  Use `String.prototype.replace()` with a regular expression and `String.prototype.repeat()` to replace each tab character with `count` spaces." b
+const expandTabs = (str, count) => str.replace(/\t/g, ' '.repeat(count));
 endsnippet
 
 snippet extendHex "Extends a 3-digit color code to a 6-digit color code.  Use `Array.prototype.map()`, `String.prototype.split()` and `Array.prototype.join()` to join the mapped array for converting a 3-digit RGB notated hexadecimal color-code to the 6-digit form. `Array.prototype.slice()` is used to remove `#` from string start since it's added once." b
@@ -716,8 +724,13 @@ endsnippet
 snippet flattenObject "Flatten an object with the paths for keys.  Use recursion. Use `Object.keys(obj)` combined with `Array.prototype.reduce()` to convert every leaf node to a flattened path node. If the value of a key is an object, the function calls itself with the appropriate `prefix` to create the path using `Object.assign()`. Otherwise, it adds the appropriate prefixed key-value pair to the accumulator object. You should always omit the second argument, `prefix`, unless you want every key to have a prefix." b
 const flattenObject = (obj, prefix = '') =>
   Object.keys(obj).reduce((acc, k) => {
-    const pre = prefix.length ? prefix + '.' : '';
-    if (typeof obj[k] === 'object') Object.assign(acc, flattenObject(obj[k], pre + k));
+    const pre = prefix.length ? \`\${prefix}.\` : '';
+    if (
+      typeof obj[k] === 'object' &&
+      obj[k] !== null &&
+      Object.keys(obj[k]).length > 0
+    )
+      Object.assign(acc, flattenObject(obj[k], pre + k));
     else acc[pre + k] = obj[k];
     return acc;
   }, {});
@@ -727,10 +740,10 @@ snippet flip "Flip takes a function as an argument, then makes the first argume
 const flip = fn => (first, ...rest) => fn(...rest, first);
 endsnippet
 
-snippet forEachRight "Executes a provided function once for each array element, starting from the array's last element.  Use `Array.prototype.slice(0)` to clone the given array, `Array.prototype.reverse()` to reverse it and `Array.prototype.forEach()` to iterate over the reversed array." b
+snippet forEachRight "Executes a provided function once for each array element, starting from the array's last element.  Use `Array.prototype.slice()` to clone the given array, `Array.prototype.reverse()` to reverse it and `Array.prototype.forEach()` to iterate over the reversed array." b
 const forEachRight = (arr, callback) =>
   arr
-    .slice(0)
+    .slice()
     .reverse()
     .forEach(callback);
 endsnippet
@@ -772,6 +785,10 @@ const formatDuration = ms => {
     .map(([key, val]) => \`\${val} \${key}\${val !== 1 ? 's' : ''}\`)
     .join(', ');
 };
+endsnippet
+
+snippet formatNumber "Returns a number using the local number format order.  Use `Number.prototype.toLocaleString()` to convert a number to using the local number format separators." b
+const formatNumber = num => num.toLocaleString();
 endsnippet
 
 snippet frequencies "Returns an object with the unique values of an array as keys and their frequencies as the values.  Use `Array.prototype.reduce()` to map unique values to an object's keys, adding to existing keys every time the same value is encountered." b
@@ -859,11 +876,30 @@ const getMeridiemSuffixOfInteger = num =>
     : (num % 12) + 'pm';
 endsnippet
 
+snippet getMonthsDiffBetweenDates "Returns the difference (in months) between two dates.  Use `Date.prototype.getFullYear()` and `Date.prototype.getMonth()` to calculate the difference (in months) between two `Date` objects." b
+const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
+  Math.max(
+    (dateFinal.getFullYear() - dateInitial.getFullYear()) * 12 +
+      dateFinal.getMonth() -
+      dateInitial.getMonth(),
+    0
+  );
+endsnippet
+
 snippet getScrollPosition "Returns the scroll position of the current page.  Use `pageXOffset` and `pageYOffset` if they are defined, otherwise `scrollLeft` and `scrollTop`. You can omit `el` to use a default value of `window`." b
 const getScrollPosition = (el = window) => ({
   x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollLeft,
   y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTop
 });
+endsnippet
+
+snippet getSelectedText "Get the currently selected text.  Use `window.getSelection()` and `Selection.prototype.toString()` to get the currently selected text." b
+const getSelectedText = () => window.getSelection().toString();
+endsnippet
+
+snippet getSiblings "Returns an array containing all the siblings of the given element.  Use `Node.prototype.parentNode` and `Node.prototype.childNodes` to get a `NodeList` of all the elements contained in the element's parent. Use the spread operator (`...`) and `Array.prototype.filter()` to convert to an array and remove the given element from it." b
+const getSiblings = el =>
+  [...el.parentNode.childNodes].filter(node => node !== el);
 endsnippet
 
 snippet getStyle "Returns the value of a CSS rule for the specified element.  Use `Window.getComputedStyle()` to get the value of the CSS rule for the specified element." b
@@ -1165,6 +1201,11 @@ snippet isArrayLike "Checks if the provided argument is array-like (i.e. is iter
 const isArrayLike = obj => obj != null && typeof obj[Symbol.iterator] === 'function';
 endsnippet
 
+snippet isAsyncFunction "Checks if the given argument is an `async` function.  Use `Object.prototype.toString()` and `Function.call()` and check if the result is `'[object AsyncFunction]'`." b
+const isAsyncFunction = val =>
+  Object.prototype.toString.call(val) === '[object AsyncFunction]';
+endsnippet
+
 snippet isBeforeDate "Check if a date is before another date.  Use the less than operator (`<`) to check if the first date comes before the second one." b
 const isBeforeDate = (dateA, dateB) => dateA < dateB;
 endsnippet
@@ -1216,6 +1257,11 @@ endsnippet
 
 snippet isFunction "Checks if the given argument is a function.  Use `typeof` to check if a value is classified as a function primitive." b
 const isFunction = val => typeof val === 'function';
+endsnippet
+
+snippet isGeneratorFunction "Checks if the given argument is a generator function.  Use `Object.prototype.toString()` and `Function.call()` and check if the result is `'[object GeneratorFunction]'`." b
+const isGeneratorFunction = val =>
+  Object.prototype.toString.call(val) === '[object GeneratorFunction]';
 endsnippet
 
 snippet isLeapYear "Returns `true` if the given `year` is a leap year, `false` otherwise.  Use `new Date()`, setting the date to February 29th of the given `year` and use `Date.prototype.getMonth()` to check if the month is equal to `1`." b
@@ -1388,6 +1434,10 @@ const lcm = (...arr) => {
   const _lcm = (x, y) => (x * y) / gcd(x, y);
   return [...arr].reduce((a, b) => _lcm(a, b));
 };
+endsnippet
+
+snippet listenOnce "Adds an event listener to an element that will only run the callback the first time the event is triggered.  Use `EventTarget.addEventListener()` to add an event listener to an element, using `{ once: true }` as options to only run the given callback once." b
+const listenOnce = (el, evt, fn) => el.addEventListener(evt, fn, { once: true });
 endsnippet
 
 snippet longestItem "Takes any number of iterable objects or objects with a `length` property and returns the longest one. If multiple objects have the same length, the first one will be returned. Returns `undefined` if no arguments are provided.  Use `Array.prototype.reduce()`, comparing the `length` of objects to find the longest one." b
@@ -2046,6 +2096,13 @@ const renderElement = ({ type, props = {} }, container) => {
 
   container.appendChild(element);
 }
+endsnippet
+
+snippet requireUncached "Loads a module after removing it from the cache (if exists).  Use `delete` to remove the module from the cache (if exists). Use `require()` to load the module again." b
+const requireUncached = module => {
+  delete require.cache[require.resolve(module)];
+  return require(module);
+};
 endsnippet
 
 snippet reverseString "Reverses a string.  Use the spread operator (`...`) and `Array.prototype.reverse()` to reverse the order of the characters in the string. Combine characters to get a string using `String.prototype.join('')`." b
