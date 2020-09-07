@@ -9,9 +9,6 @@ let mapleader = " "
 inoremap jj <Esc>
 inoremap <F1> <Esc>
 
-" Remove search highlight.
-nnoremap <silent> <Esc><Esc> :nohl<CR>
-
 " Quick command.
 noremap ö :
 noremap Ö :
@@ -127,7 +124,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <silent><expr> <C-Space> coc#refresh()
 
 " Use <CR> to confirm completion.
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
 
 " EasyAlign.
 xmap <silent> ga <Plug>(EasyAlign)
