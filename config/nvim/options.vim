@@ -120,34 +120,6 @@ let g:ale_fixers = {
   \ 'typescriptreact': ['prettier', 'eslint'],
   \ 'yaml': ['prettier'],
   \ }
-let g:ale_pattern_options = {
-  \ '\/work\/': {
-  \   'ale_linters': {
-  \     'css': ['stylelint'],
-  \     'javascript': ['eslint'],
-  \     'javascriptreact': ['eslint'],
-  \     'markdown': ['alex', 'proselint', 'write-good'],
-  \     'scss': ['sasslint'],
-  \     'sh': ['shellcheck'],
-  \     'text': ['alex', 'proselint', 'write-good'],
-  \     'typescript': ['tslint'],
-  \     'typescriptreact': ['tslint'],
-  \   },
-  \   'ale_fixers': {
-  \     'css': ['prettier', 'stylelint'],
-  \     'html': ['prettier'],
-  \     'javascript': ['prettier', 'eslint'],
-  \     'javascriptreact': ['prettier', 'eslint'],
-  \     'json': ['prettier', 'eslint'],
-  \     'markdown': ['prettier'],
-  \     'scss': ['prettier'],
-  \     'sh': ['shfmt'],
-  \     'typescript': ['prettier', 'tslint'],
-  \     'typescriptreact': ['prettier', 'tslint'],
-  \     'yaml': ['prettier'],
-  \   },
-  \ },
-  \ }
 
 let g:ale_writegood_options = '--no-passive'
 
