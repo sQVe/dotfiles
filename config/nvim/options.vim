@@ -17,7 +17,7 @@ set signcolumn=yes                " Always show sign column.
 set termguicolors                 " Enable 24-bit colors.
 set tildeop                       " Enable ~ operator.
 set timeoutlen=400                " Timeout Leader after 400 ms.
-set updatetime=300                " Set update time to 300 ms.
+set updatetime=200                " Set update time to 200 ms.
 set virtualedit=block             " Enable virtualedit when in Visual Block mode.
 
 " Searching.
