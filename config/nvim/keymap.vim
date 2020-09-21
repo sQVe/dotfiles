@@ -146,8 +146,8 @@ nnoremap <silent> Ä :FloatermNew vifm .<CR>
 nnoremap <silent> Å :FloatermNew vifm<CR>
 
 " Fugitive and coc-git.
-nmap <silent> <Leader>gj <Plug>(coc-git-prevchunk)
-nmap <silent> <Leader>gk <Plug>(coc-git-nextchunk)
+nmap <silent> <Leader>gj <Plug>(coc-git-nextchunk)
+nmap <silent> <Leader>gk <Plug>(coc-git-prevchunk)
 omap <silent> ig <Plug>(coc-git-chunk-inner)
 xmap <silent> ig <Plug>(coc-git-chunk-inner)
 omap <silent> ag <Plug>(coc-git-chunk-outer)
