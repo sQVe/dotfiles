@@ -114,7 +114,6 @@ bar {
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 # Assign workspaces.
-assign [class="qutebrowser"]                   → $workspace-3
 assign [class="Alacritty" instance="weechat"]  → $workspace-5
 assign [class="Alacritty" instance="neomutt"]  → $workspace-6
 assign [class="Slack"]                         → $workspace-5
