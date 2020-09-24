@@ -9,6 +9,9 @@ let mapleader = " "
 inoremap jj <Esc>
 inoremap <F1> <Esc>
 
+" Remove search highlight.
+nnoremap <silent> <Esc><Esc> :nohl<CR>
+
 " Quick command.
 noremap ö :
 noremap Ö :

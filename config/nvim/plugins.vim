@@ -50,7 +50,6 @@ Plug 'itchyny/lightline.vim'            " Status line.
 Plug 'maximbaz/lightline-ale'           " Lint information in status line.
 Plug 'mhinz/vim-startify'               " Launch screen.
 Plug 'ntpeters/vim-better-whitespace'   " Highlight trailing whitespace.
-Plug 'romainl/vim-cool'                 " Clear highlight search on movement.
 Plug 'samoshkin/vim-mergetool'          " Git mergetool
 Plug 'voldikss/vim-floaterm'            " Floating terminal.
 
@@ -63,7 +62,7 @@ Plug 'mg979/vim-visual-multi'           " Multiple cursors.
 " Syntax.
 Plug 'sheerun/vim-polyglot'             " Language pack.
 
-" Text objects.
+" Text objects and motions.
 Plug 'christoomey/vim-sort-motion'      " Sort by motion.
 Plug 'wellle/targets.vim'               " Additional text objects.
 
