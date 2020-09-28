@@ -143,7 +143,6 @@ nnoremap <silent> mm :Marks<CR>
 nnoremap <silent> ä :Files<CR>
 nnoremap <silent> å :BFiles<CR>
 
-
 " Floaterm.
 nnoremap <silent> Ä :FloatermNew vifm .<CR>
 nnoremap <silent> Å :FloatermNew vifm<CR>
