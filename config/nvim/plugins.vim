@@ -32,6 +32,9 @@ Plug 'neoclide/coc.nvim', {
   \ }                                   " Intellisense with LSP.
 Plug 'rhysd/vim-grammarous'             " Grammary check with languagetool.
 
+" Debug.
+Plug 'dstein64/vim-startuptime'         " Check startup times.
+
 " Integration.
 Plug 'airblade/vim-rooter'              " Set pwd to root directory.
 Plug 'editorconfig/editorconfig-vim'    " Editorconfig.
