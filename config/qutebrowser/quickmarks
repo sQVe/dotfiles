@@ -17,6 +17,7 @@ eslint-config-sqve           https://github.com/sQVe/eslint-config-sqve
 g                            https://www.google.com
 gh                           https://github.com
 gist                         https://gist.github.com/sQVe
+hoppscotch                   https://hoppscotch.io/
 keys                         https://github.com/sQVe/keys
 locg                         https://leagueofcomicgeeks.com/comics
 mail                         https://mail.google.com/mail/u/0/#inbox
@@ -27,7 +28,6 @@ passwords                    https://github.com/sQVe/passwords
 pictures                     https://github.com/sQVe/pictures
 playground                   https://github.com/sQVe/playground
 pocket                       https://app.getpocket.com
-hoppscotch                   https://hoppscotch.io/
 reddit                       https://www.reddit.com
 regex                        https://regex101.com
 righttp                      https://github.com/sQVe/righttp
