@@ -185,7 +185,6 @@ alias feh='feh --scale-down --auto-zoom --image-bg "#282828"'
 alias fm=vifm-cd
 alias format-opinionated='npx prettier --no-semi --single-quote --trailing-comma es5 --write'
 alias format='npx prettier --write'
-alias git=hub
 alias l=less
 alias leave='i3-msg exit'
 alias mixer=pavucontrol

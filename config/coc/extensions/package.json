@@ -11,6 +11,6 @@
     "coc-styled-components": ">=0.3.0",
     "coc-tsserver": ">=1.5.7",
     "coc-yaml": ">=1.1.0",
-    "coc-yank": ">=1.1.7"
+    "coc-yank": ">=1.1.8"
   }
 }
