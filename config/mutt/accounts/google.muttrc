@@ -32,8 +32,8 @@ unmailboxes *
 mailboxes "=Inbox" "=Todo" "=Archive" "=Books" "=Comics" "=Drafts" "=Sent" "=Trash" "=Spam" "=Arch Linux" "=AUR" "=Drop" "=GitHub" "=NPM" "=Nintendo" "=Travis" "=Weeklies"
 
 set spoolfile = "+Inbox"
-set record = ""
-set postponed = ""
-set trash = ""
+set record = "+Sent"
+set postponed = "+Drafts"
+set trash = "+Trash"
 
 # vim: ft=neomuttrc
