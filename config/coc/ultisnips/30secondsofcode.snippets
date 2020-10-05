@@ -23,6 +23,28 @@ const CSVToJSON = (data, delimiter = ',') => {
 };
 endsnippet
 
+snippet HSBToRGB "Converts a HSB color tuple to RGB format.  - Use the [HSB to RGB conversion formula](https://en.wikipedia.org/wiki/HSL_and_HSV#HSV_to_RGB) to convert to the appropriate format. - The range of the input parameters is H: [0, 360], S: [0, 100], B: [0, 100]. - The range of all output values is [0, 255]." b
+const HSBToRGB = (h, s, b) => {
+  s /= 100;
+  b /= 100;
+  const k = (n) => (n + h / 60) % 6;
+  const f = (n) => b * (1 - s * Math.max(0, Math.min(k(n), 4 - k(n), 1)));
+  return [255 * f(5), 255 * f(3), 255 * f(1)];
+};
+endsnippet
+
+snippet HSLToRGB "Converts a HSL color tuple to RGB format.  - Use the [HSL to RGB conversion formula](https://en.wikipedia.org/wiki/HSL_and_HSV#HSL_to_RGB) to convert to the appropriate format. - The range of the input parameters is H: [0, 360], S: [0, 100], L: [0, 100]. - The range of all output values is [0, 255]." b
+const HSLToRGB = (h, s, l) => {
+  s /= 100;
+  l /= 100;
+  const k = n => (n + h / 30) % 12;
+  const a = s * Math.min(l, 1 - l);
+  const f = n =>
+    l - a * Math.max(-1, Math.min(k(n) - 3, Math.min(9 - k(n), 1)));
+  return [255 * f(0), 255 * f(8), 255 * f(4)];
+};
+endsnippet
+
 snippet JSONToFile "Writes a JSON object to a file.  - Use `fs.writeFileSync()`, template literals and `JSON.stringify()` to write a `json` object to a `.json` file." b
 const fs = require('fs');
 const JSONToFile = (obj, filename) =>
@@ -40,6 +62,41 @@ const JSONtoCSV = (arr, columns, delimiter = ',') =>
       )
     )
   ].join('\n');
+endsnippet
+
+snippet RGBToHSB "Converts a RGB color tuple to HSB format.  - Use the [RGB to HSB conversion formula](https://en.wikipedia.org/wiki/HSL_and_HSV#From_RGB) to convert to the appropriate format. - The range of all input parameters is [0, 255]. - The range of the resulting values is H: [0, 360], S: [0, 100], B: [0, 100]." b
+const RGBToHSB = (r, g, b) => {
+  r /= 255;
+  g /= 255;
+  b /= 255;
+  const v = Math.max(r, g, b),
+    n = v - Math.min(r, g, b);
+  const h =
+    n && v === r ? (g - b) / n : v === g ? 2 + (b - r) / n : 4 + (r - g) / n;
+  return [60 * (h < 0 ? h + 6 : h), v && (n / v) * 100, v * 100];
+};
+endsnippet
+
+snippet RGBToHSL "Converts a RGB color tuple to HSL format.  - Use the [RGB to HSL conversion formula](https://www.niwa.nu/2013/05/math-behind-colorspace-conversions-rgb-hsl/) to convert to the appropriate format. - The range of all input parameters is [0, 255]. - The range of the resulting values is H: [0, 360], S: [0, 100], L: [0, 100]." b
+const RGBToHSL = (r, g, b) => {
+  r /= 255;
+  g /= 255;
+  b /= 255;
+  const l = Math.max(r, g, b);
+  const s = l - Math.min(r, g, b);
+  const h = s
+    ? l === r
+      ? (g - b) / s
+      : l === g
+      ? 2 + (b - r) / s
+      : 4 + (r - g) / s
+    : 0;
+  return [
+    60 * h < 0 ? 60 * h + 360 : 60 * h,
+    100 * (s ? (l <= 0.5 ? s / (2 * l - s) : s / (2 - (2 * l - s))) : 0),
+    (100 * (2 * l - s)) / 2,
+  ];
+};
 endsnippet
 
 snippet RGBToHex "Converts the values of RGB components to a hexadecimal color code.  - Convert given RGB parameters to hexadecimal string using bitwise left-shift operator (`<<`) and `toString(16)`, then `String.padStart(6,'0')` to get a 6-digit hexadecimal value." b
@@ -102,6 +159,11 @@ endsnippet
 
 snippet approximatelyEqual "Checks if two numbers are approximately equal to each other.  - Use `Math.abs()` to compare the absolute difference of the two values to `epsilon`. - Omit the third parameter, `epsilon`, to use a default value of `0.001`." b
 const approximatelyEqual = (v1, v2, epsilon = 0.001) => Math.abs(v1 - v2) < epsilon;
+endsnippet
+
+snippet arithmeticProgression "Returns an array of numbers in the arithmetic progression starting with the given positive integer and up to the specified limit.  - Use `Array.from()` to create an array of the desired length, `lim/n`, and a map function to fill it with the desired values in the given range." b
+const arithmeticProgression  = (n, lim) => 
+  Array.from({ length: Math.ceil(lim / n) }, (v, i) => (i + 1) * n );
 endsnippet
 
 snippet arrayToCSV "Converts a 2D array to a comma-separated values (CSV) string.  - Use `Array.prototype.map()` and `Array.prototype.join(delimiter)` to combine individual 1D arrays (rows) into strings. - Use `Array.prototype.join('\n')` to combine all rows into a CSV string, separating each row with a newline. - Omit the second argument, `delimiter`, to use a default delimiter of `,`." b
@@ -306,6 +368,19 @@ const colorize = (...args) => ({
 });
 endsnippet
 
+snippet combine "Combines two arrays of objects, using the specified key to match objects.  - Use `Array.protoype.reduce()` with an object accumulator to combine all objects in both arrays based on the given `prop`. - Use `Object.values()` to convert the resulting object to an array and return it." b
+const combine = (a, b, prop) =>
+  Object.values(
+    [...a, ...b].reduce((acc, v) => {
+      if (v[prop])
+        acc[v[prop]] = acc[v[prop]]
+          ? { ...acc[v[prop]], ...v }
+          : { ...v };
+      return acc;
+    }, {})
+  );
+endsnippet
+
 snippet compact "Removes falsy values from an array.  - Use `Array.prototype.filter()` to filter out falsy values (`false`, `null`, `0`, ``, `undefined`, and `NaN`)." b
 const compact = arr => arr.filter(Boolean);
 endsnippet
@@ -418,6 +493,10 @@ endsnippet
 snippet curry "Curries a function.  - Use recursion. - If the number of provided arguments (`args`) is sufficient, call the passed function `fn`. - Otherwise, return a curried function `fn` that expects the rest of the arguments. - If you want to curry a function that accepts a variable number of arguments (a variadic function, e.g. `Math.min()`), you can optionally pass the number of arguments to the second parameter `arity`." b
 const curry = (fn, arity = fn.length, ...args) =>
   arity <= args.length ? fn(...args) : curry.bind(null, fn, arity, ...args);
+endsnippet
+
+snippet dayName "Gets the name of the weekday from a `Date` object.  - Use `Date.prototype.toLocaleDateString()` with the `{ weekday: 'long' }` option to retrieve the weekday. - Use the optional second parameter to get a language-specific name or omit it to use the default locale." b
+const dayName = (date, locale) => date.toLocaleDateString(locale, { weekday: 'long' });
 endsnippet
 
 snippet dayOfYear "Gets the day of the year from a `Date` object.  - Use `new Date()` and `Date.prototype.getFullYear()` to get the first day of the year as a `Date` object, subtract it from the provided `date` and divide with the milliseconds in each day to get the result. - Use `Math.floor()` to appropriately round the resulting day count to an integer." b
@@ -593,25 +672,6 @@ const elementIsVisibleInViewport = (el, partiallyVisible = false) => {
     ? ((top > 0 && top < innerHeight) || (bottom > 0 && bottom < innerHeight)) &&
         ((left > 0 && left < innerWidth) || (right > 0 && right < innerWidth))
     : top >= 0 && left >= 0 && bottom <= innerHeight && right <= innerWidth;
-};
-endsnippet
-
-snippet elo "Computes the new ratings between two or more opponents using the [Elo rating system](https://en.wikipedia.org/wiki/Elo_rating_system). It takes an array of pre-ratings and returns an array containing post-ratings. The array should be ordered from best performer to worst performer (winner -> loser).  - Use the exponent `**` operator and math operators to compute the expected score (chance of winning) of each opponent and compute the new rating for each. - Loop through the ratings, using each permutation to compute the post-Elo rating for each player in a pairwise fashion. - Omit the second argument to use the default `kFactor` of 32." b
-const elo = ([...ratings], kFactor = 32, selfRating) => {
-  const [a, b] = ratings;
-  const expectedScore = (self, opponent) => 1 / (1 + 10 ** ((opponent - self) / 400));
-  const newRating = (rating, i) =>
-    (selfRating || rating) + kFactor * (i - expectedScore(i ? a : b, i ? b : a));
-  if (ratings.length === 2) return [newRating(a, 1), newRating(b, 0)];
-
-  for (let i = 0, len = ratings.length; i < len; i++) {
-    let j = i;
-    while (j < len - 1) {
-      j++;
-      [ratings[i], ratings[j]] = elo([ratings[i], ratings[j]], kFactor);
-    }
-  }
-  return ratings;
 };
 endsnippet
 
@@ -808,6 +868,13 @@ const fromCamelCase = (str, separator = '_') =>
     .replace(/([a-z\d])([A-Z])/g, '$1' + separator + '$2')
     .replace(/([A-Z]+)([A-Z][a-z\d]+)/g, '$1' + separator + '$2')
     .toLowerCase();
+endsnippet
+
+snippet fullscreen "Opens or closes an element in fullscreen mode.  - Use `document.querySelector()` and `Element.prototype.requestFullscreen()` to open the given element in fullscreen. - Use `document.exitFullscreen()` to exit fullscreen mode. - Omit the second argument, `el`, to use `body` as the default element. - Omit the first element, `mode`, to open the element in fullscreen mode by default." b
+const fullscreen = (mode = true, el = 'body') =>
+  mode
+    ? document.querySelector(el).requestFullscreen()
+    : document.exitFullscreen();
 endsnippet
 
 snippet functionName "Logs the name of a function.  - Use `console.debug()` and the `name` property of the passed method to log the method's name to the `debug` channel of the console." b
@@ -1262,6 +1329,10 @@ const isDuplexStream = val =>
   typeof val._writableState === 'object';
 endsnippet
 
+snippet hasDuplicates "Checks if there are duplicate values in a flat array.  - Use `Set()` to get the unique values in the array. - Use `Set.prototype.size` and `Array.prototype.length` to check if the count of the unique values is the same as elements in the original array." b
+const hasDuplicates = arr => new Set(arr).size !== arr.length;
+endsnippet
+
 snippet isEmpty "Returns true if the a value is an empty object, collection, has no enumerable properties or is any type that is not considered a collection.  - Check if the provided value is `null` or if its `length` is equal to `0`." b
 const isEmpty = val => val == null || !(Object.keys(val) || val).length;
 endsnippet
@@ -1439,6 +1510,10 @@ snippet juxt "Takes several functions as argument and returns a function that is
 const juxt = (...fns) => (...args) => [...fns].map(fn => [...args].map(fn));
 endsnippet
 
+snippet kmToMiles "Converts kilometers to miles.  - Follows the conversion formula `mi = km * 0.621371`." b
+const kmToMiles = km => km * 0.621371;
+endsnippet
+
 snippet last "Returns the last element in an array.  - Check if `arr` is truthy and has a `length` property, use `arr.length - 1` to compute the index of the last element of the given array and return it, otherwise return `undefined`." b
 const last = arr => (arr && arr.length ? arr[arr.length - 1] : undefined);
 endsnippet
@@ -1580,6 +1655,10 @@ endsnippet
 
 snippet midpoint "Calculates the midpoint between two pairs of (x,y) points.  - Destructure the array to get `x1`, `y1`, `x2` and `y2`, calculate the midpoint for each dimension by dividing the sum of the two endpoints by `2`." b
 const midpoint = ([x1, y1], [x2, y2]) => [(x1 + x2) / 2, (y1 + y2) / 2];
+endsnippet
+
+snippet milesToKm "Converts miles to kilometers.  - Follows the conversion formula `km = mi * 1.609344`." b
+const milesToKm = miles => distance * 1.609344;
 endsnippet
 
 snippet minBy "Returns the minimum value of an array, after mapping each element to a value using the provided function.  - Use `Array.prototype.map()` to map each element to the value returned by `fn`, `Math.min()` to get the minimum value." b
@@ -1770,6 +1849,20 @@ const orderBy = (arr, props, orders) =>
   );
 endsnippet
 
+snippet orderWith "Returns a sorted array of objects ordered by a property, based on the array of orders provided.  - Use `Array.prototype.reduce()` to create an object from the `order` array with the values as keys and their original index as the value. - Use `Array.prototype.sort()` to sort the given array, skipping elements for which `prop` is empty or not in the `order` array." b
+const orderWith = (arr, prop, order) => {
+  const orderValues = order.reduce((acc, v, i) => {
+    acc[v] = i;
+    return acc;
+  }, {});
+  return [...arr].sort((a, b) => {
+    if (orderValues[a[prop]] === undefined) return 1;
+    if (orderValues[b[prop]] === undefined) return -1;
+    return orderValues[a[prop]] - orderValues[b[prop]];
+  });
+};
+endsnippet
+
 snippet over "Creates a function that invokes each provided function with the arguments it receives and returns the results.  - Use `Array.prototype.map()` and `Function.prototype.apply()` to apply each function to the given arguments." b
 const over = (...fns) => (...args) => fns.map(fn => fn.apply(null, args));
 endsnippet
@@ -1781,6 +1874,10 @@ endsnippet
 snippet pad "Pads a string on both sides with the specified character, if it's shorter than the specified length.  - Use `String.prototype.padStart()` and `String.prototype.padEnd()` to pad both sides of the given string. - Omit the third argument, `char`, to use the whitespace character as the default padding character." b
 const pad = (str, length, char = ' ') =>
   str.padStart((str.length + length) / 2, char).padEnd(length, char);
+endsnippet
+
+snippet padNumber "Pads a given number to the specified length.  - Use `String.prototype.padStart()` to pad the number to specified length, after converting it to a string." b
+const padNumber = (n, l) => \`\${n}\`.padStart(l, '0');
 endsnippet
 
 snippet palindrome "Returns `true` if the given string is a palindrome, `false` otherwise.  - Convert the string to `String.prototype.toLowerCase()` and use `String.prototype.replace()` to remove non-alphanumeric characters from it. - Then, use the spread operator (`...`) to split the string into individual characters, `Array.prototype.reverse()`, `String.prototype.join('')` and compare it to the original, unreversed string, after converting it to `String.prototype.toLowerCase()`." b
@@ -2077,6 +2174,10 @@ const remove = (arr, func) =>
     : [];
 endsnippet
 
+snippet removeAccents "Removes accents from strings.  - Use `String.prototype.normalize()` to convert the string to a normalized Unicode format. - Use `String.prototype.replace()` to replace diacritical marks in the given Unicode range by empty strings." b
+const removeAccents = str => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+endsnippet
+
 snippet removeNonASCII "Removes non-printable ASCII characters.  - Use a regular expression to remove non-printable ASCII characters." b
 const removeNonASCII = str => str.replace(/[^\x20-\x7E]/g, '');
 endsnippet
@@ -2250,6 +2351,16 @@ endsnippet
 
 snippet sleep "Delays the execution of an asynchronous function.  - Delay executing part of an `async` function, by putting it to sleep, returning a `Promise`." b
 const sleep = ms => new Promise(resolve => setTimeout(resolve, ms));
+endsnippet
+
+snippet slugify "Converts a string to a URL-friendly slug.  - Use `String.prototype.toLowerCase()` and `String.prototype.trim()` to normalize the string. - Use `String.prototype.replace()` to replace spaces, dashes and underscores with `-` and remove special characters." b
+const slugify = str =>
+  str
+    .toLowerCase()
+    .trim()
+    .replace(/[^\w\s-]/g, '')
+    .replace(/[\s_-]+/g, '-')
+    .replace(/^-+|-+$/g, '');
 endsnippet
 
 snippet smoothScroll "Smoothly scrolls the element on which it's called into the visible area of the browser window.  - Use `.scrollIntoView` method to scroll the element. - Pass `{ behavior: 'smooth' }` to `.scrollIntoView` so it scrolls smoothly." b
@@ -2590,22 +2701,20 @@ const unescapeHTML = str =>
   );
 endsnippet
 
-snippet unflattenObject "Unflatten an object with the paths for keys.  - Use `Object.keys(obj)` combined with `Array.prototype.reduce()` to convert flattened path node to a leaf node. - If the value of a key contains a dot delimiter (`.`), use `Array.prototype.split('.')`, string transformations and `JSON.parse()` to create an object, then `Object.assign()` to create the leaf node. - Otherwise, add the appropriate key-value pair to the accumulator object." b
+snippet unflattenObject "Unflatten an object with the paths for keys.  - Use nested `Array.prototype.reduce()` to convert the flat path to a leaf node. - Use `String.prototype.split('.')` to split each key with a dot delimiter and `Array.prototype.reduce()` to add objects against the keys. - If the current accumulator already contains a value against a particular key, return its value as the next accumulator. - Otherwise, add the appropriate key-value pair to the accumulator object and return the value as the accumulator." b
 const unflattenObject = obj =>
-  Object.keys(obj).reduce((acc, k) => {
-    if (k.indexOf('.') !== -1) {
-      const keys = k.split('.');
-      Object.assign(
-        acc,
-        JSON.parse(
-          '{' +
-            keys.map((v, i) => (i !== keys.length - 1 ? \`"\${v}":{\` : \`"\${v}":\`)).join('') +
-            obj[k] +
-            '}'.repeat(keys.length)
-        )
-      );
-    } else acc[k] = obj[k];
-    return acc;
+  Object.keys(obj).reduce((res, k) => {
+    k.split('.').reduce(
+      (acc, e, i, keys) =>
+        acc[e] ||
+        (acc[e] = isNaN(Number(keys[i + 1]))
+          ? keys.length - 1 === i
+            ? obj[k]
+            : {}
+          : []),
+      res
+    );
+    return res;
   }, {});
 endsnippet
 
@@ -2701,6 +2810,11 @@ endsnippet
 snippet vectorDistance "Returns the distance between two vectors.  - Use `Array.prototype.reduce()`, `Math.pow()` and `Math.sqrt()` to calculate the Euclidean distance between two vectors." b
 const vectorDistance = (x, y) =>
   Math.sqrt(x.reduce((acc, val, i) => acc + Math.pow(val - y[i], 2), 0));
+endsnippet
+
+snippet weightedAverage "Returns the weighted average of two or more numbers.  - Use `Array.prototype.reduce()` to add each value to an accumulator, initialized with a value of `0` and divide by the `length` of the array." b
+const weightedAverage = (nums, weights) => 
+  nums.reduce((acc, n, i) => acc + (weights[i] * n), 0) / nums.length;
 endsnippet
 
 snippet weightedSample "Returns a random element from an array, using the provided `weights` as the probabilities for each element.  - Use `Array.prototype.reduce()` to create an array of partial sums for each value in `weights`. - Use `Math.random()` to generate a random number and `Array.prototype.findIndex()` to find the correct index based on the array previously produced. - Finally, return the element of `arr` with the produced index." b
