@@ -13,7 +13,7 @@ Xft.rgba:      rgb
 Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
-Xcursor.theme: Bibata_Ice
+Xcursor.theme: Bibata-Modern-Ice
 Xcursor.size:  48
 
 
