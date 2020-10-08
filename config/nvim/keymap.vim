@@ -97,8 +97,8 @@ nnoremap <silent> [c :ALEPreviousWrap<CR>
 nnoremap <silent> ]c :ALENextWrap<CR>
 
 " Coc.
-nnoremap <silent> <Leader>o :CocList outline<CR>
-nnoremap <silent> <Leader>O :CocList symbols<CR>
+nnoremap <silent> <Leader>o :CocList --auto-preview --tab outline <CR>
+nnoremap <silent> <Leader>O :CocList --auto-preview --interactive --tab symbols<CR>
 nmap <silent> <Leader>f <Plug>(coc-fix-current)
 nmap <silent> <Leader>r <Plug>(coc-rename)
 nnoremap <silent> K :ShowDocumentation<CR>
