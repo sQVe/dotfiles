@@ -45,7 +45,7 @@ noremap + /
 
 " Term.
 noremap <silent> <Leader><CR> :Term<CR><CR>
-noremap <silent> <Leader>t :BTerm<CR><CR>
+noremap <silent> <Leader><Backspace> :BTerm<CR><CR>
 
 " Move between buffers.
 nnoremap <silent> <Tab> :bnext<CR>
@@ -82,9 +82,10 @@ nnoremap cd :Cdb<CR>:pwd<CR>
 "  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
 "  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
-nnoremap <C-s> :ToggleSpellCheck<CR>
-nnoremap <Leader>c :ToggleConceal<CR>
-nnoremap <Leader>n :ToggleRelativeNumber<CR>
+nnoremap <silent> <C-s> :ToggleSpellCheck<CR>
+nnoremap <silent> <Leader>ts :ToggleSpellCheck<CR>
+nnoremap <silent> <Leader>tc :ToggleConceal<CR>
+nnoremap <silent> <Leader>tn :ToggleRelativeNumber<CR>
 nnoremap <Leader>z :Z<Space>
 
 
@@ -93,12 +94,16 @@ nnoremap <Leader>z :Z<Space>
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
 " Ale.
+nnoremap <silent> <Leader>ta :ALEToggleBuffer<CR>
 nnoremap <silent> [c :ALEPreviousWrap<CR>
 nnoremap <silent> ]c :ALENextWrap<CR>
 
 " Coc.
 nnoremap <silent> <Leader>o :CocList --auto-preview --tab outline <CR>
 nnoremap <silent> <Leader>O :CocList --auto-preview --interactive --tab symbols<CR>
+nmap <Leader>ca :CocAction<CR>
+nmap <Leader>cf :CocFix<CR>
+nmap <Leader>cs :CocSearch<Space>
 nmap <silent> <Leader>f <Plug>(coc-fix-current)
 nmap <silent> <Leader>r <Plug>(coc-rename)
 nnoremap <silent> K :ShowDocumentation<CR>
