@@ -1354,6 +1354,9 @@ c.colors.tabs.pinned.selected.even.fg = '#ebdbb2'
 # Type: QtColor
 c.colors.tabs.pinned.selected.even.bg = '#3c3836'
 
+# Enable darkmode.
+config.set("colors.webpage.darkmode.enabled", True)
+
 # Background color for webpages if unset (or empty to use the theme's
 # color).
 # Type: QtColor
