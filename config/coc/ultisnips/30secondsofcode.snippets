@@ -134,6 +134,32 @@ snippet accumulate "Returns an array of partial sums.  - Use `Array.prototype.re
 const accumulate = (...nums) => nums.reduce((acc, n) => [...acc, n + +acc.slice(-1)],[]);
 endsnippet
 
+snippet addDaysToDate "Return the date of `n` days from the given date as a string representation.  - Use `new Date()` to create a date object from the first parameter. - Use `Date.getDate()` and `Date.setDate()` to add `n` days to the given date. - Use `Date.prototype.toISOString()` to return a string in `yyyy-mm-dd` format." b
+const addDaysToDate = (date, n) => {
+  d = new Date(date);
+  d.setDate(d.getDate() + n);
+  return d.toISOString().split('T')[0];
+};
+endsnippet
+
+snippet addMultipleListeners "Add multiple event listeners with the same handler to an element.  - Use `Array.prototype.forEach()` and `EventTarget.addEventListener()` to add multiple event listeners with an assigned callback function to an element." b
+const addMultipleListeners = (el, types, listener, options, useCapture) => {
+  types.forEach(type => el.addEventListener(type, listener, options, useCapture));
+}
+endsnippet
+
+snippet addWeekDays "Returns a date after adding given number of business days.  - Use `Array.from()` to construct an array with `length` equal to the `count` of business days to be added. - Use `Array.prototype.reduce()` to iterate over the array, starting from `startDate` and incrementing, using `Date.getDate()` and `Date.setDate()`. - If the current `date` is on a weekend, update it again by adding either one day or two days to make it a weekday." b
+const addWeekDays = (startDate, count) => 
+  Array
+    .from({ length: count })
+    .reduce(date => {
+      date = new Date(date.setDate(date.getDate() + 1));
+      if (date.getDay() % 6 === 0)
+        date = new Date(date.setDate(date.getDate() + ((date.getDay() / 6) + 1)));
+      return date;
+    }, startDate);
+endsnippet
+
 snippet all "Returns `true` if the provided predicate function returns `true` for all elements in a collection, `false` otherwise.  - Use `Array.prototype.every()` to test if all elements in the collection return `true` based on `fn`. - Omit the second argument, `fn`, to use `Boolean` as a default." b
 const all = (arr, fn = Boolean) => arr.every(fn);
 endsnippet
@@ -173,8 +199,8 @@ const arrayToCSV = (arr, delimiter = ',') =>
     .join('\n');
 endsnippet
 
-snippet arrayToHtmlList "Converts the given array elements into `<li>` tags and appends them to the list of the given id.  - Use `Array.prototype.map()` and `document.querySelector()` to create a list of html tags." b
-const arrayToHtmlList = (arr, listID) => 
+snippet arrayToHTMLList "Converts the given array elements into `<li>` tags and appends them to the list of the given id.  - Use `Array.prototype.map()` and `document.querySelector()` to create a list of html tags." b
+const arrayToHTMLList = (arr, listID) => 
   document.querySelector(\`#\${listID}\`).innerHTML += arr
     .map(item => \`<li>\${item}</li>\`)
     .join('');
@@ -368,7 +394,7 @@ const colorize = (...args) => ({
 });
 endsnippet
 
-snippet combine "Combines two arrays of objects, using the specified key to match objects.  - Use `Array.protoype.reduce()` with an object accumulator to combine all objects in both arrays based on the given `prop`. - Use `Object.values()` to convert the resulting object to an array and return it." b
+snippet combine "Combines two arrays of objects, using the specified key to match objects.  - Use `Array.prototype.reduce()` with an object accumulator to combine all objects in both arrays based on the given `prop`. - Use `Object.values()` to convert the resulting object to an array and return it." b
 const combine = (a, b, prop) =>
   Object.values(
     [...a, ...b].reduce((acc, v) => {
@@ -409,6 +435,10 @@ snippet converge "Accepts a converging function and a list of branching function
 const converge = (converger, fns) => (...args) => converger(...fns.map(fn => fn.apply(null, args)));
 endsnippet
 
+snippet copySign "Returns the absolute value of the first number, but the sign of the second.  - Use `Math.sign()` to check if the two numbers have the same sign. - Return `x` if they do, `-x` otherwise." b
+const copySign = (x, y) => Math.sign(x) === Math.sign(y) ? x : -x;
+endsnippet
+
 snippet copyToClipboard "Copy a string to the clipboard. Only works as a result of user action (i.e. inside a `click` event listener).  - Create a new `<textarea>` element, fill it with the supplied data and add it to the HTML document. - Use `Selection.getRangeAt()`to store the selected range (if any). - Use `document.execCommand('copy')` to copy to the clipboard. - Remove the `<textarea>` element from the HTML document. - Finally, use `Selection().addRange()` to recover the original selected range (if any). - ⚠️ **NOTICE:** The same functionality can be easily implemented by using the new asynchronous Clipboard API, which is still experimental but should be used in the future instead of this snippet. Find out more about it [here](https://github.com/w3c/clipboard-apis/blob/master/explainer.adoc#writing-to-the-clipboard)." b
 const copyToClipboard = str => {
   const el = document.createElement('textarea');
@@ -439,6 +469,17 @@ endsnippet
 
 snippet countOccurrences "Counts the occurrences of a value in an array.  - Use `Array.prototype.reduce()` to increment a counter each time you encounter the specific value inside the array." b
 const countOccurrences = (arr, val) => arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
+endsnippet
+
+snippet countWeekDaysBetween "Returns the weekday count between two dates.  - Use `Array.from()` to construct an array with `length` equal to the number of days between `startDate` and `endDate`. - Use `Array.prototype.reduce()` to iterate over the array, checking if each date is a weekday and incrementing `count`. - Update `startDate` with the next day each loop using `Date.getDate()` and `Date.setDate()` to advance it by one day." b
+const countWeekDaysBetween = (startDate, endDate) =>
+  Array
+    .from({ length: (endDate - startDate) / (1000 * 3600 * 24) })
+    .reduce(count => {
+      if (startDate.getDay() % 6 !== 0) count++;
+      startDate = new Date(startDate.setDate(startDate.getDate() + 1));
+      return count;
+    }, 0);
 endsnippet
 
 snippet counter "Creates a counter with the specified range, step and duration for the specified selector.  - Check if `step` has the proper sign and change it accordingly. - Use `setInterval()` in combination with `Math.abs()` and `Math.floor()` to calculate the time between each new text draw. - Use `document.querySelector().innerHTML` to update the value of the selected element. - Omit the fourth parameter, `step`, to use a default step of `1`. - Omit the fifth parameter, `duration`, to use a default duration of `2000`ms." b
@@ -495,6 +536,16 @@ const curry = (fn, arity = fn.length, ...args) =>
   arity <= args.length ? fn(...args) : curry.bind(null, fn, arity, ...args);
 endsnippet
 
+snippet cycleGenerator "Creates a generator, looping over the given array indefinitely.  - Use a non-terminating `while` loop, that will `yield` a value every time `Generator.prototype.next()` is called. - Use the module operator (`%`) with `Array.prototype.length` to get the next value's index and increment the counter after each `yield` statement." b
+const cycleGenerator = function* (arr) {
+  let i = 0;
+  while (true) {
+    yield arr[i % arr.length];
+    i++;
+  }
+};
+endsnippet
+
 snippet dayName "Gets the name of the weekday from a `Date` object.  - Use `Date.prototype.toLocaleDateString()` with the `{ weekday: 'long' }` option to retrieve the weekday. - Use the optional second parameter to get a language-specific name or omit it to use the default locale." b
 const dayName = (date, locale) => date.toLocaleDateString(locale, { weekday: 'long' });
 endsnippet
@@ -504,6 +555,22 @@ const dayOfYear = date =>
   Math.floor((date - new Date(date.getFullYear(), 0, 0)) / 1000 / 60 / 60 / 24);
 endsnippet
 
+snippet daysAgo "Returns the date of `n` days ago from today as a string representation.  - Use `new Date()` to get the current date, `Math.abs()` and `Date.getDate()` to update the date accordingly and set to the result using `Date.setDate()`. - Use `Date.prototype.toISOString()` to return a string in `yyyy-mm-dd` format." b
+const daysAgo = n => {
+  let d = new Date();
+  d.setDate(d.getDate() - Math.abs(n));
+  return d.toISOString().split('T')[0];
+};
+endsnippet
+
+snippet daysFromNow "Returns the date of `n` days from today as a string representation.  - Use `new Date()` to get the current date, `Math.abs()` and `Date.getDate()` to update the date accordingly and set to the result using `Date.setDate()`. - Use `Date.prototype.toISOString()` to return a string in `yyyy-mm-dd` format." b
+const daysFromNow = n => {
+  let d = new Date();
+  d.setDate(d.getDate() + Math.abs(n));
+  return d.toISOString().split('T')[0];
+}
+endsnippet
+
 snippet debounce "Creates a debounced function that delays invoking the provided function until at least `ms` milliseconds have elapsed since the last time it was invoked.  - Each time the debounced function is invoked, clear the current pending timeout with `clearTimeout()` and use `setTimeout()` to create a new timeout that delays invoking the function until at least `ms` milliseconds has elapsed. - Use `Function.prototype.apply()` to apply the `this` context to the function and provide the necessary arguments. - Omit the second argument, `ms`, to set the timeout at a default of 0 ms." b
 const debounce = (fn, ms = 0) => {
   let timeoutId;
@@ -511,6 +578,30 @@ const debounce = (fn, ms = 0) => {
     clearTimeout(timeoutId);
     timeoutId = setTimeout(() => fn.apply(this, args), ms);
   };
+};
+endsnippet
+
+snippet debouncePromise "Creates a debounced function that returns a promise, but delays invoking the provided function until at least `ms` milliseconds have elapsed since the last time it was invoked.  All promises returned during this time will return the same data.  - Each time the debounced function is invoked, clear the current pending timeout with `clearTimeout()` and use `setTimeout()` to create a new timeout that delays invoking the function until at least `ms` milliseconds has elapsed. - Use `Function.prototype.apply()` to apply the `this` context to the function and provide the necessary arguments. - Create a new `Promise` and add its `resolve` and `reject` callbacks to the `pending` promises stack. - When `setTimeout` is called, copy the current stack (as it can change between the provided function call and its resolution), clear it and call the provided function. - When the provided function resolves/rejects, resolve/reject all promises in the stack (copied when the function was called) with the returned data. - Omit the second argument, `ms`, to set the timeout at a default of 0 ms." b
+const debouncePromise = (fn, ms = 0) => {
+  let timeoutId;
+  const pending = [];
+  return (...args) =>
+    new Promise((res, rej) => {
+      clearTimeout(timeoutId);
+      timeoutId = setTimeout(() => {
+        const currentPending = [...pending];
+        pending.length = 0;
+        Promise.resolve(fn.apply(this, args)).then(
+          data => {
+            currentPending.forEach(({ resolve }) => resolve(data));
+          },
+          error => {
+            currentPending.forEach(({ reject }) => reject(error));
+          }
+        );
+      }, ms);
+      pending.push({ resolve: res, reject: rej });
+    });
 };
 endsnippet
 
@@ -593,6 +684,13 @@ const detectDeviceType = () =>
     : 'Desktop';
 endsnippet
 
+snippet detectLanguage "Detects the preferred language of the current user.  - Use `NavigationLanguage.language` or the first `NavigationLanguage.languages` if available, otherwise return `defaultLang`. - Omit the second argument, `defaultLang`, to use `'en-US'` as the default language code." b
+const detectLanguage = (defaultLang = 'en-US') => 
+  navigator.language ||
+  (Array.isArray(navigator.languages) && navigator.languages[0]) ||
+  defaultLang;
+endsnippet
+
 snippet difference "Returns the difference between two arrays.  - Create a `Set` from `b`, then use `Array.prototype.filter()` on `a` to only keep values not contained in `b`." b
 const difference = (a, b) => {
   const s = new Set(b);
@@ -621,12 +719,16 @@ const dig = (obj, target) =>
       }, undefined);
 endsnippet
 
-snippet digitize "Converts a number to an array of digits.  - Convert the number to a string, using the spread operator (`...`) to build an array. - Use `Array.prototype.map()` and `parseInt()` to transform each value to an integer." b
-const digitize = n => [...\`\${n}\`].map(i => parseInt(i));
+snippet digitize "Converts a number to an array of digits, removing its sign if necessary.  - Use `Math.abs()` to strip the number's sign. - Convert the number to a string, using the spread operator (`...`) to build an array. - Use `Array.prototype.map()` and `parseInt()` to transform each value to an integer." b
+const digitize = n => [...\`\${Math.abs(n)}\`].map(i => parseInt(i));
 endsnippet
 
 snippet distance "Returns the distance between two points.  - Use `Math.hypot()` to calculate the Euclidean distance between two points." b
 const distance = (x0, y0, x1, y1) => Math.hypot(x1 - x0, y1 - y0);
+endsnippet
+
+snippet divmod "Returns an array consisting of the quotient and remainder of the given numbers.  - Use `Math.floor()` to get the quotient of the division `x / y`. - Use the modulo operator (`%`) to get the remainder of the division `x / y`." b
+const divmod = (x, y) => [Math.floor(x / y), x % y];
 endsnippet
 
 snippet drop "Returns a new array with `n` elements removed from the left.  - Use `Array.prototype.slice()` to remove the specified number of elements from the left." b
@@ -870,6 +972,20 @@ const fromCamelCase = (str, separator = '_') =>
     .toLowerCase();
 endsnippet
 
+snippet fromTimestamp "Creates a `Date` object from a Unix timestamp.  - Convert the timestamp to milliseconds by multiplying with `1000`. - Use `new Date()` to create a new `Date` object." b
+const fromTimestamp = timestamp => new Date(timestamp * 1000);
+endsnippet
+
+snippet frozenSet "Creates a frozen `Set` object.  - Use the `new Set()` constructor to create a new `Set` object from `iterable`. - Set the `add`, `delete` and `clear` methods of the newly created object to `undefined`, so that they cannot be used, practically freezing the object." b
+const frozenSet = iterable => {
+  const s = new Set(iterable);
+  s.add = undefined;
+  s.delete = undefined;
+  s.clear = undefined;
+  return s;
+};
+endsnippet
+
 snippet fullscreen "Opens or closes an element in fullscreen mode.  - Use `document.querySelector()` and `Element.prototype.requestFullscreen()` to open the given element in fullscreen. - Use `document.exitFullscreen()` to exit fullscreen mode. - Omit the second argument, `el`, to use `body` as the default element. - Omit the first element, `mode`, to open the element in fullscreen mode by default." b
 const fullscreen = (mode = true, el = 'body') =>
   mode
@@ -896,6 +1012,10 @@ const gcd = (...arr) => {
 };
 endsnippet
 
+snippet generateItems "Generates an array with the given amount of items, using the given function.  - Use  `Array.from()`  to create an empty array of the specific length, calling `fn` with the index of each newly created element." b
+const generateItems = (n, fn) => Array.from({ length: n }, (_, i) => fn(i));
+endsnippet
+
 snippet geometricProgression "Initializes an array containing the numbers in the specified range where `start` and `end` are inclusive and the ratio between two terms is `step`. Returns an error if `step` equals `1`.  - Use `Array.from()`, `Math.log()` and `Math.floor()` to create an array of the desired length, `Array.prototype.map()` to fill with the desired values in a range. - Omit the second argument, `start`, to use a default value of `1`. - Omit the third argument, `step`, to use a default value of `2`." b
 const geometricProgression = (end, start = 1, step = 2) =>
   Array.from({ length: Math.floor(Math.log(end / start) / Math.log(step)) + 1 }).map(
@@ -914,6 +1034,17 @@ const get = (from, ...selectors) =>
   );
 endsnippet
 
+snippet getAncestors "Returns all the ancestors of an element from the document root to the given element.  - Use a `Node.parentNode` and a `while` loop to move up the ancestor tree of the element. - Use `Array.prototype.unshift()` to add each new ancestor to the start of the array." b
+const getAncestors = el => {
+  let ancestors = [];
+  while (el) {
+    ancestors.unshift(el);
+    el = el.parentNode;
+  }
+  return ancestors;
+};
+endsnippet
+
 snippet getBaseURL "Returns the current URL without any parameters.  - Use `String.prototype.indexOf()` to check if the given `url` has parameters, `String.prototype.slice()` to remove them if necessary." b
 const getBaseURL = url =>
   url.indexOf('?') > 0 ? url.slice(0, url.indexOf('?')) : url;
@@ -926,6 +1057,13 @@ endsnippet
 snippet getDaysDiffBetweenDates "Returns the difference (in days) between two dates.  - Calculate the difference (in days) between two `Date` objects." b
 const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
   (dateFinal - dateInitial) / (1000 * 3600 * 24);
+endsnippet
+
+snippet getElementsBiggerThanViewport "Returns an array of HTML elements whose width is larger than that of the viewport's.  - Use `HTMLElement.prototype.offsetWidth()` to get the width of the `document`. - Use `Array.prototype.filter()` on the result of `document.querySelectorAll()` to check the width of all elements in the document." b
+const getElementsBiggerThanViewport = () => {
+  const docWidth = document.documentElement.offsetWidth;
+  return [...document.querySelectorAll('*')].filter(el => el.offsetWidth > docWidth);
+}
 endsnippet
 
 snippet getImages "Fetches all images from within an element and puts them into an array  - Use `Element.prototype.getElementsByTagName()` to fetch all `<img>` elements inside the provided element, `Array.prototype.map()` to map every `src` attribute of their respective `<img>` element, then create a `Set` to eliminate duplicates and return the array." b
@@ -956,6 +1094,10 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
   );
 endsnippet
 
+snippet getProtocol "Returns the protocol being used on the current page.  - Use `window.location.protocol` to get the protocol (`http:` or `https:`) of the current page." b
+const getProtocol = () => window.location.protocol;
+endsnippet
+
 snippet getScrollPosition "Returns the scroll position of the current page.  - Use `pageXOffset` and `pageYOffset` if they are defined, otherwise `scrollLeft` and `scrollTop`. - You can omit `el` to use a default value of `window`." b
 const getScrollPosition = (el = window) => ({
   x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollLeft,
@@ -974,6 +1116,11 @@ endsnippet
 
 snippet getStyle "Returns the value of a CSS rule for the specified element.  - Use `Window.getComputedStyle()` to get the value of the CSS rule for the specified element." b
 const getStyle = (el, ruleName) => getComputedStyle(el)[ruleName];
+endsnippet
+
+snippet getTimestamp "Gets the Unix timestamp from a `Date` object.  - Use `Date.prototype.getTime()` to get the timestamp in milliseconds and divide by `1000` to get the timestamp in seconds. - Use `Math.floor()` to appropriately round the resulting timestamp to an integer. - Omit the argument, `date`, to use the current date." b
+const getTimestamp = (date = new Date()) =>
+  Math.floor(date.getTime() / 1000);
 endsnippet
 
 snippet getType "Returns the native type of a value.  - Return `'undefined'` or `'null'` if the value is `undefined` or `null`. - Otherwise, use `Object.prototype.constructor.name` to get the name of the constructor." b
@@ -1199,6 +1346,16 @@ const initializeNDArray = (val, ...args) =>
     : Array.from({ length: args[0] }).map(() => initializeNDArray(val, ...args.slice(1)));
 endsnippet
 
+snippet injectCSS "Injects the given css code into the current document  - Use `document.createElement()` to create a new `style` element and set its type to `text/css`. - Use `Element.innerText` to set the value to the given css string, `document.head` and `Element.appendChild()` to append the new element to the document head. - Return the newly created `style` element." b
+const injectCSS = css => {
+  let el = document.createElement('style');
+  el.type = 'text/css';
+  el.innerText = css;
+  document.head.appendChild(el);
+  return el;
+}
+endsnippet
+
 snippet insertAfter "Inserts an HTML string after the end of the specified element.  - Use `el.insertAdjacentHTML()` with a position of `'afterend'` to parse `htmlString` and insert it after the end of `el`." b
 const insertAfter = (el, htmlString) => el.insertAdjacentHTML('afterend', htmlString);
 endsnippet
@@ -1284,6 +1441,10 @@ snippet isBeforeDate "Check if a date is before another date.  - Use the less th
 const isBeforeDate = (dateA, dateB) => dateA < dateB;
 endsnippet
 
+snippet isBetweenDates "Check if a date is between two other dates.  - Use the greater than (`>`) and less than (`<`) operators to check if `date` is between `dateStart` and `dateEnd`." b
+const isBetweenDates = (dateStart, dateEnd, date) => date > dateStart && date < dateEnd;
+endsnippet
+
 snippet isBoolean "Checks if the given argument is a native boolean element.  - Use `typeof` to check if a value is classified as a boolean primitive." b
 const isBoolean = val => typeof val === 'boolean';
 endsnippet
@@ -1306,12 +1467,23 @@ const isContainedIn = (a, b) => {
 };
 endsnippet
 
+snippet isDateValid "Returns `true` if a valid date object can be created from the given values, `false` otherwise.  - Use the spread operator (`...`) to pass the array of arguments to the `Date` constructor. - Use `Date.prototype.valueOf()` and `Number.isNaN()` to check if a valid `Date` object can be created from the given values." b
+const isDateValid = (...val) => !isNaN(new Date(...val).valueOf());
+endsnippet
+
 snippet isDeepFrozen "Checks if an object is deeply frozen  - Use recursion. - Use `Object.isFrozen()` on the given object. - Use `Object.keys()`, `Array.prototype.every()` to check that all keys are either deeply frozen objects or non-object values." b
 const isDeepFrozen = obj =>
   Object.isFrozen(obj) &&
   Object.keys(obj).every(
     prop => typeof obj[prop] !== 'object' || isDeepFrozen(obj[prop])
   );
+endsnippet
+
+snippet isDisjoint "Checks if the two iterables are disjointed (have no common values).  - Use the `new Set()` constructor to create a new `Set` object from each iterable. - Use `Array.prototype.every()` and `Set.prototype.has()` to check that the two iterables have no common values." b
+const isDisjoint = (a, b) => {
+  const sA = new Set(a), sB = new Set(b);
+  return [...sA].every(v => !sB.has(v));
+};
 endsnippet
 
 snippet isDivisible "Checks if the first numeric argument is divisible by the second one.  - Use the modulo operator (`%`) to check if the remainder is equal to `0`." b
@@ -1364,6 +1536,13 @@ endsnippet
 
 snippet isNil "Returns `true` if the specified value is `null` or `undefined`, `false` otherwise.  - Use the strict equality operator to check if the value of `val` is equal to `null` or `undefined`." b
 const isNil = val => val === undefined || val === null;
+endsnippet
+
+snippet isNode "Determines if the current runtime environment is Node.js.  - Use the `process` global object that provides information about the current Node.js process. - Check if `process` is defined and `process.versions`, `process.versions.node` are not `null`." b
+const isNode = () =>
+  typeof process !== 'undefined' &&
+  process.versions !== null &&
+  process.versions.node !== null;
 endsnippet
 
 snippet isNull "Returns `true` if the specified value is `null`, `false` otherwise.  - Use the strict equality operator to check if the value of `val` is equal to `null`." b
@@ -1426,14 +1605,14 @@ snippet isSameDate "Check if a date is the same as another date.  - Use `Date.pr
 const isSameDate = (dateA, dateB) => dateA.toISOString() === dateB.toISOString();
 endsnippet
 
-snippet isSorted "Returns `1` if the array is sorted in ascending order, `-1` if it is sorted in descending order or `0` if it is not sorted.  - Calculate the ordering `direction` for the first two elements. - Use `Object.entries()` to loop over array objects and compare them in pairs. - Return `0` if the `direction` changes or the `direction` if the last element is reached." b
+snippet isSorted "Returns `1` if a numeric array is sorted in ascending order, `-1` if it is sorted in descending order or `0` if it is not sorted.  - Calculate the ordering `direction` for the first pair of adjacent array elements. - Return `0` if the given array is empty, only has one element or the `direction` changes for any pair of adjacent array elements. - Use `Math.sign()` to covert the final value of `direction` to `-1` or `1`." b
 const isSorted = arr => {
-  let direction = -(arr[0] - arr[1]);
-  for (let [i, val] of arr.entries()) {
-    direction = !direction ? -(arr[i - 1] - arr[i]) : direction;
-    if (i === arr.length - 1) return !direction ? 0 : direction / Math.abs(direction);
-    else if ((val - arr[i + 1]) * direction > 0) return 0;
+  if (arr.length <= 1) return 0;
+  const direction = arr[1] - arr[0];
+  for (let i = 2; i < arr.length; i++) {
+    if ((arr[i] - arr[i - 1]) * direction < 0) return 0;
   }
+  return Math.sign(direction);
 };
 endsnippet
 
@@ -1473,14 +1652,12 @@ const isValidJSON = str => {
 endsnippet
 
 snippet isWeekday "Results in a boolean representation of a specific date.  - Pass the specific date object firstly. - Use `Date.getDay()` to check weekday by using a modulo operator and then returning a boolean." b
-const isWeekday = (t = new Date()) => {
-  return t.getDay() % 6 !== 0;
-};
+const isWeekday = (d = new Date()) => d.getDay() % 6 !== 0;
 endsnippet
 
 snippet isWeekend "Results in a boolean representation of a specific date.  - Pass the specific date object firstly. - Use `Date.getDay()` to check weekend based on the day being returned as 0 - 6 using a modulo operation then return a boolean." b
-const isWeekend = (t = new Date()) => {
-  return t.getDay() % 6 === 0;
+const isWeekend = (d = new Date()) => {
+  return d.getDay() % 6 === 0;
 };
 endsnippet
 
@@ -1518,6 +1695,13 @@ snippet last "Returns the last element in an array.  - Check if `arr` is truthy 
 const last = arr => (arr && arr.length ? arr[arr.length - 1] : undefined);
 endsnippet
 
+snippet lastDateOfMonth "Returns the string representation of the last date in the given date's month.  - Use `Date.prototype.getFullYear()`, `Date.prototype.getMonth()` to get the current year and month from the given date. - Use the `new Date()` constructor to create a new date with the given year and month incremented by `1`, and the day set to `0` (last day of previous month). - Omit the argument, `date`, to use the current date by default." b
+const lastDateOfMonth = (date = new Date()) => {
+  let d = new Date(date.getFullYear(), date.getMonth() + 1, 0);
+  return d.toISOString().split('T')[0];
+};
+endsnippet
+
 snippet lcm "Returns the least common multiple of two or more numbers.  - Use the greatest common divisor (GCD) formula and the fact that `lcm(x,y) = x * y / gcd(x,y)` to determine the least common multiple. - The GCD formula uses recursion." b
 const lcm = (...arr) => {
   const gcd = (x, y) => (!y ? x : gcd(y, x % y));
@@ -1528,6 +1712,10 @@ endsnippet
 
 snippet listenOnce "Adds an event listener to an element that will only run the callback the first time the event is triggered.  - Use `EventTarget.addEventListener()` to add an event listener to an element, using `{ once: true }` as options to only run the given callback once." b
 const listenOnce = (el, evt, fn) => el.addEventListener(evt, fn, { once: true });
+endsnippet
+
+snippet logBase "Returns the logarithm of the given number in the given base.  - Use `Math.log()` to get the logarithm from the value and the base and divide them." b
+const logBase = (n, base) => Math.log(n) / Math.log(base);
 endsnippet
 
 snippet longestItem "Takes any number of iterable objects or objects with a `length` property and returns the longest one. If multiple objects have the same length, the first one will be returned. Returns `undefined` if no arguments are provided.  - Use `Array.prototype.reduce()`, comparing the `length` of objects to find the longest one." b
@@ -1713,7 +1901,7 @@ snippet none "Returns `true` if the provided predicate function returns `false` 
 const none = (arr, fn = Boolean) => !arr.some(fn);
 endsnippet
 
-snippet normalizeLineEndings "Normalizes line endings in a string.  - Use `String.prototype.replace()` and a regular expression to match and replace line endings with the `normalized` version. - Omit the seconds argument, `normalized`, to use the default value of `'\r\n'`." b
+snippet normalizeLineEndings "Normalizes line endings in a string.  - Use `String.prototype.replace()` and a regular expression to match and replace line endings with the `normalized` version. - Omit the second argument, `normalized`, to use the default value of `'\r\n'`." b
 const normalizeLineEndings = (str, normalized = '\r\n') => str.replace(/\r?\n/g, normalized);
 endsnippet
 
@@ -2022,6 +2210,10 @@ const primes = num => {
 };
 endsnippet
 
+snippet prod "Returns the product of two or more numbers/arrays.  - Use `Array.prototype.reduce()` to multiply each value with an accumulator, initialized with a value of `1`." b
+const prod = (...arr) => [...arr].reduce((acc, val) => acc * val, 1);
+endsnippet
+
 snippet promisify "Converts an asynchronous function to return a promise.  - Use currying to return a function returning a `Promise` that calls the original function. - Use the `...rest` operator to pass in all the parameters. - *In Node 8+, you can use [`util.promisify`](https://nodejs.org/api/util.html#util_util_promisify_original)*" b
 const promisify = func => (...args) =>
   new Promise((resolve, reject) =>
@@ -2073,8 +2265,26 @@ const pullBy = (arr, ...args) => {
 };
 endsnippet
 
+snippet quarterOfYear "Returns the quarter and year to which the supplied date belongs to.  - Use `Date.prototype.getMonth()` to get the current month in the range (0, 11), add `1` to map it to the range (1, 12). - Use `Math.ceil()` and divide the month by `3` to get the current quarter. - Use `Date.prototype.getFullYear()` to get the year from the given date. - Omit the argument, `date`, to use the current date by default." b
+const quarterOfYear = (date = new Date()) => [
+  Math.ceil((date.getMonth() + 1) / 3),
+  date.getFullYear(),
+];
+endsnippet
+
 snippet radsToDegrees "Converts an angle from radians to degrees.  - Use `Math.PI` and the radian to degree formula to convert the angle from radians to degrees." b
 const radsToDegrees = rad => (rad * 180.0) / Math.PI;
+endsnippet
+
+snippet randomAlphaNumeric "Returns a random string with the specified length.  - Use `Array.from()` to create a new array with the specified `length`. - Use `Math.random()` generate a random floating-point number, `Number.prototype.toString(36)` to convert it to an alphanumeric string. - Use `String.prototype.slice(2)` to remove the integral part and decimal point from each generated number. - Use `Array.prototype.some()` to repeat this process as many times as required, up to `length`, as it produces a variable-length string each time. - Finally, use `String.prototype.slice()` to trim down the generated string if it's longer than the given `length`." b
+const randomAlphaNumeric = length => {
+  let s = '';
+  Array.from({ length }).some(() => {
+    s += Math.random().toString(36).slice(2);
+    return s.length >= length;
+  });
+  return s.slice(0, length);
+};
 endsnippet
 
 snippet randomHexColorCode "Generates a random hexadecimal color code.  - Use `Math.random` to generate a random 24-bit(6x4bits) hexadecimal number. - Use bit shifting and then convert it to an hexadecimal String using `toString(16)`." b
@@ -2095,6 +2305,16 @@ endsnippet
 
 snippet randomNumberInRange "Returns a random number in the specified range.  - Use `Math.random()` to generate a random value, map it to the desired range using multiplication." b
 const randomNumberInRange = (min, max) => Math.random() * (max - min) + min;
+endsnippet
+
+snippet rangeGenerator "Creates a generator, that generates all values in the given range using the given step.  - Use a `while` loop to iterate from `start` to `end`, using `yield` to return each value and then incrementing by `step`. - Omit the third argument, `step`, to use a default value of `1`." b
+const rangeGenerator = function* (start, end, step = 1) {
+  let i = start;
+  while (i < end) {
+    yield i;
+    i += step;
+  }
+};
 endsnippet
 
 snippet readFileLines "Returns an array of lines from the specified file.  - Use `readFileSync` function in `fs` node package to create a `Buffer` from a file. - Convert buffer to string using `toString(encoding)` function. - Use `split(\n)` to create an array of lines from the contents of the file." b
@@ -2182,6 +2402,10 @@ snippet removeNonASCII "Removes non-printable ASCII characters.  - Use a regular
 const removeNonASCII = str => str.replace(/[^\x20-\x7E]/g, '');
 endsnippet
 
+snippet removeWhitespace "Returns a string with whitespaces removed.  - Use `String.prototype.replace()` with a regular expression to replace all occurrences of whitespace characters with an empty string." b
+const removeWhitespace = str => str.replace(/\s+/g,'');
+endsnippet
+
 snippet renameKeys "Replaces the names of multiple object keys with the values provided.  - Use `Object.keys()` in combination with `Array.prototype.reduce()` and the spread operator (`...`) to get the object's keys and rename them according to `keysMap`." b
 const renameKeys = (keysMap, obj) =>
   Object.keys(obj).reduce(
@@ -2216,6 +2440,16 @@ const renderElement = ({ type, props = {} }, container) => {
 }
 endsnippet
 
+snippet repeatGenerator "Creates a generator, repeating the given value indefinitely.  - Use a non-terminating `while` loop, that will `yield` a value every time `Generator.prototype.next()` is called. - Use the return value of the `yield` statement to update the returned value if the passed value is not `undefined`." b
+const repeatGenerator = function* (val) {
+  let v = val;
+  while (true) {
+    let newV = yield v;
+    if (newV !== undefined) v = newV;
+  }
+};
+endsnippet
+
 snippet requireUncached "Loads a module after removing it from the cache (if exists).  - Use `delete` to remove the module from the cache (if exists). - Use `require()` to load the module again." b
 const requireUncached = module => {
   delete require.cache[require.resolve(module)];
@@ -2233,7 +2467,8 @@ const reverseString = str => [...str].reverse().join('');
 endsnippet
 
 snippet round "Rounds a number to a specified amount of digits.  - Use `Math.round()` and template literals to round the number to the specified number of digits. - Omit the second argument, `decimals` to round to an integer." b
-const round = (n, decimals = 0) => Number(\`\${Math.round(\`\${n}e\${decimals}\`)}e-\${decimals}\`);
+const round = (n, decimals = 0) => 
+  Number(\`\${Math.round(\`\${n}e\${decimals}\`)}e-\${decimals}\`);
 endsnippet
 
 snippet runAsync "Runs a function in a separate thread by using a [Web Worker](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API/Using_web_workers), allowing long running functions to not block the UI.  - Create a new `Worker` using a `Blob` object URL, the contents of which should be the stringified version of the supplied function. - Immediately post the return value of calling the function back. - Return a promise, listening for `onmessage` and `onerror` events and resolving the data posted back from the worker, or throwing an error." b
@@ -2450,8 +2685,28 @@ const stringPermutations = str => {
 };
 endsnippet
 
+snippet stringifyCircularJSON "Serializes a JSON object containing circular references into a JSON format.  - Create a `WeakSet` to store and check seen values, using `WeakSet.prototype.add()` and `WeakSet.prototype.has()`. - Use `JSON.stringify()` with a custom replacer function that omits values already in `seen`, adding new values as necessary. - ⚠️ **NOTICE:** This function finds and removes circular references, which causes circular data loss in the serialized JSON." b
+const stringifyCircularJSON = obj => {
+  const seen = new WeakSet();
+  return JSON.stringify(obj, (k, v) => {
+    if (v !== null && typeof v === 'object') {
+      if (seen.has(v)) return;
+      seen.add(v);
+    }
+    return v;
+  });
+};
+endsnippet
+
 snippet stripHTMLTags "Removes HTML/XML tags from string.  - Use a regular expression to remove HTML/XML tags from a string." b
 const stripHTMLTags = str => str.replace(/<[^>]*>/g, '');
+endsnippet
+
+snippet subSet "Checks if the first iterable is a subset of the second one.  - Use the `new Set()` constructor to create a new `Set` object from each iterable. - Use `Array.prototype.every()` and `Set.prototype.has()` to check that each value in the first iterable is contained in the second one." b
+const subSet = (a, b) => {
+  const sA = new Set(a), sB = new Set(b);
+  return [...sA].every(v => sB.has(v));
+};
 endsnippet
 
 snippet sum "Returns the sum of two or more numbers/arrays.  - Use `Array.prototype.reduce()` to add each value to an accumulator, initialized with a value of `0`." b
@@ -2463,12 +2718,23 @@ const sumBy = (arr, fn) =>
   arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val) => acc + val, 0);
 endsnippet
 
+snippet sumN "Sums all the numbers between 1 and `n`.  - Use the formula `(n * (n + 1)) / 2` to get the sum of all the numbers between 1 and `n`." b
+const sumN = n => (n * (n + 1)) / 2;
+endsnippet
+
 snippet sumPower "Returns the sum of the powers of all the numbers from `start` to `end` (both inclusive).  - Use `Array.prototype.fill()` to create an array of all the numbers in the target range, `Array.prototype.map()` and the exponent operator (`**`) to raise them to `power` and `Array.prototype.reduce()` to add them together. - Omit the second argument, `power`, to use a default power of `2`. - Omit the third argument, `start`, to use a default starting value of `1`." b
 const sumPower = (end, power = 2, start = 1) =>
   Array(end + 1 - start)
     .fill(0)
     .map((x, i) => (i + start) ** power)
     .reduce((a, b) => a + b, 0);
+endsnippet
+
+snippet superSet "Checks if the first iterable is a superset of the second one.  - Use the `new Set()` constructor to create a new `Set` object from each iterable. - Use `Array.prototype.every()` and `Set.prototype.has()` to check that each value in the second iterable is contained in the first one." b
+const superSet = (a, b) => {
+  const sA = new Set(a), sB = new Set(b);
+  return [...sB].every(v => sA.has(v));
+};
 endsnippet
 
 snippet supportsTouchEvents "Returns `true` if touch events are supported, `false` otherwise.  - Check if `ontouchstart` exists in `window` or `window.DocumentTouch` is true and the current `document` is an instance of it." b
@@ -2575,6 +2841,10 @@ const toCamelCase = str => {
 };
 endsnippet
 
+snippet toCharArray "Converts a string to an array of characters.  - Use the spread operator (`...`) to convert the string into an array of characters." b
+const toCharArray = s => [...s];
+endsnippet
+
 snippet toCurrency "Take a number and return specified currency formatting.  - Use `Intl.NumberFormat` to enable country / currency sensitive formatting." b
 const toCurrency = (n, curr, LanguageFormat = undefined) =>
   Intl.NumberFormat(LanguageFormat, { style: 'currency', currency: curr }).format(n);
@@ -2591,6 +2861,22 @@ const toHash = (object, key) =>
     (acc, data, index) => ((acc[!key ? index : data[key]] = data), acc),
     {}
   );
+endsnippet
+
+snippet toISOStringWithTimezone "Returns a string in simplified extended ISO format (ISO 8601), including timezone offset.  - Use `Date.prototype.getTimezoneOffset()` to get the timezone offset and reverse it, storing its sign in `diff`. - Define a helper function, `pad`, that normalizes any passed number to an integer using `Math.floor()` and `Math.abs()` and pads it to 2 digits, using `String.prototype.padStart()`. - Use `pad` and the built-in methods in the `Date` prototype to build the ISO 8601 string with timezone offset." b
+const toISOStringWithTimezone = date => {
+  const tzOffset = -date.getTimezoneOffset();
+  const diff = tzOffset >= 0 ? '+' : '-';
+  const pad = n => \`\${Math.floor(Math.abs(n))}\`.padStart(2, '0');
+  return date.getFullYear() +
+    '-' + pad(date.getMonth() + 1) +
+    '-' + pad(date.getDate()) +
+    'T' + pad(date.getHours()) +
+    ':' + pad(date.getMinutes()) +
+    ':' + pad(date.getSeconds()) +
+    diff + pad(tzOffset / 60) +
+    ':' + pad(tzOffset % 60);
+};
 endsnippet
 
 snippet toKebabCase "Converts a string to kebab case.  - Break the string into words and combine them adding `-` as a separator, using a regexp." b
@@ -2622,6 +2908,42 @@ const toPairs = obj =>
     : Object.entries(obj);
 endsnippet
 
+snippet toRGBArray "Converts an `rgb()` color string to an array of values.    - Use `String.prototype.match()` to get an array of 3 string with the numeric values.  - Use `Array.prototype.map()` in combination with `Number` to convert them into an array of numeric values." b
+const toRGBArray = rgbStr => rgbStr.match(/\d+/g).map(Number);
+endsnippet
+
+snippet toRGBObject "Converts an `rgb()` color string to an object with the values of each color.  - Use `String.prototype.match()` to get an array of 3 string with the numeric values. - Use `Array.prototype.map()` in combination with `Number` to convert them into an array of numeric values. - Use array destructuring to store the values into named variables and create an appropriate object from them." b
+const toRGBObject = rgbStr => {
+  const [r, g, b] = rgbStr.match(/\d+/g).map(Number);
+  return { r, g, b };
+};
+endsnippet
+
+snippet toRomanNumeral "Converts an integer to its roman numeral representation. Accepts value between `1` and `3999` (both inclusive).  - Create a lookup table containing 2-value arrays in the form of (roman value, integer). - Use `Array.prototype.reduce()` to loop over the values in `lookup` and repeatedly divide `num` by the value, using `String.prototype.repeat()` to add the roman numeral representation to the accumulator." b
+const toRomanNumeral = num => {
+  const lookup = [
+    ['M', 1000],
+    ['CM', 900],
+    ['D', 500],
+    ['CD', 400],
+    ['C', 100],
+    ['XC', 90],
+    ['L', 50],
+    ['XL', 40],
+    ['X', 10],
+    ['IX', 9],
+    ['V', 5],
+    ['IV', 4],
+    ['I', 1],
+  ];
+  return lookup.reduce((acc, [k, v]) => {
+    acc += k.repeat(Math.floor(num / v));
+    num = num % v;
+    return acc;
+  }, '');
+};
+endsnippet
+
 snippet toSafeInteger "Converts a value to a safe integer.  - Use `Math.max()` and `Math.min()` to find the closest safe value. - Use `Math.round()` to convert to an integer." b
 const toSafeInteger = num =>
   Math.round(Math.max(Math.min(num, Number.MAX_SAFE_INTEGER), Number.MIN_SAFE_INTEGER));
@@ -2650,9 +2972,9 @@ endsnippet
 
 snippet tomorrow "Results in a string representation of tomorrow's date.  - Use `new Date()` to get the current date, increment by one using `Date.getDate()` and set the value to the result using `Date.setDate()`. - Use `Date.prototype.toISOString()` to return a string in `yyyy-mm-dd` format." b
 const tomorrow = () => {
-  let t = new Date();
-  t.setDate(t.getDate() + 1);
-  return t.toISOString().split('T')[0];
+  let d = new Date();
+  d.setDate(d.getDate() + 1);
+  return d.toISOString().split('T')[0];
 };
 endsnippet
 
@@ -2812,9 +3134,18 @@ const vectorDistance = (x, y) =>
   Math.sqrt(x.reduce((acc, val, i) => acc + Math.pow(val - y[i], 2), 0));
 endsnippet
 
-snippet weightedAverage "Returns the weighted average of two or more numbers.  - Use `Array.prototype.reduce()` to add each value to an accumulator, initialized with a value of `0` and divide by the `length` of the array." b
-const weightedAverage = (nums, weights) => 
-  nums.reduce((acc, n, i) => acc + (weights[i] * n), 0) / nums.length;
+snippet weightedAverage "Returns the weighted average of two or more numbers.  - Use `Array.prototype.reduce()` to create the weighted sum of the values and the sum of the weights. - Divide them with each other to get the weighted average." b
+const weightedAverage = (nums, weights) => {
+  const [sum, weightSum] = weights.reduce(
+    (acc, w, i) => {
+      acc[0] = acc[0] + nums[i] * w;
+      acc[1] = acc[1] + w;
+      return acc;
+    },
+    [0, 0]
+  );
+  return sum / weightSum;
+};
 endsnippet
 
 snippet weightedSample "Returns a random element from an array, using the provided `weights` as the probabilities for each element.  - Use `Array.prototype.reduce()` to create an array of partial sums for each value in `weights`. - Use `Math.random()` to generate a random number and `Array.prototype.findIndex()` to find the correct index based on the array previously produced. - Finally, return the element of `arr` with the produced index." b
@@ -2836,12 +3167,22 @@ snippet without "Filters out the elements of an array, that have one of the spec
 const without = (arr, ...args) => arr.filter(v => !args.includes(v));
 endsnippet
 
+snippet wordWrap "Wraps a string to a given number of characters using a string break character.  - Use `String.prototype.replace()` and a regular expression to insert a given break character at the nearest whitespace of `max` characters. - Omit the third argument, `br`, to use the default value of `'\n'`." b
+const wordWrap = (str, max, br = '\n') => str.replace(
+  new RegExp(\`(?![^\\n]{1,\${max}}$)([^\\n]{1,\${max}})\\s\`, 'g'), '$1' + br
+);
+endsnippet
+
 snippet words "Converts a given string into an array of words.  - Use `String.prototype.split()` with a supplied pattern (defaults to non-alpha as a regexp) to convert to an array of strings. - Use `Array.prototype.filter()` to remove any empty strings. - Omit the second argument to use the default regexp." b
 const words = (str, pattern = /[^a-zA-Z-]+/) => str.split(pattern).filter(Boolean);
 endsnippet
 
 snippet xProd "Creates a new array out of the two supplied by creating each possible pair from the arrays.  - Use `Array.prototype.reduce()`, `Array.prototype.map()` and `Array.prototype.concat()` to produce every possible pair from the elements of the two arrays and save them in an array." b
 const xProd = (a, b) => a.reduce((acc, x) => acc.concat(b.map(y => [x, y])), []);
+endsnippet
+
+snippet xor "Returns `true` if only one of the arguments is `true`, `false` otherwise.  - Use the logical or (`||`), and (`&&`) and not (`!`) operators on the two given values to create the logical xor." b
+const xor = (a, b) => (( a || b ) && !( a && b ));
 endsnippet
 
 snippet yesNo "Returns `true` if the string is `y`/`yes` or `false` if the string is `n`/`no`.  - Use `RegExp.test()` to check if the string evaluates to `y/yes` or `n/no`. - Omit the second argument, `def` to set the default answer as `no`." b
@@ -2851,9 +3192,9 @@ endsnippet
 
 snippet yesterday "Results in a string representation of yesterday's date.  - Use `new Date()` to get the current date, decrement by one using `Date.getDate()` and set the value to the result using `Date.setDate()`. - Use `Date.prototype.toISOString()` to return a string in `yyyy-mm-dd` format." b
 const yesterday = () => {
-  let t = new Date();
-  t.setDate(t.getDate() - 1);
-  return t.toISOString().split('T')[0];
+  let d = new Date();
+  d.setDate(d.getDate() - 1);
+  return d.toISOString().split('T')[0];
 };
 endsnippet
 
