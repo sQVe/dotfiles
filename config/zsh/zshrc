@@ -16,6 +16,12 @@ fi
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
+# Goto set root pwd if available.
+if [[ -e /tmp/next-root-pwd ]]; then
+  cd "$(cat /tmp/next-root-pwd)"
+  rm /tmp/next-root-pwd
+fi
+
 
 #  ┏━┓┏━╸╺┳╸╺┳╸╻┏┓╻┏━╸┏━┓
 #  ┗━┓┣╸  ┃  ┃ ┃┃┗┫┃╺┓┗━┓
@@ -158,7 +164,6 @@ alias np='nvim -w PKGBUILD'
 alias o=open
 alias open='mimeo -q'
 alias q=exit
-alias root='sudo -i'
 alias sudo='sudo '
 alias sudoedit='sudoedit '
 alias s=sudo
