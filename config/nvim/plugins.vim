@@ -62,8 +62,6 @@ Plug 'mg979/vim-visual-multi'                      " Multiple cursors.
 
 " Syntax.
 Plug 'sheerun/vim-polyglot'                        " Language pack.
-Plug 'styled-components/vim-styled-components', {
-  \ 'branch': 'main' }                             " Support styled components.
 
 " Text objects and motions.
 Plug 'christoomey/vim-sort-motion'                 " Sort by motion.
