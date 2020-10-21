@@ -129,6 +129,11 @@ let g:strip_only_modified_lines = 1
 let g:strip_whitespace_confirm = 0
 let g:strip_whitespace_on_save = 1
 
+" Buffet.
+let g:buffet_modified_icon = ' +'
+let g:buffet_separator = ' '
+let g:buffet_use_devicons = 0
+
 " DoGe.
 let g:doge_enable_mappings = 0
 let g:doge_mapping_comment_jump_forward = '<C-j>'
@@ -242,6 +247,9 @@ let g:lightline = {
   \ 'component_function': {
   \   'filename': 'LightlineFilename',
   \   'gitbranch': 'fugitive#head',
+  \ },
+  \ 'enable': {
+  \   'tabline': 0
   \ },
   \ 'mode_map': {
   \   'R' : 'R',
