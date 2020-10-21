@@ -102,7 +102,9 @@ nnoremap <silent> ]c :ALENextWrap<CR>
 nnoremap <silent> <Leader>o :CocList --auto-preview --tab outline <CR>
 nnoremap <silent> <Leader>O :CocList --auto-preview --interactive --tab symbols<CR>
 nmap <Leader>ca :CocAction<CR>
+xmap <Leader>ca :CocAction<CR>
 nmap <Leader>cf :CocFix<CR>
+xmap <Leader>cf :CocFix<CR>
 nmap <Leader>cs :CocSearch<Space>
 nmap <silent> <Leader>f <Plug>(coc-fix-current)
 nmap <silent> <Leader>r <Plug>(coc-rename)
