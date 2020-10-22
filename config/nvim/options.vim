@@ -3,6 +3,7 @@
 "  ┗━┛╹ ╹┗━┛┗━╸   ┗━┛╹   ╹ ╹┗━┛╹ ╹┗━┛
 
 set clipboard=unnamedplus         " Use the + (clipboard) register.
+set colorcolumn=80                " Indicate column 80 with a colored column.
 set conceallevel=2                " Disable character conceal.
 set gdefault                      " Use 'g' flag by default with :s/foo/bar/.
 set hidden                        " Set buffer as hidden when abandoned.
@@ -21,6 +22,7 @@ set updatetime=200                " Set update time to 200 ms.
 set virtualedit=block             " Enable virtualedit when in Visual Block mode.
 
 " Searching.
+set inccommand=nosplit            " Highlight patterns and ranges for Ex commands.
 set incsearch                     " Highlight search results as you type.
 set showmatch                     " Show matching brackets.
 
@@ -77,9 +79,6 @@ set undofile                      " Keep a persistent backup file.
 
 " Add file extension lookup when going to file.
 set suffixesadd=.js,.jsx,.ts,.tsx,.sh.css,.scss,.md,.json,.yaml,.yml
-
-" Highlight patterns and ranges for Ex commands.
-set inccommand=nosplit
 
 " Colorscheme.
 let g:gruvbox_italic = 1
