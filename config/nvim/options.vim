@@ -75,6 +75,9 @@ set splitright                    " Vertical split to right of current.
 set undodir=$HOME/.local/share/nvim/.undo,/tmp
 set undofile                      " Keep a persistent backup file.
 
+" Add file extension lookup when going to file.
+set suffixesadd=.js,.jsx,.ts,.tsx,.sh.css,.scss,.md,.json,.yaml,.yml
+
 " Colorscheme.
 let g:gruvbox_italic = 1
 let g:gruvbox_sign_column = 'bg0'
