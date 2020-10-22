@@ -45,7 +45,7 @@ Plug 'tpope/vim-rhubarb'                           " Use hub instead of git.
 Plug 'tpope/vim-speeddating'                       " Increment / decrement dates, times and more.
 
 " Interface.
-Plug 'bagrat/vim-buffet'                           " Buffer and tab line.
+Plug 'ap/vim-buftabline'                           " Buffer line.
 Plug 'camspiers/lens.vim'                          " Resize windows based on content.
 Plug 'itchyny/lightline.vim'                       " Status line.
 Plug 'maximbaz/lightline-ale'                      " Lint information in status line.
