@@ -74,9 +74,6 @@ nnoremap <silent> <C-S-Right> :vertical resize +10<CR>
 " Spell completion.
 inoremap <C-x><C-s> <C-x>s
 
-" Set pwd to current open buffer path.
-nnoremap cd :Cdb<CR>:pwd<CR>
-
 
 "  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
 "  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
@@ -95,6 +92,7 @@ nnoremap <Leader>z :Z<Space>
 
 " Ale.
 nnoremap <silent> <Leader>ta :ALEToggleBuffer<CR>
+nnoremap <silent> <Leader>cd :ALEDetail<CR>
 nnoremap <silent> [c :ALEPreviousWrap<CR>
 nnoremap <silent> ]c :ALENextWrap<CR>
 
