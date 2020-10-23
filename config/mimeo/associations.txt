@@ -1,19 +1,19 @@
 scaled-qutebrowser %U
-  ^https?:\/\/files.slack.com\/.+?\.(gif|jpe?g|png)
-  ^https?:\/\/(www.)?reddit.com/api/.+
+  ^https?:\/\/files\.slack\.com\/.+?\.(gif|jpe?g|png)
+  ^https?:\/\/(www\.)?reddit\.com/api
 
 google-chrome-stable %U
-  ^https?:\/\/meet.google.com/.+
+  ^https?:\/\/meet\.google\.com
 
 mpv %U
-  ^https?:\/\/(www.)?youtube.com/watch\?.*v=
+  ^https?:\/\/(www\.)?youtube\.com/watch\?.*v=
 mpv %U
   ^https?:\/\/.+?\.gif
 
 streamlink %U
-  ^https?:\/\/(www.)?twitch.tv/.+
+  ^https?:\/\/(www\.)?twitch\.tv
 streamlink %U
-  ^https?:\/\/(www.)?svtplay.se/video/.+
+  ^https?:\/\/(www\.)?svtplay\.se/video
 
 feh %U
   ^https?:\/\/.+?\.(jpe?g|png)
@@ -21,9 +21,5 @@ feh %U
 term neomutt %U
   ^mailto:.+@.+\..+
 
-term rtv %U
-  ^https?:\/\/(www.)?reddit.com/.+
-
 scaled-qutebrowser %F
   ^www\..+?\.\w+
-
