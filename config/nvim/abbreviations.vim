@@ -73,3 +73,9 @@ iabbrev Udpates   Updates
 iabbrev udpates   updates
 iabbrev Udpating  Updating
 iabbrev udpating  updating
+iabbrev Widnow    Window
+iabbrev widnow    window
+iabbrev WidnoWing Windowing
+iabbrev widnowing windowing
+iabbrev Widnows   Windows
+iabbrev widnows   windows
