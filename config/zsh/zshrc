@@ -165,7 +165,8 @@ alias se=sudoedit
 
 # Globals.
 alias -g C='| xsel -ib'
-alias -g V='| vim'
+alias -g F='| fzf'
+alias -g V='| nvim'
 
 # Listing.
 alias exa='exa --group-directories-first --color=auto'
