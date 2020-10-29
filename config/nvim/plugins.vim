@@ -17,7 +17,6 @@ Plug 'tpope/vim-repeat'                            " Repeat for plugins.
 Plug 'gruvbox-community/gruvbox'                   " Gruvbox colorscheme.
 
 " Commands.
-Plug 'lambdalisue/suda.vim'                        " Read and write with sudo.
 Plug 'moll/vim-bbye'                               " Delete buffers without closing window.
 Plug 'tpope/vim-eunuch'                            " Unix helpers.
 
