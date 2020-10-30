@@ -43,6 +43,10 @@ noremap <silent> <Leader>D :Bwipeout!<CR>
 " Easy and consistent search.
 noremap + /
 
+" Indent and un-indent without loosing selection.
+vnoremap < <gv
+vnoremap > >gv
+
 " Term.
 noremap <silent> <Leader><CR> :Term<CR><CR>
 noremap <silent> <Leader><Backspace> :BTerm<CR><CR>
