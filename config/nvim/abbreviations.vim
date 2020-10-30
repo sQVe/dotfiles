@@ -26,7 +26,7 @@ iabbrev xxx:    XXX:
 " Lorem ipsum.
 iabbrev getlorem Lorem ipsum dolor sit amet consectetur adipiscing elit, faucibus id sollicitudin at class vivamus quis vel, fringilla sodales a quisque blandit eget inceptos, congue dis tristique ad velit hendrerit. Eros enim curae praesent egestas conubia aptent himenaeos iaculis tempor, venenatis fermentum urna posuere habitant viverra aenean nulla interdum, lectus dui penatibus nostra vehicula suspendisse nisl netus.
 
-" Words.
+" English words.
 iabbrev Adn       And
 iabbrev adn       and
 iabbrev Execture  Execute
@@ -79,3 +79,8 @@ iabbrev WidnoWing Windowing
 iabbrev widnowing windowing
 iabbrev Widnows   Windows
 iabbrev widnows   windows
+
+" Swedish words.
+iabbrev ahr har
+iabbrev itne inte
+iabbrev Itne Inte
