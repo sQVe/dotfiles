@@ -55,6 +55,17 @@ zle -A backward-delete-char vi-backward-delete-char
 #  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
 #  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
+function colorize() {
+  command env \
+    LESS_TERMCAP_mb=$(printf "\e[1;31m") \
+    LESS_TERMCAP_md=$(printf "\e[1;31m") \
+    LESS_TERMCAP_me=$(printf "\e[0m") \
+    LESS_TERMCAP_se=$(printf "\e[0m") \
+    LESS_TERMCAP_so=$(printf "\e[1;44;33m") \
+    LESS_TERMCAP_ue=$(printf "\e[0m") \
+    LESS_TERMCAP_us=$(printf "\e[1;32m") "$@"
+}
+
 # Use fd in fzf completion for path listing.
 function _fzf_compgen_path() {
   command fd --hidden --follow --exclude ".git" . "$1"
@@ -63,6 +74,11 @@ function _fzf_compgen_path() {
 # Use fd in fzf completion for directory listing.
 function _fzf_compgen_dir() {
   command fd --type d --hidden --follow --exclude ".git" . "$1"
+}
+
+# Colorize man
+function man {
+  colorize $0 "$@"
 }
 
 # Disable nvm "use version" check.
