@@ -15,6 +15,12 @@ func! PrintAsciiHeader(title)
   norm 0VkkgcwjjI kddjj
 endfunc
 
+" Search on Duck Duck Go.
+func! SearchDdg(query)
+  silent! exec ":silent ! open-qutebrowser 'https://duckduckgo.com/?q="
+    \ . substitute((empty(a:query) ? @o : a:query), '\n', '', 'g') . "' &"
+endfunc
+
 " Show documentation.
 func! ShowDocumentation()
   if (index(['vim','help'], &filetype) >= 0)

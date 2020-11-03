@@ -79,15 +79,16 @@ nnoremap <silent> <C-S-Right> :vertical resize +10<CR>
 inoremap <C-x><C-s> <C-x>s
 
 
-"  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
-"  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
-"  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
+"  ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
+"  ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
+"  ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
+nnoremap <Leader>z :Z<Space>
 nnoremap <silent> <C-s> :ToggleSpellCheck<CR>
-nnoremap <silent> <Leader>ts :ToggleSpellCheck<CR>
 nnoremap <silent> <Leader>tc :ToggleConceal<CR>
 nnoremap <silent> <Leader>tn :ToggleRelativeNumber<CR>
-nnoremap <Leader>z :Z<Space>
+nnoremap <silent> <Leader>ts :ToggleSpellCheck<CR>
+vnoremap K "oy<Esc>:Ddg<CR>
 
 
 "  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓

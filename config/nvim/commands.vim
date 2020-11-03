@@ -46,8 +46,8 @@ command! Wbc Wbc
 " Create and print Ascii Header.
 command! -nargs=1 AsciiHeader call PrintAsciiHeader(<q-args>)
 
-" Z lookup.
-command! -nargs=1 Z call Z(<q-args>)
+" Search on Duck Duck Go.
+command! -nargs=? Ddg call SearchDdg(<q-args>)
 
 " Show documentation.
 command! -nargs=0 ShowDocumentation call ShowDocumentation()
@@ -63,6 +63,9 @@ command! -nargs=0 ToggleRelativeNumber call ToggleRelativeNumber()
 
 " Toggle spell checking.
 command! -nargs=0 ToggleSpellCheck call ToggleSpellCheck()
+
+" Z lookup.
+command! -nargs=1 Z call Z(<q-args>)
 
 
 "  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓┏━┓
