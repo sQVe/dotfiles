@@ -3,15 +3,16 @@
 "  ╹ ╹┗━┛┗━┛╹┗╸┗━╸┗┛ ╹╹ ╹ ╹ ╹┗━┛╹ ╹┗━┛
 
 " Syntax.
-iabbrev  asycn   async
-iabbrev  cosnt   const
-iabbrev  ehco    echo
-iabbrev  flase   false
-iabbrev  ocnst   const
-iabbrev  retunr  return
-iabbrev  reutnr  return
-iabbrev  reutrn  return
-iabbrev  treu    true
+iabbrev asycn    async
+iabbrev cosnt    const
+iabbrev ehco     echo
+iabbrev flase    false
+iabbrev functoin function
+iabbrev ocnst    const
+iabbrev retunr   return
+iabbrev reutnr   return
+iabbrev reutrn   return
+iabbrev treu     true
 
 " Comment markers.
 iabbrev bug:    BUG:
