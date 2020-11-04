@@ -18,7 +18,10 @@ endfunc
 " Search on Duck Duck Go.
 func! SearchDdg(query)
   let query = (empty(a:query) ? @o : a:query)
-  let safe_query = escape(substitute(query, '\n', '', 'g'), '!')
+  let safe_query = escape(
+    \ substitute(
+      \ substitute(query, '\v\s+', ' ', 'g'),
+    \ '\n', '', 'g'), '!')
 
   silent! exec ":! open-qutebrowser 'https://duckduckgo.com/?q="
     \ . safe_query . "' &"
