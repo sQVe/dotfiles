@@ -46,8 +46,11 @@ command! Wbc Wbc
 " Create and print Ascii Header.
 command! -nargs=1 AsciiHeader call PrintAsciiHeader(<q-args>)
 
-" Search on Duck Duck Go.
-command! -nargs=? Ddg call SearchDdg(<q-args>)
+" Search on DuckDuckGo.
+command! -nargs=? Ddg call Search('duckduckgo', <q-args>)
+
+" Search on DevDocs.
+command! -nargs=? DevDocs call Search('devdocs', <q-args>)
 
 " Show documentation.
 command! -nargs=0 ShowDocumentation call ShowDocumentation()

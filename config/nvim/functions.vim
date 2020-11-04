@@ -15,16 +15,16 @@ func! PrintAsciiHeader(title)
   norm 0VkkgcwjjI kddjj
 endfunc
 
-" Search on Duck Duck Go.
-func! SearchDdg(query)
-  let query = (empty(a:query) ? @o : a:query)
-  let safe_query = escape(
-    \ substitute(
-      \ substitute(query, '\v\s+', ' ', 'g'),
-    \ '\n', '', 'g'), '!')
+" Search on specific engines.
+func! Search(engine, query)
+  let engineRoots = {
+    \ "duckduckgo": "https://duckduckgo.com/?q=",
+    \ "devdocs": "https://devdocs.io/#q=",
+    \ }
+  let query = empty(a:query) ? @o : a:query
+  let safe_query = substitute(substitute(query, '\v\s+', ' ', 'g'), '\n', '', 'g')
 
-  silent! exec ":! open-qutebrowser 'https://duckduckgo.com/?q="
-    \ . safe_query . "' &"
+  silent! exec ":! open-qutebrowser " . shellescape(engineRoots[a:engine] . safe_query, 1) . " &"
 endfunc
 
 " Show documentation.
