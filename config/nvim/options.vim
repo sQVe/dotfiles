@@ -107,7 +107,7 @@ let g:ale_linters = {
   \ 'javascriptreact': ['eslint'],
   \ 'mail': ['alex', 'proselint', 'write-good'],
   \ 'markdown': ['alex', 'proselint', 'write-good'],
-  \ 'scss': ['sasslint'],
+  \ 'scss': ['stylelint'],
   \ 'sh': ['shellcheck'],
   \ 'text': ['alex', 'proselint', 'write-good'],
   \ 'typescript': ['eslint'],
