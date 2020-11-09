@@ -32,7 +32,7 @@ noremap gk k
 noremap gj j
 
 " Quick save.
-noremap <Leader><Leader> :update<CR>
+noremap <silent> <Leader><Leader> :update<CR>
 
 " Quit and close buffer.
 noremap <silent> <Leader>q :quit<CR>

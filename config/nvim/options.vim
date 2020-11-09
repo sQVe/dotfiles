@@ -100,31 +100,39 @@ let g:ale_sign_info = '■'
 let g:ale_sign_warning = '■'
 let g:ale_virtualtext_cursor = 1
 
+let g:ale_linter_aliases = {
+  \ 'html': ['html', 'css', 'javascript'],
+  \ 'mail': ['text'],
+  \ 'javascript': ['javascript', 'css'],
+  \ 'javascriptreact': ['javascript', 'css'],
+  \ 'typescript': ['typescript', 'css'],
+  \ 'typescriptreact': ['typescript', 'css'],
+  \ }
 let g:ale_linters = {
   \ 'css': ['stylelint'],
-  \ 'help': ['alex', 'proselint', 'write-good'],
+  \ 'scss': ['stylelint'],
   \ 'javascript': ['eslint'],
   \ 'javascriptreact': ['eslint'],
-  \ 'mail': ['alex', 'proselint', 'write-good'],
-  \ 'markdown': ['alex', 'proselint', 'write-good'],
-  \ 'scss': ['stylelint'],
-  \ 'sh': ['shellcheck'],
-  \ 'text': ['alex', 'proselint', 'write-good'],
   \ 'typescript': ['eslint'],
   \ 'typescriptreact': ['eslint'],
+  \ 'help': ['alex', 'proselint', 'write-good'],
+  \ 'mail': ['alex', 'proselint', 'write-good'],
+  \ 'markdown': ['alex', 'proselint', 'write-good'],
+  \ 'text': ['alex', 'proselint', 'write-good'],
+  \ 'sh': ['shellcheck'],
   \ }
 let g:ale_fixers = {
   \ 'css': ['prettier', 'stylelint'],
-  \ 'html': ['prettier'],
+  \ 'scss': ['prettier', 'stylelint'],
   \ 'javascript': ['eslint', 'prettier'],
   \ 'javascriptreact': ['eslint', 'prettier'],
   \ 'json': ['eslint', 'prettier'],
-  \ 'markdown': ['prettier'],
-  \ 'scss': ['prettier'],
-  \ 'sh': ['shfmt'],
   \ 'typescript': ['eslint', 'prettier'],
   \ 'typescriptreact': ['eslint', 'prettier'],
+  \ 'html': ['prettier'],
+  \ 'markdown': ['prettier'],
   \ 'yaml': ['prettier'],
+  \ 'sh': ['shfmt'],
   \ }
 
 let g:ale_writegood_options = '--no-passive'
