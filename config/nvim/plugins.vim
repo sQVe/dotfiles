@@ -13,8 +13,9 @@ Plug 'junegunn/vim-easy-align'                     " Alignment.
 Plug 'machakann/vim-sandwich'                      " Surround text.
 Plug 'tpope/vim-repeat'                            " Repeat for plugins.
 
-" Colorschemes.
+" Colorschemes and highlighting.
 Plug 'gruvbox-community/gruvbox'                   " Gruvbox colorscheme.
+Plug 'nvim-treesitter/nvim-treesitter'             " Treesitter highlighting.
 
 " Commands.
 Plug 'moll/vim-bbye'                               " Delete buffers without closing window.

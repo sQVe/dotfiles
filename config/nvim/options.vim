@@ -311,7 +311,7 @@ let g:startify_change_to_dir = 0
 let g:startify_commands = [
   \ { 'C': 'PlugClean' },
   \ { 'I': 'PlugInstall' },
-  \ { 'U': 'PlugUpdate | CocUpdate' },
+  \ { 'U': 'Update' },
   \ ]
 let g:startify_custom_header = startify#pad([
   \ '┏┓╻┏━╸┏━┓╻ ╻╻┏┳┓',
@@ -326,6 +326,13 @@ let g:startify_lists = [
   \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
   \ { 'type': 'commands',  'header': ['   Commands']       },
   \ ]
+
+" Treesitter.
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+    highlight = { enable = true },
+}
+EOF
 
 " Visual Multi.
 let g:VM_mouse_mappings = 1
