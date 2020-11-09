@@ -104,8 +104,9 @@ const RGBToHSL = (r, g, b) => {
 };
 endsnippet
 
-snippet RGBToHex "Converts the values of RGB components to a hexadecimal color code.  - Convert given RGB parameters to hexadecimal string using bitwise left-shift operator (`<<`) and `Number.prototype.toString(16)`. - Use `String.prototype.padStart(6,'0')` to get a 6-digit hexadecimal value." b
-const RGBToHex = (r, g, b) => ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
+snippet RGBToHex "Converts the values of RGB components to a hexadecimal color code.  - Convert given RGB parameters to hexadecimal string using bitwise left-shift operator (`<<`) and `Number.prototype.toString(16)`. - Use `String.prototype.padStart(6, '0')` to get a 6-digit hexadecimal value." b
+const RGBToHex = (r, g, b) =>
+  ((r << 16) + (g << 8) + b).toString(16).padStart(6, '0');
 endsnippet
 
 snippet URLJoin "Joins all given URL segments together, then normalizes the resulting URL.  - Use `String.prototype.join('/')` to combine URL segments. - Use a series of `String.prototype.replace()` calls with various regexps to normalize the resulting URL (remove double slashes, add proper slashes for protocol, remove slashes before parameters, combine parameters with `'&'` and normalize first parameter delimiter)." b
@@ -141,10 +142,10 @@ endsnippet
 
 snippet accumulate "Creates an array of partial sums.  - Use `Array.prototype.reduce()`, initialized with an empty array accumulator to iterate over `nums`. - Use `Array.prototype.slice(-1)`, the spread operator (`...`) and the unary `+` operator to add each value to the accumulator array containing the previous sums." b
 const accumulate = (...nums) =>
-  nums.reduce((acc, n) => [...acc, n + +acc.slice(-1)],[]);
+  nums.reduce((acc, n) => [...acc, n + +acc.slice(-1)], []);
 endsnippet
 
-snippet addDaysToDate "Calculates the date of `n` days from the given date, returning its string representation.  - Use `new Date()` to create a date object from the first parameter. - Use `Date.prototype.getDate()` and `Date.prototype.setDate()` to add `n` days to the given date. - Use `Date.prototype.toISOString()` to return a string in `yyyy-mm-dd` format." b
+snippet addDaysToDate "Calculates the date of `n` days from the given date, returning its string representation.  - Use `new Date()` to create a date object from the first argument. - Use `Date.prototype.getDate()` and `Date.prototype.setDate()` to add `n` days to the given date. - Use `Date.prototype.toISOString()` to return a string in `yyyy-mm-dd` format." b
 const addDaysToDate = (date, n) => {
   d = new Date(date);
   d.setDate(d.getDate() + n);
@@ -208,7 +209,7 @@ const aperture = (n, arr) =>
     : arr.slice(n - 1).map((v, i) => arr.slice(i, i + n));
 endsnippet
 
-snippet approximatelyEqual "Checks if two numbers are approximately equal to each other.  - Use `Math.abs()` to compare the absolute difference of the two values to `epsilon`. - Omit the third parameter, `epsilon`, to use a default value of `0.001`." b
+snippet approximatelyEqual "Checks if two numbers are approximately equal to each other.  - Use `Math.abs()` to compare the absolute difference of the two values to `epsilon`. - Omit the third argument, `epsilon`, to use a default value of `0.001`." b
 const approximatelyEqual = (v1, v2, epsilon = 0.001) =>
   Math.abs(v1 - v2) < epsilon;
 endsnippet
@@ -221,7 +222,9 @@ endsnippet
 snippet arrayToCSV "Converts a 2D array to a comma-separated values (CSV) string.  - Use `Array.prototype.map()` and `Array.prototype.join(delimiter)` to combine individual 1D arrays (rows) into strings. - Use `Array.prototype.join('\n')` to combine all rows into a CSV string, separating each row with a newline. - Omit the second argument, `delimiter`, to use a default delimiter of `,`." b
 const arrayToCSV = (arr, delimiter = ',') =>
   arr
-    .map(v => v.map(x => (isNaN(x) ? \`"\${x.replace(/"/g, '""')}"\` : x)).join(delimiter))
+    .map(v =>
+      v.map(x => (isNaN(x) ? \`"\${x.replace(/"/g, '""')}"\` : x)).join(delimiter)
+    )
     .join('\n');
 endsnippet
 
@@ -340,7 +343,7 @@ snippet call "Given a key and a set of arguments, call them when given a contex
 const call = (key, ...args) => context => context[key](...args);
 endsnippet
 
-snippet capitalize "Capitalizes the first letter of a string.  - Use array destructuring and `String.prototype.toUpperCase()` to capitalize the first letter of the string. - Use `Array.prototype.join('')` to combine the capitalized `first` with the `...rest` of the characters. - Omit the `lowerRest` parameter to keep the rest of the string intact, or set it to `true` to convert to lowercase." b
+snippet capitalize "Capitalizes the first letter of a string.  - Use array destructuring and `String.prototype.toUpperCase()` to capitalize the first letter of the string. - Use `Array.prototype.join('')` to combine the capitalized `first` with the `...rest` of the characters. - Omit the `lowerRest` argument to keep the rest of the string intact, or set it to `true` to convert to lowercase." b
 const capitalize = ([first, ...rest], lowerRest = false) =>
   first.toUpperCase() +
   (lowerRest ? rest.join('').toLowerCase() : rest.join(''));
@@ -355,7 +358,7 @@ snippet castArray "Casts the provided value as an array if it's not one.  - Use 
 const castArray = val => (Array.isArray(val) ? val : [val]);
 endsnippet
 
-snippet celsiusToFahrenheit "Converts Celsius to Fahrenheit.  - Follows the conversion formula `F = 1.8 * C + 32`." b
+snippet celsiusToFahrenheit "Converts Celsius to Fahrenheit.  - Follow the conversion formula `F = 1.8 * C + 32`." b
 const celsiusToFahrenheit = degrees => 1.8 * degrees + 32;
 endsnippet
 
@@ -540,7 +543,7 @@ const countWeekDaysBetween = (startDate, endDate) =>
     }, 0);
 endsnippet
 
-snippet counter "Creates a counter with the specified range, step and duration for the specified selector.  - Check if `step` has the proper sign and change it accordingly. - Use `setInterval()` in combination with `Math.abs()` and `Math.floor()` to calculate the time between each new text draw. - Use `Document.querySelector()`, `Element.innerHTML` to update the value of the selected element. - Omit the fourth parameter, `step`, to use a default step of `1`. - Omit the fifth parameter, `duration`, to use a default duration of `2000`ms." b
+snippet counter "Creates a counter with the specified range, step and duration for the specified selector.  - Check if `step` has the proper sign and change it accordingly. - Use `setInterval()` in combination with `Math.abs()` and `Math.floor()` to calculate the time between each new text draw. - Use `Document.querySelector()`, `Element.innerHTML` to update the value of the selected element. - Omit the fourth argument, `step`, to use a default step of `1`. - Omit the fifth argument, `duration`, to use a default duration of `2000`ms." b
 const counter = (selector, start, end, step = 1, duration = 2000) => {
   let current = start,
     _step = (end - start) * step < 0 ? -step : step,
@@ -605,7 +608,7 @@ const cycleGenerator = function* (arr) {
 };
 endsnippet
 
-snippet dayName "Gets the name of the weekday from a `Date` object.  - Use `Date.prototype.toLocaleDateString()` with the `{ weekday: 'long' }` option to retrieve the weekday. - Use the optional second parameter to get a language-specific name or omit it to use the default locale." b
+snippet dayName "Gets the name of the weekday from a `Date` object.  - Use `Date.prototype.toLocaleDateString()` with the `{ weekday: 'long' }` option to retrieve the weekday. - Use the optional second argument to get a language-specific name or omit it to use the default locale." b
 const dayName = (date, locale) =>
   date.toLocaleDateString(locale, { weekday: 'long' });
 endsnippet
@@ -665,7 +668,7 @@ const debouncePromise = (fn, ms = 0) => {
 };
 endsnippet
 
-snippet decapitalize "Decapitalizes the first letter of a string.  - Use array destructuring and `String.prototype.toLowerCase()` to decapitalize first letter, `...rest` to get array of characters after first letter and then `Array.prototype.join('')` to make it a string again. - Omit the `upperRest` parameter to keep the rest of the string intact, or set it to `true` to convert to uppercase." b
+snippet decapitalize "Decapitalizes the first letter of a string.  - Use array destructuring and `String.prototype.toLowerCase()` to decapitalize first letter, `...rest` to get array of characters after first letter and then `Array.prototype.join('')` to make it a string again. - Omit the `upperRest` argument to keep the rest of the string intact, or set it to `true` to convert to uppercase." b
 const decapitalize = ([first, ...rest], upperRest = false) =>
   first.toLowerCase() +
   (upperRest ? rest.join('').toUpperCase() : rest.join(''));
@@ -799,11 +802,11 @@ snippet divmod "Returns an array consisting of the quotient and remainder of the
 const divmod = (x, y) => [Math.floor(x / y), x % y];
 endsnippet
 
-snippet drop "Creates a new array with `n` elements removed from the left.  - Use `Array.prototype.slice()` to remove the specified number of elements from the left." b
+snippet drop "Creates a new array with `n` elements removed from the left.  - Use `Array.prototype.slice()` to remove the specified number of elements from the left. - Omit the last argument, `n`, to use a default value of `1`." b
 const drop = (arr, n = 1) => arr.slice(n);
 endsnippet
 
-snippet dropRight "Creates a new array with `n` elements removed from the right.  - Use `Array.prototype.slice()` to remove the specified number of elements from the right." b
+snippet dropRight "Creates a new array with `n` elements removed from the right.  - Use `Array.prototype.slice()` to remove the specified number of elements from the right. - Omit the last argument, `n`, to use a default value of `1`." b
 const dropRight = (arr, n = 1) => arr.slice(0, -n);
 endsnippet
 
@@ -909,7 +912,7 @@ const factorial = n =>
     : n * factorial(n - 1);
 endsnippet
 
-snippet fahrenheitToCelsius "Converts Fahrenheit to Celsius.  - Follows the conversion formula `C = (F - 32) * 5/9`." b
+snippet fahrenheitToCelsius "Converts Fahrenheit to Celsius.  - Follow the conversion formula `C = (F - 32) * 5/9`." b
 const fahrenheitToCelsius = degrees => (degrees - 32) * 5 / 9;
 endsnippet
 
@@ -921,14 +924,24 @@ const fibonacci = n =>
   );
 endsnippet
 
-snippet filterNonUnique "Creates an array with the non-unique values filtered out.  - Use `Array.prototype.filter()` to create an array containing only the unique values." b
+snippet filterNonUnique "Creates an array with the non-unique values filtered out.  - Use `new Set()` and the spread operator (`...`) to create an array of the unique values in `arr`. - Use `Array.prototype.filter()` to create an array containing only the unique values." b
 const filterNonUnique = arr =>
-  arr.filter(i => arr.indexOf(i) === arr.lastIndexOf(i));
+  [...new Set(arr)].filter(i => arr.indexOf(i) === arr.lastIndexOf(i));
 endsnippet
 
 snippet filterNonUniqueBy "Creates an array with the non-unique values filtered out, based on a provided comparator function.  - Use `Array.prototype.filter()` and `Array.prototype.every()` to create an array containing only the unique values, based on the comparator function, `fn`. - The comparator function takes four arguments: the values of the two elements being compared and their indexes." b
 const filterNonUniqueBy = (arr, fn) =>
   arr.filter((v, i) => arr.every((x, j) => (i === j) === fn(v, x, i, j)));
+endsnippet
+
+snippet filterUnique "Creates an array with the unique values filtered out.  - Use `new Set()` and the spread operator (`...`) to create an array of the unique values in `arr`. - Use `Array.prototype.filter()` to create an array containing only the non-unique values." b
+const filterUnique = arr =>
+  [...new Set(arr)].filter(i => arr.indexOf(i) !== arr.lastIndexOf(i));
+endsnippet
+
+snippet filterUniqueBy "Creates an array with the unique values filtered out, based on a provided comparator function.  - Use `Array.prototype.filter()` and `Array.prototype.every()` to create an array containing only the non-unique values, based on the comparator function, `fn`. - The comparator function takes four arguments: the values of the two elements being compared and their indexes." b
+const filterUniqueBy = (arr, fn) =>
+  arr.filter((v, i) => arr.some((x, j) => (i !== j) === fn(v, x, i, j)));
 endsnippet
 
 snippet findKey "Finds the first key that satisfies the provided testing function. Otherwise `undefined` is returned.  - Use `Object.keys(obj)` to get all the properties of the object, `Array.prototype.find()` to test each key-value pair using `fn`. - The callback receives three arguments - the value, the key and the object." b
@@ -1384,7 +1397,7 @@ const hz = (fn, iterations = 100) => {
 };
 endsnippet
 
-snippet inRange "Checks if the given number falls within the given range.  - Use arithmetic comparison to check if the given number is in the specified range. - If the second parameter, `end`, is not specified, the range is considered to be from `0` to `start`." b
+snippet inRange "Checks if the given number falls within the given range.  - Use arithmetic comparison to check if the given number is in the specified range. - If the second argument, `end`, is not specified, the range is considered to be from `0` to `start`." b
 const inRange = (n, start, end = null) => {
   if (end && start > end) [end, start] = [start, end];
   return end == null ? n >= 0 && n < start : n >= start && n < end;
@@ -1399,7 +1412,7 @@ snippet includesAny "Checks if at least one element of `values` is included in `
 const includesAny = (arr, values) => values.some(v => arr.includes(v));
 endsnippet
 
-snippet indentString "Indents each line in the provided string.  - Use `String.prototype.replace()` and a regular expression to add the character specified by `indent` `count` times at the start of each line. - Omit the third parameter, `indent`, to use a default indentation character of `' '`." b
+snippet indentString "Indents each line in the provided string.  - Use `String.prototype.replace()` and a regular expression to add the character specified by `indent` `count` times at the start of each line. - Omit the third argument, `indent`, to use a default indentation character of `' '`." b
 const indentString = (str, count, indent = ' ') =>
   str.replace(/^/gm, indent.repeat(count));
 endsnippet
@@ -1409,7 +1422,7 @@ const indexOfAll = (arr, val) =>
   arr.reduce((acc, el, i) => (el === val ? [...acc, i] : acc), []);
 endsnippet
 
-snippet initial "Returns all the elements of an array except the last one.  - Use `Array.prototype.slice(0,-1)` to return all but the last element of the array." b
+snippet initial "Returns all the elements of an array except the last one.  - Use `Array.prototype.slice(0, -1)` to return all but the last element of the array." b
 const initial = arr => arr.slice(0, -1);
 endsnippet
 
@@ -1708,7 +1721,8 @@ const isReadableStream = val =>
 endsnippet
 
 snippet isSameDate "Checks if a date is the same as another date.  - Use `Date.prototype.toISOString()` and strict equality checking (`===`) to check if the first date is the same as the second one." b
-const isSameDate = (dateA, dateB) => dateA.toISOString() === dateB.toISOString();
+const isSameDate = (dateA, dateB) =>
+  dateA.toISOString() === dateB.toISOString();
 endsnippet
 
 snippet isSorted "Checks if a numeric array is sorted.  - Calculate the ordering `direction` for the first pair of adjacent array elements. - Return `0` if the given array is empty, only has one element or the `direction` changes for any pair of adjacent array elements. - Use `Math.sign()` to covert the final value of `direction` to `-1` (descending order) or `1` (ascending order)." b
@@ -1792,7 +1806,7 @@ snippet juxt "Takes several functions as argument and returns a function that is
 const juxt = (...fns) => (...args) => [...fns].map(fn => [...args].map(fn));
 endsnippet
 
-snippet kmToMiles "Converts kilometers to miles.  - Follows the conversion formula `mi = km * 0.621371`." b
+snippet kmToMiles "Converts kilometers to miles.  - Follow the conversion formula `mi = km * 0.621371`." b
 const kmToMiles = km => km * 0.621371;
 endsnippet
 
@@ -1807,7 +1821,7 @@ const lastDateOfMonth = (date = new Date()) => {
 };
 endsnippet
 
-snippet lcm "Calculates the least common multiple of two or more numbers.  - Use the greatest common divisor (GCD) formula and the fact that `lcm(x,y) = x * y / gcd(x,y)` to determine the least common multiple. - The GCD formula uses recursion." b
+snippet lcm "Calculates the least common multiple of two or more numbers.  - Use the greatest common divisor (GCD) formula and the fact that `lcm(x, y) = x * y / gcd(x, y)` to determine the least common multiple. - The GCD formula uses recursion." b
 const lcm = (...arr) => {
   const gcd = (x, y) => (!y ? x : gcd(y, x % y));
   const _lcm = (x, y) => (x * y) / gcd(x, y);
@@ -1837,14 +1851,17 @@ const lowercaseKeys = obj =>
   }, {});
 endsnippet
 
-snippet luhnCheck "Implementation of the [Luhn Algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm) used to validate a variety of identification numbers, such as credit card numbers, IMEI numbers, National Provider Identifier numbers etc.  - Use `String.prototype.split('')`, `Array.prototype.reverse()` and `Array.prototype.map()` in combination with `parseInt()` to obtain an array of digits. - Use `Array.prototype.splice(0,1)` to obtain the last digit. - Use `Array.prototype.reduce()` to implement the Luhn Algorithm. - Return `true` if `sum` is divisible by `10`, `false` otherwise." b
+snippet luhnCheck "Implementation of the [Luhn Algorithm](https://en.wikipedia.org/wiki/Luhn_algorithm) used to validate a variety of identification numbers, such as credit card numbers, IMEI numbers, National Provider Identifier numbers etc.  - Use `String.prototype.split('')`, `Array.prototype.reverse()` and `Array.prototype.map()` in combination with `parseInt()` to obtain an array of digits. - Use `Array.prototype.splice(0, 1)` to obtain the last digit. - Use `Array.prototype.reduce()` to implement the Luhn Algorithm. - Return `true` if `sum` is divisible by `10`, `false` otherwise." b
 const luhnCheck = num => {
   let arr = (num + '')
     .split('')
     .reverse()
     .map(x => parseInt(x));
   let lastDigit = arr.splice(0, 1)[0];
-  let sum = arr.reduce((acc, val, i) => (i % 2 !== 0 ? acc + val : acc + ((val * 2) % 9) || 9), 0);
+  let sum = arr.reduce(
+    (acc, val, i) => (i % 2 !== 0 ? acc + val : acc + ((val * 2) % 9) || 9),
+    0
+  );
   sum += lastDigit;
   return sum % 10 === 0;
 };
@@ -1960,7 +1977,7 @@ snippet midpoint "Calculates the midpoint between two pairs of (x,y) points.  - 
 const midpoint = ([x1, y1], [x2, y2]) => [(x1 + x2) / 2, (y1 + y2) / 2];
 endsnippet
 
-snippet milesToKm "Converts miles to kilometers.  - Follows the conversion formula `km = mi * 1.609344`." b
+snippet milesToKm "Converts miles to kilometers.  - Follow the conversion formula `km = mi * 1.609344`." b
 const milesToKm = miles => miles * 1.609344;
 endsnippet
 
@@ -2549,7 +2566,7 @@ const reduceSuccessive = (arr, fn, acc) =>
   );
 endsnippet
 
-snippet reduceWhich "Returns the minimum/maximum value of an array, after applying the provided function to set the comparing rule.  - Use `Array.prototype.reduce()` in combination with the `comparator` function to get the appropriate element in the array. - You can omit the second parameter, `comparator`, to use the default one that returns the minimum element in the array." b
+snippet reduceWhich "Returns the minimum/maximum value of an array, after applying the provided function to set the comparing rule.  - Use `Array.prototype.reduce()` in combination with the `comparator` function to get the appropriate element in the array. - Omit the second argument, `comparator`, to use the default one that returns the minimum element in the array." b
 const reduceWhich = (arr, comparator = (a, b) => a - b) =>
   arr.reduce((a, b) => (comparator(a, b) >= 0 ? b : a));
 endsnippet
@@ -2588,7 +2605,7 @@ const removeNonASCII = str => str.replace(/[^\x20-\x7E]/g, '');
 endsnippet
 
 snippet removeWhitespace "Returns a string with whitespaces removed.  - Use `String.prototype.replace()` with a regular expression to replace all occurrences of whitespace characters with an empty string." b
-const removeWhitespace = str => str.replace(/\s+/g,'');
+const removeWhitespace = str => str.replace(/\s+/g, '');
 endsnippet
 
 snippet renameKeys "Replaces the names of multiple object keys with the values provided.  - Use `Object.keys()` in combination with `Array.prototype.reduce()` and the spread operator (`...`) to get the object's keys and rename them according to `keysMap`." b
@@ -2613,16 +2630,18 @@ const renderElement = ({ type, props = {} }, container) => {
   const isAttribute = p => !isListener(p) && p !== 'children';
 
   Object.keys(props).forEach(p => {
-    if(isAttribute(p)) element[p] = props[p];
-    if(!isTextElement && isListener(p))
+    if (isAttribute(p)) element[p] = props[p];
+    if (!isTextElement && isListener(p))
       element.addEventListener(p.toLowerCase().slice(2), props[p]);
   });
 
-  if(!isTextElement && props.children && props.children.length)
-    props.children.forEach(childElement => renderElement(childElement, element));
+  if (!isTextElement && props.children && props.children.length)
+    props.children.forEach(childElement =>
+      renderElement(childElement, element)
+    );
 
   container.appendChild(element);
-}
+};
 endsnippet
 
 snippet repeatGenerator "Creates a generator, repeating the given value indefinitely.  - Use a non-terminating `while` loop, that will `yield` a value every time `Generator.prototype.next()` is called. - Use the return value of the `yield` statement to update the returned value if the passed value is not `undefined`." b
@@ -2919,7 +2938,9 @@ endsnippet
 
 snippet sumBy "Calculates the sum of an array, after mapping each element to a value using the provided function.  - Use `Array.prototype.map()` to map each element to the value returned by `fn`. - Use `Array.prototype.reduce()` to add each value to an accumulator, initialized with a value of `0`." b
 const sumBy = (arr, fn) =>
-  arr.map(typeof fn === 'function' ? fn : val => val[fn]).reduce((acc, val) => acc + val, 0);
+  arr
+    .map(typeof fn === 'function' ? fn : val => val[fn])
+    .reduce((acc, val) => acc + val, 0);
 endsnippet
 
 snippet sumN "Sums all the numbers between `1` and `n`.  - Use the formula `(n * (n + 1)) / 2` to get the sum of all the numbers between 1 and `n`." b
