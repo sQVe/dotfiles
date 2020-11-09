@@ -14,7 +14,7 @@ Plug 'machakann/vim-sandwich'                      " Surround text.
 Plug 'tpope/vim-repeat'                            " Repeat for plugins.
 
 " Colorschemes and highlighting.
-Plug 'gruvbox-community/gruvbox'                   " Gruvbox colorscheme.
+Plug 'lifepillar/vim-gruvbox8'                     " Speedy Gruvbox.
 Plug 'nvim-treesitter/nvim-treesitter'             " Treesitter highlighting.
 
 " Commands.

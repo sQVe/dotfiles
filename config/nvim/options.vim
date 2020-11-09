@@ -81,10 +81,7 @@ set undofile                      " Keep a persistent backup file.
 set suffixesadd=.js,.jsx,.ts,.tsx,.sh.css,.scss,.md,.json,.yaml,.yml
 
 " Colorscheme.
-let g:gruvbox_italic = 1
-let g:gruvbox_sign_column = 'bg0'
-
-colorscheme gruvbox
+colorscheme gruvbox8
 
 
 "  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ┏━┓┏━┓╺┳╸╻┏━┓┏┓╻┏━┓
@@ -164,21 +161,6 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-v': 'vsplit',
   \ }
-let g:fzf_colors = {
-  \ 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'GruvboxRed'],
-  \ 'fg+':     ['fg', 'Normal'],
-  \ 'bg+':     ['bg', 'ColorColumn'],
-  \ 'hl+':     ['fg', 'GruvboxPurple'],
-  \ 'info':    ['fg', 'GruvboxPurple'],
-  \ 'border':  ['fg', 'Ignore'],
-  \ 'prompt':  ['fg', 'GruvboxRed'],
-  \ 'pointer': ['fg', 'GruvboxPurple'],
-  \ 'marker':  ['fg', 'GruvboxOrange'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'],
-  \ }
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
 
 command! -bang -nargs=? -complete=dir Files
@@ -237,7 +219,7 @@ let g:lightline = {
   \             [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
   \             [ 'filetype' ]]
   \ },
-  \ 'colorscheme': 'gruvbox',
+  \ 'colorscheme': 'gruvbox8',
   \ 'component_expand': {
   \   'linter_checking': 'lightline#ale#checking',
   \   'linter_infos': 'lightline#ale#infos',
