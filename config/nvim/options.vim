@@ -116,14 +116,14 @@ let g:ale_linters = {
 let g:ale_fixers = {
   \ 'css': ['prettier', 'stylelint'],
   \ 'html': ['prettier'],
-  \ 'javascript': ['prettier', 'eslint'],
-  \ 'javascriptreact': ['prettier', 'eslint'],
-  \ 'json': ['prettier', 'eslint'],
+  \ 'javascript': ['eslint', 'prettier'],
+  \ 'javascriptreact': ['eslint', 'prettier'],
+  \ 'json': ['eslint', 'prettier'],
   \ 'markdown': ['prettier'],
   \ 'scss': ['prettier'],
   \ 'sh': ['shfmt'],
-  \ 'typescript': ['prettier', 'eslint'],
-  \ 'typescriptreact': ['prettier', 'eslint'],
+  \ 'typescript': ['eslint', 'prettier'],
+  \ 'typescriptreact': ['eslint', 'prettier'],
   \ 'yaml': ['prettier'],
   \ }
 
