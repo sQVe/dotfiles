@@ -46,5 +46,4 @@
   },
   "suggest.languageSourcePriority": 100,
   "suggest.snippetIndicator": " \uf78c",
-  "typescript.suggestionActions.enabled": false
 }
