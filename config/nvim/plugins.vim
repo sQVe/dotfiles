@@ -6,8 +6,14 @@
 " ¤¤¤¤  Import plugins  ¤¤¤¤
 " ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-" Disable polyglot language packs which are handled by treesitter.
-let g:polyglot_disabled = [
+" Disable whole language pack.
+"  - graphql: indention issues.
+let s:lang_disable = [
+  \ 'graphql',
+  \ ]
+
+" Disable language syntax already handled by treesitter.
+let s:lang_syntax_disable = [
   \ 'css.plugin',
   \ 'html.plugin',
   \ 'javascript.plugin',
@@ -17,6 +23,8 @@ let g:polyglot_disabled = [
   \ 'typescript.plugin',
   \ 'yaml.plugin',
   \ ]
+
+let g:polyglot_disabled = s:lang_disable + s:lang_syntax_disable
 
 call plug#begin('$HOME/.local/share/nvim/plugged')
 
