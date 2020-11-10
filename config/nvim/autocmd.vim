@@ -2,6 +2,12 @@
 "  ┣━┫┃ ┃ ┃ ┃ ┃┃  ┃┃┃ ┃┃
 "  ╹ ╹┗━┛ ╹ ┗━┛┗━╸╹ ╹╺┻┛
 
+" Update signature help on coc placeholder jump.
+augroup CocSignatureOnPlaceholderJump
+  autocmd!
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup END
+
 " Disable ALE for specific file extensions.
 augroup DisableALEForFileExt
   autocmd!

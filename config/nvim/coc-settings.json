@@ -20,6 +20,7 @@
       "ignoredRootPaths": ["~"]
     }
   },
+  "signature.target": "echo",
   "snippets.priority": 80,
   "snippets.snipmate.enable": false,
   "suggest.completionItemKindLabels": {
