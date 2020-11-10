@@ -6,6 +6,18 @@
 " ¤¤¤¤  Import plugins  ¤¤¤¤
 " ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
+" Disable polyglot language packs which are handled by treesitter.
+let g:polyglot_disabled = [
+  \ 'css.plugin',
+  \ 'html.plugin',
+  \ 'javascript.plugin',
+  \ 'json.plugin',
+  \ 'jsx.plugin',
+  \ 'sh.plugin',
+  \ 'typescript.plugin',
+  \ 'yaml.plugin',
+  \ ]
+
 call plug#begin('$HOME/.local/share/nvim/plugged')
 
 " Align, surround and repeat.
