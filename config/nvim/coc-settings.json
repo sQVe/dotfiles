@@ -7,6 +7,11 @@
     "markdown",
     "typescriptreact"
   ],
+  "git.addedSign.hlGroup": "GitAdd",
+  "git.changeRemovedSign.hlGroup": "GitChangeDelete",
+  "git.changedSign.hlGroup": "GitChange",
+  "git.removedSign.hlGroup": "GitDelete",
+  "git.topRemovedSign.hlGroup": "GitDelete",
   "languageserver": {
     "bash": {
       "command": "bash-language-server",

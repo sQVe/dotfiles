@@ -38,11 +38,19 @@ hi! CocSelectedText guifg=#3c3836 guibg=#282828 gui=NONE cterm=NONE
 hi! CocWarningFloat guifg=#fabd2f guibg=NONE gui=NONE cterm=NONE
 hi! CocWarningSign guifg=#fabd2f guibg=#282828 gui=NONE cterm=NONE
 
-" Git diff signs.
-hi! DiffAdd guifg=#b8bb26 guibg=NONE gui=NONE cterm=NONE
-hi! DiffChange guifg=#8ec07c guibg=NONE gui=NONE cterm=NONE
-hi! DiffDelete guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
-hi! DiffChangeDelete guifg=#8ec07c guibg=NONE gui=NONE cterm=NONE
+" Git diff.
+hi! diffAdded guifg=#b8bb26 guibg=NONE gui=NONE cterm=NONE
+hi! diffRemoved guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
+hi! diffChanged guifg=#8ec07c guibg=NONE gui=NONE cterm=NONE
+hi! diffFile guifg=#fe8019 guibg=NONE gui=NONE cterm=NONE
+hi! diffNewFile guifg=#fabd2f guibg=NONE gui=NONE cterm=NONE
+hi! diffLine guifg=#83a598 guibg=NONE gui=NONE cterm=NONE
+
+" Git column styles.
+hi! GitAdd guifg=#b8bb26 guibg=NONE gui=NONE cterm=NONE
+hi! GitChange guifg=#8ec07c guibg=NONE gui=NONE cterm=NONE
+hi! GitDelete guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
+hi! GitChangeDelete guifg=#8ec07c guibg=NONE gui=NONE cterm=NONE
 
 " Lightline colorscheme.
 let s:p = {'normal':{}, 'inactive':{}, 'insert':{}, 'replace':{}, 'visual':{}, 'tabline':{}, 'terminal':{}}
