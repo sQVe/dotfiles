@@ -81,6 +81,7 @@ set undofile                      " Keep a persistent backup file.
 set suffixesadd=.js,.jsx,.ts,.tsx,.sh.css,.scss,.md,.json,.yaml,.yml
 
 " Colorscheme.
+set background=dark
 colorscheme gruvbox8
 
 
