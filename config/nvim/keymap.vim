@@ -97,17 +97,15 @@ vnoremap K "oy<Esc>:Ddg<CR>
 
 " Ale.
 nnoremap <silent> <Leader>ta :ALEToggleBuffer<CR>
-nnoremap <silent> <Leader>cd :ALEDetail<CR>
+nnoremap <silent> <Leader>ca :ALEDetail<CR>
 nnoremap <silent> [c :ALEPreviousWrap<CR>
 nnoremap <silent> ]c :ALENextWrap<CR>
 
 " Coc.
 nnoremap <silent> <Leader>o :CocList --auto-preview --tab outline <CR>
 nnoremap <silent> <Leader>O :CocList --auto-preview --interactive --tab symbols<CR>
-nmap <Leader>ca :CocAction<CR>
-xmap <Leader>ca :CocAction<CR>
-nmap <Leader>cf :CocFix<CR>
-xmap <Leader>cf :CocFix<CR>
+nmap <Leader>cf :CocAction<CR>
+xmap <Leader>cf :CocAction<CR>
 nmap <Leader>cs :CocSearch<Space>
 nmap <silent> <Leader>f <Plug>(coc-fix-current)
 nmap <silent> <Leader>r <Plug>(coc-rename)
@@ -137,7 +135,8 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <silent><expr> <C-Space> coc#refresh()
 
 " Use <CR> to confirm completion.
-inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm() : "\<C-g>u\<CR>"
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+  \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " EasyAlign.
 xmap <silent> ga <Plug>(EasyAlign)
