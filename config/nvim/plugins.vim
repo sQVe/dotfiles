@@ -63,7 +63,7 @@ Plug 'mg979/vim-visual-multi'                      " Multiple cursors.
 Plug 'sheerun/vim-polyglot'                        " Language pack.
 
 " Text objects and motions.
-Plug 'christoomey/vim-sort-motion'                 " Sort by motion.
+Plug 'christoomey/vim-sort-motion'                 " Sort by motion text object.
 Plug 'wellle/targets.vim'                          " Additional text objects.
 
 call plug#end()
