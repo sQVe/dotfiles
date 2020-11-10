@@ -75,6 +75,7 @@ Plug 'samoshkin/vim-mergetool'                     " Git mergetool
 Plug 'voldikss/vim-floaterm'                       " Floating terminal.
 
 " Search, replace and navigation.
+Plug 'bronson/vim-visual-star-search'              " Visual star search.
 Plug 'junegunn/fzf.vim'                            " Fzf.
 Plug 'justinmk/vim-sneak'                          " Quick jump.
 Plug 'mg979/vim-visual-multi'                      " Multiple cursors.
