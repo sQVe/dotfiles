@@ -53,7 +53,9 @@ set listchars=extends:›,precedes:‹,tab:→\ ,nbsp:•,trail:•
 " Folding.
 set foldenable                    " Enable folding.
 set foldlevelstart=99             " Folding level.
-set foldmethod=indent             " Folding method.
+set foldnestmax=4                 " Folding max.
+set foldmethod=expr               " Folding method.
+set foldexpr=nvim_treesitter#foldexpr()
 
 let g:is_sh = 1                   " Enable default sh syntax.
 let g:sh_fold_enabled = 4         " Fold down to if/do/for etc.
