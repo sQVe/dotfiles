@@ -107,14 +107,15 @@ nnoremap <silent> <Leader>O :CocList --auto-preview --interactive --tab symbols<
 nmap <Leader>cf :CocAction<CR>
 xmap <Leader>cf :CocAction<CR>
 nmap <Leader>cs :CocSearch<Space>
+nmap <silent> <Leader>cS :CocSearch \b<C-R>=expand("<cword>")<CR>\b<CR>
 nmap <silent> <Leader>f <Plug>(coc-fix-current)
 nmap <silent> <Leader>r <Plug>(coc-rename)
 nnoremap <silent> K :ShowDocumentation<CR>
-nmap <silent> gD <Plug>(coc-implementation)
-nmap <silent> gR :CocSearch \b<C-R>=expand("<cword>")<CR>\b<CR>
+nmap <silent> gR :Rg \b<C-R>=expand("<cword>")<CR>\b<CR>
 nmap <silent> gb <Plug>(coc-range-select)
 xmap <silent> gb <Plug>(coc-range-select)
 nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gD <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nmap <silent> gy <Plug>(coc-type-definition)
 
