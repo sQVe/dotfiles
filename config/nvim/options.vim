@@ -99,6 +99,7 @@ let g:ale_sign_error = '■'
 let g:ale_sign_info = '■'
 let g:ale_sign_warning = '■'
 let g:ale_virtualtext_cursor = 1
+let g:ale_virtualtext_prefix = '■ '
 
 let g:ale_linter_aliases = {
   \ 'html': ['html', 'css', 'javascript'],
@@ -207,9 +208,9 @@ let g:lens#width_resize_min = 20
 
 " Lightline.
 let g:lightline#ale#indicator_checking = "\uf110 "
-let g:lightline#ale#indicator_infos = "\uf129 "
-let g:lightline#ale#indicator_warnings = "\uf071 "
-let g:lightline#ale#indicator_errors = "\uf05e "
+let g:lightline#ale#indicator_infos = ""
+let g:lightline#ale#indicator_warnings = ""
+let g:lightline#ale#indicator_errors = ""
 let g:lightline#ale#indicator_ok = "\uf00c "
 
 let g:lightline = {
