@@ -125,7 +125,7 @@ filetype *.asc
 
 " Open html files in qutebrowser.
 filetype *.html,*htm
-  \ scaled-qutebrowser %f
+  \ scaled-qutebrowser %f &
 
 " Open all text files with nvim.
 filetype <text/*>
@@ -137,7 +137,7 @@ filetype <application/json>
 
 " Open all other with mimeo.
 filetype *
-  \ mimeo %f
+  \ mimeo %f &
 
 
 "  ┏━╸╻╻  ┏━╸╻ ╻╻┏━╸╻ ╻┏━╸┏━┓┏━┓
