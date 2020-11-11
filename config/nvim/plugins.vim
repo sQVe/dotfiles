@@ -42,7 +42,8 @@ Plug 'moll/vim-bbye'                               " Delete buffers without clos
 Plug 'tpope/vim-eunuch'                            " Unix helpers.
 
 " Comments and documentation.
-Plug 'kkoomen/vim-doge'                            " Generate documentation.
+Plug 'kkoomen/vim-doge', {
+  \ 'do': { -> doge#install() } }                  " Generate documentation.
 Plug 'tpope/vim-commentary'                        " Comment text.
 
 " Completion, diagnostics and spelling.

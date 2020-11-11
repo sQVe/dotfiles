@@ -100,4 +100,4 @@ command! GCopyUrl CocCommand git.copyUrl
 command! YankList CocList -A --normal yank
 
 " Update plugins and coc extensions.
-command! Update CocUpdateSync | PlugUpdate| TSUpdate
+command! Update CocUpdateSync | PlugUpdate | TSUpdate
