@@ -50,7 +50,6 @@ Plug 'tpope/vim-commentary'                        " Comment text.
 Plug 'dense-analysis/ale'                          " Lint and fix files.
 Plug 'neoclide/coc.nvim', {
   \ 'do': 'yarn install --frozen-lockfile' }       " Intellisense with LSP.
-Plug 'rhysd/vim-grammarous'                        " Grammary check with languagetool.
 
 " Debug.
 Plug 'dstein64/vim-startuptime'                    " Check startup times.

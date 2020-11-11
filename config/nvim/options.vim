@@ -182,20 +182,6 @@ let g:floaterm_wintitle = 0
 " Fugitive.
 let g:fugitive_pty = 0
 
-" Grammarous.
-let g:grammarous#default_comments_only_filetypes = {
-  \ '*': 1,
-  \ '': 0,
-  \ 'help': 0,
-  \ 'markdown': 0,
-  \ 'text': 0,
-  \ }
-let g:grammarous#disabled_rules = {
-  \ '*' : ['DASH_RULE'],
-  \ 'markdown' : ['COMMA_PARENTHESIS_WHITESPACE', 'DASH_RULE', 'EN_QUOTES', 'WHITESPACE_RULE'],
-  \ }
-let g:grammarous#languagetool_cmd = 'languagetool'
-
 " JavaScript.
 let g:javascript_plugin_jsdoc = 1
 
