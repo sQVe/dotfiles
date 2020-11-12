@@ -97,3 +97,6 @@ hi! StartifySpecial guifg=#504945 guibg=NONE gui=NONE cterm=NONE
 
 " Turn of italics for strings.
 hi! String gui=NONE cterm=NONE
+
+" Blank indent guides.
+hi! Whitespace guifg=#323232 guibg=NONE gui=NONE cterm=NONE

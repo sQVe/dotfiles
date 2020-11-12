@@ -63,9 +63,12 @@ Plug 'tpope/vim-rhubarb'                           " Use hub instead of git.
 Plug 'tpope/vim-speeddating'                       " Increment / decrement dates, times and more.
 
 " Interface.
+Plug 'Yggdroot/indentLine'                         " Indent guides.
 Plug 'ap/vim-buftabline'                           " Buffer line.
 Plug 'camspiers/lens.vim'                          " Resize windows based on content.
 Plug 'itchyny/lightline.vim'                       " Status line.
+Plug 'lukas-reineke/indent-blankline.nvim', {
+  \ 'branch': 'lua' }                              " Indent guides for blank lines.
 Plug 'maximbaz/lightline-ale'                      " Lint information in status line.
 Plug 'mhinz/vim-startify'                          " Launch screen.
 Plug 'ntpeters/vim-better-whitespace'              " Highlight trailing whitespace.
