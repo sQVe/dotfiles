@@ -17,11 +17,9 @@ let s:lang_syntax_disable = [
   \ 'css.plugin',
   \ 'html.plugin',
   \ 'javascript.plugin',
-  \ 'json.plugin',
   \ 'jsx.plugin',
   \ 'sh.plugin',
   \ 'typescript.plugin',
-  \ 'yaml.plugin',
   \ ]
 
 let g:polyglot_disabled = s:lang_disable + s:lang_syntax_disable
