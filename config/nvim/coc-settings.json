@@ -12,6 +12,7 @@
   "git.changedSign.hlGroup": "GitChange",
   "git.removedSign.hlGroup": "GitDelete",
   "git.topRemovedSign.hlGroup": "GitDelete",
+  "git.semanticCommit.filetypes": [],
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
