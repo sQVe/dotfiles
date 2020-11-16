@@ -949,6 +949,11 @@ const findKey = (obj, fn) =>
   Object.keys(obj).find(key => fn(obj[key], key, obj));
 endsnippet
 
+snippet findKeys "Finds all the keys in the provided object that match the given value.  - Use `Object.keys(obj)` to get all the properties of the object. - Use `Array.prototype.filter()` to test each key-value pair and return all keys that are equal to the given value." b
+const findKeys = (obj, val) => 
+  Object.keys(obj).filter(key => obj[key] === val);
+endsnippet
+
 snippet findLast "Finds the last element for which the provided function returns a truthy value.  - Use `Array.prototype.filter()` to remove elements for which `fn` returns falsy values. - Use `Array.prototype.pop()` to get the last element in the filtered array." b
 const findLast = (arr, fn) => arr.filter(fn).pop();
 endsnippet
@@ -2891,7 +2896,7 @@ const standardDeviation = (arr, usePopulation = false) => {
 };
 endsnippet
 
-snippet stringPermutations "Generates all permutations of a string (contains duplicates).  - Use recursion. - For each letter in the given string, create all the partial permutations for the rest of its letters. - Use `Array.prototype.map()` to combine the letter with each partial permutation. - Use `Array.prototype.reduce()` to combine all permutations in one array. - Base cases are for `String.prototype.length` equal to `2` or `1`. - ⚠️ **WARNING**: This function's execution time increases exponentially with each character. Anything more than 8 to 10 characters will cause your browser to hang as it tries to solve all the different combinations." b
+snippet stringPermutations "Generates all permutations of a string (contains duplicates).  - Use recursion. - For each letter in the given string, create all the partial permutations for the rest of its letters. - Use `Array.prototype.map()` to combine the letter with each partial permutation. - Use `Array.prototype.reduce()` to combine all permutations in one array. - Base cases are for `String.prototype.length` equal to `2` or `1`. - ⚠️ **WARNING**: The execution time increases exponentially with each character. Anything more than 8 to 10 characters will cause your environment to hang as it tries to solve all the different combinations." b
 const stringPermutations = str => {
   if (str.length <= 2) return str.length === 2 ? [str, str[1] + str[0]] : [str];
   return str
@@ -2965,6 +2970,13 @@ endsnippet
 snippet supportsTouchEvents "Checks if touch events are supported.  - Check if `'ontouchstart'` exists in `window`." b
 const supportsTouchEvents = () =>
   window && 'ontouchstart' in window;
+endsnippet
+
+snippet swapCase "Creates a string with uppercase characters converted to lowercase and vice versa.  - Use the spread operator (`...`) to convert `str` into an array of characters. - Use `String.prototype.toLowerCase()` and `String.prototype.toUpperCase()` to convert lowercase characters to uppercase and vice versa. - Use `Array.prototype.map()` to apply the transformation to each character, `Array.prototype.join()` to combine back into a string. - Note that it is not necessarily true that `swapCase(swapCase(str)) === str`." b
+const swapCase = str =>
+  [...str]
+    .map(c => (c === c.toLowerCase() ? c.toUpperCase() : c.toLowerCase()))
+    .join('');
 endsnippet
 
 snippet symmetricDifference "Returns the symmetric difference between two arrays, without filtering out duplicate values.  - Create a `new Set()` from each array to get the unique values of each one. - Use `Array.prototype.filter()` on each of them to only keep values not contained in the other." b
@@ -3128,7 +3140,7 @@ const toKebabCase = str =>
     .join('-');
 endsnippet
 
-snippet toOrdinalSuffix "Adds an ordinal suffix to a number.  - Use the modulo operator (`%`) to find values of single and tens digits. - Find which ordinal pattern digits match. - If digit is found in teens pattern, use teens ordinal." b
+snippet toOrdinalSuffix "Takes a number and returns it as a string with the correct ordinal indicator suffix.  - Use the modulo operator (`%`) to find values of single and tens digits. - Find which ordinal pattern digits match. - If digit is found in teens pattern, use teens ordinal." b
 const toOrdinalSuffix = num => {
   const int = parseInt(num),
     digits = [int % 10, int % 100],
