@@ -7,15 +7,12 @@
 " ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 " Disable whole language pack.
-"  - graphql: indention issues.
 let s:lang_disable = [
   \ 'graphql',
   \ ]
 
 " Disable language syntax already handled by treesitter.
 let s:lang_syntax_disable = [
-  \ 'css.plugin',
-  \ 'html.plugin',
   \ 'javascript.plugin',
   \ 'jsx.plugin',
   \ 'sh.plugin',
