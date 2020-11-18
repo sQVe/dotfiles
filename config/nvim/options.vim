@@ -182,22 +182,6 @@ let g:floaterm_wintitle = 0
 " Fugitive.
 let g:fugitive_pty = 0
 
-" Indent guides.
-let g:indentLine_char = '│'
-let g:indentLine_color_gui = '#323232'
-let g:indentLine_fileType = [
-  \ 'css',
-  \ 'html',
-  \ 'javascript',
-  \ 'javascriptreact',
-  \ 'scss',
-  \ 'sh',
-  \ 'typescript',
-  \ 'typescriptreact'
-  \ ]
-let g:indent_blankline_char = g:indentLine_char
-let g:indent_blankline_filetype = g:indentLine_fileType
-
 " JavaScript.
 let g:javascript_plugin_jsdoc = 1
 
