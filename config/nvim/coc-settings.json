@@ -1,6 +1,5 @@
 {
   "coc.source.dictionary.filetypes": ["gitcommit", "mail", "markdown", "markdown.mdx", "text"],
-  "coc.source.emoji.filetypes": ["gitcommit", "mail", "markdown", "markdown.mdx", "text"],
   "diagnostic.displayByAle": true,
   "emmet.excludeLanguages": [
     "javascriptreact",
