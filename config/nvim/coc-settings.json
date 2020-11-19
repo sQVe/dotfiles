@@ -6,6 +6,11 @@
     "markdown",
     "typescriptreact"
   ],
+  "git.addedSign.text": "│",
+  "git.changeRemovedSign.text": "│",
+  "git.changedSign.text": "│",
+  "git.removedSign.text": "│",
+  "git.topRemovedSign.text": "│",
   "git.addedSign.hlGroup": "GitAdd",
   "git.changeRemovedSign.hlGroup": "GitChangeDelete",
   "git.changedSign.hlGroup": "GitChange",
