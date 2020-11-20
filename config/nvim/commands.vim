@@ -39,7 +39,7 @@ command! WA wa
 command! Wbc Wbc
 
 " Open prev git commit message.
-command! PrevCommitMsg edit .git/PREV_COMMIT_EDITMSG
+command! PrevCommitMsg vsplit .git/PREV_COMMIT_EDITMSG
 
 
 "  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻   ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓┏━┓
