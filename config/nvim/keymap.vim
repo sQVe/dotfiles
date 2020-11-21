@@ -96,8 +96,9 @@ vnoremap K "oy<Esc>:Ddg<CR>
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
 " Ale.
+nnoremap <silent> <Leader>ad :ALEDetail<CR>
+nnoremap <silent> <Leader>af :ALEFix<CR>
 nnoremap <silent> <Leader>ta :ALEToggleBuffer<CR>
-nnoremap <silent> <Leader>ca :ALEDetail<CR>
 nnoremap <silent> [c :ALEPreviousWrap<CR>
 nnoremap <silent> ]c :ALENextWrap<CR>
 
