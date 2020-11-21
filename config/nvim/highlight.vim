@@ -48,9 +48,9 @@ hi! diffLine guifg=#83a598 guibg=NONE gui=NONE cterm=NONE
 
 " Git column styles.
 hi! GitAdd guifg=#b8bb26 guibg=NONE gui=NONE cterm=NONE
-hi! GitChange guifg=#8ec07c guibg=NONE gui=NONE cterm=NONE
+hi! GitChange guifg=#d3869b guibg=NONE gui=NONE cterm=NONE
 hi! GitDelete guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
-hi! GitChangeDelete guifg=#8ec07c guibg=NONE gui=NONE cterm=NONE
+hi! GitChangeDelete guifg=#d3869b guibg=NONE gui=NONE cterm=NONE
 
 " Lightline colorscheme.
 let s:p = {'normal':{}, 'inactive':{}, 'insert':{}, 'replace':{}, 'visual':{}, 'tabline':{}, 'terminal':{}}
