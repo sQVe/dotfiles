@@ -31,6 +31,17 @@ noremap j gj
 noremap gk k
 noremap gj j
 
+" Consistent Y.
+noremap Y y$
+
+" Consistent search with n and N.
+noremap <expr> n 'Nn'[v:searchforward]
+noremap <expr> N 'nN'[v:searchforward]
+
+" Consistent find with ; and ,.
+noremap <expr> , getcharsearch().forward ? ';' : ','
+noremap <expr> ; getcharsearch().forward ? ',' : ';'
+
 " Quick save.
 noremap <silent> <Leader><Leader> :update<CR>
 
@@ -181,10 +192,12 @@ nnoremap <silent> <Leader>gw :Gwrite<CR>
 noremap <plug>(slash-after) zz
 
 " Sneak.
-map f <Plug>Sneak_f
 map F <Plug>Sneak_F
-map t <Plug>Sneak_t
 map T <Plug>Sneak_T
+map f <Plug>Sneak_f
+map t <Plug>Sneak_t
+nmap <expr> , sneak#is_sneaking() ? '<Plug>Sneak_;' : ','
+nmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_,' : ','
 
 " Visual Multi.
 nmap <M-Down> <M-j>
