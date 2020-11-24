@@ -49,7 +49,7 @@ Plug 'neoclide/coc.nvim', {
   \ 'do': 'yarn install --frozen-lockfile' }       " Intellisense with LSP.
 
 " Debug.
-Plug 'dstein64/vim-startuptime'                    " Check startup times.
+" Plug 'dstein64/vim-startuptime'                    " Check startup times.
 
 " Integration.
 Plug 'airblade/vim-rooter'                         " Set pwd to root directory.
