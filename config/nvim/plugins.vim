@@ -42,7 +42,9 @@ Plug 'kkoomen/vim-doge', {
 Plug 'tpope/vim-commentary'                        " Comment text.
 
 " Completion, diagnostics and spelling.
-Plug 'dense-analysis/ale'                          " Lint and fix files.
+Plug 'dense-analysis/ale', {
+  \ 'commit': 'b74827de99e842dc7698d8d6274486550d90f05a' }
+                                                   " Lint and fix files.
 Plug 'neoclide/coc.nvim', {
   \ 'do': 'yarn install --frozen-lockfile' }       " Intellisense with LSP.
 
@@ -70,6 +72,7 @@ Plug 'samoshkin/vim-mergetool'                     " Git mergetool
 Plug 'voldikss/vim-floaterm'                       " Floating terminal.
 
 " Search, replace and navigation.
+Plug 'PeterRincker/vim-searchlight'                " Highlight current match.
 Plug 'bronson/vim-visual-star-search'              " Visual star search.
 Plug 'junegunn/fzf.vim'                            " Fzf.
 Plug 'justinmk/vim-sneak'                          " Quick jump.

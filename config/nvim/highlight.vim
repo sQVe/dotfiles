@@ -80,6 +80,9 @@ let s:p.normal.error = [ [ '#282828', '#fb4934' ] ]
 let s:p.normal.warning = [ [ '#282828', '#fabd2f' ] ]
 let g:lightline#colorscheme#gruvbox8#palette = lightline#colorscheme#fill(s:p)
 
+" Searchlight.
+hi! Searchlight guifg=#282828 guibg=#fe8019 gui=NONE cterm=NONE
+
 " Sneak.
 hi! Sneak guifg=#282828 guibg=#d3869b gui=bold cterm=NONE
 hi! SneakScope guifg=#282828 guibg=#8ec07c gui=bold cterm=NONE
