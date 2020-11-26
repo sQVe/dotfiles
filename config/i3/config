@@ -288,6 +288,9 @@ mode "resize" {
 # ¤¤¤¤  Autostart  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
+# Set initial random wallpaper.
+exec --no-startup-id random-wallpaper
+
 # Safely start redshift.
 exec --no-startup-id "sh -c 'sleep 2; exec $HOME/scripts/i3/safe-load-redshift.sh'"
 

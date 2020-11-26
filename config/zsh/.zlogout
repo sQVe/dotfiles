@@ -1,1 +1,0 @@
-sudo prime-switch

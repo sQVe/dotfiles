@@ -30,9 +30,6 @@ libinput-gestures-setup start &
 # Set background color.
 xsetroot -solid '#282828'
 
-# Set initial random wallpaper.
-random-wallpaper
-
 # Set screen power timer.
 xset dpms 240 240 240
 

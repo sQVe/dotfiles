@@ -189,6 +189,13 @@ alias la='exa -la'
 alias ll='exa -l'
 alias ls='exa'
 
+# State.
+alias i3exit='state exit'
+alias poweroff='state poweroff'
+alias reboot='state reboot'
+alias shutdown='state shutdown'
+alias suspend='state suspend'
+
 # Apps.
 alias bluetooth=bluetoothctl
 alias c=cat
