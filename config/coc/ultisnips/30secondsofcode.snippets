@@ -147,9 +147,17 @@ endsnippet
 
 snippet addDaysToDate "Calculates the date of `n` days from the given date, returning its string representation.  - Use `new Date()` to create a date object from the first argument. - Use `Date.prototype.getDate()` and `Date.prototype.setDate()` to add `n` days to the given date. - Use `Date.prototype.toISOString()` to return a string in `yyyy-mm-dd` format." b
 const addDaysToDate = (date, n) => {
-  d = new Date(date);
+  const d = new Date(date);
   d.setDate(d.getDate() + n);
   return d.toISOString().split('T')[0];
+};
+endsnippet
+
+snippet addMinutesToDate "Calculates the date of `n` minutes from the given date, returning its string representation.  - Use `new Date()` to create a date object from the first argument. - Use `Date.prototype.getTime()` and `Date.prototype.setTime()` to add `n` minutes to the given date. - Use `Date.prototype.toISOString()`, `String.prototype.split()` and `String.prototype.replace()` to return a string in `yyyy-mm-dd HH:MM:SS` format." b
+const addMinutesToDate = (date, n) => {
+  const d = new Date(date);
+  d.setTime(d.getTime() + n * 60000);
+  return d.toISOString().split('.')[0].replace('T',' ');
 };
 endsnippet
 
@@ -464,6 +472,21 @@ endsnippet
 
 snippet compact "Removes falsy values from an array.  - Use `Array.prototype.filter()` to filter out falsy values (`false`, `null`, `0`, ``, `undefined`, and `NaN`)." b
 const compact = arr => arr.filter(Boolean);
+endsnippet
+
+snippet compactObject "Deeply removes all falsy values from an object or array.  - Use recursion. - Initialize the iterable data, using `Array.isArray()`, `Array.prototype.filter()` and `Boolean` for arrays in order to avoid sparse arrays. - Use `Object.keys()` and `Array.prototype.reduce()` to iterate over each key with an appropriate initial value. - Use `Boolean` to determine the truthiness of each key's value and add it to the accumulator if it's truthy. - Use `typeof` to determine if a given value is an `object` and call the function again to deeply compact it." b
+const compactObject = val => {
+  const data = Array.isArray(val) ? val.filter(Boolean) : val;
+  return Object.keys(data).reduce(
+    (acc, key) => {
+      const value = data[key];
+      if (Boolean(value))
+        acc[key] = typeof value === 'object' ? compactObject(value) : value;
+      return acc;
+    },
+    Array.isArray(val) ? [] : {}
+  );
+};
 endsnippet
 
 snippet compactWhitespace "Compacts whitespaces in a string.  - Use `String.prototype.replace()` with a regular expression to replace all occurrences of 2 or more whitespace characters with a single space." b
@@ -1643,6 +1666,13 @@ endsnippet
 snippet isGeneratorFunction "Checks if the given argument is a generator function.  - Use `Object.prototype.toString()` and `Function.prototype.call()` and check if the result is `'[object GeneratorFunction]'`." b
 const isGeneratorFunction = val =>
   Object.prototype.toString.call(val) === '[object GeneratorFunction]';
+endsnippet
+
+snippet isISOString "Checks if the given string is valid in the simplified extended ISO format (ISO 8601).  - Use `new Date()` to create a date object from the given string. - Use `Date.prototype.valueOf()` and `Number.isNaN()` to check if the produced date object is valid. - Use `Date.prototype.toISOString()` to compare the ISO formatted string representation of the date with the original string." b
+const isISOString = val => {
+  const d = new Date(val);
+  return !Number.isNaN(d.valueOf()) && d.toISOString() === val;
+};
 endsnippet
 
 snippet isLeapYear "Checks if the given `year` is a leap year.  - Use `new Date()`, setting the date to February 29th of the given `year`. - Use `Date.prototype.getMonth()` to check if the month is equal to `1`." b
@@ -3014,14 +3044,32 @@ snippet takeRight "Creates an array with `n` elements removed from the end.  - U
 const takeRight = (arr, n = 1) => arr.slice(arr.length - n, arr.length);
 endsnippet
 
-snippet takeRightWhile "Removes elements from the end of an array until the passed function returns `true`. Returns the removed elements.  - Loop through the array, using `Array.prototype.reduceRight()` and accumulating elements while `func` returns falsy values." b
-const takeRightWhile = (arr, func) =>
-  arr.reduceRight((acc, el) => (func(el) ? acc : [el, ...acc]), []);
+snippet takeRightUntil "Removes elements from the end of an array until the passed function returns `true`. Returns the removed elements.  - Create a reversed copy of the array, using the spread operator (`...`) and `Array.prototype.reverse()`. - Loop through the reversed copy, using a `for...of` loop over `Array.prototype.entries()` until the returned value from the function is truthy. - Return the removed elements, using `Array.prototype.slice()`. - The callback function, `fn`, accepts a single argument which is the value of the element." b
+const takeRightUntil = (arr, fn) => {
+  for (const [i, val] of [...arr].reverse().entries())
+    if (fn(val)) return i === 0 ? [] : arr.slice(-i);
+  return arr;
+};
 endsnippet
 
-snippet takeWhile "Removes elements in an array until the passed function returns `true`. Returns the removed elements.  - Loop through the array, using a `for...of` loop over `Array.prototype.entries()` until the returned value from the function is `true`. - Return the removed elements, using `Array.prototype.slice()`." b
-const takeWhile = (arr, func) => {
-  for (const [i, val] of arr.entries()) if (func(val)) return arr.slice(0, i);
+snippet takeRightWhile "Removes elements from the end of an array until the passed function returns `false`. Returns the removed elements.  - Create a reversed copy of the array, using the spread operator (`...`) and `Array.prototype.reverse()`. - Loop through the reversed copy, using a `for...of` loop over `Array.prototype.entries()` until the returned value from the function is falsy. - Return the removed elements, using `Array.prototype.slice()`. - The callback function, `fn`, accepts a single argument which is the value of the element." b
+const takeRightWhile = (arr, fn) => {
+  for (const [i, val] of [...arr].reverse().entries())
+    if (!fn(val)) return i === 0 ? [] : arr.slice(-i);
+  return arr;
+};
+endsnippet
+
+snippet takeUntil "Removes elements in an array until the passed function returns `true`. Returns the removed elements.  - Loop through the array, using a `for...of` loop over `Array.prototype.entries()` until the returned value from the function is truthy. - Return the removed elements, using `Array.prototype.slice()`. - The callback function, `fn`, accepts a single argument which is the value of the element." b
+const takeUntil = (arr, fn) => {
+  for (const [i, val] of arr.entries()) if (fn(val)) return arr.slice(0, i);
+  return arr;
+};
+endsnippet
+
+snippet takeWhile "Removes elements in an array until the passed function returns `false`. Returns the removed elements.  - Loop through the array, using a `for...of` loop over `Array.prototype.entries()` until the returned value from the function is falsy. - Return the removed elements, using `Array.prototype.slice()`. - The callback function, `fn`, accepts a single argument which is the value of the element." b
+const takeWhile = (arr, fn) => {
+  for (const [i, val] of arr.entries()) if (!fn(val)) return arr.slice(0, i);
   return arr;
 };
 endsnippet
