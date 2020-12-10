@@ -2,7 +2,18 @@
 #  ┃  ┃ ┃┃┃┃┣━┛┃ ┃┃┗┫┣╸ ┃┗┫ ┃    ┃┃┃┃ ┃ ┃┃┃ ┃┃  ┣╸
 #  ┗━╸┗━┛╹ ╹╹  ┗━┛╹ ╹┗━╸╹ ╹ ╹    ╹ ╹┗━┛╺┻┛┗━┛┗━╸┗━╸
 
-snippet rc "React Component Module" b
+
+snippet rc "React Stateless Function Component Module" b
+import React from 'react';
+
+const ${1:`!v expand('%:t:r')`} = props => {
+	return ${2:null};$0
+};
+
+export default $1;
+endsnippet
+
+snippet rcc "React Component Module" b
 import React, { ${1:Pure}Component } from 'react';
 
 export default class ${2:`!v expand('%:t:r')`} extends $1Component {
@@ -16,16 +27,6 @@ export default class ${2:`!v expand('%:t:r')`} extends $1Component {
 		return ${3:null};$0
 	}
 }
-endsnippet
-
-snippet rcs "React Stateless Function Component Module" b
-import React from 'react';
-
-const ${1:`!v expand('%:t:r')`} = props => {
-	return ${2:null};$0
-};
-
-export default $1;
 endsnippet
 
 
@@ -157,129 +158,4 @@ endsnippet
 
 snippet rhd "useDebugValue" b
 useDebugValue(${0:null});
-endsnippet
-
-
-#  ┏━┓┏━┓┏━┓┏━┓   ╺┳╸╻ ╻┏━┓┏━╸┏━┓
-#  ┣━┛┣┳┛┃ ┃┣━┛    ┃ ┗┳┛┣━┛┣╸ ┗━┓
-#  ╹  ╹┗╸┗━┛╹      ╹  ╹ ╹  ┗━╸┗━┛
-
-snippet rpt.a "PropTypes.array" w
-PropTypes.array
-endsnippet
-
-snippet rpt.ar "PropTypes.array.isRequired" w
-PropTypes.array.isRequired
-endsnippet
-
-snippet rpt.b "PropTypes.bool" w
-PropTypes.bool
-endsnippet
-
-snippet rpt.br "PropTypes.bool.isRequired" w
-PropTypes.bool.isRequired
-endsnippet
-
-snippet rpt.f "PropTypes.func" w
-PropTypes.func
-endsnippet
-
-snippet rpt.fr "PropTypes.func.isRequired" w
-PropTypes.func.isRequired
-endsnippet
-
-snippet rpt.nu "PropTypes.number" w
-PropTypes.number
-endsnippet
-
-snippet rpt.nur "PropTypes.number.isRequired" w
-PropTypes.number.isRequired
-endsnippet
-
-snippet rpt.o "PropTypes.object" w
-PropTypes.object
-endsnippet
-
-snippet rpt.or "PropTypes.object.isRequired" w
-PropTypes.object.isRequired
-endsnippet
-
-snippet rpt.s "PropTyes.string" w
-PropTypes.string
-endsnippet
-
-snippet rpt.sr "PropTyes.string.isRequired" w
-PropTypes.string.isRequired
-endsnippet
-
-snippet rpt.no "PropTypes.node" w
-PropTypes.node
-endsnippet
-
-snippet rpt.nor "PropTypes.node.isRequired" w
-PropTypes.node.isRequired
-endsnippet
-
-snippet rpt.e "PropTypes.element" w
-PropTypes.element
-endsnippet
-
-snippet rpt.er "PropTypes.element.isRequired" w
-PropTypes.element.isRequired
-endsnippet
-
-snippet rpt.ao "PropTypes.arrayOf()" w
-PropTypes.arrayOf(${0:PropTypes.string})
-endsnippet
-
-snippet rpt.aor "PropTypes.arrayOf().isRequired" w
-PropTypes.arrayOf(${0:PropTypes.string}).isRequired
-endsnippet
-
-snippet rpt.io "PropTypes.instanceOf()" w
-PropTypes.instanceOf(${0:PropTypes.string})
-endsnippet
-
-snippet rpt.ior "PropTypes.instanceOf().isRequired" w
-PropTypes.instanceOf(${0:PropTypes.string}).isRequired
-endsnippet
-
-snippet rpt.oo "PropTypes.objectOf()" w
-PropTypes.objectOf(${0:PropTypes.string})
-endsnippet
-
-snippet rpt.oor "PropTypes.objectOf().isRequired" w
-PropTypes.objectOf(${0:PropTypes.string}).isRequired
-endsnippet
-
-snippet rpt.one "PropTypes.oneOf([])" w
-PropTypes.oneOf(['$0'$1])
-endsnippet
-
-snippet rpt.oner "PropTypes.oneOf([]).isRequired" w
-PropTypes.oneOf(['$0'$1]).isRequired
-endsnippet
-
-snippet rpt.onet "PropTYpes.oneOfType([])" w
-PropTypes.oneOfType([
-	$0
-])
-endsnippet
-
-snippet rpt.onetr "PropTYpes.oneOfType([]).isRequired" w
-PropTypes.oneOfType([
-	$0
-]).isRequired
-endsnippet
-
-snippet rpt.sh "PropTypes.shape" w
-PropTypes.shape({
-	$0
-})
-endsnippet
-
-snippet rpt.shr "PropTypes.shape.isRequired" w
-PropTypes.shape({
-	$0
-}).isRequired
 endsnippet
