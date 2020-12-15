@@ -1,4 +1,5 @@
 command=$HOME/scripts/i3blocks/$BLOCK_NAME
+separator=false
 separator_block_width=20
 
 [cpu-usage]

@@ -13,9 +13,10 @@ set $mod Mod4
 set $font term 7
 set $color-bg #282828
 set $color-bg-hi #3c3836
+set $color-bright-aqua #8ec07c
+set $color-neutral-aqua #689d6a
+set $color-neutral-purple #b16286
 set $color-text #a89984
-set $color-purple #b16286
-set $color-blue #83a598
 
 set $workspace-0 "0  "
 set $workspace-1 "1  "
@@ -78,27 +79,27 @@ hide_edge_borders smart
 new_float pixel 2
 new_window pixel 2
 
-# Window types                 Border          Background       Text           Indicator      Child border
-client.focused                 $color-purple   $color-purple    $color-bg      $color-blue    $color-purple
-client.focused_inactive        $color-purple   $color-purple    $color-bg      $color-blue    $color-bg
-client.unfocused               $color-bg       $color-bg        $color-text    $color-blue    $color-bg
-client.urgent                  $color-red      $color-red       $color-text    $color-blue    $color-bg
+# Window types              Border                    Background                Text            Indicator               Child border
+client.focused              $color-neutral-purple     $color-neutral-purple     $color-bg       $color-neutral-aqua     $color-neutral-purple
+client.focused_inactive     $color-neutral-purple     $color-neutral-purple     $color-bg       $color-neutral-aqua     $color-bg
+client.unfocused            $color-bg                 $color-bg                 $color-text     $color-neutral-aqua     $color-bg
+client.urgent               $color-red                $color-red                $color-text     $color-neutral-aqua     $color-bg
 
 bar {
   colors {
     background $color-bg
     statusline $color-text
-    separator  $color-bg
 
-    # Workspace type          Border           Background       Text
-    focused_workspace         $color-bg-hi     $color-bg-hi     $color-blue
-    active_workspace          $color-bg-hi     $color-bg-hi     $color-blue
-    inactive_workspace        $color-bg        $color-bg        $color-text
-    urgent_workspace          $color-purple    $color-purple    $color-bg
+    # Workspace type       Border                    Background                Text
+    focused_workspace      $color-bg-hi              $color-bg-hi              $color-bright-aqua
+    active_workspace       $color-bg-hi              $color-bg-hi              $color-neutral-aqua
+    inactive_workspace     $color-bg                 $color-bg                 $color-text
+    urgent_workspace       $color-neutral-purple     $color-neutral-purple     $color-bg
   }
 
   position top
   status_command i3blocks
+  workspace_min_width 30
 
   # Set to either primary or output name.
   tray_output none

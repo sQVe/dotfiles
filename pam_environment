@@ -1,5 +1,5 @@
 # Apps.
-BROWSER=qutebrowser
+BROWSER=open-qutebrowser
 EDITOR=nvim
 PAGER=less
 TERMINAL=term

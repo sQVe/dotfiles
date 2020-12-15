@@ -6,8 +6,8 @@
 snippet rc "React Stateless Function Component Module" b
 import React from 'react';
 
-const ${1:`!v expand('%:t:r')`} = props => {
-	return ${2:null};$0
+const ${1:`!v expand('%:t:r')`} = (props) => {
+	return <>${2:`!v expand('%:t:r')`}</>;$0
 };
 
 export default $1;
@@ -24,7 +24,7 @@ export default class ${2:`!v expand('%:t:r')`} extends $1Component {
 	}
 
 	render() {
-		return ${3:null};$0
+		return <>${3:`!v expand('%:t:r')`}</>;$0
 	}
 }
 endsnippet
