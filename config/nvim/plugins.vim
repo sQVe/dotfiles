@@ -45,11 +45,10 @@ Plug 'tpope/vim-commentary'                        " Comment text.
 Plug 'dense-analysis/ale', {
   \ 'commit': 'b74827de99e842dc7698d8d6274486550d90f05a' }
                                                    " Lint and fix files.
-Plug 'neoclide/coc.nvim', {
-  \ 'do': 'yarn install --frozen-lockfile' }       " Intellisense with LSP.
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }  " Intellisense with LSP.
 
 " Debug.
-" Plug 'dstein64/vim-startuptime'                    " Check startup times.
+" Plug 'dstein64/vim-startuptime'                  " Check startup times.
 
 " Integration.
 Plug 'airblade/vim-rooter'                         " Set pwd to root directory.

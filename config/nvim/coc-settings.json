@@ -1,6 +1,10 @@
 {
   "coc.source.dictionary.filetypes": ["gitcommit", "mail", "markdown", "markdown.mdx", "text"],
-  "diagnostic.displayByAle": true,
+  "diagnostic.displayByAle": false,
+  "diagnostic.errorSign": "■",
+  "diagnostic.hintSign": "■",
+  "diagnostic.infoSign": "■",
+  "diagnostic.warningSign": "■",
   "emmet.excludeLanguages": [
     "javascriptreact",
     "markdown",
