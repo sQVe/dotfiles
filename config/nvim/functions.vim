@@ -9,6 +9,19 @@ func! CheckBackSpace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunc
 
+" Format buffer.
+func! Format() abort
+  if &filetype == "javascript" || &filetype == "javascriptreact" ||
+     \ &filetype == "typescript" || &filetype == "typescriptreact"
+    CocCommand eslint.executeAutofix
+  endif
+
+  if &filetype == "css" || &filetype == "scss" || &filetype == "typescript" ||
+     \ &filetype == "typescriptreact"
+    CocCommand stylelint.executeAutofix
+  endif
+endfunc
+
 " Create and print ascii header.
 func! PrintAsciiHeader(title)
   execute "read !toilet -f future " . a:title

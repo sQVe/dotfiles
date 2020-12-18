@@ -42,9 +42,6 @@ Plug 'kkoomen/vim-doge', {
 Plug 'tpope/vim-commentary'                        " Comment text.
 
 " Completion, diagnostics and spelling.
-Plug 'dense-analysis/ale', {
-  \ 'commit': 'b74827de99e842dc7698d8d6274486550d90f05a' }
-                                                   " Lint and fix files.
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }  " Intellisense with LSP.
 
 " Debug.

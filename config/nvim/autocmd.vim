@@ -2,14 +2,6 @@
 "  ┣━┫┃ ┃ ┃ ┃ ┃┃  ┃┃┃ ┃┃
 "  ╹ ╹┗━┛ ╹ ┗━┛┗━╸╹ ╹╺┻┛
 
-" Override ALEFix on specific filetypes.
-augroup ALEFixOnFiletype
-  autocmd!
-  autocmd FileType css,scss nnoremap<buffer> <Leader>af :ALEFix stylelint<CR>
-  autocmd FileType javascript,javascriptreact,typescript,typescriptreact nnoremap<buffer> <Leader>af :ALEFix eslint stylelint<CR>
-augroup END
-
-
 " Update signature help on coc placeholder jump.
 augroup CocSignatureOnPlaceholderJump
   autocmd!

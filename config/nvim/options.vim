@@ -91,55 +91,6 @@ colorscheme gruvbox8
 "  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┃ ┃┣━┛ ┃ ┃┃ ┃┃┗┫┗━┓
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ┗━┛╹   ╹ ╹┗━┛╹ ╹┗━┛
 
-" Ale.
-let g:ale_disable_lsp = 1
-let g:ale_echo_msg_format = '[%linter%] %s (%code%)'
-let g:ale_fix_on_save = 1
-let g:ale_lint_delay = 400
-let g:ale_lint_on_save = 0
-let g:ale_sign_error = '■'
-let g:ale_sign_info = '■'
-let g:ale_sign_warning = '■'
-let g:ale_virtualtext_cursor = 1
-let g:ale_virtualtext_prefix = '■ '
-
-let g:ale_linter_aliases = {
-  \ 'html': ['html', 'css', 'javascript'],
-  \ 'mail': ['text'],
-  \ 'javascript': ['javascript', 'css'],
-  \ 'javascriptreact': ['javascript', 'css'],
-  \ 'typescript': ['typescript', 'css'],
-  \ 'typescriptreact': ['typescript', 'css'],
-  \ }
-let g:ale_linters = {
-  \ 'css': ['stylelint'],
-  \ 'scss': ['stylelint'],
-  \ 'javascript': ['stylelint', 'eslint'],
-  \ 'javascriptreact': ['stylelint', 'eslint'],
-  \ 'typescript': ['stylelint', 'eslint'],
-  \ 'typescriptreact': ['stylelint', 'eslint'],
-  \ 'help': ['alex', 'proselint', 'write-good'],
-  \ 'mail': ['alex', 'proselint', 'write-good'],
-  \ 'markdown': ['alex', 'proselint', 'write-good'],
-  \ 'text': ['alex', 'proselint', 'write-good'],
-  \ 'sh': ['shellcheck'],
-  \ }
-let g:ale_fixers = {
-  \ 'css': ['prettier'],
-  \ 'scss': ['prettier'],
-  \ 'javascript': ['prettier'],
-  \ 'javascriptreact': ['prettier'],
-  \ 'json': ['prettier'],
-  \ 'typescript': ['prettier'],
-  \ 'typescriptreact': ['prettier'],
-  \ 'html': ['prettier'],
-  \ 'markdown': ['prettier'],
-  \ 'yaml': ['prettier'],
-  \ 'sh': ['shfmt'],
-  \ }
-
-let g:ale_writegood_options = '--no-passive'
-
 " Better Whitespace.
 let g:strip_only_modified_lines = 1
 let g:strip_whitespace_confirm = 0

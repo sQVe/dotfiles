@@ -1,15 +1,44 @@
 {
-  "coc.source.dictionary.filetypes": ["gitcommit", "mail", "markdown", "markdown.mdx", "text"],
-  "diagnostic.displayByAle": false,
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "markdown",
+    "scss",
+    "sh",
+    "typescript",
+    "typescriptreact",
+    "yaml"
+  ],
+  "coc.source.dictionary.filetypes": [
+    "gitcommit",
+    "mail",
+    "markdown",
+    "markdown.mdx",
+    "text"
+  ],
+  "diagnostic.format": "[%source%code] %message",
   "diagnostic.errorSign": "■",
   "diagnostic.hintSign": "■",
   "diagnostic.infoSign": "■",
   "diagnostic.warningSign": "■",
-  "emmet.excludeLanguages": [
-    "javascriptreact",
-    "markdown",
-    "typescriptreact"
-  ],
+  "diagnostic-languageserver.filetypes": {
+    "help": "write-good",
+    "mail": "write-good",
+    "markdown": "write-good",
+    "sh": "shellcheck",
+    "text": "write-good"
+  },
+  "diagnostic-languageserver.formatFiletypes": { "sh": "shfmt" },
+  "diagnostic-languageserver.formatters": {
+    "shfmt": {
+      "command": "shfmt",
+      "args": ["-bn", "-ci", "-sr", "-i", "2"]
+    }
+  },
+  "emmet.excludeLanguages": ["javascriptreact", "markdown", "typescriptreact"],
   "git.addedSign.text": "│",
   "git.changeRemovedSign.text": "│",
   "git.changedSign.text": "│",
@@ -29,6 +58,11 @@
       "ignoredRootPaths": ["~"]
     }
   },
+  "stylelint.autoFixOnSave": false,
+  "prettier.disableSuccessMessage": true,
+  "prettier.onlyUseLocalVersion": true,
+  "prettier.requireConfig": true,
+  "prettier.stylelintIntegration": true,
   "snippets.priority": 80,
   "snippets.snipmate.enable": false,
   "suggest.completionItemKindLabels": {

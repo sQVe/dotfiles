@@ -2,17 +2,6 @@
 "  ┣━┫┃┃╺┓┣━┫┃  ┃┃╺┓┣━┫ ┃
 "  ╹ ╹╹┗━┛╹ ╹┗━╸╹┗━┛╹ ╹ ╹
 
-" Ale.
-hi! ALEError guifg=NONE guibg=NONE guisp=#fb4934 gui=underline cterm=underline
-hi! ALEErrorSign guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
-hi! ALEInfo guifg=NONE guibg=NONE guisp=#83a598 gui=underline cterm=underline
-hi! ALEInfoSign guifg=#83a598 guibg=NONE gui=NONE cterm=NONE
-hi! ALEVirtualTextError guifg=#fb4934 guibg=#3c3836 gui=NONE cterm=NONE
-hi! ALEVirtualTextInfo guifg=#83a598 guibg=#3c3836 gui=NONE cterm=NONE
-hi! ALEVirtualTextWarning guifg=#fabd2f guibg=#3c3836 gui=NONE cterm=NONE
-hi! ALEWarning guifg=NONE guibg=NONE guisp=#fb4934 gui=underline cterm=underline
-hi! ALEWarningSign guifg=#fabd2f guibg=NONE gui=NONE cterm=NONE
-
 " Better Whitespace.
 hi! ExtraWhitespace guifg=#282828 guibg=#cc241d gui=NONE cterm=NONE
 

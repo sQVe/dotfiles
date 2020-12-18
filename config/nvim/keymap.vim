@@ -106,20 +106,15 @@ vnoremap K "oy<Esc>:Ddg<CR>
 "  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
-" Ale.
-nnoremap <silent> <Leader>ad :ALEDetail<CR>
-nnoremap <silent> <Leader>af :ALEFix<CR>
-nnoremap <silent> <Leader>al :ALELint<CR>
-nnoremap <silent> <Leader>ta :ALEToggleBuffer<CR>
-nnoremap <silent> [c :ALEPreviousWrap<CR>
-nnoremap <silent> ]c :ALENextWrap<CR>
-
 " Coc.
 nnoremap <silent> <Leader>o :CocList --auto-preview outline <CR>
 nnoremap <silent> <Leader>O :CocList --auto-preview --interactive symbols<CR>
-nmap <Leader>cf :CocAction<CR>
-xmap <Leader>cf :CocAction<CR>
+nmap <silent> <Leader>ca :CocAction<CR>
+xmap <silent> <Leader>ca :CocAction<CR>
+nmap <Leader>cf :Format<CR>
 nmap <Leader>cs :CocSearch<Space>
+nmap <silent> <Leader>cN <Plug>(coc-diagnostic-prev)
+nmap <silent> <Leader>cn <Plug>(coc-diagnostic-next)
 nmap <silent> <Leader>cS :CocSearch \b<C-R>=expand("<cword>")<CR>\b<CR>
 nmap <silent> <Leader>f <Plug>(coc-fix-current)
 nmap <silent> <Leader>r <Plug>(coc-rename)
