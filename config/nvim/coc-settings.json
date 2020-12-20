@@ -25,20 +25,77 @@
   "diagnostic.infoSign": "■",
   "diagnostic.warningSign": "■",
   "diagnostic-languageserver.filetypes": {
-    "help": "write-good",
-    "mail": "write-good",
-    "markdown": "write-good",
+    "help": [
+      "alex",
+      "write-good"
+    ],
+    "mail": [
+      "alex",
+      "write-good"
+    ],
+    "markdown": [
+      "alex",
+      "write-good"
+    ],
     "sh": "shellcheck",
-    "text": "write-good"
+    "text": [
+      "alex",
+      "write-good"
+    ]
   },
-  "diagnostic-languageserver.formatFiletypes": { "sh": "shfmt" },
+  "diagnostic-languageserver.formatFiletypes": {
+    "sh": "shfmt"
+  },
   "diagnostic-languageserver.formatters": {
     "shfmt": {
       "command": "shfmt",
-      "args": ["-bn", "-ci", "-sr", "-i", "2"]
+      "args": [
+        "-bn",
+        "-ci",
+        "-sr",
+        "-i",
+        "2"
+      ]
     }
   },
-  "emmet.excludeLanguages": ["javascriptreact", "markdown", "typescriptreact"],
+  "diagnostic-languageserver.linters": {
+    "alex": {
+      "command": "alex",
+      "sourceName": "alex",
+      "args": [
+        "--stdin"
+      ],
+      "debounce": 100,
+      "isStdout": false,
+      "isStderr": true,
+      "offsetLine": 0,
+      "offsetColumn": 0,
+      "formatLines": 1,
+      "formatPattern": [
+        "^\\s+(\\d+):(\\d+)-(\\d+):(\\d+)\\s+(\\w+)\\s+(.+)$",
+        {
+          "line": 1,
+          "column": 2,
+          "endLine": 3,
+          "endColumn": 4,
+          "securities": 5,
+          "message": 6
+        }
+      ]
+    },
+    "write-good": {
+      "args": [
+        "--text=%text",
+        "--no-passive"
+      ]
+    }
+  },
+  "diagnostic-languageserver.mergeConfig": true,
+  "emmet.excludeLanguages": [
+    "javascriptreact",
+    "markdown",
+    "typescriptreact"
+  ],
   "git.addedSign.text": "│",
   "git.changeRemovedSign.text": "│",
   "git.changedSign.text": "│",
@@ -53,9 +110,15 @@
   "languageserver": {
     "bash": {
       "command": "bash-language-server",
-      "args": ["start"],
-      "filetypes": ["sh"],
-      "ignoredRootPaths": ["~"]
+      "args": [
+        "start"
+      ],
+      "filetypes": [
+        "sh"
+      ],
+      "ignoredRootPaths": [
+        "~"
+      ]
     }
   },
   "stylelint.autoFixOnSave": false,
