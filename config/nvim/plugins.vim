@@ -48,6 +48,7 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }  " Intellisense with LSP.
 " Plug 'dstein64/vim-startuptime'                  " Check startup times.
 
 " Integration.
+Plug 'axelf4/vim-strip-trailing-whitespace'        " Remove trailing whitespace.
 Plug 'airblade/vim-rooter'                         " Set pwd to root directory.
 Plug 'editorconfig/editorconfig-vim'               " Editorconfig.
 Plug 'iamcco/markdown-preview.nvim', {
@@ -63,7 +64,6 @@ Plug 'camspiers/lens.vim'                          " Resize windows based on con
 Plug 'itchyny/lightline.vim'                       " Status line.
 Plug 'maximbaz/lightline-ale'                      " Lint information in status line.
 Plug 'mhinz/vim-startify'                          " Launch screen.
-Plug 'ntpeters/vim-better-whitespace'              " Highlight trailing whitespace.
 Plug 'samoshkin/vim-mergetool'                     " Git mergetool
 Plug 'voldikss/vim-floaterm'                       " Floating terminal.
 
