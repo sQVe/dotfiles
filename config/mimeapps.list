@@ -2,6 +2,8 @@
 application/javascript=term-nvim.desktop;
 application/json=term-nvim.desktop;
 application/pdf=org.pwmt.zathura.desktop;
+application/vnd.comicbook+zip=org.pwmt.zathura.desktop;
+application/vnd.comicbook-rar=org.pwmt.zathura.desktop;
 application/vnd.snap=term-nvim.desktop;
 application/x-awk=term-nvim.desktop;
 application/x-darktable=term-nvim.desktop;
@@ -122,6 +124,6 @@ video/x-ogm+ogg=mpv.desktop;
 video/x-theora=mpv.desktop;
 x-scheme-handler/http=open-qutebrowser.desktop;
 x-scheme-handler/https=open-qutebrowser.desktop;
-
 [Removed Associations]
 application/pdf=calibre-gui.desktop;calibre-ebook-viewer.desktop;
+
