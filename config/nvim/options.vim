@@ -5,6 +5,7 @@
 set clipboard=unnamedplus         " Use the + (clipboard) register.
 set colorcolumn=80                " Indicate column 80 with a colored column.
 set conceallevel=2                " Disable character conceal.
+set exrc                          " Source local vimrc at root directory.
 set gdefault                      " Use 'g' flag by default with :s/foo/bar/.
 set hidden                        " Set buffer as hidden when abandoned.
 set lazyredraw                    " Enable lazy redraw.
@@ -12,13 +13,14 @@ set mouse=a                       " Enable mouse.
 set noshowmode                    " Disable show mode.
 set nostartofline                 " Do not jump to first character with page commands.
 set ruler                         " Show the cursor position all the time.
+set scrolloff=8                   " Set scrol offset to 8 lines.
 set shortmess+=Ic                 " Disable version intro text.
 set showcmd                       " Display incomplete commands.
 set signcolumn=yes                " Always show sign column.
 set termguicolors                 " Enable 24-bit colors.
 set tildeop                       " Enable ~ operator.
 set timeoutlen=400                " Timeout Leader after 400 ms.
-set updatetime=200                " Set update time to 200 ms.
+set updatetime=100                " Set update time to 200 ms.
 set virtualedit=block             " Enable virtualedit when in Visual Block mode.
 
 " Searching.
