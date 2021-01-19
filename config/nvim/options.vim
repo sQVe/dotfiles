@@ -148,12 +148,6 @@ let g:lens#width_resize_max = 100
 let g:lens#width_resize_min = 20
 
 " Lightline.
-let g:lightline#ale#indicator_checking = "\uf110 "
-let g:lightline#ale#indicator_infos = ""
-let g:lightline#ale#indicator_warnings = ""
-let g:lightline#ale#indicator_errors = ""
-let g:lightline#ale#indicator_ok = "\uf00c "
-
 let g:lightline = {
   \ 'active': {
   \   'left': [[ 'mode', 'paste' ],
@@ -161,24 +155,9 @@ let g:lightline = {
   \            [ 'filename', 'readonly' ]],
   \   'right': [[ 'lineinfo' ],
   \             [ 'percent' ],
-  \             [ 'linter_checking', 'linter_errors', 'linter_warnings', 'linter_infos', 'linter_ok' ],
   \             [ 'filetype' ]]
   \ },
   \ 'colorscheme': 'gruvbox8',
-  \ 'component_expand': {
-  \   'linter_checking': 'lightline#ale#checking',
-  \   'linter_infos': 'lightline#ale#infos',
-  \   'linter_warnings': 'lightline#ale#warnings',
-  \   'linter_errors': 'lightline#ale#errors',
-  \   'linter_ok': 'lightline#ale#ok',
-  \ },
-  \ 'component_type': {
-  \   'linter_checking': 'right',
-  \   'linter_errors': 'error',
-  \   'linter_infos': 'right',
-  \   'linter_ok': 'right',
-  \   'linter_warnings': 'warning',
-  \ },
   \ 'component_function': {
   \   'filename': 'LightlineFilename',
   \   'gitbranch': 'fugitive#head',

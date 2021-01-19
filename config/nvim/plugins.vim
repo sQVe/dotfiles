@@ -52,7 +52,8 @@ Plug 'axelf4/vim-strip-trailing-whitespace'        " Remove trailing whitespace.
 Plug 'airblade/vim-rooter'                         " Set pwd to root directory.
 Plug 'editorconfig/editorconfig-vim'               " Editorconfig.
 Plug 'iamcco/markdown-preview.nvim', {
-  \ 'do': 'cd app & yarn install' }                " Markdown preview.
+  \ 'do': 'cd app & yarn install',
+  \ 'for': 'markdown' }                            " Markdown preview.
 Plug 'sickill/vim-pasta'                           " Paste with smart indentation.
 Plug 'tpope/vim-fugitive'                          " Git.
 Plug 'tpope/vim-rhubarb'                           " Use hub instead of git.
@@ -62,7 +63,6 @@ Plug 'tpope/vim-speeddating'                       " Increment / decrement dates
 Plug 'ap/vim-buftabline'                           " Buffer line.
 Plug 'camspiers/lens.vim'                          " Resize windows based on content.
 Plug 'itchyny/lightline.vim'                       " Status line.
-Plug 'maximbaz/lightline-ale'                      " Lint information in status line.
 Plug 'mhinz/vim-startify'                          " Launch screen.
 Plug 'samoshkin/vim-mergetool'                     " Git mergetool
 Plug 'voldikss/vim-floaterm'                       " Floating terminal.
