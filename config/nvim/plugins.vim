@@ -79,6 +79,7 @@ Plug 'sheerun/vim-polyglot'                        " Language pack.
 
 " Text objects and motions.
 Plug 'christoomey/vim-sort-motion'                 " Sort by motion text object.
+Plug 'michaeljsmith/vim-indent-object'             " Indent text object.
 Plug 'wellle/targets.vim'                          " Additional text objects.
 
 call plug#end()
