@@ -6,11 +6,6 @@
 " ¤¤¤¤  Import plugins  ¤¤¤¤
 " ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-" Disable whole language pack.
-let s:lang_disable = [
-  \ 'graphql',
-  \ ]
-
 " Disable language syntax already handled by treesitter.
 let s:lang_syntax_disable = [
   \ 'javascript.plugin',
@@ -19,7 +14,7 @@ let s:lang_syntax_disable = [
   \ 'typescript.plugin',
   \ ]
 
-let g:polyglot_disabled = s:lang_disable + s:lang_syntax_disable
+let g:polyglot_disabled = s:lang_syntax_disable
 
 call plug#begin('$HOME/.local/share/nvim/plugged')
 
