@@ -78,12 +78,6 @@ command! -nargs=1 Z call Z(<q-args>)
 "  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃┗━┓
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛┗━┛
 
-" Enable ALE Fix on save.
-command! ALEEnableFixOnSave let g:ale_fix_on_save = 1
-
-" Disable ALE Fix on save.
-command! ALEDisableFixOnSave let g:ale_fix_on_save = 0
-
 " FZF.
 command! -bang -nargs=? -complete=dir Files
   \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('right:50%', '?'), <bang>0)
