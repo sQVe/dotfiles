@@ -10,8 +10,8 @@
 #   qute://help/configuring.html
 #   qute://help/settings.html
 
-# Uncomment this to still load settings configured via autoconfig.yml
-# config.load_autoconfig()
+# Change the argument to True to still load settings configured via autoconfig.yml
+config.load_autoconfig(False)
 
 # Aliases for commands. The keys of the given dictionary are the
 # aliases, while the values are the commands they map to.
@@ -81,17 +81,25 @@ c.session.default_name = None
 c.session.lazy_restore = False
 
 # Backend to use to display websites. qutebrowser supports two different
-# web rendering engines / backends, QtWebKit and QtWebEngine. QtWebKit
-# was discontinued by the Qt project with Qt 5.6, but picked up as a
-# well maintained fork: https://github.com/annulen/webkit/wiki -
-# qutebrowser only supports the fork. QtWebEngine is Qt's official
-# successor to QtWebKit. It's slightly more resource hungry than
-# QtWebKit and has a couple of missing features in qutebrowser, but is
-# generally the preferred choice.
+# web rendering engines / backends, QtWebEngine and QtWebKit (not
+# recommended). QtWebEngine is Qt's official successor to QtWebKit, and
+# both the default/recommended backend. It's based on a stripped-down
+# Chromium and regularly updated with security fixes and new features by
+# the Qt project: https://wiki.qt.io/QtWebEngine QtWebKit was
+# qutebrowser's original backend when the project was started. However,
+# support for QtWebKit was discontinued by the Qt project with Qt 5.6 in
+# 2016. The development of QtWebKit was picked up in an official fork:
+# https://github.com/qtwebkit/qtwebkit - however, the project seems to
+# have stalled again. The latest release (5.212.0 Alpha 4) from March
+# 2020 is based on a WebKit version from 2016, with many known security
+# vulnerabilities. Additionally, there is no process isolation and
+# sandboxing. Due to all those issues, while support for QtWebKit is
+# still available in qutebrowser for now, using it is strongly
+# discouraged.
 # Type: String
 # Valid values:
-#   - webengine: Use QtWebEngine (based on Chromium).
-#   - webkit: Use QtWebKit (based on WebKit, similar to Safari).
+#   - webengine: Use QtWebEngine (based on Chromium - recommended).
+#   - webkit: Use QtWebKit (based on WebKit, similar to Safari - many known security issues!).
 c.backend = 'webengine'
 
 # Additional arguments to pass to Qt, without leading `--`. With
@@ -169,8 +177,7 @@ config.set('content.cookies.accept', 'all', 'chrome-devtools://*')
 #   - never: Don't accept cookies at all.
 config.set('content.cookies.accept', 'all', 'devtools://*')
 
-# Store cookies. Note this option needs a restart with QtWebEngine on Qt
-# < 5.9.
+# Store cookies.
 # Type: Bool
 c.content.cookies.store = True
 
@@ -297,31 +304,6 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{w
 # JavaScript requires a restart.
 # Type: FormatString
 config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/99 Safari/537.36', 'https://*.slack.com/*')
-
-# Enable host blocking.
-# Type: Bool
-c.content.host_blocking.enabled = True
-
-# List of URLs of lists which contain hosts to block.  The file can be
-# in one of the following formats:  - An `/etc/hosts`-like file - One
-# host per line - A zip-file of any of the above, with either only one
-# file, or a file   named `hosts` (with any extension).  It's also
-# possible to add a local file or directory via a `file://` URL. In case
-# of a directory, all files in the directory are read as adblock lists.
-# The file `~/.config/qutebrowser/blocked-hosts` is always read if it
-# exists.
-# Type: List of Url
-c.content.host_blocking.lists = ['https://www.malwaredomainlist.com/hostslist/hosts.txt', 'http://someonewhocares.org/hosts/hosts', 'http://winhelp2002.mvps.org/hosts.zip', 'http://malwaredomains.lehigh.edu/files/justdomains.zip', 'https://pgl.yoyo.org/adservers/serverlist.php?hostformat=hosts&mimetype=plaintext']
-
-# A list of patterns that should always be loaded, despite being ad-
-# blocked. Note this whitelists blocked hosts, not first-party URLs. As
-# an example, if `example.org` loads an ad from `ads.example.org`, the
-# whitelisted host should be `ads.example.org`. If you want to disable
-# the adblocker on a given page, use the `content.host_blocking.enabled`
-# setting with a URL pattern instead. Local domains are always exempt
-# from hostblocking.
-# Type: List of UrlPattern
-c.content.host_blocking.whitelist = ['piwik.org']
 
 # Enable hyperlink auditing (`<a ping>`).
 # Type: Bool
@@ -633,10 +615,10 @@ c.downloads.position = 'top'
 # Type: Int
 c.downloads.remove_finished = -1
 
-# Editor (and arguments) to use for the `open-editor` command. The
-# following placeholders are defined:  * `{file}`: Filename of the file
-# to be edited. * `{line}`: Line in which the caret is found in the
-# text. * `{column}`: Column in which the caret is found in the text. *
+# Editor (and arguments) to use for the `edit-*` commands. The following
+# placeholders are defined:  * `{file}`: Filename of the file to be
+# edited. * `{line}`: Line in which the caret is found in the text. *
+# `{column}`: Column in which the caret is found in the text. *
 # `{line0}`: Same as `{line}`, but starting from index 0. * `{column0}`:
 # Same as `{column}`, but starting from index 0.
 # Type: ShellCommand
@@ -732,7 +714,8 @@ c.input.links_included_in_focus_chain = True
 
 # Timeout (in milliseconds) for partially typed key bindings. If the
 # current input forms only partial matches, the keystring will be
-# cleared after this time.
+# cleared after this time. If set to 0, partially typed bindings are
+# never cleared.
 # Type: Int
 c.input.partial_timeout = 5000
 
@@ -865,7 +848,9 @@ c.tabs.close_mouse_button_on_bar = 'new-tab'
 # Type: Float
 c.tabs.favicons.scale = 1.0
 
-# How to behave when the last tab is closed.
+# How to behave when the last tab is closed. If the
+# `tabs.tabs_are_windows` setting is set, this is ignored and the
+# behavior is always identical to the `close` value.
 # Type: String
 # Valid values:
 #   - ignore: Don't do anything.
@@ -1014,7 +999,8 @@ c.url.open_base_url = True
 # * `{quoted}` quotes all characters (for `slash/and&amp` this
 # placeholder   expands to `slash%2Fand%26amp`). * `{unquoted}` quotes
 # nothing (for `slash/and&amp` this placeholder   expands to
-# `slash/and&amp`).  The search engine named `DEFAULT` is used when
+# `slash/and&amp`). * `{0}` means the same as `{}`, but can be used
+# multiple times.  The search engine named `DEFAULT` is used when
 # `url.auto_search` is turned on and something else than a URL was
 # entered to be opened. Other search engines can be used by prepending
 # the search engine name to the search term, e.g. `:open google
@@ -1495,12 +1481,12 @@ config.bind('sp', 'spawn --userscript qutepocket')
 config.bind('wb', 'set-cmd-text -s :bookmark-load -w')
 config.bind('wq', 'set-cmd-text -s :quickmark-load -w')
 config.bind('ww', 'open -w')
-config.bind('zH', 'hint links spawn -d term "http \"{hint-url}\" | less"')
+config.bind('zD', 'hint links spawn -d ~/scripts/qutebrowser/downloader.sh "{hint-url}"')
+config.bind('zH', 'hint links spawn -d term "http "{hint-url}" | less"')
 config.bind('zM', 'hint links spawn -d mpv "{hint-url}"')
 config.bind('zO', 'hint links spawn -d mimeo -q "{hint-url}"')
-config.bind('zD', 'hint links spawn -d ~/scripts/qutebrowser/downloader.sh "{hint-url}"')
 config.bind('zd', 'spawn -d ~/scripts/qutebrowser/downloader.sh "{url}"')
-config.bind('zh', 'spawn -d term "http \"{url}\" --pretty=format | nvim"')
+config.bind('zh', 'spawn -d term "http "{url}" --pretty=format | nvim"')
 config.bind('zm', 'spawn -d mpv "{url}"')
 config.bind('zo', 'spawn -d mimeo -q "{url}"')
 config.bind('Ä', 'set-cmd-text -s :open -t')
