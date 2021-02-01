@@ -124,7 +124,6 @@
   "prettier.disableSuccessMessage": true,
   "prettier.onlyUseLocalVersion": true,
   "prettier.requireConfig": true,
-  "prettier.stylelintIntegration": true,
   "snippets.priority": 80,
   "snippets.snipmate.enable": false,
   "stylelintplus.cssInJs": true,
