@@ -5,16 +5,16 @@
     "coc-dictionary": ">=1.2.2",
     "coc-emmet": ">=1.1.6",
     "coc-eslint": ">=1.4.5",
-    "coc-git": ">=2.2.0",
+    "coc-git": ">=2.2.2",
     "coc-go": ">=0.13.3",
     "coc-html": ">=1.4.1",
-    "coc-json": ">=1.3.3",
-    "coc-prettier": ">=1.1.20",
+    "coc-json": ">=1.3.4",
+    "coc-prettier": ">=1.1.21",
     "coc-snippets": ">=2.4.0",
     "coc-styled-components": ">=0.4.0",
     "coc-stylelintplus": ">=1.4.0",
-    "coc-tsserver": ">=1.6.7",
-    "coc-yaml": ">=1.3.0",
+    "coc-tsserver": ">=1.6.8",
+    "coc-yaml": ">=1.3.1",
     "coc-yank": ">=1.2.0"
   }
 }

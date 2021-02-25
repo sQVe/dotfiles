@@ -28,6 +28,7 @@ Plug 'lifepillar/vim-gruvbox8'                     " Speedy Gruvbox.
 Plug 'nvim-treesitter/nvim-treesitter'             " Treesitter highlighting.
 
 " Commands.
+Plug 'lambdalisue/suda.vim'                        " Read and write with sudo.
 Plug 'moll/vim-bbye'                               " Delete buffers without closing window.
 Plug 'tpope/vim-eunuch'                            " Unix helpers.
 
