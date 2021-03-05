@@ -53,16 +53,6 @@ augroup FocusActiveWindow
   autocmd BufWinEnter,VimEnter,WinEnter * call ToggleWindowFocus(1)
 augroup END
 
-" Handle textwidth newlines by adding a trailing whitespace, indicating that
-" the paragraph continues on the next line. This is used by mutts
-" 'text_flowed' option.
-augroup HandleMailNewlines
-  autocmd!
-  autocmd FileType mail setlocal formatoptions+=aw
-  autocmd FileType mail setlocal textwidth=72
-  autocmd FileType mail DisableStripWhitespaceOnSave
-augroup END
-
 " Reload buffer on enter or focus.
 augroup ReloadBuffer
   autocmd!
