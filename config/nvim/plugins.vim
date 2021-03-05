@@ -50,6 +50,7 @@ Plug 'editorconfig/editorconfig-vim'               " Editorconfig.
 Plug 'iamcco/markdown-preview.nvim', {
   \ 'do': 'cd app & yarn install',
   \ 'for': 'markdown' }                            " Markdown preview.
+Plug 'shumphrey/fugitive-gitlab.vim'               " Fugitive GitLab support.
 Plug 'sickill/vim-pasta'                           " Paste with smart indentation.
 Plug 'tpope/vim-fugitive'                          " Git.
 Plug 'tpope/vim-rhubarb'                           " Use hub instead of git.

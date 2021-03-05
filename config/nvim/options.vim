@@ -135,6 +135,7 @@ let g:floaterm_autoclose = 1
 let g:floaterm_wintitle = 0
 
 " Fugitive.
+let g:fugitive_gitlab_domains = ['https://git.detectify.net/']
 let g:fugitive_pty = 0
 
 " JavaScript.
@@ -193,7 +194,7 @@ let g:mergetool_prefer_revision = 'local'
 let g:pasta_disabled_filetypes = ['fugitive', 'markdown', 'yaml']
 
 " Rooter.
-let g:rooter_patterns = ['.git', '.editorconfig']
+let g:rooter_patterns = ['.editorconfig', '.env', '.git']
 let g:rooter_resolve_links = 1
 let g:rooter_silent_chdir = 1
 let g:rooter_targets = '*'
