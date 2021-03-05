@@ -10,12 +10,6 @@ source $ZIM_HOME/init.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
-# Ensure that node is loaded before sourcing yvm.
-if [[ -x $(which node) ]]; then
-  source $YVM_DIR/yvm.sh
-fi
-
-
 #  ┏━┓┏━╸╺┳╸╺┳╸╻┏┓╻┏━╸┏━┓
 #  ┗━┓┣╸  ┃  ┃ ┃┃┗┫┃╺┓┗━┓
 #  ┗━┛┗━╸ ╹  ╹ ╹╹ ╹┗━┛┗━┛
@@ -200,7 +194,6 @@ alias suspend='state suspend'
 alias bluetooth=bluetoothctl
 alias c=cat
 alias chrome=google-chrome-stable
-alias ctop='sudo ctop'
 alias diff='diff --color=always --unified'
 alias fd='fd --hidden --follow'
 alias feh='feh --scale-down --auto-zoom --image-bg "#282828"'
@@ -210,12 +203,9 @@ alias format='npx prettier --write'
 alias l=less
 alias leave='i3-msg exit'
 alias mixer=pavucontrol
-alias mutt=neomutt
 alias peekhl='peek --no-headerbar'
-alias phone="kdeconnect-cli -n 'OnePlus'"
 alias qutebrowser=open-qutebrowser
 alias rcup="$SCRIPTS/extended-rcup.sh"
-alias reader="kdeconnect-cli -n 'Note2'"
 alias rg='rg --follow'
 alias t=term
 alias tiga='tig --all'
@@ -223,7 +213,6 @@ alias v=nvim
 alias vi=nvim
 alias vifm=vifm-cd
 alias vim=nvim
-alias wifi-menu='wifi-menu -o'
 alias xsel='xsel -b'
 alias zz='z -I'
 
@@ -260,4 +249,4 @@ alias playground-fp.ts='playground fp.ts'
 
 # Todo.
 alias todo='nvim $NOTES/todo.md'
-alias dreams='nvim $NOTES/dreams.md'
+alias detectify='nvim $NOTES/detectify.md'

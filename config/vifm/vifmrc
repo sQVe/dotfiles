@@ -125,7 +125,7 @@ filetype *.asc
 
 " Open html files in qutebrowser.
 filetype *.html,*htm
-  \ scaled-qutebrowser %f &
+  \ open-qutebrowser %f &
 
 " Open all text files with nvim.
 filetype <text/*>
