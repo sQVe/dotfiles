@@ -172,14 +172,14 @@ omap <silent> ig <Plug>(coc-git-chunk-inner)
 xmap <silent> ig <Plug>(coc-git-chunk-inner)
 omap <silent> ag <Plug>(coc-git-chunk-outer)
 xmap <silent> ag <Plug>(coc-git-chunk-outer)
-nnoremap <silent> <Leader>gb :Gblame<CR>
-nnoremap <silent> <Leader>gd :Gdiff<CR>
-nnoremap <silent> <Leader>gf :Gfetch<CR>
+nnoremap <silent> <Leader>gb :Git blame<CR>
+nnoremap <silent> <Leader>gd :Gdiffsplit<CR>
+nnoremap <silent> <Leader>gf :Git fetch<CR>
 nnoremap <silent> <Leader>gmt :MergetoolToggle<CR>
-nnoremap <silent> <Leader>gp :Gpush<CR>
-nnoremap <silent> <Leader>gpf :Gpush --force-with-lease<CR>
+nnoremap <silent> <Leader>gp :Git push<CR>
+nnoremap <silent> <Leader>gpf :Git push --force-with-lease<CR>
 nnoremap <silent> <Leader>gr :Gread<CR>
-nnoremap <silent> <Leader>gs :vertical Gstatus<CR>
+nnoremap <silent> <Leader>gs :vertical Git<CR>
 nnoremap <silent> <Leader>gu :GCopyUrl<CR>
 nnoremap <silent> <Leader>gw :Gwrite<CR>
 
