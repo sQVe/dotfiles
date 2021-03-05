@@ -132,6 +132,7 @@ command! -bang -nargs=* Rg
 
 " Floaterm.
 let g:floaterm_autoclose = 1
+let g:floaterm_opener = 'edit'
 let g:floaterm_wintitle = 0
 
 " Fugitive.
