@@ -16,7 +16,7 @@ font:
   bold_italic:
     family: term
     style: Bold Italic
-  size: 18
+  size: 10
 
 colors:
   primary:

@@ -6,7 +6,7 @@
 ! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 ! ¤¤¤¤  Fonts & Cursor  ¤¤¤¤
 ! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-Xft.dpi:       192
+Xft.dpi:       96
 Xft.antialias: true
 Xft.hinting:   true
 Xft.rgba:      rgb
@@ -14,7 +14,7 @@ Xft.autohint:  false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 Xcursor.theme: Bibata-Modern-Ice
-Xcursor.size:  48
+Xcursor.size:  24
 
 
 ! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤

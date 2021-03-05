@@ -1,7 +1,7 @@
 [global]
-    font = term 9
+    font = term 10
 
-    frame_width = 4
+    frame_width = 2
     frame_color = "#888888"
 
     # Allow a small subset of html markup:
@@ -69,7 +69,7 @@
     # screen width minus the width defined in within the geometry option.
     geometry = "800x6-10+38"
 
-    max_icon_size = 128
+    max_icon_size = 24
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -122,10 +122,10 @@
     separator_height = 8
 
     # Padding between text and separator.
-    padding = 16
+    padding = 10
 
     # Horizontal padding.
-    horizontal_padding = 16
+    horizontal_padding = 10
 
     # Define a color for the separator.
     # possible values are:
@@ -144,13 +144,13 @@
     dmenu = /usr/bin/dmenu -p dunst:
 
     # Browser for opening urls in context menu.
-    browser = /usr/bin/chromium
+    browser = /usr/local/bin/open-qutebrowser
 
     # Align icons left/right/off
     icon_position = left
 
     # Paths to default icons.
-    icon_path = /usr/share/icons/Papirus/64x64/apps/:/usr/share/icons/Papirus/64x64/devices/:/usr/share/icons/Papirus/48x48/status/
+    icon_path = /usr/share/icons/Papirus/24x24/apps/:/usr/share/icons/Papirus/24x24/devices/:/usr/share/icons/Papirus/24x24/status/
 
 [shortcuts]
 

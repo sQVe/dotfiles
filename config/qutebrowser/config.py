@@ -1384,51 +1384,51 @@ c.fonts.default_family = ['term']
 # either a float value with a "pt" suffix, or an integer value with a
 # "px" suffix.
 # Type: String
-c.fonts.default_size = '12px'
+c.fonts.default_size = '13px'
 
 # Font used in the completion widget.
 # Type: Font
-c.fonts.completion.entry = '12px default_family'
+c.fonts.completion.entry = 'default_size default_family'
 
 # Font used in the completion categories.
 # Type: Font
-c.fonts.completion.category = 'bold 12px default_family'
+c.fonts.completion.category = 'default_size default_family'
 
 # Font used for the debugging console.
 # Type: Font
-c.fonts.debug_console = '12px default_family'
+c.fonts.debug_console = 'default_size default_family'
 
 # Font used for the downloadbar.
 # Type: Font
-c.fonts.downloads = '12px default_family'
+c.fonts.downloads = 'default_size default_family'
 
 # Font used for the hints.
 # Type: Font
-c.fonts.hints = 'bold 12px default_family'
+c.fonts.hints = 'bold default_size default_family'
 
 # Font used in the keyhint widget.
 # Type: Font
-c.fonts.keyhint = '12px default_family'
+c.fonts.keyhint = 'default_size default_family'
 
 # Font used for error messages.
 # Type: Font
-c.fonts.messages.error = '12px default_family'
+c.fonts.messages.error = 'default_size default_family'
 
 # Font used for info messages.
 # Type: Font
-c.fonts.messages.info = '12px default_family'
+c.fonts.messages.info = 'default_size default_family'
 
 # Font used for warning messages.
 # Type: Font
-c.fonts.messages.warning = '12px default_family'
+c.fonts.messages.warning = 'default_size default_family'
 
 # Font used for prompts.
 # Type: Font
-c.fonts.prompts = '12px default_family'
+c.fonts.prompts = 'default_size default_family'
 
 # Font used in the statusbar.
 # Type: Font
-c.fonts.statusbar = '12px default_family'
+c.fonts.statusbar = 'default_size default_family'
 
 # Font family for standard fonts.
 # Type: FontFamily
@@ -1460,7 +1460,7 @@ c.fonts.web.size.default = 16
 
 # Default font size (in pixels) for fixed-pitch text.
 # Type: Int
-c.fonts.web.size.default_fixed = 13
+c.fonts.web.size.default_fixed = 14
 
 # Bindings for normal mode
 config.bind('<', 'tab-move -')

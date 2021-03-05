@@ -124,6 +124,6 @@ video/x-ogm+ogg=mpv.desktop;
 video/x-theora=mpv.desktop;
 x-scheme-handler/http=open-qutebrowser.desktop;
 x-scheme-handler/https=open-qutebrowser.desktop;
+
 [Removed Associations]
 application/pdf=calibre-gui.desktop;calibre-ebook-viewer.desktop;
-

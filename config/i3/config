@@ -10,7 +10,7 @@
 set $alt Mod1
 set $mod Mod4
 
-set $font term 7
+set $font term 8.4
 set $color-bg #282828
 set $color-bg-hi #3c3836
 set $color-bright-aqua #8ec07c
@@ -24,7 +24,7 @@ set $workspace-2 "2  "
 set $workspace-3 "3  "
 set $workspace-4 "4  "
 set $workspace-5 "5  "
-set $workspace-6 "6  "
+set $workspace-6 "6  "
 set $workspace-7 "7  "
 set $workspace-8 "8  "
 set $workspace-9 "9  "
@@ -32,7 +32,6 @@ set $workspace-9 "9  "
 set $lock --no-startup-id lock
 set $menu-apps --no-startup-id $HOME/scripts/i3/menu-apps.sh
 set $menu-calculator --no-startup-id $HOME/scripts/i3/menu-calculator.sh
-set $menu-clipboard --no-startup-id $HOME/scripts/i3/menu-clipboard.sh
 set $menu-emoji --no-startup-id $HOME/scripts/i3/menu-emoji.sh
 set $menu-notes --no-startup-id $HOME/scripts/i3/menu-notes.sh
 set $menu-passwords --no-startup-id $HOME/scripts/i3/menu-passwords.sh
@@ -44,7 +43,7 @@ set $menu-windows --no-startup-id $HOME/scripts/i3/menu-windows.sh
 set $music-next --no-startup-id playerctl next
 set $music-prev --no-startup-id playerctl previous
 set $music-toggle --no-startup-id playerctl play-pause
-set $qutebrowser --no-startup-id scaled-qutebrowser
+set $qutebrowser --no-startup-id open-qutebrowser
 set $redshift --no-startup-id $HOME/scripts/i3/safe-load-redshift.sh
 set $samedir --no-startup-id term $(xcwd)
 set $term --no-startup-id term
@@ -116,7 +115,6 @@ bar {
 
 # Assign workspaces.
 assign [class="Alacritty" instance="weechat"]  → $workspace-5
-assign [class="Alacritty" instance="neomutt"]  → $workspace-6
 assign [class="Slack"]                         → $workspace-5
 assign [class="Spotify"]                       → $workspace-4
 
@@ -158,7 +156,6 @@ bindsym $mod+Shift+9 move container to workspace $workspace-9
 # Letter based bindings.
 bindsym $mod+a exec $menu-windows
 bindsym $mod+b exec $qutebrowser
-bindsym $mod+c exec $menu-clipboard
 bindsym $mod+d exec $menu-apps
 bindsym $mod+e exec $menu-state
 bindsym $mod+f exec $vifm
@@ -294,9 +291,6 @@ exec --no-startup-id random-wallpaper
 
 # Safely start redshift.
 exec --no-startup-id "sh -c 'sleep 2; exec $HOME/scripts/i3/safe-load-redshift.sh'"
-
-# Enable prime-offloading, which is used by optimus-manager.
-exec --no-startup-id "sleep 2; prime-offload"
 
 # Set startup workspace to workspace 2.
 exec --no-startup-id i3-msg "workspace $workspace-2"
