@@ -15,10 +15,10 @@ func! Format() abort
      \ &filetype == "typescript" || &filetype == "typescriptreact"
     CocCommand eslint.executeAutofix
   endif
-  if &filetype == "css" || &filetype == "scss" || &filetype == "typescript" ||
-     \ &filetype == "typescriptreact"
-    CocCommand stylelintplus.applyAutoFixes
-  endif
+  " if &filetype == "css" || &filetype == "scss" || &filetype == "typescript" ||
+  "    \ &filetype == "typescriptreact"
+  "   CocCommand stylelintplus.applyAutoFixes
+  " endif
 
   call CocAction('format')
 endfunc
