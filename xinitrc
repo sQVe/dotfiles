@@ -15,11 +15,11 @@ xrdb "$XDG_CONFIG_HOME/Xresources"
 # Start xiccd colord daemon.
 xiccd &
 
+# Start composition manager (xcompmgr).
+xcompmgr -C &
+
 # Start mons daemon.
 mons -a &
-
-# Start greenclip daemon.
-greenclip daemon &
 
 # XSS Lock - handle lid close, suspend etc.
 xss-lock -- lock &
