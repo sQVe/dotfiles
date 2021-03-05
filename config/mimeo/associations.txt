@@ -1,24 +1,21 @@
-scaled-qutebrowser %U
+open-qutebrowser %U
   ^https?:\/\/files\.slack\.com\/.+?\.(gif|jpe?g|png)
 
 google-chrome-stable %U
-  ^https?:\/\/meet\.google\.com
+  ^https?:\/\/(docs|drive|meet)\.google\.com
+  ^https?:\/\/.*\.detectify\.net
+  ^https?:\/\/.*zoom\.us
 
 mpv %U
   ^https?:\/\/(www\.)?youtube\.com/watch\?.*v=
-mpv %U
   ^https?:\/\/.+?\.gif
 
 streamlink %U
   ^https?:\/\/(www\.)?twitch\.tv
-streamlink %U
   ^https?:\/\/(www\.)?svtplay\.se/video
 
 feh %U
   ^https?:\/\/.+?\.(jpe?g|png)
 
-term neomutt %U
-  ^mailto:.+@.+\..+
-
-scaled-qutebrowser %F
+open-qutebrowser %F
   ^www\..+?\.\w+
