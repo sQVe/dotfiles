@@ -41,6 +41,9 @@ hi! GitChange guifg=#d3869b guibg=NONE gui=NONE cterm=NONE
 hi! GitDelete guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
 hi! GitChangeDelete guifg=#d3869b guibg=NONE gui=NONE cterm=NONE
 
+" Floaterm.
+hi! FloatermBorder guibg=NONE guifg=#665c54
+
 " Lightline colorscheme.
 let s:p = {'normal':{}, 'inactive':{}, 'insert':{}, 'replace':{}, 'visual':{}, 'tabline':{}, 'terminal':{}}
 let s:p.normal.left = [ [ '#282828', '#a89984', 'bold' ], [ '#a89984', '#504945' ] ]
