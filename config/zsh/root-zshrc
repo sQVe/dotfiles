@@ -1,0 +1,15 @@
+#  ┏━┓┏━┓╻ ╻┏━┓┏━╸┏━╸
+#  ┗━┓┃ ┃┃ ┃┣┳┛┃  ┣╸
+#  ┗━┛┗━┛┗━┛╹┗╸┗━╸┗━╸
+source /home/sqve/.dotfiles/config/zsh/zshrc
+
+
+#  ┏━╸╻ ╻┏━╸┏━╸╻ ╻╺┳╸┏━╸
+#  ┣╸ ┏╋┛┣╸ ┃  ┃ ┃ ┃ ┣╸
+#  ┗━╸╹ ╹┗━╸┗━╸┗━┛ ╹ ┗━╸
+
+# Goto set root pwd if available.
+if [[ -e /tmp/next-root-pwd ]]; then
+  cd "$(cat /tmp/next-root-pwd)"
+  rm /tmp/next-root-pwd
+fi
