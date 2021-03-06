@@ -15,9 +15,6 @@ xrdb "$XDG_CONFIG_HOME/Xresources"
 # Start xiccd colord daemon.
 xiccd &
 
-# Start composition manager (xcompmgr).
-xcompmgr -C &
-
 # Start mons daemon.
 mons -a &
 
@@ -32,6 +29,9 @@ xsetroot -solid '#282828'
 
 # Set screen power timer.
 xset dpms 240 240 240
+
+# Start composition manager (xcompmgr).
+xcompmgr -C &
 
 # Setup peek cache symlink to tmp.
 mkdir /tmp/peek
