@@ -145,6 +145,10 @@ const accumulate = (...nums) =>
   nums.reduce((acc, n) => [...acc, n + +acc.slice(-1)], []);
 endsnippet
 
+snippet addClass "Adds a class to an HTML element.  - Use `Element.classList` and `DOMTokenList.add()` to add the specified class to the element." b
+const addClass = (el, className) => el.classList.add(className);
+endsnippet
+
 snippet addDaysToDate "Calculates the date of `n` days from the given date, returning its string representation.  - Use `new Date()` to create a date object from the first argument. - Use `Date.prototype.getDate()` and `Date.prototype.setDate()` to add `n` days to the given date. - Use `Date.prototype.toISOString()` to return a string in `yyyy-mm-dd` format." b
 const addDaysToDate = (date, n) => {
   const d = new Date(date);
@@ -169,7 +173,11 @@ const addMultipleListeners = (el, types, listener, options, useCapture) => {
 };
 endsnippet
 
-snippet addWeekDays "Calculates the date after adding the ginen number of business days.  - Use `Array.from()` to construct an array with `length` equal to the `count` of business days to be added. - Use `Array.prototype.reduce()` to iterate over the array, starting from `startDate` and incrementing, using `Date.prototype.getDate()` and `Date.prototype.setDate()`. - If the current `date` is on a weekend, update it again by adding either one day or two days to make it a weekday. - **NOTE:** Does not take official holidays into account." b
+snippet addStyles "Adds the provided styles to the given element.  - Use `Object.assign()` and `ElementCSSInlineStyle.style` to merge the provided `styles` object into the style of the given element." b
+const addStyles = (el, styles) => Object.assign(el.style, styles);
+endsnippet
+
+snippet addWeekDays "Calculates the date after adding the given number of business days.  - Use `Array.from()` to construct an array with `length` equal to the `count` of business days to be added. - Use `Array.prototype.reduce()` to iterate over the array, starting from `startDate` and incrementing, using `Date.prototype.getDate()` and `Date.prototype.setDate()`. - If the current `date` is on a weekend, update it again by adding either one day or two days to make it a weekday. - **NOTE:** Does not take official holidays into account." b
 const addWeekDays = (startDate, count) =>
   Array.from({ length: count }).reduce(date => {
     date = new Date(date.setDate(date.getDate() + 1));
@@ -194,11 +202,11 @@ const allEqualBy = (arr, fn) => {
 };
 endsnippet
 
-snippet allUnique "Checks if all elements in an array are unique.  - Create a new `Set` from the mapped values to keep only unique occurences. - Use `Array.prototype.length` and `Set.prototype.size` to compare the length of the unique values to the original array." b
+snippet allUnique "Checks if all elements in an array are unique.  - Create a new `Set` from the mapped values to keep only unique occurrences. - Use `Array.prototype.length` and `Set.prototype.size` to compare the length of the unique values to the original array." b
 const allUnique = arr => arr.length === new Set(arr).size;
 endsnippet
 
-snippet allUniqueBy "Checks if all elements in an array are unique, based on the provided mapping function.  - Use `Array.prototype.map()` to apply `fn` to all elements in `arr`. - Create a new `Set` from the mapped values to keep only unique occurences. - Use `Array.prototype.length` and `Set.prototype.size` to compare the length of the unique mapped values to the original array." b
+snippet allUniqueBy "Checks if all elements in an array are unique, based on the provided mapping function.  - Use `Array.prototype.map()` to apply `fn` to all elements in `arr`. - Create a new `Set` from the mapped values to keep only unique occurrences. - Use `Array.prototype.length` and `Set.prototype.size` to compare the length of the unique mapped values to the original array." b
 const allUniqueBy = (arr, fn) => arr.length === new Set(arr.map(fn)).size;
 endsnippet
 
@@ -223,7 +231,7 @@ const approximatelyEqual = (v1, v2, epsilon = 0.001) =>
 endsnippet
 
 snippet arithmeticProgression "Creates an array of numbers in the arithmetic progression, starting with the given positive integer and up to the specified limit.  - Use `Array.from()` to create an array of the desired length, `lim/n`, and a map function to fill it with the desired values in the given range." b
-const arithmeticProgression  = (n, lim) => 
+const arithmeticProgression  = (n, lim) =>
   Array.from({ length: Math.ceil(lim / n) }, (_, i) => (i + 1) * n );
 endsnippet
 
@@ -293,6 +301,21 @@ snippet binary "Creates a function that accepts up to two arguments, ignoring an
 const binary = fn => (a, b) => fn(a, b);
 endsnippet
 
+snippet binarySearch "Finds the index of a given element in a sorted array using the binary search algorithm.  - Declare the left and right search boundaries, `l` and `r`, initialized to `0` and the `length` of the array respectively. - Use a `while` loop to repeatedly narrow down the search subarray, using `Math.floor()` to cut it in half. - Return the index of the element if found, otherwise return `-1`. - **Note:** Does not account for duplicate values in the array." b
+const binarySearch = (arr, item) => {
+  let l = 0,
+    r = arr.length - 1;
+  while (l <= r) {
+    const mid = Math.floor((l + r) / 2);
+    const guess = arr[mid];
+    if (guess === item) return mid;
+    if (guess > item) r = mid - 1;
+    else l = mid + 1;
+  }
+  return -1;
+};
+endsnippet
+
 snippet bind "Creates a function that invokes `fn` with a given context, optionally prepending any additional supplied parameters to the arguments.  - Return a `function` that uses `Function.prototype.apply()` to apply the given `context` to `fn`. - Use the spread operator (`...`) to prepend any additional supplied parameters to the arguments." b
 const bind = (fn, context, ...boundArgs) => (...args) =>
   fn.apply(context, [...boundArgs, ...args]);
@@ -343,8 +366,58 @@ snippet btoa "Creates a base-64 encoded ASCII string from a String object in whi
 const btoa = str => Buffer.from(str, 'binary').toString('base64');
 endsnippet
 
+snippet bubbleSort "Sorts an array of numbers, using the bubble sort algorithm.  - Declare a variable, `swapped`, that indicates if any values were swapped during the current iteration. - Use the spread operator (`...`) to clone the original array, `arr`. - Use a `for` loop to iterate over the elements of the cloned array, terminating before the last element. - Use a nested `for` loop to iterate over the segment of the array between `0` and `i`, swapping any adjacent out of order elements and setting `swapped` to `true`. - If `swapped` is `false` after an iteration, no more changes are needed, so the cloned array is returned." b
+const bubbleSort = arr => {
+  let swapped = false;
+  const a = [...arr];
+  for (let i = 1; i < a.length - 1; i++) {
+    swapped = false;
+    for (let j = 0; j < a.length - i; j++) {
+      if (a[j + 1] < a[j]) {
+        [a[j], a[j + 1]] = [a[j + 1], a[j]];
+        swapped = true;
+      }
+    }
+    if (!swapped) return a;
+  }
+  return a;
+};
+endsnippet
+
+snippet bucketSort "Sorts an array of numbers, using the bucket sort algorithm.  - Use `Math.min(),` `Math.max()` and the spread operator (`...`) to find the minimum and maximum values of the given array. - Use `Array.from()` and `Math.floor()` to create the appropriate number of `buckets` (empty arrays). - Use `Array.prototype.forEach()` to populate each bucket with the appropriate elements from the array. - Use `Array.prototype.reduce()`, the spread operator (`...`) and `Array.prototype.sort()` to sort each bucket and append it to the result." b
+const bucketSort = (arr, size = 5) => {
+  const min = Math.min(...arr);
+  const max = Math.max(...arr);
+  const buckets = Array.from(
+    { length: Math.floor((max - min) / size) + 1 },
+    () => []
+  );
+  arr.forEach(val => {
+    buckets[Math.floor((val - min) / size)].push(val);
+  });
+  return buckets.reduce((acc, b) => [...acc, ...b.sort((a, b) => a - b)], []);
+};
+endsnippet
+
 snippet byteSize "Returns the length of a string in bytes.  - Convert a given string to a [`Blob` Object](https://developer.mozilla.org/en-US/docs/Web/API/Blob). - Use `Blob.size` to get the length of the string in bytes." b
 const byteSize = str => new Blob([str]).size;
+endsnippet
+
+snippet caesarCipher "Encrypts or decrypts a given string using the Caesar cipher.  - Use the modulo (`%`) operator and the ternary operator (`?`) to calculate the correct encryption/decryption key. - Use the spread operator (`...`) and `Array.prototype.map()` to iterate over the letters of the given string. - Use `String.prototype.charCodeAt()` and `String.fromCharCode()` to convert each letter appropriately, ignoring special characters, spaces etc. - Use `Array.prototype.join()` to combine all the letters into a string. - Pass `true` to the last parameter, `decrypt`, to decrypt an encrypted string." b
+const caesarCipher = (str, shift, decrypt = false) => {
+  const s = decrypt ? (26 - shift) % 26 : shift;
+  const n = s > 0 ? s : 26 + (s % 26);
+  return [...str]
+    .map((l, i) => {
+      const c = str.charCodeAt(i);
+      if (c >= 65 && c <= 90)
+        return String.fromCharCode(((c - 65 + n) % 26) + 65);
+      if (c >= 97 && c <= 122)
+        return String.fromCharCode(((c - 97 + n) % 26) + 97);
+      return l;
+    })
+    .join('');
+};
 endsnippet
 
 snippet call "Given a key and a set of arguments, call them when given a context.    - Use a closure to call `key` with `args` for the given `context`." b
@@ -360,6 +433,11 @@ endsnippet
 snippet capitalizeEveryWord "Capitalizes the first letter of every word in a string.  - Use `String.prototype.replace()` to match the first character of each word and `String.prototype.toUpperCase()` to capitalize it." b
 const capitalizeEveryWord = str =>
   str.replace(/\b[a-z]/g, char => char.toUpperCase());
+endsnippet
+
+snippet cartesianProduct "Calculates the cartesian product of two arrays.  - Use `Array.prototype.reduce()`, `Array.prototype.map()` and the spread operator (`...`) to generate all possible element pairs from the two arrays." b
+const cartesianProduct = (a, b) =>
+  a.reduce((p, x) => [...p, ...b.map(y => [x, y])], []);
 endsnippet
 
 snippet castArray "Casts the provided value as an array if it's not one.  - Use `Array.prototype.isArray()` to determine if `val` is an array and return it as-is or encapsulated in an array accordingly." b
@@ -511,7 +589,7 @@ snippet containsWhitespace "Checks if the given string contains any whitespace c
 const containsWhitespace = str => /\s/.test(str);
 endsnippet
 
-snippet converge "Accepts a converging function and a list of branching functions and returns a function that applies each branching function to the arguments and the results of the branching functions are passed as arguments to the converging function.  - Use `Array.prototype.map()` and `Function.prototype.apply()` to apply each function to the given arguments. - Use the spread operator (`...`) to call `coverger` with the results of all other functions." b
+snippet converge "Accepts a converging function and a list of branching functions and returns a function that applies each branching function to the arguments and the results of the branching functions are passed as arguments to the converging function.  - Use `Array.prototype.map()` and `Function.prototype.apply()` to apply each function to the given arguments. - Use the spread operator (`...`) to call `converger` with the results of all other functions." b
 const converge = (converger, fns) => (...args) =>
   converger(...fns.map(fn => fn.apply(null, args)));
 endsnippet
@@ -553,6 +631,18 @@ endsnippet
 snippet countOccurrences "Counts the occurrences of a value in an array.  - Use `Array.prototype.reduce()` to increment a counter each time the specific value is encountered inside the array." b
 const countOccurrences = (arr, val) =>
   arr.reduce((a, v) => (v === val ? a + 1 : a), 0);
+endsnippet
+
+snippet countSubstrings "Counts the occurrences of a substring in a given string.  - Use `Array.prototype.indexOf()` to look for `searchValue` in `str`. - Increment a counter if the value is found and update the index, `i`. - Use a `while` loop that will return as soon as the value returned from `Array.prototype.indexOf()` is `-1`." b
+const countSubstrings = (str, searchValue) => {
+  let count = 0,
+    i = 0;
+  while (true) {
+    const r = str.indexOf(searchValue, i);
+    if (r !== -1) [count, i] = [count + 1, r + 1];
+    else return count;
+  }
+};
 endsnippet
 
 snippet countWeekDaysBetween "Counts the weekdays between two dates.  - Use `Array.from()` to construct an array with `length` equal to the number of days between `startDate` and `endDate`. - Use `Array.prototype.reduce()` to iterate over the array, checking if each date is a weekday and incrementing `count`. - Update `startDate` with the next day each loop using `Date.prototype.getDate()` and `Date.prototype.setDate()` to advance it by one day. - **NOTE:** Does not take official holidays into account." b
@@ -906,6 +996,11 @@ snippet escapeRegExp "Escapes a string to use in a regular expression.  - Use `S
 const escapeRegExp = str => str.replace(/[.*+?^\${}()|[\]\\]/g, '\\$&');
 endsnippet
 
+snippet euclideanDistance "Calculates the distance between two points in any number of dimensions.  - Use `Object.keys()` and `Array.prototype.map()` to map each coordinate to its difference between the two points. - Use `Math.hypot()` to calculate the Euclidean distance between the two points." b
+const euclideanDistance = (a, b) =>
+  Math.hypot(...Object.keys(a).map(k => b[k] - a[k]));
+endsnippet
+
 snippet everyNth "Returns every `nth` element in an array.  - Use `Array.prototype.filter()` to create a new array that contains every `nth` element of a given array." b
 const everyNth = (arr, nth) => arr.filter((e, i) => i % nth === nth - 1);
 endsnippet
@@ -1136,6 +1231,10 @@ snippet generateItems "Generates an array with the given amount of items, using 
 const generateItems = (n, fn) => Array.from({ length: n }, (_, i) => fn(i));
 endsnippet
 
+snippet generatorToArray "Converts the output of a generator function to an array.  - Use the spread operator (`...`) to convert the output of the generator function to an array." b
+const generatorToArray = gen => [...gen];
+endsnippet
+
 snippet geometricProgression "Initializes an array containing the numbers in the specified range where `start` and `end` are inclusive and the ratio between two terms is `step`. Returns an error if `step` equals `1`.  - Use `Array.from()`, `Math.log()` and `Math.floor()` to create an array of the desired length, `Array.prototype.map()` to fill with the desired values in a range. - Omit the second argument, `start`, to use a default value of `1`. - Omit the third argument, `step`, to use a default value of `2`." b
 const geometricProgression = (end, start = 1, step = 2) =>
   Array.from({
@@ -1154,7 +1253,7 @@ const get = (from, ...selectors) =>
   );
 endsnippet
 
-snippet getAncestors "Returns all the ancestors of an element from the document root to the given element.  - Use a `Node.parentNode` and a `while` loop to move up the ancestor tree of the element. - Use `Array.prototype.unshift()` to add each new ancestor to the start of the array." b
+snippet getAncestors "Returns all the ancestors of an element from the document root to the given element.  - Use `Node.parentNode` and a `while` loop to move up the ancestor tree of the element. - Use `Array.prototype.unshift()` to add each new ancestor to the start of the array." b
 const getAncestors = el => {
   let ancestors = [];
   while (el) {
@@ -1165,9 +1264,8 @@ const getAncestors = el => {
 };
 endsnippet
 
-snippet getBaseURL "Gets the current URL without any parameters.  - Use `String.prototype.indexOf()` to check if the given `url` has parameters, `String.prototype.slice()` to remove them if necessary." b
-const getBaseURL = url =>
-  url.indexOf('?') > 0 ? url.slice(0, url.indexOf('?')) : url;
+snippet getBaseURL "Gets the current URL without any parameters or fragment identifiers.  - Use `String.prototype.replace()` with an appropriate regular expression to remove everything after either `'?'` or `'#'`, if found." b
+const getBaseURL = url => url.replace(/[?#].*$/, '');
 endsnippet
 
 snippet getColonTimeFromDate "Returns a string of the form `HH:MM:SS` from a `Date` object.  - Use `Date.prototype.toTimeString()` and `String.prototype.slice()` to get the `HH:MM:SS` part of a given `Date` object." b
@@ -1218,6 +1316,19 @@ const getMonthsDiffBetweenDates = (dateInitial, dateFinal) =>
   );
 endsnippet
 
+snippet getParentsUntil "Finds all the ancestors of an element up until the element matched by the specified selector.  - Use `Node.parentNode` and a `while` loop to move up the ancestor tree of the element. - Use `Array.prototype.unshift()` to add each new ancestor to the start of the array. - Use `Element.matches()` to check if the current element matches the specified `selector`." b
+const getParentsUntil = (el, selector) => {
+  let parents = [],
+    _el = el.parentNode;
+  while (_el && typeof _el.matches === 'function') {
+    parents.unshift(_el);
+    if (_el.matches(selector)) return parents;
+    else _el = _el.parentNode;
+  }
+  return [];
+};
+endsnippet
+
 snippet getProtocol "Gets the protocol being used on the current page.  - Use `Window.location.protocol` to get the protocol (`http:` or `https:`) of the current page." b
 const getProtocol = () => window.location.protocol;
 endsnippet
@@ -1259,6 +1370,18 @@ const getURLParameters = url =>
     ),
     {}
   );
+endsnippet
+
+snippet getVerticalOffset "Finds the distance from a given element to the top of the document.  - Use a `while` loop and `HTMLElement.offsetParent` to move up the offset parents of the given element. - Add `HTMLElement.offsetTop` for each element and return the result." b
+const getVerticalOffset = el => {
+  let offset = el.offsetTop,
+    _el = el;
+  while (_el.offsetParent) {
+    _el = _el.offsetParent;
+    offset += _el.offsetTop;
+  }
+  return offset;
+};
 endsnippet
 
 snippet groupBy "Groups the elements of an array based on the given function.  - Use `Array.prototype.map()` to map the values of the array to a function or property name. - Use `Array.prototype.reduce()` to create an object, where the keys are produced from the mapped results." b
@@ -1340,6 +1463,33 @@ endsnippet
 
 snippet head "Returns the head of an array.  - Check if `arr` is truthy and has a `length` property. - Use `arr[0]` if possible to return the first element, otherwise return `undefined`." b
 const head = arr => (arr && arr.length ? arr[0] : undefined);
+endsnippet
+
+snippet heapsort "Sorts an array of numbers, using the heapsort algorithm.  - Use recursion. - Use the spread operator (`...`) to clone the original array, `arr`. - Use closures to declare a variable, `l`, and a function `heapify`. - Use a `for` loop and `Math.floor()` in combination with `heapify` to create a max heap from the array. - Use a `for` loop to repeatedly narrow down the considered range, using `heapify` and swapping values as necessary in order to sort the cloned array." b
+const heapsort = arr => {
+  const a = [...arr];
+  let l = a.length;
+
+  const heapify = (a, i) => {
+    const left = 2 * i + 1;
+    const right = 2 * i + 2;
+    let max = i;
+    if (left < l && a[left] > a[max]) max = left;
+    if (right < l && a[right] > a[max]) max = right;
+    if (max !== i) {
+      [a[max], a[i]] = [a[i], a[max]];
+      heapify(a, max);
+    }
+  };
+
+  for (let i = Math.floor(l / 2); i >= 0; i -= 1) heapify(a, i);
+  for (i = a.length - 1; i > 0; i--) {
+    [a[0], a[i]] = [a[i], a[0]];
+    l--;
+    heapify(a, 0);
+  }
+  return a;
+};
 endsnippet
 
 snippet hexToRGB "Converts a color code to an `rgb()` or `rgba()` string if alpha value is provided.  - Use bitwise right-shift operator and mask bits with `&` (and) operator to convert a hexadecimal color code (with or without prefixed with `#`) to a string with the RGB values. - If it's 3-digit color code, first convert to 6-digit version. - If an alpha value is provided alongside 6-digit hex, give `rgba()` string in return." b
@@ -1450,6 +1600,19 @@ const indexOfAll = (arr, val) =>
   arr.reduce((acc, el, i) => (el === val ? [...acc, i] : acc), []);
 endsnippet
 
+snippet indexOfSubstrings "Finds all the indexes of a substring in a given string.  - Use `Array.prototype.indexOf()` to look for `searchValue` in `str`. - Use `yield` to return the index if the value is found and update the index, `i`. - Use a `while` loop that will terminate the generator as soon as the value returned from `Array.prototype.indexOf()` is `-1`." b
+const indexOfSubstrings = function* (str, searchValue) {
+  let i = 0;
+  while (true) {
+    const r = str.indexOf(searchValue, i);
+    if (r !== -1) {
+      yield r;
+      i = r + 1;
+    } else return;
+  }
+};
+endsnippet
+
 snippet initial "Returns all the elements of an array except the last one.  - Use `Array.prototype.slice(0, -1)` to return all but the last element of the array." b
 const initial = arr => arr.slice(0, -1);
 endsnippet
@@ -1515,6 +1678,25 @@ const insertBefore = (el, htmlString) =>
   el.insertAdjacentHTML('beforebegin', htmlString);
 endsnippet
 
+snippet insertionSort "Sorts an array of numbers, using the insertion sort algorithm.  - Use `Array.prototype.reduce()` to iterate over all the elements in the given array. - If the `length` of the accumulator is `0`, add the current element to it. - Use `Array.prototype.some()` to iterate over the results in the accumulator until the correct position is found. - Use `Array.prototype.splice()` to insert the current element into the accumulator." b
+const insertionSort = arr =>
+  arr.reduce((acc, x) => {
+    if (!acc.length) return [x];
+    acc.some((y, j) => {
+      if (x <= y) {
+        acc.splice(j, 0, x);
+        return true;
+      }
+      if (x > y && j === acc.length - 1) {
+        acc.splice(j + 1, 0, x);
+        return true;
+      }
+      return false;
+    });
+    return acc;
+  }, []);
+endsnippet
+
 snippet intersection "Returns the elements that exist in both arrays, filtering duplicate values.  - Create a `Set` from `b`, then use `Array.prototype.filter()` on `a` to only keep values contained in `b`." b
 const intersection = (a, b) => {
   const s = new Set(b);
@@ -1554,6 +1736,10 @@ endsnippet
 
 snippet isAfterDate "Checks if a date is after another date.  - Use the greater than operator (`>`) to check if the first date comes after the second one." b
 const isAfterDate = (dateA, dateB) => dateA > dateB;
+endsnippet
+
+snippet isAlpha "Checks if a string contains only alpha characters.  - Use `RegExp.prototype.test()` to check if the given string matches against the alphabetic regexp pattern." b
+const isAlpha = str => /^[a-zA-Z]*$/.test(str);
 endsnippet
 
 snippet isAlphaNumeric "Checks if a string contains only alphanumeric characters.  - Use `RegExp.prototype.test()` to check if the input string matches against the alphanumeric regexp pattern." b
@@ -1679,6 +1865,19 @@ snippet isLeapYear "Checks if the given `year` is a leap year.  - Use `new Date(
 const isLeapYear = year => new Date(year, 1, 29).getMonth() === 1;
 endsnippet
 
+snippet isLocalStorageEnabled "Checks if `localStorage` is enabled.  - Use a `try...catch` block to return `true` if all operations complete successfully, `false` otherwise. - Use `Storage.setItem()` and `Storage.removeItem()` to test storing and deleting a value in `window.localStorage`." b
+const isLocalStorageEnabled = () => {
+  try {
+    const key = \`__storage__test\`;
+    window.localStorage.setItem(key, null);
+    window.localStorage.removeItem(key);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
+endsnippet
+
 snippet isLowerCase "Checks if a string is lower case.  - Convert the given string to lower case, using `String.prototype.toLowerCase()` and compare it to the original." b
 const isLowerCase = str => str === str.toLowerCase();
 endsnippet
@@ -1706,7 +1905,7 @@ snippet isNumber "Checks if the given argument is a number.  - Use `typeof` to c
 const isNumber = val => typeof val === 'number' && val === val;
 endsnippet
 
-snippet isObject "Checks if the passed value is an object or not.  - Uses the `Object` constructor to create an object wrapper for the given value. - If the value is `null` or `undefined`, create and return an empty object. - Οtherwise, return an object of a type that corresponds to the given value." b
+snippet isObject "Checks if the passed value is an object or not.  - Uses the `Object` constructor to create an object wrapper for the given value. - If the value is `null` or `undefined`, create and return an empty object. - Otherwise, return an object of a type that corresponds to the given value." b
 const isObject = obj => obj === Object(obj);
 endsnippet
 
@@ -1723,6 +1922,10 @@ const isPlainObject = val =>
   !!val && typeof val === 'object' && val.constructor === Object;
 endsnippet
 
+snippet isPowerOfTen "Checks if the given number is a power of `10`.  - Use `Math.log10()` and the modulo operator (`%`) to determine if `n` is a power of `10`." b
+const isPowerOfTen = n => Math.log10(n) % 1 === 0;
+endsnippet
+
 snippet isPowerOfTwo "Checks if the given number is a power of `2`.  - Use the bitwise binary AND operator (`&`) to determine if `n` is a power of `2`. - Additionally, check that `n` is not falsy." b
 const isPowerOfTwo = n => !!n && (n & (n - 1)) == 0;
 endsnippet
@@ -1730,7 +1933,7 @@ endsnippet
 snippet isPrime "Checks if the provided integer is a prime number.  - Check numbers from `2` to the square root of the given number. - Return `false` if any of them divides the given number, else return `true`, unless the number is less than `2`." b
 const isPrime = num => {
   const boundary = Math.floor(Math.sqrt(num));
-  for (var i = 2; i <= boundary; i++) if (num % i === 0) return false;
+  for (let i = 2; i <= boundary; i++) if (num % i === 0) return false;
   return num >= 2;
 };
 endsnippet
@@ -1758,6 +1961,19 @@ endsnippet
 snippet isSameDate "Checks if a date is the same as another date.  - Use `Date.prototype.toISOString()` and strict equality checking (`===`) to check if the first date is the same as the second one." b
 const isSameDate = (dateA, dateB) =>
   dateA.toISOString() === dateB.toISOString();
+endsnippet
+
+snippet isSessionStorageEnabled "Checks if `sessionStorage` is enabled.  - Use a `try...catch` block to return `true` if all operations complete successfully, `false` otherwise. - Use `Storage.setItem()` and `Storage.removeItem()` to test storing and deleting a value in `window.sessionStorage`." b
+const isSessionStorageEnabled = () => {
+  try {
+    const key = \`__storage__test\`;
+    window.sessionStorage.setItem(key, null);
+    window.sessionStorage.removeItem(key);
+    return true;
+  } catch (e) {
+    return false;
+  }
+};
 endsnippet
 
 snippet isSorted "Checks if a numeric array is sorted.  - Calculate the ordering `direction` for the first pair of adjacent array elements. - Return `0` if the given array is empty, only has one element or the `direction` changes for any pair of adjacent array elements. - Use `Math.sign()` to covert the final value of `direction` to `-1` (descending order) or `1` (ascending order)." b
@@ -1841,6 +2057,79 @@ snippet juxt "Takes several functions as argument and returns a function that is
 const juxt = (...fns) => (...args) => [...fns].map(fn => [...args].map(fn));
 endsnippet
 
+snippet kMeans "Groups the given data into `k` clusters, using the [k-means clustering](https://en.wikipedia.org/wiki/K-means_clustering) algorithm.  - Use `Array.from()` and `Array.prototype.slice()` to initialize appropriate variables for the cluster `centroids`, `distances` and `classes`. - Use a `while` loop to repeat the assignment and update steps as long as there are changes in the previous iteration, as indicated by `itr`. - Calculate the euclidean distance between each data point and centroid using `Math.hypot()`, `Object.keys()` and `Array.prototype.map()`. - Use `Array.prototype.indexOf()` and `Math.min()` to find the closest centroid. - Use `Array.from()` and `Array.prototype.reduce()`, as well as `parseFloat()` and `Number.prototype.toFixed()` to calculate the new centroids." b
+const kMeans = (data, k = 1) => {
+  const centroids = data.slice(0, k);
+  const distances = Array.from({ length: data.length }, () =>
+    Array.from({ length: k }, () => 0)
+  );
+  const classes = Array.from({ length: data.length }, () => -1);
+  let itr = true;
+
+  while (itr) {
+    itr = false;
+
+    for (let d in data) {
+      for (let c = 0; c < k; c++) {
+        distances[d][c] = Math.hypot(
+          ...Object.keys(data[0]).map(key => data[d][key] - centroids[c][key])
+        );
+      }
+      const m = distances[d].indexOf(Math.min(...distances[d]));
+      if (classes[d] !== m) itr = true;
+      classes[d] = m;
+    }
+
+    for (let c = 0; c < k; c++) {
+      centroids[c] = Array.from({ length: data[0].length }, () => 0);
+      const size = data.reduce((acc, _, d) => {
+        if (classes[d] === c) {
+          acc++;
+          for (let i in data[0]) centroids[c][i] += data[d][i];
+        }
+        return acc;
+      }, 0);
+      for (let i in data[0]) {
+        centroids[c][i] = parseFloat(Number(centroids[c][i] / size).toFixed(2));
+      }
+    }
+  }
+
+  return classes;
+};
+endsnippet
+
+snippet kNearestNeighbors "Classifies a data point relative to a labelled data set, using the [k-nearest neighbors](https://en.wikipedia.org/wiki/K-nearest_neighbors_algorithm) algorithm.  - Use `Array.prototype.map()` to map the `data` to objects containing the euclidean distance of each element from `point`, calculated using `Math.hypot()`, `Object.keys()` and its `label`. - Use `Array.prototype.sort()` and `Array.prototype.slice()` to get the `k` nearest neighbors of `point`. - Use `Array.prototype.reduce()` in combination with `Object.keys()` and `Array.prototype.indexOf()` to find the most frequent `label` among them." b
+const kNearestNeighbors = (data, labels, point, k = 3) => {
+  const kNearest = data
+    .map((el, i) => ({
+      dist: Math.hypot(...Object.keys(el).map(key => point[key] - el[key])),
+      label: labels[i]
+    }))
+    .sort((a, b) => a.dist - b.dist)
+    .slice(0, k);
+
+  return kNearest.reduce(
+    (acc, { label }, i) => {
+      acc.classCounts[label] =
+        Object.keys(acc.classCounts).indexOf(label) !== -1
+          ? acc.classCounts[label] + 1
+          : 1;
+      if (acc.classCounts[label] > acc.topClassCount) {
+        acc.topClassCount = acc.classCounts[label];
+        acc.topClass = label;
+      }
+      return acc;
+    },
+    {
+      classCounts: {},
+      topClass: kNearest[0].label,
+      topClassCount: 0
+    }
+  ).topClass;
+};
+endsnippet
+
 snippet kmToMiles "Converts kilometers to miles.  - Follow the conversion formula `mi = km * 0.621371`." b
 const kmToMiles = km => km * 0.621371;
 endsnippet
@@ -1861,6 +2150,37 @@ const lcm = (...arr) => {
   const gcd = (x, y) => (!y ? x : gcd(y, x % y));
   const _lcm = (x, y) => (x * y) / gcd(x, y);
   return [...arr].reduce((a, b) => _lcm(a, b));
+};
+endsnippet
+
+snippet levenshteinDistance "Calculates the difference between two strings, using the [Levenshtein distance](https://en.wikipedia.org/wiki/Levenshtein_distance) algorithm.  - If either of the two strings has a `length` of zero, return the `length` of the other one. - Use a `for` loop to iterate over the letters of the target string and a nested `for` loop to iterate over the letters of the source string. - Calculate the cost of substituting the letters corresponding to `i - 1` and `j - 1` in the target and source respectively (`0` if they are the same, `1` otherwise). - Use `Math.min()` to populate each element in the 2D array with the minimum of the cell above incremented by one, the cell to the left incremented by one or the cell to the top left incremented by the previously calculated cost. - Return the last element of the last row of the produced array." b
+const levenshteinDistance = (s, t) => {
+  if (!s.length) return t.length;
+  if (!t.length) return s.length;
+  const arr = [];
+  for (let i = 0; i <= t.length; i++) {
+    arr[i] = [i];
+    for (let j = 1; j <= s.length; j++) {
+      arr[i][j] =
+        i === 0
+          ? j
+          : Math.min(
+              arr[i - 1][j] + 1,
+              arr[i][j - 1] + 1,
+              arr[i - 1][j - 1] + (s[j - 1] === t[i - 1] ? 0 : 1)
+            );
+    }
+  }
+  return arr[t.length][s.length];
+};
+endsnippet
+
+snippet linearSearch "Finds the first index of a given element in an array using the linear search algorithm.  - Use a `for...in` loop to iterate over the indexes of the given array. - Check if the element in the corresponding index is equal to `item`. - If the element is found, return the index, using the unary `+` operator to convert it from a string to a number. - If the element is not found after iterating over the whole array, return `-1`." b
+const linearSearch = (arr, item) => {
+  for (const i in arr) {
+    if (arr[i] === item) return +i;
+  }
+  return -1;
 };
 endsnippet
 
@@ -2008,6 +2328,32 @@ const merge = (...objs) =>
   );
 endsnippet
 
+snippet mergeSort "Sorts an array of numbers, using the merge sort algorithm.  - Use recursion. - If the `length` of the array is less than `2`, return the array. - Use `Math.floor()` to calculate the middle point of the array. - Use `Array.prototype.slice()` to slice the array in two and recursively call `mergeSort()` on the created subarrays. - Finally, use `Array.from()` and `Array.prototype.shift()` to combine the two sorted subarrays into one." b
+const mergeSort = arr => {
+  if (arr.length < 2) return arr;
+  const mid = Math.floor(arr.length / 2);
+  const l = mergeSort(arr.slice(0, mid));
+  const r = mergeSort(arr.slice(mid, arr.length));
+  return Array.from({ length: l.length + r.length }, () => {
+    if (!l.length) return r.shift();
+    else if (!r.length) return l.shift();
+    else return l[0] > r[0] ? r.shift() : l.shift();
+  });
+};
+endsnippet
+
+snippet mergeSortedArrays "Merges two sorted arrays into one.  - Use the spread operator (`...`) to clone both of the given arrays. - Use `Array.from()` to create an array of the appropriate length based on the given arrays. - Use `Array.prototype.shift()` to populate the newly created array from the removed elements of the cloned arrays." b
+const mergeSortedArrays = (a, b) => {
+  const _a = [...a],
+    _b = [...b];
+  return Array.from({ length: _a.length + _b.length }, () => {
+    if (!_a.length) return _b.shift();
+    else if (!_b.length) return _a.shift();
+    else return _a[0] > _b[0] ? _b.shift() : _a.shift();
+  });
+};
+endsnippet
+
 snippet midpoint "Calculates the midpoint between two pairs of (x,y) points.  - Destructure the array to get `x1`, `y1`, `x2` and `y2`. - Calculate the midpoint for each dimension by dividing the sum of the two endpoints by `2`." b
 const midpoint = ([x1, y1], [x2, y2]) => [(x1 + x2) / 2, (y1 + y2) / 2];
 endsnippet
@@ -2085,6 +2431,10 @@ endsnippet
 snippet nthElement "Returns the nth element of an array.  - Use `Array.prototype.slice()` to get an array containing the nth element at the first place. - If the index is out of bounds, return `undefined`. - Omit the second argument, `n`, to get the first element of the array." b
 const nthElement = (arr, n = 0) =>
   (n === -1 ? arr.slice(n) : arr.slice(n, n + 1))[0];
+endsnippet
+
+snippet nthRoot "Calculates the nth root of a given number.  - Use `Math.pow()` to calculate `x` to the power of `1/n` which is equal to the nth root of `x`." b
+const nthRoot = (x, n) => Math.pow(x, 1 / n);
 endsnippet
 
 snippet objectFromPairs "Creates an object from the given key-value pairs.  - Use `Array.prototype.reduce()` to create and combine key-value pairs." b
@@ -2172,6 +2522,30 @@ const on = (el, evt, fn, opts = {}) => {
     opts.options || false
   );
   if (opts.target) return delegatorFn;
+};
+endsnippet
+
+snippet onClickOutside "Runs the callback whenever the user clicks outside of the specified element.  - Use `EventTarget.addEventListener()` to listen for `'click'` events. - Use `Node.contains()` to check if `Event.target` is a descendant of `element` and run `callback` if not." b
+const onClickOutside = (element, callback) => {
+  document.addEventListener('click', e => {
+    if (!element.contains(e.target)) callback();
+  });
+};
+endsnippet
+
+snippet onScrollStop "Runs the callback whenever the user has stopped scrolling.  - Use `EventTarget.addEventListener()` to listen for the `'scroll'` event. - Use `setTimeout()` to wait `150` ms until calling the given `callback`. - Use `clearTimeout()` to clear the timeout if a new `'scroll'` event is fired in under `150` ms." b
+const onScrollStop = callback => {
+  let isScrolling;
+  window.addEventListener(
+    'scroll',
+    e => {
+      clearTimeout(isScrolling);
+      isScrolling = setTimeout(() => {
+        callback();
+      }, 150);
+    },
+    false
+  );
 };
 endsnippet
 
@@ -2418,6 +2792,22 @@ const prettyBytes = (num, precision = 3, addSpace = true) => {
 };
 endsnippet
 
+snippet primeFactors "Finds the prime factors of a given number using the trial division algorithm.  - Use a `while` loop to iterate over all possible prime factors, starting with `2`. - If the current factor, `f`, exactly divides `n`, add `f` to the factors array and divide `n` by `f`. Otherwise, increment `f` by one." b
+const primeFactors = n => {
+  let a = [],
+    f = 2;
+  while (n > 1) {
+    if (n % f === 0) {
+      a.push(f);
+      n /= f;
+    } else {
+      f++;
+    }
+  }
+  return a;
+};
+endsnippet
+
 snippet primes "Generates primes up to a given number, using the Sieve of Eratosthenes.  - Generate an array from `2` to the given number. - Use `Array.prototype.filter()` to filter out the values divisible by any number from `2` to the square root of the provided number." b
 const primes = num => {
   let arr = Array.from({ length: num - 1 }).map((x, i) => i + 2),
@@ -2500,6 +2890,27 @@ const queryStringToObject = url =>
   );
 endsnippet
 
+snippet quickSort "Sorts an array of numbers, using the quicksort algorithm.  - Use recursion. - Use the spread operator (`...`) to clone the original array, `arr`. - If the `length` of the array is less than `2`, return the cloned array. - Use `Math.floor()` to calculate the index of the pivot element. - Use `Array.prototype.reduce()` and `Array.prototype.push()` to split the array into two subarrays (elements smaller or equal to the `pivot` and elements greater than it), destructuring the result into two arrays. - Recursively call `quickSort()` on the created subarrays." b
+const quickSort = arr => {
+  const a = [...arr];
+  if (a.length < 2) return a;
+  const pivotIndex = Math.floor(arr.length / 2);
+  const pivot = a[pivotIndex];
+  const [lo, hi] = a.reduce(
+    (acc, val, i) => {
+      if (val < pivot || (val === pivot && i != pivotIndex)) {
+        acc[0].push(val);
+      } else if (val > pivot) {
+        acc[1].push(val);
+      }
+      return acc;
+    },
+    [[], []]
+  );
+  return [...quickSort(lo), pivot, ...quickSort(hi)];
+};
+endsnippet
+
 snippet radsToDegrees "Converts an angle from radians to degrees.  - Use `Math.PI` and the radian to degree formula to convert the angle from radians to degrees." b
 const radsToDegrees = rad => (rad * 180.0) / Math.PI;
 endsnippet
@@ -2515,7 +2926,11 @@ const randomAlphaNumeric = length => {
 };
 endsnippet
 
-snippet randomHexColorCode "Generates a random hexadecimal color code.  - Use `Math.rando()m` to generate a random 24-bit (6 * 4bits) hexadecimal number. - Use bit shifting and then convert it to an hexadecimal string using `Number.prototype.toString(16)`." b
+snippet randomBoolean "Generates a random boolean value.  - Use `Math.random()` to generate a random number and check if it is greater than or equal to `0.5`." b
+const randomBoolean = () => Math.random() >= 0.5;
+endsnippet
+
+snippet randomHexColorCode "Generates a random hexadecimal color code.  - Use `Math.random()` to generate a random 24-bit (6 * 4bits) hexadecimal number. - Use bit shifting and then convert it to an hexadecimal string using `Number.prototype.toString(16)`." b
 const randomHexColorCode = () => {
   let n = (Math.random() * 0xfffff * 1000000).toString(16);
   return '#' + n.slice(0, 6);
@@ -2633,6 +3048,14 @@ endsnippet
 snippet removeAccents "Removes accents from strings.  - Use `String.prototype.normalize()` to convert the string to a normalized Unicode format. - Use `String.prototype.replace()` to replace diacritical marks in the given Unicode range by empty strings." b
 const removeAccents = str =>
   str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+endsnippet
+
+snippet removeClass "Removes a class from an HTML element.  - Use `Element.classList` and `DOMTokenList.remove()` to remove the specified class from the element." b
+const removeClass = (el, className) => el.classList.remove(className);
+endsnippet
+
+snippet removeElement "Removes an element from the DOM.  - Use `Element.parentNode` to get the given element's parent node. - Use `Element.removeChild()` to remove the given element from its parent node." b
+const removeElement = el => el.parentNode.removeChild(el);
 endsnippet
 
 snippet removeNonASCII "Removes non-printable ASCII characters.  - Use `String.prototype.replace()` with a regular expression to remove non-printable ASCII characters." b
@@ -2770,6 +3193,19 @@ const sdbm = str => {
         hashCode),
     0
   );
+};
+endsnippet
+
+snippet selectionSort "Sorts an array of numbers, using the selection sort algorithm.  - Use the spread operator (`...`) to clone the original array, `arr`. - Use a `for` loop to iterate over elements in the array. - Use `Array.prototype.slice()` and `Array.prototype.reduce()` to find the index of the minimum element in the subarray to the right of the current index and perform a swap, if necessary." b
+const selectionSort = arr => {
+  const a = [...arr];
+  for (let i = 0; i < a.length; i++) {
+    const min = a
+      .slice(i + 1)
+      .reduce((acc, val, j) => (val < a[acc] ? j + i + 1 : acc), i);
+    if (min !== i) [a[i], a[min]] = [a[min], a[i]];
+  }
+  return a;
 };
 endsnippet
 
@@ -3179,7 +3615,7 @@ const toISOStringWithTimezone = date => {
 };
 endsnippet
 
-snippet toKebabCase "Converts a string to kebab case.  - Use `String.prototype.match()` to break the string into words using an appropriate regexp. - Use `Array.prototype.map()`, `Array.prototype.slice()`, `Array.prototype.join()` and `String.prototype.toLowerCase()` to combine them, adding `-` as a separator." b
+snippet toKebabCase "Converts a string to kebab case.  - Use `String.prototype.match()` to break the string into words using an appropriate regexp. - Use `Array.prototype.map()`, `Array.prototype.join()` and `String.prototype.toLowerCase()` to combine them, adding `-` as a separator." b
 const toKebabCase = str =>
   str &&
   str
@@ -3442,7 +3878,7 @@ const validateNumber = n => {
 }
 endsnippet
 
-snippet vectorAngle "Calculates the angle (theta) between two vectors.  - Use `Array.prototype.reduce()`, `Math.pow()` and `Math.sqrt()` to calculate the magnitude of each vector and the scalar product of the two vectors. - Use `Math.acos()` to calculate the arccos and get the theta value." b
+snippet vectorAngle "Calculates the angle (theta) between two vectors.  - Use `Array.prototype.reduce()`, `Math.pow()` and `Math.sqrt()` to calculate the magnitude of each vector and the scalar product of the two vectors. - Use `Math.acos()` to calculate the arccosine and get the theta value." b
 const vectorAngle = (x, y) => {
   let mX = Math.sqrt(x.reduce((acc, n) => acc + Math.pow(n, 2), 0));
   let mY = Math.sqrt(y.reduce((acc, n) => acc + Math.pow(n, 2), 0));
@@ -3453,6 +3889,18 @@ endsnippet
 snippet vectorDistance "Calculates the distance between two vectors.  - Use `Array.prototype.reduce()`, `Math.pow()` and `Math.sqrt()` to calculate the Euclidean distance between two vectors." b
 const vectorDistance = (x, y) =>
   Math.sqrt(x.reduce((acc, val, i) => acc + Math.pow(val - y[i], 2), 0));
+endsnippet
+
+snippet walkThrough "Creates a generator, that walks through all the keys of a given object.  - Use recursion. - Define a generator function, `walk`, that takes an object and an array of keys. - Use a `for...of` loop and `Object.keys()` to iterate over the keys of the object. - Use `typeof` to check if each value in the given object is itself an object. - If so, use the `yield*` expression to recursively delegate to the same generator function, `walk`, appending the current `key` to the array of keys. Otherwise, `yield` the an array of keys representing the current path and the value of the given `key`. - Use the `yield*` expression to delegate to the `walk` generator function." b
+const walkThrough = function* (obj) {
+  const walk = function* (x, previous = []) {
+    for (let key of Object.keys(x)) {
+      if (typeof x[key] === 'object') yield* walk(x[key], [...previous, key]);
+      else yield [[...previous, key], x[key]];
+    }
+  };
+  yield* walk(obj);
+};
 endsnippet
 
 snippet weightedAverage "Calculates the weighted average of two or more numbers.  - Use `Array.prototype.reduce()` to create the weighted sum of the values and the sum of the weights. - Divide them with each other to get the weighted average." b
