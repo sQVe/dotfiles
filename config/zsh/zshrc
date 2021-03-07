@@ -203,7 +203,6 @@ alias format='npx prettier --write'
 alias l=less
 alias leave='i3-msg exit'
 alias mixer=pavucontrol
-alias peekhl='peek --no-headerbar'
 alias qutebrowser=open-qutebrowser
 alias rcup="$SCRIPTS/extended-rcup.sh"
 alias rg='rg --follow'
