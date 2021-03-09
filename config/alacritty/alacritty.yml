@@ -28,6 +28,16 @@ colors:
   vi_mode_cursor:
     text: '0x282828'
     cursor: '0x8ec07c'
+  search:
+    matches:
+      background: '0xfabd2f'
+      foreground: '0x282828'
+    focused_match:
+      background: '0xfe8019'
+      foreground: '0x282828'
+    bar:
+      background: '0x3c3836'
+      foreground: '0xd5c4a1'
   selection:
     text: '0xebdbb2'
     background: '0x44475a'
