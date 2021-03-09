@@ -43,7 +43,7 @@ endfunc
 
 " Show documentation.
 func! ShowDocumentation()
-  if (index(['vim','help'], &filetype) >= 0)
+  if (index(['help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
     call CocActionAsync('doHover')

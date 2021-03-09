@@ -14,6 +14,7 @@
     "coc-styled-components": ">=0.4.0",
     "coc-stylelintplus": ">=1.4.0",
     "coc-tsserver": ">=1.6.8",
+    "coc-vimlsp": ">=0.11.1",
     "coc-yaml": ">=1.3.1",
     "coc-yank": ">=1.2.0"
   }
