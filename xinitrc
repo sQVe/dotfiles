@@ -28,6 +28,7 @@ libinput-gestures-setup start &
 xsetroot -solid '#282828'
 
 # Set screen power timer.
+xset s 210 210
 xset dpms 240 240 240
 
 # Start composition manager (xcompmgr).
