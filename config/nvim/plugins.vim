@@ -8,6 +8,7 @@
 
 " Disable language syntax already handled by treesitter.
 let s:lang_syntax_disable = [
+  \ 'go.plugin',
   \ 'javascript.plugin',
   \ 'jsx.plugin',
   \ 'sh.plugin',
@@ -25,7 +26,8 @@ Plug 'tpope/vim-repeat'                            " Repeat for plugins.
 
 " Colorschemes and highlighting.
 Plug 'lifepillar/vim-gruvbox8'                     " Speedy Gruvbox.
-Plug 'nvim-treesitter/nvim-treesitter'             " Treesitter highlighting.
+Plug 'nvim-treesitter/nvim-treesitter', {
+  \ 'do': ':TSUpdate' }                            " Treesitter highlighting.
 
 " Commands.
 Plug 'lambdalisue/suda.vim'                        " Read and write with sudo.
