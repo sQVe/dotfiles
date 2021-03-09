@@ -19,9 +19,8 @@ interval=10
 [ethernet]
 interval=10
 
-[volume]
+[screensaver]
 interval=10
-signal=8
 
 [display-mode]
 interval=10
@@ -33,6 +32,10 @@ interval=once
 signal=10
 label=
 
+[volume]
+interval=10
+signal=8
+
 [battery]
 interval=5
 markup=pango
@@ -40,11 +43,6 @@ markup=pango
 [github]
 interval=120
 label= 
-
-[mail]
-interval=60
-signal=12
-label= 
 
 [time]
 interval=60
