@@ -237,8 +237,8 @@ alias cfg-zshenv='nvim $DOTFILES/config/zsh/zshenv'
 alias cfg-zshrc='nvim $DOTFILES/config/zsh/zshrc'
 
 # Dunst.
-alias dunst-pause='notify-send "DUNST_COMMAND_PAUSE"'
-alias dunst-resume='notify-send "DUNST_COMMAND_RESUME"'
+alias dunst-pause='dunstify "DUNST_COMMAND_PAUSE"'
+alias dunst-resume='dunstify "DUNST_COMMAND_RESUME"'
 
 # Playground.
 alias playground-clean.js='playground clean.js'
