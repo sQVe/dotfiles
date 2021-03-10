@@ -113,10 +113,10 @@ nmap <silent> <Leader>ca :CocAction<CR>
 xmap <silent> <Leader>ca :CocAction<CR>
 nmap <Leader>cf :Format<CR>
 nmap <Leader>cs :CocSearch<Space>
-nmap <silent> <Leader>ck <Plug>(coc-diagnostic-prev)
 nmap <silent> <Leader>cj <Plug>(coc-diagnostic-next)
+nmap <silent> <Leader>ck <Plug>(coc-diagnostic-prev)
+nmap <silent> <Leader>cy :CocYankList<CR>
 nmap <silent> <Leader>cS :CocSearch \b<C-R>=expand("<cword>")<CR>\b<CR>
-nmap <silent> <Leader>f <Plug>(coc-fix-current)
 nmap <silent> <Leader>r <Plug>(coc-rename)
 nnoremap <silent> K :ShowDocumentation<CR>
 nmap <silent> gR :Rg \b<C-R>=expand("<cword>")<CR>\b<CR>
@@ -175,12 +175,12 @@ xmap <silent> ag <Plug>(coc-git-chunk-outer)
 nnoremap <silent> <Leader>gb :Git blame<CR>
 nnoremap <silent> <Leader>gd :Gdiffsplit<CR>
 nnoremap <silent> <Leader>gf :Git fetch<CR>
+nnoremap <silent> <Leader>gi :GChunkInfo<CR>
 nnoremap <silent> <Leader>gmt :MergetoolToggle<CR>
 nnoremap <silent> <Leader>gp :Git push<CR>
-nnoremap <silent> <Leader>gpf :Git push --force-with-lease<CR>
 nnoremap <silent> <Leader>gr :Gread<CR>
 nnoremap <silent> <Leader>gs :vertical Git<CR>
-nnoremap <silent> <Leader>gu :GCopyUrl<CR>
+nnoremap <silent> <Leader>gu :GChunkUndo<CR>
 nnoremap <silent> <Leader>gw :Gwrite<CR>
 
 " Slash.

@@ -88,10 +88,8 @@ command! -bang -nargs=* Rg
 
 " Coc command helpers.
 command! GChunkInfo CocCommand git.chunkInfo
-command! GChunkStage CocCommand git.chunkStage
 command! GChunkUndo CocCommand git.chunkUndo
-command! GCopyUrl CocCommand git.copyUrl
-command! YankList CocList -A --normal yank
+command! CocYankList CocList -A --normal yank
 
 " Update plugins and coc extensions.
 command! Update CocUpdateSync | PlugUpdate | TSUpdate
