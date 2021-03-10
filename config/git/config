@@ -11,11 +11,11 @@
   syntax-theme = gruvbox-dark
   whitespace-error-style = 22 reverse
   features = line-numbers decorations
-  line-numbers-minus-style = "#9d0006"
-  line-numbers-plus-style = "#79740e"
+  line-numbers-minus-style = "#3b110c"
+  line-numbers-plus-style = "#3c3d0f"
   line-numbers-zero-style = "#504945"
-  minus-style = dim syntax "#9d0006"
-  plus-style = syntax "#79740e"
+  minus-style = dim syntax "#3b110c"
+  plus-style = syntax "#3c3d0f"
   zero-style = syntax
 
 [delta "decorations"]
