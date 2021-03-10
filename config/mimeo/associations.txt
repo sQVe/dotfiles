@@ -4,6 +4,7 @@ open-qutebrowser %U
 google-chrome-stable %U
   ^https?:\/\/(docs|drive|meet)\.google\.com
   ^https?:\/\/.*\.detectify\.net
+  ^https?:\/\/.*\.google\.com/calendar
   ^https?:\/\/.*zoom\.us
 
 mpv %U

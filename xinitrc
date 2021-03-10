@@ -32,7 +32,7 @@ xset s 210 210
 xset dpms 240 240 240
 
 # Start composition manager (xcompmgr).
-xcompmgr -C &
+xcompmgr &
 
 # Setup peek cache symlink to tmp.
 mkdir /tmp/peek

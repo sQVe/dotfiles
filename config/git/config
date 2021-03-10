@@ -9,8 +9,14 @@
 
 [delta]
   syntax-theme = gruvbox-dark
-  features = line-numbers decorations
   whitespace-error-style = 22 reverse
+  features = line-numbers decorations
+  line-numbers-minus-style = "#9d0006"
+  line-numbers-plus-style = "#79740e"
+  line-numbers-zero-style = "#504945"
+  minus-style = dim syntax "#9d0006"
+  plus-style = syntax "#79740e"
+  zero-style = syntax
 
 [delta "decorations"]
   commit-decoration-style = bold yellow box ul
