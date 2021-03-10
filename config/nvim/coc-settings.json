@@ -126,7 +126,6 @@
   "prettier.requireConfig": true,
   "snippets.priority": 80,
   "snippets.snipmate.enable": false,
-  "stylelintplus.cssInJs": true,
   "suggest.completionItemKindLabels": {
     "class": "\uf0e8",
     "color": "\ue22b",
