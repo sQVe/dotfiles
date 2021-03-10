@@ -1,33 +1,40 @@
-[color]
-  ui = true
-[color "diff"]
-  meta = 227
-  frag = magenta bold
-  commit = 227 bold
-  old = red bold
-  new = green bold
-  whitespace = red reverse
-[color "diff-highlight"]
-  oldNormal = red bold
-  oldHighlight = red bold 52
-  newNormal = green bold
-  newHighlight = green bold 22
 [commit]
   gpgSign = true
+
 [core]
-  pager = diff-so-fancy | less --tabs=4 -RFX
+  pager = delta
+
+[interactive]
+  diffFilter = delta --color-only
+
+[delta]
+  syntax-theme = gruvbox-dark
+  features = line-numbers decorations
+  whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+  commit-decoration-style = bold yellow box ul
+  file-style = bold yellow box
+  file-decoration-style = none
+  hunk-header-decoration-style = magenta ul
+
 [merge]
   conflictStyle = diff3
   tool = vim_mergetool
+
 [mergetool "vim_mergetool"]
   cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+
 [pull]
   rebase = merges
+
 [push]
   default = simple
+
 [rebase]
   autostash = true
   autosquash = true
+
 [user]
   email = oskargrunning@gmail.com
   name = Oskar Grunning
