@@ -113,8 +113,8 @@ nmap <silent> <Leader>ca :CocAction<CR>
 xmap <silent> <Leader>ca :CocAction<CR>
 nmap <Leader>cf :Format<CR>
 nmap <Leader>cs :CocSearch<Space>
-nmap <silent> <Leader>cN <Plug>(coc-diagnostic-prev)
-nmap <silent> <Leader>cn <Plug>(coc-diagnostic-next)
+nmap <silent> <Leader>ck <Plug>(coc-diagnostic-prev)
+nmap <silent> <Leader>cj <Plug>(coc-diagnostic-next)
 nmap <silent> <Leader>cS :CocSearch \b<C-R>=expand("<cword>")<CR>\b<CR>
 nmap <silent> <Leader>f <Plug>(coc-fix-current)
 nmap <silent> <Leader>r <Plug>(coc-rename)
