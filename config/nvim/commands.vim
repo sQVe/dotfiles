@@ -67,6 +67,9 @@ command! -nargs=0 ToggleConceal call ToggleConceal()
 " Toggle relative numbering.
 command! -nargs=0 ToggleRelativeNumber call ToggleRelativeNumber()
 
+" Toggle wrap.
+command! -nargs=0 ToggleWrap call ToggleWrap()
+
 " Toggle spell checking.
 command! -nargs=0 ToggleSpellCheck call ToggleSpellCheck()
 

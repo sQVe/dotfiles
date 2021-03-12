@@ -99,6 +99,7 @@ nnoremap <silent> <C-s> :ToggleSpellCheck<CR>
 nnoremap <silent> <Leader>tc :ToggleConceal<CR>
 nnoremap <silent> <Leader>tn :ToggleRelativeNumber<CR>
 nnoremap <silent> <Leader>ts :ToggleSpellCheck<CR>
+nnoremap <silent> <Leader>tw :ToggleWrap<CR>
 vnoremap K "oy<Esc>:Ddg<CR>
 
 
