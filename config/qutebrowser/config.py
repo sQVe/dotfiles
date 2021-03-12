@@ -1369,9 +1369,17 @@ c.colors.tabs.pinned.selected.even.bg = '#3c3836'
 # Type: QtColor
 c.colors.webpage.bg = '#f8f8f8'
 
-# Force `prefers-color-scheme: dark` colors for websites.
-# Type: Bool
-c.colors.webpage.prefers_color_scheme_dark = True
+# Value to use for `prefers-color-scheme:` for websites. The "light"
+# value is only available with QtWebEngine 5.15.2+. On older versions,
+# it is the same as "auto". The "auto" value is broken on QtWebEngine
+# 5.15.2 due to a Qt bug. There, it will fall back to "light"
+# unconditionally.
+# Type: String
+# Valid values:
+#   - auto: Use the system-wide color scheme setting.
+#   - light: Force a light theme.
+#   - dark: Force a dark theme.
+c.colors.webpage.preferred_color_scheme = 'dark'
 
 # Default font families to use. Whenever "default_family" is used in a
 # font setting, it's replaced with the fonts listed here. If set to an
