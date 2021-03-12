@@ -6,6 +6,7 @@ google-chrome-stable %U
   ^https?:\/\/.*\.detectify\.net
   ^https?:\/\/.*\.google\.com/calendar
   ^https?:\/\/.*zoom\.us
+  ^https?:\/\/detectify
 
 mpv %U
   ^https?:\/\/(www\.)?youtube\.com/watch\?.*v=

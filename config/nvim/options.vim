@@ -228,11 +228,11 @@ let g:startify_custom_header = startify#pad([
   \ '----------------',
   \ ])
 let g:startify_lists = [
-  \ { 'type': 'dir',       'header': ['   MRU '. getcwd()] },
-  \ { 'type': 'files',     'header': ['   MRU']            },
-  \ { 'type': 'sessions',  'header': ['   Sessions']       },
-  \ { 'type': 'bookmarks', 'header': ['   Bookmarks']      },
-  \ { 'type': 'commands',  'header': ['   Commands']       },
+  \ { 'type': function('GitModified'),  'header': ['   ✏  Modified'] },
+  \ { 'type': function('GitUntracked'), 'header': ['   ➕ Untracked'] },
+  \ { 'type': 'dir',                    'header': ['   🔖 MRU '. getcwd()] },
+  \ { 'type': 'sessions',               'header': ['   💾 Sessions'] },
+  \ { 'type': 'commands',               'header': ['   💎 Commands'] },
   \ ]
 
 " Treesitter.
