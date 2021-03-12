@@ -120,15 +120,9 @@ let g:fzf_action = {
   \ 'ctrl-t': 'tab split',
   \ 'ctrl-v': 'vsplit',
   \ }
-let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8 } }
-
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview('down:50%'), <bang>0)
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview('down:50%'),
-  \   <bang>0)
+let g:fzf_buffers_jump = 1
+let g:fzf_layout = { 'window': { 'width': 0.9, 'height': 0.9 } }
+let g:fzf_preview_window = ['down:50%', 'ctrl-p']
 
 " Floaterm.
 let g:floaterm_autoclose = 1
