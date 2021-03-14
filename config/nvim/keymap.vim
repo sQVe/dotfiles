@@ -96,10 +96,6 @@ inoremap <C-x><C-s> <C-x>s
 
 nnoremap <Leader>z :Z<Space>
 nnoremap <silent> <C-s> :ToggleSpellCheck<CR>
-nnoremap <silent> <Leader>tc :ToggleConceal<CR>
-nnoremap <silent> <Leader>tn :ToggleRelativeNumber<CR>
-nnoremap <silent> <Leader>ts :ToggleSpellCheck<CR>
-nnoremap <silent> <Leader>tw :ToggleWrap<CR>
 vnoremap K "oy<Esc>:Ddg<CR>
 
 
@@ -153,9 +149,7 @@ xmap <silent> ga <Plug>(EasyAlign)
 nmap <silent> ga <Plug>(EasyAlign)
 
 " FZF.
-nnoremap <Leader>+ :Rg<Space>
 nnoremap <Leader>/ :Rg<Space>
-nnoremap <Leader>? :RgLive<Space>
 nnoremap <silent> <Backspace> :Buffers<CR>
 nnoremap <silent> <Leader>gL :Commits<CR>
 nnoremap <silent> <Leader>gl :BCommits<CR>

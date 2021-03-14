@@ -99,7 +99,6 @@ command! -nargs=* -bang RgLive call RgLive(<q-args>, <bang>0)
 " Coc command helpers.
 command! GChunkInfo CocCommand git.chunkInfo
 command! GChunkUndo CocCommand git.chunkUndo
-command! CocYankList CocList -A --normal yank
 
 " Update plugins and coc extensions.
 command! Update CocUpdateSync | PlugUpdate | TSUpdate
