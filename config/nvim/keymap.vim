@@ -104,16 +104,15 @@ vnoremap K "oy<Esc>:Ddg<CR>
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
 " Coc.
-nnoremap <silent> <Leader>o :CocList --auto-preview outline <CR>
-nnoremap <silent> <Leader>O :CocList --auto-preview --interactive symbols<CR>
-nmap <silent> <Leader>ca :CocAction<CR>
-xmap <silent> <Leader>ca :CocAction<CR>
-nmap <Leader>cf :Format<CR>
-nmap <Leader>cs :CocSearch<Space>
-nmap <silent> <Leader>cj <Plug>(coc-diagnostic-next)
-nmap <silent> <Leader>ck <Plug>(coc-diagnostic-prev)
-nmap <silent> <Leader>cy :CocYankList<CR>
-nmap <silent> <Leader>cS :CocSearch \b<C-R>=expand("<cword>")<CR>\b<CR>
+nnoremap <silent> <Leader>+ :CocFzfList outline<CR>
+nnoremap <silent> <Leader>? :CocFzfList symbols<CR>
+nmap <silent> <Leader>a :CocAction<CR>
+xmap <silent> <Leader>a :CocAction<CR>
+nmap <Leader>f :FixAndFormat<CR>
+nmap <silent> <Leader>dj <Plug>(coc-diagnostic-next)
+nmap <silent> <Leader>dk <Plug>(coc-diagnostic-prev)
+nmap <silent> <Leader>dl :CocFzfList diagnostics<CR>
+nmap <silent> <Leader>p :CocFzfList yank<CR>
 nmap <silent> <Leader>r <Plug>(coc-rename)
 nnoremap <silent> K :ShowDocumentation<CR>
 nmap <silent> gR :Rg \b<C-R>=expand("<cword>")<CR>\b<CR>

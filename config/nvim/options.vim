@@ -98,6 +98,11 @@ let g:strip_only_modified_lines = 1
 let g:strip_whitespace_confirm = 0
 let g:strip_whitespace_on_save = 1
 
+" Coc FZF.
+let g:coc_fzf_opts = []
+let g:coc_fzf_preview = 'down:50%'
+let g:coc_fzf_preview_toggle_key = 'ctrl-p'
+
 " DoGe.
 let g:doge_enable_mappings = 0
 let g:doge_mapping_comment_jump_forward = '<C-j>'

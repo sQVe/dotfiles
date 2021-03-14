@@ -70,6 +70,7 @@ Plug 'voldikss/vim-floaterm'                       " Floating terminal.
 Plug 'PeterRincker/vim-searchlight'                " Highlight current match.
 Plug 'bronson/vim-visual-star-search'              " Visual star search.
 Plug 'junegunn/fzf.vim'                            " Fzf.
+Plug 'antoinemadec/coc-fzf'                        " Coc Fzf lists.
 Plug 'justinmk/vim-sneak'                          " Quick jump.
 Plug 'mg979/vim-visual-multi'                      " Multiple cursors.
 
