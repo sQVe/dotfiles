@@ -104,8 +104,8 @@ vnoremap K "oy<Esc>:Ddg<CR>
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
 " Coc.
-nnoremap <silent> <Leader>+ :CocFzfList outline<CR>
-nnoremap <silent> <Leader>? :CocFzfList symbols<CR>
+nnoremap <silent> <Leader>l :CocFzfList outline<CR>
+nnoremap <silent> <Leader>L :CocFzfList symbols<CR>
 nmap <silent> <Leader>a :CocAction<CR>
 xmap <silent> <Leader>a :CocAction<CR>
 nmap <Leader>f :FixAndFormat<CR>

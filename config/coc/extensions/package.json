@@ -10,6 +10,7 @@
     "coc-html": ">=1.4.1",
     "coc-json": ">=1.3.4",
     "coc-prettier": ">=1.1.22",
+    "coc-react-refactor": ">=0.3.0",
     "coc-snippets": ">=2.4.1",
     "coc-styled-components": ">=0.4.0",
     "coc-tsserver": ">=1.6.8",
