@@ -4,8 +4,6 @@
 
 
 snippet rc "React Stateless Function Component Module" b
-import React from 'react';
-
 const ${1:`!v expand('%:t:r')`} = (props) => {
 	return <>${2:`!v expand('%:t:r')`}</>;$0
 };
@@ -14,7 +12,7 @@ export default $1;
 endsnippet
 
 snippet rcc "React Component Module" b
-import React, { ${1:Pure}Component } from 'react';
+import { ${1:Pure}Component } from 'react';
 
 export default class ${2:`!v expand('%:t:r')`} extends $1Component {
 	constructor(props) {
