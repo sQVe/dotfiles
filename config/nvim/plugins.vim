@@ -33,6 +33,7 @@ Plug 'nvim-treesitter/nvim-treesitter', {
 Plug 'lambdalisue/suda.vim'                        " Read and write with sudo.
 Plug 'moll/vim-bbye'                               " Delete buffers without closing window.
 Plug 'tpope/vim-eunuch'                            " Unix helpers.
+Plug 'tpope/vim-unimpaired'                        " Complementary pair mappings.
 
 " Comments and documentation.
 Plug 'kkoomen/vim-doge', {

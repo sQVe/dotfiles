@@ -89,13 +89,21 @@ nnoremap <silent> <C-S-Right> :vertical resize +10<CR>
 " Spell completion.
 inoremap <C-x><C-s> <C-x>s
 
+" Toggle conceal.
+nnoremap yoe :setlocal conceallevel=<C-r>=&conceallevel == 0 ? '2' : '0'<CR><CR>
+nnoremap [oe :setlocal conceallevel=<C-r>=&conceallevel > 0 ? &conceallevel - 1 : 0<CR><CR>
+nnoremap ]oe :setlocal conceallevel=<C-r>=&conceallevel < 2 ? &conceallevel + 1 : 2<CR><CR>
+
+" Toggle spell.
+map <C-s> yos
+imap <C-s> <C-o><C-s>
+
 
 "  ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
 "  ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
 "  ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
 nnoremap <Leader>z :Z<Space>
-nnoremap <silent> <C-s> :ToggleSpellCheck<CR>
 vnoremap K "oy<Esc>:Ddg<CR>
 
 
@@ -140,7 +148,7 @@ inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 inoremap <silent><expr> <C-Space> coc#refresh()
 
 " Use <CR> to confirm completion.
-inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
   \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " EasyAlign.

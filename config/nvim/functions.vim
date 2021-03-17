@@ -58,44 +58,12 @@ func! ShowDocumentation()
   endif
 endfunc
 
-" Toggle concealing.
-func! ToggleConceal()
-  if(&conceallevel == 2)
-    set conceallevel=0
-  else
-    set conceallevel=2
-  endif
-endfunc
-
-" Toggle relative numbering.
-func! ToggleRelativeNumber()
-  if(&relativenumber == 1)
-    set norelativenumber
-  else
-    set relativenumber
-  endif
-endfunc
-
-" Toggle spell checking.
-func! ToggleSpellCheck()
-  set spell!
-endfunc
-
 " ToggleWindowFocus.
 func! ToggleWindowFocus(focused)
   if(a:focused)
     set cursorline
   else
     set nocursorline
-  endif
-endfunc
-
-" Toggle wrap.
-func! ToggleWrap()
-  if(&wrap)
-    set nowrap
-  else
-    set wrap
   endif
 endfunc
 

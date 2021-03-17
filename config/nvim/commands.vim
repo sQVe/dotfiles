@@ -61,18 +61,6 @@ command! -nargs=? DevDocs call Search('devdocs', <q-args>)
 " Show documentation.
 command! -nargs=0 ShowDocumentation call ShowDocumentation()
 
-" Toggle concealing.
-command! -nargs=0 ToggleConceal call ToggleConceal()
-
-" Toggle relative numbering.
-command! -nargs=0 ToggleRelativeNumber call ToggleRelativeNumber()
-
-" Toggle wrap.
-command! -nargs=0 ToggleWrap call ToggleWrap()
-
-" Toggle spell checking.
-command! -nargs=0 ToggleSpellCheck call ToggleSpellCheck()
-
 " Z lookup.
 command! -nargs=1 Z call Z(<q-args>)
 
