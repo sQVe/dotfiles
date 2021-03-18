@@ -44,34 +44,6 @@ hi! GitChangeDelete guifg=#d3869b guibg=NONE gui=NONE cterm=NONE
 " Floaterm.
 hi! FloatermBorder guibg=NONE guifg=#665c54
 
-" Lightline colorscheme.
-let s:p = {'normal':{}, 'inactive':{}, 'insert':{}, 'replace':{}, 'visual':{}, 'tabline':{}, 'terminal':{}}
-let s:p.normal.left = [ [ '#282828', '#a89984', 'bold' ], [ '#a89984', '#504945' ] ]
-let s:p.normal.right = [ [ '#282828', '#a89984' ], [ '#a89984', '#504945' ] ]
-let s:p.normal.middle = [ [ '#a89984', '#3c3836' ] ]
-let s:p.inactive.right = [ [ '#7c6f64', '#3c3836' ], [ '#7c6f64', '#3c3836' ] ]
-let s:p.inactive.left =  [ [ '#7c6f64', '#3c3836' ], [ '#7c6f64', '#3c3836' ] ]
-let s:p.inactive.middle = [ [ '#7c6f64', '#3c3836' ] ]
-let s:p.insert.left = [ [ '#282828', '#b8bb26', 'bold' ], [ '#ebdbb2', '#504945' ] ]
-let s:p.insert.right = [ [ '#282828', '#83a598' ], [ '#ebdbb2', '#504945' ] ]
-let s:p.insert.middle = [ [ '#a89984', '#3c3836' ] ]
-let s:p.terminal.left = [ [ '#282828', '#b8bb26', 'bold' ], [ '#ebdbb2', '#504945' ] ]
-let s:p.terminal.right = [ [ '#282828', '#b8bb26' ], [ '#ebdbb2', '#504945' ] ]
-let s:p.terminal.middle = [ [ '#a89984', '#3c3836' ] ]
-let s:p.replace.left = [ [ '#282828', '#cc241d', 'bold' ], [ '#ebdbb2', '#504945' ] ]
-let s:p.replace.right = [ [ '#282828', '#8ec07c' ], [ '#ebdbb2', '#504945' ] ]
-let s:p.replace.middle = [ [ '#a89984', '#3c3836' ] ]
-let s:p.visual.left = [ [ '#282828', '#fe8019', 'bold' ], [ '#282828', '#7c6f64' ] ]
-let s:p.visual.right = [ [ '#282828', '#fe8019' ], [ '#282828', '#7c6f64' ] ]
-let s:p.visual.middle = [ [ '#a89984', '#3c3836' ] ]
-let s:p.tabline.left = [ [ '#a89984', '#504945' ] ]
-let s:p.tabline.tabsel = [ [ '#282828', '#a89984' ] ]
-let s:p.tabline.middle = [ [ '#282828', '#7c6f64' ] ]
-let s:p.tabline.right = [ [ '#282828', '#fe8019' ] ]
-let s:p.normal.error = [ [ '#282828', '#fb4934' ] ]
-let s:p.normal.warning = [ [ '#282828', '#fabd2f' ] ]
-let g:lightline#colorscheme#gruvbox8#palette = lightline#colorscheme#fill(s:p)
-
 " Searchlight.
 hi! Searchlight guifg=#282828 guibg=#fe8019 gui=NONE cterm=NONE
 
