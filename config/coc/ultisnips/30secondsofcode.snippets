@@ -493,6 +493,20 @@ const chunkIntoN = (arr, n) => {
 }
 endsnippet
 
+snippet chunkify "Chunks an iterable into smaller arrays of a specified size.  - Use a `for...of` loop over the given iterable, using `Array.prototype.push()` to add each new value to the current `chunk`. - Use `Array.prototype.length` to check if the current `chunk` is of the desired `size` and `yield` the value if it is. - Finally, use `Array.prototype.length` to check the final `chunk` and `yield` it if it's non-empty." b
+const chunkify = function* (itr, size) {
+  let chunk = [];
+  for (const v of itr) {
+    chunk.push(v);
+    if (chunk.length === size) {
+      yield chunk;
+      chunk = [];
+    }
+  }
+  if (chunk.length) yield chunk;
+};
+endsnippet
+
 snippet clampNumber "Clamps `num` within the inclusive range specified by the boundary values `a` and `b`.  - If `num` falls within the range, return `num`. - Otherwise, return the nearest number in the range." b
 const clampNumber = (num, a, b) =>
   Math.max(Math.min(num, Math.max(a, b)), Math.min(a, b));
