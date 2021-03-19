@@ -10,6 +10,8 @@
 let s:lang_syntax_disable = [
   \ 'go.plugin',
   \ 'javascript.plugin',
+  \ 'json.plugin',
+  \ 'jsonc.plugin',
   \ 'jsx.plugin',
   \ 'sh.plugin',
   \ 'typescript.plugin',
