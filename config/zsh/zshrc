@@ -2,6 +2,7 @@
 #  ┗━┓┃ ┃┃ ┃┣┳┛┃  ┣╸
 #  ┗━┛┗━┛┗━┛╹┗╸┗━╸┗━╸
 
+zstyle ':zim' disable-version-check yes
 zstyle ':zim:completion' dumpfile "$XDG_CACHE_HOME/.zcompdump"
 zstyle ':zim:git' aliases-prefix 'g'
 zstyle ':zim:input' double-dot-expand yes
@@ -176,9 +177,10 @@ alias -g V='| nvim'
 
 # Listing.
 alias exa='exa --group-directories-first --color=auto'
-alias la='exa -la'
-alias ll='exa -l'
+alias la='exa -la --git'
+alias ll='exa -l --git'
 alias ls='exa'
+alias lt='exa -la -T'
 
 # State.
 alias i3exit='state exit'
