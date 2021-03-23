@@ -8,12 +8,6 @@ augroup CocSignatureOnPlaceholderJump
   autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup END
 
-" Disable ALE for specific file extensions.
-augroup DisableALEForFileExt
-  autocmd!
-  autocmd BufWinEnter,VimEnter,WinEnter *.d.ts :ALEDisableBuffer
-augroup END
-
 " Disable Netrw.
 augroup DisableNetrw
   autocmd!
