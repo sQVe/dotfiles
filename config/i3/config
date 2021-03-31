@@ -44,7 +44,6 @@ set $music-next --no-startup-id playerctl next
 set $music-prev --no-startup-id playerctl previous
 set $music-toggle --no-startup-id playerctl play-pause
 set $qutebrowser --no-startup-id open-qutebrowser
-set $redshift --no-startup-id $HOME/scripts/i3/safe-load-redshift.sh
 set $samedir --no-startup-id term $(xcwd)
 set $term --no-startup-id term
 set $vifm --no-startup-id term vifm
@@ -53,8 +52,8 @@ set $vim --no-startup-id term nvim
 set $brightness-down --no-startup-id light -U 5 && pkill -RTMIN+10 i3blocks
 set $brightness-toggle --no-startup-id $HOME/scripts/i3/toggle-brightness.sh && pkill -RTMIN+10 i3blocks
 set $brightness-up --no-startup-id light -A 5 && pkill -RTMIN+10 i3blocks
-set $kill-redshift --no-startup-id pkill redshift & pkill -RTMIN+2 i3blocks
 set $microphone-toggle --no-startup-id amixer -D pulse set Capture 1+ toggle && pkill -RTMIN+9 i3blocks
+set $redshift-toggle --no-startup-id $HOME/scripts/i3/toggle-redshift.sh
 set $volume-down --no-startup-id amixer -D pulse set Master 5%- && pkill -RTMIN+8 i3blocks
 set $volume-toggle --no-startup-id amixer -D pulse set Master 1+ toggle && pkill -RTMIN+8 i3blocks
 set $volume-up --no-startup-id amixer -D pulse set Master 5%+ && pkill -RTMIN+8 i3blocks
@@ -159,7 +158,6 @@ bindsym $mod+Shift+9 move container to workspace $workspace-9
 # Letter based bindings.
 bindsym $mod+a exec $menu-windows
 bindsym $mod+b exec $qutebrowser
-bindsym $mod+c exec $microphone-toggle
 bindsym $mod+d exec $menu-apps
 bindsym $mod+e exec $menu-state
 bindsym $mod+f exec $vifm
@@ -183,6 +181,8 @@ bindsym $mod+w layout toggle tabbed split
 bindsym $mod+x exec $lock
 bindsym $mod+y sticky toggle
 bindsym $mod+z exec $menu-projects
+bindsym $mod+aring exec $volume-toggle
+bindsym $mod+adiaeresis exec $microphone-toggle
 
 bindsym $mod+Shift+b exec $music-toggle
 bindsym $mod+Shift+d exec $menu-run
@@ -207,17 +207,9 @@ bindsym $mod+Ctrl+l workspace next_on_output
 bindsym $mod+Ctrl+h workspace prev_on_output
 
 # Symbol based bindings.
-bindsym $mod+comma exec $redshift
-bindsym $mod+minus exec $brightness-up
-bindsym $mod+period exec $volume-up
+bindsym $mod+period exec $redshift-toggle
+bindsym $mod+minus exec $brightness-toggle
 bindsym $mod+plus exec $menu-calculator
-
-bindsym $mod+Shift+comma exec $kill-redshift
-bindsym $mod+Shift+minus exec $brightness-down
-bindsym $mod+Shift+period exec $volume-down
-
-bindsym $mod+$alt+minus exec $brightness-toggle
-bindsym $mod+$alt+period exec $volume-toggle
 
 # Direction based bindings.
 bindsym $mod+Down focus down
@@ -242,6 +234,7 @@ bindsym $mod+Ctrl+Left workspace prev_on_output
 
 # Media based bindings.
 bindsym XF86AudioLowerVolume exec $volume-down
+bindsym XF86AudioMicMute exec $microphone-toggle
 bindsym XF86AudioMute exec $volume-toggle
 bindsym XF86AudioNext exec $music-next
 bindsym XF86AudioPlay exec $music-toggle
@@ -294,7 +287,7 @@ mode "resize" {
 exec --no-startup-id random-wallpaper
 
 # Safely start redshift.
-exec --no-startup-id "sh -c 'sleep 2; exec $HOME/scripts/i3/safe-load-redshift.sh'"
+exec --no-startup-id "sh -c 'sleep 2; exec $HOME/scripts/i3/toggle-redshift.sh'"
 
 # Set startup workspace to workspace 2.
 exec --no-startup-id i3-msg "workspace $workspace-2"
