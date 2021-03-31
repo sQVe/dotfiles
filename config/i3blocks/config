@@ -32,6 +32,10 @@ interval=once
 signal=10
 label=
 
+[microphone]
+interval=10
+signal=9
+
 [volume]
 interval=10
 signal=8
