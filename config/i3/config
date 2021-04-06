@@ -52,11 +52,11 @@ set $vim --no-startup-id term nvim
 set $brightness-down --no-startup-id light -U 5 && pkill -RTMIN+10 i3blocks
 set $brightness-toggle --no-startup-id $HOME/scripts/i3/toggle-brightness.sh && pkill -RTMIN+10 i3blocks
 set $brightness-up --no-startup-id light -A 5 && pkill -RTMIN+10 i3blocks
-set $microphone-toggle --no-startup-id amixer -D pulse set Capture 1+ toggle && pkill -RTMIN+9 i3blocks
+set $microphone-toggle --no-startup-id pamixer --default-source -t && pkill -RTMIN+9 i3blocks
 set $redshift-toggle --no-startup-id $HOME/scripts/i3/toggle-redshift.sh
-set $volume-down --no-startup-id amixer -D pulse set Master 5%- && pkill -RTMIN+8 i3blocks
-set $volume-toggle --no-startup-id amixer -D pulse set Master 1+ toggle && pkill -RTMIN+8 i3blocks
-set $volume-up --no-startup-id amixer -D pulse set Master 5%+ && pkill -RTMIN+8 i3blocks
+set $volume-down --no-startup-id pamixer --unmute --decrease 5 && pkill -RTMIN+8 i3blocks
+set $volume-toggle --no-startup-id pamixer -t && pkill -RTMIN+8 i3blocks
+set $volume-up --no-startup-id pamixer --unmute --increase 5 && pkill -RTMIN+8 i3blocks
 
 
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
