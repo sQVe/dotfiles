@@ -292,4 +292,7 @@ exec --no-startup-id "sh -c 'sleep 2; exec $HOME/scripts/i3/toggle-redshift.sh'"
 # Set startup workspace to workspace 2.
 exec --no-startup-id i3-msg "workspace $workspace-2"
 
+# Start pulseeffects.
+exec --no-startup-id pulseeffects --gapplication-service
+
 # vim: ft=i3config
