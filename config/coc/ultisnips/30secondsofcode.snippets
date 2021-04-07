@@ -1904,11 +1904,11 @@ snippet isNil "Checks if the specified value is `null` or `undefined`.  - Use th
 const isNil = val => val === undefined || val === null;
 endsnippet
 
-snippet isNode "Determines if the current runtime environment is Node.js.  - Use the `process` global object that provides information about the current Node.js process. - Check if `process` is defined and `process.versions`, `process.versions.node` are not `null`." b
+snippet isNode "Determines if the current runtime environment is Node.js.  - Use the `process` global object that provides information about the current Node.js process. - Check if `process`, `process.versions` and `process.versions.node` are defined." b
 const isNode = () =>
   typeof process !== 'undefined' &&
-  process.versions !== null &&
-  process.versions.node !== null;
+  !!process.versions &&
+  !!process.versions.node;
 endsnippet
 
 snippet isNull "Checks if the specified value is `null`.  - Use the strict equality operator to check if the value of `val` is equal to `null`." b
@@ -2427,6 +2427,10 @@ endsnippet
 
 snippet none "Checks if the provided predicate function returns `false` for all elements in a collection.  - Use `Array.prototype.some()` to test if any elements in the collection return `true` based on `fn`. - Omit the second argument, `fn`, to use `Boolean` as a default." b
 const none = (arr, fn = Boolean) => !arr.some(fn);
+endsnippet
+
+snippet nor "Checks if none of the arguments are `true`.  - Use the logical not (`!`) operator to return the inverse of the logical or (`||`) of the two given values." b
+const nor = (a, b) => !(a||b);
 endsnippet
 
 snippet normalizeLineEndings "Normalizes line endings in a string.  - Use `String.prototype.replace()` and a regular expression to match and replace line endings with the `normalized` version. - Omit the second argument, `normalized`, to use the default value of `'\r\n'`." b
