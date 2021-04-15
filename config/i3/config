@@ -30,16 +30,16 @@ set $workspace-8 "8  "
 set $workspace-9 "9  "
 
 set $lock --no-startup-id lock
-set $menu-apps --no-startup-id $HOME/scripts/i3/menu-apps.sh
-set $menu-calculator --no-startup-id $HOME/scripts/i3/menu-calculator.sh
-set $menu-emoji --no-startup-id $HOME/scripts/i3/menu-emoji.sh
-set $menu-notes --no-startup-id $HOME/scripts/i3/menu-notes.sh
-set $menu-passwords --no-startup-id $HOME/scripts/i3/menu-passwords.sh
-set $menu-playground --no-startup-id $HOME/scripts/i3/menu-playground.sh
-set $menu-projects --no-startup-id $HOME/scripts/i3/menu-projects.sh
-set $menu-run --no-startup-id $HOME/scripts/i3/menu-run.sh
-set $menu-state --no-startup-id $HOME/scripts/i3/menu-state.sh
-set $menu-windows --no-startup-id $HOME/scripts/i3/menu-windows.sh
+set $menu-apps --no-startup-id $SCRIPTS/i3/menu-apps.sh
+set $menu-calculator --no-startup-id $SCRIPTS/i3/menu-calculator.sh
+set $menu-emoji --no-startup-id $SCRIPTS/i3/menu-emoji.sh
+set $menu-notes --no-startup-id $SCRIPTS/i3/menu-notes.sh
+set $menu-passwords --no-startup-id $SCRIPTS/i3/menu-passwords.sh
+set $menu-playground --no-startup-id $SCRIPTS/i3/menu-playground.sh
+set $menu-projects --no-startup-id $SCRIPTS/i3/menu-projects.sh
+set $menu-run --no-startup-id $SCRIPTS/i3/menu-run.sh
+set $menu-state --no-startup-id $SCRIPTS/i3/menu-state.sh
+set $menu-windows --no-startup-id $SCRIPTS/i3/menu-windows.sh
 set $music-next --no-startup-id playerctl next
 set $music-prev --no-startup-id playerctl previous
 set $music-toggle --no-startup-id playerctl play-pause
@@ -50,10 +50,10 @@ set $vifm --no-startup-id term vifm
 set $vim --no-startup-id term nvim
 
 set $brightness-down --no-startup-id light -U 5 && pkill -RTMIN+10 i3blocks
-set $brightness-toggle --no-startup-id $HOME/scripts/i3/toggle-brightness.sh && pkill -RTMIN+10 i3blocks
+set $brightness-toggle --no-startup-id $SCRIPTS/i3/toggle-brightness.sh && pkill -RTMIN+10 i3blocks
 set $brightness-up --no-startup-id light -A 5 && pkill -RTMIN+10 i3blocks
 set $microphone-toggle --no-startup-id pamixer --default-source -t && pkill -RTMIN+9 i3blocks
-set $redshift-toggle --no-startup-id $HOME/scripts/i3/toggle-redshift.sh
+set $redshift-toggle --no-startup-id $SCRIPTS/i3/toggle-redshift.sh
 set $volume-down --no-startup-id pamixer --unmute --decrease 5 && pkill -RTMIN+8 i3blocks
 set $volume-toggle --no-startup-id pamixer -t && pkill -RTMIN+8 i3blocks
 set $volume-up --no-startup-id pamixer --unmute --increase 5 && pkill -RTMIN+8 i3blocks
@@ -283,16 +283,16 @@ mode "resize" {
 # ¤¤¤¤  Autostart  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-# Set initial random wallpaper.
-exec --no-startup-id random-wallpaper
-
-# Safely start redshift.
-exec --no-startup-id "sh -c 'sleep 2; exec $HOME/scripts/i3/toggle-redshift.sh'"
-
 # Set startup workspace to workspace 2.
 exec --no-startup-id i3-msg "workspace $workspace-2"
 
-# Start pulseeffects.
-exec --no-startup-id "sh -c 'sleep 2; exec pulseeffects --gapplication-service'"
+# Set initial random wallpaper.
+exec --no-startup-id random-wallpaper
+
+# Delayed redshift start.
+exec --no-startup-id "sh -c 'sleep 4; exec $SCRIPTS/i3/toggle-redshift.sh'"
+
+# Delayed pulseeffects start.
+exec --no-startup-id "sh -c 'sleep 4; exec pulseeffects --gapplication-service'"
 
 # vim: ft=i3config
