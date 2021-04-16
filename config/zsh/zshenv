@@ -2,6 +2,10 @@
 #  ┏━┛┗━┓┣━┫┣╸ ┃┗┫┃┏┛
 #  ┗━╸┗━┛╹ ╹┗━╸╹ ╹┗┛
 
+if [[ -f $ZDOTDIR/secretenv ]]; then
+  source $ZDOTDIR/secretenv
+fi
+
 export GPG_TTY="$(tty)"
 
 # Set default node version.

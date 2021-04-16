@@ -1,6 +1,7 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
+    "go",
     "html",
     "javascript",
     "javascriptreact",
@@ -48,6 +49,12 @@
     "sh": "shfmt"
   },
   "diagnostic-languageserver.formatters": {
+    "gofmt": {
+      "command": "gofmt",
+      "args": [
+        "-s"
+      ]
+    },
     "shfmt": {
       "command": "shfmt",
       "args": [
