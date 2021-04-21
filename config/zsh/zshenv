@@ -9,7 +9,7 @@ fi
 export GPG_TTY="$(tty)"
 
 # Set default node version.
-export PATH="$PATH:$BIN_HOME$GOPATH_BIN:$($SCRIPTS/default-node-version.sh)"
+export PATH="$PATH:$BIN_HOME:$GOPATH_BIN:$($SCRIPTS/default-node-version.sh)"
 
 # Terminal options.
 export KEYTIMEOUT=1

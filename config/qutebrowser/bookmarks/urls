@@ -69,6 +69,11 @@ https://reacttraining.com/react-router/web/guides/philosophy           Developme
 https://redux-saga.js.org/docs/api/index.html                          Development / JavaScript / React & Redux | React Saga
 https://redux.js.org                                                   Development / JavaScript / React & Redux | Redux
 https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore       Development / JavaScript / Snippets | You Don't Need Lodash or Underscore
+https://emotion.sh/docs                                                Development / JavaScript / Styling | Emotions
+https://www.framer.com/api/motion                                      Development / JavaScript / Styling | Framer Motion
+https://polished.js.org/docs                                           Development / JavaScript / Styling | Polished
+https://react-spring.io/common/props                                   Development / JavaScript / Styling | React Spring
+https://www.styled-components.com                                      Development / JavaScript / Styling | Styled Components
 https://www.chaijs.com/api/bdd                                         Development / JavaScript / Testing | Chai
 http://airbnb.io/enzyme/docs/api/index.html                            Development / JavaScript / Testing | Enzyme
 https://facebook.github.io/jest/docs/en/api.html                       Development / JavaScript / Testing | Jest
@@ -84,10 +89,7 @@ https://www.haskell.org/onlinereport/haskell2010/                      Developme
 https://github.com/Microsoft/TypeScript/blob/master/doc/spec.md        Development / Specification | TypeScript
 https://www.w3.org/TR/?status=rec&version=latest                       Development / Specification | W3C
 https://spec.whatwg.org/                                               Development / Specification | WHATWG
-https://emotion.sh/docs                                                Development / Styling | Emotions
 http://flexbox.help                                                    Development / Styling | Flexbox Help
-https://polished.js.org/docs                                           Development / Styling | Polished
-https://www.styled-components.com                                      Development / Styling | Styled Components
 https://basarat.gitbook.io/typescript                                  Development / TypeScript | TypeScript Deep Dive
 https://www.typescriptlang.org/docs/                                   Development / TypeScript | TypeScript Handbook
 https://www.typescriptlang.org/dt/search                               Development / TypeScript | TypeSearch
