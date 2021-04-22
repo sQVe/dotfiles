@@ -1,11 +1,13 @@
 open-qutebrowser %U
   ^https?:\/\/files\.slack\.com\/.+?\.(gif|jpe?g|png)
 
+open-zoom %U
+  ^https?:\/\/.*zoom\.us
+
 google-chrome-stable %U
   ^https?:\/\/(docs|drive|meet)\.google\.com
   ^https?:\/\/.*\.detectify\.net
   ^https?:\/\/.*\.google\.com/calendar
-  ^https?:\/\/.*zoom\.us
   ^https?:\/\/detectify
 
 mpv %U
