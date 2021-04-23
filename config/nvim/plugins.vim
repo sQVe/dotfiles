@@ -30,6 +30,8 @@ Plug 'tpope/vim-repeat'                            " Repeat for plugins.
 Plug 'lifepillar/vim-gruvbox8'                     " Speedy Gruvbox.
 Plug 'nvim-treesitter/nvim-treesitter', {
   \ 'do': ':TSUpdate' }                            " Treesitter highlighting.
+Plug 'p00f/nvim-ts-rainbow'                        " Treesitter rainbow parentheses.
+
 
 " Commands.
 Plug 'lambdalisue/suda.vim'                        " Read and write with sudo.
