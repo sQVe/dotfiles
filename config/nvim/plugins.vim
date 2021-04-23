@@ -37,7 +37,6 @@ Plug 'p00f/nvim-ts-rainbow'                        " Treesitter rainbow parenthe
 Plug 'lambdalisue/suda.vim'                        " Read and write with sudo.
 Plug 'moll/vim-bbye'                               " Delete buffers without closing window.
 Plug 'tpope/vim-eunuch'                            " Unix helpers.
-Plug 'tpope/vim-unimpaired'                        " Complementary pair mappings.
 
 " Comments and documentation.
 Plug 'kkoomen/vim-doge', {
@@ -48,7 +47,7 @@ Plug 'tpope/vim-commentary'                        " Comment text.
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }  " Intellisense with LSP.
 
 " Debug.
-" Plug 'dstein64/vim-startuptime'                  " Check startup times.
+Plug 'dstein64/vim-startuptime'                  " Check startup times.
 
 " Integration.
 Plug 'axelf4/vim-strip-trailing-whitespace'        " Remove trailing whitespace.
