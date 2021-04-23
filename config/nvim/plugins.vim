@@ -47,7 +47,7 @@ Plug 'tpope/vim-commentary'                        " Comment text.
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }  " Intellisense with LSP.
 
 " Debug.
-Plug 'dstein64/vim-startuptime'                  " Check startup times.
+" Plug 'dstein64/vim-startuptime'                  " Check startup times.
 
 " Integration.
 Plug 'axelf4/vim-strip-trailing-whitespace'        " Remove trailing whitespace.
