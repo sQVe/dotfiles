@@ -89,14 +89,17 @@ nnoremap <silent> <C-S-Right> :vertical resize +10<CR>
 " Spell completion.
 inoremap <C-x><C-s> <C-x>s
 
-" Toggle conceal.
-nnoremap yoe :setlocal conceallevel=<C-r>=&conceallevel == 0 ? '2' : '0'<CR><CR>
-nnoremap [oe :setlocal conceallevel=<C-r>=&conceallevel > 0 ? &conceallevel - 1 : 0<CR><CR>
-nnoremap ]oe :setlocal conceallevel=<C-r>=&conceallevel < 2 ? &conceallevel + 1 : 2<CR><CR>
+" Setting toggles.
+nnoremap <silent> yoc :setlocal cursorline!<CR>
+nnoremap <silent> yoe :setlocal conceallevel=<C-r>=&conceallevel == 0 ? '2' : '0'<CR><CR>
+nnoremap <silent> yon :setlocal number!<CR>
+nnoremap <silent> yor :setlocal relativenumber!<CR>
+nnoremap <silent> yos :setlocal spell!<CR>
+nnoremap <silent> you :setlocal cursorcolumn!<CR>
+nnoremap <silent> yow :setlocal wrap!<CR>
 
-" Toggle spell.
-map <C-s> yos
 imap <C-s> <C-o><C-s>
+map <C-s> yos
 
 
 "  ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
