@@ -5,7 +5,7 @@ open-zoom %U
   ^https?:\/\/.*zoom\.us
 
 google-chrome-stable %U
-  ^https?:\/\/(docs|drive|meet)\.google\.com
+  ^https?:\/\/(docs|drive|jamboard|meet)\.google\.com
   ^https?:\/\/.*\.detectify\.net
   ^https?:\/\/.*\.google\.com/calendar
   ^https?:\/\/detectify
