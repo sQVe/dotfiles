@@ -157,6 +157,14 @@ const addDaysToDate = (date, n) => {
 };
 endsnippet
 
+snippet addEventListenerAll "Attaches an event listener to all the provided targets.  - Use `Array.prototype.forEach()` and `EventTarget.addEventListener()` to attach the provided `listener` for the given event `type` to all `targets`." b
+const addEventListenerAll = (targets, type, listener, options, useCapture) => {
+  targets.forEach(target =>
+    target.addEventListener(type, listener, options, useCapture)
+  );
+};
+endsnippet
+
 snippet addMinutesToDate "Calculates the date of `n` minutes from the given date, returning its string representation.  - Use `new Date()` to create a date object from the first argument. - Use `Date.prototype.getTime()` and `Date.prototype.setTime()` to add `n` minutes to the given date. - Use `Date.prototype.toISOString()`, `String.prototype.split()` and `String.prototype.replace()` to return a string in `yyyy-mm-dd HH:MM:SS` format." b
 const addMinutesToDate = (date, n) => {
   const d = new Date(date);
@@ -1076,6 +1084,22 @@ const filterUniqueBy = (arr, fn) =>
   arr.filter((v, i) => arr.some((x, j) => (i !== j) === fn(v, x, i, j)));
 endsnippet
 
+snippet findClosestAnchor "Finds the anchor node closest to the given `node`, if any.  - Use a `for` loop and `Node.parentNode` to traverse the node tree upwards from the given `node`. - Use `Node.nodeName` and `String.prototype.toLowerCase()` to check if any given node is an anchor (`'a'`). - If no matching node is found, return `null`." b
+const findClosestAnchor = node => {
+  for (let n = node; n.parentNode; n = n.parentNode)
+    if (n.nodeName.toLowerCase() === 'a') return n;
+  return null;
+};
+endsnippet
+
+snippet findClosestMatchingNode "Finds the closest matching node starting at the given `node`.  - Use a `for` loop and `Node.parentNode` to traverse the node tree upwards from the given `node`. - Use `Element.matches()` to check if any given element node matches the provided `selector`. - If no matching node is found, return `null`." b
+const findClosestMatchingNode = (node, selector) => {
+  for (let n = node; n.parentNode; n = n.parentNode)
+    if (n.matches && n.matches(selector)) return n;
+  return null;
+};
+endsnippet
+
 snippet findKey "Finds the first key that satisfies the provided testing function. Otherwise `undefined` is returned.  - Use `Object.keys(obj)` to get all the properties of the object, `Array.prototype.find()` to test each key-value pair using `fn`. - The callback receives three arguments - the value, the key and the object." b
 const findKey = (obj, fn) => 
   Object.keys(obj).find(key => fn(obj[key], key, obj));
@@ -1975,6 +1999,11 @@ endsnippet
 snippet isSameDate "Checks if a date is the same as another date.  - Use `Date.prototype.toISOString()` and strict equality checking (`===`) to check if the first date is the same as the second one." b
 const isSameDate = (dateA, dateB) =>
   dateA.toISOString() === dateB.toISOString();
+endsnippet
+
+snippet isSameOrigin "Checks if two URLs are on the same origin.  - Use `URL.protocol` and `URL.host` to check if both URLs have the same protocol and host." b
+const isSameOrigin = (origin, destination) =>
+  origin.protocol === destination.protocol && origin.host === destination.host;
 endsnippet
 
 snippet isSessionStorageEnabled "Checks if `sessionStorage` is enabled.  - Use a `try...catch` block to return `true` if all operations complete successfully, `false` otherwise. - Use `Storage.setItem()` and `Storage.removeItem()` to test storing and deleting a value in `window.sessionStorage`." b
@@ -3076,6 +3105,20 @@ snippet removeElement "Removes an element from the DOM.  - Use `Element.parentNo
 const removeElement = el => el.parentNode.removeChild(el);
 endsnippet
 
+snippet removeEventListenerAll "Detaches an event listener from all the provided targets.  - Use `Array.prototype.forEach()` and `EventTarget.removeEventListener()` to detach the provided `listener` for the given event `type` from all `targets`." b
+const removeEventListenerAll = (
+  targets,
+  type,
+  listener,
+  options,
+  useCapture
+) => {
+  targets.forEach(target =>
+    target.removeEventListener(type, listener, options, useCapture)
+  );
+};
+endsnippet
+
 snippet removeNonASCII "Removes non-printable ASCII characters.  - Use `String.prototype.replace()` with a regular expression to remove non-printable ASCII characters." b
 const removeNonASCII = str => str.replace(/[^\x20-\x7E]/g, '');
 endsnippet
@@ -3127,6 +3170,20 @@ const repeatGenerator = function* (val) {
     let newV = yield v;
     if (newV !== undefined) v = newV;
   }
+};
+endsnippet
+
+snippet replaceLast "Replaces the last occurence of a pattern in a string.  - Use `typeof` to determine if `pattern` is a string or a regular expression. - If the `pattern` is a string, use it as the `match`. - Otherwise, use the `RegeExp` constructor to create a new regular expression using the `RegExp.source` of the `pattern` and adding the `'g'` flag to it. Use `String.prototype.match()` and `Array.prototype.slice()` to get the last match, if any. - Use `String.prototype.lastIndexOf()` to find the last occurence of the match in the string. - If a match is found, use `String.prototype.slice()` and a template literal to replace the matching substring with the given `replacement`. - If no match is found, return the original string." b
+const replaceLast = (str, pattern, replacement) => {
+  const match =
+    typeof pattern === 'string'
+      ? pattern
+      : (str.match(new RegExp(pattern.source, 'g')) || []).slice(-1)[0];
+  if (!match) return str;
+  const last = str.lastIndexOf(match);
+  return last !== -1
+    ? \`\${str.slice(0, last)}\${replacement}\${str.slice(last + match.length)}\`
+    : str;
 };
 endsnippet
 
