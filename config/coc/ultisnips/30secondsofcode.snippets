@@ -1310,7 +1310,7 @@ snippet getColonTimeFromDate "Returns a string of the form `HH:MM:SS` from a `Da
 const getColonTimeFromDate = date => date.toTimeString().slice(0, 8);
 endsnippet
 
-snippet getDaysDiffBetweenDates "Calculates the difference (in days) between two dates.  - Subtract the two `Date` object and divide by the number of milliseconds in a day to get the difference (in days) between them." b
+snippet getDaysDiffBetweenDates "Calculates the difference (in days) between two dates.  - Subtract the two `Date` objects and divide by the number of milliseconds in a day to get the difference (in days) between them." b
 const getDaysDiffBetweenDates = (dateInitial, dateFinal) =>
   (dateFinal - dateInitial) / (1000 * 3600 * 24);
 endsnippet
@@ -1322,6 +1322,11 @@ const getElementsBiggerThanViewport = () => {
     el => el.offsetWidth > docWidth
   );
 };
+endsnippet
+
+snippet getHoursDiffBetweenDates "Calculates the difference (in hours) between two dates.  - Subtract the two `Date` objects and divide by the number of milliseconds in an hour to get the difference (in hours) between them." b
+const getHoursDiffBetweenDates = (dateInitial, dateFinal) =>
+  (dateFinal - dateInitial) / (1000 * 3600);
 endsnippet
 
 snippet getImages "Fetches all images from within an element and puts them into an array.  - Use `Element.getElementsByTagName()` to get all `<img>` elements inside the provided element. - Use `Array.prototype.map()` to map every `src` attribute of each `<img>` element. - If `includeDuplicates` is `false`, create a new `Set` to eliminate duplicates and return it after spreading into an array. - Omit the second argument, `includeDuplicates`, to discard duplicates by default." b
@@ -1342,6 +1347,11 @@ const getMeridiemSuffixOfInteger = num =>
     : num < 12
     ? (num % 12) + 'am'
     : (num % 12) + 'pm';
+endsnippet
+
+snippet getMinutesDiffBetweenDates "Calculates the difference (in minutes) between two dates.  - Subtract the two `Date` objects and divide by the number of milliseconds in a minute to get the difference (in minutes) between them." b
+const getMinutesDiffBetweenDates = (dateInitial, dateFinal) =>
+  (dateFinal - dateInitial) / (1000 * 60);
 endsnippet
 
 snippet getMonthsDiffBetweenDates "Calculates the difference (in months) between two dates.  - Use `Date.prototype.getFullYear()` and `Date.prototype.getMonth()` to calculate the difference (in months) between two `Date` objects." b
@@ -1376,6 +1386,11 @@ const getScrollPosition = (el = window) => ({
   x: el.pageXOffset !== undefined ? el.pageXOffset : el.scrollLeft,
   y: el.pageYOffset !== undefined ? el.pageYOffset : el.scrollTop
 });
+endsnippet
+
+snippet getSecondsDiffBetweenDates "Calculates the difference (in seconds) between two dates.  - Subtract the two `Date` objects and divide by the number of milliseconds in a second to get the difference (in seconds) between them." b
+const getSecondsDiffBetweenDates = (dateInitial, dateFinal) =>
+  (dateFinal - dateInitial) / 1000;
 endsnippet
 
 snippet getSelectedText "Gets the currently selected text.  - Use `Window.getSelection()` and `Selection.toString()` to get the currently selected text." b
