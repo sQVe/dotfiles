@@ -1451,7 +1451,7 @@ c.fonts.web.size.default_fixed = 14
 
 # Bindings for normal mode
 config.bind('<', 'tab-move -')
-config.bind('<Ctrl+e>', 'open-editor')
+config.bind('<Ctrl+e>', 'edit-text')
 config.bind('>', 'tab-move +')
 config.bind('B', 'set-cmd-text -s :bookmark-load -t')
 config.bind('J', 'tab-prev')
@@ -1459,7 +1459,7 @@ config.bind('K', 'tab-next')
 config.bind('Q', 'set-cmd-text -s :quickmark-load -t')
 config.bind('W', 'open -w')
 config.bind('b', 'set-cmd-text -s :bookmark-load')
-config.bind('e', 'open-editor')
+config.bind('e', 'edit-text')
 config.unbind('m')
 config.bind('mb', 'bookmark-add -t')
 config.bind('mq', 'quickmark-save')
@@ -1482,4 +1482,4 @@ config.bind('ä', 'set-cmd-text -s :open')
 config.bind('ö', 'set-cmd-text :')
 
 # Bindings for insert mode
-config.bind('<Ctrl+e>', 'open-editor', mode='insert')
+config.bind('<Ctrl+e>', 'edit-text', mode='insert')
