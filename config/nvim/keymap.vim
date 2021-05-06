@@ -110,6 +110,13 @@ nnoremap <Leader>z :Z<Space>
 vnoremap K "oy<Esc>:Ddg<CR>
 
 
+"  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
+"  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
+"  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
+
+nnoremap <silent> gx :call OpenFileOrUrlWithMimeo()<CR>
+
+
 "  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
 "  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
@@ -159,7 +166,9 @@ xmap <silent> ga <Plug>(EasyAlign)
 nmap <silent> ga <Plug>(EasyAlign)
 
 " FZF.
+nnoremap <Leader>+ :Rg<Space>
 nnoremap <Leader>/ :Rg<Space>
+nnoremap <Leader>? :Rg<Space>
 nnoremap <silent> <Backspace> :Buffers<CR>
 nnoremap <silent> <Leader>gL :Commits<CR>
 nnoremap <silent> <Leader>gl :BCommits<CR>

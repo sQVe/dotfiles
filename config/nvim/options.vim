@@ -190,9 +190,6 @@ let g:mkdp_auto_close = 0
 let g:mergetool_layout = 'mr'
 let g:mergetool_prefer_revision = 'local'
 
-" Set opener for `gx`.
-let g:netrw_browsex_viewer= "mimeo"
-
 " Pasta.
 let g:pasta_disabled_filetypes = ['fugitive', 'markdown', 'yaml']
 

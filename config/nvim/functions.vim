@@ -31,12 +31,6 @@ func! FixAndFormat() abort
   call CocAction('format')
 endfunc
 
-" Create and print ascii header.
-func! PrintAsciiHeader(title)
-  execute "read !toilet -f future " . a:title
-  norm 0VkkgcwjjI kddjj
-endfunc
-
 " Search on specific engines.
 func! Search(engine, query)
   let engineRoots = {
@@ -56,6 +50,18 @@ func! ShowDocumentation()
   else
     call CocActionAsync('doHover')
   endif
+endfunc
+
+" Create and print ascii header.
+func! PrintAsciiHeader(title)
+  execute "read !toilet -f future " . a:title
+  norm 0VkkgcwjjI kddjj
+endfunc
+
+" Open file or URL under cursor with mimeo. This is a temporary solution until
+" `gx` in netrw is repaired.
+func! OpenFileOrUrlWithMimeo()
+  silent execute "!mimeo '" . expand('<cfile>') . "'"
 endfunc
 
 " ToggleWindowFocus.
