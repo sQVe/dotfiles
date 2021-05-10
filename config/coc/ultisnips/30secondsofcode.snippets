@@ -1100,6 +1100,19 @@ const findClosestMatchingNode = (node, selector) => {
 };
 endsnippet
 
+snippet findFirstN "Finds the first `n` elements for which the provided function returns a truthy value.  - Use a `for..in` loop to execute the provided `matcher` for each element of `arr`. - Use `Array.prototype.push()` to append elements to the results array and return them if its `length` is equal to `n`." b
+const findFirstN = (arr, matcher, n = 1) => {
+  let res = [];
+  for (let i in arr) {
+    const el = arr[i];
+    const match = matcher(el, i, arr);
+    if (match) res.push(el);
+    if (res.length === n) return res;
+  }
+  return res;
+};
+endsnippet
+
 snippet findKey "Finds the first key that satisfies the provided testing function. Otherwise `undefined` is returned.  - Use `Object.keys(obj)` to get all the properties of the object, `Array.prototype.find()` to test each key-value pair using `fn`. - The callback receives three arguments - the value, the key and the object." b
 const findKey = (obj, fn) => 
   Object.keys(obj).find(key => fn(obj[key], key, obj));
@@ -1127,6 +1140,19 @@ const findLastKey = (obj, fn) =>
   Object.keys(obj)
     .reverse()
     .find(key => fn(obj[key], key, obj));
+endsnippet
+
+snippet findLastN "Finds the last `n` elements for which the provided function returns a truthy value.  - Use a `for` loop to execute the provided `matcher` for each element of `arr`. - Use `Array.prototype.unshift()` to prepend elements to the results array and return them if its `length` is equal to `n`." b
+const findLastN = (arr, matcher, n = 1) => {
+  let res = [];
+  for (let i = arr.length - 1; i >= 0; i--) {
+    const el = arr[i];
+    const match = matcher(el, i, arr);
+    if (match) res.unshift(el);
+    if (res.length === n) return res;
+  }
+  return res;
+};
 endsnippet
 
 snippet flatten "Flattens an array up to the specified depth.  - Use recursion, decrementing `depth` by `1` for each level of depth. - Use `Array.prototype.reduce()` and `Array.prototype.concat()` to merge elements or arrays. - Base case, for `depth` equal to `1` stops recursion. - Omit the second argument, `depth`, to flatten only to a depth of `1` (single flatten)." b

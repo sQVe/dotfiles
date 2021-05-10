@@ -9,6 +9,8 @@
 " Disable language syntax already handled by treesitter.
 let s:lang_syntax_disable = [
   \ 'go.plugin',
+  \ 'graphql.plugin',
+  \ 'html5.plugin',
   \ 'javascript.plugin',
   \ 'json.plugin',
   \ 'jsonc.plugin',
