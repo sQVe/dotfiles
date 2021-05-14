@@ -26,10 +26,14 @@
 
 [merge]
   conflictStyle = diff3
-  tool = vim_mergetool
+  tool = diffconflicts
 
-[mergetool "vim_mergetool"]
-  cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+[mergetool]
+  keepBackup = false
+
+[mergetool "diffconflicts"]
+  cmd = nvim -c "DiffConflicts" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+  trustExitCode = true
 
 [pull]
   rebase = merges
