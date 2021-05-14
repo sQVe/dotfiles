@@ -44,9 +44,6 @@ hi! GitChangeDelete guifg=#d3869b guibg=NONE gui=NONE cterm=NONE
 " Floaterm.
 hi! FloatermBorder guibg=NONE guifg=#665c54
 
-" Searchlight.
-hi! Searchlight guifg=#282828 guibg=#fe8019 gui=NONE cterm=NONE
-
 " Sneak.
 hi! Sneak guifg=#282828 guibg=#d3869b gui=bold cterm=NONE
 hi! SneakScope guifg=#282828 guibg=#8ec07c gui=bold cterm=NONE

@@ -61,7 +61,7 @@ Plug 'iamcco/markdown-preview.nvim', {
 Plug 'shumphrey/fugitive-gitlab.vim'               " Fugitive GitLab support.
 Plug 'sickill/vim-pasta'                           " Paste with smart indentation.
 Plug 'tpope/vim-fugitive'                          " Git.
-Plug 'tpope/vim-rhubarb'                           " Use hub instead of git.
+Plug 'tpope/vim-rhubarb'                           " Fugitive GitHub support.
 Plug 'tpope/vim-speeddating'                       " Increment / decrement dates, times and more.
 
 " Interface.
@@ -73,7 +73,6 @@ Plug 'voldikss/vim-floaterm'                       " Floating terminal.
 Plug 'whiteinge/diffconflicts'                     " Git mergetool
 
 " Search, replace and navigation.
-Plug 'PeterRincker/vim-searchlight'                " Highlight current match.
 Plug 'antoinemadec/coc-fzf'                        " Coc Fzf lists.
 Plug 'bronson/vim-visual-star-search'              " Visual star search.
 Plug 'junegunn/fzf.vim'                            " Fzf.
