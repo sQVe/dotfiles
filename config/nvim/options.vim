@@ -84,6 +84,10 @@ set undofile                      " Keep a persistent backup file.
 " Add file extension lookup when going to file.
 set suffixesadd=.js,.jsx,.ts,.tsx,.sh.css,.scss,.md,.json,.yaml,.yml
 
+" Set programs.
+set grepformat=%f:%l:%c:%m,%f:%l:%m
+set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+
 " Colorscheme.
 set background=dark
 colorscheme gruvbox8
