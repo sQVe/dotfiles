@@ -80,7 +80,7 @@ nnoremap <silent> <C-Down> :wincmd j<CR>
 nnoremap <silent> <C-Up> :wincmd k<CR>
 nnoremap <silent> <C-Right> :wincmd l<CR>
 
-" Quicker window resize.
+" Quick window resize.
 nnoremap <silent> <C-S-Left> :vertical resize -10<CR>
 nnoremap <silent> <C-S-Down> :resize -10<CR>
 nnoremap <silent> <C-S-Up> :resize +10<CR>
