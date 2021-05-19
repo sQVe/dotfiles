@@ -29,7 +29,8 @@ Plug 'machakann/vim-sandwich'                      " Surround text.
 Plug 'tpope/vim-repeat'                            " Repeat for plugins.
 
 " Colorschemes and highlighting.
-Plug 'lifepillar/vim-gruvbox8'                     " Speedy Gruvbox.
+Plug 'rktjmp/lush.nvim'                            " Gruvbox theme dependency.
+Plug 'npxbr/gruvbox.nvim'                          " Gruvbox theme.
 Plug 'nvim-treesitter/nvim-treesitter', {
   \ 'do': ':TSUpdate' }                            " Treesitter highlighting.
 Plug 'p00f/nvim-ts-rainbow'                        " Treesitter rainbow parentheses.

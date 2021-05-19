@@ -90,7 +90,7 @@ set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 
 " Colorscheme.
 set background=dark
-colorscheme gruvbox8
+colorscheme gruvbox
 
 
 "  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ┏━┓┏━┓╺┳╸╻┏━┓┏┓╻┏━┓
@@ -162,7 +162,7 @@ let g:lightline = {
   \             [ 'percent' ],
   \             [ 'filetype' ]]
   \ },
-  \ 'colorscheme': 'gruvbox8',
+  \ 'colorscheme': 'gruvbox',
   \ 'component_function': {
   \   'filename': 'LightlineFilename',
   \   'gitbranch': 'fugitive#head',
