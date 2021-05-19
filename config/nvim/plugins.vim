@@ -52,8 +52,8 @@ Plug 'neoclide/coc.nvim', { 'branch': 'release' }  " Intellisense with LSP.
 " Plug 'dstein64/vim-startuptime'                  " Check startup times.
 
 " Integration.
-Plug 'axelf4/vim-strip-trailing-whitespace'        " Remove trailing whitespace.
 Plug 'airblade/vim-rooter'                         " Set pwd to root directory.
+Plug 'axelf4/vim-strip-trailing-whitespace'        " Remove trailing whitespace.
 Plug 'editorconfig/editorconfig-vim'               " Editorconfig.
 Plug 'iamcco/markdown-preview.nvim', {
   \ 'do': 'cd app & yarn install',
