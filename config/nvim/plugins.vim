@@ -67,6 +67,7 @@ Plug 'tpope/vim-speeddating'                       " Increment / decrement dates
 " Interface.
 Plug 'ap/vim-buftabline'                           " Buffer line.
 Plug 'camspiers/lens.vim'                          " Resize windows based on content.
+Plug 'dyng/ctrlsf.vim'                             " Search and replace over multiple files.
 Plug 'itchyny/lightline.vim'                       " Status line.
 Plug 'mhinz/vim-startify'                          " Launch screen.
 Plug 'tversteeg/registers.nvim'                    " Interactive registers.

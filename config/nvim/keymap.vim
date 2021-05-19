@@ -133,7 +133,7 @@ nmap <silent> <Leader>dl :CocFzfList diagnostics<CR>
 nmap <silent> <Leader>p :CocFzfList yank<CR>
 nmap <silent> <Leader>r <Plug>(coc-rename)
 nnoremap <silent> K :ShowDocumentation<CR>
-nmap <silent> gR :Rg \b<C-R>=expand("<cword>")<CR>\b<CR>
+nmap gR :Rg <c-r><c-w>
 nmap <silent> gb <Plug>(coc-range-select)
 xmap <silent> gb <Plug>(coc-range-select)
 nmap <silent> gd <Plug>(coc-definition)
