@@ -69,6 +69,7 @@ Plug 'ap/vim-buftabline'                           " Buffer line.
 Plug 'camspiers/lens.vim'                          " Resize windows based on content.
 Plug 'itchyny/lightline.vim'                       " Status line.
 Plug 'mhinz/vim-startify'                          " Launch screen.
+Plug 'tversteeg/registers.nvim'                    " Interactive registers.
 Plug 'voldikss/vim-floaterm'                       " Floating terminal.
 Plug 'whiteinge/diffconflicts'                     " Git mergetool
 
