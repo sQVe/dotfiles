@@ -5,11 +5,6 @@
 " Better Whitespace.
 hi! ExtraWhitespace guifg=#282828 guibg=#cc241d gui=NONE cterm=NONE
 
-" Hide Tabline.
-hi! TabLine guifg=#282828 guibg=#282828 gui=NONE cterm=NONE
-hi! TabLineFill guifg=#282828 guibg=#282828 gui=NONE cterm=NONE
-hi! TabLineSel guifg=#282828 guibg=#282828 gui=NONE cterm=NONE
-
 " BufTabLine.
 hi! BufTabLineActive guifg=#a89984 guibg=#282828 gui=NONE cterm=NONE
 hi! BufTabLineCurrent guifg=#fabd2f guibg=#3c3836 gui=NONE cterm=NONE

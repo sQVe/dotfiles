@@ -70,7 +70,7 @@ Plug 'camspiers/lens.vim'                          " Resize windows based on con
 Plug 'dyng/ctrlsf.vim'                             " Search and replace over multiple files.
 Plug 'itchyny/lightline.vim'                       " Status line.
 Plug 'mhinz/vim-startify'                          " Launch screen.
-Plug 'tversteeg/registers.nvim'                    " Interactive registers.
+" Plug 'tversteeg/registers.nvim'                    " Interactive registers.
 Plug 'voldikss/vim-floaterm'                       " Floating terminal.
 Plug 'whiteinge/diffconflicts'                     " Git mergetool
 
