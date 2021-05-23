@@ -29,8 +29,7 @@ Plug 'machakann/vim-sandwich'                      " Surround text.
 Plug 'tpope/vim-repeat'                            " Repeat for plugins.
 
 " Colorschemes and highlighting.
-Plug 'rktjmp/lush.nvim'                            " Gruvbox theme dependency.
-Plug 'npxbr/gruvbox.nvim'                          " Gruvbox theme.
+Plug 'lifepillar/vim-gruvbox8'                     " Speedy gruvbox theme.
 Plug 'nvim-treesitter/nvim-treesitter', {
   \ 'do': ':TSUpdate' }                            " Treesitter highlighting.
 Plug 'p00f/nvim-ts-rainbow'                        " Treesitter rainbow parentheses.
@@ -70,7 +69,6 @@ Plug 'camspiers/lens.vim'                          " Resize windows based on con
 Plug 'dyng/ctrlsf.vim'                             " Search and replace over multiple files.
 Plug 'itchyny/lightline.vim'                       " Status line.
 Plug 'mhinz/vim-startify'                          " Launch screen.
-" Plug 'tversteeg/registers.nvim'                    " Interactive registers.
 Plug 'voldikss/vim-floaterm'                       " Floating terminal.
 Plug 'whiteinge/diffconflicts'                     " Git mergetool
 
