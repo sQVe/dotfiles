@@ -81,11 +81,6 @@ function nvm() {
   nvm "$@"
 }
 
-# Open playground helper.
-function playground() {
-  cd ~/code/playground && nvim +vsplit +"terminal npm run $1" +'wincmd h' +'norm G$' "boxes/$1"
-}
-
 # Open vifm and cd into selected directory on exit.
 function vifm-cd() {
   local path="$(uberfm "$@")"
@@ -238,12 +233,6 @@ alias cfg-zshrc='nvim $DOTFILES/config/zsh/zshrc'
 # Dunst.
 alias dunst-pause='dunstctl set-paused true'
 alias dunst-resume='dunstctl set-paused false'
-
-# Playground.
-alias playground-clean.js='playground clean.js'
-alias playground-clean.ts='playground clean.ts'
-alias playground-fp.js='playground fp.js'
-alias playground-fp.ts='playground fp.ts'
 
 # Todo.
 alias todo='nvim $NOTES/todo.md'
