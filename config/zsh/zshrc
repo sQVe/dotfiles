@@ -207,6 +207,7 @@ alias v=nvim
 alias vi=nvim
 alias vifm=vifm-cd
 alias vim=nvim
+alias vimo="nvim -u NONE"
 alias xsel='xsel -b'
 alias zz='z -I'
 
