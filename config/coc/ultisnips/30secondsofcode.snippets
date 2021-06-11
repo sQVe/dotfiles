@@ -1235,6 +1235,22 @@ snippet formatNumber "Formats a number using the local number format order.  - U
 const formatNumber = num => num.toLocaleString();
 endsnippet
 
+snippet formatSeconds "Returns the ISO format of the given number of seconds.  - Divide `s` with the appropriate values to obtain the appropriate values for `hour`, `minute` and `second`. - Store the `sign` in a variable to prepend it to the result. - Use `Array.prototype.map()` in combination with `Array.prototype.floor()` and `String.prototype.padStart()` to stringify and format each segment. - Use `String.prototype.join(':')` to combine the values into a string." b
+const formatSeconds = s => {
+  const [hour, minute, second, sign] =
+    s > 0
+      ? [s / 3600, (s / 60) % 60, s % 60, '']
+      : [-s / 3600, (-s / 60) % 60, -s % 60, '-'];
+
+  return (
+    sign +
+    [hour, minute, second]
+      .map(v => \`\${Math.floor(v)}\`.padStart(2, '0'))
+      .join(':')
+  );
+};
+endsnippet
+
 snippet frequencies "Creates an object with the unique values of an array as keys and their frequencies as the values.  - Use `Array.prototype.reduce()` to map unique values to an object's keys, adding to existing keys every time the same value is encountered." b
 const frequencies = arr =>
   arr.reduce((a, v) => {
