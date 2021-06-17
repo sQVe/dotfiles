@@ -59,5 +59,5 @@ hi! StartifySection guifg=#fabd2f guibg=NONE gui=NONE cterm=NONE
 hi! StartifySlash guifg=#928374 guibg=NONE gui=NONE cterm=NONE
 hi! StartifySpecial guifg=#504945 guibg=NONE gui=NONE cterm=NONE
 
-" Turn of italics for strings.
+" Turn off italics for strings.
 hi! String gui=NONE cterm=NONE
