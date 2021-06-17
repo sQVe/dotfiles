@@ -89,6 +89,7 @@ set grepformat=%f:%l:%c:%m,%f:%l:%m
 set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
 
 " Colorscheme.
+let g:gruvbox_transp_bg = 1
 set background=dark
 colorscheme gruvbox8
 
