@@ -37,7 +37,8 @@ set spelloptions="camel"
 " Complete.
 set wildmenu                      " Enable wildmenu.
 set wildmode=longest:full,full    " Set wildmenu modes.
-set completeopt=longest,menuone   " Set compete options.
+set completeopt=menuone,noselect  " Set compete options.
+set pumheight=20                  " Show max 20 items in completion menu.
 
 " Cursor.
 set nocursorline                  " Show no cursorline by default. Autocmd enables
