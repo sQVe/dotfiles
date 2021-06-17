@@ -31,6 +31,8 @@ set showmatch                     " Show matching brackets.
 " Spelling and dictionary.
 set dictionary+=/usr/share/dict/words
 set spellfile=~/.config/nvim/spell/en.utf-8.add
+set spelllang=en_us
+set spelloptions="camel"
 
 " Complete.
 set wildmenu                      " Enable wildmenu.
