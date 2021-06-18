@@ -45,6 +45,7 @@ Plug 'kkoomen/vim-doge', {
 Plug 'tpope/vim-commentary'                        " Comment text.
 
 " Completion, diagnostics and spelling.
+Plug 'SirVer/ultisnips'                            " Snippets.
 
 " Debug.
 " Plug 'dstein64/vim-startuptime'                  " Check startup times.

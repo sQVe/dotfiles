@@ -257,3 +257,9 @@ let g:suda_smart_edit = 1
 " Visual Multi.
 let g:VM_mouse_mappings = 1
 let g:VM_theme = 'purplegray'
+
+" Ultisnips.
+let g:UltiSnipsExpandTrigger="<C-l>"
+let g:UltiSnipsJumpBackwardTrigger="<C-k>"
+let g:UltiSnipsJumpForwardTrigger="<C-j>"
+let g:UltiSnipsSnippetDirectories = [expand("$XDG_DATA_HOME/ultisnips")]
