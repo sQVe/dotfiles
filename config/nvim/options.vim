@@ -242,15 +242,6 @@ let g:startify_lists = [
   \ { 'type': 'commands',               'header': ['   💎 Commands'] },
   \ ]
 
-" Treesitter.
-lua <<EOF
-require'nvim-treesitter.configs'.setup {
-  highlight = { enable = true },
-  indent = { enable = true },
-  rainbow = { enable = true, extended_mode = true }
-}
-EOF
-
 " Suda.
 let g:suda_smart_edit = 1
 

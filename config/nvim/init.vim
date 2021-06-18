@@ -13,3 +13,5 @@ source $HOME/.config/nvim/options.vim
 source $HOME/.config/nvim/abbreviations.vim
 source $HOME/.config/nvim/highlight.vim
 source $HOME/.config/nvim/sign.vim
+
+lua require('treesitter')
