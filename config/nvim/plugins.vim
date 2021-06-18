@@ -45,7 +45,6 @@ Plug 'kkoomen/vim-doge', {
 Plug 'tpope/vim-commentary'                        " Comment text.
 
 " Completion, diagnostics and spelling.
-Plug 'neoclide/coc.nvim', { 'branch': 'release' }  " Intellisense with LSP.
 
 " Debug.
 " Plug 'dstein64/vim-startuptime'                  " Check startup times.

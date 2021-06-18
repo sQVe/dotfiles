@@ -121,46 +121,6 @@ nnoremap <silent> gx :call OpenFileOrUrlWithMimeo()<CR>
 "  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
-" Coc.
-nnoremap <silent> <Leader>l :CocFzfList outline<CR>
-nnoremap <silent> <Leader>L :CocFzfList symbols<CR>
-nmap <silent> <Leader>a :CocAction<CR>
-xmap <silent> <Leader>a :CocAction<CR>
-nmap <Leader>f :FixAndFormat<CR>
-nmap <silent> <Leader>dj <Plug>(coc-diagnostic-next)
-nmap <silent> <Leader>dk <Plug>(coc-diagnostic-prev)
-nmap <silent> <Leader>dl :CocFzfList diagnostics<CR>
-nmap <silent> <Leader>p :CocFzfList yank<CR>
-nmap <silent> <Leader>r <Plug>(coc-rename)
-nnoremap <silent> K :ShowDocumentation<CR>
-nmap gR :Rg <c-r><c-w>
-nmap <silent> gb <Plug>(coc-range-select)
-xmap <silent> gb <Plug>(coc-range-select)
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gD <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-nmap <silent> gy <Plug>(coc-type-definition)
-
-imap <silent> <C-l> <Plug>(coc-snippets-expand)
-imap <silent> <C-j> <Plug>(coc-snippets-expand-jump)
-vmap <silent> <C-j> <Plug>(coc-snippets-select)
-
-" Use <Tab> tigger completion and to navigate the completion list.
-inoremap <silent><expr> <Tab>
-  \ pumvisible() ? "\<C-n>" :
-  \ CheckBackSpace() ? "\<Tab>" :
-  \ coc#refresh()
-
-" Use <S-Tab> to navigate the completion list.
-inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
-
-" Use <C-Space> to open completion menu.
-inoremap <silent><expr> <C-Space> coc#refresh()
-
-" Use <CR> to confirm completion.
-inoremap <silent><expr> <CR> pumvisible() ? coc#_select_confirm()
-  \ : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
-
 " EasyAlign.
 xmap <silent> ga <Plug>(EasyAlign)
 nmap <silent> ga <Plug>(EasyAlign)
@@ -175,18 +135,13 @@ nnoremap <silent> <Leader>gl :BCommits<CR>
 nnoremap <silent> mm :Marks<CR>
 nnoremap <silent> ä :Files<CR>
 nnoremap <silent> å :BFiles<CR>
+nnoremap gR :Rg <c-r><c-w>
 
 " Floaterm.
 nnoremap <silent> Ä :FloatermNew vifm .<CR>
 nnoremap <silent> Å :FloatermNew vifm<CR>
 
-" Fugitive and coc-git.
-nmap <silent> <Leader>gj <Plug>(coc-git-nextchunk)
-nmap <silent> <Leader>gk <Plug>(coc-git-prevchunk)
-omap <silent> ig <Plug>(coc-git-chunk-inner)
-xmap <silent> ig <Plug>(coc-git-chunk-inner)
-omap <silent> ag <Plug>(coc-git-chunk-outer)
-xmap <silent> ag <Plug>(coc-git-chunk-outer)
+" Fugitive.
 nnoremap <silent> <Leader>gb :Git blame<CR>
 nnoremap <silent> <Leader>gd :Gdiffsplit<CR>
 nnoremap <silent> <Leader>gf :Git fetch<CR>

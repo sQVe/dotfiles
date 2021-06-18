@@ -15,17 +15,6 @@ hi! BufTabLineHidden guifg=#7c6f64 guibg=#282828 gui=NONE cterm=NONE
 hi! ColorColumn guifg=NONE guibg=#282828 gui=NONE cterm=NONE
 hi! SignColumn guifg=NONE guibg=#282828 gui=NONE cterm=NONE
 
-" Coc.
-hi! CocCodeLens guifg=#504945 guibg=NONE gui=NONE cterm=NONE
-hi! CocErrorFloat guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
-hi! CocErrorSign guifg=#fb4934 guibg=#282828 gui=NONE cterm=NONE
-hi! CocHintFloat guifg=#d3869b guibg=NONE gui=NONE cterm=NONE
-hi! CocHintSign guifg=#504945 guibg=NONE gui=NONE cterm=NONE
-hi! CocInfoFloat guifg=#83a598 guibg=NONE gui=NONE cterm=NONE
-hi! CocInfoSign guifg=#83a598 guibg=NONE gui=NONE cterm=NONE
-hi! CocSelectedText guifg=#3c3836 guibg=#282828 gui=NONE cterm=NONE
-hi! CocWarningFloat guifg=#fabd2f guibg=NONE gui=NONE cterm=NONE
-hi! CocWarningSign guifg=#fabd2f guibg=#282828 gui=NONE cterm=NONE
 
 " Git diff.
 hi! diffAdded guifg=#b8bb26 guibg=NONE gui=NONE cterm=NONE

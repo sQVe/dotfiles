@@ -48,7 +48,6 @@ func! ShowDocumentation()
   if (index(['help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
-    call CocActionAsync('doHover')
   endif
 endfunc
 
