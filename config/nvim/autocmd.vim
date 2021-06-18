@@ -14,6 +14,12 @@ augroup DisableNetrw
   autocmd VimEnter * silent! autocmd! FileExplorer
 augroup END
 
+" Highlight yanked text.
+augroup HighlightYank
+    autocmd!
+    autocmd! TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
+augroup END
+
 " Save commit message for later.
 augroup SaveCommitMsg
   autocmd!
