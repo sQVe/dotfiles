@@ -15,6 +15,12 @@ hi! BufTabLineHidden guifg=#7c6f64 guibg=#282828 gui=NONE cterm=NONE
 hi! ColorColumn guifg=NONE guibg=#282828 gui=NONE cterm=NONE
 hi! SignColumn guifg=NONE guibg=#282828 gui=NONE cterm=NONE
 
+" Lsp.
+hi! LspDiagnosticsDefaultError guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
+hi! LspDiagnosticsDefaultHint guifg=#a89984 guibg=NONE gui=NONE cterm=NONE
+hi! LspDiagnosticsDefaultInformation guifg=#83a598 guibg=NONE gui=NONE cterm=NONE
+hi! LspDiagnosticsDefaultWarning guifg=#fabd2f guibg=NONE gui=NONE cterm=NONE
+hi! LspDiagnosticsVirtualTextHint guifg=#fabd2f guibg=NONE gui=NONE cterm=NONE
 
 " Git diff.
 hi! diffAdded guifg=#b8bb26 guibg=NONE gui=NONE cterm=NONE
