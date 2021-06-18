@@ -15,3 +15,4 @@ source $HOME/.config/nvim/highlight.vim
 source $HOME/.config/nvim/sign.vim
 
 lua require('treesitter')
+lua require('lsp')

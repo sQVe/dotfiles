@@ -48,6 +48,7 @@ func! ShowDocumentation()
   if (index(['help'], &filetype) >= 0)
     execute 'h '.expand('<cword>')
   else
+    lua vim.lsp.buf.hover()
   endif
 endfunc
 

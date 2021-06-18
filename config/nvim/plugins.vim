@@ -46,6 +46,10 @@ Plug 'tpope/vim-commentary'                        " Comment text.
 
 " Completion, diagnostics and spelling.
 Plug 'SirVer/ultisnips'                            " Snippets.
+Plug 'hrsh7th/nvim-compe'                          " LSP completion.
+Plug 'neovim/nvim-lspconfig'                       " LSP.
+Plug 'ojroques/nvim-lspfuzzy'                      " LSP + fzf interface.
+Plug 'ray-x/lsp_signature.nvim'                    " LSP signature help.
 
 " Debug.
 " Plug 'dstein64/vim-startuptime'                  " Check startup times.
