@@ -1,0 +1,35 @@
+extends javascript
+
+#  ╺┳┓╻┏━┓┏━┓┏┓ ╻  ┏━╸   ╺┳╸┏━┓╻  ╻┏┓╻╺┳╸
+#   ┃┃┃┗━┓┣━┫┣┻┓┃  ┣╸     ┃ ┗━┓┃  ┃┃┗┫ ┃
+#  ╺┻┛╹┗━┛╹ ╹┗━┛┗━╸┗━╸    ╹ ┗━┛┗━╸╹╹ ╹ ╹
+
+snippet ts-expect-error "Expect TypeScript error" b
+// @ts-expect-error
+endsnippet
+
+snippet ts-check "Enable TypeScript type-checking" b
+// @ts-check
+endsnippet
+
+snippet ts-ignore "Ignore TypeScript errors on next line" b
+// @ts-ignore
+endsnippet
+
+snippet ts-nocheck "Disable TypeScript type-checking" b
+// @ts-nocheck
+endsnippet
+
+snippet tslint-disable "Disable TSLint" b
+/* tslint:disable ${1:rule} */
+$0
+/* tslint:enable */
+endsnippet
+
+snippet tslint-disable-line "Disable TSLint for current line" w
+// tslint:disable-line ${0:rule}
+endsnippet
+
+snippet tslint-disable-next-line "Disable TSLint for next line" b
+// tslint:disable-next-line ${0:rule}
+endsnippet

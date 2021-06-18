@@ -1,0 +1,159 @@
+#  ┏━╸┏━┓┏┳┓┏━┓┏━┓┏┓╻┏━╸┏┓╻╺┳╸   ┏┳┓┏━┓╺┳┓╻ ╻╻  ┏━╸
+#  ┃  ┃ ┃┃┃┃┣━┛┃ ┃┃┗┫┣╸ ┃┗┫ ┃    ┃┃┃┃ ┃ ┃┃┃ ┃┃  ┣╸
+#  ┗━╸┗━┛╹ ╹╹  ┗━┛╹ ╹┗━╸╹ ╹ ╹    ╹ ╹┗━┛╺┻┛┗━┛┗━╸┗━╸
+
+
+snippet rc "React Stateless Function Component Module" b
+const ${1:`!v expand('%:t:r')`} = (props) => {
+	return <>${2:`!v expand('%:t:r')`}</>;$0
+};
+
+export default $1;
+endsnippet
+
+snippet rcc "React Component Module" b
+import { ${1:Pure}Component } from 'react';
+
+export default class ${2:`!v expand('%:t:r')`} extends $1Component {
+	constructor(props) {
+		super(props);
+
+		this.state = {};
+	}
+
+	render() {
+		return <>${3:`!v expand('%:t:r')`}</>;$0
+	}
+}
+endsnippet
+
+
+#  ╻  ╻┏━╸┏━╸┏━╸╻ ╻┏━╸╻  ┏━╸
+#  ┃  ┃┣╸ ┣╸ ┃  ┗┳┛┃  ┃  ┣╸
+#  ┗━╸╹╹  ┗━╸┗━╸ ╹ ┗━╸┗━╸┗━╸
+
+snippet rlsdp "static defaultProps" b
+static defaultProps = {
+	$0
+};
+endsnippet
+
+snippet rlcdp "component defaultProps" b
+${1:`!v expand('%:t:r')`}.defaultProps = {
+	$0
+};
+endsnippet
+
+snippet rlspt "static propTypes" b
+static propTypes = {
+	${1:className}: ${2:PropTypes.string},$0
+};
+endsnippet
+
+snippet rlcpt "component propTypes" b
+${1:`!v expand('%:t:r')`}.propTypes = {
+	${2:className}: ${3:PropTypes.string},$0
+};
+endsnippet
+
+snippet rlgds "getDerivedStateFromProps" b
+static getDerivedStateFromProps(nextProps, prevState) {
+	return ${1:null};$0
+}
+endsnippet
+
+snippet rlgde "getDerivedStateFromError" b
+static getDerivedStateFromError(error) {
+	return ${1:null};$0
+}
+endsnippet
+
+snippet rlcdm "componentDidMount" b
+componentDidMount() {
+	$0
+}
+endsnippet
+
+snippet rlscu "shouldComponentUpdate" b
+shouldComponentUpdate(nextProps, nextState) {
+	return ${1:true};$0
+}
+endsnippet
+
+snippet rlgsbu "getSnapshotBeforeUpdate" b
+getSnapshotBeforeUpdate(prevProps, prevState) {
+	return ${1:null};$0
+}
+endsnippet
+
+snippet rlcdu "componentDidUpdate" b
+componentDidUpdate(prevProps, prevState${1:, snapshot}) {
+	$0
+}
+endsnippet
+
+snippet rlcdc "componentDidCatch" b
+componentDidCatch(error, info) {
+	$0
+}
+endsnippet
+
+snippet rlcwum "componentWillUnmount" b
+componentWillUnmount() {
+	$0
+}
+endsnippet
+
+#  ╻ ╻┏━┓┏━┓╻┏ ┏━┓   ┏━┓┏┓╻╺┳┓   ┏━╸┏━╸┏━╸┏━╸┏━╸╺┳╸┏━┓
+#  ┣━┫┃ ┃┃ ┃┣┻┓┗━┓   ┣━┫┃┗┫ ┃┃   ┣╸ ┣╸ ┣╸ ┣╸ ┃   ┃ ┗━┓
+#  ╹ ╹┗━┛┗━┛╹ ╹┗━┛   ╹ ╹╹ ╹╺┻┛   ┗━╸╹  ╹  ┗━╸┗━╸ ╹ ┗━┛
+
+snippet rhs "useState" b
+const [$0, set$2`!p snip.rv=upperfirst(t[1])`] = useState($1);
+endsnippet
+
+snippet rhe "useEffect" b
+useEffect(() => {
+	$1$0
+}$2);
+endsnippet
+
+snippet rhc "useContext" b
+${2:const ${0:context} =} useContext($1);
+endsnippet
+
+snippet rhred "useReducer" b
+const [${2:state}, ${3:dispatch}] = useReducer(${0:reducer}, ${1:null});
+endsnippet
+
+snippet rhcb "useCallback" b
+const ${0:callback} = useCallback(($1) => ${2:{
+	$3
+}}, [$4]);
+endsnippet
+
+snippet rhm "useMemo" b
+const ${0:memoized} = useMemo(() => ${1:{
+	$2
+}}, [$3]);
+endsnippet
+
+snippet rhr "useRef" b
+const ${0:ref} = useRef(${1:null});
+endsnippet
+
+snippet rhi "useImperitiveHandle" b
+useImperitiveHandle(${0:ref}, ${3:() => ({
+	$1
+})}, ${4:[$2]})
+endsnippet
+
+snippet rhl "useLayoutEffect" b
+useLayoutEffect(() => {
+	$0
+});
+endsnippet
+
+snippet rhd "useDebugValue" b
+useDebugValue(${0:null});
+endsnippet
