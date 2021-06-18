@@ -48,8 +48,8 @@ noremap <silent> <Leader><Leader> :update<CR>
 " Quit and close buffer.
 noremap <silent> <Leader>q :quit<CR>
 noremap <silent> <Leader>Q :quit!<CR>
-noremap <silent> <Leader>d :Bwipeout<CR>
-noremap <silent> <Leader>D :Bwipeout!<CR>
+noremap <silent> <Leader>d :Bdelete<CR>
+noremap <silent> <Leader>D :Bwipeout<CR>
 
 " Easy and consistent search.
 noremap + /
