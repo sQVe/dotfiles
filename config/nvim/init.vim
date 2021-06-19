@@ -14,6 +14,6 @@ source $HOME/.config/nvim/abbreviations.vim
 source $HOME/.config/nvim/highlights.vim
 source $HOME/.config/nvim/signs.vim
 
-lua require('gitsigns')
+lua require('git-signs')
 lua require('lsp')
 lua require('treesitter')

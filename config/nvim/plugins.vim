@@ -69,6 +69,8 @@ Plug 'ap/vim-buftabline'                           " Buffer line.
 Plug 'camspiers/lens.vim'                          " Resize windows based on content.
 Plug 'dyng/ctrlsf.vim'                             " Search and replace over multiple files.
 Plug 'itchyny/lightline.vim'                       " Status line.
+Plug 'nvim-lua/plenary.nvim'                       " Required by gitsigns.
+Plug 'lewis6991/gitsigns.nvim'                     " Git signs.
 Plug 'mhinz/vim-startify'                          " Launch screen.
 Plug 'tversteeg/registers.nvim'                    " Interactive registers.
 Plug 'voldikss/vim-floaterm'                       " Floating terminal.

@@ -31,10 +31,10 @@ hi! diffNewFile guifg=#fabd2f guibg=NONE gui=NONE cterm=NONE
 hi! diffLine guifg=#83a598 guibg=NONE gui=NONE cterm=NONE
 
 " Git column styles.
-hi! GitAdd guifg=#b8bb26 guibg=NONE gui=NONE cterm=NONE
-hi! GitChange guifg=#d3869b guibg=NONE gui=NONE cterm=NONE
-hi! GitDelete guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
-hi! GitChangeDelete guifg=#d3869b guibg=NONE gui=NONE cterm=NONE
+hi! GitSignsAdd guifg=#b8bb26 guibg=NONE gui=NONE cterm=NONE
+hi! GitSignsChange guifg=#d3869b guibg=NONE gui=NONE cterm=NONE
+hi! GitSignsDelete guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
+hi! GitSignsChangeDelete guifg=#d3869b guibg=NONE gui=NONE cterm=NONE
 
 " Floaterm.
 hi! FloatermBorder guibg=NONE guifg=#665c54
