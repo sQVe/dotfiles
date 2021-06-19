@@ -2,9 +2,11 @@
 alex
 bash-language-server
 colorally
+eslint_d
 json-server
 neovim
 npm
+prettier_d_slim
 serve
 write-good
 yarn
