@@ -9,6 +9,12 @@ func! CheckBackSpace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunc
 
+" Execute macro over visual range.
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
 " Get all modified files of the current git repo.
 func GitModified() abort
   let files = systemlist('git ls-files -m 2>/dev/null')

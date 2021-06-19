@@ -115,6 +115,7 @@ vnoremap K "oy<Esc>:Ddg<CR>
 "  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
 nnoremap <silent> gx :call OpenFileOrUrlWithMimeo()<CR>
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 
 
 "  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
