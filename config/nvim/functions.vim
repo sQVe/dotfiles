@@ -21,16 +21,6 @@ func GitUntracked()
     return map(files, "{'line': v:val, 'path': v:val}")
 endfunc
 
-" FixAndFormat buffer.
-func! FixAndFormat() abort
-  if &filetype == "javascript" || &filetype == "javascriptreact" ||
-     \ &filetype == "typescript" || &filetype == "typescriptreact"
-    CocCommand eslint.executeAutofix
-  endif
-
-  call CocAction('format')
-endfunc
-
 " Search on specific engines.
 func! Search(engine, query)
   let engineRoots = {
