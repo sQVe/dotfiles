@@ -16,15 +16,8 @@ augroup END
 
 " Highlight yanked text.
 augroup HighlightYank
-    autocmd!
-    autocmd! TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
-augroup END
-
-" Save commit message for later.
-augroup SaveCommitMsg
   autocmd!
-  autocmd BufWritePost */.git/COMMIT_EDITMSG
-    \ :call writefile(nvim_buf_get_lines(0, 0, -1, 1), ".git/PREV_COMMIT_EDITMSG")
+  autocmd! TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
 
 " Ignore case for the command line.
@@ -57,6 +50,13 @@ augroup END
 augroup ReloadBuffer
   autocmd!
   autocmd FocusGained,BufEnter * silent! !
+augroup END
+
+" Save commit message for later.
+augroup SaveCommitMsg
+  autocmd!
+  autocmd BufWritePost */.git/COMMIT_EDITMSG
+    \ :call writefile(nvim_buf_get_lines(0, 0, -1, 1), ".git/PREV_COMMIT_EDITMSG")
 augroup END
 
 " Save notes.
