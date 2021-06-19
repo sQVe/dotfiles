@@ -82,7 +82,7 @@ Plug 'antoinemadec/coc-fzf'                        " Coc Fzf lists.
 Plug 'bronson/vim-visual-star-search'              " Visual star search.
 Plug 'junegunn/fzf.vim'                            " Fzf.
 Plug 'justinmk/vim-sneak'                          " Quick jump.
-Plug 'mg979/vim-visual-multi'                      " Multiple cursors.
+
 
 " Syntax.
 Plug 'sheerun/vim-polyglot'                        " Language pack.

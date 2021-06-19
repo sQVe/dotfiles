@@ -101,6 +101,9 @@ nnoremap <silent> yow :setlocal wrap!<CR>
 imap <C-s> <C-o><C-s>
 map <C-s> yos
 
+" Star search but stay at same word.
+map <C-n> *N
+
 
 "  ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
 "  ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
@@ -188,15 +191,3 @@ map f <Plug>Sneak_f
 map t <Plug>Sneak_t
 nmap <expr> , sneak#is_sneaking() ? '<Plug>Sneak_;' : ','
 nmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_,' : ','
-
-" Visual Multi.
-nmap <M-Down> <M-j>
-nmap <M-Up> <M-k>
-
-let g:VM_leader = '<Leader>m'
-let g:VM_maps = {}
-let g:VM_maps["Add Cursor At Pos"] = '<M-Space>'
-let g:VM_maps["Add Cursor Down"] = '<M-j>'
-let g:VM_maps["Add Cursor Up"] = '<M-k>'
-let g:VM_maps["Select All"] = '<M-a>'
-let g:VM_maps["p Paste Regions"] = '<M-p>'
