@@ -58,9 +58,6 @@ Plug 'ray-x/lsp_signature.nvim'                    " LSP signature help.
 Plug 'airblade/vim-rooter'                         " Set pwd to root directory.
 Plug 'axelf4/vim-strip-trailing-whitespace'        " Remove trailing whitespace.
 Plug 'editorconfig/editorconfig-vim'               " Editorconfig.
-Plug 'iamcco/markdown-preview.nvim', {
-  \ 'do': 'cd app & yarn install',
-  \ 'for': 'markdown' }                            " Markdown preview.
 Plug 'shumphrey/fugitive-gitlab.vim'               " Fugitive GitLab support.
 Plug 'sickill/vim-pasta'                           " Paste with smart indentation.
 Plug 'tpope/vim-fugitive'                          " Git.
