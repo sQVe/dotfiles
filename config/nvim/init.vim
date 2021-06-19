@@ -11,8 +11,9 @@ source $HOME/.config/nvim/keymap.vim
 source $HOME/.config/nvim/options.vim
 
 source $HOME/.config/nvim/abbreviations.vim
-source $HOME/.config/nvim/highlight.vim
-source $HOME/.config/nvim/sign.vim
+source $HOME/.config/nvim/highlights.vim
+source $HOME/.config/nvim/signs.vim
 
-lua require('treesitter')
+lua require('gitsigns')
 lua require('lsp')
+lua require('treesitter')
