@@ -1,7 +1,6 @@
 "  ╻┏┓╻╻╺┳╸
 "  ┃┃┗┫┃ ┃
 "  ╹╹ ╹╹ ╹
-source $HOME/.config/nvim/plugins.vim
 
 source $HOME/.config/nvim/commands.vim
 source $HOME/.config/nvim/functions.vim
@@ -14,6 +13,4 @@ source $HOME/.config/nvim/abbreviations.vim
 source $HOME/.config/nvim/highlights.vim
 source $HOME/.config/nvim/signs.vim
 
-lua require('git-signs')
-lua require('lsp')
-lua require('treesitter')
+lua require('main')

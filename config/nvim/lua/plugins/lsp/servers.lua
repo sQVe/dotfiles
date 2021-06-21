@@ -1,8 +1,8 @@
 --  ┏━┓┏━╸┏━┓╻ ╻┏━╸┏━┓┏━┓
 --  ┗━┓┣╸ ┣┳┛┃┏┛┣╸ ┣┳┛┗━┓
 --  ┗━┛┗━╸╹┗╸┗┛ ┗━╸╹┗╸┗━┛
-local formatters = require('lsp/formatters')
-local linters = require('lsp/linters')
+local formatters = require('plugins/lsp/formatters')
+local linters = require('plugins/lsp/linters')
 local util = require("lspconfig/util")
 
 return function(on_attach)
