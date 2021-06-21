@@ -2,30 +2,11 @@
 "  ┣┻┓┣━┫┗━┓┣╸    ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
 "  ┗━┛╹ ╹┗━┛┗━╸   ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
-" Check BackSpace helper for coc.nvim.
-func! CheckBackSpace() abort
-  let col = col('.') - 1
-
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunc
-
 " Execute macro over visual range.
 function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
-
-" Get all modified files of the current git repo.
-func GitModified() abort
-  let files = systemlist('git ls-files -m 2>/dev/null')
-  return map(files, "{'line': v:val, 'path': v:val}")
-endfunc
-
-" Get all untracked files in the current git repo.
-func GitUntracked()
-    let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
-    return map(files, "{'line': v:val, 'path': v:val}")
-endfunc
 
 " Search on specific engines.
 func! Search(engine, query)
@@ -74,7 +55,7 @@ endfunc
 "  ┗━┓┗┳┛┗━┓ ┃ ┣╸ ┃┃┃   ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
 "  ┗━┛ ╹ ┗━┛ ╹ ┗━╸╹ ╹   ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
-" Z.
+" Goto via zlua.
 func! Z(fragment)
   let l:directory = system('~/scripts/zlua/find.zsh ' . shellescape(a:fragment))
 
@@ -84,6 +65,7 @@ func! Z(fragment)
   endif
 endfunc
 
+" Update zlua with new directory.
 func! ZUpdate() abort
   if empty(&buftype) || &filetype ==# 'dirvish'
     silent execute "!~/scripts/zlua/add-directory.zsh" . ' ' . expand('%:p:h')
@@ -94,6 +76,19 @@ endfunc
 "  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓
 "  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
+"
+
+" Get all modified files of the current git repo.
+func GitModified() abort
+  let files = systemlist('git ls-files -m 2>/dev/null')
+  return map(files, "{'line': v:val, 'path': v:val}")
+endfunc
+
+" Get all untracked files in the current git repo.
+func GitUntracked()
+    let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
+    return map(files, "{'line': v:val, 'path': v:val}")
+endfunc
 
 " Merge filename and modified flag for vim-lightline.
 func! LightlineFilename()

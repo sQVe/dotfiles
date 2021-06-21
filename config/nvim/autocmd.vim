@@ -2,12 +2,6 @@
 "  ┣━┫┃ ┃ ┃ ┃ ┃┃  ┃┃┃ ┃┃
 "  ╹ ╹┗━┛ ╹ ┗━┛┗━╸╹ ╹╺┻┛
 
-" Update signature help on coc placeholder jump.
-augroup CocSignatureOnPlaceholderJump
-  autocmd!
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
-augroup END
-
 " Disable Netrw.
 augroup DisableNetrw
   autocmd!

@@ -101,16 +101,6 @@ colorscheme gruvbox8
 "  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┃ ┃┣━┛ ┃ ┃┃ ┃┃┗┫┗━┓
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ┗━┛╹   ╹ ╹┗━┛╹ ╹┗━┛
 
-" Better Whitespace.
-let g:strip_only_modified_lines = 1
-let g:strip_whitespace_confirm = 0
-let g:strip_whitespace_on_save = 1
-
-" Coc FZF.
-let g:coc_fzf_opts = []
-let g:coc_fzf_preview = 'down:50%'
-let g:coc_fzf_preview_toggle_key = 'ctrl-p'
-
 " DoGe.
 let g:doge_enable_mappings = 0
 let g:doge_mapping_comment_jump_forward = '<C-j>'
@@ -118,13 +108,6 @@ let g:doge_mapping_comment_jump_backward = '<C-k>'
 
 " Editorconfig.
 let g:EditorConfig_disable_rules = ['trim_trailing_whitespace']
-
-" Emmet.
-let g:user_emmet_settings = {
-  \ 'javascript' : { 'extends' : 'jsx' },
-  \ 'scss' : { 'extends' : 'css' },
-  \ 'typescript.tsx' : { 'extends' : 'jsx' },
-  \ }
 
 " FZF.
 let $FZF_DEFAULT_COMMAND='fd --type file --hidden --follow --exclude .git'
@@ -190,10 +173,6 @@ let g:vim_markdown_folding_level = 2
 let g:vim_markdown_new_list_item_indent = 2
 let g:vim_markdown_no_extensions_in_markdown = 1
 
-" Markdown Preview.
-let g:mkdp_auto_start = 0
-let g:mkdp_auto_close = 0
-
 " Mergetool
 let g:mergetool_layout = 'mr'
 let g:mergetool_prefer_revision = 'local'
@@ -240,13 +219,6 @@ let g:startify_lists = [
   \ { 'type': 'sessions',               'header': ['   💾 Sessions'] },
   \ { 'type': 'commands',               'header': ['   💎 Commands'] },
   \ ]
-
-" Suda.
-let g:suda_smart_edit = 1
-
-" Visual Multi.
-let g:VM_mouse_mappings = 1
-let g:VM_theme = 'purplegray'
 
 " Ultisnips.
 let g:UltiSnipsExpandTrigger="<C-l>"
