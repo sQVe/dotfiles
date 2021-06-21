@@ -1,6 +1,12 @@
 --  ┏━╸╻╺┳╸┏━┓╻┏━╸┏┓╻┏━┓
 --  ┃╺┓┃ ┃ ┗━┓┃┃╺┓┃┗┫┗━┓
 --  ┗━┛╹ ╹ ┗━┛╹┗━┛╹ ╹┗━┛
+-- Highlight
+-- vim.cmd [[
+-- 'hi! GitSignsAdd guifg=#b8bb26 guibg=NONE gui=NONE cterm=NONE'
+-- 'hi! GitSignsChange guifg=#d3869b guibg=NONE gui=NONE cterm=NONE'
+-- hi! GitSignsDelete guifg=#fb4934 guibg=NONE gui=NONE cterm=NONE
+-- ]]
 require('gitsigns').setup({
     keymaps = {
         noremap = true,

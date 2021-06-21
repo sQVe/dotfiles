@@ -14,124 +14,149 @@ if fn.empty(fn.glob(packer_path)) > 0 then
     execute 'packadd packer.nvim'
 end
 
+vim.cmd [[ packadd packer.nvim ]]
+
+-- https://github.com/datwaft/nvim/tree/master/lua/plugins
+-- https://elianiva.my.id/post/improving-nvim-startup-time
+
 return require('packer').startup(function(use)
-    -- Handle packer via packer.
-    use 'wbthomason/packer.nvim'
+    -- Handle packer with packer.
+    use {'wbthomason/packer.nvim', opt = true}
 
     -- Align, repeat and surround.
-    use 'junegunn/vim-easy-align' -- Alignment.
-    use 'tpope/vim-repeat' -- Repeat for plugins.
-    use 'machakann/vim-sandwich' -- Surround text.
+    use {'tpope/vim-repeat', event = 'BufEnter'} -- Repeat for plugins.
+    use {'machakann/vim-sandwich', event = 'CursorMoved'} -- Surround text.
+    use {
+        'junegunn/vim-easy-align', -- Alignment.
+        keys = "<Plug>(EasyAlign)"
+    }
 
     -- Automatic integration.
-    use 'axelf4/vim-strip-trailing-whitespace' -- Remove trailing whitespace.
-    use 'editorconfig/editorconfig-vim' -- Editorconfig.
+    use {'editorconfig/editorconfig-vim', event = 'BufEnter'} -- Editorconfig.
 
     -- Colorschemes, highlighting and syntax.
-    use 'lifepillar/vim-gruvbox8' -- Speedy gruvbox theme.
-    use 'sheerun/vim-polyglot' -- Language pack.
-    use {'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'} -- Treesitter highlighting.
-    use {'p00f/nvim-ts-rainbow', requires = {'nvim-treesitter/nvim-treesitter'}} -- Treesitter rainbow parentheses.
+    use {'lifepillar/vim-gruvbox8', event = "VimEnter"} -- Speedy gruvbox theme.
+    use {'sheerun/vim-polyglot', event = 'BufEnter'} -- Language pack.
+    use {
+        'nvim-treesitter/nvim-treesitter', -- Treesitter highlighting.
+        config = function() require('plugins.treesitter') end,
+        event = "BufEnter",
+        run = ':TSUpdate'
+    }
+    use {'p00f/nvim-ts-rainbow', after = 'nvim-treesitter'} -- Treesitter rainbow parentheses.
 
     -- Comments and documentation.
-    use {'kkoomen/vim-doge', run = ':call doge#install()'} -- Documentation generator.
-    use 'tpope/vim-commentary' -- Comment text.
+    use {"tpope/vim-commentary", keys = "gc"} -- Comment text.
+    use {
+        'kkoomen/vim-doge', -- Documentation generator.
+        cmd = {'DogeGenerate'},
+        run = ':call doge#install()'
+    }
 
     -- Commands.
-    use 'lambdalisue/suda.vim' -- Read and write with sudo.
-    use { -- Set pwd to root directory.
-        'airblade/vim-rooter',
-        cmd = {'Rooter', 'RooterToggle'},
-        opt = true
-    }
-    use {'moll/vim-bbye', cmd = {'Bdelete', 'Bwipeout'}, opt = true}
+    use {'airblade/vim-rooter', cmd = {'Rooter', 'RooterToggle'}} -- Set pwd to root directory.
+    use {'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'}} -- Read and write with sudo.
+    use {'moll/vim-bbye', cmd = {'Bdelete', 'Bwipeout'}} -- Delete buffers without closing window.
     use {
-        'tpope/vim-eunuch',
-        cmd = {
-            'Cfind', 'Chmod', 'Clocate', 'Delete', 'Lfind', 'Llocate', 'Mkdir',
-            'Move', 'Rename', 'SudoEdit', 'SudoWrite', 'Unlink', 'Wall'
-        },
-        opt = true
+        'tpope/vim-eunuch', -- Unix helpers.
+        cmd = {'Chmod', 'Delete', 'Mkdir', 'Move', 'Rename'}
     }
 
     -- Git.
-    use 'tpope/vim-fugitive' -- Git.
-    use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}} -- Git gutter signs.
-    use { -- Fugitive GitLab support.
-        'shumphrey/fugitive-gitlab.vim',
+    use {'tpope/vim-fugitive', event = 'VimEnter'} -- Fugitive (git interface and helpers).
+    use {
+        'lewis6991/gitsigns.nvim', -- Git gutter signs.
+        config = function() require('plugins.gitsigns') end,
+        event = 'BufEnter',
+        requires = {'nvim-lua/plenary.nvim'}
+    }
+    use {
+        'shumphrey/fugitive-gitlab.vim', -- Fugitive GitLab support.
         cmd = {'GBrowse'},
-        opt = true,
         requires = {'tpope/vim-fugitive'}
     }
-    use { -- Fugitive GitHub support.
-        'tpope/vim-rhubarb',
+    use {
+        'tpope/vim-rhubarb', -- Fugitive GitHub support.
         cmd = {'GBrowse'},
-        opt = true,
         requires = {'tpope/vim-fugitive'}
     }
-    use { -- Git mergetool
-        'whiteinge/diffconflicts',
+    use {
+        'whiteinge/diffconflicts', -- Git mergetool.
         cmd = {
             'DiffConflicts', 'DiffConflictsShowHistory',
             'DiffConflictsWithHistory '
-        },
-        opt = true
+        }
     }
 
     -- Interface.
-    use 'ap/vim-buftabline' -- Buffer line.
-    use 'camspiers/lens.vim' -- Resize windows based on content.
-    use 'itchyny/lightline.vim' -- Status line.
-    use 'mhinz/vim-startify' -- Launch screen.
-    use { -- Floating terminal.
-        'voldikss/vim-floaterm',
+    use {'ap/vim-buftabline', event = 'BufEnter'} -- Buffer line.
+    use {'camspiers/lens.vim', event = 'WinEnter'} -- Resize windows based on content.
+    use {'itchyny/lightline.vim', after = 'vim-gruvbox8'} -- Status line.
+    use {'mhinz/vim-startify', event = 'VimEnter'} -- Launch screen.
+    use {
+        'voldikss/vim-floaterm', -- Floating terminal.
         cmd = {
             'FloatermFirst', 'FloatermHide', 'FloatermKill', 'FloatermLast',
             'FloatermNew', 'FloatermNext', 'FloatermPrev', 'FloatermSend',
             'FloatermShow', 'FloatermToggle', 'FloatermUpdate'
-        },
-        opt = true
+        }
     }
 
     -- LSP.
-    use 'hrsh7th/nvim-compe' -- Completion.
-    use 'neovim/nvim-lspconfig' -- Collection of configurations.
-    use 'ojroques/nvim-lspfuzzy' -- Use fzf for LSP handlers.
+    use {
+        'hrsh7th/nvim-compe', -- Completion.
+        config = function() require('plugins.lsp.compe') end,
+        event = 'InsertEnter'
+    }
+    use {
+        'neovim/nvim-lspconfig', -- Collection of configurations.
+        after = 'lsp_signature.nvim',
+        config = function() require('plugins.lsp') end
+    }
+    use {
+        'ojroques/nvim-lspfuzzy', -- Use fzf for LSP handlers.
+        after = {'fzf.vim', 'nvim-lspconfig'},
+        config = function() require('plugins.lsp.fuzzy') end
 
-    use 'ray-x/lsp_signature.nvim' -- Signature help.
+    }
+    use {
+        'ray-x/lsp_signature.nvim', -- Signature help.
+        event = "BufEnter",
+        config = function() require('plugins.lsp.signature') end
+    }
 
     -- Override defaults.
-    use 'bronson/vim-visual-star-search' -- Visual star search.
-    use 'sickill/vim-pasta' -- Paste with smart indentation.
-    use 'tpope/vim-speeddating' -- Increment / decrement dates, times and more.
-    use 'tversteeg/registers.nvim' -- Interactive registers.
+    use {'bronson/vim-visual-star-search', keys = {{'v', '*'}, {'v', '#'}}} -- Visual star search.
+    use {
+        'sickill/vim-pasta', -- Paste with smart indentation.
+        keys = {{'n', 'p'}, {'n', 'P'}, {'v', 'p'}, {'v', 'P'}}
+    }
+    use {'tpope/vim-speeddating', keys = {{'n', 'ctrl-a'}, {'n', 'ctrl-x'}}} -- Increment / decrement dates, times and more.
+    use {'tversteeg/registers.nvim', keys = {{'n', '"'}, {'i', 'ctrl-r'}}} -- Interactive registers.
 
     -- Search, replace and navigation.
-    use 'justinmk/vim-sneak' -- Quick jump.
-    use { -- Search and replace over multiple files.
-        'dyng/ctrlsf.vim',
+    use {'junegunn/fzf.vim', event = 'VimEnter'} -- Fzf.
+    use {
+        'justinmk/vim-sneak', -- Quick jump.
+        keys = {
+            {'n', 'f'}, {'n', 'F'}, {'n', 's'}, {'n', 'S'}, {'n', 't'},
+            {'n', 'T'}
+        }
+    }
+    use {
+        'dyng/ctrlsf.vim', -- Search and replace over multiple files.
         cmd = {
             'CtrlSF', 'CtrlSFClearHL', 'CtrlSFClose', 'CtrlSFFocus',
             'CtrlSFOpen', 'CtrlSFQuickfix', 'CtrlSFStop', 'CtrlSFToggle',
             'CtrlSFUpdate'
-
-        },
-        opt = true
-    }
-    use { -- Fzf.
-        'junegunn/fzf.vim',
-        cmd = {
-            'Files', 'GFiles', 'Buffers', 'Rg', 'Marks', 'Commits', 'BCommits',
-            'Commands'
-        },
-        opt = true
+        }
     }
 
     -- Snippets.
-    use 'SirVer/ultisnips'
+    use {'SirVer/ultisnips', event = 'InsertCharPre'}
 
     -- Text objects and motions.
-    use 'christoomey/vim-sort-motion' -- Sort by motion text object.
-    use 'michaeljsmith/vim-indent-object' -- Indent text object.
-    use 'wellle/targets.vim' -- Additional text objects.
+    use {'christoomey/vim-sort-motion', keys = {{'n', 'gs'}, {'v', 'gs'}}} -- Sort by motion text object.
+    use {'michaeljsmith/vim-indent-object', event = 'CursorMoved'} -- Indent text object.
+    use {'wellle/targets.vim', event = 'CursorMoved'} -- Additional text objects.
 end)
