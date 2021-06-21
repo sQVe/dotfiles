@@ -82,7 +82,6 @@ Plug 'bronson/vim-visual-star-search'              " Visual star search.
 Plug 'junegunn/fzf.vim'                            " Fzf.
 Plug 'justinmk/vim-sneak'                          " Quick jump.
 
-
 " Syntax.
 Plug 'sheerun/vim-polyglot'                        " Language pack.
 
