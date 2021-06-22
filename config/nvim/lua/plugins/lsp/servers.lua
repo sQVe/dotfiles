@@ -1,9 +1,10 @@
 --  ┏━┓┏━╸┏━┓╻ ╻┏━╸┏━┓┏━┓
 --  ┗━┓┣╸ ┣┳┛┃┏┛┣╸ ┣┳┛┗━┓
 --  ┗━┛┗━╸╹┗╸┗┛ ┗━╸╹┗╸┗━┛
-local formatters = require('plugins/lsp/formatters')
-local linters = require('plugins/lsp/linters')
-local util = require("lspconfig/util")
+local util = require("lspconfig").util
+
+local formatters = require('plugins.lsp.efm.formatters')
+local linters = require('plugins.lsp.efm.linters')
 
 return function(on_attach)
     return {

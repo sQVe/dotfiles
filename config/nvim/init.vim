@@ -8,5 +8,3 @@ source $HOME/.config/nvim/keymap.vim
 lua require('main')
 
 source $HOME/.config/nvim/abbreviations.vim
-source $HOME/.config/nvim/highlights.vim
-source $HOME/.config/nvim/signs.vim

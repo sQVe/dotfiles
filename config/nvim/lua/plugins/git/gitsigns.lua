@@ -5,31 +5,31 @@ return function()
     require('gitsigns').setup({
         signs = {
             add = {
-                hl = 'GruvboxGreen',
+                hl = 'GitSignsAdd',
                 text = '│',
                 numhl = 'GitSignsAddNr',
                 linehl = 'GitSignsAddLn'
             },
             change = {
-                hl = 'GruvboxAqua',
+                hl = 'GitSignsChange',
                 text = '│',
                 numhl = 'GitSignsChangeNr',
                 linehl = 'GitSignsChangeLn'
             },
             delete = {
-                hl = 'GruvboxRed',
+                hl = 'GitSignsDelete',
                 text = '│',
                 numhl = 'GitSignsDeleteNr',
                 linehl = 'GitSignsDeleteLn'
             },
             topdelete = {
-                hl = 'GruvboxRed',
+                hl = 'GitSignsDelete',
                 text = '│',
                 numhl = 'GitSignsDeleteNr',
                 linehl = 'GitSignsDeleteLn'
             },
             changedelete = {
-                hl = 'GruvboxAqua',
+                hl = 'GitSignsChange',
                 text = '│',
                 numhl = 'GitSignsChangeNr',
                 linehl = 'GitSignsChangeLn'
