@@ -1,7 +1,6 @@
 --  ┏━┓┏━┓┏━╸╻┏ ┏━╸┏━┓   ╻  ┏━┓┏━┓╺┳┓
 --  ┣━┛┣━┫┃  ┣┻┓┣╸ ┣┳┛╺━╸┃  ┃ ┃┣━┫ ┃┃
 --  ╹  ╹ ╹┗━╸╹ ╹┗━╸╹┗╸   ┗━╸┗━┛╹ ╹╺┻┛
-local execute = vim.api.nvim_command
 local fn = vim.fn
 
 local packer_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
@@ -11,7 +10,7 @@ if fn.empty(fn.glob(packer_path)) > 0 then
     fn.system({
         'git', 'clone', 'https://github.com/wbthomason/packer.nvim', packer_path
     })
-    execute 'packadd packer.nvim'
+    vim.cmd('packadd packer.nvim')
 end
 
 vim.cmd [[ packadd packer.nvim ]]
@@ -35,7 +34,11 @@ return require('packer').startup(function(use)
     use {'editorconfig/editorconfig-vim', event = 'BufEnter'} -- Editorconfig.
 
     -- Colorschemes, highlighting and syntax.
-    use {'lifepillar/vim-gruvbox8', event = "VimEnter"} -- Speedy gruvbox theme.
+    use { -- Gruvbox color theme.
+        "npxbr/gruvbox.nvim",
+        config = require('plugins.theme'),
+        requires = {"rktjmp/lush.nvim"}
+    }
     use {'sheerun/vim-polyglot', event = 'BufEnter'} -- Language pack.
     use {
         'nvim-treesitter/nvim-treesitter', -- Treesitter highlighting.
@@ -46,7 +49,7 @@ return require('packer').startup(function(use)
     use {'p00f/nvim-ts-rainbow', after = 'nvim-treesitter'} -- Treesitter rainbow parentheses.
 
     -- Comments and documentation.
-    use {"tpope/vim-commentary", keys = "gc"} -- Comment text.
+    use {"tpope/vim-commentary", keys = {{'n', 'gc'}, {'v', 'gc'}}} -- Comment text.
     use {
         'kkoomen/vim-doge', -- Documentation generator.
         cmd = {'DogeGenerate'},
@@ -66,7 +69,7 @@ return require('packer').startup(function(use)
     use {'tpope/vim-fugitive', event = 'VimEnter'} -- Fugitive (git interface and helpers).
     use {
         'lewis6991/gitsigns.nvim', -- Git gutter signs.
-        config = function() require('plugins.gitsigns') end,
+        config = require('plugins.gitsigns'),
         event = 'BufEnter',
         requires = {'nvim-lua/plenary.nvim'}
     }
@@ -91,8 +94,40 @@ return require('packer').startup(function(use)
     -- Interface.
     use {'ap/vim-buftabline', event = 'BufEnter'} -- Buffer line.
     use {'camspiers/lens.vim', event = 'WinEnter'} -- Resize windows based on content.
-    use {'itchyny/lightline.vim', after = 'vim-gruvbox8'} -- Status line.
-    use {'mhinz/vim-startify', event = 'VimEnter'} -- Launch screen.
+    use {
+        'itchyny/lightline.vim', -- Status line.
+        config = function()
+            vim.g.lightline = {
+                active = {
+                    left = {
+                        {'mode', 'paste'}, {'gitbranch'},
+                        {'filename', 'readonly'}
+                    },
+                    right = {{'lineinfo'}, {'percent'}, {'filetype'}}
+                },
+                colorscheme = 'gruvbox',
+                component_function = {
+                    filename = 'LightlineFilename',
+                    gitbranch = 'fugitive#head'
+                },
+                enable = {tabline = 0},
+                mode_map = {
+                    n = 'N',
+                    i = 'I',
+                    R = 'R',
+                    v = 'V',
+                    c = 'C',
+                    V = 'VL',
+                    ["<C-v>"] = 'VB'
+                }
+            }
+        end
+    }
+    use {
+        'glepnir/dashboard-nvim', -- Dashboard.
+        config = require('plugins.dashboard'),
+        event = 'VimEnter'
+    }
     use {
         'voldikss/vim-floaterm', -- Floating terminal.
         cmd = {
@@ -117,7 +152,6 @@ return require('packer').startup(function(use)
         'ojroques/nvim-lspfuzzy', -- Use fzf for LSP handlers.
         after = {'fzf.vim', 'nvim-lspconfig'},
         config = function() require('plugins.lsp.fuzzy') end
-
     }
     use {
         'ray-x/lsp_signature.nvim', -- Signature help.
@@ -136,13 +170,7 @@ return require('packer').startup(function(use)
 
     -- Search, replace and navigation.
     use {'junegunn/fzf.vim', event = 'VimEnter'} -- Fzf.
-    use {
-        'justinmk/vim-sneak', -- Quick jump.
-        keys = {
-            {'n', 'f'}, {'n', 'F'}, {'n', 's'}, {'n', 'S'}, {'n', 't'},
-            {'n', 'T'}
-        }
-    }
+    use {'justinmk/vim-sneak', event = 'BufEnter'} -- Quick jump.
     use {
         'dyng/ctrlsf.vim', -- Search and replace over multiple files.
         cmd = {
