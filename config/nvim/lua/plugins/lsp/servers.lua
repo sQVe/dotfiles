@@ -21,11 +21,12 @@ return function(on_attach)
                 client.resolved_capabilities.hover = false
                 client.resolved_capabilities.rename = false
 
-                vim.api.nvim_command [[augroup Format]]
-                vim.api.nvim_command [[autocmd! * <buffer>]]
-                vim.api
-                    .nvim_command [[autocmd BufWritePre <buffer> silent! lua vim.lsp.buf.formatting_seq_sync()]]
-                vim.api.nvim_command [[augroup END]]
+                vim.cmd([[
+                    augroup Format
+                        autocmd! * <buffer>
+                        autocmd BufWritePre <buffer> silent! lua vim.lsp.buf.formatting_seq_sync()
+                    augroup END
+                ]])
             end,
             init_options = {codeAction = true, documentFormatting = true},
             filetypes = {
