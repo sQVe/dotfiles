@@ -27,6 +27,7 @@ return function(on_attach)
                         autocmd BufWritePre <buffer> silent! lua vim.lsp.buf.formatting_seq_sync()
                     augroup END
                 ]])
+
             end,
             init_options = {codeAction = true, documentFormatting = true},
             filetypes = {

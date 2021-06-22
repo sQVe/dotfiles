@@ -147,6 +147,7 @@ nnoremap <silent> Å :FloatermNew vifm<CR>
 
 " Fugitive.
 nnoremap <silent> <Leader>gb :Git blame<CR>
+nnoremap <silent> <Leader>gc :Git commit --verbose<CR>
 nnoremap <silent> <Leader>gd :Gdiffsplit<CR>
 nnoremap <silent> <Leader>gf :Git fetch<CR>
 nnoremap <silent> <Leader>gmt :MergetoolToggle<CR>
