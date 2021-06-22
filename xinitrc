@@ -38,10 +38,6 @@ xcompmgr -c -l 0 -t 0 -r 0 -o 0 &
 mkdir /tmp/peek
 ln -sf /tmp/peek "$XDG_CACHE_HOME/peek"
 
-# Setup coc yank data symlink to tmp.
-mkdir /tmp/coc-yank-data
-ln -sf /tmp/coc-yank-data "$XDG_CONFIG_HOME/coc/extensions/coc-yank-data"
-
 # Setup rofi-calc to only save history per session.
 touch /tmp/rofi_calc_history
 mkdir "$XDG_DATA_HOME/rofi"
