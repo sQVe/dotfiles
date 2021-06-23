@@ -82,6 +82,3 @@ command! -bang -nargs=* Rg
   \   fzf#vim#with_preview('down:50%'),
   \   <bang>0)
 command! -nargs=* -bang RgLive call RgLive(<q-args>, <bang>0)
-
-" Update plugins.
-command! Update PlugUpdate | TSUpdate
