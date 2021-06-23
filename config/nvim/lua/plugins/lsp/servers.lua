@@ -7,6 +7,11 @@ local formatters = require('plugins.lsp.efm.formatters')
 local linters = require('plugins.lsp.efm.linters')
 
 return function(on_attach)
+    local function file_exists(name)
+        local f = io.open(name, "r")
+        return f ~= nil and io.close(f)
+    end
+
     return {
         bashls = {},
         cssls = {},
@@ -36,10 +41,27 @@ return function(on_attach)
                 "typescriptreact", "yaml"
             },
             root_dir = function(filename)
-                return util.root_pattern("package.json", "go.mod", ".git")(
-                           filename) or util.path.dirname(filename)
+                if string.match(filename, '%.go$') then
+                    local go_mod_path = util.root_pattern('go.mod')(filename)
+
+                    if go_mod_path then return go_mod_path end
+                end
+
+                if string.match(filename, '%.jsx?$') or
+                    string.match(filename, '%.tsx?$') then
+                    local package_json_path =
+                        util.find_package_json_ancestor(filename)
+
+                    if file_exists(package_json_path ..
+                                       '/node_modules/.bin/prettier') then
+                        return package_json_path
+                    end
+                end
+
+                return util.find_git_ancestor(filename)
             end,
             settings = {
+                rootMarkers = {vim.loop.cwd()},
                 languages = {
                     css = {formatters.prettier},
                     go = {formatters.gofmt},

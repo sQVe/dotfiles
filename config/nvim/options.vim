@@ -80,7 +80,7 @@ set undodir=$HOME/.local/share/nvim/.undo,/tmp
 set undofile                      " Keep a persistent backup file.
 
 " Add file extension lookup when going to file.
-set suffixesadd=.js,.jsx,.ts,.tsx,.sh,.css,.go,.scss,.md,.json,.yaml,.yml,.lua,.html
+set suffixesadd=.css,.go,.html,.js,.json,.jsx,.lua,.md,.scss,.sh,.ts,.tsx,.yaml,.yml
 
 " Set programs.
 set grepformat=%f:%l:%c:%m,%f:%l:%m
