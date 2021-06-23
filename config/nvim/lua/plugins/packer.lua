@@ -48,6 +48,7 @@ return require('packer').startup(function(use)
     use { -- Gruvbox color theme.
         "npxbr/gruvbox.nvim",
         config = require('plugins.theme.gruvbox'),
+        event = 'VimEnter',
         requires = {"rktjmp/lush.nvim"}
     }
     use {
@@ -115,8 +116,9 @@ return require('packer').startup(function(use)
         event = 'WinEnter'
     }
     use {
-        'itchyny/lightline.vim', -- Status line.
-        config = require('plugins.interface.lightline')
+        'hoob3rt/lualine.nvim', -- Status line.
+        config = require('plugins.interface.lualine'),
+        event = 'BufEnter'
     }
     use {
         'glepnir/dashboard-nvim', -- Dashboard.
