@@ -151,35 +151,3 @@ nnoremap <silent> <Leader>gp :Git push<CR>
 nnoremap <silent> <Leader>gr :Gread<CR>
 nnoremap <silent> <Leader>gs :vertical Git<CR>
 nnoremap <silent> <Leader>gw :Gwrite<CR>
-
-" LSP.
-nnoremap <silent> <Leader>a :lua vim.lsp.buf.code_action()<CR>
-xnoremap <silent> <Leader>a :lua vim.lsp.buf.range_code_action()<CR>
-nnoremap <silent> <Leader>s :lua vim.lsp.buf.document_symbol()<CR>
-nnoremap <silent> <Leader>S :lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap <silent> <Leader>r :lua vim.lsp.buf.rename()<CR>
-nnoremap <silent> K :ShowDocumentation<CR>
-nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> gD :lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> gr :lua vim.lsp.buf.references()<CR>
-nnoremap <silent> gy :lua vim.lsp.buf.type_definition()<CR>
-
-" LSP compe.
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <CR> compe#confirm('<CR>')
-inoremap <silent><expr> <C-e> compe#close('<C-e>')
-
-" LSP diagnostics.
-nnoremap <silent> gl :lua vim.lsp.diagnostic.show_line_diagnostics({show_header = false})<CR>
-nnoremap <silent> <Leader>lj :lua vim.lsp.diagnostic.goto_next({popup_opts = {show_header = false}})<CR>
-nnoremap <silent> <Leader>lk :lua vim.lsp.diagnostic.goto_prev({popup_opts = {show_header = false}})<CR>
-nnoremap <silent> <Leader>l :LspDiagnostics 0<CR>
-nnoremap <silent> <Leader>L :LspDiagnosticsAll<CR>
-
-" Sneak.
-map F <Plug>Sneak_F
-map T <Plug>Sneak_T
-map f <Plug>Sneak_f
-map t <Plug>Sneak_t
-nmap <expr> , sneak#is_sneaking() ? '<Plug>Sneak_;' : ','
-nmap <expr> ; sneak#is_sneaking() ? '<Plug>Sneak_,' : ','

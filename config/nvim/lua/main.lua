@@ -1,6 +1,4 @@
 --  ┏┳┓┏━┓╻┏┓╻
 --  ┃┃┃┣━┫┃┃┗┫
 --  ╹ ╹╹ ╹╹╹ ╹
-require('core')
-
-require('plugins.packer')
+require('plugins')
