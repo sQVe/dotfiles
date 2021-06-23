@@ -2,7 +2,6 @@
 --  ┣━┛┣━┫┃  ┣┻┓┣╸ ┣┳┛
 --  ╹  ╹ ╹┗━╸╹ ╹┗━╸╹┗╸
 local fn = vim.fn
-
 local packer_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
 
 -- Bootstrap packer if it isn't installed.
@@ -12,11 +11,6 @@ if fn.empty(fn.glob(packer_path)) > 0 then
     })
     vim.cmd('packadd packer.nvim')
 end
-
-vim.cmd [[ packadd packer.nvim ]]
-
--- https://github.com/datwaft/nvim/tree/master/lua/plugins
--- https://elianiva.my.id/post/improving-nvim-startup-time
 
 return require('packer').startup(function(use)
     -- Handle packer with packer.
