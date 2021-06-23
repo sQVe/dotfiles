@@ -21,9 +21,9 @@ return function()
 
     -- LuaFormatter off
     vim.g.dashboard_custom_section = {
-        a = {description = {'✍   Recently Used Files                            '}, command = 'History'},
+        a = {description = {'📝  Find File                                      '}, command = 'Files'},
         b = {description = {'🔴  Status                                         '}, command = 'GitFiles?'},
-        c = {description = {'📝  Find File                                      '}, command = 'Files'},
+        c = {description = {'✍   Recently Used Files                            '}, command = 'History'},
         d = {description = {'📑  File Manager                                   '}, command = 'FloatermNew vifm'},
         e = {description = {'🔍  Find Word                                      '}, command = 'Rg'},
         g = {description = {'💎  New File                                       '}, command = 'enew'},
