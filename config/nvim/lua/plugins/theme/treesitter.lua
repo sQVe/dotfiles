@@ -8,6 +8,7 @@ return function()
             'javascript', 'jsdoc', 'json', 'jsonc', 'lua', 'scss', 'tsx',
             'typescript', 'yaml'
         },
+        context_commentstring = {enable = true},
         highlight = {enable = true},
         indent = {enable = true},
         rainbow = {enable = true, extended_mode = true}

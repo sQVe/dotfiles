@@ -61,6 +61,10 @@ return require('packer').startup(function(use)
 
     --  Documentation.
     use {"tpope/vim-commentary", keys = {{'n', 'gc'}, {'v', 'gc'}}} -- Comment text.
+    use { -- Automatically set commentstring.
+        'JoosepAlviste/nvim-ts-context-commentstring',
+        after = 'nvim-treesitter'
+    }
     use {
         'kkoomen/vim-doge', -- Documentation generator.
         cmd = {'DogeGenerate'},
