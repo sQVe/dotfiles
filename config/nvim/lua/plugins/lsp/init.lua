@@ -18,9 +18,10 @@ return function()
     vim.cmd([[
       nnoremap <silent> <Leader>a :lua vim.lsp.buf.code_action()<CR>
       xnoremap <silent> <Leader>a :lua vim.lsp.buf.range_code_action()<CR>
+      nnoremap <silent> <Leader>f :lua vim.lsp.buf.formatting()<CR>
+      nnoremap <silent> <Leader>r :lua vim.lsp.buf.rename()<CR>
       nnoremap <silent> <Leader>s :lua vim.lsp.buf.document_symbol()<CR>
       nnoremap <silent> <Leader>S :lua vim.lsp.buf.workspace_symbol()<CR>
-      nnoremap <silent> <Leader>r :lua vim.lsp.buf.rename()<CR>
       nnoremap <silent> K :ShowDocumentation<CR>
       nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
       nnoremap <silent> gD :lua vim.lsp.buf.implementation()<CR>

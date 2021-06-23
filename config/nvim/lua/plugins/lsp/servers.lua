@@ -52,8 +52,7 @@ return function(on_attach)
                     local package_json_path =
                         util.find_package_json_ancestor(filename)
 
-                    if file_exists(package_json_path ..
-                                       '/node_modules/.bin/prettier') then
+                    if package_json_path then
                         return package_json_path
                     end
                 end
