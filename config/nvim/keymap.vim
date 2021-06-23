@@ -125,10 +125,6 @@ xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
 "  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
-" EasyAlign.
-xmap <silent> ga <Plug>(EasyAlign)
-nmap <silent> ga <Plug>(EasyAlign)
-
 " FZF.
 nnoremap <Leader>+ :Rg<Space>
 nnoremap <Leader>/ :Rg<Space>
@@ -179,9 +175,6 @@ nnoremap <silent> <Leader>lj :lua vim.lsp.diagnostic.goto_next({popup_opts = {sh
 nnoremap <silent> <Leader>lk :lua vim.lsp.diagnostic.goto_prev({popup_opts = {show_header = false}})<CR>
 nnoremap <silent> <Leader>l :LspDiagnostics 0<CR>
 nnoremap <silent> <Leader>L :LspDiagnosticsAll<CR>
-
-" Slash.
-noremap <plug>(slash-after) zz
 
 " Sneak.
 map F <Plug>Sneak_F

@@ -31,7 +31,9 @@ return require('packer').startup(function(use)
     }
     use {
         'junegunn/vim-easy-align', -- Alignment.
-        keys = "<Plug>(EasyAlign)"
+        cmd = {'EasyAlign'},
+        config = require('plugins.editing.easy-align'),
+        keys = {{'n', 'ga'}, {'x', 'ga'}}
     }
 
     -- Integration.
