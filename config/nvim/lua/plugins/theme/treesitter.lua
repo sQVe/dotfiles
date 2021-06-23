@@ -2,9 +2,6 @@
 --   ┃ ┣┳┛┣╸ ┣╸ ┗━┓┃ ┃  ┃ ┣╸ ┣┳┛
 --   ╹ ╹┗╸┗━╸┗━╸┗━┛╹ ╹  ╹ ┗━╸╹┗╸
 return function()
-    vim.o.foldmethod = 'expr'
-    vim.cmd('set foldexpr=nvim_treesitter#foldexpr()')
-
     require'nvim-treesitter.configs'.setup {
         ensure_installed = {
             'bash', 'css', 'dockerfile', 'go', 'gomod', 'graphql', 'html',
@@ -15,4 +12,9 @@ return function()
         indent = {enable = true},
         rainbow = {enable = true, extended_mode = true}
     }
+
+    vim.cmd([[
+      set foldmethod=expr
+      set foldexpr=nvim_treesitter#foldexpr()
+  ]])
 end

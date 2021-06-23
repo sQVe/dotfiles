@@ -134,8 +134,8 @@ return require('packer').startup(function(use)
     -- LSP.
     use {
         'hrsh7th/nvim-compe', -- Completion.
-        config = require('plugins.lsp.compe'),
-        event = 'InsertEnter'
+        after = 'ultisnips',
+        config = require('plugins.lsp.compe')
     }
     use {
         'neovim/nvim-lspconfig', -- Collection of configurations.
@@ -186,8 +186,8 @@ return require('packer').startup(function(use)
     -- Snippets.
     use {
         'SirVer/ultisnips', -- Ultisnips.
-        config = require('plugins.snippets.ultisnips'),
-        event = 'InsertCharPre'
+        event = 'InsertEnter',
+        setup = require('plugins.snippets.ultisnips')
     }
 
     -- Text objects and motions.
