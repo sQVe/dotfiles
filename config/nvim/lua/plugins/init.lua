@@ -42,7 +42,6 @@ return require('packer').startup(function(use)
     use { -- Gruvbox color theme.
         "npxbr/gruvbox.nvim",
         config = require('plugins.theme.gruvbox'),
-        event = 'VimEnter',
         requires = {"rktjmp/lush.nvim"}
     }
 
