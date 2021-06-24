@@ -131,7 +131,8 @@ return require('packer').startup(function(use)
             'FloatermNew', 'FloatermNext', 'FloatermPrev', 'FloatermSend',
             'FloatermShow', 'FloatermToggle', 'FloatermUpdate'
         },
-        config = require('plugins.interface.floaterm')
+        config = require('plugins.interface.floaterm'),
+        keys = {{'n', 'Ä'}, {'n', 'Å'}}
     }
 
     -- LSP.

@@ -119,36 +119,3 @@ vnoremap K "oy<Esc>:Ddg<CR>
 
 nnoremap <silent> gx :call OpenFileOrUrlWithMimeo()<CR>
 xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
-
-
-"  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
-"  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
-"  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
-
-" FZF.
-nnoremap <Leader>+ :Rg<Space>
-nnoremap <Leader>/ :Rg<Space>
-nnoremap <Leader>? :Rg<Space>
-nnoremap <silent> <Backspace> :Buffers<CR>
-nnoremap <silent> <Leader>gL :Commits<CR>
-nnoremap <silent> <Leader>gl :BCommits<CR>
-nnoremap <silent> <Leader>gg :GFiles?<CR>
-nnoremap <silent> mm :Marks<CR>
-nnoremap <silent> ä :Files<CR>
-nnoremap <silent> å :BFiles<CR>
-nnoremap gR :Rg <c-r><c-w>
-
-" Floaterm.
-nnoremap <silent> Ä :FloatermNew vifm .<CR>
-nnoremap <silent> Å :FloatermNew vifm<CR>
-
-" Fugitive.
-nnoremap <silent> <Leader>gb :Git blame<CR>
-nnoremap <silent> <Leader>gc :Git commit --verbose<CR>
-nnoremap <silent> <Leader>gd :Gdiffsplit<CR>
-nnoremap <silent> <Leader>gf :Git fetch<CR>
-nnoremap <silent> <Leader>gmt :MergetoolToggle<CR>
-nnoremap <silent> <Leader>gp :Git push<CR>
-nnoremap <silent> <Leader>gr :Gread<CR>
-nnoremap <silent> <Leader>gs :vertical Git<CR>
-nnoremap <silent> <Leader>gw :Gwrite<CR>
