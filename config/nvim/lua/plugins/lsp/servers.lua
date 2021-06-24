@@ -6,11 +6,6 @@ local util = require("lspconfig").util
 local formatters = require('plugins.lsp.efm.formatters')
 local linters = require('plugins.lsp.efm.linters')
 
-function FormatAndUpdateOnQuit()
-    vim.lsp.buf.formatting_seq_sync()
-    vim.cmd('update')
-end
-
 return function(on_attach)
     return {
         bashls = {},
@@ -30,8 +25,7 @@ return function(on_attach)
                 vim.cmd([[
                     augroup Format
                         autocmd! * <buffer>
-                        autocmd BufWritePre <buffer> silent! lua vim.lsp.buf.formatting()
-                        autocmd QuitPre <buffer> silent! lua FormatAndUpdateOnQuit()
+                        autocmd BufWritePre <buffer> silent! lua vim.lsp.buf.formatting_sync()
                     augroup END
                 ]])
             end,
