@@ -132,6 +132,7 @@ nnoremap <Leader>? :Rg<Space>
 nnoremap <silent> <Backspace> :Buffers<CR>
 nnoremap <silent> <Leader>gL :Commits<CR>
 nnoremap <silent> <Leader>gl :BCommits<CR>
+nnoremap <silent> <Leader>gg :GFiles?<CR>
 nnoremap <silent> mm :Marks<CR>
 nnoremap <silent> ä :Files<CR>
 nnoremap <silent> å :BFiles<CR>
