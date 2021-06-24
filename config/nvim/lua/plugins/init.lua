@@ -14,7 +14,7 @@ end
 
 return require('packer').startup(function(use)
     -- Handle packer with packer.
-    use {'wbthomason/packer.nvim', opt = true}
+    use {'wbthomason/packer.nvim'}
 
     -- Editing.
     use {'tpope/vim-repeat', event = 'BufEnter'} -- Repeat for plugins.
@@ -45,9 +45,11 @@ return require('packer').startup(function(use)
         event = 'VimEnter',
         requires = {"rktjmp/lush.nvim"}
     }
+
+    -- Syntax.
     use {
         'nvim-treesitter/nvim-treesitter', -- Treesitter highlighting.
-        config = require('plugins.theme.treesitter'),
+        config = require('plugins.syntax.treesitter'),
         event = "BufEnter",
         run = ':TSUpdate'
     }
