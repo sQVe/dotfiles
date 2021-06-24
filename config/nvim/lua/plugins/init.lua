@@ -138,8 +138,8 @@ return require('packer').startup(function(use)
     -- LSP.
     use {
         'hrsh7th/nvim-compe', -- Completion.
-        after = 'ultisnips',
-        config = require('plugins.lsp.compe')
+        config = require('plugins.lsp.compe'),
+        event = "InsertEnter"
     }
     use {
         'neovim/nvim-lspconfig', -- Collection of configurations.
@@ -175,7 +175,7 @@ return require('packer').startup(function(use)
     }
     use {
         'justinmk/vim-sneak', -- Quick jump.
-        config = require('plugins.navigation.sneak'),
+        setup = require('plugins.navigation.sneak'),
         event = 'BufEnter'
     }
     use {
@@ -189,9 +189,10 @@ return require('packer').startup(function(use)
 
     -- Snippets.
     use {
-        'SirVer/ultisnips', -- Ultisnips.
-        event = 'InsertEnter',
-        setup = require('plugins.snippets.ultisnips')
+        'hrsh7th/vim-vsnip', -- VSnip.
+        after = 'nvim-compe',
+        setup = require('plugins.snippets.vsnip'),
+        requires = {'hrsh7th/vim-vsnip-integ'}
     }
 
     -- Text objects and motions.
