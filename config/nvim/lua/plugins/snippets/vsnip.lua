@@ -3,7 +3,7 @@
 --  ┗┛ ┗━┛╹ ╹╹╹
 return function()
     vim.cmd([[
-      let g:vsnip_snippet_dir = expand('$XDG_DATA_HOME/vsnip')
+      let g:vsnip_snippet_dir = expand('$XDG_CONFIG_HOME/nvim/snippets')
     ]])
 
     -- Expand or jump.

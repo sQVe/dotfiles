@@ -190,9 +190,8 @@ return require('packer').startup(function(use)
     -- Snippets.
     use {
         'hrsh7th/vim-vsnip', -- VSnip.
-        after = 'nvim-compe',
-        setup = require('plugins.snippets.vsnip'),
-        requires = {'hrsh7th/vim-vsnip-integ'}
+        event = 'InsertCharPre',
+        setup = require('plugins.snippets.vsnip')
     }
 
     -- Text objects and motions.
