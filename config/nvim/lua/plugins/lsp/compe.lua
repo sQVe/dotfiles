@@ -48,6 +48,7 @@ return function()
             return t "<S-Tab>"
         end
     end
+
     -- General keymap.
     vim.cmd([[
       inoremap <silent><expr> <C-Space> compe#complete()

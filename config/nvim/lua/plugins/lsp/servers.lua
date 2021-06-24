@@ -42,7 +42,8 @@ return function(on_attach)
                 end
 
                 return util.find_package_json_ancestor(filename) or
-                           util.find_git_ancestor(filename)
+                           util.find_git_ancestor(filename) or
+                           util.path.dirname(filename)
             end,
             settings = {
                 rootMarkers = {vim.loop.cwd()},
