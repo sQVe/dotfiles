@@ -44,6 +44,12 @@ return require('packer').startup(function(use)
         config = require('plugins.theme.gruvbox'),
         requires = {"rktjmp/lush.nvim"}
     }
+    use({
+        "lukas-reineke/indent-blankline.nvim", -- Indent Guides.
+        after = 'nvim-treesitter',
+        branch = "lua",
+        config = require('plugins.theme.indent-blankline')
+    })
 
     -- Syntax.
     use {
