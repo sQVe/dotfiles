@@ -22,6 +22,22 @@ return function()
         hi! FloatermBorder guibg=NONE guifg=#665c54
     ]])
 
+    -- Lightspeed.
+    vim.cmd([[
+        LightspeedGreyWash
+        LightspeedLabelDistantOverlapped
+        LightspeedLabelDistant
+        LightspeedLabelOverlapped
+        LightspeedLabel
+        LightspeedMaskedChar
+        LightspeedOneCharMatch
+        LightspeedPendingChangeOpArea
+        LightspeedPendingOpArea
+        LightspeedShortcutOverlapped
+        LightspeedShortcut
+        LightspeedUnlabeledMatch
+    ]])
+
     -- Sneak.
     vim.cmd([[
         hi! Sneak guifg=#282828 guibg=#d3869b gui=bold cterm=NONE
