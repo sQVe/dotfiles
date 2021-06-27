@@ -179,8 +179,8 @@ return require('packer').startup(function(use)
         event = 'VimEnter'
     }
     use {
-        'justinmk/vim-sneak', -- Quick jump.
-        setup = require('plugins.navigation.sneak'),
+        'ggandor/lightspeed.nvim', -- Quick jump.
+        config = require('plugins.navigation.lightspeed'),
         event = 'BufEnter'
     }
     use {
