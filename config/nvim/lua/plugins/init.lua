@@ -58,7 +58,6 @@ return require('packer').startup(function(use)
         event = "BufEnter",
         run = ':TSUpdate'
     }
-    use {'p00f/nvim-ts-rainbow', after = 'nvim-treesitter'} -- Treesitter rainbow parentheses.
 
     --  Documentation.
     use {"tpope/vim-commentary", keys = {{'n', 'gc'}, {'v', 'gc'}}} -- Comment text.
