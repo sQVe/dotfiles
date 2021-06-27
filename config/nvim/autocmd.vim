@@ -50,7 +50,7 @@ augroup END
 augroup SaveCommitMsg
   autocmd!
   autocmd BufWritePost */.git/COMMIT_EDITMSG
-    \ :call writefile(nvim_buf_get_lines(0, 0, -1, 1), ".git/PREV_COMMIT_EDITMSG")
+    \ :silent! call writefile(nvim_buf_get_lines(0, 0, -1, 1), ".git/PREV_COMMIT_EDITMSG")
 augroup END
 
 " Save notes.
