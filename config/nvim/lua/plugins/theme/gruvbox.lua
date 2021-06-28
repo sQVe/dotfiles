@@ -17,6 +17,11 @@ return function()
         hi! BufTabLineHidden guifg=#7c6f64 guibg=#282828 gui=NONE cterm=NONE
     ]])
 
+    -- Cursor.
+    vim.cmd([[
+        hi! Cursor guifg=#282828 guibg=#ebdbb2 gui=NONE cterm=NONE
+    ]])
+
     -- Floaterm.
     vim.cmd([[
         hi! FloatermBorder guibg=NONE guifg=#665c54
