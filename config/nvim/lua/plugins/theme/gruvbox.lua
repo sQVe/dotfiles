@@ -28,21 +28,19 @@ return function()
         hi! IndentBlanklineContextChar guifg=#b16286 gui=nocombine
     ]])
 
-    -- -- Lightspeed.
-    -- vim.cmd([[
-    --     LightspeedGreyWash
-    --     LightspeedLabelDistantOverlapped
-    --     LightspeedLabelDistant
-    --     LightspeedLabelOverlapped
-    --     LightspeedLabel
-    --     LightspeedMaskedChar
-    --     LightspeedOneCharMatch
-    --     LightspeedPendingChangeOpArea
-    --     LightspeedPendingOpArea
-    --     LightspeedShortcutOverlapped
-    --     LightspeedShortcut
-    --     LightspeedUnlabeledMatch
-    -- ]])
+    -- Lightspeed.
+    vim.cmd([[
+        hi! LightspeedGreyWash guifg=#665c54 guibg=NONE gui=NONE cterm=NONE
+        hi! LightspeedLabel guifg=#8ec07c guibg=NONE gui=bold cterm=NONE
+        hi! LightspeedLabelOverlapped guifg=#fe8019 guibg=NONE gui=bold cterm=NONE
+        hi! LightspeedOneCharMatch guifg=#282828 guibg=#8ec07c gui=bold cterm=NONE
+        hi! LightspeedShortcut guifg=#282828 guibg=#8ec07c gui=bold cterm=NONE
+        hi! LightspeedShortcutOverlapped guifg=#282828 guibg=#fe8019 gui=bold cterm=NONE
+        hi! link LightspeedLabelDistant GruvboxFg2
+        hi! link LightspeedLabelDistantOverlapped GruvboxFg3
+        hi! link LightspeedMaskedChar GruvboxPurple
+        hi! link LightspeedUnlabeledMatch GruvboxYellow
+    ]])
 
     -- Sneak.
     vim.cmd([[
