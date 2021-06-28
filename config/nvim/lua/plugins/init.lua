@@ -20,8 +20,9 @@ return require('packer').startup(function(use)
     use {'tpope/vim-repeat', event = 'BufEnter'} -- Repeat for plugins.
     use {
         'machakann/vim-sandwich', -- Surround text.
-        config = require('plugins.editing.sandwich'),
-        event = 'CursorMoved'
+        config = require('plugins.editing.sandwich').config,
+        event = 'CursorMoved',
+        setup = require('plugins.editing.sandwich').setup
     }
     use {
         'junegunn/vim-easy-align', -- Alignment.
