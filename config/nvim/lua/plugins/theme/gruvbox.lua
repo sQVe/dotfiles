@@ -41,10 +41,4 @@ return function()
         hi! link LightspeedMaskedChar GruvboxPurple
         hi! link LightspeedUnlabeledMatch GruvboxYellow
     ]])
-
-    -- Sneak.
-    vim.cmd([[
-        hi! Sneak guifg=#282828 guibg=#d3869b gui=bold cterm=NONE
-        hi! SneakScope guifg=#282828 guibg=#8ec07c gui=bold cterm=NONE
-    ]])
 end
