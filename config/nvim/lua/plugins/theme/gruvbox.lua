@@ -30,7 +30,7 @@ return function()
     -- Indent blankline.
     vim.cmd([[
         hi! IndentBlanklineChar guifg=#3c3836 gui=nocombine
-        hi! IndentBlanklineContextChar guifg=#b16286 gui=nocombine
+        hi! IndentBlanklineContextChar guifg=#a89984 gui=nocombine
     ]])
 
     -- Lightspeed.
