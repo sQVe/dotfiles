@@ -49,7 +49,7 @@ return require('packer').startup(function(use)
         "lukas-reineke/indent-blankline.nvim", -- Indent Guides.
         after = 'nvim-treesitter',
         branch = "lua",
-        config = require('plugins.theme.indent-blankline')
+        setup = require('plugins.theme.indent-blankline')
     })
 
     -- Syntax.
