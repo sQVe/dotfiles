@@ -22,21 +22,27 @@ return function()
         hi! FloatermBorder guibg=NONE guifg=#665c54
     ]])
 
-    -- Lightspeed.
+    -- Indent blankline.
     vim.cmd([[
-        LightspeedGreyWash
-        LightspeedLabelDistantOverlapped
-        LightspeedLabelDistant
-        LightspeedLabelOverlapped
-        LightspeedLabel
-        LightspeedMaskedChar
-        LightspeedOneCharMatch
-        LightspeedPendingChangeOpArea
-        LightspeedPendingOpArea
-        LightspeedShortcutOverlapped
-        LightspeedShortcut
-        LightspeedUnlabeledMatch
+        hi! IndentBlanklineChar guifg=#3c3836 gui=nocombine
+        hi! IndentBlanklineContextChar guifg=#b16286 gui=nocombine
     ]])
+
+    -- -- Lightspeed.
+    -- vim.cmd([[
+    --     LightspeedGreyWash
+    --     LightspeedLabelDistantOverlapped
+    --     LightspeedLabelDistant
+    --     LightspeedLabelOverlapped
+    --     LightspeedLabel
+    --     LightspeedMaskedChar
+    --     LightspeedOneCharMatch
+    --     LightspeedPendingChangeOpArea
+    --     LightspeedPendingOpArea
+    --     LightspeedShortcutOverlapped
+    --     LightspeedShortcut
+    --     LightspeedUnlabeledMatch
+    -- ]])
 
     -- Sneak.
     vim.cmd([[
