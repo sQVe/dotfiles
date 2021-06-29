@@ -196,7 +196,7 @@ return require('packer').startup(function(use)
     -- Snippets.
     use {
         'hrsh7th/vim-vsnip', -- VSnip.
-        event = 'InsertCharPre',
+        after = 'nvim-compe',
         setup = require('plugins.snippets.vsnip')
     }
 
