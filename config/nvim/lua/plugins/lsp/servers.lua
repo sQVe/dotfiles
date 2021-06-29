@@ -7,12 +7,19 @@ local formatters = require('plugins.lsp.efm.formatters')
 local linters = require('plugins.lsp.efm.linters')
 
 return function(on_attach)
+    -- Disable LSP based formatting. Useful when handling formatting via efm.
+    local disable_formatting = function(client)
+        client.resolved_capabilities.document_formatting = false
+        on_attach()
+    end
+
     return {
         bashls = {},
-        cssls = {},
-        html = {},
-        jsonls = {},
-        yamlls = {},
+        cssls = {on_attach = disable_formatting},
+        html = {on_attach = disable_formatting},
+        jsonls = {on_attach = disable_formatting},
+        tsserver = {on_attach = disable_formatting},
+        yamlls = {on_attach = disable_formatting},
 
         efm = {
             cmd = {"efm-langserver"},
@@ -84,13 +91,6 @@ return function(on_attach)
                     telemetry = {enable = false}
                 }
             }
-        },
-
-        tsserver = {
-            on_attach = function(client)
-                client.resolved_capabilities.document_formatting = false
-                on_attach()
-            end
         }
 
     }
