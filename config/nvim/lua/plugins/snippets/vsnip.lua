@@ -7,7 +7,7 @@ return function()
       let g:vsnip_filetypes = {}
       let g:vsnip_filetypes.javascriptreact = ['javascript']
       let g:vsnip_filetypes.typescript = ['javascript']
-      let g:vsnip_filetypes.typescriptreact = ['javascript', 'typescript']
+      let g:vsnip_filetypes.typescriptreact = ['javascript', 'javascriptreact', 'typescript']
     ]])
 
     -- Expand or jump.
