@@ -5,12 +5,10 @@ return function()
     require'compe'.setup {
         source = {
             buffer = true,
-            calc = false,
             nvim_lsp = true,
             nvim_lua = true,
             path = true,
-            spell = true,
-            ultisnips = false,
+            spell = {priority = 0},
             vsnip = true
         }
     }
