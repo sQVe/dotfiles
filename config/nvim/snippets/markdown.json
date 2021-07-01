@@ -1,103 +1,83 @@
 {
   "Header 1": {
     "prefix": "h1",
-    "body": ["# ${0}"],
-    "description": "Add Header level 1"
+    "body": ["# $0"]
   },
   "Header 2": {
     "prefix": "h2",
-    "body": ["## ${0}"],
-    "description": "Add Header level 2"
+    "body": ["## $0"]
   },
   "Header 3": {
     "prefix": "h3",
-    "body": ["### ${0}"],
-    "description": "Add Header level 3"
+    "body": ["### $0"]
   },
   "Header 4": {
     "prefix": "h4",
-    "body": ["#### ${0}"],
-    "description": "Add Header level 4"
+    "body": ["#### $0"]
   },
   "Header 5": {
     "prefix": "h5",
-    "body": ["##### ${0}"],
-    "description": "Add Header level 5"
+    "body": ["##### $0"]
   },
   "Header 6": {
     "prefix": "h6",
-    "body": ["###### ${0}"],
-    "description": "Add Header level 6"
+    "body": ["###### $0"]
   },
   "Links": {
     "prefix": ["link"],
-    "body": ["[${1}](${2}) ${0}"],
-    "description": "Add links"
+    "body": ["[${1}](${2}) $0"]
   },
   "URLS": {
     "prefix": ["url"],
-    "body": ["<${1}> ${0}"],
-    "description": "Add urls"
+    "body": ["<${1}> $0"]
   },
   "Images": {
     "prefix": "img",
-    "body": ["![${1}](${2}) ${0}"],
-    "description": "Add images"
+    "body": ["![${1}](${2}) $0"]
   },
   "Insert strikethrough": {
     "prefix": "strikethrough",
-    "body": "~~${1}~~ ${0}",
-    "description": "Insert strikethrough"
+    "body": "~~${1}~~ $0"
   },
   "Insert bold text": {
     "prefix": ["bold", "b"],
-    "body": "**${1}** $0",
-    "description": "Insert bold text"
+    "body": "**${1}**"
   },
   "Insert italic text": {
     "prefix": ["italic", "i"],
-    "body": "*${1}* $0",
-    "description": "Insert italic text"
+    "body": "*${1}*"
   },
   "Insert bold and italic text": {
     "prefix": ["bold and italic", "bi"],
-    "body": "***${1}*** $0",
-    "description": "Insert bold and italic text"
+    "body": "***${1}***"
   },
   "Insert quoted text": {
     "prefix": "quote",
-    "body": "> ${1}",
-    "description": "Insert quoted text"
+    "body": "> ${1}"
   },
   "Insert code": {
     "prefix": "code",
-    "body": "`${1}` $0",
-    "description": "Insert code"
+    "body": "`${1}`"
   },
   "Insert code block": {
     "prefix": "codeblock",
-    "body": ["```${1:language}", "$0", "```"],
-    "description": "Insert fenced code block"
+    "body": ["```${1:language}", "$0", "```"]
   },
   "Insert unordered list": {
     "prefix": "unordered list",
-    "body": ["- ${1:first}", "- ${2:second}", "- ${3:third}", "$0"],
-    "description": "Insert unordered list"
+    "body": ["- ${1:first}", "- ${2:second}", "- ${3:third}", "$0"]
   },
   "Insert ordered list": {
     "prefix": "ordered list",
-    "body": ["1. ${1:first}", "2. ${2:second}", "3. ${3:third}", "$0"],
-    "description": "Insert ordered list"
+    "body": ["1. ${1:first}", "2. ${2:second}", "3. ${3:third}", "$0"]
   },
   "Insert horizontal rule": {
     "prefix": "horizontal rule",
-    "body": "----------\n",
-    "description": "Insert horizontal rule"
+    "body": "----------\n"
   },
   "Insert task list": {
     "prefix": "task",
-    "body": ["- [${1| ,x|}] ${2:text}", "${0}"],
-    "description": "Insert task list"
+    "body": ["- [${1| ,x|}] ${2:text}", "$0"]
   },
   "Insert table": {
     "prefix": "table",
@@ -105,8 +85,7 @@
       "| ${1:Column1}  | ${2:Column2}   | ${3:Column3}   |",
       "|-------------- | -------------- | -------------- |",
       "| ${4:Item1}    | ${5:Item1}     | ${6:Item1}     |",
-      "${0}"
-    ],
-    "description": "Insert table with 2 rows and 3 columns. First row is heading."
+      "$0"
+    ]
   }
 }
