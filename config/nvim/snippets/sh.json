@@ -1,0 +1,65 @@
+{
+  "Echo": {
+    "prefix": "echo",
+    "body": "echo \"${0:message}\""
+  },
+  "Read": {
+    "prefix": "read",
+    "body": "read -r ${0:var}"
+  },
+  "If": {
+    "prefix": "if",
+    "body": ["if [[ ${1:condition} ]]; then", "\t$0", "fi"]
+  },
+  "ElseIf": {
+    "prefix": "elseif",
+    "body": ["elif [[ ${1:condition} ]]; then", "\t$0"]
+  },
+  "Else": {
+    "prefix": "else",
+    "body": ["else", "\t${0:command}"]
+  },
+  "For": {
+    "prefix": "for",
+    "body": ["for ((${0:i} = 0; $0 < ${1:10}; $0++)); do", "\t$0", "done", ""]
+  },
+  "ForIn": {
+    "prefix": "forin",
+    "body": ["for ${0:var} in $${1:list}", "do", "\t$0", "done", ""]
+  },
+  "While": {
+    "prefix": "while",
+    "body": ["while [[ ${1:condition} ]]; do", "\t$0", "done", ""]
+  },
+  "Until": {
+    "prefix": "until",
+    "body": ["until [[ ${1:condition} ]]; do", "\t$0", "done", ""]
+  },
+  "Function": {
+    "prefix": "function",
+    "body": ["${1:name} ()", "{", "\t$0", "}"]
+  },
+  "Case": {
+    "prefix": "case",
+    "body": [
+      "case \"$${0:VAR}\" in",
+      "\t${1:1}) echo 1",
+      "\t;;",
+      "\t${2:2|3}) echo 2 or 3",
+      "\t;;",
+      "\t*) echo default",
+      "\t;;",
+      "esac",
+      ""
+    ]
+  },
+  "Break": {
+    "prefix": "break",
+    "body": "break $0"
+  },
+  "Shebang": { "prefix": "#!", "body": "#!/usr/bin/env bash" },
+  "ShellCheckDisable": {
+    "prefix": "shellcheck-disable",
+    "body": "# shellcheck disable=${0:rule}"
+  }
+}
