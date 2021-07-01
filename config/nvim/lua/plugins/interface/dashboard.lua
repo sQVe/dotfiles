@@ -27,8 +27,8 @@ return function()
         d = {description = {'📑  File Manager                                   '}, command = 'FloatermNew vifm'},
         e = {description = {'🔍  Find Word                                      '}, command = 'Rg'},
         g = {description = {'💎  New File                                       '}, command = 'enew'},
-        h = {description = {'🔃  Packer Sync                                    '}, command = 'PackerSync'},
-        i = {description = {'⚙   Packer Compile                                 '}, command = 'PackerCompile'}
+        h = {description = {'⚙   Packer Compile                                 '}, command = 'PackerCompile'},
+        i = {description = {'🔃  Packer Sync                                    '}, command = 'PackerSync'}
     }
     -- LuaFormatter on
 
