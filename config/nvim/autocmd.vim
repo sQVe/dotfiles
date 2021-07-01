@@ -14,13 +14,6 @@ augroup HighlightYank
   autocmd! TextYankPost * silent! lua vim.highlight.on_yank { higroup='IncSearch', timeout=200 }
 augroup END
 
-" Ignore case for the command line.
-augroup IgnoreCaseForCmdLine
-  autocmd!
-  autocmd CmdLineEnter : set ignorecase
-  autocmd CmdLineLeave : set noignorecase
-augroup END
-
 " Force formatoptions to exclude 'o'.
 augroup ExcludeFormatOptions
   autocmd!

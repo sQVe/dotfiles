@@ -23,6 +23,10 @@ set timeoutlen=400                " Timeout Leader after 400 ms.
 set updatetime=100                " Set update time to 100 ms.
 set virtualedit=block             " Enable virtualedit when in Visual Block mode.
 
+" Case.
+set noignorecase                  " Enforce correct case.
+set nosmartcase                   " Disable smart case.
+
 " Searching.
 set inccommand=nosplit            " Highlight patterns and ranges for Ex commands.
 set incsearch                     " Highlight search results as you type.
@@ -35,10 +39,11 @@ set spelllang=en_us
 set spelloptions="camel"
 
 " Complete.
-set wildmenu                      " Enable wildmenu.
-set wildmode=longest:full,full    " Set wildmenu modes.
 set completeopt=menuone,noselect  " Set compete options.
 set pumheight=20                  " Show max 20 items in completion menu.
+set wildignorecase                " Disable case check for wildmenu.
+set wildmenu                      " Enable wildmenu.
+set wildmode=longest:full,full    " Set wildmenu modes.
 
 " Cursor.
 set nocursorline                  " Show no cursorline by default. Autocmd enables
@@ -84,4 +89,4 @@ set suffixesadd=.css,.go,.html,.js,.json,.jsx,.lua,.md,.scss,.sh,.ts,.tsx,.yaml,
 
 " Set programs.
 set grepformat=%f:%l:%c:%m,%f:%l:%m
-set grepprg=rg\ --vimgrep\ --no-heading\ --smart-case
+set grepprg=rg\ --vimgrep\ --no-heading
