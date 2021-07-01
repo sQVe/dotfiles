@@ -1,0 +1,106 @@
+{
+  "Build": {
+    "prefix": "build",
+    "body": ["build: ${0:description}"]
+  },
+  "BuildWithScope": {
+    "prefix": "build(",
+    "body": ["build($1:scope): ${0:description}"]
+  },
+  "Chore": {
+    "prefix": "chore",
+    "body": ["chore: ${0:description}"]
+  },
+  "ChoreWithScope": {
+    "prefix": "chore(",
+    "body": ["chore($1:scope): ${0:description}"]
+  },
+  "CI": {
+    "prefix": "ci",
+    "body": ["ci: ${0:description}"]
+  },
+  "CIWithScope": {
+    "prefix": "ci(",
+    "body": ["ci($1:scope): ${0:description}"]
+  },
+  "Docs": {
+    "prefix": "docs",
+    "body": ["docs: ${0:description}"]
+  },
+  "DocsWithScope": {
+    "prefix": "docs(",
+    "body": ["docs($1:scope): ${0:description}"]
+  },
+  "Feat": {
+    "prefix": "feat",
+    "body": ["feat: ${0:description}"]
+  },
+  "FeatWithScope": {
+    "prefix": "feat(",
+    "body": ["feat($1:scope): ${0:description}"]
+  },
+  "Fix": {
+    "prefix": "fix",
+    "body": ["fix: ${0:description}"]
+  },
+  "FixWithScope": {
+    "prefix": "fix(",
+    "body": ["fix($1:scope): ${0:description}"]
+  },
+  "Perf": {
+    "prefix": "perf",
+    "body": ["perf: ${0:description}"]
+  },
+  "PerfWithScope": {
+    "prefix": "perf(",
+    "body": ["perf($1:scope): ${0:description}"]
+  },
+  "Refactor": {
+    "prefix": "refactor",
+    "body": ["refactor: ${0:description}"]
+  },
+  "RefactorWithScope": {
+    "prefix": "refactor(",
+    "body": ["refactor($1:scope): ${0:description}"]
+  },
+  "Revert": {
+    "prefix": "revert",
+    "body": ["revert: ${0:description}"]
+  },
+  "RevertWithScope": {
+    "prefix": "revert(",
+    "body": ["revert($1:scope): ${0:description}"]
+  },
+  "Review": {
+    "prefix": "review",
+    "body": ["review: ${0:description}"]
+  },
+  "ReviewWithScope": {
+    "prefix": "review(",
+    "body": ["review($1:scope): ${0:description}"]
+  },
+  "Style": {
+    "prefix": "style",
+    "body": ["style: ${0:description}"]
+  },
+  "StyleWithScope": {
+    "prefix": "style(",
+    "body": ["style($1:scope): ${0:description}"]
+  },
+  "Test": {
+    "prefix": "test",
+    "body": ["test: ${0:description}"]
+  },
+  "TestWithScope": {
+    "prefix": "test(",
+    "body": ["test($1:scope): ${0:description}"]
+  },
+  "WIP": {
+    "prefix": "wip",
+    "body": ["wip: ${0:description}"]
+  },
+  "WIPWithScope": {
+    "prefix": "wip(",
+    "body": ["wip($1:scope): ${0:description}"]
+  }
+}
