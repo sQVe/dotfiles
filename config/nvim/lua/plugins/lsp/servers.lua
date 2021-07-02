@@ -13,12 +13,19 @@ return function(on_attach)
         on_attach()
     end
 
+    -- Enable LSP snippet support.
+    local capabilities = vim.lsp.protocol.make_client_capabilities()
+    capabilities.textDocument.completion.completionItem.snippetSupport = true
+    capabilities.textDocument.completion.completionItem.resolveSupport = {
+        properties = {'documentation', 'detail', 'additionalTextEdits'}
+    }
+
     return {
-        bashls = {},
+        bashls = {capabilities = capabilities},
         cssls = {on_attach = disable_formatting},
         html = {on_attach = disable_formatting},
         jsonls = {on_attach = disable_formatting},
-        tsserver = {on_attach = disable_formatting},
+        tsserver = {capabilities = capabilities, on_attach = disable_formatting},
         yamlls = {on_attach = disable_formatting},
 
         efm = {
@@ -74,6 +81,7 @@ return function(on_attach)
         },
 
         gopls = {
+            capabilities = capabilities,
             on_attach = on_attach,
             root_dir = function(filename)
                 return util.root_pattern("go.mod", ".git")(filename) or
@@ -82,6 +90,7 @@ return function(on_attach)
         },
 
         sumneko_lua = {
+            capabilities = capabilities,
             cmd = {"lua-language-server"},
             on_attach = on_attach,
             settings = {
