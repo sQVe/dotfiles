@@ -4,9 +4,9 @@
 return function()
     require'nvim-treesitter.configs'.setup {
         ensure_installed = {
-            'bash', 'css', 'dockerfile', 'go', 'gomod', 'graphql', 'html',
-            'javascript', 'jsdoc', 'json', 'jsonc', 'lua', 'scss', 'tsx',
-            'typescript', 'yaml'
+            'bash', 'comment', 'css', 'dockerfile', 'go', 'gomod', 'graphql',
+            'html', 'javascript', 'jsdoc', 'json', 'jsonc', 'lua', 'scss',
+            'tsx', 'typescript', 'yaml'
         },
         context_commentstring = {enable = true},
         highlight = {enable = true},
