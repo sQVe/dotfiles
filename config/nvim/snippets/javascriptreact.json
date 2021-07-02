@@ -77,11 +77,11 @@
   },
   "UseReducer": {
     "prefix": "useReducer",
-    "body": "const [${1:state}, ${2:dispatch}] = useReducer(${3:reducer}, $0:initialState);"
+    "body": "const [${1:state}, ${2:dispatch}] = useReducer(${3:reducer}, ${0:initialState});"
   },
   "UseRef": {
     "prefix": "useRef",
-    "body": "const ${1:ref} = useRef($0:initialValue);"
+    "body": "const ${1:ref} = useRef(${0:initialValue});"
   },
   "UseState": {
     "prefix": "useState",

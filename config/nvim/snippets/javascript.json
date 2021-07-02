@@ -48,7 +48,7 @@
   },
   "DependencyExport": {
     "prefix": "export",
-    "body": "export ${1:name} from '${0:path}'"
+    "body": "export ${1:name} from '${0:path}';"
   },
   "DependencyImport": {
     "prefix": "import",
@@ -111,7 +111,7 @@
   "LoopFor": {
     "prefix": "for",
     "body": [
-      "for (let ${1:i} = 0, ${2:length} = ${3:iterable}.length; ${1:i} < ${2:length}; ${1:i}++) {",
+      "for (let ${1:idx} = 0, ${2:length} = ${3:iterable}.length; ${1:idx} < ${2:length}; ${1:idx}++) {",
       "\t$0",
       "}"
     ]
