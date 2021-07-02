@@ -43,7 +43,7 @@ return function(on_attach)
                     augroup END
                 ]])
             end,
-            init_options = {codeAction = true, documentFormatting = true},
+            init_options = {documentFormatting = true},
             filetypes = {
                 "css", "go", "html", "javascript", "javascriptreact", "json",
                 "jsonc", "lua", "markdown", "scss", "sh", "typescript",
