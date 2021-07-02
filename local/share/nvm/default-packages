@@ -5,6 +5,7 @@ eslint_d
 json-server
 neovim
 npm
+prettier
 prettier_d_slim
 serve
 typescript-language-server
