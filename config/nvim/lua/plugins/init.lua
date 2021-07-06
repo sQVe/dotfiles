@@ -200,6 +200,7 @@ return require('packer').startup(function(use)
     }
 
     -- Text objects and motions.
+    use {'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter'} -- Smart selection.
     use {'christoomey/vim-sort-motion', keys = {{'n', 'gs'}, {'v', 'gs'}}} -- Sort by motion text object.
     use {'michaeljsmith/vim-indent-object', event = 'CursorMoved'} -- Indent text object.
     use {'wellle/targets.vim', event = 'CursorMoved'} -- Additional text objects.

@@ -10,7 +10,8 @@ return function()
         },
         context_commentstring = {enable = true},
         highlight = {enable = true},
-        indent = {enable = true}
+        indent = {enable = true},
+        textsubjects = {enable = true, keymaps = {['.'] = 'textsubjects-smart'}}
     }
 
     vim.cmd([[
