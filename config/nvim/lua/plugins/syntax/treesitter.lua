@@ -10,8 +10,7 @@ return function()
         },
         context_commentstring = {enable = true},
         highlight = {enable = true},
-        indent = {enable = true},
-        rainbow = {enable = true, extended_mode = true}
+        indent = {enable = true}
     }
 
     vim.cmd([[
