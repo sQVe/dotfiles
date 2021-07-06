@@ -15,7 +15,12 @@ return function()
         "expression",
         "pattern",
         "statement",
-        "switch_body",
+        "switch_case",
+        "switch_default",
+        "jsx_attribute",
+        "jsx_element",
+        "jsx_fragment",
+        "jsx_self_closing_element",
 
         -- Bash and Go.
         "_expression",
