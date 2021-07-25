@@ -60,7 +60,12 @@ return require('packer').startup(function(use)
     }
 
     --  Documentation.
-    use {"tpope/vim-commentary", keys = {{'n', 'gc'}, {'v', 'gc'}}} -- Comment text.
+    use {
+        "terrortylor/nvim-comment",
+        cmd = {'CommentToggle'},
+        config = require('plugins.documentation.comment'),
+        keys = {{'n', 'gc'}, {'v', 'gc'}}
+    } -- Comment text.
     use { -- Automatically set commentstring.
         'JoosepAlviste/nvim-ts-context-commentstring',
         after = 'nvim-treesitter'
