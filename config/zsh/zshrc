@@ -172,8 +172,8 @@ alias -g V='| nvim'
 
 # Listing.
 alias exa='exa --group-directories-first --color=auto'
-alias la='exa -la --git'
-alias ll='exa -l --git'
+alias la='exa -la'
+alias ll='exa -l'
 alias ls='exa'
 alias lt='exa -la -T'
 
