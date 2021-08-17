@@ -78,25 +78,6 @@ endfunc
 "  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 "
 
-" Get all modified files of the current git repo.
-func GitModified() abort
-  let files = systemlist('git ls-files -m 2>/dev/null')
-  return map(files, "{'line': v:val, 'path': v:val}")
-endfunc
-
-" Get all untracked files in the current git repo.
-func GitUntracked()
-    let files = systemlist('git ls-files -o --exclude-standard 2>/dev/null')
-    return map(files, "{'line': v:val, 'path': v:val}")
-endfunc
-
-" Merge filename and modified flag for vim-lightline.
-func! LightlineFilename()
-  let filename = expand('%:t') !=# '' ? expand('%:t') : '[No Name]'
-  let modified = &modified ? ' +' : ''
-  return filename . modified
-endfunc
-
 " Ripgrep live search.
 func! RgLive(query, fullscreen)
   let command_fmt = 'rg --column --line-number --no-heading --color=always -- %s || true'
