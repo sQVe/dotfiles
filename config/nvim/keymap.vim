@@ -21,26 +21,29 @@ noremap qÖ q:
 " Escape terminal.
 tnoremap <C-q> <C-\><C-n>
 
-" Motion.
-noremap <Up> gk
-noremap <Down> gj
-inoremap <Up> <C-o>gk
+" Motion with jumplist mutations.
 inoremap <Down> <C-o>gj
-noremap k gk
-noremap j gj
-noremap gk k
+inoremap <Up> <C-o>gk
+noremap <expr> j (v:count > 4 ? "m'" . v:count : "") . 'gj'
+noremap <expr> k (v:count > 4 ? "m'" . v:count : "") . 'gk'
+noremap <Down> j
+noremap <Up> k
 noremap gj j
+noremap gk k
 
 " Consistent Y.
 noremap Y y$
 
-" Consistent search with n and N.
-noremap <expr> n 'Nn'[v:searchforward]
-noremap <expr> N 'nN'[v:searchforward]
+" Consistent centered search with n and N.
+noremap <expr> n 'Nn'[v:searchforward] . 'zzzv'
+noremap <expr> N 'nN'[v:searchforward] . 'zzzv'
 
 " Consistent find with ; and ,.
 noremap <expr> , getcharsearch().forward ? ';' : ','
 noremap <expr> ; getcharsearch().forward ? ',' : ';'
+
+" Keep cursor position when joining.
+noremap J mzJ`z
 
 " Quick save.
 noremap <silent> <Leader><Leader> :update<CR>
@@ -80,6 +83,10 @@ nnoremap <silent> <C-Down> :wincmd j<CR>
 nnoremap <silent> <C-Up> :wincmd k<CR>
 nnoremap <silent> <C-Right> :wincmd l<CR>
 
+" Move text.
+vnoremap <C-j> :m '>+1<CR>gv
+vnoremap <C-k> :m '<-2<CR>gv
+
 " Quick window resize.
 nnoremap <silent> <C-S-Left> :vertical resize -10<CR>
 nnoremap <silent> <C-S-Down> :resize -10<CR>
@@ -97,12 +104,20 @@ nnoremap <silent> yor :setlocal relativenumber!<CR>
 nnoremap <silent> yos :setlocal spell!<CR>
 nnoremap <silent> you :setlocal cursorcolumn!<CR>
 nnoremap <silent> yow :setlocal wrap!<CR>
-
 imap <C-s> <C-o><C-s>
 map <C-s> yos
 
 " Star search but stay at same word.
 map <C-n> *N
+
+" Set undo breakpoints.
+inoremap ! !<c-g>u
+inoremap ( (<c-g>u
+inoremap , ,<c-g>u
+inoremap . .<c-g>u
+inoremap ? ?<c-g>u
+inoremap [ [<c-g>u
+inoremap { {<c-g>u
 
 
 "  ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓   ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
