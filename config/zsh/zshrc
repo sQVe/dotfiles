@@ -196,7 +196,6 @@ alias fm=vifm-cd
 alias format-opinionated='npx prettier --no-semi --single-quote --trailing-comma es5 --write'
 alias format='npx prettier --write'
 alias l=less
-alias leave='i3-msg exit'
 alias mixer=pavucontrol
 alias qutebrowser=open-qutebrowser
 alias rcup="$SCRIPTS/extended-rcup.sh"

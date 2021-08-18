@@ -18,16 +18,16 @@ set $color-neutral-aqua #689d6a
 set $color-neutral-purple #b16286
 set $color-text #a89984
 
-set $workspace-0 "0  "
-set $workspace-1 "1  "
-set $workspace-2 "2  "
-set $workspace-3 "3  "
-set $workspace-4 "4  "
-set $workspace-5 "5  "
-set $workspace-6 "6  "
-set $workspace-7 "7  "
+set $workspace-1 "1  "
+set $workspace-2 "2  "
+set $workspace-3 "3  "
+set $workspace-4 "4  "
+set $workspace-5 "5  "
+set $workspace-6 "6  "
+set $workspace-7 "7  "
 set $workspace-8 "8  "
 set $workspace-9 "9  "
+set $workspace-0 "10  "
 
 set $lock --no-startup-id lock
 set $menu-apps --no-startup-id $SCRIPTS/i3/menu-apps.sh
@@ -114,9 +114,8 @@ bar {
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 # Assign workspaces.
-assign [class="Alacritty" instance="weechat"]  → $workspace-5
-assign [class="Slack"]                         → $workspace-5
-assign [class="Spotify"]                       → $workspace-4
+assign [class="Slack"]   → $workspace-7
+assign [class="Spotify"] → $workspace-6
 
 # Specific window settings.
 for_window [class="Alacritty"] focus
@@ -133,7 +132,6 @@ for_window [window_role="bubble"] sticky enable
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 # Number based bindings.
-bindsym $mod+0 workspace $workspace-0
 bindsym $mod+1 workspace $workspace-1
 bindsym $mod+2 workspace $workspace-2
 bindsym $mod+3 workspace $workspace-3
@@ -143,8 +141,8 @@ bindsym $mod+6 workspace $workspace-6
 bindsym $mod+7 workspace $workspace-7
 bindsym $mod+8 workspace $workspace-8
 bindsym $mod+9 workspace $workspace-9
+bindsym $mod+0 workspace $workspace-0
 
-bindsym $mod+Shift+0 move container to workspace $workspace-0
 bindsym $mod+Shift+1 move container to workspace $workspace-1
 bindsym $mod+Shift+2 move container to workspace $workspace-2
 bindsym $mod+Shift+3 move container to workspace $workspace-3
@@ -154,6 +152,7 @@ bindsym $mod+Shift+6 move container to workspace $workspace-6
 bindsym $mod+Shift+7 move container to workspace $workspace-7
 bindsym $mod+Shift+8 move container to workspace $workspace-8
 bindsym $mod+Shift+9 move container to workspace $workspace-9
+bindsym $mod+Shift+0 move container to workspace $workspace-0
 
 # Letter based bindings.
 bindsym $mod+a exec $menu-windows
@@ -283,8 +282,8 @@ mode "resize" {
 # ¤¤¤¤  Autostart  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-# Set startup workspace to workspace 2.
-exec --no-startup-id i3-msg "workspace $workspace-2"
+# Set startup workspace to workspace 1.
+exec --no-startup-id i3-msg "workspace $workspace-1"
 
 # Set initial random wallpaper.
 exec --no-startup-id random-wallpaper
