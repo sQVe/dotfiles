@@ -82,7 +82,7 @@ return function(on_attach)
 
         gopls = {
             capabilities = capabilities,
-            on_attach = on_attach,
+            on_attach = disable_formatting,
             root_dir = function(filename)
                 return util.root_pattern("go.mod", ".git")(filename) or
                            util.path.dirname(filename)
@@ -92,7 +92,7 @@ return function(on_attach)
         sumneko_lua = {
             capabilities = capabilities,
             cmd = {"lua-language-server"},
-            on_attach = on_attach,
+            on_attach = disable_formatting,
             settings = {
                 Lua = {
                     diagnostics = {globals = {'vim'}},
