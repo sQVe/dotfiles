@@ -8,6 +8,7 @@ npm
 prettier
 prettier_d_slim
 serve
+typescript
 typescript-language-server
 vscode-langservers-extracted
 yaml-language-server
