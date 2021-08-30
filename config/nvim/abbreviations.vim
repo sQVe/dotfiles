@@ -66,6 +66,8 @@ iabbrev Soruces   Sources
 iabbrev soruces   sources
 iabbrev Sorucing  Sourcing
 iabbrev sorucing  sourcing
+iabbrev udner     under
+iabbrev Udner     Under
 iabbrev Udpate    Update
 iabbrev udpate    update
 iabbrev Udpated   Updated
