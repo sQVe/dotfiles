@@ -7,7 +7,7 @@ return function()
     vim.g.floaterm_title = ''
 
     vim.cmd([[
-      nnoremap <silent> Ä :FloatermNew vifm .<CR>
-      nnoremap <silent> Å :FloatermNew vifm<CR>
+        nnoremap <silent> Ä :FloatermNew vifm .<CR>
+        nnoremap <silent> Å :FloatermNew vifm<CR>
     ]])
 end
