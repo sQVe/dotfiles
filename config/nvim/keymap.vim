@@ -38,10 +38,6 @@ noremap Y y$
 noremap <expr> n 'Nn'[v:searchforward] . 'zzzv'
 noremap <expr> N 'nN'[v:searchforward] . 'zzzv'
 
-" Consistent find with ; and ,.
-noremap <expr> , getcharsearch().forward ? ';' : ','
-noremap <expr> ; getcharsearch().forward ? ',' : ';'
-
 " Keep cursor position when joining.
 noremap J mzJ`z
 
