@@ -1,18 +1,4 @@
 configuration {
-  color-active: "#3c3836, #ebdbb2, #3c3836, #32302f, #8ec07c";
-  color-normal: "#3c3836, #ebdbb2, #3c3836, #32302f, #8ec07c";
-  color-urgent: "#3c3836, #ebdbb2, #3c3836, #32302f, #8ec07c";
-  color-window: "#3c3836, #b16286, #3c3836, #32302f, #b16286";
-  columns: 2;
   font: "term 10";
-  hide-scrollbar: true;
-  lines: 10;
-  location: 0;
-  padding: 10;
-  separator-style: "none";
-  show-icons: true;
-  terminal: "alacritty";
-  width: 30;
-  window-format: "{n} {t}";
-  yoffset: 0;
+  theme: "theme";
 }

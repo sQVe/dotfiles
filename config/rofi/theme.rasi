@@ -1,0 +1,25 @@
+@import "gruvbox-dark"
+
+* {
+  highlight: bold;
+}
+
+window {
+  width: 800px;
+  border:  0;
+  padding: 12px;
+}
+
+listview {
+  border:  0;
+  columns: 2;
+  lines:   10;
+}
+
+inputbar {
+  children: [ prompt, textbox-prompt-sep, entry ];
+}
+
+scrollbar {
+  handle-width: 0;
+}
