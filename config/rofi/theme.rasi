@@ -2,24 +2,27 @@
 
 * {
   highlight: bold;
+  scrollbar: false;
+
+  gruvbox-dark-bg1: #3c3836;
 }
 
 window {
   width: 800px;
   border:  0;
-  padding: 12px;
+  padding: 8px;
+
+  background-color: @gruvbox-dark-bg1;
 }
 
 listview {
   border:  0;
-  columns: 2;
+  padding: 8px;
   lines:   10;
+  columns: 2;
 }
 
 inputbar {
   children: [ prompt, textbox-prompt-sep, entry ];
-}
-
-scrollbar {
-  handle-width: 0;
+  padding: 8px;
 }
