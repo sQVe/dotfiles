@@ -58,14 +58,13 @@ return require('packer').startup(function(use)
         event = "BufEnter",
         run = ':TSUpdate'
     }
-
     --  Documentation.
-    use {
+    use { -- Comment text.
         "terrortylor/nvim-comment",
         cmd = {'CommentToggle'},
         config = require('plugins.documentation.comment'),
         keys = {{'n', 'gc'}, {'v', 'gc'}}
-    } -- Comment text.
+    }
     use { -- Automatically set commentstring.
         'JoosepAlviste/nvim-ts-context-commentstring',
         after = 'nvim-treesitter'
