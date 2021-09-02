@@ -123,6 +123,11 @@ return require('packer').startup(function(use)
         config = require('plugins.interface.lens'),
         event = 'WinEnter'
     }
+    use { -- Zen Mode.
+        "folke/zen-mode.nvim",
+        cmd = {'ZenMode'},
+        config = require('plugins.interface.zen-mode')
+    }
     use {
         'hoob3rt/lualine.nvim', -- Status line.
         config = require('plugins.interface.lualine'),
