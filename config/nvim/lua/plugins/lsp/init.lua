@@ -27,8 +27,8 @@ return function()
       nnoremap <silent> <Leader>s :lua vim.lsp.buf.document_symbol()<CR>
       nnoremap <silent> <Leader>S :lua vim.lsp.buf.workspace_symbol()<CR>
       nnoremap <silent> K :ShowDocumentation<CR>
-      nnoremap <silent> gd :lua vim.lsp.buf.definition()<CR>
-      nnoremap <silent> gD :lua vim.lsp.buf.implementation()<CR>
+      nnoremap <silent> gd :lua vim.lsp.buf.implementation()<CR>
+      nnoremap <silent> gD :lua vim.lsp.buf.definition()<CR>
       nnoremap <silent> gr :lua vim.lsp.buf.references()<CR>
       nnoremap <silent> gy :lua vim.lsp.buf.type_definition()<CR>
    ]])
