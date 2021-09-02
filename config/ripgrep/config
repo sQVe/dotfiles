@@ -1,6 +1,9 @@
 # Include hidden files.
 --hidden
 
+# Follow symlinks.
+--follow
+
 # Ignore .git directories
 --glob=!.git
 
