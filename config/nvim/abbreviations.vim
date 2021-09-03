@@ -12,6 +12,7 @@ iabbrev ocnst    const
 iabbrev retunr   return
 iabbrev reutnr   return
 iabbrev reutrn   return
+iabbrev strign   string
 iabbrev treu     true
 
 " Comment markers.
