@@ -28,7 +28,8 @@ return function(on_attach_callback)
 
     -- Enable LSP snippet support.
     local capabilities = vim.lsp.protocol.make_client_capabilities()
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
+    capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+    capabilities.textDocument.completion.completionItem.snippetSupport = false
     capabilities.textDocument.completion.completionItem.resolveSupport = {
         properties = {'documentation', 'detail', 'additionalTextEdits'}
     }

@@ -147,13 +147,8 @@ return require('packer').startup(function(use)
 
     -- LSP.
     use {
-        'hrsh7th/nvim-compe', -- Completion.
-        config = require('plugins.lsp.compe'),
-        event = "InsertEnter"
-    }
-    use {
         'neovim/nvim-lspconfig', -- Collection of configurations.
-        after = 'lsp_signature.nvim',
+        after = {'lsp_signature.nvim', 'cmp-nvim-lsp'},
         config = require('plugins.lsp')
     }
     use {
@@ -165,6 +160,23 @@ return require('packer').startup(function(use)
         'ray-x/lsp_signature.nvim', -- Signature help.
         event = "BufEnter",
         config = require('plugins.lsp.signature')
+    }
+
+    -- Completion
+    use {
+        'hrsh7th/nvim-cmp', -- Completion engine.
+        config = require('plugins.completion.cmp'),
+        event = "InsertEnter"
+    }
+    use {'hrsh7th/cmp-buffer', after = 'nvim-cmp'} -- Buffer completion.
+    use {'hrsh7th/cmp-nvim-lsp', event = "BufEnter"} -- LSP completion.
+    use {'hrsh7th/cmp-path', after = 'nvim-cmp'} -- Path completion.
+    use {'hrsh7th/cmp-vsnip', after = 'nvim-cmp'} -- VSnip completion.
+    use {'octaltree/cmp-look', after = 'nvim-cmp'} -- Look completion.
+    use {
+        'hrsh7th/vim-vsnip', -- Snippet support.
+        after = 'nvim-cmp',
+        setup = require('plugins.completion.vsnip')
     }
 
     -- Override.
@@ -195,13 +207,6 @@ return require('packer').startup(function(use)
             'CtrlSFOpen', 'CtrlSFQuickfix', 'CtrlSFStop', 'CtrlSFToggle',
             'CtrlSFUpdate'
         }
-    }
-
-    -- Snippets.
-    use {
-        'hrsh7th/vim-vsnip', -- VSnip.
-        after = 'nvim-compe',
-        setup = require('plugins.snippets.vsnip')
     }
 
     -- Text objects and motions.
