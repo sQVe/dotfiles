@@ -26,6 +26,13 @@ augroup ZUpdate
   autocmd BufWinEnter,BufFilePost * call ZUpdate()
 augroup END
 
+" Focus active window.
+augroup FocusActiveWindow
+  autocmd!
+  autocmd WinLeave * call ToggleWindowFocus(0)
+  autocmd BufWinEnter,VimEnter,WinEnter * call ToggleWindowFocus(1)
+augroup END
+
 " Reload buffer on enter or focus.
 augroup ReloadBuffer
   autocmd!
