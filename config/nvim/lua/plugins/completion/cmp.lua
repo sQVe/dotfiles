@@ -4,6 +4,10 @@
 return function()
     local cmp = require('cmp')
 
+    local expand_snippet = function(args)
+        vim.fn["vsnip#anonymous"](args.body)
+    end
+
     local check_back_space = function()
         local col = vim.fn.col('.') - 1
         return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
@@ -35,9 +39,7 @@ return function()
         end
     end
 
-    local expand_snippet = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
-    end
+    local get_all_buffers = function() return vim.api.nvim_list_bufs() end
 
     cmp.setup {
         snippet = {expand = expand_snippet},
@@ -55,12 +57,9 @@ return function()
             {
                 name = 'buffer',
                 opts = {
-                    get_bufnrs = function()
-                        -- Get words for all buffers.
-                        return vim.api.nvim_list_bufs()
-                    end,
-                    keyword_pattern = [[\k\+]]
-                } -- Include special characters in word match.
+                    get_bufnrs = get_all_buffers,
+                    keyword_pattern = [[\k\+]] -- Include special characters in word match.
+                }
 
             }, {name = 'path'}, {name = 'nvim_lsp'}, {name = 'vsnip'}
         }

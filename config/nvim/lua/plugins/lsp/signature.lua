@@ -6,6 +6,7 @@ return function()
         bind = true,
         floating_window = true,
         handler_opts = {border = "single"},
-        hint_enable = false
+        hint_enable = false,
+        zindex = 10
     })
 end

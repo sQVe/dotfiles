@@ -38,6 +38,7 @@ return require('packer').startup(function(use)
         config = require('plugins.integration.strip-trailing-whitespace'),
         event = 'BufEnter'
     }
+    use {'michaelb/sniprun', run = 'bash ./install.sh', cmd = {'SnipRun'}}
 
     -- Theme.
     use { -- Gruvbox color theme.
@@ -162,7 +163,7 @@ return require('packer').startup(function(use)
         config = require('plugins.lsp.signature')
     }
 
-    -- Completion
+    -- Completion.
     use {
         'hrsh7th/nvim-cmp', -- Completion engine.
         config = require('plugins.completion.cmp'),
