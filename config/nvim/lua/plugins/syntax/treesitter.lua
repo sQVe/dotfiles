@@ -6,7 +6,7 @@ return function()
         ensure_installed = {
             'bash', 'comment', 'css', 'dockerfile', 'go', 'gomod', 'graphql',
             'html', 'javascript', 'jsdoc', 'json', 'jsonc', 'lua', 'scss',
-            'tsx', 'typescript', 'yaml'
+            'tsx', 'typescript', 'vim', 'yaml'
         },
         context_commentstring = {enable = true},
         highlight = {enable = true},
