@@ -103,7 +103,7 @@
     "prefix": "fn",
     "body": ["function ${1:name}(${2:arguments}) {", "\t$0", "}"]
   },
-  "FunctionRocket": { "prefix": "()", "body": "(${1:arguments}) => $0" },
+  "FunctionRocket": { "prefix": "fr", "body": "(${1:arguments}) => $0" },
   "IIFE": {
     "prefix": "iife",
     "body": ["(function (${1:arguments}) {", "\t$0", "})(${2:sync});"]

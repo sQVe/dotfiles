@@ -31,9 +31,6 @@ noremap <Up> k
 noremap gj j
 noremap gk k
 
-" Consistent Y.
-noremap Y y$
-
 " Consistent centered search with n and N.
 noremap <expr> n 'Nn'[v:searchforward] . 'zzzv'
 noremap <expr> N 'nN'[v:searchforward] . 'zzzv'
