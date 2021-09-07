@@ -41,15 +41,6 @@ func! OpenFileOrUrlWithMimeo()
   silent execute "!mimeo '" . expand('<cfile>') . "'"
 endfunc
 
-" ToggleWindowFocus.
-func! ToggleWindowFocus(focused)
-  if(a:focused)
-    set cursorline
-  else
-    set nocursorline
-  endif
-endfunc
-
 
 "  ┏━┓╻ ╻┏━┓╺┳╸┏━╸┏┳┓   ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓
 "  ┗━┓┗┳┛┗━┓ ┃ ┣╸ ┃┃┃   ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
