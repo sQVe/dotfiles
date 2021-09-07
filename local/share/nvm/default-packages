@@ -8,6 +8,7 @@ npm
 prettier
 prettier_d_slim
 serve
+ts-node
 typescript
 typescript-language-server
 vscode-langservers-extracted

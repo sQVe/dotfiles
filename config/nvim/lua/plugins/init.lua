@@ -38,7 +38,12 @@ return require('packer').startup(function(use)
         config = require('plugins.integration.strip-trailing-whitespace'),
         event = 'BufEnter'
     }
-    use {'michaelb/sniprun', run = 'bash ./install.sh', cmd = {'SnipRun'}}
+    use {
+        'michaelb/sniprun',
+        run = 'bash ./install.sh',
+        cmd = {'SnipRun'},
+        config = require('plugins.integration.sniprun')
+    }
 
     -- Theme.
     use { -- Gruvbox color theme.
