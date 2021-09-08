@@ -3,10 +3,10 @@
 --  ┗━┛╹ ╹╹╹  ╹┗╸┗━┛╹ ╹
 return function()
     require('sniprun').setup({
-        display = {"TempFloatingWindow"},
+        display = {"VirtualTextOk", "VirtualTextErr"},
         snipruncolors = {
-            SniprunFloatingWinOk = {fg = "#fbf1c7", ctermfg = "White"},
-            SniprunFloatingWinErr = {fg = "#fb4934", ctermfg = "DarkRed"}
+            SniprunVirtualTextOk = {bg = "#282828", fg = "#8ec07c"},
+            SniprunVirtualTextErr = {bg = "#282828", fg = "#fb4934"}
         }
     })
 end
