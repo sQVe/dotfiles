@@ -31,7 +31,7 @@ return function()
 
     local s_tab_complete = function(fallback)
         if vim.fn.pumvisible() == 1 then
-            vim.fn.feedkeys(('<C-p>'), 'n')
+            vim.fn.feedkeys(T('<C-p>'), 'n')
         elseif vim.fn['vsnip#jumpable'](-1) == 1 then
             vim.fn.feedkeys(T('<Plug>(vsnip-jump-prev)'), '')
         else
@@ -54,14 +54,14 @@ return function()
             ['<Tab>'] = cmp.mapping(tab_complete, {"i", "s"})
         },
         sources = {
-            {
+            {name = 'nvim_lsp'}, {name = 'vsnip'}, {name = 'path'}, {
                 name = 'buffer',
                 opts = {
                     get_bufnrs = get_all_buffers,
                     keyword_pattern = [[\k\+]] -- Include special characters in word match.
                 }
 
-            }, {name = 'path'}, {name = 'nvim_lsp'}, {name = 'vsnip'}
+            }
         }
     }
 end
