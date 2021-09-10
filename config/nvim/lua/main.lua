@@ -1,6 +1,14 @@
 --  ┏┳┓┏━┓╻┏┓╻
 --  ┃┃┃┣━┫┃┃┗┫
 --  ╹ ╹╹ ╹╹╹ ╹
+-- Disable providers.
+vim.g.loaded_node_provider = 1
+vim.g.loaded_perl_provider = 1
+vim.g.loaded_python3_provider = 1
+vim.g.loaded_python_provider = 1
+vim.g.loaded_ruby_provider = 1
+vim.g.python_host_skip_check = 1
+
 --  Disable unsued neovim features.
 vim.g.loaded_2html_plugin = 1
 vim.g.loaded_getscript = 1
