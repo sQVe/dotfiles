@@ -56,9 +56,10 @@ set shiftwidth=2                  " Indentation amount for < and > commands.
 set tabstop=2                     " Render Tabs using this many spaces.
 
 " Whitespace.
+set fillchars+=diff:╱             " Set fill chars.
 set list                          " Show characters listed in 'listchars'.
-set showbreak=↲\                  " Set show break character.
 set listchars=extends:›,precedes:‹,tab:→\ ,nbsp:•,trail:•
+set showbreak=↲\                  " Set show break character.
 
 " Folding.
 set foldenable                    " Enable folding.

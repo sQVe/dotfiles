@@ -64,6 +64,7 @@ return require('packer').startup(function(use)
         event = "BufEnter",
         run = ':TSUpdate'
     }
+
     --  Documentation.
     use { -- Comment text.
         "terrortylor/nvim-comment",
