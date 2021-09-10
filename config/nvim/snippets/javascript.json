@@ -32,7 +32,7 @@
   },
   "ConsoleLogContext": {
     "prefix": "clc",
-    "body": "console.log('$TM_FILENAME_BASE:$TM_LINE_NUMBER =>', $0);"
+    "body": "console.log('$TM_FILENAME_BASE:$TM_LINE_NUMBER ==>', $0);"
   },
   "ConsoleTable": {
     "prefix": "ct",

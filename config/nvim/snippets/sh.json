@@ -36,8 +36,8 @@
     "body": ["until [[ ${1:condition} ]]; do", "\t$0", "done", ""]
   },
   "Function": {
-    "prefix": "function",
-    "body": ["${1:name} ()", "{", "\t$0", "}"]
+    "prefix": "fn",
+    "body": ["${1:fn}() {", "\t$0", "}"]
   },
   "Case": {
     "prefix": "case",
