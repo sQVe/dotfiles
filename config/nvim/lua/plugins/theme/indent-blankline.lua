@@ -33,6 +33,7 @@ return function()
         "class",
         "function",
         "method",
+        "pair",
     }
     -- LuaFormatter on
 end
