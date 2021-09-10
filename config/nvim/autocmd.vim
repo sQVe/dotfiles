@@ -8,6 +8,12 @@ augroup DisableNetrw
   autocmd VimEnter * silent! autocmd! FileExplorer
 augroup END
 
+" Equalize splits on resize.
+augroup EqualizeSplitsOnResize
+  autocmd!
+  autocmd VimResized * wincmd =
+augroup END
+
 " Highlight yanked text.
 augroup HighlightYank
   autocmd!
