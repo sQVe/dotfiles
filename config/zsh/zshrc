@@ -187,7 +187,7 @@ alias suspend='state suspend'
 # Apps.
 alias bluetooth=bluetoothctl
 alias c=cat
-alias cheat="cht.sh"
+alias cheat='cht.sh'
 alias chrome=google-chrome-stable
 alias diff='diff --color=always --unified'
 alias fd='fd --hidden --follow'
@@ -195,6 +195,7 @@ alias feh='feh --scale-down --auto-zoom --image-bg "#282828"'
 alias fm=vifm-cd
 alias format-opinionated='npx prettier --no-semi --single-quote --trailing-comma es5 --write'
 alias format='npx prettier --write'
+alias kubectl="kubectl --cache-dir $XDG_CACHE_HOME/kube"
 alias l=less
 alias mixer=pavucontrol
 alias qutebrowser=open-qutebrowser
@@ -205,9 +206,8 @@ alias v=nvim
 alias vi=nvim
 alias vifm=vifm-cd
 alias vim=nvim
-alias vimo="nvim -u NONE"
+alias vimm='nvim -u NONE'
 alias xsel='xsel -b'
-alias zz='z -I'
 
 # Dunst.
 alias dunst-pause='dunstctl set-paused true'
