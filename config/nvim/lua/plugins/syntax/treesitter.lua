@@ -2,7 +2,7 @@
 --   ┃ ┣┳┛┣╸ ┣╸ ┗━┓┃ ┃  ┃ ┣╸ ┣┳┛
 --   ╹ ╹┗╸┗━╸┗━╸┗━┛╹ ╹  ╹ ┗━╸╹┗╸
 return function()
-    require'nvim-treesitter.configs'.setup {
+    require('nvim-treesitter.configs').setup {
         ensure_installed = {
             'bash', 'comment', 'css', 'dockerfile', 'go', 'gomod', 'graphql',
             'html', 'javascript', 'jsdoc', 'json', 'jsonc', 'lua', 'scss',
