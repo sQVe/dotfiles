@@ -126,9 +126,10 @@ return require('packer').startup(function(use)
     -- Interface.
     use {'ap/vim-buftabline', event = 'BufEnter'} -- Buffer line.
     use {
-        'camspiers/lens.vim', -- Resize windows based on content.
-        config = require('plugins.interface.lens'),
-        event = 'WinEnter'
+        'beauwilliams/focus.nvim',
+        config = require('plugins.interface.focus'),
+        event = 'WinEnter',
+        module = "focus"
     }
     use { -- Zen Mode.
         "folke/zen-mode.nvim",
