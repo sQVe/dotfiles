@@ -165,7 +165,6 @@ return require('packer').startup(function(use)
     use {
         'ojroques/nvim-lspfuzzy', -- Use fzf for LSP handlers.
         after = {'fzf.vim', 'nvim-lspconfig'},
-        branch = 'dev',
         config = require('plugins.lsp.fuzzy')
     }
     use {
