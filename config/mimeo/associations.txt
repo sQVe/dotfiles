@@ -12,12 +12,12 @@ open-zoom %U
   ^https?:\/\/.*zoom\.us
 
 mpv %U
+  ^https?:\/\/(www\.)?svtplay\.se/video
   ^https?:\/\/(www\.)?youtube\.com/watch\?.*v=
   ^https?:\/\/.+?\.gif
 
 streamlink %U
   ^https?:\/\/(www\.)?twitch\.tv
-  ^https?:\/\/(www\.)?svtplay\.se/video
 
 feh %U
   ^https?:\/\/.+?\.(jpe?g|png)
