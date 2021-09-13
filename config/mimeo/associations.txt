@@ -3,9 +3,9 @@ open-qutebrowser %U
 
 google-chrome-stable %U
   ^https?:\/\/(docs|drive|jamboard|meet)\.google\.com
+  ^https?:\/\/.*\.amazonaws\.com
   ^https?:\/\/.*\.detectify\.net
   ^https?:\/\/.*\.google\.com/calendar
-  ^https?:\/\/google\.zoom\.us
   ^https?:\/\/detectify
 
 open-zoom %U
