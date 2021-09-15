@@ -54,7 +54,7 @@ return function()
             ['<Tab>'] = cmp.mapping(tab_complete, {"i", "s"})
         },
         sources = {
-            {name = 'nvim_lsp'}, {name = 'vsnip'}, {name = 'path'}, {
+            {name = 'nvim_lsp'}, {name = 'path'}, {name = 'vsnip'}, {
                 name = 'buffer',
                 opts = {
                     get_bufnrs = get_all_buffers,
