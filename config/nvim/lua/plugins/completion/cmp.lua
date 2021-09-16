@@ -54,13 +54,14 @@ return function()
             ['<Tab>'] = cmp.mapping(tab_complete, {"i", "s"})
         },
         sources = {
-            {name = 'nvim_lsp'}, {name = 'path'}, {name = 'vsnip'}, {
+            {name = 'nvim_lsp', priority = 100}, {name = 'path', priority = 80},
+            {name = 'vsnip', priority = 40}, {
                 name = 'buffer',
                 opts = {
                     get_bufnrs = get_all_buffers,
                     keyword_pattern = [[\k\+]] -- Include special characters in word match.
-                }
-
+                },
+                priority = 10
             }
         }
     }
