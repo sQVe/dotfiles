@@ -41,12 +41,4 @@ return function()
       nnoremap <silent> <Leader>l :LspDiagnostics 0<CR>
       nnoremap <silent> <Leader>L :LspDiagnosticsAll<CR>
     ]])
-
-    -- Signs.
-    vim.cmd([[
-        sign define LspDiagnosticsSignError text=■ texthl=LspDiagnosticsSignError
-        sign define LspDiagnosticsSignWarning text=■ texthl=LspDiagnosticsSignWarning
-        sign define LspDiagnosticsSignInformation text=■ texthl=LspDiagnosticsSignInformation
-        sign define LspDiagnosticsSignHint text=■ texthl=LspDiagnosticsSignHint
-    ]])
 end
