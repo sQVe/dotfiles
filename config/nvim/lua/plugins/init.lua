@@ -128,7 +128,7 @@ return require('packer').startup(function(use)
     use {
         'beauwilliams/focus.nvim',
         config = require('plugins.interface.focus'),
-        event = 'WinEnter',
+        event = 'VimEnter',
         module = "focus"
     }
     use { -- Zen Mode.
