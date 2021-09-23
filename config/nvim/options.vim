@@ -64,7 +64,7 @@ set showbreak=↲\                  " Set show break character.
 " Folding.
 set foldenable                    " Enable folding.
 set foldlevelstart=99             " Folding level.
-set foldminlines                  " Folding minimum lines.
+set foldminlines=1                " Folding minimum lines.
 set foldnestmax=4                 " Folding max.
 set foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))
 
