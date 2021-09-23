@@ -56,7 +56,7 @@ set shiftwidth=2                  " Indentation amount for < and > commands.
 set tabstop=2                     " Render Tabs using this many spaces.
 
 " Whitespace.
-set fillchars+=diff:╱             " Set fill chars.
+set fillchars+=diff:╱,fold:\      " Set fill chars.
 set list                          " Show characters listed in 'listchars'.
 set listchars=extends:›,precedes:‹,tab:→\ ,nbsp:•,trail:•
 set showbreak=↲\                  " Set show break character.
@@ -64,7 +64,9 @@ set showbreak=↲\                  " Set show break character.
 " Folding.
 set foldenable                    " Enable folding.
 set foldlevelstart=99             " Folding level.
+set foldminlines                  " Folding minimum lines.
 set foldnestmax=4                 " Folding max.
+set foldtext=substitute(getline(v:foldstart),'\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))
 
 " Line number.
 set number                        " Show the line numbers on the left side.
