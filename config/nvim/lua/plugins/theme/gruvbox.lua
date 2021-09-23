@@ -51,17 +51,17 @@ return function()
     -- TODO: Remove this once gruvbox.nvim supports new diagnostics highlights.
     vim.cmd([[
         hi! link DiagnosticSignError LspDiagnosticsSignError
-        hi! link DiagnosticSignWarning LspDiagnosticsSignWarning
-        hi! link DiagnosticSignInformation LspDiagnosticsSignInformation
         hi! link DiagnosticSignHint LspDiagnosticsSignHint
+        hi! link DiagnosticSignInfo LspDiagnosticsSignInformation
+        hi! link DiagnosticSignWarn LspDiagnosticsSignWarning
     ]])
 
     -- Signs.
     vim.cmd([[
         sign define DiagnosticSignError text=■ texthl=DiagnosticSignError
-        sign define DiagnosticSignWarning text=■ texthl=DiagnosticSignWarning
-        sign define DiagnosticSignInformation text=■ texthl=DiagnosticSignInformation
         sign define DiagnosticSignHint text=■ texthl=DiagnosticSignHint
+        sign define DiagnosticSignInfo text=■ texthl=DiagnosticSignInfo
+        sign define DiagnosticSignWarn text=■ texthl=DiagnosticSignWarn
     ]])
 end
 
