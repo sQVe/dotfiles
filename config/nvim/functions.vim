@@ -31,9 +31,12 @@ endfunc
 
 " Create and print ascii header.
 func! PrintAsciiHeader(title)
+  PackerLoad nvim-comment
   execute "read !toilet -f future " . a:title
-  norm 0VkkgcwjjI kddjj
+  norm 0Vkkgc
 endfunc
+
+
 
 " Open file or URL under cursor with mimeo. This is a temporary solution until
 " `gx` in netrw is repaired.
