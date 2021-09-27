@@ -21,7 +21,7 @@ return require('packer').startup(function(use)
     use {
         'machakann/vim-sandwich', -- Surround text.
         config = require('plugins.editing.sandwich').config,
-        event = 'CursorMoved',
+        event = 'BufEnter',
         setup = require('plugins.editing.sandwich').setup
     }
     use {
@@ -211,7 +211,7 @@ return require('packer').startup(function(use)
     use {
         'ggandor/lightspeed.nvim', -- Quick jump.
         config = require('plugins.navigation.lightspeed'),
-        event = 'BufEnter'
+        after = 'vim-sandwich'
     }
     use {
         'dyng/ctrlsf.vim', -- Search and replace over multiple files.
@@ -224,7 +224,6 @@ return require('packer').startup(function(use)
 
     -- Text objects and motions.
     use {'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter'} -- Smart selection.
-    use {'christoomey/vim-sort-motion', keys = {{'n', 'gs'}, {'v', 'gs'}}} -- Sort by motion text object.
     use {'michaeljsmith/vim-indent-object', event = 'CursorMoved'} -- Indent text object.
     use {'wellle/targets.vim', event = 'CursorMoved'} -- Additional text objects.
 end)
