@@ -32,11 +32,6 @@ return require('packer').startup(function(use)
     }
 
     -- Integration.
-    use {
-        'axelf4/vim-strip-trailing-whitespace',
-        config = require('plugins.integration.strip-trailing-whitespace'),
-        event = 'BufEnter'
-    }
     use {'editorconfig/editorconfig-vim', event = 'BufEnter'} -- Editorconfig.
     use {
         'michaelb/sniprun',
