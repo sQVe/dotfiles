@@ -42,7 +42,6 @@ return function()
     local get_all_buffers = function() return vim.api.nvim_list_bufs() end
 
     cmp.setup {
-        snippet = {expand = expand_snippet},
         mapping = {
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<C-e>'] = cmp.mapping.close(),
@@ -52,6 +51,14 @@ return function()
             }),
             ['<S-Tab>'] = cmp.mapping(s_tab_complete, {"i", "s"}),
             ['<Tab>'] = cmp.mapping(tab_complete, {"i", "s"})
+        },
+        snippet = {expand = expand_snippet},
+        sorting = {
+            comparators = {
+                cmp.config.compare.exact, cmp.config.compare.score,
+                cmp.config.compare.offset, cmp.config.compare.length,
+                cmp.config.compare.sort_text, cmp.config.compare.order
+            }
         },
         sources = {
             {name = 'nvim_lsp', priority = 100}, {name = 'path', priority = 80},
