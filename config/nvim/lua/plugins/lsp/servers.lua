@@ -35,16 +35,36 @@ return function(on_attach_callback)
     }
 
     return {
-        bashls = {capabilities = capabilities, root_dir = root_dir},
-        cssls = {on_attach = on_attach, root_dir = root_dir},
-        html = {on_attach = on_attach, root_dir = root_dir},
-        jsonls = {on_attach = on_attach, root_dir = root_dir},
+        bashls = {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            root_dir = root_dir
+        },
+        cssls = {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            root_dir = root_dir
+        },
+        html = {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            root_dir = root_dir
+        },
+        jsonls = {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            root_dir = root_dir
+        },
         tsserver = {
             capabilities = capabilities,
             on_attach = on_attach,
             root_dir = root_dir
         },
-        yamlls = {on_attach = on_attach, root_dir = root_dir},
+        yamlls = {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            root_dir = root_dir
+        },
 
         efm = {
             cmd = {"efm-langserver"},
