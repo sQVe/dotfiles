@@ -5,7 +5,7 @@
   },
   "BuildWithScope": {
     "prefix": "build(",
-    "body": ["build($1:scope): ${0:description}"]
+    "body": ["build(${1:scope}): ${0:description}"]
   },
   "Chore": {
     "prefix": "chore",
@@ -13,7 +13,7 @@
   },
   "ChoreWithScope": {
     "prefix": "chore(",
-    "body": ["chore($1:scope): ${0:description}"]
+    "body": ["chore(${1:scope}): ${0:description}"]
   },
   "CI": {
     "prefix": "ci",
@@ -21,7 +21,7 @@
   },
   "CIWithScope": {
     "prefix": "ci(",
-    "body": ["ci($1:scope): ${0:description}"]
+    "body": ["ci(${1:scope}): ${0:description}"]
   },
   "Docs": {
     "prefix": "docs",
@@ -29,7 +29,7 @@
   },
   "DocsWithScope": {
     "prefix": "docs(",
-    "body": ["docs($1:scope): ${0:description}"]
+    "body": ["docs(${1:scope}): ${0:description}"]
   },
   "Feat": {
     "prefix": "feat",
@@ -37,7 +37,7 @@
   },
   "FeatWithScope": {
     "prefix": "feat(",
-    "body": ["feat($1:scope): ${0:description}"]
+    "body": ["feat(${1:scope}): ${0:description}"]
   },
   "Fix": {
     "prefix": "fix",
@@ -45,7 +45,7 @@
   },
   "FixWithScope": {
     "prefix": "fix(",
-    "body": ["fix($1:scope): ${0:description}"]
+    "body": ["fix(${1:scope}): ${0:description}"]
   },
   "Perf": {
     "prefix": "perf",
@@ -53,7 +53,7 @@
   },
   "PerfWithScope": {
     "prefix": "perf(",
-    "body": ["perf($1:scope): ${0:description}"]
+    "body": ["perf(${1:scope}): ${0:description}"]
   },
   "Refactor": {
     "prefix": "refactor",
@@ -61,7 +61,7 @@
   },
   "RefactorWithScope": {
     "prefix": "refactor(",
-    "body": ["refactor($1:scope): ${0:description}"]
+    "body": ["refactor(${1:scope}): ${0:description}"]
   },
   "Revert": {
     "prefix": "revert",
@@ -69,7 +69,7 @@
   },
   "RevertWithScope": {
     "prefix": "revert(",
-    "body": ["revert($1:scope): ${0:description}"]
+    "body": ["revert(${1:scope}): ${0:description}"]
   },
   "Review": {
     "prefix": "review",
@@ -77,7 +77,7 @@
   },
   "ReviewWithScope": {
     "prefix": "review(",
-    "body": ["review($1:scope): ${0:description}"]
+    "body": ["review(${1:scope}): ${0:description}"]
   },
   "Style": {
     "prefix": "style",
@@ -85,7 +85,7 @@
   },
   "StyleWithScope": {
     "prefix": "style(",
-    "body": ["style($1:scope): ${0:description}"]
+    "body": ["style(${1:scope}): ${0:description}"]
   },
   "Test": {
     "prefix": "test",
@@ -93,7 +93,7 @@
   },
   "TestWithScope": {
     "prefix": "test(",
-    "body": ["test($1:scope): ${0:description}"]
+    "body": ["test(${1:scope}): ${0:description}"]
   },
   "WIP": {
     "prefix": "wip",
@@ -101,6 +101,6 @@
   },
   "WIPWithScope": {
     "prefix": "wip(",
-    "body": ["wip($1:scope): ${0:description}"]
+    "body": ["wip(${1:scope}): ${0:description}"]
   }
 }
