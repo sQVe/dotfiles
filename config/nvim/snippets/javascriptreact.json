@@ -56,7 +56,7 @@
   },
   "UseCallback": {
     "prefix": "useCallback",
-    "body": "const ${1:callback} = useCallback(() => $0);"
+    "body": "const ${1:callback} = useCallback(() => $2, [${0:dependencies}]);"
   },
   "UseContext": {
     "prefix": "useContext",
