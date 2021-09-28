@@ -42,6 +42,7 @@ return function()
     local get_all_buffers = function() return vim.api.nvim_list_bufs() end
 
     cmp.setup {
+        experimental = {ghost_text = {hl_group = 'GruvboxGray'}},
         mapping = {
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<C-e>'] = cmp.mapping.close(),
