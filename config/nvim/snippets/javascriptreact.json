@@ -65,7 +65,7 @@
   "UseDebugValue": { "prefix": "UseDebugValue", "body": "useDebugValue($0)" },
   "UseEffect": {
     "prefix": "useEffect",
-    "body": "useEffect(() => {$1}, [${0:dependencies}]);"
+    "body": ["useEffect(() => {","\t$1", "}, [${0:dependencies}]);"]
   },
   "UseImperativeHandle": {
     "prefix": "UseImperativeHandle",
