@@ -4,26 +4,26 @@
 return function()
     local cmp = require('cmp')
 
-    local expand_snippet = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
+    local has_words_before = function()
+        if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
+            return false
+        end
+        local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+        return col ~= 0 and
+                   vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(
+                       col, col):match("%s") == nil
     end
 
-    local check_back_space = function()
-        local col = vim.fn.col('.') - 1
-        return col == 0 or vim.fn.getline('.'):sub(col, col):match('%s')
-    end
-
-    local T = function(str)
-        return vim.api.nvim_replace_termcodes(str, true, true, true)
+    local feedkey = function(key, mode)
+        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true,
+                                                             true), mode, true)
     end
 
     local tab_complete = function(fallback)
         if vim.fn.pumvisible() == 1 then
-            vim.fn.feedkeys(T('<C-n>'), 'n')
-        elseif vim.fn['vsnip#available'](1) == 1 then
-            vim.fn.feedkeys(T('<Plug>(vsnip-expand-or-jump)'), '')
-        elseif check_back_space() then
-            vim.fn.feedkeys(T('<Tab>'), 'n')
+            feedkey("<C-n>", "n")
+        elseif has_words_before() then
+            cmp.complete()
         else
             fallback()
         end
@@ -31,12 +31,14 @@ return function()
 
     local s_tab_complete = function(fallback)
         if vim.fn.pumvisible() == 1 then
-            vim.fn.feedkeys(T('<C-p>'), 'n')
-        elseif vim.fn['vsnip#jumpable'](-1) == 1 then
-            vim.fn.feedkeys(T('<Plug>(vsnip-jump-prev)'), '')
+            feedkey("<C-p>", "n")
         else
             fallback()
         end
+    end
+
+    local expand_snippet = function(args)
+        vim.fn["vsnip#anonymous"](args.body)
     end
 
     local get_all_buffers = function() return vim.api.nvim_list_bufs() end
