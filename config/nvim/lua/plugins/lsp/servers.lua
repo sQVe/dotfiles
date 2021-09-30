@@ -37,9 +37,9 @@ return function(on_attach_callback)
                 ts_utils.setup({
                     enable_import_on_completion = true,
                     eslint_bin = "eslint_d",
-                    eslint_enable_diagnostics = true,
-                    filter_out_diagnostics_by_code = {},
-                    update_imports_on_move = true
+                    filter_out_diagnostics_by_code = {
+                        80001 -- Require modules.
+                    }
                 })
                 ts_utils.setup_client(client)
 
