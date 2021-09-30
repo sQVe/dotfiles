@@ -4,10 +4,10 @@
 return function(on_attach_callback)
     local root_dir = require('util').root_dir
 
-    local on_attach = function(client)
+    local disable_formatting = function(client)
         -- Disable LSP based formatting. Formatting is handled by null-ls.
         client.resolved_capabilities.document_formatting = false
-        on_attach_callback()
+        client.resolved_capabilities.document_range_formatting = false
     end
 
     -- Enable LSP snippet support.
@@ -16,7 +16,10 @@ return function(on_attach_callback)
 
     local commonConfig = {
         capabilities = capabilities,
-        on_attach = on_attach,
+        on_attach = function(client)
+            disable_formatting(client)
+            on_attach_callback()
+        end,
         root_dir = root_dir
     }
 
@@ -26,7 +29,25 @@ return function(on_attach_callback)
         gopls = commonConfig,
         html = commonConfig,
         jsonls = commonConfig,
-        tsserver = commonConfig,
+        tsserver = {
+            capabilities = commonConfig.capabilities,
+            on_attach = function(client)
+                local ts_utils = require("nvim-lsp-ts-utils")
+
+                ts_utils.setup({
+                    enable_import_on_completion = true,
+                    eslint_bin = "eslint_d",
+                    eslint_enable_diagnostics = true,
+                    filter_out_diagnostics_by_code = {},
+                    update_imports_on_move = true
+                })
+                ts_utils.setup_client(client)
+
+                disable_formatting(client)
+                on_attach_callback()
+            end,
+            root_dir = commonConfig.root_dir
+        },
         sumneko_lua = {
             capabilities = commonConfig.capabilities,
             cmd = {"lua-language-server"},
