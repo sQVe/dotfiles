@@ -153,6 +153,12 @@ return require('packer').startup(function(use)
 
     -- LSP.
     use {
+        "jose-elias-alvarez/null-ls.nvim",
+        after = "nvim-lspconfig",
+        config = require('plugins.lsp.null'),
+        requires = {"nvim-lua/plenary.nvim"}
+    }
+    use {
         'neovim/nvim-lspconfig', -- Collection of configurations.
         after = {'lsp_signature.nvim', 'cmp-nvim-lsp'},
         config = require('plugins.lsp')
