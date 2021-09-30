@@ -51,10 +51,10 @@ augroup SaveNotes
   autocmd BufWritePost $HOME/notes/*.md silent exec "!($HOME/scripts/vim/notes-send.sh &)"
 augroup END
 
-" Stop EFM Daemons.
-augroup StopEfmDaemons
+" Stop Neovim Daemons.
+augroup StopNeovimDaemons
   autocmd!
-  autocmd ExitPre * silent exec "!($HOME/scripts/vim/stop-efm-daemons.sh &)"
+  autocmd ExitPre * silent exec "!($HOME/scripts/vim/stop-nvim-daemons.sh &)"
 augroup END
 
 " Quick terminal exit.
