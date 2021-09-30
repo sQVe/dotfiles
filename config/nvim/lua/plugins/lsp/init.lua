@@ -5,18 +5,20 @@ return function()
     local on_attach = function() require('lsp_signature').on_attach() end
     local servers = require('plugins.lsp.servers')(on_attach)
 
+    local lsp = vim.lsp
+
+    -- Disable virtual text for diagnostics.
+    lsp.handlers["textDocument/publishDiagnostics"] =
+        lsp.with(lsp.diagnostic.on_publish_diagnostics, {virtual_text = false})
+
     for server, config in pairs(servers) do
         if config.flags == nil then
             config.flags = {debounce_text_changes = 150}
         end
 
+        -- Initiate and setup all LSP servers (excluding null-ls).
         require("lspconfig")[server].setup(config)
     end
-
-    -- Disable virtual text for diagnostics.
-    vim.lsp.handlers["textDocument/publishDiagnostics"] =
-        vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics,
-                     {virtual_text = false})
 
     -- General keymap.
     vim.cmd([[

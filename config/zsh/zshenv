@@ -37,4 +37,5 @@ export LESSOPEN='| bat --color=always %s'
 export LESSHISTFILE=-
 
 # Misc options.
+export PRETTIERD_LOCAL_PRETTIER_ONLY=1
 export WINIT_X11_SCALE_FACTOR=1
