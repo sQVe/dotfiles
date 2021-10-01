@@ -15,7 +15,7 @@ return function()
             formatters.prettierd,
             formatters.shfmt
                 .with({extra_args = {"-i", "2", "-bn", "-ci", "-sr"}}),
-            linters.eslint_d, linters.shellcheck
+            linters.eslint_d.with({timeout = 20000}), linters.shellcheck
 
         }
     })
