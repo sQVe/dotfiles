@@ -193,7 +193,7 @@ alias diff='diff --color=always --unified'
 alias fd='fd --hidden --follow'
 alias feh='feh --scale-down --auto-zoom --image-bg "#282828"'
 alias fm=vifm-cd
-alias format-opinionated='npx prettier --no-semi --single-quote --trailing-comma es5 --write'
+alias format-opinionated='npx prettier --single-quote --trailing-comma es5 --write'
 alias format='npx prettier --write'
 alias kubectl="kubectl --cache-dir $XDG_CACHE_HOME/kube"
 alias l=less
