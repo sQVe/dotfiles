@@ -166,11 +166,6 @@ return require('packer').startup(function(use)
         config = require('plugins.lsp')
     }
     use {
-        'ojroques/nvim-lspfuzzy', -- Use fzf for LSP handlers.
-        after = {'fzf.vim', 'nvim-lspconfig'},
-        config = require('plugins.lsp.fuzzy')
-    }
-    use {
         'ray-x/lsp_signature.nvim', -- Signature help.
         event = "BufEnter",
         config = require('plugins.lsp.signature')
@@ -207,9 +202,12 @@ return require('packer').startup(function(use)
 
     -- Navigation.
     use {
-        'junegunn/fzf.vim', -- Fzf.
-        config = require('plugins.navigation.fzf'),
-        event = 'VimEnter'
+        'dyng/ctrlsf.vim', -- Search and replace over multiple files.
+        cmd = {
+            'CtrlSF', 'CtrlSFClearHL', 'CtrlSFClose', 'CtrlSFFocus',
+            'CtrlSFOpen', 'CtrlSFQuickfix', 'CtrlSFStop', 'CtrlSFToggle',
+            'CtrlSFUpdate'
+        }
     }
     use {
         'ggandor/lightspeed.nvim', -- Quick jump.
@@ -217,12 +215,15 @@ return require('packer').startup(function(use)
         after = 'vim-sandwich'
     }
     use {
-        'dyng/ctrlsf.vim', -- Search and replace over multiple files.
-        cmd = {
-            'CtrlSF', 'CtrlSFClearHL', 'CtrlSFClose', 'CtrlSFFocus',
-            'CtrlSFOpen', 'CtrlSFQuickfix', 'CtrlSFStop', 'CtrlSFToggle',
-            'CtrlSFUpdate'
-        }
+        'nvim-telescope/telescope.nvim', -- Telescope.
+        event = 'VimEnter',
+        config = require('plugins.navigation.telescope').config,
+        requires = {{'nvim-lua/plenary.nvim'}}
+    }
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim', -- FZF for telescope.
+        event = 'VimEnter',
+        run = 'make'
     }
 
     -- Text objects and motions.

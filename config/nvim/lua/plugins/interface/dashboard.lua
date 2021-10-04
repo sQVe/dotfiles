@@ -21,11 +21,11 @@ return function()
 
     -- LuaFormatter off
     vim.g.dashboard_custom_section = {
-        a = {description = {'📝  Find File                                      '}, command = 'Files'},
-        b = {description = {'🔴  Status                                         '}, command = 'GitFiles?'},
-        c = {description = {'✍   Recently Used Files                            '}, command = 'History'},
+        a = {description = {'📝  Find File                                      '}, command = 'lua require("plugins.navigation.telescope").find_root_files()'},
+        b = {description = {'🔴  Status                                         '}, command = 'Telescope git_status'},
+        c = {description = {'✍   Recently Used Files                            '}, command = 'Telescope oldfiles'},
         d = {description = {'📑  File Manager                                   '}, command = 'FloatermNew vifm'},
-        e = {description = {'🔍  Find Word                                      '}, command = 'Rg'},
+        e = {description = {'🔍  Find Word                                      '}, command = 'Telescope live_grep'},
         g = {description = {'💎  New File                                       '}, command = 'enew'},
         h = {description = {'⚙   Packer Compile                                 '}, command = 'PackerCompile'},
         i = {description = {'🔃  Packer Sync                                    '}, command = 'PackerSync'}
