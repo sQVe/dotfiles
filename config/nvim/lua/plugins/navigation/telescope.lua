@@ -76,7 +76,7 @@ M.config = function()
         nnoremap <silent> gr :Telescope lsp_references<CR>
         nnoremap <silent> gy :Telescope lsp_definitions<CR>
         nnoremap <silent> <Leader>s :Telescope lsp_document_symbols<CR>
-        nnoremap <silent> <Leader>S :Telescope lsp_dynamic_workspace_symbols()<CR>
+        nnoremap <silent> <Leader>S :Telescope lsp_dynamic_workspace_symbols<CR>
         nnoremap <silent> <Leader>a :Telescope lsp_code_actions<CR>
         xnoremap <silent> <Leader>a :Telescope lsp_range_code_actions<CR>
         nnoremap <silent> <Leader>l :Telescope lsp_document_diagnostics<CR>
