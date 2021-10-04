@@ -50,7 +50,7 @@ return function()
             ['<C-e>'] = cmp.mapping.close(),
             ['<CR>'] = cmp.mapping.confirm({
                 behavior = cmp.ConfirmBehavior.Replace,
-                select = true
+                select = false
             }),
             ['<S-Tab>'] = cmp.mapping(s_tab_complete, {"i", "s"}),
             ['<Tab>'] = cmp.mapping(tab_complete, {"i", "s"})
