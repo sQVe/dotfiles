@@ -40,7 +40,13 @@ M.config = function()
                     ["<esc>"] = actions.close
                 }
             },
-            sorting_strategy = "ascending"
+            sorting_strategy = "ascending",
+            vimgrep_arguments = {
+                {
+                    "rg", "--color=never", "--column", "--hidden",
+                    "--line-number", "--no-heading", "--with-filename"
+                }
+            }
         }
     }
 
