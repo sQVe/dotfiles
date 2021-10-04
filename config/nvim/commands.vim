@@ -63,22 +63,3 @@ command! -nargs=0 ShowDocumentation call ShowDocumentation()
 
 " Z lookup.
 command! -nargs=1 Z call Z(<q-args>)
-
-
-"  ┏━┓╻  ╻ ╻┏━╸╻┏┓╻   ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓┏━┓
-"  ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫   ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃┗━┓
-"  ╹  ┗━╸┗━┛┗━┛╹╹ ╹   ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛┗━┛
-
-" FZF.
-command! -bang -nargs=? -complete=dir BFiles
-  \ call fzf#vim#files(expand('%:p:h'), fzf#vim#with_preview({
-  \ 'options': ['--tiebreak=length,end'] }), <bang>0)
-command! -bang -nargs=? -complete=dir Files
-  \ call fzf#vim#files(<q-args>, fzf#vim#with_preview({
-  \ 'options': ['--tiebreak=length,end'] }), <bang>0)
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   fzf#vim#with_preview('down:50%'),
-  \   <bang>0)
-command! -nargs=* -bang RgLive call RgLive(<q-args>, <bang>0)
