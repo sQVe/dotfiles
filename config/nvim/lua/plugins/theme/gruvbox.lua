@@ -47,15 +47,6 @@ return function()
         hi! link LightspeedUnlabeledMatch GruvboxYellow
     ]])
 
-    -- Diagonstics.
-    -- TODO: Remove this once gruvbox.nvim supports new diagnostics highlights.
-    vim.cmd([[
-        hi! link DiagnosticSignError LspDiagnosticsSignError
-        hi! link DiagnosticSignHint LspDiagnosticsSignHint
-        hi! link DiagnosticSignInfo LspDiagnosticsSignInformation
-        hi! link DiagnosticSignWarn LspDiagnosticsSignWarning
-    ]])
-
     -- Signs.
     vim.cmd([[
         sign define DiagnosticSignError text=■ texthl=DiagnosticSignError
