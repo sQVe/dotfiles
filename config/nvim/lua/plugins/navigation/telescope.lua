@@ -3,21 +3,12 @@
 --  ╹ ┗━╸┗━╸┗━╸┗━┛┗━╸┗━┛╹  ┗━╸
 local M = {}
 
-M.find_root_files = function()
-    local builtin = require('telescope.builtin')
-    local opts = {follow = true}
-
-    local ok = pcall(builtin.git_files, opts)
-    if not ok then builtin.find_files(opts) end
-end
-
 M.find_buffer_files = function()
     local builtin = require('telescope.builtin')
     local utils = require('telescope.utils')
-    local opts = {cwd = utils.buffer_dir(), follow = true, use_git_root = false}
+    local opts = {cwd = utils.buffer_dir(), follow = true, hidden = true}
 
-    local ok = pcall(builtin.git_files, opts)
-    if not ok then builtin.find_files(opts) end
+    builtin.find_files(opts)
 end
 
 M.config = function()
@@ -37,7 +28,8 @@ M.config = function()
             mappings = {
                 i = {
                     ["<C-s>"] = actions.select_horizontal,
-                    ["<esc>"] = actions.close
+                    ["<esc>"] = actions.close,
+                    ["<Leader>q"] = actions.close
                 }
             },
             sorting_strategy = "ascending",
@@ -59,7 +51,7 @@ M.config = function()
 
         " Files and buffers.
         nnoremap <silent> <Backspace> :Telescope buffers<CR>
-        nnoremap <silent> ä :lua require("plugins.navigation.telescope").find_root_files()<CR>
+        nnoremap <silent> ä :Telescope find_files follow=true hidden=true<CR>
         nnoremap <silent> å :lua require("plugins.navigation.telescope").find_buffer_files()<CR>
 
         " Grep.
