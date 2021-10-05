@@ -53,6 +53,10 @@ M.config = function()
     telescope.load_extension('fzf')
 
     vim.cmd([[
+        " Telescope.
+        nnoremap <silent> - :Telescope<CR>
+        nnoremap <silent> _ :Telescope resume<CR>
+
         " Files and buffers.
         nnoremap <silent> <Backspace> :Telescope buffers<CR>
         nnoremap <silent> ä :lua require("plugins.navigation.telescope").find_root_files()<CR>
