@@ -62,7 +62,7 @@ M.config = function()
         nnoremap <silent> <Leader>+ :Telescope live_grep<CR>
         nnoremap <silent> <Leader>/ :Telescope live_grep<CR>
         nnoremap <silent> <Leader>? :Telescope live_grep<CR>
-        nnoremap <silent> gR Telescrope grep_string<CR>
+        nnoremap <silent> gR :Telescope grep_string<CR>
 
         " Git.
         nnoremap <silent> <Leader>gl :Telescope git_bcommits<CR>
