@@ -83,7 +83,7 @@
     "body": "${1:iterable}.find((${2:item}) => $0);"
   },
   "FPForEach": {
-    "prefix": "fe",
+    "prefix": "forEach",
     "body": "${1:iterable}.forEach((${2:item}) => $0);"
   },
   "FPIncludes": {
