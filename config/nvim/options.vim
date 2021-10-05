@@ -46,8 +46,7 @@ set wildmenu                      " Enable wildmenu.
 set wildmode=longest:full,full    " Set wildmenu modes.
 
 " Cursor.
-set nocursorline                  " Show no cursorline by default. Autocmd enables
-                                  " cursorline for the active window.
+set cursorline                    " Show cursorline.
 
 " Tabs and spaces.
 set expandtab                     " Insert spaces when TAB is pressed.
