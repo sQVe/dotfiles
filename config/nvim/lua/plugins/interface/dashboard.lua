@@ -23,7 +23,7 @@ return function()
     vim.g.dashboard_custom_section = {
         a = {description = {'📝  Find File                                      '}, command = 'lua require("plugins.navigation.telescope").find_root_files()'},
         b = {description = {'🔴  Status                                         '}, command = 'Telescope git_status'},
-        c = {description = {'✍   Recently Used Files                            '}, command = 'Telescope oldfiles'},
+        c = {description = {'✍   Recently Used Files                            '}, command = 'Telescope oldfiles cwd_only=true'},
         d = {description = {'📑  File Manager                                   '}, command = 'FloatermNew vifm'},
         e = {description = {'🔍  Find Word                                      '}, command = 'Telescope live_grep'},
         g = {description = {'💎  New File                                       '}, command = 'enew'},

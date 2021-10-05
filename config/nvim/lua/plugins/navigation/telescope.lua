@@ -21,8 +21,8 @@ M.find_buffer_files = function()
 end
 
 M.config = function()
-    local actions = require('telescope.actions')
     local telescope = require("telescope")
+    local actions = require("telescope.actions")
 
     telescope.setup {
         defaults = {
