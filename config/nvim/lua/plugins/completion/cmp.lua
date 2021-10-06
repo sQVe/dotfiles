@@ -63,9 +63,10 @@ return function()
                 cmp.config.compare.sort_text, cmp.config.compare.order
             }
         },
+
         sources = {
             {name = 'nvim_lsp', priority = 100}, {name = 'path', priority = 80},
-            {name = 'vsnip', priority = 40}, {
+            {name = 'vsnip', keyword_length = 2, priority = 40}, {
                 name = 'buffer',
                 opts = {
                     get_bufnrs = get_all_buffers,
