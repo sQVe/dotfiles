@@ -22,11 +22,13 @@ M.config = function()
         defaults = {
             dynamic_preview_title = true,
             layout_config = {
-                height = 0.75,
-                preview_cutoff = 150,
-                preview_width = 0.5,
-                prompt_position = "top",
-                width = 0.75
+                horizontal = {
+                    height = 0.8,
+                    preview_cutoff = 150,
+                    preview_width = 0.5,
+                    prompt_position = "top",
+                    width = 0.8
+                }
             },
             mappings = {
                 i = {

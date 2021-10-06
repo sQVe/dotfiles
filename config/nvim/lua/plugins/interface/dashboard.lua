@@ -21,7 +21,7 @@ return function()
 
     -- LuaFormatter off
     vim.g.dashboard_custom_section = {
-        a = {description = {'📝  Find File                                      '}, command = 'Telescope find_files follow=true hidden=true'},
+        a = {description = {'📝  Find File                                      '}, command = 'lua require("plugins.navigation.telescope").find_files()'},
         b = {description = {'🔴  Status                                         '}, command = 'Telescope git_status'},
         c = {description = {'✍   Recently Used Files                            '}, command = 'Telescope oldfiles cwd_only=true'},
         d = {description = {'📑  File Manager                                   '}, command = 'FloatermNew vifm'},
