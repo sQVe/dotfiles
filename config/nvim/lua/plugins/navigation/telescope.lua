@@ -17,6 +17,7 @@ M.config = function()
 
     telescope.setup {
         defaults = {
+            dynamic_preview_title = true,
             layout_config = {
                 height = 0.75,
                 preview_cutoff = 150,
@@ -26,6 +27,8 @@ M.config = function()
             },
             mappings = {
                 i = {
+                    ["<C-Down>"] = actions.cycle_history_next,
+                    ["<C-Up>"] = actions.cycle_history_prev,
                     ["<C-s>"] = actions.select_horizontal,
                     ["<esc>"] = actions.close,
                     ["<Leader>q"] = actions.close

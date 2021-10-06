@@ -218,7 +218,7 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim', -- Telescope.
         event = 'VimEnter',
         config = require('plugins.navigation.telescope').config,
-        requires = {{'nvim-lua/plenary.nvim'}}
+        requires = {'nvim-lua/plenary.nvim'}
     }
     use {
         'nvim-telescope/telescope-fzf-native.nvim', -- FZF for telescope.
