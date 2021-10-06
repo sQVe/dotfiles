@@ -3,12 +3,15 @@
 --  ╹ ┗━╸┗━╸┗━╸┗━┛┗━╸┗━┛╹  ┗━╸
 local M = {}
 
-M.find_buffer_files = function()
+M.find_files = function(use_buffer_cwd)
     local builtin = require('telescope.builtin')
     local utils = require('telescope.utils')
-    local opts = {cwd = utils.buffer_dir(), follow = true, hidden = true}
+    local opts = {follow = true, hidden = true, use_git_root = false}
 
-    builtin.find_files(opts)
+    if use_buffer_cwd then opts.cwd = utils.buffer_dir() end
+
+    local ok = pcall(builtin.git_files, opts)
+    if not ok then builtin.find_files(opts) end
 end
 
 M.config = function()
@@ -53,8 +56,8 @@ M.config = function()
 
         " Files and buffers.
         nnoremap <silent> <Backspace> :Telescope buffers<CR>
-        nnoremap <silent> ä :Telescope find_files follow=true hidden=true<CR>
-        nnoremap <silent> å :lua require("plugins.navigation.telescope").find_buffer_files()<CR>
+        nnoremap <silent> ä :lua require("plugins.navigation.telescope").find_files()<CR>
+        nnoremap <silent> å :lua require("plugins.navigation.telescope").find_files(true)<CR>
 
         " Grep.
         nnoremap <silent> <Leader>+ :Telescope live_grep<CR>
