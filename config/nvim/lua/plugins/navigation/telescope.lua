@@ -18,12 +18,11 @@ M.config = function()
     telescope.setup {
         defaults = {
             layout_config = {
-                horizontal = {
-                    height = 0.9,
-                    preview_cutoff = 120,
-                    prompt_position = "top",
-                    width = 0.8
-                }
+                height = 0.75,
+                preview_cutoff = 150,
+                preview_width = 0.5,
+                prompt_position = "top",
+                width = 0.75
             },
             mappings = {
                 i = {
