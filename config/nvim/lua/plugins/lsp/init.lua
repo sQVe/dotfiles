@@ -13,7 +13,7 @@ return function()
 
     for server, config in pairs(servers) do
         if config.flags == nil then
-            config.flags = {debounce_text_changes = 150}
+            config.flags = {debounce_text_changes = 100}
         end
 
         -- Initiate and setup all LSP servers (excluding null-ls).
