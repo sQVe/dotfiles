@@ -164,13 +164,8 @@ return require('packer').startup(function(use)
     use {'jose-elias-alvarez/nvim-lsp-ts-utils', after = 'null-ls.nvim'}
     use {
         'neovim/nvim-lspconfig', -- Collection of configurations.
-        after = {'lsp_signature.nvim', 'cmp-nvim-lsp'},
+        after = {'cmp-nvim-lsp'},
         config = require('plugins.lsp'),
-    }
-    use {
-        'ray-x/lsp_signature.nvim', -- Signature help.
-        event = 'BufEnter',
-        config = require('plugins.lsp.signature'),
     }
 
     -- Completion.
@@ -220,12 +215,10 @@ return require('packer').startup(function(use)
         'nvim-telescope/telescope.nvim', -- Telescope.
         event = 'VimEnter',
         config = require('plugins.navigation.telescope').config,
-        requires = {'nvim-lua/plenary.nvim'},
-    }
-    use {
-        'nvim-telescope/telescope-fzf-native.nvim', -- FZF for telescope.
-        event = 'VimEnter',
-        run = 'make',
+        requires = {
+            'nvim-lua/plenary.nvim',
+            {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
+        },
     }
 
     -- Text objects and motions.

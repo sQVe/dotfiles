@@ -2,9 +2,7 @@
 --  ┃┃┗┫┃ ┃
 --  ╹╹ ╹╹ ╹
 return function()
-    local on_attach = function()
-        require('lsp_signature').on_attach()
-    end
+    local on_attach = function() end
     local servers = require('plugins.lsp.servers')(on_attach)
 
     local lsp = vim.lsp
