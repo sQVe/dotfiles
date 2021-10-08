@@ -1,5 +1,4 @@
 keep_simple_control_block_one_line: false
-keep_simple_function_one_line: false
 break_after_functiondef_lp: true
 break_before_functiondef_rp: true
 extra_sep_at_table_end: true
