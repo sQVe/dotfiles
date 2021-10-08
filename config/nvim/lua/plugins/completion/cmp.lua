@@ -22,6 +22,8 @@ return function()
     local tab_complete = function(fallback)
         if vim.fn.pumvisible() == 1 then
             feedkey("<C-n>", "n")
+        elseif cmp.visible() then
+            cmp.select_next_item()
         elseif has_words_before() then
             cmp.complete()
         else
@@ -32,6 +34,8 @@ return function()
     local s_tab_complete = function(fallback)
         if vim.fn.pumvisible() == 1 then
             feedkey("<C-p>", "n")
+        elseif cmp.visible() then
+            cmp.select_prev_item()
         else
             fallback()
         end
