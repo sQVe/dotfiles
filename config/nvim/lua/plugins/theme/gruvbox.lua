@@ -48,6 +48,11 @@ return function()
         hi! link LightspeedUnlabeledMatch GruvboxYellow
     ]])
 
+    -- LSP.
+    vim.cmd([[
+        hi! link LspSignatureActiveParameter GruvboxPurple
+    ]])
+
     -- Signs.
     vim.cmd([[
         sign define DiagnosticSignError text=■ texthl=DiagnosticSignError

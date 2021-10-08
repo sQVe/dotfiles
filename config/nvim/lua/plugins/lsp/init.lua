@@ -30,5 +30,8 @@ return function()
         nnoremap <silent> gl :lua vim.lsp.diagnostic.show_line_diagnostics({show_header = false})<CR>
         nnoremap <silent> <Leader>lj :lua vim.lsp.diagnostic.goto_next({popup_opts = {show_header = false}})<CR>
         nnoremap <silent> <Leader>lk :lua vim.lsp.diagnostic.goto_prev({popup_opts = {show_header = false}})<CR>
+
+        " Insert.
+        inoremap <silent> <C-k> <cmd>:lua vim.lsp.buf.signature_help()<CR>
     ]])
 end

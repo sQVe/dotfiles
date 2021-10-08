@@ -45,9 +45,7 @@ return function()
         vim.fn['vsnip#anonymous'](args.body)
     end
 
-    local get_all_buffers = function()
-        return vim.api.nvim_list_bufs()
-    end
+    local get_all_buffers = function() return vim.api.nvim_list_bufs() end
 
     cmp.setup {
         experimental = {ghost_text = {hl_group = 'GruvboxGray'}},
