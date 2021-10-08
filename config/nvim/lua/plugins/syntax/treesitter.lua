@@ -8,7 +8,7 @@ return function()
             'html', 'javascript', 'jsdoc', 'json', 'jsonc', 'lua', 'scss',
             'tsx', 'typescript', 'vim', 'yaml'
         },
-        context_commentstring = {enable = true},
+        context_commentstring = {enable = true, enable_autocmd = false},
         highlight = {enable = true},
         indent = {enable = true},
         textsubjects = {enable = true, keymaps = {['.'] = 'textsubjects-smart'}}

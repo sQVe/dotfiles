@@ -62,10 +62,11 @@ return require('packer').startup(function(use)
 
     --  Documentation.
     use { -- Comment text.
-        "terrortylor/nvim-comment",
+        'terrortylor/nvim-comment',
         cmd = {'CommentToggle'},
         config = require('plugins.documentation.comment'),
-        keys = {{'n', 'gc'}, {'v', 'gc'}}
+        keys = {{'n', 'gc'}, {'v', 'gc'}},
+        requires = {'JoosepAlviste/nvim-ts-context-commentstring'}
     }
     use { -- Automatically set commentstring.
         'JoosepAlviste/nvim-ts-context-commentstring',
