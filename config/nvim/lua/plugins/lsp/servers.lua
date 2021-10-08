@@ -20,7 +20,7 @@ return function(on_attach_callback)
             disable_formatting(client)
             on_attach_callback()
         end,
-        root_dir = root_dir
+        root_dir = root_dir,
     }
 
     return {
@@ -32,35 +32,35 @@ return function(on_attach_callback)
         tsserver = {
             capabilities = commonConfig.capabilities,
             on_attach = function(client)
-                local ts_utils = require("nvim-lsp-ts-utils")
+                local ts_utils = require('nvim-lsp-ts-utils')
 
                 ts_utils.setup({
                     enable_import_on_completion = true,
-                    eslint_bin = "eslint_d",
+                    eslint_bin = 'eslint_d',
                     filter_out_diagnostics_by_code = {
-                        80001 -- Require modules.
-                    }
+                        80001, -- Require modules.
+                    },
                 })
                 ts_utils.setup_client(client)
 
                 disable_formatting(client)
                 on_attach_callback()
             end,
-            root_dir = commonConfig.root_dir
+            root_dir = commonConfig.root_dir,
         },
         sumneko_lua = {
             capabilities = commonConfig.capabilities,
-            cmd = {"lua-language-server"},
+            cmd = {'lua-language-server'},
             on_attach = commonConfig.on_attach,
             root_dir = commonConfig.root_dir,
             settings = {
                 Lua = {
                     diagnostics = {globals = {'vim'}},
                     runtime = {version = 'LuaJIT'},
-                    telemetry = {enable = false}
-                }
-            }
+                    telemetry = {enable = false},
+                },
+            },
         },
-        yamlls = commonConfig
+        yamlls = commonConfig,
     }
 end

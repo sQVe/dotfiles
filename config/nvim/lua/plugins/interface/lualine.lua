@@ -8,7 +8,7 @@ return function()
             theme = 'gruvbox',
             component_separators = {'', ''},
             section_separators = {'', ''},
-            disabled_filetypes = {'dashboard'}
+            disabled_filetypes = {'dashboard'},
         },
         sections = {
             lualine_a = {'mode'},
@@ -16,7 +16,7 @@ return function()
             lualine_c = {'filename'},
             lualine_x = {'filetype'},
             lualine_y = {'progress'},
-            lualine_z = {'location'}
-        }
+            lualine_z = {'location'},
+        },
     }
 end

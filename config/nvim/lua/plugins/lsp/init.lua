@@ -2,13 +2,15 @@
 --  ┃┃┗┫┃ ┃
 --  ╹╹ ╹╹ ╹
 return function()
-    local on_attach = function() require('lsp_signature').on_attach() end
+    local on_attach = function()
+        require('lsp_signature').on_attach()
+    end
     local servers = require('plugins.lsp.servers')(on_attach)
 
     local lsp = vim.lsp
 
     -- Disable virtual text for diagnostics.
-    lsp.handlers["textDocument/publishDiagnostics"] =
+    lsp.handlers['textDocument/publishDiagnostics'] =
         lsp.with(lsp.diagnostic.on_publish_diagnostics, {virtual_text = false})
 
     for server, config in pairs(servers) do
@@ -17,7 +19,7 @@ return function()
         end
 
         -- Initiate and setup all LSP servers (excluding null-ls).
-        require("lspconfig")[server].setup(config)
+        require('lspconfig')[server].setup(config)
     end
 
     vim.cmd([[

@@ -8,15 +8,19 @@ M.find_files = function(use_buffer_cwd)
     local utils = require('telescope.utils')
     local opts = {follow = true, hidden = true, use_git_root = false}
 
-    if use_buffer_cwd then opts.cwd = utils.buffer_dir() end
+    if use_buffer_cwd then
+        opts.cwd = utils.buffer_dir()
+    end
 
     local ok = pcall(builtin.git_files, opts)
-    if not ok then builtin.find_files(opts) end
+    if not ok then
+        builtin.find_files(opts)
+    end
 end
 
 M.config = function()
-    local telescope = require("telescope")
-    local actions = require("telescope.actions")
+    local telescope = require('telescope')
+    local actions = require('telescope.actions')
 
     telescope.setup {
         defaults = {
@@ -26,27 +30,27 @@ M.config = function()
                     height = 0.8,
                     preview_cutoff = 150,
                     preview_width = 0.5,
-                    prompt_position = "top",
-                    width = 0.8
-                }
+                    prompt_position = 'top',
+                    width = 0.8,
+                },
             },
             mappings = {
                 i = {
-                    ["<C-Down>"] = actions.cycle_history_next,
-                    ["<C-Up>"] = actions.cycle_history_prev,
-                    ["<C-s>"] = actions.select_horizontal,
-                    ["<esc>"] = actions.close,
-                    ["<Leader>q"] = actions.close
-                }
+                    ['<C-Down>'] = actions.cycle_history_next,
+                    ['<C-Up>'] = actions.cycle_history_prev,
+                    ['<C-s>'] = actions.select_horizontal,
+                    ['<esc>'] = actions.close,
+                    ['<Leader>q'] = actions.close,
+                },
             },
-            sorting_strategy = "ascending",
+            sorting_strategy = 'ascending',
             vimgrep_arguments = {
                 {
-                    "rg", "--color=never", "--column", "--hidden",
-                    "--line-number", "--no-heading", "--with-filename"
-                }
-            }
-        }
+                    'rg', '--color=never', '--column', '--hidden',
+                    '--line-number', '--no-heading', '--with-filename',
+                },
+            },
+        },
     }
 
     telescope.load_extension('fzf')

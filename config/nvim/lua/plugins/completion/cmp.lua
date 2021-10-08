@@ -5,13 +5,13 @@ return function()
     local cmp = require('cmp')
 
     local has_words_before = function()
-        if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
+        if vim.api.nvim_buf_get_option(0, 'buftype') == 'prompt' then
             return false
         end
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
         return col ~= 0 and
                    vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(
-                       col, col):match("%s") == nil
+                       col, col):match('%s') == nil
     end
 
     local feedkey = function(key, mode)
@@ -21,7 +21,7 @@ return function()
 
     local tab_complete = function(fallback)
         if vim.fn.pumvisible() == 1 then
-            feedkey("<C-n>", "n")
+            feedkey('<C-n>', 'n')
         elseif cmp.visible() then
             cmp.select_next_item()
         elseif has_words_before() then
@@ -33,7 +33,7 @@ return function()
 
     local s_tab_complete = function(fallback)
         if vim.fn.pumvisible() == 1 then
-            feedkey("<C-p>", "n")
+            feedkey('<C-p>', 'n')
         elseif cmp.visible() then
             cmp.select_prev_item()
         else
@@ -42,10 +42,12 @@ return function()
     end
 
     local expand_snippet = function(args)
-        vim.fn["vsnip#anonymous"](args.body)
+        vim.fn['vsnip#anonymous'](args.body)
     end
 
-    local get_all_buffers = function() return vim.api.nvim_list_bufs() end
+    local get_all_buffers = function()
+        return vim.api.nvim_list_bufs()
+    end
 
     cmp.setup {
         experimental = {ghost_text = {hl_group = 'GruvboxGray'}},
@@ -54,18 +56,18 @@ return function()
             ['<C-e>'] = cmp.mapping.close(),
             ['<CR>'] = cmp.mapping.confirm({
                 behavior = cmp.ConfirmBehavior.Replace,
-                select = false
+                select = false,
             }),
-            ['<S-Tab>'] = cmp.mapping(s_tab_complete, {"i", "s"}),
-            ['<Tab>'] = cmp.mapping(tab_complete, {"i", "s"})
+            ['<S-Tab>'] = cmp.mapping(s_tab_complete, {'i', 's'}),
+            ['<Tab>'] = cmp.mapping(tab_complete, {'i', 's'}),
         },
         snippet = {expand = expand_snippet},
         sorting = {
             comparators = {
                 cmp.config.compare.exact, cmp.config.compare.score,
                 cmp.config.compare.offset, cmp.config.compare.length,
-                cmp.config.compare.sort_text, cmp.config.compare.order
-            }
+                cmp.config.compare.sort_text, cmp.config.compare.order,
+            },
         },
 
         sources = {
@@ -74,10 +76,10 @@ return function()
                 name = 'buffer',
                 opts = {
                     get_bufnrs = get_all_buffers,
-                    keyword_pattern = [[\k\+]] -- Include special characters in word match.
+                    keyword_pattern = [[\k\+]], -- Include special characters in word match.
                 },
-                priority = 10
-            }
-        }
+                priority = 10,
+            },
+        },
     }
 end

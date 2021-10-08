@@ -8,32 +8,32 @@ return function()
                 hl = 'GitSignsAdd',
                 text = '│',
                 numhl = 'GitSignsAddNr',
-                linehl = 'GitSignsAddLn'
+                linehl = 'GitSignsAddLn',
             },
             change = {
                 hl = 'GitSignsChange',
                 text = '│',
                 numhl = 'GitSignsChangeNr',
-                linehl = 'GitSignsChangeLn'
+                linehl = 'GitSignsChangeLn',
             },
             delete = {
                 hl = 'GitSignsDelete',
                 text = '│',
                 numhl = 'GitSignsDeleteNr',
-                linehl = 'GitSignsDeleteLn'
+                linehl = 'GitSignsDeleteLn',
             },
             topdelete = {
                 hl = 'GitSignsDelete',
                 text = '│',
                 numhl = 'GitSignsDeleteNr',
-                linehl = 'GitSignsDeleteLn'
+                linehl = 'GitSignsDeleteLn',
             },
             changedelete = {
                 hl = 'GitSignsChange',
                 text = '│',
                 numhl = 'GitSignsChangeNr',
-                linehl = 'GitSignsChangeLn'
-            }
+                linehl = 'GitSignsChangeLn',
+            },
         },
         keymaps = {
             noremap = true,
@@ -41,11 +41,11 @@ return function()
 
             ['n <leader>hj'] = {
                 expr = true,
-                "&diff ? ']c' : '<cmd>lua require\"gitsigns.actions\".next_hunk()<CR>'"
+                '&diff ? \']c\' : \'<cmd>lua require"gitsigns.actions".next_hunk()<CR>\'',
             },
             ['n <leader>hk'] = {
                 expr = true,
-                "&diff ? '[c' : '<cmd>lua require\"gitsigns.actions\".prev_hunk()<CR>'"
+                '&diff ? \'[c\' : \'<cmd>lua require"gitsigns.actions".prev_hunk()<CR>\'',
             },
             ['n <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
             ['v <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
@@ -55,7 +55,7 @@ return function()
             ['n <leader>hi'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
             ['n <leader>hb'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
             ['o ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-            ['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>'
-        }
+            ['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+        },
     })
 end

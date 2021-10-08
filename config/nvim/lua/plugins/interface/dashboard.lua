@@ -11,10 +11,12 @@ return function()
             '██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║',
             '██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║',
             '╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝',
-            '', '', ''
+            '', '', '',
         }
     end
-    local function get_footer() return {'', '', '', vim.fn.getcwd()} end
+    local function get_footer()
+        return {'', '', '', vim.fn.getcwd()}
+    end
 
     vim.g.dashboard_custom_header = get_header()
     vim.g.dashboard_custom_footer = get_footer()

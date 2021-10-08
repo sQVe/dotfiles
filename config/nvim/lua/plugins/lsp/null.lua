@@ -9,18 +9,19 @@ return function()
     local linters = null.builtins.diagnostics
 
     null.config({
-        diagnostics_format = "#{c}: #{m} (#{s})",
+        diagnostics_format = '#{c}: #{m} (#{s})',
         sources = {
-            formatters.eslint_d, formatters.gofmt, formatters.lua_format,
+            formatters.eslint_d, formatters.gofmt,
+            formatters.lua_format
+                .with({extra_args = {'--double-quote-to-single-quote'}}),
             formatters.prettierd,
             formatters.shfmt
-                .with({extra_args = {"-i", "2", "-bn", "-ci", "-sr"}}),
-            linters.eslint_d.with({timeout = 20000}), linters.shellcheck
-
-        }
+                .with({extra_args = {'-i', '2', '-bn', '-ci', '-sr'}}),
+            linters.eslint_d.with({timeout = 20000}), linters.shellcheck,
+        },
     })
 
-    require("lspconfig")["null-ls"].setup({
+    require('lspconfig')['null-ls'].setup({
         on_attach = function()
             vim.cmd([[
                 augroup Format
@@ -29,6 +30,6 @@ return function()
                 augroup END
             ]])
         end,
-        root_dir = root_dir
+        root_dir = root_dir,
     })
 end
