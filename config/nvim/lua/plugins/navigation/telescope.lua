@@ -43,6 +43,7 @@ M.config = function()
                     ['<Leader>q'] = actions.close,
                 },
             },
+            scroll_strategy = 'limit',
             sorting_strategy = 'ascending',
             vimgrep_arguments = {
                 {
