@@ -48,7 +48,17 @@ return function()
 
     cmp.setup {
         experimental = {ghost_text = {hl_group = 'GruvboxGray'}},
-        formatting = {format = lspkind.cmp_format({with_text = false})},
+        formatting = {
+            format = lspkind.cmp_format({
+                with_text = false,
+                menu = ({
+                    buffer = ' Buffer',
+                    nvim_lsp = ' LSP',
+                    path = ' Path',
+                    vsnip = ' Vsnip',
+                }),
+            }),
+        },
         mapping = {
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<C-d>'] = cmp.mapping.scroll_docs(8),
