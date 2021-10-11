@@ -25,14 +25,14 @@ M.config = function()
     telescope.setup {
         defaults = {
             dynamic_preview_title = true,
+            layout_strategy = 'flex',
             layout_config = {
-                horizontal = {
-                    height = 0.8,
-                    preview_cutoff = 150,
-                    preview_width = 0.5,
-                    prompt_position = 'top',
-                    width = 0.8,
-                },
+                height = 0.8,
+                prompt_position = 'top',
+                width = 0.8,
+                flex = {flip_columns = 280},
+                horizontal = {preview_width = 80},
+                vertical = {preview_height = 0.25},
             },
             mappings = {
                 i = {
