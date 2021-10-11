@@ -51,8 +51,10 @@ return function()
         formatting = {format = lspkind.cmp_format({with_text = false})},
         mapping = {
             ['<C-Space>'] = cmp.mapping.complete(),
+            ['<C-d>'] = cmp.mapping.scroll_docs(8),
             ['<C-e>'] = cmp.mapping.close(),
             ['<C-k>'] = cmp.mapping(signature_help, {'i', 's'}),
+            ['<C-u>'] = cmp.mapping.scroll_docs(-8),
             ['<CR>'] = cmp.mapping.confirm({
                 behavior = cmp.ConfirmBehavior.Replace,
                 select = false,
