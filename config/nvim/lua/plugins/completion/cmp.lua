@@ -14,11 +14,6 @@ return function()
                        col, col):match('%s') == nil
     end
 
-    local feedkey = function(key, mode)
-        vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true,
-                                                             true), mode, true)
-    end
-
     local tab_complete = function(fallback)
         if cmp.visible() then
             cmp.select_next_item()
