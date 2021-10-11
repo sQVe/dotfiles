@@ -72,32 +72,32 @@
   },
   "FPEvery": {
     "prefix": "every",
-    "body": "${1:iterable}.every((${2:item}) => $0);"
+    "body": "every((${1:item}) => $0);"
   },
   "FPFilter": {
     "prefix": "filter",
-    "body": "${1:iterable}.filter((${2:item}) => $0);"
+    "body": "filter((${1:item}) => $0);"
   },
   "FPFind": {
     "prefix": "find",
-    "body": "${1:iterable}.find((${2:item}) => $0);"
+    "body": "find((${1:item}) => $0);"
   },
   "FPForEach": {
     "prefix": "forEach",
-    "body": "${1:iterable}.forEach((${2:item}) => $0);"
+    "body": "forEach((${1:item}) => $0);"
   },
   "FPIncludes": {
     "prefix": "includes",
-    "body": "${1:iterable}.includes((${2:item}) => $0);"
+    "body": "includes((${1:item}) => $0);"
   },
-  "FPMap": { "prefix": "map", "body": "${1:iterable}.map((${2:item}) => $0);" },
+  "FPMap": { "prefix": "map", "body": "map((${1:item}) => $0);" },
   "FPReduce": {
     "prefix": "reduce",
-    "body": "${1:iterable}.reduce((${2:acc}, ${3:current}) => $0${4:initialValue});"
+    "body": "reduce((${1:acc}, ${2:current}) => $0, ${3:initialValue});"
   },
   "FPSome": {
     "prefix": "some",
-    "body": "${1:iterable}.some((${2:item}) => $0);"
+    "body": "some((${1:item}) => $0);"
   },
   "Function": {
     "prefix": "fn",
