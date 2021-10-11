@@ -33,6 +33,13 @@ return function()
         end
     end
 
+    local signature_help = function()
+        if cmp.visible() then
+            cmp.close()
+        end
+        vim.lsp.buf.signature_help()
+    end
+
     local expand_snippet = function(args)
         vim.fn['vsnip#anonymous'](args.body)
     end
@@ -45,6 +52,7 @@ return function()
         mapping = {
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<C-e>'] = cmp.mapping.close(),
+            ['<C-k>'] = cmp.mapping(signature_help, {'i', 's'}),
             ['<CR>'] = cmp.mapping.confirm({
                 behavior = cmp.ConfirmBehavior.Replace,
                 select = false,
