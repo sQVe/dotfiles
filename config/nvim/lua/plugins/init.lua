@@ -173,6 +173,7 @@ return require('packer').startup(function(use)
         'hrsh7th/nvim-cmp', -- Completion engine.
         config = require('plugins.completion.cmp'),
         event = 'InsertEnter',
+        requires = {'onsails/lspkind-nvim'},
     }
     use {'hrsh7th/cmp-buffer', after = 'nvim-cmp'} -- Buffer completion.
     use {'hrsh7th/cmp-nvim-lsp', event = 'BufEnter'} -- LSP completion.

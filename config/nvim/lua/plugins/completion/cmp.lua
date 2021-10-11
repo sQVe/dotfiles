@@ -3,6 +3,7 @@
 --  ┗━╸┗━┛╹ ╹╹  ┗━╸
 return function()
     local cmp = require('cmp')
+    local lspkind = require('lspkind')
 
     local has_words_before = function()
         if vim.api.nvim_buf_get_option(0, 'buftype') == 'prompt' then
@@ -40,6 +41,7 @@ return function()
 
     cmp.setup {
         experimental = {ghost_text = {hl_group = 'GruvboxGray'}},
+        formatting = {format = lspkind.cmp_format({with_text = false})},
         mapping = {
             ['<C-Space>'] = cmp.mapping.complete(),
             ['<C-e>'] = cmp.mapping.close(),
