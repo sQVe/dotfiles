@@ -123,8 +123,9 @@ return require('packer').startup(function(use)
     -- Interface.
     use {'ap/vim-buftabline', event = 'BufEnter'} -- Buffer line.
     use {
-        'beauwilliams/focus.nvim',
+        'beauwilliams/focus.nvim', -- Golden ratio window resizing.
         config = require('plugins.interface.focus'),
+        event = 'BufEnter',
         module = 'focus',
     }
     use { -- Zen Mode.
