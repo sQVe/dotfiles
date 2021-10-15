@@ -1,5 +1,10 @@
 --  ┏━╸┏━┓┏━╸╻ ╻┏━┓
 --  ┣╸ ┃ ┃┃  ┃ ┃┗━┓
 --  ╹  ┗━┛┗━╸┗━┛┗━┛
-return
-    function() require('focus').setup({signcolumn = false, number = false}) end
+return function()
+    require('focus').setup({
+        excluded_filetypes = {'fugitiveblame'},
+        number = false,
+        signcolumn = false,
+    })
+end
