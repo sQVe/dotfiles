@@ -8,16 +8,13 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
-" Search on specific engines.
-func! Search(engine, query)
-  let engineRoots = {
-    \ "duckduckgo": "https://duckduckgo.com/?q=",
-    \ "devdocs": "https://devdocs.io/#q=",
-    \ }
+" Search on DuckDuckGo.
+func! Ddg(query)
+  let ddg_root = 'https://duckduckgo.com/?q='
   let query = empty(a:query) ? @o : a:query
   let safe_query = substitute(substitute(query, '\v\s+', ' ', 'g'), '\n', '', 'g')
 
-  silent! exec ":! open-qutebrowser " . shellescape(engineRoots[a:engine] . safe_query, 1) . " &"
+  silent! exec ":! open-qutebrowser " . shellescape(ddg_root . safe_query, 1) . " &"
 endfunc
 
 " Show documentation.
@@ -35,8 +32,6 @@ func! PrintAsciiHeader(title)
   execute "read !toilet -f future " . a:title
   norm 0Vkkgc
 endfunc
-
-
 
 " Open file or URL under cursor with mimeo. This is a temporary solution until
 " `gx` in netrw is repaired.

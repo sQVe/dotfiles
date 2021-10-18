@@ -49,14 +49,8 @@ command! PrevCommitMsg vsplit .git/PREV_COMMIT_EDITMSG
 " Create and print Ascii Header.
 command! -nargs=1 AsciiHeader call PrintAsciiHeader(<q-args>)
 
-" FixAndFormat buffer.
-command! -nargs=0 FixAndFormat call FixAndFormat()
-
 " Search on DuckDuckGo.
-command! -nargs=? Ddg call Search('duckduckgo', <q-args>)
-
-" Search on DevDocs.
-command! -nargs=? DevDocs call Search('devdocs', <q-args>)
+command! -nargs=? Ddg call Ddg(<q-args>)
 
 " Show documentation.
 command! -nargs=0 ShowDocumentation call ShowDocumentation()
