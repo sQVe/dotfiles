@@ -4,20 +4,20 @@
 return function(on_attach_callback)
     local root_dir = require('util').root_dir
 
-    local disable_formatting = function(client)
-        -- Disable LSP based formatting. Formatting is handled by null-ls.
-        client.resolved_capabilities.document_formatting = false
-        client.resolved_capabilities.document_range_formatting = false
+    local set_formatting_capabilities = function(client, value)
+        -- Set LSP formatting.
+        client.resolved_capabilities.document_formatting = value
+        client.resolved_capabilities.document_range_formatting = value
     end
 
-    -- Enable LSP snippet support.
+    -- Set LSP capabilities.
     local capabilities = vim.lsp.protocol.make_client_capabilities()
     capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
 
     local commonConfig = {
         capabilities = capabilities,
         on_attach = function(client)
-            disable_formatting(client)
+            set_formatting_capabilities(client, false)
             on_attach_callback()
         end,
         root_dir = root_dir,
@@ -30,7 +30,7 @@ return function(on_attach_callback)
         html = commonConfig,
         jsonls = commonConfig,
         tsserver = {
-            capabilities = commonConfig.capabilities,
+            capabilities = capabilities,
             on_attach = function(client)
                 local ts_utils = require('nvim-lsp-ts-utils')
 
@@ -43,16 +43,16 @@ return function(on_attach_callback)
                 })
                 ts_utils.setup_client(client)
 
-                disable_formatting(client)
+                set_formatting_capabilities(client, false)
                 on_attach_callback()
             end,
-            root_dir = commonConfig.root_dir,
+            root_dir = root_dir,
         },
         sumneko_lua = {
-            capabilities = commonConfig.capabilities,
+            capabilities = capabilities,
             cmd = {'lua-language-server'},
             on_attach = commonConfig.on_attach,
-            root_dir = commonConfig.root_dir,
+            root_dir = root_dir,
             settings = {
                 Lua = {
                     diagnostics = {globals = {'vim'}},
