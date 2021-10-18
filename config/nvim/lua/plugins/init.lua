@@ -18,7 +18,11 @@ return require('packer').startup(function(use)
     use({'wbthomason/packer.nvim'})
 
     -- Editing.
-    use({'tpope/vim-repeat', event = 'BufEnter'}) -- Repeat for plugins.
+    use({
+        'gabrielpoca/replacer.nvim', -- Search and replace over quicklist.
+        cmd = {'Replace'},
+        config = require('plugins.editing.replacer'),
+    })
     use({
         'machakann/vim-sandwich', -- Surround text.
         config = require('plugins.editing.sandwich').config,
@@ -31,6 +35,7 @@ return require('packer').startup(function(use)
         config = require('plugins.editing.easy-align'),
         keys = {{'n', 'ga'}, {'x', 'ga'}},
     })
+    use({'tpope/vim-repeat', event = 'BufEnter'}) -- Repeat for plugins.
 
     -- Integration.
     use({'editorconfig/editorconfig-vim', event = 'BufEnter'}) -- Editorconfig.
@@ -199,14 +204,6 @@ return require('packer').startup(function(use)
     })
 
     -- Navigation.
-    use({
-        'dyng/ctrlsf.vim', -- Search and replace over multiple files.
-        cmd = {
-            'CtrlSF', 'CtrlSFClearHL', 'CtrlSFClose', 'CtrlSFFocus',
-            'CtrlSFOpen', 'CtrlSFQuickfix', 'CtrlSFStop', 'CtrlSFToggle',
-            'CtrlSFUpdate',
-        },
-    })
     use({
         'ggandor/lightspeed.nvim', -- Quick jump.
         config = require('plugins.navigation.lightspeed'),

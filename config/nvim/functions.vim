@@ -31,7 +31,7 @@ endfunc
 
 " Create and print ascii header.
 func! PrintAsciiHeader(title)
-  PackerLoad nvim-comment
+  PackerLoad Comment.nvim
   execute "read !toilet -f future " . a:title
   norm 0Vkkgc
 endfunc
