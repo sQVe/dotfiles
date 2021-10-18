@@ -195,7 +195,7 @@ return require('packer').startup(function(use)
     use({'tpope/vim-speeddating', keys = {{'n', '<c-a>'}, {'n', '<c-x>'}}}) -- Increment / decrement dates, times and more.
     use({ -- Interactive registers.
         'tversteeg/registers.nvim',
-        event = 'BufEnter',
+        keys = {{'i', '<c-r>'}, {'n', '"'}, {'v', '"'}},
     })
 
     -- Navigation.
