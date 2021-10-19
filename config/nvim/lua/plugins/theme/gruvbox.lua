@@ -19,6 +19,7 @@ return function()
 
         " Cmp.
         hi! CmpItemAbbrDeprecated guifg=#928374 guibg=NONE gui=strikethrough cterm=NONE
+        hi! link CmpItemAbbrDefault GruvboxFg4
         hi! link CmpItemKind GruvboxYellow
         hi! link CmpItemMenu GruvboxPurple
 
