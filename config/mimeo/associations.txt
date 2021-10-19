@@ -5,9 +5,11 @@ google-chrome-stable %U
   ^https?:\/\/(docs|drive|jamboard|meet)\.google\.com
   ^https?:\/\/.*\.amazonaws\.com
   ^https?:\/\/.*\.detectify\.net
+  ^https?:\/\/.*\.figma\.com
   ^https?:\/\/.*\.google\.com/calendar
   ^https?:\/\/detectify
   ^https?:\/\/google\.zoom\.us
+  ^https?:\/\/sentry\.io
 
 open-zoom %U
   ^https?:\/\/.*zoom\.us
