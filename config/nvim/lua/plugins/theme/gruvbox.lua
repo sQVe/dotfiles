@@ -37,10 +37,11 @@ return function()
         " Lightspeed.
         hi! LightspeedGreyWash guifg=#665c54 guibg=NONE gui=NONE cterm=NONE
         hi! LightspeedLabel guifg=#8ec07c guibg=NONE gui=bold cterm=NONE
-        hi! LightspeedLabelOverlapped guifg=#fe8019 guibg=NONE gui=bold cterm=NONE
-        hi! LightspeedOneCharMatch guifg=#282828 guibg=#8ec07c gui=bold cterm=NONE
-        hi! LightspeedShortcut guifg=#282828 guibg=#8ec07c gui=bold cterm=NONE
-        hi! LightspeedShortcutOverlapped guifg=#282828 guibg=#fe8019 gui=bold cterm=NONE
+        hi! LightspeedLabelOverlapped guifg=#fb4934 guibg=NONE gui=bold cterm=NONE
+        hi! LightspeedOneCharMatch guifg=#fbf1c7 guibg=NONE gui=bold cterm=NONE
+        hi! LightspeedShortcut guifg=#fbf1c7 guibg=NONE gui=bold cterm=NONE
+        hi! LightspeedShortcutOverlapped guifg=#fbf1c7 guibg=NONE gui=bold cterm=NONE
+
         hi! link LightspeedLabelDistant GruvboxFg2
         hi! link LightspeedLabelDistantOverlapped GruvboxFg3
         hi! link LightspeedMaskedChar GruvboxPurple
