@@ -27,8 +27,8 @@ return function()
         nnoremap <silent> K :ShowDocumentation<CR>
 
         " Diagnostics.
-        nnoremap <silent> gl :lua vim.lsp.diagnostic.show_line_diagnostics({show_header = false})<CR>
-        nnoremap <silent> <Leader>lj :lua vim.lsp.diagnostic.goto_next({popup_opts = {show_header = false}})<CR>
-        nnoremap <silent> <Leader>lk :lua vim.lsp.diagnostic.goto_prev({popup_opts = {show_header = false}})<CR>
+        nnoremap <silent> gl :lua vim.diagnostic.open_float(0, {scope = 'line', show_header = false})<CR>
+        nnoremap <silent> <Leader>lj :lua vim.diagnostic.goto_next({float = false})<CR>
+        nnoremap <silent> <Leader>lk :lua vim.diagnostic.goto_prev({float = false})<CR>
     ]])
 end
