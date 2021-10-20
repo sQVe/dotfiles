@@ -195,7 +195,7 @@ return require('packer').startup(function(use)
     use({
         'sickill/vim-pasta', -- Paste with smart indentation.
         config = require('plugins.override.pasta'),
-        keys = {{'n', 'p'}, {'n', 'P'}, {'v', 'p'}, {'v', 'P'}},
+        event = 'BufEnter',
     })
     use({'tpope/vim-speeddating', keys = {{'n', '<c-a>'}, {'n', '<c-x>'}}}) -- Increment / decrement dates, times and more.
     use({ -- Interactive registers.
