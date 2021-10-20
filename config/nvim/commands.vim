@@ -39,7 +39,7 @@ command! WA wa
 command! Wbc Wbc
 
 " Open prev git commit message.
-command! PrevCommitMsg vsplit .git/PREV_COMMIT_EDITMSG
+command! CommitMsgPrev vsplit .git/PREV_COMMIT_EDITMSG
 
 
 "  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻   ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓┏━┓
@@ -47,7 +47,10 @@ command! PrevCommitMsg vsplit .git/PREV_COMMIT_EDITMSG
 "  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹   ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛┗━┛
 
 " Create and print Ascii Header.
-command! -nargs=1 AsciiHeader call PrintAsciiHeader(<q-args>)
+command! -nargs=1 AsciiHeader call AsciiHeader(<q-args>)
+
+" Use branch name as commit message.
+command! -nargs=0 CommitMsgFromBranchName call CommitMsgFromBranchName()
 
 " Search on DuckDuckGo.
 command! -nargs=? Ddg call Ddg(<q-args>)

@@ -8,6 +8,13 @@ function! ExecuteMacroOverVisualRange()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
 
+" Use branch name as commit message.
+func! CommitMsgFromBranchName()
+  normal gg4j3WYggp
+  1 substitute /\//: /e
+  1 substitute /-/ /e
+endfunc
+
 " Search on DuckDuckGo.
 func! Ddg(query)
   let ddg_root = 'https://duckduckgo.com/?q='
@@ -27,7 +34,7 @@ func! ShowDocumentation()
 endfunc
 
 " Create and print ascii header.
-func! PrintAsciiHeader(title)
+func! AsciiHeader(title)
   PackerLoad Comment.nvim
   execute "read !toilet -f future " . a:title
   norm 0Vkkgc
