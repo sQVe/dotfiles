@@ -255,6 +255,9 @@ bindsym $mod+space fullscreen toggle
 
 bindsym $mod+Shift+Return exec $samedir
 
+bindsym $alt+x exec dunstctl close
+bindsym $alt+Shift+x exec dunstctl close-all
+
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 # ¤¤¤¤  Modes  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
