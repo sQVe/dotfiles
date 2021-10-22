@@ -83,9 +83,9 @@ return function()
         },
 
         sources = {
-            {name = 'nvim_lua', priority = 120},
-            {name = 'nvim_lsp', priority = 100}, {name = 'path', priority = 80},
-            {name = 'vsnip', keyword_length = 2, priority = 40}, {
+            {name = 'nvim_lua', priority = 80},
+            {name = 'nvim_lsp', priority = 60}, {name = 'path', priority = 40},
+            {name = 'vsnip', keyword_length = 2, priority = 20}, {
                 name = 'buffer',
                 opts = {
                     get_bufnrs = get_all_buffers,
