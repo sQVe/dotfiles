@@ -10,7 +10,7 @@ endfunction
 
 " Use branch name as commit message.
 func! CommitMsgFromBranchName()
-  normal gg4j3WYggp
+  normal gg/On branch2WYggp
   1 substitute /\//: /e
   1 substitute /-/ /e
 endfunc
