@@ -87,6 +87,7 @@ return function()
                 name = 'buffer',
                 opts = {
                     get_bufnrs = get_all_buffers,
+                    keyword_length = 4,
                     keyword_pattern = [[\k\+]], -- Include special characters in word match.
                 },
                 priority = 10,
