@@ -9,6 +9,7 @@ google-chrome-stable %U
   ^https?:\/\/.*\.google\.com/calendar
   ^https?:\/\/detectify
   ^https?:\/\/google\.zoom\.us
+  ^https?:\/\/localhost
   ^https?:\/\/sentry\.io
 
 open-zoom %U
