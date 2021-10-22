@@ -52,10 +52,10 @@ return function()
             format = lspkind.cmp_format({
                 with_text = false,
                 menu = ({
-                    buffer = ' Buffer',
-                    nvim_lsp = ' LSP',
-                    path = ' Path',
-                    vsnip = ' Vsnip',
+                    buffer = ' buf',
+                    nvim_lsp = ' lsp',
+                    path = ' path',
+                    vsnip = ' snip',
                 }),
             }),
         },
