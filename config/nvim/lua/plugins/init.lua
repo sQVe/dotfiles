@@ -138,7 +138,7 @@ return require('packer').startup(function(use)
         config = require('plugins.interface.zen-mode'),
     })
     use({
-        'hoob3rt/lualine.nvim', -- Status line.
+        'nvim-lualine/lualine.nvim', -- Status line.
         config = require('plugins.interface.lualine'),
         event = 'BufEnter',
     })
