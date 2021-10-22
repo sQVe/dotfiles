@@ -181,6 +181,7 @@ return require('packer').startup(function(use)
         requires = {'onsails/lspkind-nvim'},
     })
     use({'hrsh7th/cmp-buffer', after = 'nvim-cmp'}) -- Buffer completion.
+    use({'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp'}) -- Nvim API completion.
     use({'hrsh7th/cmp-nvim-lsp', event = 'BufEnter'}) -- LSP completion.
     use({'hrsh7th/cmp-path', after = 'nvim-cmp'}) -- Path completion.
     use({'hrsh7th/cmp-vsnip', after = 'nvim-cmp'}) -- VSnip completion.

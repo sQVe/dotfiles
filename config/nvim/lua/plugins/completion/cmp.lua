@@ -54,6 +54,7 @@ return function()
                 menu = ({
                     buffer = ' buf',
                     nvim_lsp = ' lsp',
+                    nvim_lua = ' api',
                     path = ' path',
                     vsnip = ' snip',
                 }),
@@ -82,6 +83,7 @@ return function()
         },
 
         sources = {
+            {name = 'nvim_lua', priority = 120},
             {name = 'nvim_lsp', priority = 100}, {name = 'path', priority = 80},
             {name = 'vsnip', keyword_length = 2, priority = 40}, {
                 name = 'buffer',
