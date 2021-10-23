@@ -86,10 +86,9 @@ return require('packer').startup(function(use)
 
     -- Commands.
     use({ -- Set pwd to root directory.
-        'airblade/vim-rooter',
-        cmd = {'Rooter', 'RooterToggle'},
-        config = require('plugins.commands.rooter'),
-
+        'ahmedkhalf/project.nvim',
+        cmd = {'ProjectRoot'},
+        config = require('plugins.commands.project'),
     })
     use({'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'}}) -- Read and write with sudo.
     use({'moll/vim-bbye', cmd = {'Bdelete', 'Bwipeout'}}) -- Delete buffers without closing window.

@@ -54,6 +54,7 @@ M.config = function()
         },
     }
 
+    -- Use fzf native.
     telescope.load_extension('fzf')
 
     vim.cmd([[
