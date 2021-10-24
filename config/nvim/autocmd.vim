@@ -56,9 +56,3 @@ augroup StopNeovimDaemons
   autocmd!
   autocmd ExitPre * silent exec "!($HOME/scripts/vim/stop-nvim-daemons.sh &)"
 augroup END
-
-" Quick terminal exit.
-augroup QuickTerminalExit
-  autocmd!
-  autocmd! FileType fzf tnoremap <buffer> <Esc> <C-c>
-augroup END

@@ -3,10 +3,10 @@
 "  ┗━┛╹ ╹┗━┛┗━╸   ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
 " Execute macro over visual range.
-function! ExecuteMacroOverVisualRange()
+func! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
-endfunction
+endfunc
 
 " Use branch name as commit message.
 func! CommitMsgFromBranchName()
