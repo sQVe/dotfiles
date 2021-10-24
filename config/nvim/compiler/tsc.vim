@@ -1,5 +1,5 @@
 if exists("current_compiler")
-finish
+  finish
 endif
 let current_compiler = "tsc"
 
