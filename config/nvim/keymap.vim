@@ -86,6 +86,14 @@ nnoremap <silent> <C-S-Down> :resize -10<CR>
 nnoremap <silent> <C-S-Up> :resize +10<CR>
 nnoremap <silent> <C-S-Right> :vertical resize +10<CR>
 
+" Quickfix.
+nnoremap <silent> <C-q>w :copen<CR>
+nnoremap <silent> <C-q><C-w> :copen<CR>
+nnoremap <silent> <C-q>j :cnext<CR>
+nnoremap <silent> <C-q><C-j> :cnext<CR>
+nnoremap <silent> <C-q>k :cprevious<CR>
+nnoremap <silent> <C-q><C-k> :cprevious<CR>
+
 " Spell completion.
 inoremap <C-x><C-s> <C-x>s
 
