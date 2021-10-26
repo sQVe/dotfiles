@@ -1,8 +1,11 @@
---  ┏━┓┏━┓┏━╸╻┏ ┏━╸┏━┓
---  ┣━┛┣━┫┃  ┣┻┓┣╸ ┣┳┛
---  ╹  ╹ ╹┗━╸╹ ╹┗━╸╹┗╸
+-- ╻┏┓╻╻╺┳╸
+-- ┃┃┗┫┃ ┃
+-- ╹╹ ╹╹ ╹
 local fn = vim.fn
 local packer_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
+
+-- Add builtin plugins.
+vim.cmd('packadd cfilter')
 
 -- Bootstrap packer if it isn't installed.
 if fn.empty(fn.glob(packer_path)) > 0 then
