@@ -3,7 +3,7 @@
 -- ╹ ╹┗━┛┗━╸┗━╸   ┗━╸┗━┛
 return function()
     local null = require('null-ls')
-    local root_dir = require('util').root_dir
+    local root_dir = require('util').root_dir({prioritizeManifest = true})
 
     local formatters = null.builtins.formatting
     local linters = null.builtins.diagnostics

@@ -2,7 +2,7 @@
 --  ┗━┓┣╸ ┣┳┛┃┏┛┣╸ ┣┳┛┗━┓
 --  ┗━┛┗━╸╹┗╸┗┛ ┗━╸╹┗╸┗━┛
 return function(on_attach_callback)
-    local root_dir = require('util').root_dir
+    local root_dir = require('util').root_dir()
 
     local set_formatting_capabilities = function(client, value)
         -- Set LSP formatting.
