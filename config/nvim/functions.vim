@@ -15,13 +15,21 @@ func! CommitMsgFromBranchName()
   1 substitute /-/ /e
 endfunc
 
+" TODO: Get git root and open saved previous commit message.
+func! CommitMsgPrev()
+  let root_path = system("git rev-parse --show-toplevel")
+  let newline_safe_root_path = substitute(root_path, '\n', '', 'g')
+
+  silent execute "vsplit " . newline_safe_root_path . "/.git/PREV_COMMIT_EDITMSG"
+endfunc
+
 " Search on DuckDuckGo.
 func! Ddg(query)
   let ddg_root = 'https://duckduckgo.com/?q='
   let query = empty(a:query) ? @o : a:query
   let safe_query = substitute(substitute(query, '\v\s+', ' ', 'g'), '\n', '', 'g')
 
-  silent! exec ":! open-qutebrowser " . shellescape(ddg_root . safe_query, 1) . " &"
+  silent execute "! open-qutebrowser " . shellescape(ddg_root . safe_query, 1) . " &"
 endfunc
 
 " Show documentation.
@@ -40,8 +48,6 @@ func! AsciiHeader(title)
   norm 0Vkkgc
 endfunc
 
-" Open file or URL under cursor with mimeo. This is a temporary solution until
-" `gx` in netrw is repaired.
 func! OpenFileOrUrlWithMimeo()
   silent execute "!mimeo '" . expand('<cfile>') . "'"
 endfunc
