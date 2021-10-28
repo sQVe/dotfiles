@@ -187,7 +187,6 @@ return require('packer').startup(function(use)
     use({'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp'}) -- API completion.
     use({'hrsh7th/cmp-path', after = 'nvim-cmp'}) -- Path completion.
     use({'hrsh7th/cmp-vsnip', after = 'nvim-cmp'}) -- VSnip completion.
-    use({'octaltree/cmp-look', after = 'nvim-cmp'}) -- Look completion.
     use({
         'hrsh7th/vim-vsnip', -- Snippet support.
         after = 'nvim-cmp',
