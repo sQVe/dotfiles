@@ -182,6 +182,7 @@ bindsym $mod+y sticky toggle
 bindsym $mod+z exec $menu-projects
 bindsym $mod+aring exec $volume-toggle
 bindsym $mod+adiaeresis exec $microphone-toggle
+bindsym $mod+odiaeresis exec dunstctl close
 
 bindsym $mod+Shift+b exec $music-toggle
 bindsym $mod+Shift+d exec $menu-run
@@ -196,6 +197,7 @@ bindsym $mod+Shift+o focus mode_toggle
 bindsym $mod+Shift+p focus child
 bindsym $mod+Shift+s layout toggle splitv splith
 bindsym $mod+Shift+v exec $music-prev
+bindsym $mod+Shift+odiaeresis exec dunstctl close-all
 
 bindsym $mod+$alt+h move workspace to output left
 bindsym $mod+$alt+j move workspace to output down
@@ -255,8 +257,6 @@ bindsym $mod+space fullscreen toggle
 
 bindsym $mod+Shift+Return exec $samedir
 
-bindsym $alt+x exec dunstctl close
-bindsym $alt+Shift+x exec dunstctl close-all
 
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 # ¤¤¤¤  Modes  ¤¤¤¤
