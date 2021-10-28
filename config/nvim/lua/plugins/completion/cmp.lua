@@ -5,6 +5,9 @@ return function()
     local cmp = require('cmp')
     local lspkind = require('lspkind')
 
+    -- Pattern that matches any consecutive characters, including special ones.
+    local anyWord = [[\k\+]]
+
     local has_words_before = function()
         if vim.api.nvim_buf_get_option(0, 'buftype') == 'prompt' then
             return false
@@ -80,29 +83,37 @@ return function()
                 cmp.config.compare.sort_text, cmp.config.compare.order,
             },
         },
-
         sources = cmp.config.sources({
-            {name = 'nvim_lua'}, {name = 'nvim_lsp'}, {name = 'path'},
-            {name = 'vsnip', keyword_length = 2}, {
+            {name = 'nvim_lua', priority = 80},
+            {name = 'nvim_lsp', priority = 80}, {name = 'path', priority = 40},
+            {name = 'vsnip', keyword_length = 2, priority = 20}, {
                 name = 'buffer',
                 keyword_length = 4,
-                keyword_pattern = [[\k\+]], -- Include special characters in word match.
-                opts = {get_bufnrs = get_all_buffers},
+                opts = {get_bufnrs = get_all_buffers, keyword_pattern = anyWord},
+                priority = 10,
             },
         }),
     }
 
-    local searchKeys = {'/', '?', '%'}
-    local searchSettings = {
-        sources = {
-            name = 'buffer',
-            keyword_length = 2,
-            keyword_pattern = [[\k\+]], -- Include special characters in word match.
-        },
+    local searchSources = {
+        sources = cmp.config.sources({
+            {
+                name = 'buffer',
+                keyword_length = 2,
+                opts = {keyword_pattern = anyWord},
+            },
+        }),
     }
-    for _, searchKey in ipairs(searchKeys) do
-        cmp.setup.cmdline(searchKey, cmp.config.sources(searchSettings))
-    end
-
-    cmp.setup.cmdline(':', {sources = cmp.config.sources({{name = 'cmdline'}})})
+    cmp.setup.cmdline('/', searchSources)
+    cmp.setup.cmdline('?', searchSources)
+    cmp.setup.cmdline(':', {
+        sources = cmp.config.sources({
+            {name = 'cmdline', priority = 40}, {
+                name = 'buffer',
+                keyword_length = 2,
+                opts = {keyword_pattern = anyWord},
+                priority = 10,
+            },
+        }),
+    })
 end
