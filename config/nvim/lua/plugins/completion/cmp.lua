@@ -15,6 +15,8 @@ return function()
                        col, col):match('%s') == nil
     end
 
+    local mapKey = function(keyMap) return cmp.mapping(keyMap, {'c', 'i'}) end
+
     local tab_complete = function(fallback)
         if cmp.visible() then
             cmp.select_next_item()
@@ -61,17 +63,14 @@ return function()
             }),
         },
         mapping = {
-            ['<C-Space>'] = cmp.mapping.complete(),
-            ['<C-d>'] = cmp.mapping.scroll_docs(8),
-            ['<C-e>'] = cmp.mapping.close(),
-            ['<C-k>'] = cmp.mapping(signature_help, {'i', 's'}),
-            ['<C-u>'] = cmp.mapping.scroll_docs(-8),
-            ['<CR>'] = cmp.mapping.confirm({
-                behavior = cmp.ConfirmBehavior.Replace,
-                select = false,
-            }),
-            ['<S-Tab>'] = cmp.mapping(s_tab_complete, {'i', 's'}),
-            ['<Tab>'] = cmp.mapping(tab_complete, {'i', 's'}),
+            ['<C-Space>'] = mapKey(cmp.mapping.complete()),
+            ['<C-d>'] = mapKey(cmp.mapping.scroll_docs(8)),
+            ['<C-e>'] = mapKey(cmp.mapping.close()),
+            ['<C-k>'] = mapKey(signature_help),
+            ['<C-u>'] = mapKey(cmp.mapping.scroll_docs(-8)),
+            ['<CR>'] = mapKey(cmp.mapping.confirm({select = false})),
+            ['<S-Tab>'] = mapKey(s_tab_complete),
+            ['<Tab>'] = mapKey(tab_complete),
         },
         snippet = {expand = expand_snippet},
         sorting = {
@@ -82,18 +81,28 @@ return function()
             },
         },
 
-        sources = {
-            {name = 'nvim_lua', priority = 80},
-            {name = 'nvim_lsp', priority = 60}, {name = 'path', priority = 40},
-            {name = 'vsnip', keyword_length = 2, priority = 20}, {
+        sources = cmp.config.sources({
+            {name = 'nvim_lua'}, {name = 'nvim_lsp'}, {name = 'path'},
+            {name = 'vsnip', keyword_length = 2}, {
                 name = 'buffer',
-                opts = {
-                    get_bufnrs = get_all_buffers,
-                    keyword_length = 4,
-                    keyword_pattern = [[\k\+]], -- Include special characters in word match.
-                },
-                priority = 10,
+                keyword_length = 4,
+                keyword_pattern = [[\k\+]], -- Include special characters in word match.
+                opts = {get_bufnrs = get_all_buffers},
             },
+        }),
+    }
+
+    local searchKeys = {'/', '?', '%'}
+    local searchSettings = {
+        sources = {
+            name = 'buffer',
+            keyword_length = 2,
+            keyword_pattern = [[\k\+]], -- Include special characters in word match.
         },
     }
+    for _, searchKey in ipairs(searchKeys) do
+        cmp.setup.cmdline(searchKey, cmp.config.sources(searchSettings))
+    end
+
+    cmp.setup.cmdline(':', {sources = cmp.config.sources({{name = 'cmdline'}})})
 end

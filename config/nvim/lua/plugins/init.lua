@@ -1,20 +1,8 @@
 -- ╻┏┓╻╻╺┳╸
 -- ┃┃┗┫┃ ┃
 -- ╹╹ ╹╹ ╹
-local fn = vim.fn
-local packer_path = fn.stdpath('data') .. '/site/pack/packer/start/packer.nvim'
-
 -- Add builtin plugins.
 vim.cmd('packadd cfilter')
-
--- Bootstrap packer if it isn't installed.
-if fn.empty(fn.glob(packer_path)) > 0 then
-    fn.system({
-        'git', 'clone', 'https://github.com/wbthomason/packer.nvim',
-        packer_path,
-    })
-    vim.cmd('packadd packer.nvim')
-end
 
 return require('packer').startup(function(use)
     -- Handle packer with packer.
@@ -183,7 +171,8 @@ return require('packer').startup(function(use)
         requires = {'onsails/lspkind-nvim'},
     })
     use({'hrsh7th/cmp-buffer', after = 'nvim-cmp'}) -- Buffer completion.
-    use({'hrsh7th/cmp-nvim-lsp', event = 'BufEnter'}) -- LSP completion.
+    use({'hrsh7th/cmp-cmdline', after = 'nvim-cmp'}) -- Command completion.
+    use({'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp'}) -- LSP completion.
     use({'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp'}) -- API completion.
     use({'hrsh7th/cmp-path', after = 'nvim-cmp'}) -- Path completion.
     use({'hrsh7th/cmp-vsnip', after = 'nvim-cmp'}) -- VSnip completion.
