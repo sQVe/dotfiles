@@ -167,7 +167,7 @@ return require('packer').startup(function(use)
     use({
         'hrsh7th/nvim-cmp', -- Completion engine.
         config = require('plugins.completion.cmp'),
-        event = 'InsertEnter',
+        event = {'CmdlineEnter', 'InsertEnter'},
         requires = {'onsails/lspkind-nvim'},
     })
     use({'hrsh7th/cmp-buffer', after = 'nvim-cmp'}) -- Buffer completion.
