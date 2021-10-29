@@ -5,6 +5,9 @@ return function()
     local cmp = require('cmp')
     local lspkind = require('lspkind')
 
+    local config = cmp.config
+    local mapping = cmp.mapping
+
     -- Pattern that matches any consecutive characters, including special ones.
     local anyWord = [[\k\+]]
 
@@ -18,7 +21,7 @@ return function()
                        col, col):match('%s') == nil
     end
 
-    local mapKey = function(keyMap) return cmp.mapping(keyMap, {'c', 'i'}) end
+    local mapKey = function(keyMap) return mapping(keyMap, {'c', 'i'}) end
 
     local tab_complete = function(fallback)
         if cmp.visible() then
@@ -66,24 +69,25 @@ return function()
             }),
         },
         mapping = {
-            ['<C-Space>'] = mapKey(cmp.mapping.complete()),
-            ['<C-d>'] = mapKey(cmp.mapping.scroll_docs(8)),
-            ['<C-e>'] = mapKey(cmp.mapping.close()),
+            ['<C-Space>'] = mapKey(mapping.complete()),
+            ['<C-d>'] = mapKey(mapping.scroll_docs(8)),
+            ['<C-e>'] = mapKey(mapping.close()),
             ['<C-k>'] = mapKey(signature_help),
-            ['<C-u>'] = mapKey(cmp.mapping.scroll_docs(-8)),
-            ['<CR>'] = mapKey(cmp.mapping.confirm({select = false})),
+            ['<C-u>'] = mapKey(mapping.scroll_docs(-8)),
+            ['<CR>'] = mapKey(mapping.confirm({select = false})),
             ['<S-Tab>'] = mapKey(s_tab_complete),
             ['<Tab>'] = mapKey(tab_complete),
         },
         snippet = {expand = expand_snippet},
         sorting = {
             comparators = {
-                cmp.config.compare.exact, cmp.config.compare.score,
-                cmp.config.compare.offset, cmp.config.compare.length,
-                cmp.config.compare.sort_text, cmp.config.compare.order,
+                config.compare.exact, config.compare.recently_used,
+                config.compare.score, config.compare.offset,
+                config.compare.length, config.compare.sort_text,
+                config.compare.order,
             },
         },
-        sources = cmp.config.sources({
+        sources = config.sources({
             {name = 'nvim_lua', priority = 80},
             {name = 'nvim_lsp', priority = 80}, {name = 'path', priority = 40},
             {name = 'vsnip', keyword_length = 2, priority = 20}, {
@@ -96,7 +100,7 @@ return function()
     }
 
     local searchSources = {
-        sources = cmp.config.sources({
+        sources = config.sources({
             {
                 name = 'buffer',
                 keyword_length = 2,
@@ -107,7 +111,7 @@ return function()
     cmp.setup.cmdline('/', searchSources)
     cmp.setup.cmdline('?', searchSources)
     cmp.setup.cmdline(':', {
-        sources = cmp.config.sources({
+        sources = config.sources({
             {name = 'cmdline', priority = 40}, {
                 name = 'buffer',
                 keyword_length = 2,
