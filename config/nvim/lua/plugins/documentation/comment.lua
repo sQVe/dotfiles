@@ -7,11 +7,12 @@ return function()
         pre_hook = function(ctx)
             local utils = require('Comment.utils')
 
-            if ctx.ctype == utils.ctype.line or ctx.cmotion ==
-                utils.cmotion.line then
-                return
-                    require('ts_context_commentstring.internal').calculate_commentstring()
-            end
+            local type = ctx.ctype == utils.ctype.line and '__default' or
+                             '__multiline'
+            return
+                require('ts_context_commentstring.internal').calculate_commentstring {
+                    key = type,
+                }
         end,
     })
 end
