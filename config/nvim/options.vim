@@ -43,7 +43,7 @@ set completeopt=menuone,noselect  " Set compete options.
 set pumheight=20                  " Show max 20 items in completion menu.
 set wildignorecase                " Disable case check for wildmenu.
 set wildmenu                      " Enable wildmenu.
-set wildmode=longest:full,full    " Set wildmenu modes.
+set wildmode=longest:full         " Set wildmenu modes.
 
 " Cursor.
 set cursorline                    " Show cursorline.
