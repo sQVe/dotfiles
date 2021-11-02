@@ -63,7 +63,7 @@ M.config = function()
         nnoremap <silent> _ :Telescope resume<CR>
 
         " Files and buffers.
-        nnoremap <silent> <Backspace> :Telescope buffers<CR>
+        nnoremap <silent> <Backspace> :Telescope buffers sort_mru=true<CR>
         nnoremap <silent> ä :lua require("plugins.navigation.telescope").find_files()<CR>
         nnoremap <silent> å :lua require("plugins.navigation.telescope").find_files(true)<CR>
 
