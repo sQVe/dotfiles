@@ -67,7 +67,6 @@ return require('packer').startup(function(use)
     use({ -- Automatically set commentstring.
         'JoosepAlviste/nvim-ts-context-commentstring',
         after = 'nvim-treesitter',
-        branch = 'feature/multiline-comments',
     })
     use({
         'kkoomen/vim-doge', -- Documentation generator.
