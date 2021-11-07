@@ -81,8 +81,8 @@ return function()
         snippet = {expand = expand_snippet},
         sorting = {
             comparators = {
-                config.compare.exact, config.compare.recently_used,
-                config.compare.score, config.compare.offset,
+                config.compare.offset, config.compare.exact,
+                config.compare.recently_used, config.compare.score,
                 config.compare.length, config.compare.sort_text,
                 config.compare.order,
             },
