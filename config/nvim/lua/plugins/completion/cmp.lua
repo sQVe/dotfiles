@@ -82,9 +82,8 @@ return function()
         sorting = {
             comparators = {
                 config.compare.offset, config.compare.exact,
-                config.compare.score, config.compare.recently_used,
-                config.compare.length, config.compare.sort_text,
-                config.compare.order,
+                config.compare.score, config.compare.length,
+                config.compare.sort_text, config.compare.order,
             },
         },
         sources = config.sources({
