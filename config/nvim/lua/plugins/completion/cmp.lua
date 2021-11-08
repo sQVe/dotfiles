@@ -90,12 +90,12 @@ return function()
         sources = config.sources({
             {name = 'nvim_lua', priority = 80},
             {name = 'nvim_lsp', priority = 80}, {name = 'path', priority = 40},
-            {name = 'vsnip', keyword_length = 2, priority = 20}, {
+            {
                 name = 'buffer',
                 keyword_length = 4,
                 opts = {get_bufnrs = get_all_buffers, keyword_pattern = anyWord},
-                priority = 10,
-            },
+                priority = 20,
+            }, {name = 'vsnip', keyword_length = 2, priority = 10},
         }),
     }
 
