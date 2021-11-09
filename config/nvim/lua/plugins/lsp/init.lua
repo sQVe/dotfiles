@@ -23,7 +23,6 @@ return function()
     vim.cmd([[
         " General.
         nnoremap <silent> <Leader>f :lua vim.lsp.buf.formatting()<CR>
-        nnoremap <silent> <Leader>r :lua vim.lsp.buf.rename()<CR>
         nnoremap <silent> K :ShowDocumentation<CR>
 
         " Diagnostics.

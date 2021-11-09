@@ -48,7 +48,11 @@ return function()
         hi! link LightspeedUnlabeledMatch GruvboxYellow
 
         " LSP.
+        hi! link LspReferenceRead DiffChange
+        hi! link LspReferenceText DiffChange
+        hi! link LspReferenceWrite DiffChange
         hi! link LspSignatureActiveParameter GruvboxOrange
+
         sign define DiagnosticSignError text=■ texthl=DiagnosticSignError
         sign define DiagnosticSignHint text=■ texthl=DiagnosticSignHint
         sign define DiagnosticSignInfo text=■ texthl=DiagnosticSignInfo

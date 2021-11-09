@@ -122,8 +122,14 @@ return require('packer').startup(function(use)
         event = 'BufEnter',
         module = 'focus',
     })
-    use({ -- Zen Mode.
-        'folke/zen-mode.nvim',
+    use {
+        'filipdutescu/renamer.nvim',
+        config = require('plugins.interface.renamer'),
+        -- keys = {{'n', '<Leader>r'}},
+        requires = {'nvim-lua/plenary.nvim'},
+    }
+    use({
+        'folke/zen-mode.nvim', -- Zen Mode.
         cmd = {'ZenMode'},
         config = require('plugins.interface.zen-mode'),
     })
