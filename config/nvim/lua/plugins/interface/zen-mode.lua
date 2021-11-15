@@ -1,6 +1,4 @@
 --  ╺━┓┏━╸┏┓╻   ┏┳┓┏━┓╺┳┓┏━╸
 --  ┏━┛┣╸ ┃┗┫   ┃┃┃┃ ┃ ┃┃┣╸
 --  ┗━╸┗━╸╹ ╹   ╹ ╹┗━┛╺┻┛┗━╸
-return function()
-    require('zen-mode').setup {}
-end
+return function() require('zen-mode').setup({}) end

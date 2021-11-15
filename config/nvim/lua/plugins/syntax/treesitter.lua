@@ -2,7 +2,7 @@
 --   ┃ ┣┳┛┣╸ ┣╸ ┗━┓┃ ┃  ┃ ┣╸ ┣┳┛
 --   ╹ ╹┗╸┗━╸┗━╸┗━┛╹ ╹  ╹ ┗━╸╹┗╸
 return function()
-    require('nvim-treesitter.configs').setup {
+    require('nvim-treesitter.configs').setup({
         ensure_installed = {
             'bash', 'comment', 'css', 'dockerfile', 'go', 'gomod', 'graphql',
             'html', 'javascript', 'jsdoc', 'json', 'jsonc', 'lua', 'scss',
@@ -12,7 +12,7 @@ return function()
         highlight = {enable = true},
         indent = {enable = true},
         textsubjects = {enable = true, keymaps = {['.'] = 'textsubjects-smart'}},
-    }
+    })
 
     vim.cmd([[
         set foldmethod=expr

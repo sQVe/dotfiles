@@ -22,7 +22,7 @@ M.config = function()
     local telescope = require('telescope')
     local actions = require('telescope.actions')
 
-    telescope.setup {
+    telescope.setup({
         defaults = {
             dynamic_preview_title = true,
             layout_strategy = 'flex',
@@ -52,7 +52,7 @@ M.config = function()
                 },
             },
         },
-    }
+    })
 
     -- Use fzf native.
     telescope.load_extension('fzf')
