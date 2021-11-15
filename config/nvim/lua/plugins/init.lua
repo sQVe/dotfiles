@@ -144,13 +144,9 @@ return require('packer').startup(function(use)
         event = 'VimEnter',
     })
     use({
-        'voldikss/vim-floaterm', -- Floating terminal.
-        cmd = {
-            'FloatermFirst', 'FloatermHide', 'FloatermKill', 'FloatermLast',
-            'FloatermNew', 'FloatermNext', 'FloatermPrev', 'FloatermSend',
-            'FloatermShow', 'FloatermToggle', 'FloatermUpdate',
-        },
-        config = require('plugins.interface.floaterm'),
+        'is0n/fm-nvim', -- File manager.
+        cmd = {'Fzf', 'Vifm'},
+        config = require('plugins.interface.fm'),
         keys = {{'n', 'Ä'}, {'n', 'Å'}},
     })
 
