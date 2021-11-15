@@ -3,8 +3,8 @@
 --  ┗━┛╹┗╸┗━┛┗┛ ┗━┛┗━┛╹ ╹
 return function()
     vim.g.gruvbox_italic = 1
-    vim.g.gruvbox_transparent_bg = 1
     vim.g.gruvbox_sign_column = 'bg0'
+    vim.g.gruvbox_transparent_bg = 1
 
     vim.o.background = 'dark'
     vim.cmd('colorscheme gruvbox')
