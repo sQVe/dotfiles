@@ -42,10 +42,8 @@
   "Case": {
     "prefix": "case",
     "body": [
-      "case \"$${0:VAR}\" in",
-      "\t${1:1}) echo 1",
-      "\t;;",
-      "\t${2:2|3}) echo 2 or 3",
+      "case \"${0:var}\" in",
+      "\t$1) echo $1",
       "\t;;",
       "\t*) echo default",
       "\t;;",
