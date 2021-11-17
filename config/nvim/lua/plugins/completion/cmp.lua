@@ -52,6 +52,9 @@ return function()
         vim.fn['vsnip#anonymous'](args.body)
     end
 
+    local compare_locality = function(...)
+        return require('cmp_buffer'):compare_locality(...)
+    end
     local get_all_buffers = function() return vim.api.nvim_list_bufs() end
 
     cmp.setup {
@@ -81,7 +84,7 @@ return function()
         snippet = {expand = expand_snippet},
         sorting = {
             comparators = {
-                config.compare.offset, config.compare.exact,
+                compare_locality, config.compare.offset, config.compare.exact,
                 config.compare.score, config.compare.length,
                 config.compare.sort_text, config.compare.order,
             },
