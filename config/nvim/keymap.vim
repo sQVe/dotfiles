@@ -24,10 +24,10 @@ tnoremap <C-q> <C-\><C-n>
 " Motion with jumplist mutations.
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
+noremap <expr> <Down> (v:count > 4 ? "m'" . v:count : "") . 'gj'
+noremap <expr> <Up> (v:count > 4 ? "m'" . v:count : "") . 'gk'
 noremap <expr> j (v:count > 4 ? "m'" . v:count : "") . 'gj'
 noremap <expr> k (v:count > 4 ? "m'" . v:count : "") . 'gk'
-noremap <Down> j
-noremap <Up> k
 noremap gj j
 noremap gk k
 
