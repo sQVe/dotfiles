@@ -11,7 +11,7 @@ return require('packer').startup(function(use)
     -- Editing.
     use({
         'gabrielpoca/replacer.nvim', -- Search and replace over quicklist.
-        cmd = {'Replace'},
+        cmd = {'Replace', 'ReplaceContent'},
         config = require('plugins.editing.replacer'),
     })
     use({
