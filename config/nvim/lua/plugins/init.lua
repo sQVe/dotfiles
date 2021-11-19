@@ -125,7 +125,7 @@ return require('packer').startup(function(use)
     use {
         'filipdutescu/renamer.nvim',
         config = require('plugins.interface.renamer'),
-        -- keys = {{'n', '<Leader>r'}},
+        keys = {{'n', '<Leader>r'}},
         requires = {'nvim-lua/plenary.nvim'},
     }
     use({
