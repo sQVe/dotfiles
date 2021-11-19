@@ -49,7 +49,7 @@ func! AsciiHeader(title)
 endfunc
 
 func! OpenFileOrUrlWithMimeo()
-  silent execute "!mimeo '" . expand('<cfile>') . "'"
+  silent execute "!mimeo " . shellescape(expand('<cfile>'))
 endfunc
 
 
