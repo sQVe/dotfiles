@@ -139,8 +139,8 @@ return require('packer').startup(function(use)
         event = 'BufEnter',
     })
     use({
-        'glepnir/dashboard-nvim', -- Dashboard.
-        config = require('plugins.interface.dashboard'),
+        'goolord/alpha-nvim', -- Dashboard.
+        config = require('plugins.interface.alpha'),
         event = 'VimEnter',
     })
     use({
