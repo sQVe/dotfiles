@@ -14,13 +14,13 @@ return function()
     }
 
     dashboard.section.buttons.val = {
-        dashboard.button('ä', '📝  Find file',
+        dashboard.button('ä', '📝  Find File',
                          ':lua require("plugins.navigation.telescope").find_files()<CR>'),
         dashboard.button('Ä', '📑  File Manager', ':Vifm<CR>'),
         dashboard.button('s', '🔴  Status', ':Telescope git_status<CR>'),
         dashboard.button('u', '✍   Recently Used Files',
                          ':Telescope oldfiles cwd_only=true<CR>'),
-        dashboard.button('g', '🔍  Grep Word', ':Telescope live_grep<CR>'),
+        dashboard.button('/', '🔍  Grep Word', ':Telescope live_grep<CR>'),
         dashboard.button('e', '💎  New File', ':enew<CR>'),
         dashboard.button('C', '💎  Packer Compile', ':PackerCompile<CR>'),
         dashboard.button('S', '🔃  Packer Sync', ':PackerSync<CR>'),
