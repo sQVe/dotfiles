@@ -54,6 +54,9 @@ M.config = function()
         },
     })
 
+    -- Load harpoon extension.
+    telescope.load_extension('harpoon')
+
     -- Use fzf native.
     telescope.load_extension('fzf')
 
@@ -63,7 +66,7 @@ M.config = function()
         nnoremap <silent> _ :Telescope resume<CR>
 
         " Files and buffers.
-        nnoremap <silent> <Backspace> :Telescope buffers sort_mru=true<CR>
+        nnoremap <silent> <Leader><Backspace> :Telescope buffers sort_mru=true<CR>
         nnoremap <silent> ä :lua require("plugins.navigation.telescope").find_files()<CR>
         nnoremap <silent> å :lua require("plugins.navigation.telescope").find_files(true)<CR>
 

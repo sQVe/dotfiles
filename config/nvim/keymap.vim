@@ -56,11 +56,7 @@ vnoremap > >gv
 
 " Term.
 noremap <silent> <Leader><CR> :Term<CR><CR>
-noremap <silent> <Leader><Backspace> :BTerm<CR><CR>
-
-" Move between buffers.
-nnoremap <silent> <Tab> :bnext<CR>
-nnoremap <silent> <S-Tab> :bprev<CR>
+noremap <silent> <Leader><S-CR> :BTerm<CR><CR>
 
 " Move between jumps.
 nnoremap <C-o> <C-o>

@@ -115,12 +115,11 @@ return require('packer').startup(function(use)
     })
 
     -- Interface.
-    use({'ap/vim-buftabline', event = 'BufEnter'}) -- Buffer line.
     use({
-        'beauwilliams/focus.nvim', -- Golden ratio window resizing.
-        config = require('plugins.interface.focus'),
-        event = 'BufEnter',
-        module = 'focus',
+        'ThePrimeagen/harpoon',
+        config = require('plugins.interface.harpoon'),
+        event = 'VimEnter',
+        requires = {'nvim-lua/plenary.nvim'},
     })
     use {
         'filipdutescu/renamer.nvim',
@@ -205,7 +204,7 @@ return require('packer').startup(function(use)
     })
     use({
         'nvim-telescope/telescope.nvim', -- Telescope.
-        event = 'VimEnter',
+        after = {'harpoon'},
         config = require('plugins.navigation.telescope').config,
         requires = {
             'nvim-lua/plenary.nvim',
