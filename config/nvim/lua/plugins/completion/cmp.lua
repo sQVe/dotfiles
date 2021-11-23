@@ -95,7 +95,10 @@ return function()
             {
                 name = 'buffer',
                 keyword_length = 4,
-                opts = {get_bufnrs = get_all_buffers, keyword_pattern = anyWord},
+                option = {
+                    get_bufnrs = get_all_buffers,
+                    keyword_pattern = anyWord,
+                },
                 priority = 20,
             }, {name = 'vsnip', keyword_length = 2, priority = 10},
         }),
@@ -106,7 +109,7 @@ return function()
             {
                 name = 'buffer',
                 keyword_length = 2,
-                opts = {keyword_pattern = anyWord},
+                option = {keyword_pattern = anyWord},
             },
         }),
     }
@@ -117,7 +120,7 @@ return function()
             {name = 'cmdline', priority = 40}, {
                 name = 'buffer',
                 keyword_length = 2,
-                opts = {keyword_pattern = anyWord},
+                option = {keyword_pattern = anyWord},
                 priority = 10,
             },
         }),
