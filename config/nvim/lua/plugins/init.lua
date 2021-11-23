@@ -121,6 +121,12 @@ return require('packer').startup(function(use)
         event = 'VimEnter',
         requires = {'nvim-lua/plenary.nvim'},
     })
+    use({
+        'beauwilliams/focus.nvim', -- Golden ratio window resizing.
+        config = require('plugins.interface.focus'),
+        event = 'BufEnter',
+        module = 'focus',
+    })
     use {
         'filipdutescu/renamer.nvim',
         config = require('plugins.interface.renamer'),
