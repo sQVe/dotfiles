@@ -31,12 +31,9 @@ command! BTerm !term '%:p'
 command! W write
 command! Q quit
 command! Wq wq
-command! WQ wq
+command! Wqa wqa
 command! Qa qa
-command! QA qa
 command! Wa wa
-command! WA wa
-command! Wbc Wbc
 
 
 "  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻   ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓┏━┓
