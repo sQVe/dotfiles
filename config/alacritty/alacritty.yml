@@ -38,7 +38,7 @@ colors:
     bar:
       background: '#3c3836'
       foreground: '#d5c4a1'
-  hints: 
+  hints:
     start:
       background: '#d3869b'
       foreground: '#282828'
@@ -93,12 +93,15 @@ shell:
 key_bindings:
   - { key: Paste,                                     action: Paste }
   - { key: Copy,                                      action: Copy }
-  - { key: L,          mods: Control,                 action: ClearLogNotice }
-  - { key: L,          mods: Control,                 chars: "\x0c" }
-  - { key: PageUp,     mods: Shift,     mode: ~Alt,   action: ScrollPageUp }
-  - { key: PageDown,   mods: Shift,     mode: ~Alt,   action: ScrollPageDown }
-  - { key: Home,       mods: Shift,     mode: ~Alt,   action: ScrollToTop }
   - { key: End,        mods: Shift,     mode: ~Alt,   action: ScrollToBottom }
+  - { key: Home,       mods: Shift,     mode: ~Alt,   action: ScrollToTop }
+  - { key: L,          mods: Control,                 action: ClearLogNotice }
+  - { key: PageDown,   mods: Shift,     mode: ~Alt,   action: ScrollPageDown }
+  - { key: PageUp,     mods: Shift,     mode: ~Alt,   action: ScrollPageUp }
+
+  - { key: L,          mods: Control,   chars: "\x0c" }
+  - { key: Return,     mods: Control,   chars: "\x1b[13;5u" }
+  - { key: Return,     mods: Shift,     chars: "\x1b[13;2u" }
 
   - { key: V,        mods: Control|Shift,           action: Paste            }
   - { key: C,        mods: Control|Shift,           action: Copy             }
