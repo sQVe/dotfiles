@@ -18,7 +18,7 @@ return function()
                          ':lua require("plugins.navigation.telescope").find_files()<CR>'),
         dashboard.button('Ö', '📑  File Manager', ':Vifm<CR>'),
         dashboard.button('s', '🔴  Status', ':Telescope git_status<CR>'),
-        dashboard.button('r', '✍   Recently Used Files',
+        dashboard.button('u', '✍   Recently Used Files',
                          ':Telescope oldfiles cwd_only=true<CR>'),
         dashboard.button('g', '🔍  Grep Word', ':Telescope live_grep<CR>'),
         dashboard.button('e', '💎  New File', ':enew<CR>'),
