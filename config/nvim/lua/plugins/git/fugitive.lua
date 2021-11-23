@@ -5,6 +5,7 @@ return function()
     vim.g.fugitive_pty = 0
 
     vim.cmd([[
+        nnoremap <Leader>G :Git<Space>
         nnoremap <silent> <Leader>gb :Git blame<CR>
         nnoremap <silent> <Leader>gd :Gdiffsplit<CR>
         nnoremap <silent> <Leader>gf :Git fetch<CR>
