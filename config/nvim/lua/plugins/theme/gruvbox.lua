@@ -9,14 +9,7 @@ return function()
     vim.o.background = 'dark'
     vim.cmd('colorscheme gruvbox')
 
-    -- BufTabLine.
     vim.cmd([[
-        " BufTabLine.
-        hi! BufTabLineActive guifg=#a89984 guibg=#282828 gui=NONE cterm=NONE
-        hi! BufTabLineCurrent guifg=#fabd2f guibg=#3c3836 gui=NONE cterm=NONE
-        hi! BufTabLineFill guifg=#282828 guibg=#282828 gui=NONE cterm=NONE
-        hi! BufTabLineHidden guifg=#7c6f64 guibg=#282828 gui=NONE cterm=NONE
-
         " Cmp.
         hi! CmpItemAbbrDeprecated guifg=#928374 guibg=NONE gui=strikethrough cterm=NONE
         hi! link CmpItemAbbrDefault GruvboxFg4
