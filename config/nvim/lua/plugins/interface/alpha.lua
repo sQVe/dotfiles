@@ -14,9 +14,9 @@ return function()
     }
 
     dashboard.section.buttons.val = {
-        dashboard.button('ö', '📝  Find file',
+        dashboard.button('ä', '📝  Find file',
                          ':lua require("plugins.navigation.telescope").find_files()<CR>'),
-        dashboard.button('Ö', '📑  File Manager', ':Vifm<CR>'),
+        dashboard.button('Ä', '📑  File Manager', ':Vifm<CR>'),
         dashboard.button('s', '🔴  Status', ':Telescope git_status<CR>'),
         dashboard.button('u', '✍   Recently Used Files',
                          ':Telescope oldfiles cwd_only=true<CR>'),
