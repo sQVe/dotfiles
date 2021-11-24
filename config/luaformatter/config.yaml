@@ -1,5 +1,8 @@
-keep_simple_control_block_one_line: false
+break_after_functioncall_lp: true
 break_after_functiondef_lp: true
+break_before_functioncall_rp: true
 break_before_functiondef_rp: true
-extra_sep_at_table_end: true
 double_quote_to_single_quote: true
+extra_sep_at_table_end: true
+keep_simple_control_block_one_line: false
+spaces_inside_table_braces: true
