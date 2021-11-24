@@ -6,7 +6,7 @@ return function()
     local servers = require('plugins.lsp.servers')(on_attach)
 
     -- Disable virtual text for diagnostics.
-    vim.diagnostic.config({virtual_text = false})
+    vim.diagnostic.config({severity_sort = true, virtual_text = false})
 
     for server, config in pairs(servers) do
         if config.flags == nil then
