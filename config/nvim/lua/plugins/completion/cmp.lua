@@ -16,12 +16,16 @@ return function()
             return false
         end
         local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-        return col ~= 0 and
-                   vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(
-                       col, col):match('%s') == nil
+        return col ~= 0
+            and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]
+                    :sub(col, col)
+                    :match('%s')
+                == nil
     end
 
-    local mapKey = function(keyMap) return mapping(keyMap, {'c', 'i'}) end
+    local mapKey = function(keyMap)
+        return mapping(keyMap, { 'c', 'i' })
+    end
 
     local next = function(fallback)
         if cmp.visible() then
@@ -55,20 +59,22 @@ return function()
     local compare_locality = function(...)
         return require('cmp_buffer'):compare_locality(...)
     end
-    local get_all_buffers = function() return vim.api.nvim_list_bufs() end
+    local get_all_buffers = function()
+        return vim.api.nvim_list_bufs()
+    end
 
-    cmp.setup {
-        experimental = {ghost_text = {hl_group = 'GruvboxGray'}},
+    cmp.setup({
+        experimental = { ghost_text = { hl_group = 'GruvboxGray' } },
         formatting = {
             format = lspkind.cmp_format({
                 with_text = false,
-                menu = ({
+                menu = {
                     buffer = ' buf',
                     nvim_lsp = ' lsp',
                     nvim_lua = ' api',
                     path = ' path',
                     vsnip = ' snip',
-                }),
+                },
             }),
         },
         mapping = {
@@ -77,21 +83,26 @@ return function()
             ['<C-e>'] = mapKey(mapping.close()),
             ['<C-k>'] = mapKey(signature_help),
             ['<C-u>'] = mapKey(mapping.scroll_docs(-8)),
-            ['<CR>'] = mapKey(mapping.confirm({select = false})),
+            ['<CR>'] = mapKey(mapping.confirm({ select = false })),
             ['<Tab>'] = mapKey(next),
             ['<S-Tab>'] = mapKey(previous),
         },
-        snippet = {expand = expand_snippet},
+        snippet = { expand = expand_snippet },
         sorting = {
             comparators = {
-                compare_locality, config.compare.offset, config.compare.exact,
-                config.compare.score, config.compare.length,
-                config.compare.sort_text, config.compare.order,
+                compare_locality,
+                config.compare.offset,
+                config.compare.exact,
+                config.compare.score,
+                config.compare.length,
+                config.compare.sort_text,
+                config.compare.order,
             },
         },
         sources = config.sources({
-            {name = 'nvim_lua', priority = 80},
-            {name = 'nvim_lsp', priority = 80}, {name = 'path', priority = 40},
+            { name = 'nvim_lua', priority = 80 },
+            { name = 'nvim_lsp', priority = 80 },
+            { name = 'path', priority = 40 },
             {
                 name = 'buffer',
                 keyword_length = 4,
@@ -100,16 +111,17 @@ return function()
                     keyword_pattern = anyWord,
                 },
                 priority = 20,
-            }, {name = 'vsnip', keyword_length = 2, priority = 10},
+            },
+            { name = 'vsnip', keyword_length = 2, priority = 10 },
         }),
-    }
+    })
 
     local searchSources = {
         sources = config.sources({
             {
                 name = 'buffer',
                 keyword_length = 2,
-                option = {keyword_pattern = anyWord},
+                option = { keyword_pattern = anyWord },
             },
         }),
     }
@@ -117,10 +129,11 @@ return function()
     cmp.setup.cmdline('?', searchSources)
     cmp.setup.cmdline(':', {
         sources = config.sources({
-            {name = 'cmdline', priority = 40}, {
+            { name = 'cmdline', priority = 40 },
+            {
                 name = 'buffer',
                 keyword_length = 2,
-                option = {keyword_pattern = anyWord},
+                option = { keyword_pattern = anyWord },
                 priority = 10,
             },
         }),

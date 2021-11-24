@@ -6,12 +6,12 @@ vim.cmd('packadd cfilter')
 
 return require('packer').startup(function(use)
     -- Handle packer with packer.
-    use({'wbthomason/packer.nvim'})
+    use({ 'wbthomason/packer.nvim' })
 
     -- Editing.
     use({
         'gabrielpoca/replacer.nvim', -- Search and replace over quicklist.
-        cmd = {'Replace', 'ReplaceContent'},
+        cmd = { 'Replace', 'ReplaceContent' },
         config = require('plugins.editing.replacer'),
     })
     use({
@@ -22,18 +22,18 @@ return require('packer').startup(function(use)
     })
     use({
         'junegunn/vim-easy-align', -- Alignment.
-        cmd = {'EasyAlign'},
+        cmd = { 'EasyAlign' },
         config = require('plugins.editing.easy-align'),
-        keys = {{'n', 'ga'}, {'x', 'ga'}},
+        keys = { { 'n', 'ga' }, { 'x', 'ga' } },
     })
-    use({'tpope/vim-repeat', event = 'BufEnter'}) -- Repeat for plugins.
+    use({ 'tpope/vim-repeat', event = 'BufEnter' }) -- Repeat for plugins.
 
     -- Integration.
-    use({'editorconfig/editorconfig-vim', event = 'BufEnter'}) -- Editorconfig.
+    use({ 'editorconfig/editorconfig-vim', event = 'BufEnter' }) -- Editorconfig.
     use({
         'michaelb/sniprun',
         run = 'bash ./install.sh',
-        cmd = {'SnipRun'},
+        cmd = { 'SnipRun' },
         config = require('plugins.integration.sniprun'),
     })
 
@@ -41,7 +41,7 @@ return require('packer').startup(function(use)
     use({ -- Gruvbox color theme.
         'npxbr/gruvbox.nvim',
         config = require('plugins.theme.gruvbox'),
-        requires = {'rktjmp/lush.nvim'},
+        requires = { 'rktjmp/lush.nvim' },
     })
     use({
         'lukas-reineke/indent-blankline.nvim', -- Indent Guides.
@@ -61,8 +61,8 @@ return require('packer').startup(function(use)
     use({ -- Comment text.
         'numToStr/Comment.nvim',
         config = require('plugins.documentation.comment'),
-        keys = {{'n', 'gb'}, {'n', 'gc'}, {'v', 'gb'}, {'v', 'gc'}},
-        requires = {'JoosepAlviste/nvim-ts-context-commentstring'},
+        keys = { { 'n', 'gb' }, { 'n', 'gc' }, { 'v', 'gb' }, { 'v', 'gc' } },
+        requires = { 'JoosepAlviste/nvim-ts-context-commentstring' },
     })
     use({ -- Automatically set commentstring.
         'JoosepAlviste/nvim-ts-context-commentstring',
@@ -70,7 +70,7 @@ return require('packer').startup(function(use)
     })
     use({
         'kkoomen/vim-doge', -- Documentation generator.
-        cmd = {'DogeGenerate'},
+        cmd = { 'DogeGenerate' },
         config = require('plugins.documentation.doge'),
         run = ':call doge#install()',
     })
@@ -78,14 +78,14 @@ return require('packer').startup(function(use)
     -- Commands.
     use({ -- Set pwd to root directory.
         'ahmedkhalf/project.nvim',
-        cmd = {'ProjectRoot'},
+        cmd = { 'ProjectRoot' },
         config = require('plugins.commands.project'),
     })
-    use({'lambdalisue/suda.vim', cmd = {'SudaRead', 'SudaWrite'}}) -- Read and write with sudo.
-    use({'moll/vim-bbye', cmd = {'Bdelete', 'Bwipeout'}}) -- Delete buffers without closing window.
+    use({ 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } }) -- Read and write with sudo.
+    use({ 'moll/vim-bbye', cmd = { 'Bdelete', 'Bwipeout' } }) -- Delete buffers without closing window.
     use({
         'tpope/vim-eunuch', -- Unix helpers.
-        cmd = {'Chmod', 'Delete', 'Mkdir', 'Move', 'Rename'},
+        cmd = { 'Chmod', 'Delete', 'Mkdir', 'Move', 'Rename' },
     })
 
     -- Git.
@@ -98,18 +98,19 @@ return require('packer').startup(function(use)
         'lewis6991/gitsigns.nvim', -- Git gutter signs.
         config = require('plugins.git.gitsigns'),
         event = 'BufEnter',
-        requires = {'nvim-lua/plenary.nvim'},
+        requires = { 'nvim-lua/plenary.nvim' },
     })
     use({
         'shumphrey/fugitive-gitlab.vim', -- Fugitive GitLab support.
-        after = {'vim-fugitive'},
+        after = { 'vim-fugitive' },
         config = require('plugins.git.fugitive-gitlab'),
     })
-    use({'tpope/vim-rhubarb', after = {'vim-fugitive'}}) -- Fugitive GitHub support.
+    use({ 'tpope/vim-rhubarb', after = { 'vim-fugitive' } }) -- Fugitive GitHub support.
     use({
         'whiteinge/diffconflicts', -- Git mergetool.
         cmd = {
-            'DiffConflicts', 'DiffConflictsShowHistory',
+            'DiffConflicts',
+            'DiffConflictsShowHistory',
             'DiffConflictsWithHistory ',
         },
     })
@@ -119,7 +120,7 @@ return require('packer').startup(function(use)
         'ThePrimeagen/harpoon',
         config = require('plugins.interface.harpoon'),
         event = 'VimEnter',
-        requires = {'nvim-lua/plenary.nvim'},
+        requires = { 'nvim-lua/plenary.nvim' },
     })
     use({
         'beauwilliams/focus.nvim', -- Golden ratio window resizing.
@@ -127,15 +128,15 @@ return require('packer').startup(function(use)
         event = 'BufEnter',
         module = 'focus',
     })
-    use {
+    use({
         'filipdutescu/renamer.nvim',
         config = require('plugins.interface.renamer'),
-        keys = {{'n', '<Leader>r'}},
-        requires = {'nvim-lua/plenary.nvim'},
-    }
+        keys = { { 'n', '<Leader>r' } },
+        requires = { 'nvim-lua/plenary.nvim' },
+    })
     use({
         'folke/zen-mode.nvim', -- Zen Mode.
-        cmd = {'ZenMode'},
+        cmd = { 'ZenMode' },
         config = require('plugins.interface.zen-mode'),
     })
     use({
@@ -150,9 +151,9 @@ return require('packer').startup(function(use)
     })
     use({
         'is0n/fm-nvim', -- File manager.
-        cmd = {'Fzf', 'Vifm'},
+        cmd = { 'Fzf', 'Vifm' },
         config = require('plugins.interface.fm'),
-        keys = {{'n', 'Ä'}, {'n', 'Å'}},
+        keys = { { 'n', 'Ä' }, { 'n', 'Å' } },
     })
 
     -- LSP.
@@ -160,13 +161,13 @@ return require('packer').startup(function(use)
         'jose-elias-alvarez/null-ls.nvim',
         after = 'nvim-lspconfig',
         config = require('plugins.lsp.null'),
-        requires = {'nvim-lua/plenary.nvim'},
+        requires = { 'nvim-lua/plenary.nvim' },
     })
 
-    use({'jose-elias-alvarez/nvim-lsp-ts-utils', after = 'null-ls.nvim'})
+    use({ 'jose-elias-alvarez/nvim-lsp-ts-utils', after = 'null-ls.nvim' })
     use({
         'neovim/nvim-lspconfig', -- Collection of configurations.
-        after = {'cmp-nvim-lsp'},
+        after = { 'cmp-nvim-lsp' },
         config = require('plugins.lsp'),
     })
 
@@ -174,15 +175,15 @@ return require('packer').startup(function(use)
     use({
         'hrsh7th/nvim-cmp', -- Completion engine.
         config = require('plugins.completion.cmp'),
-        event = {'BufEnter'},
-        requires = {'onsails/lspkind-nvim'},
+        event = { 'BufEnter' },
+        requires = { 'onsails/lspkind-nvim' },
     })
-    use({'hrsh7th/cmp-buffer', after = 'nvim-cmp'}) -- Buffer completion.
-    use({'hrsh7th/cmp-cmdline', after = 'nvim-cmp'}) -- Command completion.
-    use({'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp'}) -- LSP completion.
-    use({'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp'}) -- API completion.
-    use({'hrsh7th/cmp-path', after = 'nvim-cmp'}) -- Path completion.
-    use({'hrsh7th/cmp-vsnip', after = 'nvim-cmp'}) -- VSnip completion.
+    use({ 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }) -- Buffer completion.
+    use({ 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }) -- Command completion.
+    use({ 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' }) -- LSP completion.
+    use({ 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' }) -- API completion.
+    use({ 'hrsh7th/cmp-path', after = 'nvim-cmp' }) -- Path completion.
+    use({ 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' }) -- VSnip completion.
     use({
         'hrsh7th/vim-vsnip', -- Snippet support.
         after = 'nvim-cmp',
@@ -190,16 +191,16 @@ return require('packer').startup(function(use)
     })
 
     -- Override.
-    use({'bronson/vim-visual-star-search', keys = {{'v', '*'}, {'v', '#'}}}) -- Visual star search.
+    use({ 'bronson/vim-visual-star-search', keys = { { 'v', '*' }, { 'v', '#' } } }) -- Visual star search.
     use({
         'sickill/vim-pasta', -- Paste with smart indentation.
         config = require('plugins.override.pasta'),
         event = 'BufEnter',
     })
-    use({'tpope/vim-speeddating', keys = {{'n', '<c-a>'}, {'n', '<c-x>'}}}) -- Increment / decrement dates, times and more.
+    use({ 'tpope/vim-speeddating', keys = { { 'n', '<c-a>' }, { 'n', '<c-x>' } } }) -- Increment / decrement dates, times and more.
     use({ -- Interactive registers.
         'tversteeg/registers.nvim',
-        keys = {{'i', '<c-r>'}, {'n', '"'}, {'v', '"'}},
+        keys = { { 'i', '<c-r>' }, { 'n', '"' }, { 'v', '"' } },
     })
 
     -- Navigation.
@@ -210,16 +211,16 @@ return require('packer').startup(function(use)
     })
     use({
         'nvim-telescope/telescope.nvim', -- Telescope.
-        after = {'harpoon'},
+        after = { 'harpoon' },
         config = require('plugins.navigation.telescope').config,
         requires = {
             'nvim-lua/plenary.nvim',
-            {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'},
+            { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
         },
     })
 
     -- Text objects and motions.
-    use({'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter'}) -- Smart selection.
-    use({'michaeljsmith/vim-indent-object', event = 'CursorMoved'}) -- Indent text object.
-    use({'wellle/targets.vim', event = 'CursorMoved'}) -- Additional text objects.
+    use({ 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter' }) -- Smart selection.
+    use({ 'michaeljsmith/vim-indent-object', event = 'CursorMoved' }) -- Indent text object.
+    use({ 'wellle/targets.vim', event = 'CursorMoved' }) -- Additional text objects.
 end)

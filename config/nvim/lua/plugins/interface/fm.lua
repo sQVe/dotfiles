@@ -5,10 +5,10 @@ return function()
     require('fm-nvim').setup({
         border = 'rounded',
         mappings = {
-            vert_split = '<C-v>',
-            horz_split = '<C-s>',
-            tabedit = '<C-t>',
             edit = '<C-e>',
+            horz_split = '<C-s>',
+            vert_split = '<C-v>',
+            tabedit = '<C-t>',
             ESC = '<ESC>',
         },
     })

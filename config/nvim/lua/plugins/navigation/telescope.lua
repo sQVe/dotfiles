@@ -6,7 +6,7 @@ local M = {}
 M.find_files = function(use_buffer_cwd)
     local builtin = require('telescope.builtin')
     local utils = require('telescope.utils')
-    local opts = {follow = true, hidden = true, use_git_root = false}
+    local opts = { follow = true, hidden = true, use_git_root = false }
 
     if use_buffer_cwd then
         opts.cwd = utils.buffer_dir()
@@ -30,9 +30,9 @@ M.config = function()
                 height = 0.8,
                 prompt_position = 'top',
                 width = 0.8,
-                flex = {flip_columns = 280},
-                horizontal = {preview_width = 80},
-                vertical = {preview_height = 0.25},
+                flex = { flip_columns = 280 },
+                horizontal = { preview_width = 80 },
+                vertical = { preview_height = 0.25 },
             },
             mappings = {
                 i = {
@@ -47,8 +47,13 @@ M.config = function()
             sorting_strategy = 'ascending',
             vimgrep_arguments = {
                 {
-                    'rg', '--color=never', '--column', '--hidden',
-                    '--line-number', '--no-heading', '--with-filename',
+                    'rg',
+                    '--color=never',
+                    '--column',
+                    '--hidden',
+                    '--line-number',
+                    '--no-heading',
+                    '--with-filename',
                 },
             },
         },

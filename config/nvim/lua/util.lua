@@ -6,7 +6,7 @@ local util = require('lspconfig').util
 local M = {}
 
 function M.root_dir(opts)
-    opts = opts or {prioritizeManifest = false}
+    opts = opts or { prioritizeManifest = false }
 
     return function(filename)
         local manifest
@@ -21,8 +21,9 @@ function M.root_dir(opts)
             return manifest
         end
 
-        return util.find_git_ancestor(filename) or manifest or
-                   util.path.dirname(filename)
+        return util.find_git_ancestor(filename)
+            or manifest
+            or util.path.dirname(filename)
     end
 end
 

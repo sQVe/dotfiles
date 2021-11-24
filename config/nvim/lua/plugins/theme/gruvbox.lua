@@ -56,4 +56,3 @@ return function()
         hi! link TelescopePreviewBorder FloatBorder
     ]])
 end
-

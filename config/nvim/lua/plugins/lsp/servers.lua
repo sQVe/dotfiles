@@ -50,14 +50,14 @@ return function(on_attach_callback)
         },
         sumneko_lua = {
             capabilities = capabilities,
-            cmd = {'lua-language-server'},
+            cmd = { 'lua-language-server' },
             on_attach = commonConfig.on_attach,
             root_dir = root_dir,
             settings = {
                 Lua = {
-                    diagnostics = {globals = {'vim'}},
-                    runtime = {version = 'LuaJIT'},
-                    telemetry = {enable = false},
+                    diagnostics = { globals = { 'vim' } },
+                    runtime = { version = 'LuaJIT' },
+                    telemetry = { enable = false },
                 },
             },
         },
