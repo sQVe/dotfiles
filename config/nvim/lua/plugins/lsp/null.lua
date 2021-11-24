@@ -11,9 +11,7 @@ return function()
     null.config({
         diagnostics_format = '#{c}: #{m} (#{s})',
         sources = {
-            formatters.eslint_d, formatters.gofmt,
-            formatters.lua_format
-                .with({extra_args = {'--double-quote-to-single-quote'}}),
+            formatters.eslint_d, formatters.gofmt, formatters.lua_format,
             formatters.prettierd,
             formatters.shfmt
                 .with({extra_args = {'-i', '2', '-bn', '-ci', '-sr'}}),
