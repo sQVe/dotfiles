@@ -9,10 +9,6 @@ return function()
     })
 
     vim.cmd([[
-        " Reset search binding.
-        map s <Plug>Lightspeed_s
-        map S <Plug>Lightspeed_S
-
         " Enable ; and , navigation for char jumping.
         map , <Plug>Lightspeed_;_sx
         map ; <Plug>Lightspeed_,_sx
