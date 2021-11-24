@@ -80,8 +80,6 @@ return function()
             ['<CR>'] = mapKey(mapping.confirm({select = false})),
             ['<Tab>'] = mapKey(next),
             ['<S-Tab>'] = mapKey(previous),
-            ['<Up>'] = mapKey(previous),
-            ['<Down>'] = mapKey(next),
         },
         snippet = {expand = expand_snippet},
         sorting = {
