@@ -21,9 +21,6 @@ return function()
         hi! link CmpItemKind GruvboxYellow
         hi! link CmpItemMenu GruvboxPurple
 
-        " Floaterm.
-        hi! FloatermBorder guibg=NONE guifg=#665c54
-
         " Indent blankline.
         hi! IndentBlanklineChar guifg=#3c3836 gui=nocombine
         hi! IndentBlanklineContextChar guifg=#a89984 gui=nocombine
@@ -51,6 +48,12 @@ return function()
         sign define DiagnosticSignHint text=■ texthl=DiagnosticSignHint
         sign define DiagnosticSignInfo text=■ texthl=DiagnosticSignInfo
         sign define DiagnosticSignWarn text=■ texthl=DiagnosticSignWarn
+
+        " Telescope.
+        hi! link TelescopeBorder GruvboxYellowBold
+        hi! link TelescopePromptBorder Normal
+        hi! link TelescopeResultsBorder FloatBorder
+        hi! link TelescopePreviewBorder FloatBorder
     ]])
 end
 
