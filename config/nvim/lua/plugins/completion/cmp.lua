@@ -23,7 +23,7 @@ return function()
 
     local mapKey = function(keyMap) return mapping(keyMap, {'c', 'i'}) end
 
-    local tab_complete = function(fallback)
+    local next = function(fallback)
         if cmp.visible() then
             cmp.select_next_item()
         elseif has_words_before() then
@@ -33,7 +33,7 @@ return function()
         end
     end
 
-    local s_tab_complete = function(fallback)
+    local previous = function(fallback)
         if cmp.visible() then
             cmp.select_prev_item()
         else
@@ -78,8 +78,10 @@ return function()
             ['<C-k>'] = mapKey(signature_help),
             ['<C-u>'] = mapKey(mapping.scroll_docs(-8)),
             ['<CR>'] = mapKey(mapping.confirm({select = false})),
-            ['<S-Tab>'] = mapKey(s_tab_complete),
-            ['<Tab>'] = mapKey(tab_complete),
+            ['<Tab>'] = mapKey(next),
+            ['<S-Tab>'] = mapKey(previous),
+            ['<Up>'] = mapKey(previous),
+            ['<Down>'] = mapKey(next),
         },
         snippet = {expand = expand_snippet},
         sorting = {
