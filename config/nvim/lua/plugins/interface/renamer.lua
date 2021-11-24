@@ -2,9 +2,9 @@
 -- ┣┳┛┣╸ ┃┗┫┣━┫┃┃┃┣╸ ┣┳┛
 -- ╹┗╸┗━╸╹ ╹╹ ╹╹ ╹┗━╸╹┗╸
 return function()
-    require('renamer').setup({})
+  require('renamer').setup({})
 
-    vim.cmd([[
-        nnoremap <silent> <Leader>r <CMD>lua require('renamer').rename()<CR>
-    ]])
+  vim.cmd([[
+    nnoremap <silent> <Leader>r <CMD>lua require('renamer').rename()<CR>
+  ]])
 end
