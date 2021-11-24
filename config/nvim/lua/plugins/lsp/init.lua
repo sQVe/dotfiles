@@ -5,11 +5,8 @@ return function()
     local on_attach = function() end
     local servers = require('plugins.lsp.servers')(on_attach)
 
-    local lsp = vim.lsp
-
     -- Disable virtual text for diagnostics.
-    lsp.handlers['textDocument/publishDiagnostics'] =
-        lsp.with(lsp.diagnostic.on_publish_diagnostics, {virtual_text = false})
+    vim.diagnostic.config({virtual_text = false})
 
     for server, config in pairs(servers) do
         if config.flags == nil then
