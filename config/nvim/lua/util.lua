@@ -21,9 +21,7 @@ function M.root_dir(opts)
       return manifest
     end
 
-    return util.find_git_ancestor(filename)
-      or manifest
-      or util.path.dirname(filename)
+    return util.find_git_ancestor(filename) or manifest
   end
 end
 
