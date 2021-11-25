@@ -2,6 +2,12 @@
 -- ┣━┫┣━┫┣┳┛┣━┛┃ ┃┃ ┃┃┗┫
 -- ╹ ╹╹ ╹╹┗╸╹  ┗━┛┗━┛╹ ╹
 return function()
+  require('harpoon').setup({
+    global_settings = {
+      save_on_toggle = true,
+    },
+  })
+
   vim.cmd([[
     nnoremap <silent> <Backspace> :lua require('harpoon.ui').toggle_quick_menu()<CR>
     nnoremap <silent> <CR><CR> :lua require('harpoon.mark').add_file()<CR>
