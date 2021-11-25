@@ -11,8 +11,8 @@ return function()
 
   vim.cmd([[
     " Override defaults.
-    hi! ColorColumn guifg=NONE guibg=#282828 gui=NONE cterm=NONE
     hi! Cursor guifg=#282828 guibg=#ebdbb2 gui=NONE cterm=NONE
+    hi! ColorColumn guifg=NONE guibg=#282828 gui=NONE cterm=NONE
     hi! link Delimiter GruvboxFg2
 
     " Cmp.
