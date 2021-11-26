@@ -6,6 +6,10 @@ return function()
     global_settings = {
       save_on_toggle = true,
     },
+    menu = {
+      height = 20,
+      width = 100,
+    },
   })
 
   vim.cmd([[
