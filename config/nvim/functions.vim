@@ -15,7 +15,7 @@ func! CommitMsgFromBranchName()
   1 substitute /-/ /e
 endfunc
 
-" TODO: Get git root and open saved previous commit message.
+" Open saved previous commit message.
 func! CommitMsgPrev()
   let root_path = system("git rev-parse --show-toplevel")
   let newline_safe_root_path = substitute(root_path, '\n', '', 'g')
