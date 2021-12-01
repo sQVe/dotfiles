@@ -67,40 +67,40 @@ M.config = function()
 
   vim.cmd([[
     " Telescope.
-    nnoremap <silent> - :Telescope<CR>
-    nnoremap <silent> _ :Telescope resume<CR>
+    nnoremap <silent> - <Cmd>Telescope<CR>
+    nnoremap <silent> _ <Cmd>Telescope resume<CR>
 
     " Files and buffers.
-    nnoremap <silent> <Leader><Backspace> :Telescope buffers sort_mru=true<CR>
-    nnoremap <silent> ä :lua require("plugins.navigation.telescope").find_files()<CR>
-    nnoremap <silent> å :lua require("plugins.navigation.telescope").find_files(true)<CR>
+    nnoremap <silent> <Leader><Backspace> <Cmd>Telescope buffers sort_mru=true<CR>
+    nnoremap <silent> ä <Cmd>lua require("plugins.navigation.telescope").find_files()<CR>
+    nnoremap <silent> å <Cmd>lua require("plugins.navigation.telescope").find_files(true)<CR>
 
     " Grep.
-    nnoremap <silent> <Leader>+ :Telescope live_grep<CR>
-    nnoremap <silent> <Leader>/ :Telescope live_grep<CR>
-    nnoremap <silent> <Leader>? :Telescope live_grep<CR>
-    nnoremap <silent> gR :Telescope grep_string<CR>
+    nnoremap <silent> <Leader>+ <Cmd>Telescope live_grep<CR>
+    nnoremap <silent> <Leader>/ <Cmd>Telescope live_grep<CR>
+    nnoremap <silent> <Leader>? <Cmd>Telescope live_grep<CR>
+    nnoremap <silent> gR <Cmd>Telescope grep_string<CR>
 
     " Git.
-    nnoremap <silent> <Leader>gl :Telescope git_bcommits<CR>
-    nnoremap <silent> <Leader>gL :Telescope git_commits<CR>
-    nnoremap <silent> <Leader>gg :Telescope git_status<CR>
-    nnoremap <silent> <Leader>gc :Telescope git_branches<CR>
+    nnoremap <silent> <Leader>gl <Cmd>Telescope git_bcommits<CR>
+    nnoremap <silent> <Leader>gL <Cmd>Telescope git_commits<CR>
+    nnoremap <silent> <Leader>gg <Cmd>Telescope git_status<CR>
+    nnoremap <silent> <Leader>gc <Cmd>Telescope git_branches<CR>
 
     " LSP.
-    nnoremap <silent> gd :Telescope lsp_definitions<CR>
-    nnoremap <silent> gD :Telescope lsp_implementations<CR>
-    nnoremap <silent> gr :Telescope lsp_references<CR>
-    nnoremap <silent> gy :Telescope lsp_definitions<CR>
-    nnoremap <silent> <Leader>s :Telescope lsp_document_symbols<CR>
-    nnoremap <silent> <Leader>S :Telescope lsp_dynamic_workspace_symbols<CR>
-    nnoremap <silent> <Leader>a :Telescope lsp_code_actions<CR>
-    xnoremap <silent> <Leader>a :Telescope lsp_range_code_actions<CR>
-    nnoremap <silent> <Leader>l :Telescope lsp_document_diagnostics<CR>
-    nnoremap <silent> <Leader>L :Telescope lsp_workspace_diagnostics<CR>
+    nnoremap <silent> gd <Cmd>Telescope lsp_definitions<CR>
+    nnoremap <silent> gD <Cmd>Telescope lsp_implementations<CR>
+    nnoremap <silent> gr <Cmd>Telescope lsp_references<CR>
+    nnoremap <silent> gy <Cmd>Telescope lsp_definitions<CR>
+    nnoremap <silent> <Leader>s <Cmd>Telescope lsp_document_symbols<CR>
+    nnoremap <silent> <Leader>S <Cmd>Telescope lsp_dynamic_workspace_symbols<CR>
+    nnoremap <silent> <Leader>a <Cmd>Telescope lsp_code_actions<CR>
+    xnoremap <silent> <Leader>a <Cmd>Telescope lsp_range_code_actions<CR>
+    nnoremap <silent> <Leader>l <Cmd>Telescope lsp_document_diagnostics<CR>
+    nnoremap <silent> <Leader>L <Cmd>Telescope lsp_workspace_diagnostics<CR>
 
     " Misc.
-    nnoremap <silent> mm :Telescope marks<CR>
+    nnoremap <silent> mm <Cmd>Telescope marks<CR>
   ]])
 end
 

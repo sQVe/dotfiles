@@ -17,20 +17,20 @@ return function()
     dashboard.button(
       'ä',
       '📝  Find File',
-      ':lua require("plugins.navigation.telescope").find_files()<CR>'
+      '<Cmd>lua require("plugins.navigation.telescope").find_files()<CR>'
     ),
-    dashboard.button('Ä', '📑  File Manager', ':Vifm<CR>'),
-    dashboard.button('s', '🔴  Status', ':Telescope git_status<CR>'),
+    dashboard.button('Ä', '📑  File Manager', '<Cmd>Vifm<CR>'),
+    dashboard.button('s', '🔴  Status', '<Cmd>Telescope git_status<CR>'),
     dashboard.button(
       'u',
       '✍   Recently Used Files',
-      ':Telescope oldfiles cwd_only=true<CR>'
+      '<Cmd>Telescope oldfiles cwd_only=true<CR>'
     ),
-    dashboard.button('/', '🔍  Grep Word', ':Telescope live_grep<CR>'),
-    dashboard.button('e', '💎  New File', ':enew<CR>'),
-    dashboard.button('C', '💎  Packer Compile', ':PackerCompile<CR>'),
-    dashboard.button('S', '🔃  Packer Sync', ':PackerSync<CR>'),
-    dashboard.button('q', '🚪  Quit', ':qa<CR>'),
+    dashboard.button('/', '🔍  Grep Word', '<Cmd>Telescope live_grep<CR>'),
+    dashboard.button('e', '💎  New File', '<Cmd>enew<CR>'),
+    dashboard.button('C', '💎  Packer Compile', '<Cmd>PackerCompile<CR>'),
+    dashboard.button('S', '🔃  Packer Sync', '<Cmd>PackerSync<CR>'),
+    dashboard.button('q', '🚪  Quit', '<Cmd>qa<CR>'),
   }
 
   dashboard.section.footer.val = { vim.fn.getcwd() }

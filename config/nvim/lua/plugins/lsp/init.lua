@@ -19,12 +19,12 @@ return function()
 
   vim.cmd([[
     " General.
-    nnoremap <silent> <Leader>f :lua vim.lsp.buf.formatting()<CR>
-    nnoremap <silent> K :ShowDocumentation<CR>
+    nnoremap <silent> <Leader>f <Cmd>lua vim.lsp.buf.formatting()<CR>
+    nnoremap <silent> K <Cmd>ShowDocumentation<CR>
 
     " Diagnostics.
-    nnoremap <silent> gl :lua vim.diagnostic.open_float(0, {scope = 'line', header = false})<CR>
-    nnoremap <silent> <Leader>lj :lua vim.diagnostic.goto_next({float = false})<CR>
-    nnoremap <silent> <Leader>lk :lua vim.diagnostic.goto_prev({float = false})<CR>
+    nnoremap <silent> gl <Cmd>lua vim.diagnostic.open_float(0, {scope = 'line', header = false})<CR>
+    nnoremap <silent> <Leader>lj <Cmd>lua vim.diagnostic.goto_next({float = false})<CR>
+    nnoremap <silent> <Leader>lk <Cmd>lua vim.diagnostic.goto_prev({float = false})<CR>
   ]])
 end

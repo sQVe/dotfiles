@@ -14,7 +14,7 @@ return function()
   })
 
   vim.cmd([[
-    nnoremap <silent> Ä :Vifm<CR>
-    nnoremap <silent> Å :Vifm %:p:h<CR>
+    nnoremap <silent> Ä <Cmd>Vifm<CR>
+    nnoremap <silent> Å <Cmd>Vifm %:p:h<CR>
   ]])
 end
