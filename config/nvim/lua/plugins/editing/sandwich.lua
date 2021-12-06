@@ -5,8 +5,7 @@ local M = {}
 
 function M.config()
   vim.cmd([[
-    runtime macros/sandwich/keymap/surround.vim
-    xmap gs <Plug>(operator-sandwich-add)
+    source $DOTFILES/config/nvim/macros/sandwich/keymap/surround.vim
   ]])
 end
 
