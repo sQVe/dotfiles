@@ -205,6 +205,10 @@ noremap <Space>Q :quit!<CR>
 " Sane tagging.
 noremap t tj
 
+" Word forward/backward with Ctrl-Left and Ctrl-Right.
+cnoremap <Esc>[1;5C <A-f>
+cnoremap <Esc>[1;5D <A-b>
+
 " Open console in current directory
 nnoremap <Space><CR> :!term &<CR>
 
