@@ -31,15 +31,15 @@ return require('packer').startup(function(use)
   -- Integration.
   use({ 'editorconfig/editorconfig-vim', event = 'BufEnter' }) -- Editorconfig.
   use({
-    'michaelb/sniprun',
+    'michaelb/sniprun', -- Run blocks of code.
     run = 'bash ./install.sh',
     cmd = { 'SnipRun' },
     config = require('plugins.integration.sniprun'),
   })
 
   -- Theme.
-  use({ -- Gruvbox color theme.
-    'npxbr/gruvbox.nvim',
+  use({
+    'npxbr/gruvbox.nvim', -- Gruvbox color theme.
     config = require('plugins.theme.gruvbox'),
     requires = { 'rktjmp/lush.nvim' },
   })
@@ -58,14 +58,14 @@ return require('packer').startup(function(use)
   })
 
   --  Documentation.
-  use({ -- Comment text.
-    'numToStr/Comment.nvim',
+  use({
+    'numToStr/Comment.nvim', -- Comment text.
     config = require('plugins.documentation.comment'),
     keys = { { 'n', 'gb' }, { 'n', 'gc' }, { 'v', 'gb' }, { 'v', 'gc' } },
     requires = { 'JoosepAlviste/nvim-ts-context-commentstring' },
   })
-  use({ -- Automatically set commentstring.
-    'JoosepAlviste/nvim-ts-context-commentstring',
+  use({
+    'JoosepAlviste/nvim-ts-context-commentstring', -- Automatically set commentstring.
     after = 'nvim-treesitter',
   })
   use({
@@ -76,8 +76,8 @@ return require('packer').startup(function(use)
   })
 
   -- Commands.
-  use({ -- Set pwd to root directory.
-    'ahmedkhalf/project.nvim',
+  use({
+    'ahmedkhalf/project.nvim', -- Set pwd to root directory.
     cmd = { 'ProjectRoot' },
     config = require('plugins.commands.project'),
   })
@@ -117,7 +117,7 @@ return require('packer').startup(function(use)
 
   -- Interface.
   use({
-    'ThePrimeagen/harpoon',
+    'ThePrimeagen/harpoon', -- Keep and list WIP buffers.
     config = require('plugins.interface.harpoon'),
     event = 'VimEnter',
     requires = { 'nvim-lua/plenary.nvim' },
@@ -129,7 +129,7 @@ return require('packer').startup(function(use)
     module = 'focus',
   })
   use({
-    'filipdutescu/renamer.nvim',
+    'filipdutescu/renamer.nvim', -- Rename UI.
     config = require('plugins.interface.renamer'),
     keys = { { 'n', '<Leader>r' } },
     requires = { 'nvim-lua/plenary.nvim' },
@@ -158,13 +158,16 @@ return require('packer').startup(function(use)
 
   -- LSP.
   use({
-    'jose-elias-alvarez/null-ls.nvim',
+    'jose-elias-alvarez/null-ls.nvim', -- Format and linting LSP.
     after = 'nvim-lspconfig',
     config = require('plugins.lsp.null'),
     requires = { 'nvim-lua/plenary.nvim' },
   })
 
-  use({ 'jose-elias-alvarez/nvim-lsp-ts-utils', after = 'null-ls.nvim' })
+  use({
+    'jose-elias-alvarez/nvim-lsp-ts-utils', -- Improve ESLint and TypeScript null-ls support.
+    after = 'null-ls.nvim',
+  })
   use({
     'neovim/nvim-lspconfig', -- Collection of configurations.
     after = { 'cmp-nvim-lsp' },
@@ -192,20 +195,20 @@ return require('packer').startup(function(use)
 
   -- Override.
   use({
-    'bronson/vim-visual-star-search',
+    'bronson/vim-visual-star-search', -- Visual star search.
     keys = { { 'v', '*' }, { 'v', '#' } },
-  }) -- Visual star search.
+  })
   use({
     'sickill/vim-pasta', -- Paste with smart indentation.
     config = require('plugins.override.pasta'),
     event = 'BufEnter',
   })
   use({
-    'tpope/vim-speeddating',
+    'tpope/vim-speeddating', -- Increment / decrement dates, times and more.
     keys = { { 'n', '<c-a>' }, { 'n', '<c-x>' } },
-  }) -- Increment / decrement dates, times and more.
-  use({ -- Interactive registers.
-    'tversteeg/registers.nvim',
+  })
+  use({
+    'tversteeg/registers.nvim', -- Interactive registers.
     keys = { { 'i', '<c-r>' }, { 'n', '"' }, { 'v', '"' } },
   })
 
