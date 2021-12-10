@@ -87,6 +87,7 @@ return require('packer').startup(function(use)
     'tpope/vim-eunuch', -- Unix helpers.
     cmd = { 'Chmod', 'Delete', 'Mkdir', 'Move', 'Rename' },
   })
+  use({ 'sQVe/sort.nvim', cmd = { 'Sort' } }) -- Sort by line and delimiter.
 
   -- Git.
   use({
