@@ -59,6 +59,7 @@ return function()
   local compare_locality = function(...)
     return require('cmp_buffer'):compare_locality(...)
   end
+
   local get_all_buffers = function()
     return vim.api.nvim_list_bufs()
   end
