@@ -6,7 +6,7 @@ vim.cmd('packadd cfilter')
 
 return require('packer').startup(function(use)
   -- Handle packer with packer.
-  use({ 'wbthomason/packer.nvim' })
+  use({ 'wbthomason/packer.nvim', opt = true })
 
   -- Optimize startup.
   use({ 'lewis6991/impatient.nvim' })
