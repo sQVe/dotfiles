@@ -8,6 +8,9 @@ return require('packer').startup(function(use)
   -- Handle packer with packer.
   use({ 'wbthomason/packer.nvim' })
 
+  -- Optimize startup.
+  use({ 'lewis6991/impatient.nvim' })
+
   -- Editing.
   use({
     'gabrielpoca/replacer.nvim', -- Search and replace over quicklist.
