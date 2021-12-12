@@ -1,6 +1,7 @@
 --  ╻  ╻┏━╸╻ ╻╺┳╸┏━┓┏━┓┏━╸┏━╸╺┳┓
 --  ┃  ┃┃╺┓┣━┫ ┃ ┗━┓┣━┛┣╸ ┣╸  ┃┃
 --  ┗━╸╹┗━┛╹ ╹ ╹ ┗━┛╹  ┗━╸┗━╸╺┻┛
+
 return function()
   require('lightspeed').setup({
     cycle_group_bwd_key = '<S-Tab>',

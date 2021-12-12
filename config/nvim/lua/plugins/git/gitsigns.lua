@@ -1,6 +1,7 @@
 --  ┏━╸╻╺┳╸┏━┓╻┏━╸┏┓╻┏━┓
 --  ┃╺┓┃ ┃ ┗━┓┃┃╺┓┃┗┫┗━┓
 --  ┗━┛╹ ╹ ┗━┛╹┗━┛╹ ╹┗━┛
+
 return function()
   require('gitsigns').setup({
     signs = {

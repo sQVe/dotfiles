@@ -1,6 +1,7 @@
 --  ┏━╸┏━┓┏┳┓┏┳┓┏━╸┏┓╻╺┳╸
 --  ┃  ┃ ┃┃┃┃┃┃┃┣╸ ┃┗┫ ┃
 --  ┗━╸┗━┛╹ ╹╹ ╹┗━╸╹ ╹ ╹
+
 return function()
   require('Comment').setup({
     ignore = '^$',
@@ -15,8 +16,7 @@ return function()
         location =
           require('ts_context_commentstring.utils').get_cursor_location()
       elseif
-        ctx.cmotion == utils.cmotion.v
-        or ctx.cmotion == utils.cmotion.V
+        ctx.cmotion == utils.cmotion.v or ctx.cmotion == utils.cmotion.V
       then
         location =
           require('ts_context_commentstring.utils').get_visual_start_location()

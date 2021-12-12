@@ -1,6 +1,7 @@
 -- ╻ ╻┏━┓┏━┓┏━┓┏━┓┏━┓┏┓╻
 -- ┣━┫┣━┫┣┳┛┣━┛┃ ┃┃ ┃┃┗┫
 -- ╹ ╹╹ ╹╹┗╸╹  ┗━┛┗━┛╹ ╹
+
 return function()
   require('harpoon').setup({
     global_settings = {

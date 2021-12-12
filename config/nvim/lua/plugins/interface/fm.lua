@@ -1,6 +1,7 @@
 -- ┏━╸┏┳┓
 -- ┣╸ ┃┃┃
 -- ╹  ╹ ╹
+
 return function()
   require('fm-nvim').setup({
     border = 'rounded',

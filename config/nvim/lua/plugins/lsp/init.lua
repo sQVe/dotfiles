@@ -1,6 +1,7 @@
 --  ╻┏┓╻╻╺┳╸
 --  ┃┃┗┫┃ ┃
 --  ╹╹ ╹╹ ╹
+
 return function()
   local on_attach = function() end
   local servers = require('plugins.lsp.servers')(on_attach)

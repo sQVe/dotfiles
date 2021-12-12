@@ -1,6 +1,7 @@
 -- ┏━┓╻  ┏━┓╻ ╻┏━┓
 -- ┣━┫┃  ┣━┛┣━┫┣━┫
 -- ╹ ╹┗━╸╹  ╹ ╹╹ ╹
+
 return function()
   local dashboard = require('alpha.themes.dashboard')
 

@@ -1,6 +1,7 @@
 --  ┏┳┓┏━┓╻┏┓╻
 --  ┃┃┃┣━┫┃┃┗┫
 --  ╹ ╹╹ ╹╹╹ ╹
+
 -- Disable providers.
 vim.g.loaded_node_provider = 1
 vim.g.loaded_perl_provider = 1

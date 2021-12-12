@@ -1,6 +1,7 @@
 --  ┏━╸┏━┓╻ ╻╻ ╻┏┓ ┏━┓╻ ╻
 --  ┃╺┓┣┳┛┃ ┃┃┏┛┣┻┓┃ ┃┏╋┛
 --  ┗━┛╹┗╸┗━┛┗┛ ┗━┛┗━┛╹ ╹
+
 return function()
   vim.g.gruvbox_sign_column = 'bg0'
   vim.g.gruvbox_transparent_bg = 1

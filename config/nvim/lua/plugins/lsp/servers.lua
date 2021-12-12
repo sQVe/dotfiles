@@ -1,6 +1,7 @@
 --  ┏━┓┏━╸┏━┓╻ ╻┏━╸┏━┓┏━┓
 --  ┗━┓┣╸ ┣┳┛┃┏┛┣╸ ┣┳┛┗━┓
 --  ┗━┛┗━╸╹┗╸┗┛ ┗━╸╹┗╸┗━┛
+
 return function(on_attach_callback)
   local root_dir = require('util').root_dir()
 

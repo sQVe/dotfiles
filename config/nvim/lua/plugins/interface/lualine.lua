@@ -1,6 +1,7 @@
 --  ╻  ╻ ╻┏━┓╻  ╻┏┓╻┏━╸
 --  ┃  ┃ ┃┣━┫┃  ┃┃┗┫┣╸
 --  ┗━╸┗━┛╹ ╹┗━╸╹╹ ╹┗━╸
+
 return function()
   local gruvbox = require('lualine.themes.gruvbox')
   local modes = {

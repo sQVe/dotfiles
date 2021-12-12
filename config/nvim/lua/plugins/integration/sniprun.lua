@@ -1,6 +1,7 @@
 --  ┏━┓┏┓╻╻┏━┓┏━┓╻ ╻┏┓╻
 --  ┗━┓┃┗┫┃┣━┛┣┳┛┃ ┃┃┗┫
 --  ┗━┛╹ ╹╹╹  ╹┗╸┗━┛╹ ╹
+
 return function()
   require('sniprun').setup({
     display = { 'VirtualTextOk', 'VirtualTextErr' },

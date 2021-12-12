@@ -1,6 +1,7 @@
 -- ╻┏┓╻╻╺┳╸
 -- ┃┃┗┫┃ ┃
 -- ╹╹ ╹╹ ╹
+
 -- Add builtin plugins.
 vim.cmd('packadd cfilter')
 
@@ -90,7 +91,11 @@ return require('packer').startup(function(use)
     'tpope/vim-eunuch', -- Unix helpers.
     cmd = { 'Chmod', 'Delete', 'Mkdir', 'Move', 'Rename' },
   })
-  use({ 'sQVe/sort.nvim', cmd = { 'Sort' } }) -- Sort by line and delimiter.
+  use({
+    'sQVe/sort.nvim', -- Sort by line and delimiter.
+    cmd = { 'Sort' },
+    config = require('plugins.commands.sort'),
+  })
 
   -- Git.
   use({
