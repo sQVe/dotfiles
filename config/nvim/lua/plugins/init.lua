@@ -182,18 +182,18 @@ return require('packer').startup(function(use)
   use({
     'hrsh7th/nvim-cmp', -- Completion engine.
     config = require('plugins.completion.cmp'),
-    event = { 'BufEnter' },
+    event = { 'CmdlineEnter', 'InsertEnter' },
     requires = { 'onsails/lspkind-nvim' },
   })
-  use({ 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }) -- Buffer completion.
-  use({ 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }) -- Command completion.
-  use({ 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' }) -- LSP completion.
+  use({ 'hrsh7th/cmp-buffer', after = 'cmp-path' }) -- Buffer completion.
+  use({ 'hrsh7th/cmp-cmdline', after = 'cmp-nvim-lsp' }) -- Command completion.
+  use({ 'hrsh7th/cmp-nvim-lsp', after = 'cmp-nvim-lua' }) -- LSP completion.
   use({ 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' }) -- API completion.
-  use({ 'hrsh7th/cmp-path', after = 'nvim-cmp' }) -- Path completion.
-  use({ 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' }) -- VSnip completion.
+  use({ 'hrsh7th/cmp-path', after = 'cmp-cmdline' }) -- Path completion.
+  use({ 'hrsh7th/cmp-vsnip', after = 'cmp-buffer' }) -- VSnip completion.
   use({
     'hrsh7th/vim-vsnip', -- Snippet support.
-    after = 'nvim-cmp',
+    after = 'cmp-vsnip',
     setup = require('plugins.completion.vsnip'),
   })
 
