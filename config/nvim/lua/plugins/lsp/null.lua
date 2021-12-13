@@ -5,6 +5,7 @@
 return function()
   local null = require('null-ls')
 
+  local code_actions = null.builtins.code_actions
   local formatters = null.builtins.formatting
   local linters = null.builtins.diagnostics
 
@@ -20,6 +21,8 @@ return function()
       ]])
     end,
     sources = {
+      code_actions.eslint_d,
+      code_actions.shellcheck,
       formatters.eslint_d,
       formatters.gofmt,
       formatters.prettierd,

@@ -30,25 +30,7 @@ return function(on_attach_callback)
     gopls = commonConfig,
     html = commonConfig,
     jsonls = commonConfig,
-    tsserver = {
-      capabilities = commonConfig.capabilities,
-      on_attach = function(client)
-        local ts_utils = require('nvim-lsp-ts-utils')
-
-        ts_utils.setup({
-          enable_import_on_completion = true,
-          eslint_bin = 'eslint_d',
-          filter_out_diagnostics_by_code = {
-            80001, -- Require modules.
-          },
-        })
-        ts_utils.setup_client(client)
-
-        set_formatting_capabilities(client, false)
-        on_attach_callback()
-      end,
-      root_dir = root_dir,
-    },
+    tsserver = commonConfig,
     sumneko_lua = {
       capabilities = commonConfig.capabilities,
       cmd = { 'lua-language-server' },

@@ -172,10 +172,6 @@ return require('packer').startup(function(use)
     requires = { 'nvim-lua/plenary.nvim' },
   })
   use({
-    'jose-elias-alvarez/nvim-lsp-ts-utils', -- Improve ESLint and TypeScript null-ls support.
-    after = 'null-ls.nvim',
-  })
-  use({
     'neovim/nvim-lspconfig', -- Collection of configurations.
     config = require('plugins.lsp'),
     event = { 'BufEnter' },
