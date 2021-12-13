@@ -11,12 +11,8 @@ return function(on_attach_callback)
     client.resolved_capabilities.document_range_formatting = value
   end
 
-  -- Set LSP capabilities.
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
   local commonConfig = {
-    capabilities = capabilities,
+    capabilities = vim.lsp.protocol.make_client_capabilities(),
     on_attach = function(client)
       set_formatting_capabilities(client, false)
       on_attach_callback()
@@ -31,7 +27,7 @@ return function(on_attach_callback)
     html = commonConfig,
     jsonls = commonConfig,
     tsserver = {
-      capabilities = capabilities,
+      capabilities = commonConfig.capabilities,
       on_attach = function(client)
         local ts_utils = require('nvim-lsp-ts-utils')
 
@@ -50,7 +46,7 @@ return function(on_attach_callback)
       root_dir = root_dir,
     },
     sumneko_lua = {
-      capabilities = capabilities,
+      capabilities = commonConfig.capabilities,
       cmd = { 'lua-language-server' },
       on_attach = commonConfig.on_attach,
       root_dir = root_dir,

@@ -5,6 +5,7 @@
 return function()
   local cmp = require('cmp')
   local lspkind = require('lspkind')
+  local servers = require('plugins.lsp.servers')
 
   local config = cmp.config
   local mapping = cmp.mapping
@@ -140,4 +141,13 @@ return function()
       },
     }),
   })
+
+  -- Set LSP capabilities.
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+  for server, _ in pairs(servers) do
+    -- Override with nvim-cmp capabilities.
+    require('lspconfig')[server].setup({ capabilities = capabilities })
+  end
 end

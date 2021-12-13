@@ -94,7 +94,6 @@ return require('packer').startup(function(use)
   use({
     'sQVe/sort.nvim', -- Sort by line and delimiter.
     cmd = { 'Sort' },
-    config = require('plugins.commands.sort'),
   })
 
   -- Git.
@@ -179,8 +178,8 @@ return require('packer').startup(function(use)
   })
   use({
     'neovim/nvim-lspconfig', -- Collection of configurations.
-    after = { 'cmp-nvim-lsp' },
     config = require('plugins.lsp'),
+    event = { 'BufEnter' },
   })
 
   -- Completion.
