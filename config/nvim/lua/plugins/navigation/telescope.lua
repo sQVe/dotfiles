@@ -60,9 +60,6 @@ M.config = function()
     },
   })
 
-  -- Load harpoon extension.
-  telescope.load_extension('harpoon')
-
   -- Use fzf native.
   telescope.load_extension('fzf')
 
