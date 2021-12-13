@@ -11,8 +11,12 @@ return function(on_attach_callback)
     client.resolved_capabilities.document_range_formatting = value
   end
 
+  -- Set LSP capabilities.
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
+  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
   local commonConfig = {
-    capabilities = vim.lsp.protocol.make_client_capabilities(),
+    capabilities = capabilities,
     on_attach = function(client)
       set_formatting_capabilities(client, false)
       on_attach_callback()
