@@ -94,6 +94,8 @@ return require('packer').startup(function(use)
   use({
     'sQVe/sort.nvim', -- Sort by line and delimiter.
     cmd = { 'Sort' },
+    config = require('plugins.commands.sort'),
+    keys = { { 'n', 'go' }, { 'v', 'go' } },
   })
 
   -- Git.
