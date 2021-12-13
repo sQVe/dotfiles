@@ -167,11 +167,10 @@ return require('packer').startup(function(use)
   -- LSP.
   use({
     'jose-elias-alvarez/null-ls.nvim', -- Format and linting LSP.
-    after = 'nvim-lspconfig',
     config = require('plugins.lsp.null'),
+    event = 'BufEnter',
     requires = { 'nvim-lua/plenary.nvim' },
   })
-
   use({
     'jose-elias-alvarez/nvim-lsp-ts-utils', -- Improve ESLint and TypeScript null-ls support.
     after = 'null-ls.nvim',
