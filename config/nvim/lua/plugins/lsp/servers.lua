@@ -11,12 +11,30 @@ return function(on_attach_callback)
     client.resolved_capabilities.document_range_formatting = value
   end
 
-  -- Set LSP capabilities.
-  local capabilities = vim.lsp.protocol.make_client_capabilities()
-  capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+  -- Mirror capabilities set by `update_capabilities` in `cmp-nvim-lsp`, since
+  -- we want to decouple LSP from it.
+  -- https://github.com/hrsh7th/cmp-nvim-lsp/blob/main/lua/cmp_nvim_lsp/init.lua.
+  local update_capabilities = function(capabilities)
+    local completionItem = capabilities.textDocument.completion.completionItem
 
-  local commonConfig = {
-    capabilities = capabilities,
+    completionItem.commitCharactersSupport = true
+    completionItem.deprecatedSupport = true
+    completionItem.insertReplaceSupport = true
+    completionItem.labelDetailsSupport = true
+    completionItem.preselectSupport = true
+    completionItem.resolveSupport = {
+      properties = { 'additionalTextEdits', 'detail', 'documentation' },
+    }
+    completionItem.snippetSupport = true
+    completionItem.tagSupport = { valueSet = { 1 } }
+
+    return capabilities
+  end
+
+  local common = {
+    capabilities = update_capabilities(
+      vim.lsp.protocol.make_client_capabilities()
+    ),
     on_attach = function(client)
       set_formatting_capabilities(client, false)
       on_attach_callback()
@@ -25,16 +43,16 @@ return function(on_attach_callback)
   }
 
   return {
-    bashls = commonConfig,
-    cssls = commonConfig,
-    gopls = commonConfig,
-    html = commonConfig,
-    jsonls = commonConfig,
-    tsserver = commonConfig,
+    bashls = common,
+    cssls = common,
+    gopls = common,
+    html = common,
+    jsonls = common,
+    tsserver = common,
     sumneko_lua = {
-      capabilities = commonConfig.capabilities,
+      capabilities = common.capabilities,
       cmd = { 'lua-language-server' },
-      on_attach = commonConfig.on_attach,
+      on_attach = common.on_attach,
       root_dir = root_dir,
       settings = {
         Lua = {
@@ -44,6 +62,6 @@ return function(on_attach_callback)
         },
       },
     },
-    yamlls = commonConfig,
+    yamlls = common,
   }
 end
