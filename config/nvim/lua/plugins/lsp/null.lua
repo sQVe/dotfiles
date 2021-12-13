@@ -4,6 +4,7 @@
 
 return function()
   local null = require('null-ls')
+  local root_dir = require('util').root_dir({ prioritizeManifest = true })
 
   local code_actions = null.builtins.code_actions
   local formatters = null.builtins.formatting
@@ -20,6 +21,7 @@ return function()
         augroup END
       ]])
     end,
+    root_dir = root_dir,
     sources = {
       code_actions.eslint_d,
       code_actions.shellcheck,
