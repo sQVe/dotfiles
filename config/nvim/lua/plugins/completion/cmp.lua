@@ -65,6 +65,24 @@ return function()
     return vim.api.nvim_list_bufs()
   end
 
+  local get_sources = function(keyword_length)
+    return config.sources({
+      { name = 'nvim_lua', keyword_length = keyword_length, priority = 80 },
+      { name = 'nvim_lsp', keyword_length = keyword_length, priority = 80 },
+      { name = 'path', keyword_length = keyword_length, priority = 40 },
+      {
+        name = 'buffer',
+        keyword_length = 4,
+        option = {
+          get_bufnrs = get_all_buffers,
+          keyword_pattern = anyWord,
+        },
+        priority = 20,
+      },
+      { name = 'vsnip', keyword_length = 2, priority = 10 },
+    })
+  end
+
   cmp.setup({
     experimental = { ghost_text = { hl_group = 'GruvboxGray' } },
     formatting = {
@@ -80,7 +98,10 @@ return function()
       }),
     },
     mapping = {
-      ['<C-Space>'] = mapKey(mapping.complete()),
+      ['<C-Space>'] = mapKey(mapping.complete({
+        reason = cmp.ContextReason.Auto,
+        config = { sources = get_sources(0) },
+      })),
       ['<C-d>'] = mapKey(mapping.scroll_docs(8)),
       ['<C-e>'] = mapKey(mapping.close()),
       ['<C-k>'] = mapKey(signature_help),
@@ -101,21 +122,7 @@ return function()
         config.compare.order,
       },
     },
-    sources = config.sources({
-      { name = 'nvim_lua', priority = 80 },
-      { name = 'nvim_lsp', priority = 80 },
-      { name = 'path', priority = 40 },
-      {
-        name = 'buffer',
-        keyword_length = 4,
-        option = {
-          get_bufnrs = get_all_buffers,
-          keyword_pattern = anyWord,
-        },
-        priority = 20,
-      },
-      { name = 'vsnip', keyword_length = 2, priority = 10 },
-    }),
+    sources = get_sources(1),
   })
 
   local searchSources = {
