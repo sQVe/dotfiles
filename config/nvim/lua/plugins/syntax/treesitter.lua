@@ -18,6 +18,7 @@ return function()
       'json',
       'jsonc',
       'lua',
+      'markdown',
       'scss',
       'tsx',
       'typescript',
