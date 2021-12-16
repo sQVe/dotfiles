@@ -94,6 +94,10 @@ M.config = function()
     nnoremap <silent> <Leader>gg <Cmd>Telescope git_status<CR>
     nnoremap <silent> <Leader>gc <Cmd>Telescope git_branches<CR>
 
+    " Git worktrees.
+    nnoremap <silent> <Leader>gw <Cmd>Telescope git_worktree git_worktrees<CR>
+    nnoremap <silent> <Leader>gW <Cmd>Telescope git_worktree create_git_worktree<CR>
+
     " LSP.
     nnoremap <silent> gd <Cmd>Telescope lsp_definitions<CR>
     nnoremap <silent> gD <Cmd>Telescope lsp_implementations<CR>
