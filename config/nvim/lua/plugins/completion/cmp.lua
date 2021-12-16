@@ -141,7 +141,7 @@ return function()
       { name = 'cmdline', priority = 40 },
       {
         name = 'buffer',
-        keyword_length = 2,
+        keyword_length = 4,
         option = { keyword_pattern = anyWord },
         priority = 10,
       },
