@@ -4,59 +4,30 @@
 
 return function()
   require('gitsigns').setup({
-    signs = {
-      add = {
-        hl = 'GitSignsAdd',
-        text = '│',
-        numhl = 'GitSignsAddNr',
-        linehl = 'GitSignsAddLn',
-      },
-      change = {
-        hl = 'GitSignsChange',
-        text = '│',
-        numhl = 'GitSignsChangeNr',
-        linehl = 'GitSignsChangeLn',
-      },
-      delete = {
-        hl = 'GitSignsDelete',
-        text = '│',
-        numhl = 'GitSignsDeleteNr',
-        linehl = 'GitSignsDeleteLn',
-      },
-      topdelete = {
-        hl = 'GitSignsDelete',
-        text = '│',
-        numhl = 'GitSignsDeleteNr',
-        linehl = 'GitSignsDeleteLn',
-      },
-      changedelete = {
-        hl = 'GitSignsChange',
-        text = '│',
-        numhl = 'GitSignsChangeNr',
-        linehl = 'GitSignsChangeLn',
-      },
-    },
+    signcolumn = false,
+    numhl = true,
     keymaps = {
       noremap = true,
-      buffer = true,
 
-      ['n <leader>hj'] = {
-        expr = true,
-        '&diff ? \']c\' : \'<cmd>lua require"gitsigns.actions".next_hunk()<CR>\'',
-      },
-      ['n <leader>hk'] = {
-        expr = true,
-        '&diff ? \'[c\' : \'<cmd>lua require"gitsigns.actions".prev_hunk()<CR>\'',
-      },
-      ['n <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk()<CR>',
-      ['v <leader>hs'] = '<cmd>lua require"gitsigns".stage_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-      ['n <leader>hu'] = '<cmd>lua require"gitsigns".undo_stage_hunk()<CR>',
-      ['n <leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk()<CR>',
-      ['v <leader>hr'] = '<cmd>lua require"gitsigns".reset_hunk({vim.fn.line("."), vim.fn.line("v")})<CR>',
-      ['n <leader>hi'] = '<cmd>lua require"gitsigns".preview_hunk()<CR>',
-      ['n <leader>hb'] = '<cmd>lua require"gitsigns".blame_line(true)<CR>',
-      ['o ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
-      ['x ih'] = ':<C-U>lua require"gitsigns.actions".select_hunk()<CR>',
+      ['n <Leader>hj'] = '<Cmd>Gitsigns next_hunk<CR>',
+      ['n <Leader>hk'] = '<Cmd>Gitsigns prev_hunk<CR>',
+
+      ['n <Leader>hs'] = '<Cmd>Gitsigns stage_hunk<CR>',
+      ['v <Leader>hs'] = ':Gitsigns stage_hunk<CR>',
+      ['n <Leader>hS'] = '<Cmd>Gitsigns stage_buffer<CR>',
+      ['n <Leader>hu'] = '<Cmd>Gitsigns undo_stage_hunk<CR>',
+
+      ['n <Leader>hr'] = '<Cmd>Gitsigns reset_hunk<CR>',
+      ['v <Leader>hr'] = ':Gitsigns reset_hunk<CR>',
+      ['n <Leader>hR'] = '<Cmd>Gitsigns reset_buffer<CR>',
+      ['n <Leader>hU'] = '<Cmd>Gitsigns reset_buffer_index<CR>',
+
+      ['n <Leader>hb'] = '<Cmd>lua require"gitsigns".blame_line{full=true}<CR>',
+      ['n <Leader>hi'] = '<Cmd>Gitsigns preview_hunk<CR>',
+      ['n <Leader>hq'] = '<Cmd>Gitsigns setqflist<CR>',
+
+      ['o ih'] = ':<C-U>Gitsigns select_hunk<CR>',
+      ['x ih'] = ':<C-U>Gitsigns select_hunk<CR>',
     },
   })
 end
