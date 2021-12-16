@@ -17,10 +17,7 @@ endfunc
 
 " Open saved previous commit message.
 func! CommitMsgPrev()
-  let root_path = system("git rev-parse --show-toplevel")
-  let newline_safe_root_path = substitute(root_path, '\n', '', 'g')
-
-  silent execute "vsplit " . newline_safe_root_path . "/.git/PREV_COMMIT_EDITMSG"
+  silent execute "vsplit /tmp/PREV_COMMIT_EDITMSG"
 endfunc
 
 " Search on DuckDuckGo.

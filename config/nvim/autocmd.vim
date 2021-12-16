@@ -41,8 +41,8 @@ augroup END
 " Save commit message for later.
 augroup SaveCommitMsg
   autocmd!
-  autocmd BufWritePost */.git/COMMIT_EDITMSG
-    \ :silent! call writefile(nvim_buf_get_lines(0, 0, -1, 1), ".git/PREV_COMMIT_EDITMSG")
+  autocmd BufWritePost */.git/COMMIT_EDITMSG,*/.git/worktrees/*/COMMIT_EDITMSG
+    \ :silent! call writefile(nvim_buf_get_lines(0, 0, -1, 1), "/tmp/PREV_COMMIT_EDITMSG")
 augroup END
 
 " Save notes.
