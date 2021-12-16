@@ -9,7 +9,7 @@ return function()
     },
     menu = {
       height = 20,
-      width = 100,
+      width = 80,
     },
   })
 

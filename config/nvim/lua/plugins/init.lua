@@ -225,9 +225,10 @@ return require('packer').startup(function(use)
   })
   use({
     'nvim-telescope/telescope.nvim', -- Telescope.
-    after = { 'harpoon' },
     config = require('plugins.navigation.telescope').config,
+    event = 'BufEnter',
     requires = {
+      'ThePrimeagen/git-worktree.nvim',
       'nvim-lua/plenary.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     },
