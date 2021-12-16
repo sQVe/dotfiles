@@ -8,7 +8,7 @@ return function()
   vim.cmd([[
     nnoremap <Leader>g :Git<Space>
     nnoremap <Leader>gp :Git push<Space>
-    nnoremap <Leader>gc :Git commit<Space>
+    nnoremap <Leader>gc :Git commit --verbose<Space>
     nnoremap <silent> <Leader>gb <Cmd>Git blame<CR>
     nnoremap <silent> <Leader>gd <Cmd>Gdiffsplit<CR>
     nnoremap <silent> <Leader>gmt <Cmd>DiffConflicts<CR>
