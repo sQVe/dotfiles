@@ -40,7 +40,7 @@ M.config = function()
           ['<C-Down>'] = actions.cycle_history_next,
           ['<C-Up>'] = actions.cycle_history_prev,
           ['<C-s>'] = actions.select_horizontal,
-          ['<esc>'] = actions.close,
+          ['<Esc>'] = actions.close,
           ['<Leader>q'] = actions.close,
         },
       },
@@ -55,13 +55,22 @@ M.config = function()
           '--line-number',
           '--no-heading',
           '--with-filename',
+          '--trim',
         },
+      },
+    },
+    pickers = {
+      find_files = {
+        find_command = { 'fd', '--type', 'f', '--strip-cwd-prefix' },
       },
     },
   })
 
   -- Use fzf native.
   telescope.load_extension('fzf')
+
+  -- Load worktree extension.
+  telescope.load_extension('git_worktree')
 
   vim.cmd([[
     " Telescope.
