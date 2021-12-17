@@ -31,12 +31,7 @@ return function()
       formatters.shfmt.with({
         extra_args = { '-i', '2', '-bn', '-ci', '-sr' },
       }),
-      formatters.stylua.with({
-        extra_args = {
-          '--config-path',
-          vim.fn.expand('$XDG_CONFIG_HOME/stylua/stylua.toml'),
-        },
-      }),
+      formatters.stylua,
       linters.eslint_d.with({ timeout = 20000 }),
       linters.shellcheck,
     },
