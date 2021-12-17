@@ -31,7 +31,11 @@ return function()
       formatters.shfmt.with({
         extra_args = { '-i', '2', '-bn', '-ci', '-sr' },
       }),
-      formatters.stylua,
+      formatters.stylua.with({
+        condition = function(utils)
+          return utils.root_has_file({ 'stylua.toml', '.stylua.toml' })
+        end,
+      }),
       linters.eslint_d.with({ timeout = 20000 }),
       linters.shellcheck,
     },
