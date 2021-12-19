@@ -4,7 +4,11 @@
 
 return function()
   require('fm-nvim').setup({
-    border = 'rounded',
+    ui = {
+      float = {
+        border = 'rounded',
+      },
+    },
     mappings = {
       edit = '<C-e>',
       horz_split = '<C-s>',
