@@ -36,7 +36,10 @@ return function()
           return utils.root_has_file({ 'stylua.toml', '.stylua.toml' })
         end,
       }),
-      linters.eslint_d.with({ timeout = 20000 }),
+      linters.eslint_d.with({
+        extra_args = { '--config', '/home/sqve/.config/eslint/config.json' },
+        timeout = 20000,
+      }),
       linters.shellcheck,
     },
   })
