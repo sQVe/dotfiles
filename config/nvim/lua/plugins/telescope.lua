@@ -69,9 +69,6 @@ M.config = function()
   -- Use fzf native.
   telescope.load_extension('fzf')
 
-  -- Load worktree extension.
-  telescope.load_extension('git_worktree')
-
   vim.cmd([[
     " Telescope.
     nnoremap <silent> - <Cmd>Telescope<CR>
@@ -79,8 +76,8 @@ M.config = function()
 
     " Files and buffers.
     nnoremap <silent> <Leader><Backspace> <Cmd>Telescope buffers sort_mru=true<CR>
-    nnoremap <silent> ä <Cmd>lua require("plugins.navigation.telescope").find_files()<CR>
-    nnoremap <silent> å <Cmd>lua require("plugins.navigation.telescope").find_files(true)<CR>
+    nnoremap <silent> ä <Cmd>lua require("plugins.telescope").find_files()<CR>
+    nnoremap <silent> å <Cmd>lua require("plugins.telescope").find_files(true)<CR>
 
     " Grep.
     nnoremap <silent> <Leader>+ <Cmd>Telescope live_grep<CR>
