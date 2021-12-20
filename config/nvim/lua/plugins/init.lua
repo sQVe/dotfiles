@@ -72,12 +72,6 @@ return require('packer').startup(function(use)
     'JoosepAlviste/nvim-ts-context-commentstring', -- Automatically set commentstring.
     after = 'nvim-treesitter',
   })
-  use({
-    'kkoomen/vim-doge', -- Documentation generator.
-    cmd = { 'DogeGenerate' },
-    config = require('plugins.doge'),
-    run = ':call doge#install()',
-  })
 
   -- Commands.
   use({
