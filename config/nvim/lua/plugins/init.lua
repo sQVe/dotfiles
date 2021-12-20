@@ -228,10 +228,14 @@ return require('packer').startup(function(use)
     config = require('plugins.telescope').config,
     event = 'BufEnter',
     requires = {
-      'ThePrimeagen/git-worktree.nvim',
       'nvim-lua/plenary.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     },
+  })
+  use({
+    'ThePrimeagen/git-worktree.nvim', -- Worktree telescope extension.
+    config = require('plugins.git-worktree'),
+    after = 'telescope.nvim',
   })
 
   -- Text objects and motions.
