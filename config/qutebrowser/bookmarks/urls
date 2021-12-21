@@ -41,7 +41,6 @@ https://fontawesome.com/icons?d=gallery                                Developme
 https://jmattthew.github.io/better-font-finder/better-font-finder.html Development / Fonts | Google Font Finder
 https://fonts.google.com                                               Development / Fonts | Google Fonts
 https://materialdesignicons.com                                        Development / Fonts | Material Design Icons
-https://www.stackage.org                                               Development / Haskell | Stackage
 https://www.30secondsofcode.org                                        Development / Information | 30 seconds of code
 https://bigocheatsheet.io                                              Development / Information | Big-O Cheatsheet
 https://css-tricks.com/snippets                                        Development / Information | CSS Tricks
@@ -80,6 +79,7 @@ https://mochajs.org                                                    Developme
 https://sinonjs.org                                                    Development / JavaScript / Testing | Sinon
 https://testing-library.com/docs/intro                                 Development / JavaScript / Testing | Testing Library
 https://mobx.js.org                                                    Development / JavaScript | MobX
+http://www.lua.org/manual/5.4                                          Development / Lua | Reference Manual
 https://cheatsheetseries.owasp.org                                     Development / Security | OWASP Cheat Sheet Series
 https://www.gnu.org/software/bash/manual/bash.html                     Development / Specification | Bash
 https://www.ecma-international.org/ecma-262                            Development / Specification | ECMAScript 2019
@@ -155,7 +155,7 @@ https://genius.com                                                     Music | G
 https://hiphopdx.com                                                   Music | HiphopDX
 https://pitchfork.com                                                  Music | Pitchfork
 http://ukhh.com                                                        Music | UKHH
-http://audiobookbay.nl                                                 NZB & Torrent Audiobook Bay
+http://audiobookbay.nl                                                 NZB & Torrent | Audiobook Bay
 https://dognzb.cr/login                                                NZB & Torrent | DOGnzb
 https://drunkenslug.com                                                NZB & Torrent | Drunkenslug
 https://nzbindex.com                                                   NZB & Torrent | NZBIndex

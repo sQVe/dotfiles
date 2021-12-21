@@ -13,7 +13,7 @@ set mouse=a                       " Enable mouse.
 set noshowmode                    " Disable show mode.
 set nostartofline                 " Do not jump to first character with page commands.
 set ruler                         " Show the cursor position all the time.
-set scrolloff=8                   " Set scrol offset to 8 lines.
+set scrolloff=8                   " Set scroll offset to 8 lines.
 set shortmess+=Ic                 " Disable version intro text.
 set showcmd                       " Display incomplete commands.
 set signcolumn=yes                " Always show sign column.
