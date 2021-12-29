@@ -166,13 +166,13 @@ bindsym $mod+e exec $menu-state
 bindsym $mod+f exec $vifm
 bindsym $mod+g gaps inner current plus 40
 bindsym $mod+h focus left
-bindsym $mod+i scratchpad show
+bindsym $mod+i scratchpad show; resize set 1600 800; move position center
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+m exec $menu-emoji
 bindsym $mod+n exec $menu-playground
-bindsym $mod+o floating toggle; resize set 1200 800; move position center
+bindsym $mod+o floating toggle; resize set 1600 800; move position center
 bindsym $mod+p focus parent
 bindsym $mod+q kill
 bindsym $mod+r mode "resize"
