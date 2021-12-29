@@ -16,8 +16,8 @@ return function()
     on_attach = function()
       vim.cmd([[
         augroup Format
-            autocmd! * <buffer>
-            autocmd BufWritePre <buffer> silent! lua vim.lsp.buf.formatting_sync()
+          autocmd! * <buffer>
+          autocmd BufWritePre <buffer> silent! lua vim.lsp.buf.formatting_sync()
         augroup END
       ]])
     end,
@@ -37,7 +37,15 @@ return function()
         end,
       }),
       linters.eslint_d.with({
-        extra_args = { '--config', '/home/sqve/.config/eslint/config.json' },
+        condition = function(utils)
+          return utils.root_has_file({
+            '.eslintrc.cjs',
+            '.eslintrc.js',
+            '.eslintrc.json',
+            '.eslintrc.yaml',
+            '.eslintrc.yml',
+          })
+        end,
         timeout = 20000,
       }),
       linters.shellcheck,
