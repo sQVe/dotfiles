@@ -10,38 +10,51 @@ return function()
   local formatters = null.builtins.formatting
   local linters = null.builtins.diagnostics
 
-  local eslint_config_cache = {}
-  local eslint_runtime_condition = function(params)
-    if eslint_config_cache[params.bufnr] ~= nil then
-      return eslint_config_cache[params.bufnr]
-    end
-
-    local has_config = require('lspconfig').util.root_pattern({
-      '.eslintrc.cjs',
-      '.eslintrc.js',
-      '.eslintrc.json',
-      '.eslintrc.yaml',
-      '.eslintrc.yml',
-    })(params.bufname) ~= nil
-    eslint_config_cache[params.bufnr] = has_config
-
-    return has_config
+  local starts_with = function(str, start)
+    return string.sub(str, 1, #start) == start
   end
 
-  local stylua_config_cache = {}
-  local stylua_runtime_condition = function(params)
-    if stylua_config_cache[params.bufnr] ~= nil then
-      return stylua_config_cache[params.bufnr]
+  local create_runtime_condition = function(config_name_list)
+    local bufnr_cache = {}
+    local config_path_cache = {}
+
+    return function(params)
+      if bufnr_cache[params.bufnr] ~= nil then
+        return bufnr_cache[params.bufnr]
+      else
+        for _, cached_config_path in ipairs(config_path_cache) do
+          if starts_with(params.bufname, cached_config_path) then
+            bufnr_cache[params.bufnr] = true
+            return true
+          end
+        end
+      end
+
+      local config_path = require('lspconfig').util.root_pattern(
+        config_name_list
+      )(params.bufname)
+
+      local has_config = config_path ~= nil
+      if has_config then
+        table.insert(config_path_cache, config_path)
+      end
+      bufnr_cache[params.bufnr] = has_config
+
+      return has_config
     end
-
-    local has_config = require('lspconfig').util.root_pattern({
-      'stylua.toml',
-      '.stylua.toml',
-    })(params.bufname) ~= nil
-    stylua_config_cache[params.bufnr] = has_config
-
-    return has_config
   end
+
+  local eslint_runtime_condition = create_runtime_condition({
+    '.eslintrc.cjs',
+    '.eslintrc.js',
+    '.eslintrc.json',
+    '.eslintrc.yaml',
+    '.eslintrc.yml',
+  })
+  local stylua_runtime_condition = create_runtime_condition({
+    'stylua.toml',
+    '.stylua.toml',
+  })
 
   null.setup({
     cmd = { 'nvim' },
