@@ -14,7 +14,7 @@ return function()
     return string.sub(str, 1, #start) == start
   end
 
-  local create_runtime_condition = function(config_name_list)
+  local create_runtime_condition = function(config_names)
     local bufnr_cache = {}
     local config_path_cache = {}
 
@@ -30,9 +30,9 @@ return function()
         end
       end
 
-      local config_path = require('lspconfig').util.root_pattern(
-        config_name_list
-      )(params.bufname)
+      local config_path = require('lspconfig').util.root_pattern(config_names)(
+        params.bufname
+      )
 
       local has_config = config_path ~= nil
       if has_config then
