@@ -5,7 +5,6 @@
 zmodule environment
 zmodule git
 zmodule input
-zmodule termtitle
 
 # Completion.
 zmodule completion
