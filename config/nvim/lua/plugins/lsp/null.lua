@@ -71,7 +71,9 @@ return function()
     sources = {
       code_actions.eslint_d,
       code_actions.shellcheck,
-      formatters.eslint_d,
+      formatters.eslint_d.with({
+        runtime_condition = eslint_runtime_condition,
+      }),
       formatters.gofmt,
       formatters.prettierd,
       formatters.shfmt.with({
