@@ -44,5 +44,13 @@
   "while": {
     "prefix": "while",
     "body": ["while ${1:true} do", "\t$0", "end"]
+  },
+  "StyluaIgnore": {
+    "prefix": "stylua-ignore",
+    "body": ["-- stylua: ignore start", "$0", "-- stylua: ignore end"]
+  },
+  "StyluaIgnoreBlack": {
+    "prefix": "stylua-ignore-block",
+    "body": ["-- stylua: ignore"]
   }
 }
