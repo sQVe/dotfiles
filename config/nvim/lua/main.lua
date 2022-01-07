@@ -36,6 +36,8 @@ vim.g.loaded_zipPlugin = 1
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_matchit = 1
 
+require('options')
+
 -- Load async due to packer_compiled.
 vim.defer_fn(function()
   require('plugins')
