@@ -45,7 +45,6 @@ return require('packer').startup(function(use)
   use({
     'npxbr/gruvbox.nvim', -- Gruvbox color theme.
     config = require('plugins.gruvbox'),
-    requires = { 'rktjmp/lush.nvim' },
   })
   use({
     'lukas-reineke/indent-blankline.nvim', -- Indent Guides.
@@ -163,8 +162,8 @@ return require('packer').startup(function(use)
   -- LSP.
   use({
     'jose-elias-alvarez/null-ls.nvim', -- Format and linting LSP.
+    after = 'nvim-lspconfig',
     config = require('plugins.lsp.null'),
-    event = 'BufEnter',
     requires = { 'nvim-lua/plenary.nvim' },
   })
   use({

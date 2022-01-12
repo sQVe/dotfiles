@@ -51,17 +51,17 @@ local options = {
   wildmode = 'longest:full',                        -- Set wildmenu modes.
 
   -- Disable backups.
+  backup = false,
   backupdir = '/tmp',
   directory = '/tmp',
-  backup = false,
   swapfile = false,
   writebackup = false,
 
   -- Folding.
   foldenable = true,                                -- Enable folding.
-  foldlevelstart = 99,                              -- Folding level.
   foldminlines = 1,                                 -- Folding minimum lines.
   foldnestmax = 4,                                  -- Folding max.
+  foldlevelstart = 99,                              -- Folding level.
   foldtext = [[substitute(getline(v:foldstart), '\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]],
 
   -- Programs.

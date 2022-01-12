@@ -2,11 +2,11 @@
 -- ┃ ┃ ┃ ┃┃
 -- ┗━┛ ╹ ╹┗━╸
 
-local util = require('lspconfig').util
-
 local M = {}
 
 function M.root_dir(opts)
+  local util = require('lspconfig').util
+
   opts = opts or { prioritizeManifest = false }
 
   return function(filename)
