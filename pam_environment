@@ -9,22 +9,23 @@ VISUAL=nvim
 XDG_CACHE_HOME  DEFAULT=@{HOME}/.cache
 XDG_CONFIG_HOME DEFAULT=@{HOME}/.config
 XDG_DATA_HOME   DEFAULT=@{HOME}/.local/share
+XDG_STATE_HOME  DEFAULT=@{HOME}/.local/state
 
 # User specific.
-BIN       DEFAULT=@{HOME}/.bin
-BIN_HOME  DEFAULT=@{HOME}/.local/bin
-BOOKS     DEFAULT=@{HOME}/books
-CODE      DEFAULT=@{HOME}/code
-DOTFILES  DEFAULT=@{HOME}/.dotfiles
-DOWNLOAD  DEFAULT=@{HOME}/download
-NOTES     DEFAULT=@{HOME}/notes
-PASSWORDS DEFAULT=@{HOME}/.passwords
-PICTURES  DEFAULT=@{HOME}/pictures
-SCRIPTS   DEFAULT=@{HOME}/scripts
-WORK      DEFAULT=@{HOME}/work
+BIN              DEFAULT=@{HOME}/.bin
+BIN_HOME         DEFAULT=@{HOME}/.local/bin
+BOOKS            DEFAULT=@{HOME}/books
+CODE             DEFAULT=@{HOME}/code
+DOTFILES         DEFAULT=@{HOME}/.dotfiles
+DOWNLOAD         DEFAULT=@{HOME}/download
+NOTES            DEFAULT=@{HOME}/notes
+PASSWORDS        DEFAULT=@{HOME}/.passwords
+PERSISTENT_CACHE DEFAULT=@{HOME}/.pcache
+PICTURES         DEFAULT=@{HOME}/pictures
+SCRIPTS          DEFAULT=@{HOME}/scripts
+WORK             DEFAULT=@{HOME}/work
 
 # Runtime.
-NPM_CONFIG_TMP DEFAULT=${XDG_RUNTIME_DIR}/npm
 SSH_AUTH_SOCK  DEFAULT=${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh
 XAUTHORITY     DEFAULT=${XDG_RUNTIME_DIR}/Xauthority
 
@@ -43,7 +44,7 @@ HISTFILE              DEFAULT=${XDG_CONFIG_HOME}/zsh/history
 HTTPIE_CONFIG_DIR     DEFAULT=${XDG_CONFIG_HOME}/httpie
 KUBECONFIG            DEFAULT=${XDG_CONFIG_HOME}/kube/config
 NODE_REPL_HISTORY     DEFAULT=${XDG_CACHE_HOME}/node_repl_history
-NPM_CONFIG_CACHE      DEFAULT=${XDG_CACHE_HOME}/npm
+NPM_CONFIG_CACHE      DEFAULT=${PERSISTENT_CACHE}/npm
 NPM_CONFIG_USERCONFIG DEFAULT=${XDG_CONFIG_HOME}/npm/config
 NVM_DIR               DEFAULT=${XDG_DATA_HOME}/nvm
 PASSWORD_STORE_DIR    DEFAULT=${PASSWORDS}
@@ -53,6 +54,7 @@ SSB_HOME              DEFAULT=${XDG_DATA_HOME}/zoom
 SUDO_ASKPASS          DEFAULT=/usr/lib/seahorse/ssh-askpass
 TRASH                 DEFAULT=${XDG_DATA_HOME}/Trash
 WEECHAT_HOME          DEFAULT=${XDG_DATA_HOME}/weechat
+YARN_CACHE_FOLDER     DEFAULT=${PERSISTENT_CACHE}/yarn
 YVM_DIR               DEFAULT=${XDG_DATA_HOME}/yvm
 ZDOTDIR               DEFAULT=${XDG_CONFIG_HOME}/zsh
 ZIM_HOME              DEFAULT=${XDG_DATA_HOME}/zim

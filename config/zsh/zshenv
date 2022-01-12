@@ -19,11 +19,6 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 
-# TLDR option TLDR optionss
-export TLDR_COLOR_COMMAND='magenta'
-export TLDR_COLOR_EXAMPLE='cyan'
-export TLDR_COLOR_NAME='green'
-
 # Pass options.
 export PASSWORD_STORE_GENERATED_LENGTH=24
 export PASSWORD_STORE_GPG_OPTS=--no-throw-keyids
@@ -36,6 +31,9 @@ export LESS='-R'
 export LESSOPEN='| bat --color=always %s'
 export LESSHISTFILE=-
 
-# Misc options.
+# JavaScript/TypeScript land.
+export ESLINT_D_LOCAL_ESLINT_ONLY=1
 export PRETTIERD_LOCAL_PRETTIER_ONLY=1
+
+# Misc options.
 export WINIT_X11_SCALE_FACTOR=1
