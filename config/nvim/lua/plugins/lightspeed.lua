@@ -4,8 +4,10 @@
 
 return function()
   require('lightspeed').setup({
-    cycle_group_bwd_key = '<S-Tab>',
-    cycle_group_fwd_key = '<Tab>',
+    special_keys = {
+      next_match_group = '<Tab>',
+      prev_match_group = '<S-Tab>',
+    },
   })
 
   vim.cmd([[
