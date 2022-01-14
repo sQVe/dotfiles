@@ -300,7 +300,7 @@ exec --no-startup-id random-wallpaper
 # Delayed redshift start.
 exec --no-startup-id "sh -c 'sleep 4; exec $SCRIPTS/i3/toggle-redshift.sh'"
 
-# Delayed pulseeffects start.
-exec --no-startup-id "sh -c 'sleep 4; exec pulseeffects --gapplication-service'"
+# Delayed easyeffects start.
+exec --no-startup-id "sh -c 'sleep 4; exec easyeffects --gapplication-service'"
 
 # vim: ft=i3config
