@@ -201,6 +201,7 @@ alias mixer=pavucontrol
 alias qutebrowser=open-qutebrowser
 alias rcup="$SCRIPTS/extended-rcup.sh"
 alias t=term
+alias td="term --detach"
 alias tiga='tig --all'
 alias v=nvim
 alias vi=nvim
