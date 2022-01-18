@@ -2,10 +2,6 @@
 --  ┃┃┃┣━┫┃┃┗┫
 --  ╹ ╹╹ ╹╹╹ ╹
 
--- Use filetype.lua for filetype lookup.
-vim.g.did_load_filetypes = 0
-vim.g.do_filetype_lua = 1
-
 -- Disable providers.
 vim.g.loaded_node_provider = 1
 vim.g.loaded_perl_provider = 1
