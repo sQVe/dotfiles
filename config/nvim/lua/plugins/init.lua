@@ -133,6 +133,7 @@ return require('packer').startup(function(use)
   })
   use({
     'filipdutescu/renamer.nvim', -- Rename UI.
+    branch = 'master',
     config = require('plugins.renamer'),
     keys = { { 'n', '<Leader>r' } },
     requires = { 'nvim-lua/plenary.nvim' },

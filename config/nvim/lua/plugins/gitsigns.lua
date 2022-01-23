@@ -3,29 +3,34 @@
 --  ┗━┛╹ ╹ ┗━┛╹┗━┛╹ ╹┗━┛
 
 return function()
-  require('gitsigns').setup({
-    keymaps = {
-      noremap = true,
+  local gitsigns = require('gitsigns')
+  local map = require('util').map
 
-      ['n <Leader>hj'] = '<Cmd>Gitsigns next_hunk<CR>',
-      ['n <Leader>hk'] = '<Cmd>Gitsigns prev_hunk<CR>',
+  gitsigns.setup({
+    on_attach = function(bufnr)
+      map('n', '<Leader>hj', gitsigns.next_hunk, { buffer = bufnr })
+      map('n', '<Leader>hk', gitsigns.prev_hunk, { buffer = bufnr })
 
-      ['n <Leader>hs'] = '<Cmd>Gitsigns stage_hunk<CR>',
-      ['v <Leader>hs'] = ':Gitsigns stage_hunk<CR>',
-      ['n <Leader>hS'] = '<Cmd>Gitsigns stage_buffer<CR>',
-      ['n <Leader>hu'] = '<Cmd>Gitsigns undo_stage_hunk<CR>',
+      map({ 'n', 'v' }, '<Leader>hs', gitsigns.stage_hunk, { buffer = bufnr })
+      map('n', '<Leader>hS', gitsigns.stage_buffer, { buffer = bufnr })
+      map('n', '<Leader>hu', gitsigns.undo_stage_hunk, { buffer = bufnr })
+      map('n', '<Leader>hU', gitsigns.reset_buffer_index, { buffer = bufnr })
 
-      ['n <Leader>hr'] = '<Cmd>Gitsigns reset_hunk<CR>',
-      ['v <Leader>hr'] = ':Gitsigns reset_hunk<CR>',
-      ['n <Leader>hR'] = '<Cmd>Gitsigns reset_buffer<CR>',
-      ['n <Leader>hU'] = '<Cmd>Gitsigns reset_buffer_index<CR>',
+      map({ 'n', 'v' }, '<Leader>hr', gitsigns.reset_hunk, { buffer = bufnr })
+      map('n', '<Leader>hR', gitsigns.reset_buffer, { buffer = bufnr })
 
-      ['n <Leader>hb'] = '<Cmd>lua require"gitsigns".blame_line{full=true}<CR>',
-      ['n <Leader>hi'] = '<Cmd>Gitsigns preview_hunk<CR>',
-      ['n <Leader>hq'] = '<Cmd>Gitsigns setqflist<CR>',
+      map('n', '<Leader>hb', function()
+        gitsigns.blame_line({ full = true })
+      end, { buffer = bufnr })
+      map('n', '<Leader>hi', gitsigns.preview_hunk, { buffer = bufnr })
+      map('n', '<Leader>hq', gitsigns.setqflist, { buffer = bufnr })
 
-      ['o ih'] = ':<C-U>Gitsigns select_hunk<CR>',
-      ['x ih'] = ':<C-U>Gitsigns select_hunk<CR>',
-    },
+      map(
+        { 'o', 'x' },
+        'ih',
+        ':<C-U>Gitsigns select_hunk<CR>',
+        { buffer = bufnr }
+      )
+    end,
   })
 end
