@@ -83,7 +83,7 @@ function nvm() {
 
 # Open vifm and cd into selected directory on exit.
 function vifm-cd() {
-  local path="$(uberfm "$@")"
+  local path="$(command vifm --choose-dir - "$@" 2> /dev/null)"
 
   if [[ -n "$path" ]]; then
     cd "$path"

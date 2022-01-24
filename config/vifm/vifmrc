@@ -152,29 +152,11 @@ fileviewer *.tar.gz,*.tgz,*.tar.bz,*.tbz,*.tar.bz2,*.tbz2,*.tar.Z,*.tZ,
   \*.rz,*.lrz,*.7z,*.cpio
   \ als %f 2> /dev/null
 
-" Pdf preview.
-fileviewer *.pdf
-  \ $SCRIPTS/vifm/vifmimg.sh pdf %px %py %pw %ph %c %pc
-  \ $SCRIPTS/vifm/vifmimg.sh clear
-
-fileviewer *.epub
-  \ $SCRIPTS/vifm/vifmimg.sh epub %px %py %pw %ph %c %pc
-  \ $SCRIPTS/vifm/vifmimg.sh clear
-
-" Video thumbnail preview.
-fileviewer <video/*>
-  \ $SCRIPTS/vifm/vifmimg.sh video %px %py %pw %ph %c %pc
-  \ $SCRIPTS/vifm/vifmimg.sh clear
-
 " Image preview.
 fileviewer <image/*>
-  \ $SCRIPTS/vifm/vifmimg.sh draw %px %py %pw %ph %c %pc
-  \ $SCRIPTS/vifm/vifmimg.sh clear
-
-" Font preview.
-fileviewer <font/*>
-  \ $SCRIPTS/vifm/vifmimg.sh font %px %py %pw %ph %c %pc
-  \ $SCRIPTS/vifm/vifmimg.sh clear
+  \ kitty +icat --silent --transfer-mode=stream --place=%pwx%ph@%pxx%py %c %N
+  \ %pc
+  \ kitty icat --clear --silent %pd
 
 " Text and directory preview.
 fileviewer *[^/] env -u COLORTERM bat --color=always --wrap=never --pager=never %c -p
