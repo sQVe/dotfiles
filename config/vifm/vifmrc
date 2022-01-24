@@ -159,7 +159,7 @@ fileviewer <image/*>
   \ kitty icat --clear --silent %pd
 
 " Text and directory preview.
-fileviewer *[^/] env -u COLORTERM bat --color=always --wrap=never --pager=never %c -p
+fileviewer *[^/] env -u COLORTERM bat --color=always --pager=never --wrap=never  %c -p
 fileviewer */ exa -T -L 1 --group-directories-first --color=always
 
 
