@@ -85,6 +85,8 @@ nnoremap <silent> <C-S-Right> <Cmd>vertical resize +10<CR>
 " Quickfix.
 nnoremap <silent> <C-q>w <Cmd>copen<CR>
 nnoremap <silent> <C-q><C-w> <Cmd>copen<CR>
+nnoremap <silent> <C-q>q <Cmd>cclose<CR>
+nnoremap <silent> <C-q><C-q> <Cmd>cclose<CR>
 nnoremap <silent> <C-q>n <Cmd>cnext<CR>
 nnoremap <silent> <C-q><C-n> <Cmd>cnext<CR>
 nnoremap <silent> <C-q>p <Cmd>cprevious<CR>
