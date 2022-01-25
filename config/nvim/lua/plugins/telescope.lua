@@ -86,10 +86,7 @@ M.config = function()
     nnoremap <silent> gR <Cmd>Telescope grep_string<CR>
 
     " Git.
-    nnoremap <silent> <Leader>gl <Cmd>Telescope git_bcommits<CR>
-    nnoremap <silent> <Leader>gL <Cmd>Telescope git_commits<CR>
     nnoremap <silent> <Leader>gg <Cmd>Telescope git_status<CR>
-    nnoremap <silent> <Leader>gc <Cmd>Telescope git_branches<CR>
 
     " Git worktrees.
     nnoremap <silent> <Leader>gw <Cmd>Telescope git_worktree git_worktrees<CR>
