@@ -182,6 +182,7 @@ return require('packer').startup(function(use)
   })
   use({ 'hrsh7th/cmp-buffer', after = 'cmp-path' }) -- Buffer completion.
   use({ 'hrsh7th/cmp-cmdline', after = 'cmp-nvim-lsp' }) -- Command completion.
+  use({ 'hrsh7th/cmp-emoji', after = 'cmp-vsnip' }) -- Emoji completion.
   use({ 'hrsh7th/cmp-nvim-lsp', after = 'cmp-nvim-lua' }) -- LSP completion.
   use({ 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' }) -- API completion.
   use({ 'hrsh7th/cmp-path', after = 'cmp-cmdline' }) -- Path completion.

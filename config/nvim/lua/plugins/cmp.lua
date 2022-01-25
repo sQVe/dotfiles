@@ -69,7 +69,7 @@ return function()
     return config.sources({
       { name = 'nvim_lua', keyword_length = keyword_length, priority = 80 },
       { name = 'nvim_lsp', keyword_length = keyword_length, priority = 80 },
-      { name = 'path', keyword_length = keyword_length, priority = 40 },
+      { name = 'path', keyword_length = keyword_length, priority = 60 },
       {
         name = 'buffer',
         keyword_length = 4,
@@ -77,9 +77,10 @@ return function()
           get_bufnrs = get_all_buffers,
           keyword_pattern = anyWord,
         },
-        priority = 20,
+        priority = 40,
       },
-      { name = 'vsnip', keyword_length = 2, priority = 10 },
+      { name = 'vsnip', keyword_length = 2, priority = 20 },
+      { name = 'emoji', priority = 10 },
     })
   end
 
@@ -90,6 +91,7 @@ return function()
         with_text = false,
         menu = {
           buffer = ' buf',
+          emoji = ' emo',
           nvim_lsp = ' lsp',
           nvim_lua = ' api',
           path = ' path',
