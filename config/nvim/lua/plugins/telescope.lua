@@ -71,8 +71,8 @@ M.config = function()
 
   vim.cmd([[
     " Telescope.
-    nnoremap <silent> - <Cmd>Telescope<CR>
-    nnoremap <silent> _ <Cmd>Telescope resume<CR>
+    nnoremap <silent> <Leader>u <Cmd>Telescope oldfiles<CR>
+    nnoremap <silent> <Leader>U <Cmd>Telescope resume<CR>
 
     " Files and buffers.
     nnoremap <silent> <Leader><Backspace> <Cmd>Telescope buffers sort_mru=true<CR>
