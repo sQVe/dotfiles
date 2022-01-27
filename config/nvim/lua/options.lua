@@ -59,9 +59,9 @@ local options = {
 
   -- Folding.
   foldenable = true,                                -- Enable folding.
-  foldminlines = 1,                                 -- Folding minimum lines.
+  foldmethod='indent',                              -- Fold based on indention.
   foldnestmax = 4,                                  -- Folding max.
-  foldlevelstart = 99,                              -- Folding level.
+  foldlevelstart = 9999,                            -- Folding level.
   foldtext = [[substitute(getline(v:foldstart), '\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]],
 
   -- Programs.
@@ -96,7 +96,7 @@ local options = {
   -- Whitespace.
   fillchars = vim.opt.fillchars + {                 -- Set fill chars.
    diff = '╱',
-   fold = [[\]]
+   fold = [[-]]
   },
   list = true,                                      -- Show characters listed in 'listchars'.
   listchars = {
