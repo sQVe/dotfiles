@@ -84,6 +84,24 @@ return function()
     })
   end
 
+  local get_mapping = function(is_cmdline)
+    return {
+      ['<C-Space>'] = is_cmdline and mapKey(cmp.mapping.complete()) or mapKey(
+        mapping.complete({
+          reason = cmp.ContextReason.Auto,
+          config = { sources = get_sources(0) },
+        })
+      ),
+      ['<C-d>'] = mapKey(mapping.scroll_docs(8)),
+      ['<C-e>'] = mapKey(mapping.close()),
+      ['<C-k>'] = mapKey(signature_help),
+      ['<C-u>'] = mapKey(mapping.scroll_docs(-8)),
+      ['<CR>'] = mapKey(mapping.confirm({ select = false })),
+      ['<Tab>'] = mapKey(next),
+      ['<S-Tab>'] = mapKey(previous),
+    }
+  end
+
   cmp.setup({
     experimental = { ghost_text = { hl_group = 'GruvboxGray' } },
     formatting = {
@@ -99,19 +117,7 @@ return function()
         },
       }),
     },
-    mapping = {
-      ['<C-Space>'] = mapKey(mapping.complete({
-        reason = cmp.ContextReason.Auto,
-        config = { sources = get_sources(0) },
-      })),
-      ['<C-d>'] = mapKey(mapping.scroll_docs(8)),
-      ['<C-e>'] = mapKey(mapping.close()),
-      ['<C-k>'] = mapKey(signature_help),
-      ['<C-u>'] = mapKey(mapping.scroll_docs(-8)),
-      ['<CR>'] = mapKey(mapping.confirm({ select = false })),
-      ['<Tab>'] = mapKey(next),
-      ['<S-Tab>'] = mapKey(previous),
-    },
+    mapping = get_mapping(),
     snippet = { expand = expand_snippet },
     sorting = {
       comparators = {
@@ -127,7 +133,8 @@ return function()
     sources = get_sources(1),
   })
 
-  local searchSources = {
+  local searchOptions = {
+    mapping = get_mapping(true),
     sources = config.sources({
       {
         name = 'buffer',
@@ -136,11 +143,13 @@ return function()
       },
     }),
   }
-  cmp.setup.cmdline('/', searchSources)
-  cmp.setup.cmdline('?', searchSources)
+  cmp.setup.cmdline('/', searchOptions)
+  cmp.setup.cmdline('?', searchOptions)
   cmp.setup.cmdline(':', {
+    mapping = get_mapping(true),
     sources = config.sources({
       { name = 'cmdline', priority = 40 },
+      { name = 'path', priority = 20 },
       {
         name = 'buffer',
         keyword_length = 4,
