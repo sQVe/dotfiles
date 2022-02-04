@@ -34,12 +34,6 @@ return require('packer').startup(function(use)
 
   -- Integration.
   use({ 'editorconfig/editorconfig-vim', event = 'BufEnter' }) -- Editorconfig.
-  use({
-    'michaelb/sniprun', -- Run blocks of code.
-    run = 'bash ./install.sh',
-    cmd = { 'SnipRun' },
-    config = require('plugins.sniprun'),
-  })
 
   -- Theme.
   use({
