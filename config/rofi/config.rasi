@@ -1,5 +1,5 @@
 configuration {
-  font: "term 10";
+  font: "monospace 10";
 }
 
 @theme "theme"
