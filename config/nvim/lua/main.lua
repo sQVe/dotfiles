@@ -37,6 +37,7 @@ vim.g.loaded_zipPlugin = 1
 -- vim.g.loaded_matchit = 1
 
 require('options')
+require('commands')
 
 -- Load async due to packer_compiled.
 vim.defer_fn(function()
