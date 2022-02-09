@@ -56,7 +56,7 @@ command('AsciiHeader', 'call AsciiHeader(<q-args>)', { nargs = 1 })
 command(
   'CommitMsgFromBranchName',
   'call CommitMsgFromBranchName()',
-  { nargs = 1 }
+  { nargs = 0 }
 )
 
 -- Open prev git commit message.
