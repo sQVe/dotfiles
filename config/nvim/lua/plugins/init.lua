@@ -126,13 +126,6 @@ return require('packer').startup(function(use)
     module = 'focus',
   })
   use({
-    'filipdutescu/renamer.nvim', -- Rename UI.
-    branch = 'master',
-    config = require('plugins.renamer'),
-    keys = { { 'n', '<Leader>r' } },
-    requires = { 'nvim-lua/plenary.nvim' },
-  })
-  use({
     'folke/zen-mode.nvim', -- Zen Mode.
     cmd = { 'ZenMode' },
     config = require('plugins.zen-mode'),
