@@ -33,7 +33,7 @@ return require('packer').startup(function(use)
   use({ 'tpope/vim-repeat', event = 'BufEnter' }) -- Repeat for plugins.
 
   -- Integration.
-  use({ 'editorconfig/editorconfig-vim', event = 'BufEnter' }) -- Editorconfig.
+  use({ 'gpanders/editorconfig.nvim', event = 'BufEnter' }) -- Editorconfig.
 
   -- Theme.
   use({
