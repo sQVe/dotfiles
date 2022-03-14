@@ -118,13 +118,7 @@
   },
   "LoopForIn": {
     "prefix": "forin",
-    "body": [
-      "for (let ${1:key} in ${2:source}) {",
-      "\tif (${2:source}.hasOwnProperty(${1:key})) {",
-      "\t\t$0",
-      "\t}",
-      "}"
-    ]
+    "body": ["for (const ${1:key} in ${2:source}) {", "\t$0", "}"]
   },
   "LoopForOf": {
     "prefix": "forof",
