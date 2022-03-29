@@ -97,7 +97,7 @@ inoremap <C-x><C-s> <C-x>s
 
 " Setting toggles.
 nnoremap <silent> yoc <Cmd>set cursorline!<CR>
-nnoremap <silent> yoe <Cmd>set conceallevel=<C-r>=&conceallevel == 0 ? '2' <Cmd> '0'<CR><CR>
+nnoremap <silent> yoe :set conceallevel=<C-r>=&conceallevel == 0 ? '2' : '0'<CR><CR>
 nnoremap <silent> yon <Cmd>set number!<CR>
 nnoremap <silent> yor <Cmd>set relativenumber!<CR>
 nnoremap <silent> yos <Cmd>set spell!<CR>
