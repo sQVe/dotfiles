@@ -96,12 +96,11 @@ nnoremap <silent> <C-q><C-p> <Cmd>cprevious<CR>
 inoremap <C-x><C-s> <C-x>s
 
 " Setting toggles.
-nnoremap <silent> yoc <Cmd>set cursorline!<CR>
-nnoremap <silent> yoe :set conceallevel=<C-r>=&conceallevel == 0 ? '2' : '0'<CR><CR>
+nnoremap <silent> yoc :set conceallevel=<C-r>=&conceallevel == 0 ? '2' : '0'<CR><CR>
+nnoremap <silent> yol <Cmd>set cursorline!<CR>
 nnoremap <silent> yon <Cmd>set number!<CR>
 nnoremap <silent> yor <Cmd>set relativenumber!<CR>
 nnoremap <silent> yos <Cmd>set spell!<CR>
-nnoremap <silent> you <Cmd>set cursorcolumn!<CR>
 nnoremap <silent> yow <Cmd>set wrap!<CR>
 imap <C-s> <C-o><C-s>
 map <C-s> yos
