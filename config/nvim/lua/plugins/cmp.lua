@@ -99,6 +99,8 @@ return function()
       ['<CR>'] = mapKey(mapping.confirm({ select = false })),
       ['<Tab>'] = mapKey(next),
       ['<S-Tab>'] = mapKey(previous),
+      ['<Down>'] = mapKey(next),
+      ['<Up>'] = mapKey(previous),
     }
   end
 
