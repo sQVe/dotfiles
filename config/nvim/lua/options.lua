@@ -5,7 +5,7 @@
 -- stylua: ignore
 local options = {
   clipboard = 'unnamedplus',                        -- Use the + (clipboard) register.
-  conceallevel = 2,                                 -- Disable character conceal.
+  conceallevel = 0,                                 -- Disable conceal.
   exrc = true,                                      -- Source local vimrc at root directory.
   gdefault = true,                                  -- Use 'g' flag by default with :s/foo/bar/.
   lazyredraw = true,                                -- Enable lazy redraw.
