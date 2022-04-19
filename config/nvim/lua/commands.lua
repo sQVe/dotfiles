@@ -5,7 +5,7 @@
 local command = function(name, command, opts)
   local defaultOpts = { bang = true }
 
-  vim.api.nvim_add_user_command(
+  vim.api.nvim_create_user_command(
     name,
     command,
     vim.tbl_extend('force', defaultOpts, opts or {})
