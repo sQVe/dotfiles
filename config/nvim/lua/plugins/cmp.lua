@@ -24,11 +24,19 @@ return function()
         == nil
   end
 
-  local mapKey = function(keyMap)
-    return mapping(keyMap, { 'c', 'i' })
+  local mapKey = function(keymap)
+    return mapping(keymap, { 'c', 'i' })
   end
 
   local next = function(fallback)
+    if cmp.visible() then
+      cmp.select_next_item()
+    else
+      fallback()
+    end
+  end
+
+  local next_with_word_complete = function(fallback)
     if cmp.visible() then
       cmp.select_next_item()
     elseif has_words_before() then
@@ -97,7 +105,7 @@ return function()
       ['<C-k>'] = mapKey(signature_help),
       ['<C-u>'] = mapKey(mapping.scroll_docs(-8)),
       ['<CR>'] = mapKey(mapping.confirm({ select = false })),
-      ['<Tab>'] = mapKey(next),
+      ['<Tab>'] = mapKey(next_with_word_complete),
       ['<S-Tab>'] = mapKey(previous),
       ['<Down>'] = mapKey(next),
       ['<Up>'] = mapKey(previous),
