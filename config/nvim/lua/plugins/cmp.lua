@@ -36,16 +36,6 @@ return function()
     end
   end
 
-  local next_with_word_complete = function(fallback)
-    if cmp.visible() then
-      cmp.select_next_item()
-    elseif has_words_before() then
-      cmp.complete()
-    else
-      fallback()
-    end
-  end
-
   local previous = function(fallback)
     if cmp.visible() then
       cmp.select_prev_item()
@@ -93,7 +83,7 @@ return function()
   end
 
   local get_mapping = function(is_cmdline)
-    return {
+    return mapping.preset.insert({
       ['<C-Space>'] = is_cmdline and mapKey(cmp.mapping.complete()) or mapKey(
         mapping.complete({
           reason = cmp.ContextReason.Auto,
@@ -105,11 +95,9 @@ return function()
       ['<C-k>'] = mapKey(signature_help),
       ['<C-u>'] = mapKey(mapping.scroll_docs(-8)),
       ['<CR>'] = mapKey(mapping.confirm({ select = false })),
-      ['<Tab>'] = mapKey(next_with_word_complete),
+      ['<Tab>'] = mapKey(next),
       ['<S-Tab>'] = mapKey(previous),
-      ['<Down>'] = mapKey(next),
-      ['<Up>'] = mapKey(previous),
-    }
+    })
   end
 
   cmp.setup({
