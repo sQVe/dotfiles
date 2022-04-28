@@ -6,6 +6,7 @@ eslint_d
 json-server
 neovim
 npm
+pnpm
 prettier
 serve
 ts-node
