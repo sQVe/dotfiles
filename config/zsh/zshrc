@@ -189,7 +189,6 @@ alias bluetooth=bluetoothctl
 alias c=cat
 alias cheat='cht.sh'
 alias chrome=google-chrome-stable
-alias diff='diff --color=always --unified'
 alias fd='fd --hidden --follow'
 alias feh='feh --scale-down --auto-zoom --image-bg "#282828"'
 alias fm=vifm-cd
