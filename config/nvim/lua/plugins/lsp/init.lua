@@ -24,6 +24,10 @@ return function()
     nnoremap <silent> <Leader>r <Cmd>lua vim.lsp.buf.rename()<CR>
     nnoremap <silent> K <Cmd>ShowDocumentation<CR>
 
+    " Actions.
+    nnoremap <silent> <Leader>a <Cmd>lua vim.lsp.buf.code_action()<CR>
+    xnoremap <silent> <Leader>a <Cmd>lua vim.lsp.buf.range_code_action()<CR>
+
     " Diagnostics.
     nnoremap <silent> gl <Cmd>lua vim.diagnostic.open_float(0, {scope = 'line', header = false})<CR>
     nnoremap <silent> <Leader>lj <Cmd>lua vim.diagnostic.goto_next({float = false})<CR>

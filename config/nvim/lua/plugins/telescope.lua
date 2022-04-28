@@ -69,6 +69,9 @@ M.config = function()
   -- Use fzf native.
   telescope.load_extension('fzf')
 
+  -- Set vim.ui.select to telescope.
+  telescope.load_extension('ui-select')
+
   vim.cmd([[
     " Telescope.
     nnoremap <silent> <Leader>u <Cmd>Telescope oldfiles<CR>
@@ -97,8 +100,6 @@ M.config = function()
     nnoremap <silent> gD <Cmd>Telescope lsp_implementations<CR>
     nnoremap <silent> gr <Cmd>Telescope lsp_references<CR>
     nnoremap <silent> gy <Cmd>Telescope lsp_definitions<CR>
-    nnoremap <silent> <Leader>a <Cmd>Telescope lsp_code_actions<CR>
-    xnoremap <silent> <Leader>a <Cmd>Telescope lsp_range_code_actions<CR>
     nnoremap <silent> <Leader>l <Cmd>Telescope diagnostics bufnr=0<CR>
     nnoremap <silent> <Leader>L <Cmd>Telescope diagnostics<CR>
     nnoremap <silent> <Leader>s <Cmd>Telescope lsp_document_symbols<CR>
