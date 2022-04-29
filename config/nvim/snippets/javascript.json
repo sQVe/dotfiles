@@ -122,7 +122,7 @@
   },
   "LoopForOf": {
     "prefix": "forof",
-    "body": ["for (const ${1:key} of ${2:source}) {", "\t$0", "}"]
+    "body": ["for (const ${1:item} of ${2:source}) {", "\t$0", "}"]
   },
   "LoopWhile": {
     "prefix": "while",
