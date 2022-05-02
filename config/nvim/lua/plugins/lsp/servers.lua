@@ -7,8 +7,8 @@ return function(on_attach_callback)
 
   local set_formatting_capabilities = function(client, value)
     -- Set LSP formatting.
-    client.resolved_capabilities.document_formatting = value
-    client.resolved_capabilities.document_range_formatting = value
+    client.server_capabilities.documentFormattingProvider = value
+    client.server_capabilities.documentRangeFormattingProvider = value
   end
 
   -- Mirror capabilities set by `update_capabilities` in `cmp-nvim-lsp`, since
