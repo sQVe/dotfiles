@@ -3,6 +3,7 @@
 --  ╹╹ ╹╹ ╹
 
 return function()
+  local lspconfig = require('lspconfig')
   local on_attach = function() end
   local servers = require('plugins.lsp.servers')(on_attach)
 
@@ -15,7 +16,7 @@ return function()
     end
 
     -- Initiate and setup all LSP servers (excluding null-ls).
-    require('lspconfig')[server].setup(config)
+    lspconfig[server].setup(config)
   end
 
   vim.cmd([[

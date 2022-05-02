@@ -31,7 +31,7 @@ return function(on_attach_callback)
     return capabilities
   end
 
-  local common = {
+  local common_setup = {
     capabilities = update_capabilities(
       vim.lsp.protocol.make_client_capabilities()
     ),
@@ -42,17 +42,43 @@ return function(on_attach_callback)
     root_dir = root_dir,
   }
 
+  local with_common_setup = function(settings)
+    return vim.tbl_extend('force', common_setup, settings or {})
+  end
+
+  local tsserver_diagnostics_handler = function(...)
+    local params = select(2, ...)
+
+    if params.diagnostics ~= nil then
+      for idx, diagnostic in ipairs(params.diagnostics) do
+        -- More codes can be found here:
+        -- https://github.com/microsoft/TypeScript/blob/main/src/compiler/diagnosticMessages.json
+        local disabled_codes = { 80001 }
+
+        for _, code in ipairs(disabled_codes) do
+          if diagnostic.code == code then
+            table.remove(params.diagnostics, idx)
+          end
+        end
+      end
+    end
+
+    vim.lsp.handlers['textDocument/publishDiagnostics'](...)
+  end
+
   return {
-    bashls = common,
-    cssls = common,
-    gopls = common,
-    html = common,
-    jsonls = common,
-    tsserver = common,
-    sumneko_lua = {
-      capabilities = common.capabilities,
+    bashls = common_setup,
+    cssls = common_setup,
+    gopls = common_setup,
+    html = common_setup,
+    jsonls = common_setup,
+    tsserver = with_common_setup({
+      handlers = {
+        ['textDocument/publishDiagnostics'] = tsserver_diagnostics_handler,
+      },
+    }),
+    sumneko_lua = with_common_setup({
       cmd = { 'lua-language-server' },
-      on_attach = common.on_attach,
       root_dir = root_dir,
       settings = {
         Lua = {
@@ -61,7 +87,7 @@ return function(on_attach_callback)
           telemetry = { enable = false },
         },
       },
-    },
-    yamlls = common,
+    }),
+    yamlls = common_setup,
   }
 end
