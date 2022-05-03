@@ -100,7 +100,7 @@ text/x-sql=term-nvim.desktop;
 text/x-tcl=term-nvim.desktop;
 text/x-tex=term-nvim.desktop;
 text/xml=term-nvim.desktop;
-video/mp2t=mpv.desktop;
+video/mp2t=term-nvim.desktop;
 video/mp4=mpv.desktop;
 video/mpeg=mpv.desktop;
 video/msvideo=mpv.desktop;
@@ -124,6 +124,7 @@ video/x-ogm+ogg=mpv.desktop;
 video/x-theora=mpv.desktop;
 x-scheme-handler/http=open-qutebrowser.desktop;
 x-scheme-handler/https=open-qutebrowser.desktop;
+x-scheme-handler/tg=userapp-Telegram Desktop-6SZJD1.desktop;
 
 [Removed Associations]
 application/pdf=calibre-gui.desktop;calibre-ebook-viewer.desktop;
