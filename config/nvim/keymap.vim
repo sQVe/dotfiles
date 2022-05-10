@@ -50,6 +50,10 @@ noremap <silent> <Leader>D <Cmd>Bwipeout<CR>
 " Easy and consistent search.
 noremap + /
 
+" Flip f, t, F and T repeat.
+noremap , ;
+noremap ; ,
+
 " Indent and un-indent without loosing selection.
 vnoremap < <gv
 vnoremap > >gv

@@ -24,13 +24,10 @@ return function()
     hi! IndentBlanklineChar guifg=#3c3836 gui=nocombine
     hi! IndentBlanklineContextChar guifg=#a89984 gui=nocombine
 
-    " Lightspeed.
-    hi! LightspeedGreyWash guifg=#665c54 guibg=NONE gui=NONE cterm=NONE
-    hi! LightspeedLabel guifg=#8ec07c guibg=NONE gui=bold cterm=NONE
-    hi! LightspeedLabelOverlapped guifg=#fb4934 guibg=NONE gui=bold cterm=NONE
-    hi! LightspeedOneCharMatch guifg=#fbf1c7 guibg=NONE gui=bold cterm=NONE
-    hi! LightspeedShortcut guifg=#fbf1c7 guibg=NONE gui=bold cterm=NONE
-    hi! LightspeedShortcutOverlapped guifg=#fbf1c7 guibg=NONE gui=bold cterm=NONE
+    " Leap.
+    hi! LeapMatch guifg=#000000 guibg=#fabd2f gui=NONE cterm=NONE
+    hi! LeapLabelPrimary guifg=#000000 guibg=#d3869b gui=NONE cterm=NONE
+    hi! LeapLabelSecondary guifg=#000000 guibg=#8ec07c gui=NONE cterm=NONE
 
     hi! link LightspeedLabelDistant GruvboxFg2
     hi! link LightspeedLabelDistantOverlapped GruvboxFg3

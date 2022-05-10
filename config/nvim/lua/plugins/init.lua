@@ -201,9 +201,9 @@ return require('packer').startup(function(use)
 
   -- Navigation.
   use({
-    'ggandor/lightspeed.nvim', -- Quick jump.
-    config = require('plugins.lightspeed'),
-    after = 'vim-sandwich',
+    'ggandor/leap.nvim', -- Quick jump.
+    config = require('plugins.leap'),
+    after = 'vim-repeat',
   })
   use({
     'nvim-telescope/telescope.nvim', -- Telescope.
