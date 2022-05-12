@@ -11,7 +11,8 @@ local options = {
   lazyredraw = true,                                -- Enable lazy redraw.
   mouse = 'a',                                      -- Enable mouse.
   scrolloff = 8,                                    -- Set scroll offset to 8 lines.
-  shortmess = vim.o.shortmess .. 'Ic',              -- Disable version intro text.
+  shortmess =
+    vim.opt.shortmess  + { I = true, c = true },    -- Disable version intro text.
   showmode = false,                                 -- Disable show mode.
   suffixesadd = {                                   -- File extension lookup when going to file.
     '.css',

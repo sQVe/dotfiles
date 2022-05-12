@@ -36,6 +36,7 @@ vim.g.loaded_zipPlugin = 1
 -- vim.g.loaded_netrw = 1
 -- vim.g.loaded_matchit = 1
 
+require('autocmds')
 require('options')
 require('commands')
 
