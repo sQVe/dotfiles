@@ -38,9 +38,6 @@ noremap <expr> N 'nN'[v:searchforward] . 'zzzv'
 " Keep cursor position when joining.
 noremap J mzJ`z
 
-" Quick save.
-noremap <silent> <Leader><Leader> <Cmd>update<CR>
-
 " Quit and close buffer.
 noremap <silent> <Leader>q <Cmd>quit<CR>
 noremap <silent> <Leader>Q <Cmd>quit!<CR>

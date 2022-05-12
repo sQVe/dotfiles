@@ -21,7 +21,7 @@ return function()
 
   vim.cmd([[
     " General.
-    nnoremap <silent> <Leader>f <Cmd>lua vim.lsp.buf.formatting()<CR>
+    nnoremap <silent> <Leader><Leader> <Cmd>lua vim.lsp.buf.format({ async = true })<CR>
     nnoremap <silent> <Leader>r <Cmd>lua vim.lsp.buf.rename()<CR>
     nnoremap <silent> K <Cmd>ShowDocumentation<CR>
 
