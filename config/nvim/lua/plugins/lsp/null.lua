@@ -6,6 +6,7 @@ return function()
   local null = require('null-ls')
   local root_dir = require('util').root_dir({ prioritizeManifest = true })
 
+  local augroup = vim.api.nvim_create_augroup('Format', {})
   local code_actions = null.builtins.code_actions
   local formatters = null.builtins.formatting
   local linters = null.builtins.diagnostics
@@ -59,13 +60,17 @@ return function()
   null.setup({
     cmd = { 'nvim' },
     diagnostics_format = '#{c}: #{m} (#{s})',
-    on_attach = function()
-      vim.cmd([[
-        augroup Format
-          autocmd! * <buffer>
-          autocmd BufWritePre <buffer> silent! lua vim.lsp.buf.formatting_sync()
-        augroup END
-      ]])
+    on_attach = function(client, bufnr)
+      if client.supports_method('textDocument/formatting') then
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.api.nvim_create_autocmd('BufWritePre', {
+          group = augroup,
+          buffer = bufnr,
+          callback = function()
+            vim.lsp.buf.format({ bufnr = bufnr })
+          end,
+        })
+      end
     end,
     root_dir = root_dir,
     sources = {
