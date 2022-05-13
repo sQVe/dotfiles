@@ -75,13 +75,17 @@ vim.api.nvim_create_autocmd('BufWritePost', {
 -- Save notes.
 vim.api.nvim_create_autocmd('BufWritePost', {
   group = augroups.SaveNotes,
-  pattern = '$HOME/notes/*.md',
-  command = 'silent exec "!($HOME/scripts/nvim/notes-send.sh &)"',
+  pattern = vim.fn.expand('$HOME') .. '/notes/*.md',
+  command = 'silent exec "!('
+    .. vim.fn.expand('$HOME')
+    .. '/scripts/nvim/notes-send.sh &)"',
 })
 
 -- Stop Neovim Daemons.
 vim.api.nvim_create_autocmd('ExitPre', {
   group = augroups.StopNeovimDaemons,
   pattern = '*',
-  command = 'silent exec "!($HOME/scripts/nvim/stop-nvim-daemons.sh &)"',
+  command = 'silent exec "!('
+    .. vim.fn.expand('$HOME')
+    .. '/scripts/nvim/stop-nvim-daemons.sh &)"',
 })
