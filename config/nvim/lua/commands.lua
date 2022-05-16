@@ -25,7 +25,7 @@ command(
 command('Bda', 'bufdo bd')
 
 -- Delete all buffers but the open one.
-command('Bdo', 'Bdo %bd|e#|bd#')
+command('Bdo', '%bd|e#|bd#')
 
 -- Show full path to open buffer.
 command('Bpwd', 'echo expand("%:p")')
