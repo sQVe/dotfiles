@@ -8,6 +8,7 @@ zstyle ':zim:git' aliases-prefix 'g'
 zstyle ':zim:input' double-dot-expand yes
 
 source $ZIM_HOME/init.zsh
+source $XDG_CONFIG_HOME/glab-cli/glab.zsh
 source $XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
@@ -195,6 +196,7 @@ alias feh='feh --scale-down --auto-zoom --image-bg "#282828"'
 alias fm=vifm-cd
 alias format-opinionated='npx prettier --single-quote --trailing-comma es5 --write'
 alias format='npx prettier --write'
+alias glab='BROWSER=google-chrome-stable glab'
 alias kubectl="kubectl --cache-dir $XDG_CACHE_HOME/kube"
 alias l=less
 alias mixer=pavucontrol
