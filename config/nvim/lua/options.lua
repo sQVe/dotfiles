@@ -91,7 +91,6 @@ local options = {
   updatetime = 100,                                 -- Set update time to 100 ms.
 
   -- Undo.
-  undodir = vim.fn.expand('$XDG_DATA_HOME') .. '/nvim/.undo, /tmp',
   undofile = true,                                  -- Keep a persistent backup file.
 
   -- Whitespace.
