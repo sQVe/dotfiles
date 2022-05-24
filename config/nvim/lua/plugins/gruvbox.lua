@@ -13,6 +13,7 @@ return function()
     " Override defaults.
     hi! Cursor guifg=#282828 guibg=#ebdbb2 gui=NONE cterm=NONE
     hi! ColorColumn guifg=NONE guibg=#282828 gui=NONE cterm=NONE
+    hi! link WinBar GruvboxGray
 
     " Cmp.
     hi! CmpItemAbbrDeprecated guifg=#928374 guibg=NONE gui=strikethrough cterm=NONE

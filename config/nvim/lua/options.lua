@@ -80,6 +80,10 @@ local options = {
   spelllang = 'en_us',
   spelloptions = 'camel',
 
+  -- Status and winbar.
+  laststatus = 3,
+  winbar = "%=%m %f",
+
   -- Tabs and spaces.
   expandtab = true,                                 -- Insert spaces when TAB is pressed.
   joinspaces = false,                               -- Prevents inserting two spaces after punctuation on a join (J).
