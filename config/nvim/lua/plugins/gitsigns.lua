@@ -4,7 +4,7 @@
 
 return function()
   local gitsigns = require('gitsigns')
-  local map = require('util').map
+  local map = require('utils.keymap').map
 
   gitsigns.setup({
     on_attach = function(bufnr)

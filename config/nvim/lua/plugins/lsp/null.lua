@@ -4,7 +4,7 @@
 
 return function()
   local null = require('null-ls')
-  local root_dir = require('util').root_dir({ prioritizeManifest = true })
+  local root_dir = require('utils.lsp').root_dir({ prioritizeManifest = true })
 
   local augroup = vim.api.nvim_create_augroup('Format', {})
   local code_actions = null.builtins.code_actions

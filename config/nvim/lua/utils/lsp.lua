@@ -1,20 +1,8 @@
--- ╻ ╻╺┳╸╻╻
--- ┃ ┃ ┃ ┃┃
--- ┗━┛ ╹ ╹┗━╸
+-- ╻  ┏━┓┏━┓
+-- ┃  ┗━┓┣━┛
+-- ┗━╸┗━┛╹
 
 local M = {}
-
-function M.table_contains(tbl, value)
-  local found = false
-
-  for _, tableValue in ipairs(tbl) do
-    if tableValue == value then
-      found = true
-    end
-  end
-
-  return found
-end
 
 function M.root_dir(opts)
   local util = require('lspconfig').util
@@ -36,11 +24,6 @@ function M.root_dir(opts)
 
     return util.find_git_ancestor(filename) or manifest
   end
-end
-
-function M.map(mode, l, r, opts)
-  opts = opts or {}
-  vim.keymap.set(mode, l, r, opts)
 end
 
 return M
