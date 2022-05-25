@@ -14,6 +14,7 @@ function M.get_winbar_layout()
   local disabled_filetypes = {
     'alpha',
     'fugitive',
+    'packer',
     'qf',
   }
 
