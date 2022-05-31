@@ -45,6 +45,7 @@ set $music-prev --no-startup-id playerctl previous
 set $music-toggle --no-startup-id playerctl play-pause
 set $qutebrowser --no-startup-id open-qutebrowser
 set $term --no-startup-id term
+set $term-detach --no-startup-id term --detach
 set $vifm --no-startup-id term vifm
 set $vim --no-startup-id term nvim
 
@@ -261,6 +262,8 @@ bindsym $mod+Return exec $term
 bindsym $mod+Tab workspace next_on_output
 bindsym $mod+section workspace prev_on_output
 bindsym $mod+space fullscreen toggle
+
+bindsym $mod+Shift+Return exec $term-detach
 
 bindsym Print exec flameshot gui
 
