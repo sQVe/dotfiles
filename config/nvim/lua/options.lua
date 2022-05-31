@@ -76,7 +76,7 @@ local options = {
   -- Spelling.
   dictionary = vim.o.dictionary .. '/usr/share/dict/words',
   spellfile = vim.fn.expand('$XDG_CONFIG_HOME')
-    .. '/.config/nvim/spell/en.utf-8.add',
+    .. '/nvim/spell/en.utf-8.add',
   spelllang = 'en_us',
   spelloptions = 'camel',
 
