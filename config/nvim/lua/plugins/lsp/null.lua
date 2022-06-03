@@ -56,6 +56,9 @@ return function()
     'stylua.toml',
     '.stylua.toml',
   })
+  local vale_runtime_condition = create_runtime_condition({
+    '.vale.ini',
+  })
 
   null.setup({
     cmd = { 'nvim' },
@@ -90,6 +93,7 @@ return function()
         timeout = 20000,
       }),
       linters.shellcheck,
+      linters.vale.with({ runtime_condition = vale_runtime_condition }),
     },
   })
 end
