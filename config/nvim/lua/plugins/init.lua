@@ -114,12 +114,6 @@ return require('packer').startup(function(use)
 
   -- Interface.
   use({
-    'ThePrimeagen/harpoon', -- Keep and list WIP buffers.
-    config = require('plugins.harpoon'),
-    event = 'VimEnter',
-    requires = { 'nvim-lua/plenary.nvim' },
-  })
-  use({
     'beauwilliams/focus.nvim', -- Golden ratio window resizing.
     config = require('plugins.focus'),
     event = 'BufEnter',

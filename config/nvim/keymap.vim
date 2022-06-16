@@ -44,6 +44,10 @@ noremap <silent> <Leader>Q <Cmd>quit!<CR>
 noremap <silent> <Leader>d <Cmd>Bdelete<CR>
 noremap <silent> <Leader>D <Cmd>Bwipeout<CR>
 
+" Next and previous buffer.
+noremap <silent> <Tab> <Cmd>bnext<CR>
+noremap <silent> <S-Tab> <Cmd>bprev<CR>
+
 " Easy and consistent search.
 noremap + /
 
