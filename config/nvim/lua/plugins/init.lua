@@ -210,11 +210,6 @@ return require('packer').startup(function(use)
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
     },
   })
-  use({
-    'ThePrimeagen/git-worktree.nvim', -- Worktree telescope extension.
-    config = require('plugins.git-worktree'),
-    after = 'telescope.nvim',
-  })
 
   -- Text objects and motions.
   use({ 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter' }) -- Smart selection.
