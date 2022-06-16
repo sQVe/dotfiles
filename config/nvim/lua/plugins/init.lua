@@ -171,7 +171,8 @@ return require('packer').startup(function(use)
   use({ 'hrsh7th/cmp-cmdline', after = 'cmp-nvim-lsp' }) -- Command completion.
   use({ 'hrsh7th/cmp-emoji', after = 'cmp-vsnip' }) -- Emoji completion.
   use({ 'hrsh7th/cmp-nvim-lsp', after = 'cmp-nvim-lua' }) -- LSP completion.
-  use({ 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' }) -- API completion.
+  use({ 'hrsh7th/cmp-nvim-lsp-signature-help', after = 'nvim-cmp' }) -- Signature help.
+  use({ 'hrsh7th/cmp-nvim-lua', after = 'cmp-nvim-lsp-signature-help' }) -- API completion.
   use({ 'hrsh7th/cmp-path', after = 'cmp-cmdline' }) -- Path completion.
   use({ 'hrsh7th/cmp-vsnip', after = 'cmp-buffer' }) -- VSnip completion.
   use({
