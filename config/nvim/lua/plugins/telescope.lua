@@ -39,7 +39,9 @@ M.config = function()
         i = {
           ['<C-Down>'] = actions.cycle_history_next,
           ['<C-Up>'] = actions.cycle_history_prev,
+          ['<C-a>'] = actions.toggle_all,
           ['<C-s>'] = actions.select_horizontal,
+          ['<C-x>'] = actions.delete_buffer,
           ['<Esc>'] = actions.close,
           ['<Leader>q'] = actions.close,
         },
@@ -90,10 +92,6 @@ M.config = function()
 
     " Git.
     nnoremap <silent> <Leader>gg <Cmd>Telescope git_status<CR>
-
-    " Git worktrees.
-    nnoremap <silent> <Leader>gw <Cmd>Telescope git_worktree git_worktrees<CR>
-    nnoremap <silent> <Leader>gW <Cmd>Telescope git_worktree create_git_worktree<CR>
 
     " LSP.
     nnoremap <silent> gd <Cmd>Telescope lsp_definitions<CR>
