@@ -13,6 +13,11 @@ source $XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh
 source /usr/share/fzf/completion.zsh
 source /usr/share/fzf/key-bindings.zsh
 
+# Use matcher-list from marlonrichert/zsh-autocomplete.
+zstyle ':completion:*' matcher-list \
+  'm:{[:lower:]-}={[:upper:]_} r:|[.]=**' \
+  '+l:|=*'
+
 #  ┏━┓┏━╸╺┳╸╺┳╸╻┏┓╻┏━╸┏━┓
 #  ┗━┓┣╸  ┃  ┃ ┃┃┗┫┃╺┓┗━┓
 #  ┗━┛┗━╸ ╹  ╹ ╹╹ ╹┗━┛┗━┛
