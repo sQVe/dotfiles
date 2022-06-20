@@ -188,8 +188,6 @@ bindsym $mod+w layout toggle tabbed split
 bindsym $mod+x exec $lock
 bindsym $mod+y sticky toggle
 bindsym $mod+z exec $menu-projects
-bindsym $mod+aring exec $volume-toggle
-bindsym $mod+adiaeresis exec $microphone-toggle
 bindsym $mod+odiaeresis exec dunstctl close
 
 bindsym $mod+Shift+b exec $music-toggle
