@@ -120,11 +120,6 @@ return require('packer').startup(function(use)
     module = 'focus',
   })
   use({
-    'folke/zen-mode.nvim', -- Zen Mode.
-    cmd = { 'ZenMode' },
-    config = require('plugins.zen-mode'),
-  })
-  use({
     'nvim-lualine/lualine.nvim', -- Status line.
     config = require('plugins.lualine'),
     event = 'BufEnter',
