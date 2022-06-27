@@ -91,7 +91,7 @@ M.config = function()
     nnoremap <silent> gR <Cmd>Telescope grep_string<CR>
 
     " Git.
-    nnoremap <silent> <Leader>gg <Cmd>Telescope git_status<CR>
+    nnoremap <silent> <Leader><Backspace> <Cmd>Telescope git_status<CR>
 
     " LSP.
     nnoremap <silent> gd <Cmd>Telescope lsp_definitions<CR>
