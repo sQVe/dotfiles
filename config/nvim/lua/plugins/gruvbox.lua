@@ -3,44 +3,55 @@
 --  ┗━┛╹┗╸┗━┛┗┛ ┗━┛┗━┛╹ ╹
 
 return function()
-  vim.g.gruvbox_sign_column = 'bg0'
-  vim.g.gruvbox_transparent_bg = 1
+  local gruvbox = require('gruvbox')
+  local palette = require('gruvbox.palette')
+
+  -- Custom colors.
+  local black = '#000000'
+
+  local sign_column_override = { bg = palette.dark0 }
+  local sign_column_override_map = {
+    SignColumn = sign_column_override,
+  }
+
+  local gruvbox_signs = {
+    'GruvboxAquaSign',
+    'GruvboxBlueSign',
+    'GruvboxGreenSign',
+    'GruvboxOrangeSign',
+    'GruvboxPurpleSign',
+    'GruvboxRedSign',
+    'GruvboxYellowSign',
+  }
+  for _, gruvbox_sign in ipairs(gruvbox_signs) do
+    sign_column_override_map[gruvbox_sign] = sign_column_override
+  end
+
+  gruvbox.setup({
+    italic = false,
+    overrides = vim.tbl_deep_extend('force', {
+      ColorColumn = { fg = 'NONE', bg = palette.dark0 },
+      Comment = { italic = 1 },
+      Cursor = { fg = palette.dark0, bg = palette.light1 },
+      WinBar = { fg = palette.gray },
+
+      -- Indent blankline.
+      IndentBlanklineChar = { fg = palette.dark1 },
+      IndentBlanklineContextChar = { fg = palette.light4 },
+
+      -- Leap.
+      LeapMatch = { fg = black, bg = palette.bright_yellow },
+      LeapLabelPrimary = { fg = black, bg = palette.bright_purple },
+      LeapLabelSecondary = { fg = black, bg = palette.bright_ornage },
+    }, sign_column_override_map),
+  })
 
   vim.o.background = 'dark'
-  vim.cmd('colorscheme gruvbox')
-
   vim.cmd([[
-    " Override defaults.
-    hi! Cursor guifg=#282828 guibg=#ebdbb2 gui=NONE cterm=NONE
-    hi! ColorColumn guifg=NONE guibg=#282828 gui=NONE cterm=NONE
-    hi! link WinBar GruvboxGray
+    " Set colorscheme.
+    colorscheme gruvbox
 
-    " Cmp.
-    hi! CmpItemAbbrDeprecated guifg=#928374 guibg=NONE gui=strikethrough cterm=NONE
-    hi! link CmpItemAbbrDefault GruvboxFg4
-    hi! link CmpItemKind GruvboxYellow
-    hi! link CmpItemMenu GruvboxPurple
-
-    " Indent blankline.
-    hi! IndentBlanklineChar guifg=#3c3836 gui=nocombine
-    hi! IndentBlanklineContextChar guifg=#a89984 gui=nocombine
-
-    " Leap.
-    hi! LeapMatch guifg=#000000 guibg=#fabd2f gui=NONE cterm=NONE
-    hi! LeapLabelPrimary guifg=#000000 guibg=#d3869b gui=NONE cterm=NONE
-    hi! LeapLabelSecondary guifg=#000000 guibg=#8ec07c gui=NONE cterm=NONE
-
-    hi! link LightspeedLabelDistant GruvboxFg2
-    hi! link LightspeedLabelDistantOverlapped GruvboxFg3
-    hi! link LightspeedMaskedChar GruvboxPurple
-    hi! link LightspeedUnlabeledMatch GruvboxYellow
-
-    " LSP.
-    hi! link LspReferenceRead DiffChange
-    hi! link LspReferenceText DiffChange
-    hi! link LspReferenceWrite DiffChange
-    hi! link LspSignatureActiveParameter GruvboxOrange
-
+    " Set diagnostic signs.
     sign define DiagnosticSignError text=■ texthl=DiagnosticSignError
     sign define DiagnosticSignHint text=■ texthl=DiagnosticSignHint
     sign define DiagnosticSignInfo text=■ texthl=DiagnosticSignInfo
