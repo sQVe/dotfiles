@@ -8,13 +8,9 @@ return function()
 
   -- Custom colors.
   local black = '#000000'
+  local none = 'NONE'
 
-  local sign_column_override = { bg = palette.dark0 }
-  local sign_column_override_map = {
-    SignColumn = sign_column_override,
-  }
-
-  local gruvbox_signs = {
+  local sign_highlights = {
     'GruvboxAquaSign',
     'GruvboxBlueSign',
     'GruvboxGreenSign',
@@ -22,28 +18,33 @@ return function()
     'GruvboxPurpleSign',
     'GruvboxRedSign',
     'GruvboxYellowSign',
+    'SignColumn',
   }
-  for _, gruvbox_sign in ipairs(gruvbox_signs) do
-    sign_column_override_map[gruvbox_sign] = sign_column_override
+
+  local sign_column_override_map = {}
+  for _, sign_highlight in ipairs(sign_highlights) do
+    sign_column_override_map[sign_highlight] = { bg = none }
   end
+
+  local overrides = vim.tbl_deep_extend('force', {
+    ColorColumn = { fg = none, bg = none },
+    Comment = { italic = 1 },
+    Cursor = { fg = palette.dark0, bg = palette.light1 },
+    WinBar = { fg = palette.gray },
+
+    -- Indent blankline.
+    IndentBlanklineChar = { fg = palette.dark1 },
+    IndentBlanklineContextChar = { fg = palette.light4 },
+
+    -- Leap.
+    LeapMatch = { fg = black, bg = palette.bright_yellow },
+    LeapLabelPrimary = { fg = black, bg = palette.bright_purple },
+    LeapLabelSecondary = { fg = black, bg = palette.bright_orange },
+  }, sign_column_override_map)
 
   gruvbox.setup({
     italic = false,
-    overrides = vim.tbl_deep_extend('force', {
-      ColorColumn = { fg = 'NONE', bg = palette.dark0 },
-      Comment = { italic = 1 },
-      Cursor = { fg = palette.dark0, bg = palette.light1 },
-      WinBar = { fg = palette.gray },
-
-      -- Indent blankline.
-      IndentBlanklineChar = { fg = palette.dark1 },
-      IndentBlanklineContextChar = { fg = palette.light4 },
-
-      -- Leap.
-      LeapMatch = { fg = black, bg = palette.bright_yellow },
-      LeapLabelPrimary = { fg = black, bg = palette.bright_purple },
-      LeapLabelSecondary = { fg = black, bg = palette.bright_ornage },
-    }, sign_column_override_map),
+    overrides = overrides,
   })
 
   vim.o.background = 'dark'
