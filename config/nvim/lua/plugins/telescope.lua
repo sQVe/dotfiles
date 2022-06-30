@@ -76,7 +76,7 @@ M.config = function()
 
   vim.cmd([[
     " Telescope.
-    nnoremap <silent> <Leader>u <Cmd>Telescope oldfiles<CR>
+    nnoremap <silent> <Leader>u <Cmd>Telescope oldfiles cwd_only=true<CR>
     nnoremap <silent> <Leader>U <Cmd>Telescope resume<CR>
 
     " Files and buffers.
