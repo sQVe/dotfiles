@@ -28,6 +28,13 @@ return function()
     return mapping(keymap, { 'c', 'i' })
   end
 
+  local signature_help = function()
+    if cmp.visible() then
+      cmp.close()
+    end
+    vim.lsp.buf.signature_help()
+  end
+
   local next = function(fallback)
     if cmp.visible() then
       cmp.select_next_item()
@@ -60,7 +67,6 @@ return function()
 
   local get_sources = function(keyword_length)
     return config.sources({
-      { name = 'nvim_lsp_signature_help' },
       { name = 'nvim_lua', keyword_length = keyword_length, priority = 80 },
       { name = 'nvim_lsp', keyword_length = keyword_length, priority = 80 },
       { name = 'path', keyword_length = keyword_length, priority = 60 },
@@ -88,6 +94,7 @@ return function()
       ),
       ['<C-d>'] = mapKey(mapping.scroll_docs(8)),
       ['<C-e>'] = mapKey(mapping.close()),
+      ['<C-k>'] = mapKey(signature_help),
       ['<C-u>'] = mapKey(mapping.scroll_docs(-8)),
       ['<CR>'] = mapKey(mapping.confirm({ select = false })),
       ['<Tab>'] = mapKey(next),
