@@ -35,6 +35,9 @@ noremap gk k
 noremap <expr> n 'Nn'[v:searchforward] . 'zzzv'
 noremap <expr> N 'nN'[v:searchforward] . 'zzzv'
 
+" Consistent CR movement.
+noremap <S-CR> -
+
 " Keep cursor position when joining.
 noremap J mzJ`z
 
