@@ -42,6 +42,7 @@
   rebase = merges
 
 [push]
+	autoSetupRemote = true
   default = simple
 
 [rebase]
