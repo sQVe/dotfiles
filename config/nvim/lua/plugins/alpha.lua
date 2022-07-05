@@ -21,7 +21,11 @@ return function()
       '<Cmd>lua require("plugins.telescope").find_files()<CR>'
     ),
     dashboard.button('Ä', '📁  File Manager', '<Cmd>Vifm<CR>'),
-    dashboard.button('s', '🔴  Git Status', '<Cmd>Telescope git_status<CR>'),
+    dashboard.button(
+      '<BS>',
+      '🔴  Git Status',
+      '<Cmd>Telescope git_status<CR>'
+    ),
     dashboard.button(
       'u',
       '🎒  Recently Used Files',
