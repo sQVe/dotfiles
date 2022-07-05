@@ -4,6 +4,15 @@
 
 local M = {}
 
+M.git_status = function()
+  local builtin = require('telescope/builtin')
+
+  local ok = pcall(builtin.git_status, {})
+  if not ok then
+    print('No git directory found')
+  end
+end
+
 M.find_files = function(use_buffer_cwd)
   local builtin = require('telescope/builtin')
   local utils = require('telescope/utils')
@@ -91,7 +100,7 @@ M.config = function()
     nnoremap <silent> gR <Cmd>Telescope grep_string<CR>
 
     " Git.
-    nnoremap <silent> <Leader><Backspace> <Cmd>Telescope git_status<CR>
+    nnoremap <silent> <Leader><Backspace> <Cmd>lua require("plugins.telescope").git_status()<CR>
 
     " LSP.
     nnoremap <silent> gd <Cmd>Telescope lsp_definitions<CR>

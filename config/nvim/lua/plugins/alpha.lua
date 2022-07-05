@@ -24,7 +24,7 @@ return function()
     dashboard.button(
       '<BS>',
       '🔴  Git Status',
-      '<Cmd>Telescope git_status<CR>'
+      '<Cmd>lua require("plugins.telescope").git_status()<CR>'
     ),
     dashboard.button(
       'u',
