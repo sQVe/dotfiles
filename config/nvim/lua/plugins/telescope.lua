@@ -16,7 +16,12 @@ end
 M.find_files = function(use_buffer_cwd)
   local builtin = require('telescope/builtin')
   local utils = require('telescope/utils')
-  local opts = { follow = true, hidden = true, use_git_root = false }
+  local opts = {
+    follow = true,
+    hidden = true,
+    show_untracked = true,
+    use_git_root = false,
+  }
 
   if use_buffer_cwd then
     opts.cwd = utils.buffer_dir()
