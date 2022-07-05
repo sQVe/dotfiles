@@ -105,6 +105,7 @@ M.config = function()
 
     " Misc.
     nnoremap <silent> mm <Cmd>Telescope marks<CR>
+    nnoremap <silent> z= <Cmd>Telescope spell_suggest<CR>
   ]])
 end
 
