@@ -7,6 +7,7 @@ return function()
 
   leap.set_default_keymaps()
   leap.setup({
+    highlight_ahead_of_time = false,
     special_keys = {
       repeat_search = '<CR>',
       next_match = '<CR>',
