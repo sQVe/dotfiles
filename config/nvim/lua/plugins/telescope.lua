@@ -5,7 +5,7 @@
 local M = {}
 
 M.git_status = function()
-  local builtin = require('telescope/builtin')
+  local builtin = require('telescope.builtin')
 
   local ok = pcall(builtin.git_status, {})
   if not ok then
@@ -14,8 +14,8 @@ M.git_status = function()
 end
 
 M.find_files = function(use_buffer_cwd)
-  local builtin = require('telescope/builtin')
-  local utils = require('telescope/utils')
+  local builtin = require('telescope.builtin')
+  local utils = require('telescope.utils')
   local opts = {
     follow = true,
     hidden = true,

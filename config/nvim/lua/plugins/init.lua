@@ -13,11 +13,10 @@ return require('packer').startup(function(use)
   use({ 'lewis6991/impatient.nvim' })
 
   -- Editing.
-  use({
-    'machakann/vim-sandwich', -- Surround text.
-    config = require('plugins.sandwich').config,
+  use({ -- Surround text.
+    'kylechui/nvim-surround',
+    config = require('plugins.surround'),
     event = 'BufEnter',
-    setup = require('plugins.sandwich').setup,
   })
   use({
     'junegunn/vim-easy-align', -- Alignment.
