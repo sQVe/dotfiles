@@ -83,7 +83,6 @@ local options = {
 
   -- Status and winbar.
   laststatus = 3,
-  -- winbar = "%=%m %f",
   winbar = "%{%v:lua.require('utils.options').get_winbar_layout()%}",
 
   -- Tabs and spaces.

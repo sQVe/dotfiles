@@ -30,7 +30,8 @@ return function()
     ColorColumn = { fg = none, bg = none },
     Comment = { italic = 1 },
     Cursor = { fg = palette.dark0, bg = palette.light1 },
-    WinBar = { fg = palette.gray },
+    WinBar = { fg = palette.light2 },
+    WinBarNC = { fg = palette.gray },
 
     -- Indent blankline.
     IndentBlanklineChar = { fg = palette.dark1 },
