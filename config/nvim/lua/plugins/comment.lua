@@ -8,7 +8,7 @@ return function()
     pre_hook = function(ctx)
       local utils = require('Comment.utils')
 
-      local type = ctx.ctype == utils.ctype.line and '__default'
+      local type = ctx.ctype == utils.ctype.linewise and '__default'
         or '__multiline'
 
       local location = nil
