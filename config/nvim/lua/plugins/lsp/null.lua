@@ -6,7 +6,7 @@ return function()
   local null = require('null-ls')
   local root_dir = require('utils.lsp').root_dir({ prioritizeManifest = true })
 
-  local augroup = vim.api.nvim_create_augroup('Format', {})
+  local format_augroup = vim.api.nvim_create_augroup('Format', {})
   local code_actions = null.builtins.code_actions
   local formatters = null.builtins.formatting
   local linters = null.builtins.diagnostics
@@ -31,9 +31,8 @@ return function()
         end
       end
 
-      local config_path = require('lspconfig').util.root_pattern(config_names)(
-        params.bufname
-      )
+      local config_path =
+        require('lspconfig').util.root_pattern(config_names)(params.bufname)
 
       local has_config = config_path ~= nil
       if has_config then
@@ -65,9 +64,9 @@ return function()
     diagnostics_format = '#{c}: #{m} (#{s})',
     on_attach = function(client, bufnr)
       if client.supports_method('textDocument/formatting') then
-        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
         vim.api.nvim_create_autocmd('BufWritePre', {
-          group = augroup,
+          group = format_augroup,
           buffer = bufnr,
           callback = function()
             vim.lsp.buf.format({ bufnr = bufnr })
