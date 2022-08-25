@@ -18,7 +18,8 @@ return function()
     end
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0
-      and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]
+      and vim.api
+          .nvim_buf_get_lines(0, line - 1, line, true)[1]
           :sub(col, col)
           :match('%s')
         == nil
@@ -48,6 +49,15 @@ return function()
   local previous = function(fallback)
     if cmp.visible() then
       cmp.select_prev_item()
+    else
+      fallback()
+    end
+  end
+
+  local parentheses = function(fallback)
+    if cmp.visible() then
+      cmp.complete()
+      vim.api.nvim_put({ '()' }, 'c', false, true)
     else
       fallback()
     end
@@ -84,23 +94,24 @@ return function()
     })
   end
 
-  local get_mapping = function(is_cmdline)
-    return mapping.preset.insert({
-      ['<C-Space>'] = is_cmdline and mapKey(cmp.mapping.complete()) or mapKey(
-        mapping.complete({
-          reason = cmp.ContextReason.Auto,
-          config = { sources = get_sources(0) },
-        })
-      ),
-      ['<C-d>'] = mapKey(mapping.scroll_docs(8)),
-      ['<C-e>'] = mapKey(mapping.close()),
-      ['<C-k>'] = mapKey(signature_help),
-      ['<C-u>'] = mapKey(mapping.scroll_docs(-8)),
-      ['<CR>'] = mapKey(mapping.confirm({ select = false })),
-      ['<Tab>'] = mapKey(next),
-      ['<S-Tab>'] = mapKey(previous),
-    })
-  end
+  local get_mapping =
+    function(is_cmdline)
+      return mapping.preset.insert({
+        ['()'] = mapKey(parentheses),
+        ['<C-Space>'] = is_cmdline and mapKey(cmp.mapping.complete())
+          or mapKey(mapping.complete({
+            reason = cmp.ContextReason.Auto,
+            config = { sources = get_sources(0) },
+          })),
+        ['<C-d>'] = mapKey(mapping.scroll_docs(8)),
+        ['<C-e>'] = mapKey(mapping.close()),
+        ['<C-k>'] = mapKey(signature_help),
+        ['<C-u>'] = mapKey(mapping.scroll_docs(-8)),
+        ['<CR>'] = mapKey(mapping.confirm({ select = false })),
+        ['<Tab>'] = mapKey(next),
+        ['<S-Tab>'] = mapKey(previous),
+      })
+    end
 
   cmp.setup({
     experimental = { ghost_text = { hl_group = 'GruvboxGray' } },
