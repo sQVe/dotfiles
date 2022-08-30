@@ -69,7 +69,7 @@ return function()
           group = format_augroup,
           buffer = bufnr,
           callback = function()
-            vim.lsp.buf.format({ bufnr = bufnr })
+            vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 20000 })
           end,
         })
       end
@@ -80,9 +80,12 @@ return function()
       code_actions.shellcheck,
       formatters.eslint_d.with({
         runtime_condition = eslint_runtime_condition,
+        timeout = 20000,
       }),
       formatters.gofmt,
-      formatters.prettierd,
+      formatters.prettierd.with({
+        timeout = 20000,
+      }),
       formatters.shfmt.with({
         extra_args = { '-i', '2', '-bn', '-ci', '-sr' },
       }),
