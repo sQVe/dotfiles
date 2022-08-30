@@ -63,6 +63,10 @@ return function()
     end
   end
 
+  local fallback = function(fallback)
+    fallback()
+  end
+
   local expand_snippet = function(args)
     vim.fn['vsnip#anonymous'](args.body)
   end
@@ -94,24 +98,23 @@ return function()
     })
   end
 
-  local get_mapping =
-    function(is_cmdline)
-      return mapping.preset.insert({
-        ['()'] = mapKey(parentheses),
-        ['<C-Space>'] = is_cmdline and mapKey(cmp.mapping.complete())
-          or mapKey(mapping.complete({
-            reason = cmp.ContextReason.Auto,
-            config = { sources = get_sources(0) },
-          })),
-        ['<C-d>'] = mapKey(mapping.scroll_docs(8)),
-        ['<C-e>'] = mapKey(mapping.close()),
-        ['<C-k>'] = mapKey(signature_help),
-        ['<C-u>'] = mapKey(mapping.scroll_docs(-8)),
-        ['<CR>'] = mapKey(mapping.confirm({ select = false })),
-        ['<Tab>'] = mapKey(next),
-        ['<S-Tab>'] = mapKey(previous),
-      })
-    end
+  local get_mapping = function(is_cmdline)
+    return mapping.preset.insert({
+      ['()'] = is_cmdline and mapKey(fallback) or mapKey(parentheses),
+      ['<C-Space>'] = is_cmdline and mapKey(cmp.mapping.complete())
+        or mapKey(mapping.complete({
+          reason = cmp.ContextReason.Auto,
+          config = { sources = get_sources(0) },
+        })),
+      ['<C-d>'] = mapKey(mapping.scroll_docs(8)),
+      ['<C-e>'] = mapKey(mapping.close()),
+      ['<C-k>'] = mapKey(signature_help),
+      ['<C-u>'] = mapKey(mapping.scroll_docs(-8)),
+      ['<CR>'] = mapKey(mapping.confirm({ select = false })),
+      ['<Tab>'] = mapKey(next),
+      ['<S-Tab>'] = mapKey(previous),
+    })
+  end
 
   cmp.setup({
     experimental = { ghost_text = { hl_group = 'GruvboxGray' } },
