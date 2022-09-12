@@ -188,6 +188,12 @@ return require('packer').startup(function(use)
     config = require('plugins.leap'),
     after = 'vim-repeat',
   })
+
+  use({
+    'ggandor/flit.nvim', -- Improved f / F / t / T motions.
+    config = require('plugins.flit'),
+    after = 'leap.nvim',
+  })
   use({
     'nvim-telescope/telescope.nvim', -- Telescope.
     config = require('plugins.telescope').config,
