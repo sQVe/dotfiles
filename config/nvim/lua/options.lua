@@ -78,7 +78,7 @@ local options = {
   spellfile = vim.fn.expand('$XDG_CONFIG_HOME')
     .. '/nvim/spell/en.utf-8.add',
   spelllang = 'en_us',
-  spelloptions = 'camel',
+  spelloptions = 'camel,noplainbuffer',
 
   -- Status and winbar.
   laststatus = 3,
