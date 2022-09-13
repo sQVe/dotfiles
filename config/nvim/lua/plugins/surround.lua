@@ -3,7 +3,7 @@
 -- ┗━┛┗━┛╹┗╸╹┗╸┗━┛┗━┛╹ ╹╺┻┛
 
 return function()
-  local get_selection = require('nvim-surround.utils').config
+  local config = require('nvim-surround.config')
 
   require('nvim-surround').setup({
     keymaps = { visual = 'gs' },
@@ -11,7 +11,7 @@ return function()
       ['('] = {
         add = { '(', ')' },
         find = function()
-          return get_selection({ textobject = '(' })
+          return config.get_selection({ motion = 'a(' })
         end,
         delete = '^(. ?)().-( ?.)()$',
         change = { target = '^(. ?)().-( ?.)()$' },
@@ -19,7 +19,7 @@ return function()
       ['{'] = {
         add = { '{', '}' },
         find = function()
-          return get_selection({ textobject = '{' })
+          return config.get_selection({ motion = 'a{' })
         end,
         delete = '^(. ?)().-( ?.)()$',
         change = { target = '^(. ?)().-( ?.)()$' },
@@ -27,7 +27,7 @@ return function()
       ['<'] = {
         add = { '<', '>' },
         find = function()
-          return get_selection({ textobject = '<' })
+          return config.get_selection({ motion = 'a<' })
         end,
         delete = '^(. ?)().-( ?.)()$',
         change = { target = '^(. ?)().-( ?.)()$' },
@@ -35,7 +35,7 @@ return function()
       ['['] = {
         add = { '[', ']' },
         find = function()
-          return get_selection({ textobject = '[' })
+          return config.get_selection({ motion = 'a[' })
         end,
         delete = '^(. ?)().-( ?.)()$',
         change = { target = '^(. ?)().-( ?.)()$' },
