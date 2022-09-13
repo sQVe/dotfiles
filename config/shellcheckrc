@@ -1,0 +1,2 @@
+# Suggest putting braces around all variable references.
+enable=require-variable-braces
