@@ -3,14 +3,15 @@ open-qutebrowser %U
 
 google-chrome-stable %U
   ^https?:\/\/(docs|drive|jamboard|meet)\.google\.com
+  ^https?:\/\/(www\.)?detectify
+  ^https?:\/\/(www\.)?sentry\.io
+  ^https?:\/\/(www\.)?slack\.com
   ^https?:\/\/.*\.amazonaws\.com
   ^https?:\/\/.*\.detectify\.net
   ^https?:\/\/.*\.figma\.com
   ^https?:\/\/.*\.google\.com/calendar
-  ^https?:\/\/detectify
   ^https?:\/\/google\.zoom\.us
   ^https?:\/\/localhost
-  ^https?:\/\/sentry\.io
 
 open-zoom %U
   ^https?:\/\/.*zoom\.us
@@ -21,7 +22,7 @@ mpv %U
   ^https?:\/\/.+?\.gif
 
 streamlink %U
-  ^https?:\/\/(www\.)?twitch\.tv
+  ^https?:\/\/(www\.)?twitch\.tv\/.*
 
 feh %U
   ^https?:\/\/.+?\.(jpe?g|png)
