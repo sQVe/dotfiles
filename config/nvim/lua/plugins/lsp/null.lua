@@ -61,6 +61,7 @@ return function()
 
   null.setup({
     cmd = { 'nvim' },
+    default_timeout = 20000,
     diagnostics_format = '#{c}: #{m} (#{s})',
     on_attach = function(client, bufnr)
       if client.supports_method('textDocument/formatting') then
@@ -80,20 +81,14 @@ return function()
       code_actions.shellcheck,
       formatters.eslint_d.with({
         runtime_condition = eslint_runtime_condition,
-        timeout = 20000,
       }),
       formatters.gofmt,
-      formatters.prettierd.with({
-        timeout = 20000,
-      }),
+      formatters.prettierd,
       formatters.shfmt.with({
         extra_args = { '-i', '2', '-bn', '-ci', '-sr' },
       }),
       formatters.stylua.with({ runtime_condition = stylua_runtime_condition }),
-      linters.eslint_d.with({
-        runtime_condition = eslint_runtime_condition,
-        timeout = 20000,
-      }),
+      linters.eslint_d.with({ runtime_condition = eslint_runtime_condition }),
       linters.shellcheck,
       linters.vale.with({ runtime_condition = vale_runtime_condition }),
     },
