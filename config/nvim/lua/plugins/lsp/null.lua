@@ -11,6 +11,16 @@ return function()
   local formatters = null.builtins.formatting
   local linters = null.builtins.diagnostics
 
+  local format = function(bufnr)
+    vim.lsp.buf.format({
+      filter = function(client)
+        return client.name == 'null-ls'
+      end,
+      bufnr = bufnr,
+      timeout_ms = 20000,
+    })
+  end
+
   local starts_with = function(str, start)
     return string.sub(str, 1, #start) == start
   end
@@ -70,7 +80,7 @@ return function()
           group = format_augroup,
           buffer = bufnr,
           callback = function()
-            vim.lsp.buf.format({ bufnr = bufnr, timeout_ms = 20000 })
+            format(bufnr)
           end,
         })
       end

@@ -2,14 +2,8 @@
 --  ┗━┓┣╸ ┣┳┛┃┏┛┣╸ ┣┳┛┗━┓
 --  ┗━┛┗━╸╹┗╸┗┛ ┗━╸╹┗╸┗━┛
 
-return function(on_attach_callback)
+return function(on_attach)
   local root_dir = require('utils.lsp').root_dir()
-
-  local set_formatting_capabilities = function(client, value)
-    -- Set LSP formatting.
-    client.server_capabilities.documentFormattingProvider = value
-    client.server_capabilities.documentRangeFormattingProvider = value
-  end
 
   -- Mirror capabilities set by `update_capabilities` in `cmp-nvim-lsp`, since
   -- we want to decouple LSP from it.
@@ -35,10 +29,7 @@ return function(on_attach_callback)
     capabilities = update_capabilities(
       vim.lsp.protocol.make_client_capabilities()
     ),
-    on_attach = function(client)
-      set_formatting_capabilities(client, false)
-      on_attach_callback()
-    end,
+    on_attach = on_attach,
     root_dir = root_dir,
   }
 
