@@ -75,10 +75,6 @@ return function()
     return require('cmp_buffer'):compare_locality(...)
   end
 
-  local get_all_buffers = function()
-    return vim.api.nvim_list_bufs()
-  end
-
   local get_sources = function(keyword_length)
     return config.sources({
       { name = 'nvim_lua', keyword_length = keyword_length, priority = 80 },
@@ -88,7 +84,6 @@ return function()
         name = 'buffer',
         keyword_length = 4,
         option = {
-          get_bufnrs = get_all_buffers,
           keyword_pattern = anyWord,
         },
         priority = 40,
