@@ -13,11 +13,12 @@ return function()
 
   local format = function(bufnr)
     vim.lsp.buf.format({
+      async = true,
+      bufnr = bufnr,
+      timeout_ms = 20000,
       filter = function(client)
         return client.name == 'null-ls'
       end,
-      bufnr = bufnr,
-      timeout_ms = 20000,
     })
   end
 
