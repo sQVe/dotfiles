@@ -21,7 +21,7 @@ return function()
 
   vim.cmd([[
     " Formatting and refactoring.
-    nnoremap <silent> <Leader><Leader> <Cmd>lua vim.lsp.buf.format({ async = true, timeout_ms = 20000 })<CR>
+    nnoremap <silent> <Leader><Leader> <Cmd>lua require("utils.lsp").format()<CR>
     nnoremap <silent> <Leader>r <Cmd>lua vim.lsp.buf.rename()<CR>
 
     " Documentation.

@@ -26,4 +26,17 @@ function M.root_dir(opts)
   end
 end
 
+function M.format(bufnr, async)
+  async = async == nil and true or false
+
+  vim.lsp.buf.format({
+    async = async,
+    filter = function(client)
+      return client.name == 'null-ls'
+    end,
+    bufnr = bufnr,
+    timeout_ms = 20000,
+  })
+end
+
 return M

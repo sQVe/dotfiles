@@ -5,22 +5,12 @@
 return function()
   local null = require('null-ls')
   local root_dir = require('utils.lsp').root_dir({ prioritizeManifest = true })
+  local format = require('utils.lsp').format
 
   local format_augroup = vim.api.nvim_create_augroup('Format', {})
   local code_actions = null.builtins.code_actions
   local formatters = null.builtins.formatting
   local linters = null.builtins.diagnostics
-
-  local format = function(bufnr)
-    vim.lsp.buf.format({
-      async = true,
-      bufnr = bufnr,
-      timeout_ms = 20000,
-      filter = function(client)
-        return client.name == 'null-ls'
-      end,
-    })
-  end
 
   local starts_with = function(str, start)
     return string.sub(str, 1, #start) == start
