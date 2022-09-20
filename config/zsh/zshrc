@@ -214,7 +214,7 @@ alias v=nvim
 alias vi=nvim
 alias vifm=vifm-cd
 alias vim=nvim
-alias vimm='nvim -u NONE'
+alias vimn='nvim -u NONE'
 alias xsel='xsel -b'
 
 # Dunst.
