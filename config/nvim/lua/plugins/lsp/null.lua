@@ -62,6 +62,7 @@ return function()
 
   null.setup({
     cmd = { 'nvim' },
+    debounce = 200,
     default_timeout = 20000,
     diagnostics_format = '#{c}: #{m} (#{s})',
     on_attach = function(client, bufnr)
