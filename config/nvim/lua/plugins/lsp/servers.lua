@@ -67,6 +67,12 @@ return function(on_attach)
       handlers = {
         ['textDocument/publishDiagnostics'] = tsserver_diagnostics_handler,
       },
+      init_options = {
+        preferences = {
+          importModuleSpecifierPreference = 'relative',
+          quotePreference = 'single',
+        },
+      },
     }),
     sumneko_lua = with_common_setup({
       cmd = { 'lua-language-server' },
