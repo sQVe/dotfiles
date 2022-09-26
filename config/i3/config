@@ -75,9 +75,9 @@ workspace_layout default
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 font pango: $font
+default_border pixel 2
+default_floating_border pixel 2
 hide_edge_borders smart
-new_float pixel 2
-new_window pixel 2
 
 # Window types              Border                    Background                Text            Indicator               Child border
 client.focused              $color-neutral-purple     $color-neutral-purple     $color-bg       $color-neutral-aqua     $color-neutral-purple
@@ -113,6 +113,9 @@ bar {
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 # ¤¤¤¤  Workspace setttings  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+
+# workaround https://github.com/i3/i3/issues/5149
+for_window [all] border pixel 2
 
 # Assign workspaces.
 assign [class="Slack"]   → $workspace-7
