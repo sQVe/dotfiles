@@ -108,8 +108,8 @@ M.config = function()
     nnoremap <silent> <Leader><Backspace> <Cmd>lua require("plugins.telescope").git_status()<CR>
 
     " LSP.
-    nnoremap <silent> gd <Cmd>Telescope lsp_definitions<CR>
-    nnoremap <silent> gD <Cmd>Telescope lsp_implementations<CR>
+    nnoremap <silent> gd <Cmd>Telescope lsp_implementations<CR>
+    nnoremap <silent> gD <Cmd>Telescope lsp_definitions<CR>
     nnoremap <silent> gr <Cmd>Telescope lsp_references<CR>
     nnoremap <silent> gy <Cmd>Telescope lsp_definitions<CR>
     nnoremap <silent> <Leader>l <Cmd>Telescope diagnostics bufnr=0<CR>
