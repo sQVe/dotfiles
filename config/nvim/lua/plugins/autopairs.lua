@@ -2,4 +2,6 @@
 -- ┣━┫┃ ┃ ┃ ┃ ┃┣━┛┣━┫┃┣┳┛┗━┓
 -- ╹ ╹┗━┛ ╹ ┗━┛╹  ╹ ╹╹╹┗╸┗━┛
 
-require('nvim-autopairs').setup({})
+return function()
+  require('nvim-autopairs').setup({})
+end
