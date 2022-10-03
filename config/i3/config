@@ -302,6 +302,9 @@ exec --no-startup-id i3-msg "workspace $workspace-1"
 # Set initial random wallpaper.
 exec --no-startup-id random-wallpaper
 
+# Start polkit agent.
+exec --no-startup-id polkit-dumb-agent
+
 # Delayed redshift start.
 exec --no-startup-id "sh -c 'sleep 4; exec $SCRIPTS/i3/toggle-redshift.sh'"
 
