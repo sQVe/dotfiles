@@ -306,7 +306,7 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{w
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{webkit_version} (KHTML, like Gecko) {upstream_browser_key}/{upstream_browser_version} Safari/{webkit_version} Edg/{upstream_browser_version}', 'https://accounts.google.com/*')
+config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:90.0) Gecko/20100101 Firefox/90.0', 'https://accounts.google.com/*')
 
 # User agent to send.  The following placeholders are defined:  *
 # `{os_info}`: Something like "X11; Linux x86_64". * `{webkit_version}`:
@@ -452,7 +452,8 @@ c.content.private_browsing = False
 # Proxy to use. In addition to the listed values, you can use a
 # `socks://...` or `http://...` URL. Note that with QtWebEngine, it will
 # take a couple of seconds until the change is applied, if this value is
-# changed at runtime.
+# changed at runtime. Authentication for SOCKS proxies isn't supported
+# due to Chromium limitations.
 # Type: Proxy
 # Valid values:
 #   - system: Use the system wide proxy.
@@ -699,11 +700,11 @@ c.input.links_included_in_focus_chain = True
 c.input.partial_timeout = 5000
 
 # Enable spatial navigation. Spatial navigation consists in the ability
-# to navigate between focusable elements in a Web page, such as
-# hyperlinks and form controls, by using Left, Right, Up and Down arrow
-# keys. For example, if the user presses the Right key, heuristics
-# determine whether there is an element he might be trying to reach
-# towards the right and which element he probably wants.
+# to navigate between focusable elements, such as hyperlinks and form
+# controls, on a web page by using the Left, Right, Up and Down arrow
+# keys. For example, if a user presses the Right key, heuristics
+# determine whether there is an element they might be trying to reach
+# towards the right and which element they probably want.
 # Type: Bool
 c.input.spatial_navigation = False
 
@@ -1480,6 +1481,10 @@ config.bind('Ä', 'set-cmd-text -s :open -t')
 config.bind('Ö', 'set-cmd-text :')
 config.bind('ä', 'set-cmd-text -s :open')
 config.bind('ö', 'set-cmd-text :')
+
+# Bindings for command mode
+config.bind('<Ctrl+j>', 'completion-item-focus --history next', mode='command')
+config.bind('<Ctrl+k>', 'completion-item-focus --history prev', mode='command')
 
 # Bindings for insert mode
 config.bind('<Ctrl+e>', 'edit-text', mode='insert')
