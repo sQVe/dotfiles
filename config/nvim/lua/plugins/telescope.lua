@@ -53,11 +53,12 @@ M.config = function()
         i = {
           ['<C-Down>'] = actions.cycle_history_next,
           ['<C-Up>'] = actions.cycle_history_prev,
+          ['<C-j>'] = actions.move_selection_next,
+          ['<C-k>'] = actions.move_selection_previous,
           ['<C-a>'] = actions.toggle_all,
           ['<C-s>'] = actions.select_horizontal,
           ['<C-x>'] = actions.delete_buffer,
           ['<Esc>'] = actions.close,
-          ['<Leader>q'] = actions.close,
         },
       },
       scroll_strategy = 'limit',
@@ -108,8 +109,8 @@ M.config = function()
     nnoremap <silent> <Leader><Backspace> <Cmd>lua require("plugins.telescope").git_status()<CR>
 
     " LSP.
-    nnoremap <silent> gd <Cmd>Telescope lsp_implementations<CR>
-    nnoremap <silent> gD <Cmd>Telescope lsp_definitions<CR>
+    nnoremap <silent> gd <Cmd>Telescope lsp_definitions<CR>
+    nnoremap <silent> gD <Cmd>Telescope lsp_implementations<CR>
     nnoremap <silent> gr <Cmd>Telescope lsp_references<CR>
     nnoremap <silent> gy <Cmd>Telescope lsp_definitions<CR>
     nnoremap <silent> <Leader>l <Cmd>Telescope diagnostics bufnr=0<CR>

@@ -94,13 +94,16 @@ return function()
   end
 
   local get_mapping = function(is_cmdline)
+    local triggerCompleteMapping = is_cmdline and mapKey(cmp.mapping.complete())
+      or mapKey(mapping.complete({
+        reason = cmp.ContextReason.Auto,
+        config = { sources = get_sources(0) },
+      }))
+
     return mapping.preset.insert({
       ['()'] = is_cmdline and mapKey(fallback) or mapKey(parentheses),
-      ['<C-Space>'] = is_cmdline and mapKey(cmp.mapping.complete())
-        or mapKey(mapping.complete({
-          reason = cmp.ContextReason.Auto,
-          config = { sources = get_sources(0) },
-        })),
+      ['<C-CR>'] = triggerCompleteMapping,
+      ['<C-Space>'] = triggerCompleteMapping,
       ['<C-d>'] = mapKey(mapping.scroll_docs(8)),
       ['<C-e>'] = mapKey(mapping.close()),
       ['<C-k>'] = mapKey(signature_help),
