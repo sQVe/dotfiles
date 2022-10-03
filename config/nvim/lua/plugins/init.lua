@@ -165,10 +165,6 @@ return require('packer').startup(function(use)
 
   -- Override.
   use({
-    'bronson/vim-visual-star-search', -- Visual star search.
-    keys = { { 'v', '*' }, { 'v', '#' } },
-  })
-  use({
     'sickill/vim-pasta', -- Paste with smart indentation.
     config = require('plugins.pasta'),
     event = 'BufEnter',
@@ -189,11 +185,6 @@ return require('packer').startup(function(use)
     after = 'vim-repeat',
   })
 
-  use({
-    'ggandor/flit.nvim', -- Improved f / F / t / T motions.
-    config = require('plugins.flit'),
-    after = 'leap.nvim',
-  })
   use({
     'nvim-telescope/telescope.nvim', -- Telescope.
     config = require('plugins.telescope').config,
