@@ -12,6 +12,7 @@ export GPG_TTY="$(tty)"
 export PATH="$PATH:$BIN_HOME:$GOPATH_BIN:$($SCRIPTS/default-node-version.sh)"
 
 # Terminal options.
+export AUTOPAIR_INHIBIT_INIT=1
 export KEYTIMEOUT=1
 export PROMPT_LEAN_VIMODE=1
 export PROMPT_LEAN_VIMODE_FORMAT='%F{magenta}NORMAL%f '
@@ -19,6 +20,8 @@ export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 export ZVM_KEYTIMEOUT=0
+export ZVM_VI_HIGHLIGHT_BACKGROUND=#928374 # gray_245
+export ZVM_VI_HIGHLIGHT_FOREGROUND=#fbf1c7 # light0
 
 # Pass options.
 export PASSWORD_STORE_GENERATED_LENGTH=24

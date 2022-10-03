@@ -11,7 +11,6 @@ source $ZIM_HOME/init.zsh
 source $XDG_CONFIG_HOME/glab-cli/glab.zsh
 source $XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh
 source /usr/share/fzf/completion.zsh
-source /usr/share/fzf/key-bindings.zsh
 
 # Use matcher-list from marlonrichert/zsh-autocomplete.
 zstyle ':completion:*' matcher-list \
@@ -33,7 +32,7 @@ fi
 # Remove older command from the history if a duplicate is to be added.
 setopt HIST_IGNORE_ALL_DUPS
 
-# Enable vi mode.
+# Enable vi-mode.
 bindkey -v
 
 # Remove path separator from WORDCHARS.
@@ -97,6 +96,22 @@ function vifm-cd() {
   fi
 }
 
+# Load certain plugin bindings after vi-mode init, ensuring that they will not
+# be overwritten.
+function zvm_after_init() {
+  source /usr/share/fzf/key-bindings.zsh
+  autopair-init
+
+  bindkey '^F' fzf-file-widget
+  bindkey '^G' fzf-cd-widget
+}
+
+# Load normal and visual bindings after lazy load of vi-mode.
+function zvm_after_lazy_keybindings_commands() {
+  bindkey -M vicmd 'k' history-substring-search-up
+  bindkey -M vicmd 'j' history-substring-search-down
+}
+
 
 #  ┏━╸╻ ╻┏━┓┏━┓┏━┓╺┳╸┏━┓
 #  ┣╸ ┏╋┛┣━┛┃ ┃┣┳┛ ┃ ┗━┓
@@ -118,12 +133,9 @@ bindkey -r '^T'
 
 bindkey '^ ' autosuggest-accept
 bindkey '^E' edit-command-line
-bindkey '^F' fzf-file-widget
-bindkey '^G' fzf-cd-widget
 bindkey '^[' vi-cmd-mode
 bindkey '^[^?' backward-kill-word
 bindkey '^[^H' backward-kill-word
-
 
 bindkey '^N' history-substring-search-down
 bindkey '^P' history-substring-search-up
@@ -131,8 +143,6 @@ bindkey '^J' history-substring-search-down
 bindkey '^K' history-substring-search-up
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-bindkey -M vicmd 'k' history-substring-search-up
-bindkey -M vicmd 'j' history-substring-search-down
 
 zmodload -F zsh/terminfo +p:terminfo
 if [[ -n ${terminfo[kcuu1]} && -n ${terminfo[kcud1]} ]]; then
