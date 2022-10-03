@@ -162,6 +162,11 @@ return require('packer').startup(function(use)
     after = 'cmp-vsnip',
     setup = require('plugins.vsnip'),
   })
+  use({
+    'windwp/nvim-autopairs', -- Complete pairs.
+    event = { 'InsertEnter' },
+    config = require('plugins.autopairs'),
+  })
 
   -- Override.
   use({
