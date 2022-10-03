@@ -21,6 +21,7 @@ zmodule zsh-users/zsh-syntax-highlighting
 zmodule zsh-users/zsh-autosuggestions
 zmodule zsh-users/zsh-history-substring-search
 
-# Misc
+# Misc.
+zmodule jeffreytse/zsh-vi-mode
 zmodule kutsan/zsh-system-clipboard
 zmodule skywind3000/z.lua
