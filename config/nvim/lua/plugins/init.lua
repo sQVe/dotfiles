@@ -167,10 +167,6 @@ return require('packer').startup(function(use)
     event = { 'InsertEnter' },
     config = require('plugins.autopairs'),
   })
-  use({
-    'windwp/nvim-ts-autotag', -- Complete markup tags.
-    after = 'nvim-treesitter',
-  })
 
   -- Override.
   use({
