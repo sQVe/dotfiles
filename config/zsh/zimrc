@@ -6,6 +6,9 @@ zmodule environment
 zmodule git
 zmodule input
 
+# Modes.
+zmodule sQVe/zsh-vi-mode
+
 # Completion.
 zmodule zsh-users/zsh-completions
 zmodule unixorn/git-extra-commands
@@ -13,15 +16,13 @@ zmodule completion
 zmodule BuonOmo/yarn-completion
 zmodule lukechilds/zsh-better-npm-completion
 
-# Prompt & color.
+# Prompt and color.
 zmodule miekg/lean
-zmodule zsh-users/zsh-syntax-highlighting
+zmodule zdharma-continuum/fast-syntax-highlighting
 
 # Do not touch order.
 zmodule zsh-users/zsh-autosuggestions
 zmodule zsh-users/zsh-history-substring-search
 
 # Misc.
-zmodule jeffreytse/zsh-vi-mode
-zmodule kutsan/zsh-system-clipboard
 zmodule skywind3000/z.lua
