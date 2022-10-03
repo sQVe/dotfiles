@@ -1,5 +1,10 @@
 configuration {
   font: "monospace 10";
+  kb-accept-entry: "Control+m,Return,KP_Enter";
+  kb-remove-to-eol: "";
+  kb-remove-to-sol: "";
+  kb-row-down: "Down,Control+n,Control+j";
+  kb-row-up: "Up,Control+p,Control+k";
 }
 
 @theme "theme"

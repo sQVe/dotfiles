@@ -127,6 +127,8 @@ bindkey '^[^H' backward-kill-word
 
 bindkey '^N' history-substring-search-down
 bindkey '^P' history-substring-search-up
+bindkey '^J' history-substring-search-down
+bindkey '^K' history-substring-search-up
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 bindkey -M vicmd 'k' history-substring-search-up
