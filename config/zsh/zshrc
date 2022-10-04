@@ -108,6 +108,8 @@ function zvm_after_init() {
 
 # Load normal and visual bindings after lazy load of vi-mode.
 function zvm_after_lazy_keybindings() {
+  bindkey -M vicmd '^F' fzf-file-widget
+  bindkey -M vicmd '^G' fzf-cd-widget
   bindkey -M vicmd 'k' history-substring-search-up
   bindkey -M vicmd 'j' history-substring-search-down
 }
