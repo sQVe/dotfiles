@@ -80,10 +80,6 @@ nnoremap <silent> <C-Down> <Cmd>wincmd j<CR>
 nnoremap <silent> <C-Up> <Cmd>wincmd k<CR>
 nnoremap <silent> <C-Right> <Cmd>wincmd l<CR>
 
-" Move text.
-vnoremap <C-j> <Cmd>m '>+1<CR>gv
-vnoremap <C-k> <Cmd>m '<-2<CR>gv
-
 " Quick window resize.
 nnoremap <silent> <C-S-Left> <Cmd>vertical resize -10<CR>
 nnoremap <silent> <C-S-Down> <Cmd>resize -10<CR>
