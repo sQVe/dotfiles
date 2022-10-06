@@ -180,6 +180,8 @@ return require('packer').startup(function(use)
   })
   use({
     'tversteeg/registers.nvim', -- Interactive registers.
+    cmd = { 'Registers' },
+    config = require('plugins.registers'),
     keys = { { 'i', '<c-r>' }, { 'n', '"' }, { 'v', '"' } },
   })
 
