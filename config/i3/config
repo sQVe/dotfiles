@@ -213,6 +213,11 @@ bindsym $mod+$alt+j move workspace to output down
 bindsym $mod+$alt+k move workspace to output up
 bindsym $mod+$alt+l move workspace to output right
 
+bindsym $mod+Shift+Ctrl+h move workspace to output left
+bindsym $mod+Shift+Ctrl+j move workspace to output down
+bindsym $mod+Shift+Ctrl+k move workspace to output up
+bindsym $mod+Shift+Ctrl+l move workspace to output right
+
 bindsym $mod+Ctrl+l workspace next_on_output
 bindsym $mod+Ctrl+h workspace prev_on_output
 
@@ -238,6 +243,11 @@ bindsym $mod+$alt+Down move workspace to output down
 bindsym $mod+$alt+Left move workspace to output left
 bindsym $mod+$alt+Right move workspace to output right
 bindsym $mod+$alt+Up move workspace to output up
+
+bindsym $mod+Shift+Ctrl+Down move workspace to output down
+bindsym $mod+Shift+Ctrl+Left move workspace to output left
+bindsym $mod+Shift+Ctrl+Right move workspace to output right
+bindsym $mod+Shift+Ctrl+Up move workspace to output up
 
 bindsym $mod+Ctrl+Right workspace next_on_output
 bindsym $mod+Ctrl+Left workspace prev_on_output
