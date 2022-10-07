@@ -145,18 +145,12 @@ return function()
     sources = get_sources(1),
   })
 
-  local searchOptions = {
+  cmp.setup.cmdline({ '/', '?' }, {
     mapping = get_mapping(true),
     sources = config.sources({
-      {
-        name = 'buffer',
-        keyword_length = 2,
-        option = { keyword_pattern = anyWord },
-      },
+      { name = 'buffer', keyword_length = 2, option = { keyword_pattern = anyWord }, },
     }),
-  }
-  cmp.setup.cmdline('/', searchOptions)
-  cmp.setup.cmdline('?', searchOptions)
+  })
   cmp.setup.cmdline(':', {
     mapping = get_mapping(true),
     sources = config.sources({
