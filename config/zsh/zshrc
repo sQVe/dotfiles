@@ -96,14 +96,34 @@ function vifm-cd() {
   fi
 }
 
-# Load certain plugin bindings after vi-mode init, ensuring that they will not
-# be overwritten.
+# Load keybindings after vi-mode init, ensuring that they will not be
+# overwritten.
 function zvm_after_init() {
-  source /usr/share/fzf/key-bindings.zsh
-  autopair-init
+  bindkey -r '^T'
 
+  source /usr/share/fzf/key-bindings.zsh
   bindkey '^F' fzf-file-widget
   bindkey '^G' fzf-cd-widget
+
+  autopair-init
+
+  bindkey '^ ' autosuggest-accept
+  bindkey '^E' edit-command-line
+  bindkey '^[^?' backward-kill-word
+  bindkey '^[^H' backward-kill-word
+
+  bindkey '^N' history-substring-search-down
+  bindkey '^P' history-substring-search-up
+  bindkey '^J' history-substring-search-down
+  bindkey '^K' history-substring-search-up
+  bindkey '^[[A' history-substring-search-up
+  bindkey '^[[B' history-substring-search-down
+
+  zmodload -F zsh/terminfo +p:terminfo
+  if [[ -n ${terminfo[kcuu1]} && -n ${terminfo[kcud1]} ]]; then
+    bindkey ${terminfo[kcuu1]} history-substring-search-up
+    bindkey ${terminfo[kcud1]} history-substring-search-down
+  fi
 }
 
 # Load normal and visual bindings after lazy load of vi-mode.
@@ -125,32 +145,6 @@ export FZF_CTRL_T_COMMAND='command fd --hidden --follow --strip-cwd-prefix --exc
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always {} 2> /dev/null || exa -T -L 1 --group-directories-first --color=always {}'"
 export FZF_DEFAULT_COMMAND='command fd --hidden --follow --strip-cwd-prefix --exclude .git'
 export FZF_DEFAULT_OPTS="--bind ctrl-a:toggle-all,ctrl-b:page-up,ctrl-d:half-page-down,ctrl-f:page-down,ctrl-u:half-page-up --color=bg+:#282828,spinner:#b16286,hl:#b16286 --color=fg:#ebdbb2,info:#458588,pointer:#98971a --color=marker:#98971a,hl+:#98971a --reverse --tiebreak=length,end --preview 'bat --color=always {} 2> /dev/null || exa -T -L 1 --group-directories-first --color=always {} 2> /dev/null || echo {}' --preview-window 'down:50%'"
-
-
-#  ╻┏ ┏━╸╻ ╻┏┓ ╻┏┓╻╺┳┓╻┏┓╻┏━╸┏━┓
-#  ┣┻┓┣╸ ┗┳┛┣┻┓┃┃┗┫ ┃┃┃┃┗┫┃╺┓┗━┓
-#  ╹ ╹┗━╸ ╹ ┗━┛╹╹ ╹╺┻┛╹╹ ╹┗━┛┗━┛
-
-bindkey -r '^T'
-
-bindkey '^ ' autosuggest-accept
-bindkey '^E' edit-command-line
-bindkey '^[' vi-cmd-mode
-bindkey '^[^?' backward-kill-word
-bindkey '^[^H' backward-kill-word
-
-bindkey '^N' history-substring-search-down
-bindkey '^P' history-substring-search-up
-bindkey '^J' history-substring-search-down
-bindkey '^K' history-substring-search-up
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
-
-zmodload -F zsh/terminfo +p:terminfo
-if [[ -n ${terminfo[kcuu1]} && -n ${terminfo[kcud1]} ]]; then
-  bindkey ${terminfo[kcuu1]} history-substring-search-up
-  bindkey ${terminfo[kcud1]} history-substring-search-down
-fi
 
 
 #  ┏━┓╻  ╻┏━┓┏━┓┏━╸┏━┓

@@ -39,5 +39,8 @@ export LESSHISTFILE=-
 export ESLINT_D_LOCAL_ESLINT_ONLY=1
 export PRETTIERD_LOCAL_PRETTIER_ONLY=1
 
+# Development tooling.
+export MOB_VOICE_COMMAND="mpv /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
+
 # Misc options.
 export WINIT_X11_SCALE_FACTOR=1
