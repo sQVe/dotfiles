@@ -5,10 +5,6 @@
 " Use <Space> as Leader key.
 let mapleader = " "
 
-" Escape.
-inoremap jj <Esc>
-inoremap <F1> <Esc>
-
 " Remove search highlight.
 nnoremap <silent> <Esc><Esc> <Cmd>nohl<CR>
 
@@ -124,7 +120,7 @@ inoremap { {<c-g>u
 "  ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
 "  ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
-nnoremap <Leader>z <Cmd>Z<Space>
+nnoremap <Leader>z :Z<Space>
 vnoremap K "oy<Esc><Cmd>Ddg<CR>
 
 
