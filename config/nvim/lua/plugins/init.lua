@@ -129,6 +129,11 @@ return require('packer').startup(function(use)
     config = require('plugins.fm'),
     keys = { { 'n', 'Ä' }, { 'n', 'Å' } },
   })
+  use({
+    'j-hui/fidget.nvim', -- Show LSP progress.
+    after = 'lualine.nvim',
+    config = require('plugins.fidget'),
+  })
 
   -- LSP.
   use({
@@ -143,9 +148,9 @@ return require('packer').startup(function(use)
     event = { 'BufEnter' },
   })
   use({
-    'j-hui/fidget.nvim',
-    after = 'lualine.nvim',
-    config = require('plugins.fidget'),
+    'simrat39/rust-tools.nvim', -- Rust setup and tooling.
+    after = 'nvim-lspconfig',
+    config = require('plugins.rust-tools'),
   })
 
   -- Completion.

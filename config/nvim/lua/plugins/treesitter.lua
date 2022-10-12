@@ -24,6 +24,7 @@ return function()
       'make',
       'markdown',
       'markdown_inline',
+      'rust',
       'scss',
       'tsx',
       'typescript',

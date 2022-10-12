@@ -180,10 +180,6 @@ noremap Ö :
 noremap qö q:
 noremap qÖ q:
 
-" Quit.
-noremap <Space>q :quit<CR>
-noremap <Space>Q :quit!<CR>
-
 " Sane tagging.
 noremap t tj
 

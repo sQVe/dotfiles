@@ -52,6 +52,10 @@ return function()
     '.eslintrc.yaml',
     '.eslintrc.yml',
   })
+  local rust_runtime_condition = create_runtime_condition({
+    'rust-project.json',
+    'Cargo.toml',
+  })
   local stylua_runtime_condition = create_runtime_condition({
     'stylua.toml',
     '.stylua.toml',
@@ -79,28 +83,24 @@ return function()
     end,
     root_dir = root_dir,
     sources = {
-      -- Bash
-      code_actions.shellcheck,
-      formatters.shfmt.with({
-        extra_args = { '-i', '2', '-bn', '-ci', '-sr' },
-      }),
-      linters.shellcheck,
-
-      -- Go.
-      formatters.gofmt,
-
-      -- JavaScript & TypeScript
       code_actions.eslint_d,
-      formatters.prettierd, -- Always run prettierd first to prevent occassional race condition.
+      code_actions.shellcheck,
+
+      -- Always run prettierd before eslint_d to prevent occassional race
+      -- condition.
+      formatters.prettierd,
       formatters.eslint_d.with({
         runtime_condition = eslint_runtime_condition,
       }),
-      linters.eslint_d.with({ runtime_condition = eslint_runtime_condition }),
-
-      -- Lua.
+      formatters.gofmt,
+      formatters.rustfmt.with({ runtime_condition = rust_runtime_condition }),
+      formatters.shfmt.with({
+        extra_args = { '-i', '2', '-bn', '-ci', '-sr' },
+      }),
       formatters.stylua.with({ runtime_condition = stylua_runtime_condition }),
 
-      -- Text.
+      linters.eslint_d.with({ runtime_condition = eslint_runtime_condition }),
+      linters.shellcheck,
       linters.vale.with({ runtime_condition = vale_runtime_condition }),
     },
   })
