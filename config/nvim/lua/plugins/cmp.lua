@@ -143,12 +143,17 @@ return function()
       },
     },
     sources = get_sources(1),
+    preselect = cmp.PreselectMode.None,
   })
 
   cmp.setup.cmdline({ '/', '?' }, {
     mapping = get_mapping(true),
     sources = config.sources({
-      { name = 'buffer', keyword_length = 2, option = { keyword_pattern = anyWord }, },
+      {
+        name = 'buffer',
+        keyword_length = 2,
+        option = { keyword_pattern = anyWord },
+      },
     }),
   })
   cmp.setup.cmdline(':', {

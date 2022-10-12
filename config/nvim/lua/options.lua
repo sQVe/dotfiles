@@ -46,7 +46,7 @@ local options = {
   signcolumn = 'yes',                               -- Always show sign column.
 
   -- Completion.
-  completeopt = { 'menuone', 'noselect' },          -- Set compete options.
+  completeopt = { 'menu','menuone', 'noselect' },   -- Set compete options.
   pumheight = 20,                                   -- Show max 20 items in completion menu.
   wildignorecase = true,                            -- Disable case check for wildmenu.
   wildmode = 'longest:full',                        -- Set wildmenu modes.
