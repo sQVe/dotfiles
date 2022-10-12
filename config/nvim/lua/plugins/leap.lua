@@ -10,8 +10,8 @@ return function()
     special_keys = {
       repeat_search = '<CR>',
       next_aot_match = '<CR>',
-      next_match = { ';', '<CR>' },
-      prev_match = { ',', '<S-CR>' },
+      next_match = { ',', '<CR>' },
+      prev_match = { ';', '<S-CR>' },
       next_group = '<Tab>',
       prev_group = '<S-Tab>',
     },
