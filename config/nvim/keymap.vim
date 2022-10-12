@@ -41,9 +41,7 @@ noremap <S-CR> -
 " Keep cursor position when joining.
 noremap J mzJ`z
 
-" Quit and close buffer.
-noremap <silent> <Leader>q <Cmd>quit<CR>
-noremap <silent> <Leader>Q <Cmd>quit!<CR>
+" Close buffer.
 noremap <silent> <Leader>d <Cmd>Bdelete<CR>
 noremap <silent> <Leader>D <Cmd>Bwipeout<CR>
 
