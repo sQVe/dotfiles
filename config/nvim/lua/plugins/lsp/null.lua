@@ -79,19 +79,28 @@ return function()
     end,
     root_dir = root_dir,
     sources = {
-      code_actions.eslint_d,
+      -- Bash
       code_actions.shellcheck,
-      formatters.eslint_d.with({
-        runtime_condition = eslint_runtime_condition,
-      }),
-      formatters.gofmt,
-      formatters.prettierd,
       formatters.shfmt.with({
         extra_args = { '-i', '2', '-bn', '-ci', '-sr' },
       }),
-      formatters.stylua.with({ runtime_condition = stylua_runtime_condition }),
-      linters.eslint_d.with({ runtime_condition = eslint_runtime_condition }),
       linters.shellcheck,
+
+      -- Go.
+      formatters.gofmt,
+
+      -- JavaScript & TypeScript
+      code_actions.eslint_d,
+      formatters.prettierd, -- Always run prettierd first to prevent occassional race condition.
+      formatters.eslint_d.with({
+        runtime_condition = eslint_runtime_condition,
+      }),
+      linters.eslint_d.with({ runtime_condition = eslint_runtime_condition }),
+
+      -- Lua.
+      formatters.stylua.with({ runtime_condition = stylua_runtime_condition }),
+
+      -- Text.
       linters.vale.with({ runtime_condition = vale_runtime_condition }),
     },
   })
