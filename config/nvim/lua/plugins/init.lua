@@ -142,6 +142,11 @@ return require('packer').startup(function(use)
     config = require('plugins.lsp'),
     event = { 'BufEnter' },
   })
+  use({
+    'j-hui/fidget.nvim',
+    after = 'lualine.nvim',
+    config = require('plugins.fidget'),
+  })
 
   -- Completion.
   use({
