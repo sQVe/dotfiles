@@ -67,7 +67,7 @@ M.config = function()
   vim.diagnostic.config({ severity_sort = true, virtual_text = false })
 
   map('n', '<Leader><Leader>', require('utils.lsp').format)
-  map('n', '<Leader><Leader>', vim.lsp.buf.rename)
+  map('n', '<Leader>r', vim.lsp.buf.rename)
   map('n', 'K', '<Cmd>ShowDocumentation<CR>') -- TODO: Can we make this function into lua?
   map('n', '<Leader>a', vim.lsp.buf.code_action)
   map('x', '<Leader>a', vim.lsp.buf.range_code_action)
