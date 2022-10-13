@@ -50,6 +50,8 @@ end
 M.config = function()
   local telescope = require('telescope')
   local actions = require('telescope.actions')
+  local builtin = require('telescope.builtin')
+  local map = require('utils.keymap').map
 
   telescope.setup({
     defaults = {
@@ -103,39 +105,34 @@ M.config = function()
   -- Set vim.ui.select to telescope.
   telescope.load_extension('ui-select')
 
-  vim.cmd([[
-    " Telescope.
-    nnoremap <silent> <Leader>u <Cmd>Telescope oldfiles cwd_only=true<CR>
-    nnoremap <silent> <Leader>U <Cmd>Telescope resume<CR>
+  map('n', '<Leader>u', function()
+    builtin.oldfiles({ cwd_only = true })
+  end)
+  map('n', '<Leader>U', builtin.resume)
+  map('n', '<Backspace>', function()
+    builtin.buffers({ sort_mru = true })
+  end)
+  map('n', '<Leader>+', builtin.live_grep)
+  map('n', '<Leader>/', builtin.live_grep)
+  map('n', '<Leader>?', builtin.live_grep)
+  map('n', 'gR', builtin.grep_string)
+  map('n', 'gd', builtin.lsp_definitions)
+  map('n', 'gD', builtin.lsp_implementations)
+  map('n', 'gr', builtin.lsp_references)
+  map('n', 'gy', builtin.lsp_type_definitions)
+  map('n', '<Leader>l', function()
+    builtin.diagnostics({ bufnr = 0 })
+  end)
+  map('n', '<Leader>L', builtin.diagnostics)
+  map('n', '<Leader>s', builtin.lsp_document_symbols)
+  map('n', '<Leader>S', builtin.lsp_dynamic_workspace_symbols)
+  map('n', 'z=', builtin.spell_suggest)
 
-    " Files and buffers.
-    nnoremap <silent> <Backspace> <Cmd>Telescope buffers sort_mru=true<CR>
-    nnoremap <silent> ä <Cmd>lua require("plugins.telescope").find_files()<CR>
-    nnoremap <silent> å <Cmd>lua require("plugins.telescope").find_files(true)<CR>
-
-    " Grep.
-    nnoremap <silent> <Leader>+ <Cmd>Telescope live_grep<CR>
-    nnoremap <silent> <Leader>/ <Cmd>Telescope live_grep<CR>
-    nnoremap <silent> <Leader>? <Cmd>Telescope live_grep<CR>
-    nnoremap <silent> gR <Cmd>Telescope grep_string<CR>
-
-    " Git.
-    nnoremap <silent> <Leader><Backspace> <Cmd>lua require("plugins.telescope").git_status()<CR>
-
-    " LSP.
-    nnoremap <silent> gd <Cmd>Telescope lsp_definitions<CR>
-    nnoremap <silent> gD <Cmd>Telescope lsp_implementations<CR>
-    nnoremap <silent> gr <Cmd>Telescope lsp_references<CR>
-    nnoremap <silent> gy <Cmd>Telescope lsp_definitions<CR>
-    nnoremap <silent> <Leader>l <Cmd>Telescope diagnostics bufnr=0<CR>
-    nnoremap <silent> <Leader>L <Cmd>Telescope diagnostics<CR>
-    nnoremap <silent> <Leader>s <Cmd>Telescope lsp_document_symbols<CR>
-    nnoremap <silent> <Leader>S <Cmd>Telescope lsp_dynamic_workspace_symbols<CR>
-
-    " Misc.
-    nnoremap <silent> mm <Cmd>Telescope marks<CR>
-    nnoremap <silent> z= <Cmd>Telescope spell_suggest<CR>
-  ]])
+  map('n', '<Leader><Backspace>', require('plugins.telescope').git_status)
+  map('n', 'ä', require('plugins.telescope').find_files)
+  map('n', 'å', function()
+    require('plugins.telescope').find_files(true)
+  end)
 end
 
 return M

@@ -11,6 +11,7 @@ end
 M.config = function()
   local lspconfig = require('lspconfig')
   local lsp_utils = require('utils.lsp')
+  local map = require('utils.keymap').map
   local on_attach = function() end
 
   local base_setup = lsp_utils.create_base_setup({
@@ -65,23 +66,20 @@ M.config = function()
   -- Disable virtual text for diagnostics.
   vim.diagnostic.config({ severity_sort = true, virtual_text = false })
 
-  vim.cmd([[
-    " Formatting and refactoring.
-    nnoremap <silent> <Leader><Leader> <Cmd>lua require("utils.lsp").format()<CR>
-    nnoremap <silent> <Leader>r <Cmd>lua vim.lsp.buf.rename()<CR>
-
-    " Documentation.
-    nnoremap <silent> K <Cmd>ShowDocumentation<CR>
-
-    " Actions.
-    nnoremap <silent> <Leader>a <Cmd>lua vim.lsp.buf.code_action()<CR>
-    xnoremap <silent> <Leader>a <Cmd>lua vim.lsp.buf.range_code_action()<CR>
-
-    " Diagnostics.
-    nnoremap <silent> gl <Cmd>lua vim.diagnostic.open_float(0, {scope = 'line', header = false})<CR>
-    nnoremap <silent> <Leader>lj <Cmd>lua vim.diagnostic.goto_next({float = false})<CR>
-    nnoremap <silent> <Leader>lk <Cmd>lua vim.diagnostic.goto_prev({float = false})<CR>
-  ]])
+  map('n', '<Leader><Leader>', require('utils.lsp').format)
+  map('n', '<Leader><Leader>', vim.lsp.buf.rename)
+  map('n', 'K', '<Cmd>ShowDocumentation<CR>') -- TODO: Can we make this function into lua?
+  map('n', '<Leader>a', vim.lsp.buf.code_action)
+  map('x', '<Leader>a', vim.lsp.buf.range_code_action)
+  map('n', 'gl', function()
+    vim.diagnostic.open_float(0, { scope = 'line', header = false })
+  end)
+  map('n', '<Leader>lj', function()
+    vim.diagnostic.goto_next({ float = false })
+  end)
+  map('n', '<Leader>lk', function()
+    vim.diagnostic.goto_prev({ float = false })
+  end)
 end
 
 return M

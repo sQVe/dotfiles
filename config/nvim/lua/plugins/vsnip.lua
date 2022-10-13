@@ -10,20 +10,28 @@ M.init = function(use)
 end
 
 M.setup = function()
-  vim.cmd([[
-    let g:vsnip_snippet_dir = expand('$XDG_CONFIG_HOME/nvim/snippets')
-    let g:vsnip_filetypes = {}
-    let g:vsnip_filetypes.javascript = ['hooks']
-    let g:vsnip_filetypes.javascriptreact = ['javascript', 'hooks']
-    let g:vsnip_filetypes.typescript = ['javascript', 'hooks']
-    let g:vsnip_filetypes.typescriptreact = ['javascript', 'javascriptreact', 'typescript', 'hooks']
-  ]])
+  local map = require('utils.keymap').map
 
-  -- Expand or jump.
-  vim.cmd([[
-    imap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : ''
-    smap <expr> <C-l> vsnip#available(1) ? '<Plug>(vsnip-expand-or-jump)' : ''
-  ]])
+  vim.g.vsnip_snippet_dir = vim.fn.expand('$XDG_CONFIG_HOME/nvim/snippets')
+  vim.g.vsnip_filetypes = {
+    javascript = { 'hooks' },
+    javascriptreact = { 'javascript', 'hooks' },
+    typescript = { 'javascript', 'hooks' },
+    typescriptreact = { 'javascript', 'javascriptreact', 'typescript', 'hooks' },
+  }
+
+  map(
+    'i',
+    '<C-l>',
+    'vsnip#available(1) ? \'<Plug>(vsnip-expand-or-jump)\' : \'\'',
+    { expr = true, noremap = false, replace_keycodes = false }
+  )
+  map(
+    's',
+    '<C-l>',
+    'vsnip#available(1) ? \'<Plug>(vsnip-expand-or-jump)\' : \'\'',
+    { expr = true, noremap = false, replace_keycodes = false }
+  )
 end
 
 return M

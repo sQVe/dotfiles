@@ -11,11 +11,15 @@ M.init = function(use)
     cmd = { 'Vifm' },
     config = M.config,
     keys = {
-      { 'n', 'Ä' }, { 'n', 'Å' } },
+      { 'n', 'Ä' },
+      { 'n', 'Å' },
+    },
   })
 end
 
 M.config = function()
+  local map = require('utils.keymap').map
+
   require('fm-nvim').setup({
     ui = {
       float = {
@@ -31,10 +35,8 @@ M.config = function()
     },
   })
 
-  vim.cmd([[
-    nnoremap <silent> Ä <Cmd>Vifm<CR>
-    nnoremap <silent> Å <Cmd>Vifm %:p:h<CR>
-  ]])
+  map('n', 'Ä', '<Cmd>Vifm<CR>')
+  map('n', 'Å', '<Cmd>Vifm %:p:h<CR>')
 end
 
 return M

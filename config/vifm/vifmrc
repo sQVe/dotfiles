@@ -180,6 +180,11 @@ noremap Ö :
 noremap qö q:
 noremap qÖ q:
 
+" Align quit.
+noremap ZZ :quit<CR>
+noremap <C-w>q :quit<CR>
+noremap <C-w><C-q> :quit<CR>
+
 " Sane tagging.
 noremap t tj
 

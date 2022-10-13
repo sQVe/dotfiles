@@ -6,26 +6,28 @@
 local M = {}
 
 M.init = function(use)
-  use{
+  use({
     'sQVe/sort.nvim',
     cmd = { 'Sort' },
     config = M.config,
     keys = {
-      { 'n', 'go' }, { 'v', 'go' } },
-  }
+      { 'n', 'go' },
+      { 'v', 'go' },
+    },
+  })
 end
 
 M.config = function()
-  vim.cmd([[
-    nnoremap <silent> go <Cmd>Sort<CR>
-    nnoremap <silent> go" vi"<Esc><Cmd>Sort<CR>
-    nnoremap <silent> go' vi'<Esc><Cmd>Sort<CR>
-    nnoremap <silent> go( vi(<Esc><Cmd>Sort<CR>
-    nnoremap <silent> go[ vi[<Esc><Cmd>Sort<CR>
-    nnoremap <silent> gop vip<Esc><Cmd>Sort<CR>
-    nnoremap <silent> go{ vi{<Esc><Cmd>Sort<CR>
-    vnoremap <silent> go <Esc><Cmd>Sort<CR>
-  ]])
+  local map = require('utils.keymap').map
+
+  map('n', 'go', '<Cmd>Sort<CR>')
+  map('n', 'go"', 'vi"<Esc><Cmd>Sort<CR>')
+  map('n', 'go', 'vi\'<Esc><Cmd>Sort<CR>')
+  map('n', 'go(', 'vi(<Esc><Cmd>Sort<CR>')
+  map('n', 'go{', 'vi{<Esc><Cmd>Sort<CR>')
+  map('n', 'go[', 'vi[<Esc><Cmd>Sort<CR>')
+  map('n', 'gop', 'vip<Esc><Cmd>Sort<CR>')
+  map('v', 'go', '<Esc><Cmd>Sort<CR>')
 end
 
 return M
