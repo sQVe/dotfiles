@@ -1,8 +1,20 @@
---  ┏━╸╻╺┳╸┏━┓╻┏━╸┏┓╻┏━┓
---  ┃╺┓┃ ┃ ┗━┓┃┃╺┓┃┗┫┗━┓
---  ┗━┛╹ ╹ ┗━┛╹┗━┛╹ ╹┗━┛
+-- ┏━╸╻╺┳╸┏━┓╻┏━╸┏┓╻┏━┓
+-- ┃╺┓┃ ┃ ┗━┓┃┃╺┓┃┗┫┗━┓
+-- ┗━┛╹ ╹ ┗━┛╹┗━┛╹ ╹┗━┛
+-- Git gutter signs.
 
-return function()
+local M = {}
+
+M.init = function(use)
+  use({
+    'lewis6991/gitsigns.nvim',
+    config = M.config,
+    event = 'BufEnter',
+    requires = { 'nvim-lua/plenary.nvim' },
+  })
+end
+
+M.config = function()
   local gitsigns = require('gitsigns')
   local map = require('utils.keymap').map
 
@@ -34,3 +46,5 @@ return function()
     end,
   })
 end
+
+return M

@@ -1,8 +1,22 @@
 -- ╺┳╸┏━╸╻  ┏━╸┏━┓┏━╸┏━┓┏━┓┏━╸
 --  ┃ ┣╸ ┃  ┣╸ ┗━┓┃  ┃ ┃┣━┛┣╸
 --  ╹ ┗━╸┗━╸┗━╸┗━┛┗━╸┗━┛╹  ┗━╸
+-- Fuzzy finder.
 
 local M = {}
+
+M.init = function(use)
+  use({
+    'nvim-telescope/telescope.nvim',
+    config = M.config,
+    event = 'BufEnter',
+    requires = {
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-ui-select.nvim',
+      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+    },
+  })
+end
 
 M.git_status = function()
   local builtin = require('telescope.builtin')

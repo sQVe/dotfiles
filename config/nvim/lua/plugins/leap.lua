@@ -1,8 +1,15 @@
 -- ╻  ┏━╸┏━┓┏━┓
 -- ┃  ┣╸ ┣━┫┣━┛
 -- ┗━╸┗━╸╹ ╹╹
+-- Quick jump via labels.
 
-return function()
+local M = {}
+
+M.init = function(use)
+  use({ 'ggandor/leap.nvim', config = M.config, after = 'vim-repeat' })
+end
+
+M.config = function()
   local leap = require('leap')
 
   leap.set_default_keymaps()
@@ -17,3 +24,5 @@ return function()
     },
   })
 end
+
+return M

@@ -1,8 +1,21 @@
 -- ┏━╸┏┳┓
 -- ┣╸ ┃┃┃
 -- ╹  ╹ ╹
+-- Vifm.
 
-return function()
+local M = {}
+
+M.init = function(use)
+  use({
+    'is0n/fm-nvim',
+    cmd = { 'Vifm' },
+    config = M.config,
+    keys = {
+      { 'n', 'Ä' }, { 'n', 'Å' } },
+  })
+end
+
+M.config = function()
   require('fm-nvim').setup({
     ui = {
       float = {
@@ -23,3 +36,5 @@ return function()
     nnoremap <silent> Å <Cmd>Vifm %:p:h<CR>
   ]])
 end
+
+return M

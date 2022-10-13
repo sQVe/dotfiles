@@ -1,9 +1,21 @@
 -- ┏━┓┏━┓┏━┓╺┳╸
 -- ┗━┓┃ ┃┣┳┛ ┃
 -- ┗━┛┗━┛╹┗╸ ╹
+-- Sort by line and delimiter.
 
-return function()
-  -- TODO: Make this lua.
+local M = {}
+
+M.init = function(use)
+  use{
+    'sQVe/sort.nvim',
+    cmd = { 'Sort' },
+    config = M.config,
+    keys = {
+      { 'n', 'go' }, { 'v', 'go' } },
+  }
+end
+
+M.config = function()
   vim.cmd([[
     nnoremap <silent> go <Cmd>Sort<CR>
     nnoremap <silent> go" vi"<Esc><Cmd>Sort<CR>
@@ -15,3 +27,5 @@ return function()
     vnoremap <silent> go <Esc><Cmd>Sort<CR>
   ]])
 end
+
+return M

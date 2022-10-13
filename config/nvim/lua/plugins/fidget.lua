@@ -1,8 +1,15 @@
 -- ┏━╸╻╺┳┓┏━╸┏━╸╺┳╸
 -- ┣╸ ┃ ┃┃┃╺┓┣╸  ┃
 -- ╹  ╹╺┻┛┗━┛┗━╸ ╹
+-- LSP progress.
 
-return function()
+local M = {}
+
+M.init = function(use)
+  use({ 'j-hui/fidget.nvim', after = 'lualine.nvim', config = M.config })
+end
+
+M.config = function()
   require('fidget').setup({
     text = { spinner = 'dots' },
     timer = { fidget_decay = 1000, task_decay = 500 },
@@ -15,3 +22,5 @@ return function()
     { command = [[silent! FidgetClose]] }
   )
 end
+
+return M

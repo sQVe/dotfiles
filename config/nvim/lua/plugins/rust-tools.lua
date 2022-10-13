@@ -1,4 +1,15 @@
-return function()
+-- ┏━┓╻ ╻┏━┓╺┳╸   ╺┳╸┏━┓┏━┓╻  ┏━┓
+-- ┣┳┛┃ ┃┗━┓ ┃ ╺━╸ ┃ ┃ ┃┃ ┃┃  ┗━┓
+-- ╹┗╸┗━┛┗━┛ ╹     ╹ ┗━┛┗━┛┗━╸┗━┛
+-- Rust LSP setup and tooling.
+
+local M = {}
+
+M.init = function(use)
+  use({ 'simrat39/rust-tools.nvim', after = 'nvim-lspconfig', config = M.config, })
+end
+
+M.config = function()
   local rust_tools = require('rust-tools')
 
   rust_tools.setup({
@@ -15,3 +26,5 @@ return function()
     },
   })
 end
+
+return M

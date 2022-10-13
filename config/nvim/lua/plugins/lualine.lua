@@ -1,8 +1,15 @@
---  ╻  ╻ ╻┏━┓╻  ╻┏┓╻┏━╸
---  ┃  ┃ ┃┣━┫┃  ┃┃┗┫┣╸
---  ┗━╸┗━┛╹ ╹┗━╸╹╹ ╹┗━╸
+-- ╻  ╻ ╻┏━┓╻  ╻┏┓╻┏━╸
+-- ┃  ┃ ┃┣━┫┃  ┃┃┗┫┣╸
+-- ┗━╸┗━┛╹ ╹┗━╸╹╹ ╹┗━╸
+-- Statusline.
 
-return function()
+local M = {}
+
+M.init = function(use)
+  use({ 'nvim-lualine/lualine.nvim', config = M.config, event = 'BufEnter' })
+end
+
+M.config = function()
   local gruvbox = require('lualine.themes.gruvbox')
   local modes = {
     'command',
@@ -34,3 +41,5 @@ return function()
     },
   })
 end
+
+return M

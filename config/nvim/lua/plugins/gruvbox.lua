@@ -1,8 +1,15 @@
---  ┏━╸┏━┓╻ ╻╻ ╻┏┓ ┏━┓╻ ╻
---  ┃╺┓┣┳┛┃ ┃┃┏┛┣┻┓┃ ┃┏╋┛
---  ┗━┛╹┗╸┗━┛┗┛ ┗━┛┗━┛╹ ╹
+-- ┏━╸┏━┓╻ ╻╻ ╻┏┓ ┏━┓╻ ╻
+-- ┃╺┓┣┳┛┃ ┃┃┏┛┣┻┓┃ ┃┏╋┛
+-- ┗━┛╹┗╸┗━┛┗┛ ┗━┛┗━┛╹ ╹
+-- Gruvbox color theme.
 
-return function()
+local M = {}
+
+M.init = function(use)
+  use({ 'npxbr/gruvbox.nvim', config = M.config })
+end
+
+M.config = function()
   local gruvbox = require('gruvbox')
   local palette = require('gruvbox.palette')
 
@@ -66,3 +73,5 @@ return function()
     hi! link TelescopePreviewBorder FloatBorder
   ]])
 end
+
+return M

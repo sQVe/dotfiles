@@ -4,7 +4,7 @@
 
 local M = {}
 
-function M.table_contains(tbl, value)
+M.table_contains = function(tbl, value)
   local found = false
 
   for _, tableValue in ipairs(tbl) do

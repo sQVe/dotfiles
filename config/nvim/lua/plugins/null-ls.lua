@@ -1,16 +1,27 @@
 -- ┏┓╻╻ ╻╻  ╻     ╻  ┏━┓
--- ┃┗┫┃ ┃┃  ┃     ┃  ┗━┓
+-- ┃┗┫┃ ┃┃  ┃  ╺━╸┃  ┗━┓
 -- ╹ ╹┗━┛┗━╸┗━╸   ┗━╸┗━┛
+-- Code actions, formatting, and linting.
 
-return function()
-  local null = require('null-ls')
-  local root_dir = require('utils.lsp').root_dir({ prioritizeManifest = true })
-  local format = require('utils.lsp').format
+local M = {}
+
+M.init = function(use)
+  use({
+    'jose-elias-alvarez/null-ls.nvim',
+    after = 'nvim-lspconfig',
+    config = M.config,
+    requires = { 'nvim-lua/plenary.nvim' },
+  })
+end
+
+M.config = function()
+  local null_ls = require('null-ls')
+  local lsp_utils = require('utils.lsp')
 
   local format_augroup = vim.api.nvim_create_augroup('Format', {})
-  local code_actions = null.builtins.code_actions
-  local formatters = null.builtins.formatting
-  local linters = null.builtins.diagnostics
+  local code_actions = null_ls.builtins.code_actions
+  local formatters = null_ls.builtins.formatting
+  local linters = null_ls.builtins.diagnostics
 
   local starts_with = function(str, start)
     return string.sub(str, 1, #start) == start
@@ -64,10 +75,9 @@ return function()
     '.vale.ini',
   })
 
-  null.setup({
+  null_ls.setup({
     cmd = { 'nvim' },
-    debounce = 200,
-    default_timeout = 20000,
+    default_timeout = 5000,
     diagnostics_format = '#{c}: #{m} (#{s})',
     on_attach = function(client, bufnr)
       if client.supports_method('textDocument/formatting') then
@@ -76,12 +86,12 @@ return function()
           group = format_augroup,
           buffer = bufnr,
           callback = function()
-            format(bufnr)
+            lsp_utils.format(bufnr)
           end,
         })
       end
     end,
-    root_dir = root_dir,
+    root_dir = lsp_utils.create_root_dir_handler({ prioritizeManifest = true }),
     sources = {
       code_actions.eslint_d,
       code_actions.shellcheck,
@@ -91,6 +101,7 @@ return function()
       formatters.prettierd,
       formatters.eslint_d.with({
         runtime_condition = eslint_runtime_condition,
+        timeout = 20000,
       }),
       formatters.gofmt,
       formatters.rustfmt.with({ runtime_condition = rust_runtime_condition }),
@@ -105,3 +116,5 @@ return function()
     },
   })
 end
+
+return M

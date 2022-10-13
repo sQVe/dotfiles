@@ -1,8 +1,27 @@
---  ┏━╸┏━┓┏┳┓┏━┓┏━╸
---  ┃  ┃ ┃┃┃┃┣━┛┣╸
---  ┗━╸┗━┛╹ ╹╹  ┗━╸
+-- ┏━╸┏┳┓┏━┓
+-- ┃  ┃┃┃┣━┛
+-- ┗━╸╹ ╹╹
+-- Completion engine.
 
-return function()
+local M = {}
+
+M.init = function(use)
+  use({
+    'hrsh7th/nvim-cmp',
+    config = M.config,
+    event = { 'CmdlineEnter', 'InsertEnter' },
+    requires = { 'onsails/lspkind-nvim' },
+  })
+  use({ 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }) -- Buffer completion.
+  use({ 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }) -- Command completion.
+  use({ 'hrsh7th/cmp-emoji', after = 'nvim-cmp' }) -- Emoji completion.
+  use({ 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' }) -- LSP completion.
+  use({ 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' }) -- API completion.
+  use({ 'hrsh7th/cmp-path', after = 'nvim-cmp' }) -- Path completion.
+  use({ 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' }) -- VSnip completion.
+end
+
+M.config = function()
   local cmp = require('cmp')
   local lspkind = require('lspkind')
 
@@ -170,3 +189,5 @@ return function()
     }),
   })
 end
+
+return M

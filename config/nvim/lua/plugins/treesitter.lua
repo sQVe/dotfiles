@@ -1,8 +1,20 @@
---  ╺┳╸┏━┓┏━╸┏━╸┏━┓╻╺┳╸╺┳╸┏━╸┏━┓
---   ┃ ┣┳┛┣╸ ┣╸ ┗━┓┃ ┃  ┃ ┣╸ ┣┳┛
---   ╹ ╹┗╸┗━╸┗━╸┗━┛╹ ╹  ╹ ┗━╸╹┗╸
+-- ╺┳╸┏━┓┏━╸┏━╸┏━┓╻╺┳╸╺┳╸┏━╸┏━┓
+--  ┃ ┣┳┛┣╸ ┣╸ ┗━┓┃ ┃  ┃ ┣╸ ┣┳┛
+--  ╹ ╹┗╸┗━╸┗━╸┗━┛╹ ╹  ╹ ┗━╸╹┗╸
+-- Syntax highlighting.
 
-return function()
+local M = {}
+
+M.init = function(use)
+  use({
+    'nvim-treesitter/nvim-treesitter',
+    config = M.config,
+    event = 'BufEnter',
+    run = ':TSUpdate',
+  })
+end
+
+M.config = function()
   require('nvim-treesitter.configs').setup({
     ensure_installed = {
       'bash',
@@ -40,3 +52,5 @@ return function()
     },
   })
 end
+
+return M

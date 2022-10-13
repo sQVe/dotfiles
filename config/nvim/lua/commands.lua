@@ -67,6 +67,3 @@ command('Ddg', 'call Ddg(<q-args>)', { nargs = '?' })
 
 -- Show documentation.
 command('ShowDocumentation', 'call ShowDocumentation()', { nargs = 0 })
-
--- Z lookup.
-command('Z', 'call Z(<q-args>)', { nargs = 1 })

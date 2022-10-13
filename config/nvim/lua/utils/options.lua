@@ -6,7 +6,7 @@ local table_contains = require('utils.table').table_contains
 
 local M = {}
 
-function M.get_winbar_layout()
+M.get_winbar_layout = function()
   local escaped_cwd = string.gsub(vim.fn.getcwd() .. '/', '([^%w])', '%%%1')
   local file = vim.fn.expand(vim.api.nvim_eval_statusline('%f', {}).str)
   local filetype = vim.bo.filetype

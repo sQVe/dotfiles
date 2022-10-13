@@ -1,8 +1,30 @@
---  ┏━╸┏━┓┏┳┓┏┳┓┏━╸┏┓╻╺┳╸
---  ┃  ┃ ┃┃┃┃┃┃┃┣╸ ┃┗┫ ┃
---  ┗━╸┗━┛╹ ╹╹ ╹┗━╸╹ ╹ ╹
+-- ┏━╸┏━┓┏┳┓┏┳┓┏━╸┏┓╻╺┳╸
+-- ┃  ┃ ┃┃┃┃┃┃┃┣╸ ┃┗┫ ┃
+-- ┗━╸┗━┛╹ ╹╹ ╹┗━╸╹ ╹ ╹
+-- Comment motions.
 
-return function()
+local M = {}
+
+M.init = function(use)
+  use({
+    'numToStr/Comment.nvim',
+    config = M.config,
+    keys = {
+      { 'n', 'gb' },
+      { 'n', 'gc' },
+      { 'v', 'gb' },
+      { 'v', 'gc' },
+    },
+    requires = {
+      {
+        'JoosepAlviste/nvim-ts-context-commentstring',
+        after = 'nvim-treesitter',
+      },
+    },
+  })
+end
+
+M.config = function()
   require('Comment').setup({
     ignore = '^$',
     pre_hook = function(ctx)
@@ -29,3 +51,5 @@ return function()
     end,
   })
 end
+
+return M

@@ -1,8 +1,15 @@
 -- ┏━┓╻  ┏━┓╻ ╻┏━┓
 -- ┣━┫┃  ┣━┛┣━┫┣━┫
 -- ╹ ╹┗━╸╹  ╹ ╹╹ ╹
+-- Dashboard.
 
-return function()
+local M = {}
+
+M.init = function(use)
+  use({ 'goolord/alpha-nvim', config = M.config, event = 'VimEnter' })
+end
+
+M.config = function()
   local dashboard = require('alpha.themes.dashboard')
 
   dashboard.section.header.val = {
@@ -52,3 +59,5 @@ return function()
     opts = { margin = 5 },
   })
 end
+
+return M

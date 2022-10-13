@@ -1,8 +1,19 @@
---  ╻┏┓╻╺┳┓┏━╸┏┓╻╺┳╸   ┏┓ ╻  ┏━┓┏┓╻╻┏ ╻  ╻┏┓╻┏━╸
---  ┃┃┗┫ ┃┃┣╸ ┃┗┫ ┃    ┣┻┓┃  ┣━┫┃┗┫┣┻┓┃  ┃┃┗┫┣╸
---  ╹╹ ╹╺┻┛┗━╸╹ ╹ ╹    ┗━┛┗━╸╹ ╹╹ ╹╹ ╹┗━╸╹╹ ╹┗━╸
+-- ╻┏┓╻╺┳┓┏━╸┏┓╻╺┳╸   ┏┓ ╻  ┏━┓┏┓╻╻┏ ╻  ╻┏┓╻┏━╸
+-- ┃┃┗┫ ┃┃┣╸ ┃┗┫ ┃    ┣┻┓┃  ┣━┫┃┗┫┣┻┓┃  ┃┃┗┫┣╸
+-- ╹╹ ╹╺┻┛┗━╸╹ ╹ ╹    ┗━┛┗━╸╹ ╹╹ ╹╹ ╹┗━╸╹╹ ╹┗━╸
+-- Indention guides.
 
-return function()
+local M = {}
+
+M.init = function(use)
+  use({
+    'lukas-reineke/indent-blankline.nvim',
+    after = 'nvim-treesitter',
+    config = M.config,
+  })
+end
+
+M.config = function()
   require('indent_blankline').setup({
     filetype_exclude = { 'alpha', 'help', 'packer' },
     buftype_exclude = { 'nofile', 'terminal' },
@@ -11,3 +22,5 @@ return function()
     use_treesitter = true,
   })
 end
+
+return M
