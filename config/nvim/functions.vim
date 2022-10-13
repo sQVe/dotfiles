@@ -2,12 +2,6 @@
 "  ┣┻┓┣━┫┗━┓┣╸    ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
 "  ┗━┛╹ ╹┗━┛┗━╸   ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
-" Execute macro over visual range.
-func! ExecuteMacroOverVisualRange()
-  echo "@".getcmdline()
-  execute ":'<,'>normal @".nr2char(getchar())
-endfunc
-
 " Use branch name as commit message.
 func! CommitMsgFromBranchName()
   normal gg/On branch2WYggp
@@ -47,26 +41,4 @@ endfunc
 
 func! OpenFileOrUrlWithMimeo()
   silent execute "!mimeo " . shellescape(expand('<cfile>'))
-endfunc
-
-
-"  ┏━┓╻ ╻┏━┓╺┳╸┏━╸┏┳┓   ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓
-"  ┗━┓┗┳┛┗━┓ ┃ ┣╸ ┃┃┃   ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
-"  ┗━┛ ╹ ┗━┛ ╹ ┗━╸╹ ╹   ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
-
-" Goto via zlua.
-func! Z(fragment)
-  let l:directory = system('~/scripts/zlua/find.zsh ' . shellescape(a:fragment))
-
-  if !empty(l:directory)
-    execute 'cd' . ' ' . l:directory
-    pwd
-  endif
-endfunc
-
-" Update zlua with new directory.
-func! ZUpdate() abort
-  if empty(&buftype) || &filetype ==# 'dirvish'
-    silent execute "!~/scripts/zlua/add-directory.zsh" . ' ' . expand('%:p:h')
-  endif
 endfunc

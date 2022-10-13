@@ -18,12 +18,6 @@ return require('packer').startup(function(use)
     config = require('plugins.surround'),
     event = 'BufEnter',
   })
-  use({
-    'junegunn/vim-easy-align', -- Alignment.
-    cmd = { 'EasyAlign' },
-    config = require('plugins.easy-align'),
-    keys = { { 'n', 'ga' }, { 'x', 'ga' } },
-  })
   use({ 'tpope/vim-repeat', event = 'BufEnter' }) -- Repeat for plugins.
 
   -- Integration.
@@ -67,11 +61,8 @@ return require('packer').startup(function(use)
     config = require('plugins.project'),
   })
   use({ 'lambdalisue/suda.vim', cmd = { 'SudaRead', 'SudaWrite' } }) -- Read and write with sudo.
+  -- TODO: Replace with https://github.com/echasnovski/mini.nvim/blob/main/doc/mini-bufremove.txt.
   use({ 'moll/vim-bbye', cmd = { 'Bdelete', 'Bwipeout' } }) -- Delete buffers without closing window.
-  use({
-    'tpope/vim-eunuch', -- Unix helpers.
-    cmd = { 'Chmod', 'Delete', 'Mkdir', 'Move', 'Rename' },
-  })
   use({
     'sQVe/sort.nvim', -- Sort by line and delimiter.
     cmd = { 'Sort' },
@@ -158,20 +149,21 @@ return require('packer').startup(function(use)
     'hrsh7th/nvim-cmp', -- Completion engine.
     config = require('plugins.cmp'),
     event = { 'CmdlineEnter', 'InsertEnter' },
-    requires = { 'onsails/lspkind-nvim' },
+    requires = {
+      'onsails/lspkind-nvim',
+      {
+        'hrsh7th/vim-vsnip', -- Snippet support.
+        setup = require('plugins.vsnip'),
+      },
+    },
   })
-  use({ 'hrsh7th/cmp-buffer', after = 'cmp-path' }) -- Buffer completion.
-  use({ 'hrsh7th/cmp-cmdline', after = 'cmp-nvim-lsp' }) -- Command completion.
-  use({ 'hrsh7th/cmp-emoji', after = 'cmp-vsnip' }) -- Emoji completion.
-  use({ 'hrsh7th/cmp-nvim-lsp', after = 'cmp-nvim-lua' }) -- LSP completion.
+  use({ 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }) -- Buffer completion.
+  use({ 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }) -- Command completion.
+  use({ 'hrsh7th/cmp-emoji', after = 'nvim-cmp' }) -- Emoji completion.
+  use({ 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' }) -- LSP completion.
   use({ 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' }) -- API completion.
-  use({ 'hrsh7th/cmp-path', after = 'cmp-cmdline' }) -- Path completion.
-  use({ 'hrsh7th/cmp-vsnip', after = 'cmp-buffer' }) -- VSnip completion.
-  use({
-    'hrsh7th/vim-vsnip', -- Snippet support.
-    after = 'cmp-vsnip',
-    setup = require('plugins.vsnip'),
-  })
+  use({ 'hrsh7th/cmp-path', after = 'nvim-cmp' }) -- Path completion.
+  use({ 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' }) -- VSnip completion.
   use({
     'windwp/nvim-autopairs', -- Complete pairs.
     event = { 'InsertEnter' },

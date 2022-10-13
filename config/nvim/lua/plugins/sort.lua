@@ -3,6 +3,7 @@
 -- ┗━┛┗━┛╹┗╸ ╹
 
 return function()
+  -- TODO: Make this lua.
   vim.cmd([[
     nnoremap <silent> go <Cmd>Sort<CR>
     nnoremap <silent> go" vi"<Esc><Cmd>Sort<CR>

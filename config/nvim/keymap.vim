@@ -120,7 +120,6 @@ inoremap { {<c-g>u
 "  ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃   ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
 "  ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
-nnoremap <Leader>z :Z<Space>
 vnoremap K "oy<Esc><Cmd>Ddg<CR>
 
 
@@ -129,4 +128,3 @@ vnoremap K "oy<Esc><Cmd>Ddg<CR>
 "  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹   ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
 nnoremap <silent> gx <Cmd>call OpenFileOrUrlWithMimeo()<CR>
-xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>

@@ -16,16 +16,6 @@ iabbrev strign    string
 iabbrev treu      true
 iabbrev undefiend undefined
 
-" Comment markers.
-iabbrev bug:    BUG:
-iabbrev fixme:  FIXME:
-iabbrev hack:   HACK:
-iabbrev note:   NOTE:
-iabbrev sqve:   SQVE:
-iabbrev tbd:    TBD:
-iabbrev todo:   TODO:
-iabbrev xxx:    XXX:
-
 " Lorem ipsum.
 iabbrev getlorem Lorem ipsum dolor sit amet consectetur adipiscing elit, faucibus id sollicitudin at class vivamus quis vel, fringilla sodales a quisque blandit eget inceptos, congue dis tristique ad velit hendrerit. Eros enim curae praesent egestas conubia aptent himenaeos iaculis tempor, venenatis fermentum urna posuere habitant viverra aenean nulla interdum, lectus dui penatibus nostra vehicula suspendisse nisl netus.
 
