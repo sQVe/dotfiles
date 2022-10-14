@@ -15,13 +15,10 @@
         "categories": ["modifier"]
       },
       {
-        "code": 49156,
-        "label": {
-          "hint": {"full": "OneShot", "1u": "OSM"},
-          "base": {"full": "Left Super", "1u": "LSup."}
-        },
-        "rangeStart": 49153,
-        "categories": ["oneshot", "modifier"]
+        "code": 227,
+        "label": {"base": {"full": "Super", "1u": "Sup.", "short": "Su"}},
+        "location": "left",
+        "categories": ["modifier"]
       },
       {
         "code": 2084,
