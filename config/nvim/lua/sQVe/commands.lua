@@ -1,6 +1,6 @@
--- ┏┓ ┏━┓┏━┓┏━╸   ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓┏━┓
--- ┣┻┓┣━┫┗━┓┣╸    ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃┗━┓
--- ┗━┛╹ ╹┗━┛┗━╸   ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛┗━┛
+-- ┏━╸╻ ╻   ┏━╸┏━┓┏┳┓┏┳┓┏━┓┏┓╻╺┳┓┏━┓
+-- ┣╸ ┏╋┛   ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃┗━┓
+-- ┗━╸╹ ╹   ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛┗━┛
 
 local command = function(name, command, opts)
   local defaultOpts = { bang = true }
@@ -49,21 +49,31 @@ command('Wqa', 'wqa')
 -- ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫   ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃┗━┓
 -- ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹   ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛┗━┛
 
--- Create and print Ascii Header.
-command('AsciiHeader', 'call AsciiHeader(<q-args>)', { nargs = 1 })
+-- Print as a commented Ascii Header.
+command('AsciiHeader', function(input)
+  require('packer').loader('Comment.nvim')
+
+  local ok =
+    pcall(vim.cmd, 'execute "read !toilet -f future ' .. input.args .. '"')
+  if ok then
+    vim.api.nvim_command('normal 0Vkkgc')
+  end
+end, { nargs = 1 })
 
 -- Use branch name as commit message.
-command(
-  'CommitMsgFromBranchName',
-  'call CommitMsgFromBranchName()',
-  { nargs = 0 }
-)
+command('CommitMsgFromBranchName', function()
+  local ok = pcall(vim.cmd, 'execute "read !git rev-parse --abbrev-ref HEAD"')
+  if ok then
+    vim.api.nvim_command('normal kdd')
+    vim.api.nvim_command('substitute /\\//: /e')
+    vim.api.nvim_command('substitute /-/ /e')
+  end
+end, { nargs = 0 })
 
 -- Open prev git commit message.
-command('CommitMsgPrev', 'call CommitMsgPrev()', { nargs = 0 })
+command('CommitMsgPrev', function()
+  vim.cmd('silent execute "vsplit /tmp/PREV_COMMIT_EDITMSG"')
+end, { nargs = 0 })
 
 -- Search on DuckDuckGo.
 command('Ddg', 'call Ddg(<q-args>)', { nargs = '?' })
-
--- Show documentation.
-command('ShowDocumentation', 'call ShowDocumentation()', { nargs = 0 })

@@ -68,7 +68,7 @@ M.config = function()
 
   map('n', '<Leader><Leader>', require('sQVe.utils.lsp').format)
   map('n', '<Leader>r', vim.lsp.buf.rename)
-  map('n', 'K', '<Cmd>ShowDocumentation<CR>') -- TODO: Can we make this function into lua?
+  map('n', 'K', require('sQVe.utils.lsp').show_documentation)
   map('n', '<Leader>a', vim.lsp.buf.code_action)
   map('x', '<Leader>a', vim.lsp.buf.range_code_action)
   map('n', 'gl', function()

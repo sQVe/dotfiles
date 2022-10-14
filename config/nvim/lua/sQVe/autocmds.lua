@@ -10,6 +10,7 @@ local augroup_keys = {
   'ReloadBuffer',
   'SaveCommitMsg',
   'StopNeovimDaemons',
+  'VimResized',
 }
 
 for _, augroup_key in ipairs(augroup_keys) do
@@ -20,6 +21,12 @@ end
 vim.api.nvim_create_autocmd('VimEnter', {
   group = augroups.DisableNetrw,
   command = 'silent! autocmd! FileExplorer',
+})
+
+-- Resize windows on VimResized.
+vim.api.nvim_create_autocmd('VimResized', {
+  group = augroups.VimResized,
+  callback = require('focus').resize,
 })
 
 -- Force formatoptions to exclude 'o'.

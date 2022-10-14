@@ -33,19 +33,6 @@ M.create_base_setup = function(settings)
   return vim.tbl_extend('force', common_setup, settings or {})
 end
 
-M.format = function(bufnr, async)
-  async = async == nil and true or false
-
-  vim.lsp.buf.format({
-    async = async,
-    filter = function(client)
-      return client.name == 'null-ls'
-    end,
-    bufnr = bufnr,
-    timeout_ms = 20000,
-  })
-end
-
 M.create_root_dir_handler = function(opts)
   local util = require('lspconfig').util
 
@@ -65,6 +52,27 @@ M.create_root_dir_handler = function(opts)
     end
 
     return util.find_git_ancestor(filename) or manifest
+  end
+end
+
+M.format = function(bufnr, async)
+  async = async == nil and true or false
+
+  vim.lsp.buf.format({
+    async = async,
+    filter = function(client)
+      return client.name == 'null-ls'
+    end,
+    bufnr = bufnr,
+    timeout_ms = 20000,
+  })
+end
+
+M.show_documentation = function()
+  if vim.api.nvim_buf_get_option(0, 'filetype') == 'help' then
+    pcall(vim.cmd, 'execute \'h \'.expand(\'<cword>\')')
+  else
+    vim.lsp.buf.hover()
   end
 end
 
