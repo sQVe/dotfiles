@@ -16,7 +16,7 @@ end
 
 M.config = function()
   local null_ls = require('null-ls')
-  local lsp_utils = require('utils.lsp')
+  local lsp_utils = require('sQVe.utils.lsp')
 
   local format_augroup = vim.api.nvim_create_augroup('Format', {})
   local code_actions = null_ls.builtins.code_actions

@@ -25,13 +25,13 @@ M.config = function()
     dashboard.button(
       'ä',
       '📝  Find File',
-      '<Cmd>lua require("plugins.telescope").find_files()<CR>'
+      '<Cmd>lua require("sQVe.plugins.telescope").find_files()<CR>'
     ),
     dashboard.button('Ä', '📁  File Manager', '<Cmd>Vifm<CR>'),
     dashboard.button(
       '<BS>',
       '🔴  Git Status',
-      '<Cmd>lua require("plugins.telescope").git_status()<CR>'
+      '<Cmd>lua require("sQVe.plugins.telescope").git_status()<CR>'
     ),
     dashboard.button(
       'u',

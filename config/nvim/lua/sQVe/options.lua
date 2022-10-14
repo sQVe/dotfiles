@@ -82,7 +82,7 @@ local options = {
 
   -- Status and winbar.
   laststatus = 3,
-  winbar = "%{%v:lua.require('utils.options').get_winbar_layout()%}",
+  winbar = "%{%v:lua.require('sQVe.utils.options').get_winbar_layout()%}",
 
   -- Tabs and spaces.
   expandtab = true,                                 -- Insert spaces when TAB is pressed.

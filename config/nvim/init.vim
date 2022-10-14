@@ -4,4 +4,4 @@ source $HOME/.config/nvim/abbreviations.vim
 source $HOME/.config/nvim/keymap.vim
 
 lua require('impatient')
-lua require('main')
+lua require('sQVe.main')

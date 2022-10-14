@@ -110,7 +110,7 @@ return require('packer').startup({
 
     -- Initialize all customized plugins.
     for _, customized_plugin in ipairs(customized_plugins) do
-      require('plugins.' .. customized_plugin).init(use)
+      require('sQVe.plugins.' .. customized_plugin).init(use)
     end
   end,
   config = {

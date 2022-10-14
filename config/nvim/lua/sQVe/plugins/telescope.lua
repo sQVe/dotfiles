@@ -51,7 +51,7 @@ M.config = function()
   local telescope = require('telescope')
   local actions = require('telescope.actions')
   local builtin = require('telescope.builtin')
-  local map = require('utils.keymap').map
+  local map = require('sQVe.utils.keymap').map
 
   telescope.setup({
     defaults = {
@@ -128,10 +128,10 @@ M.config = function()
   map('n', '<Leader>S', builtin.lsp_dynamic_workspace_symbols)
   map('n', 'z=', builtin.spell_suggest)
 
-  map('n', '<Leader><Backspace>', require('plugins.telescope').git_status)
-  map('n', 'ä', require('plugins.telescope').find_files)
+  map('n', '<Leader><Backspace>', require('sQVe.plugins.telescope').git_status)
+  map('n', 'ä', require('sQVe.plugins.telescope').find_files)
   map('n', 'å', function()
-    require('plugins.telescope').find_files(true)
+    require('sQVe.plugins.telescope').find_files(true)
   end)
 end
 

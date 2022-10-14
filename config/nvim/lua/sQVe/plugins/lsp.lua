@@ -10,8 +10,8 @@ end
 
 M.config = function()
   local lspconfig = require('lspconfig')
-  local lsp_utils = require('utils.lsp')
-  local map = require('utils.keymap').map
+  local lsp_utils = require('sQVe.utils.lsp')
+  local map = require('sQVe.utils.keymap').map
   local on_attach = function() end
 
   local base_setup = lsp_utils.create_base_setup({
@@ -28,7 +28,7 @@ M.config = function()
       handlers = {
         -- More codes can be found here:
         -- https://github.com/microsoft/TypeScript/blob/main/src/compiler/diagnosticMessages.json
-        ['textDocument/publishDiagnostics'] = require('utils.lsp').create_diagnostics_handler({
+        ['textDocument/publishDiagnostics'] = require('sQVe.utils.lsp').create_diagnostics_handler({
           80001,
         }),
       },
@@ -66,7 +66,7 @@ M.config = function()
   -- Disable virtual text for diagnostics.
   vim.diagnostic.config({ severity_sort = true, virtual_text = false })
 
-  map('n', '<Leader><Leader>', require('utils.lsp').format)
+  map('n', '<Leader><Leader>', require('sQVe.utils.lsp').format)
   map('n', '<Leader>r', vim.lsp.buf.rename)
   map('n', 'K', '<Cmd>ShowDocumentation<CR>') -- TODO: Can we make this function into lua?
   map('n', '<Leader>a', vim.lsp.buf.code_action)

@@ -18,7 +18,7 @@ M.init = function(use)
 end
 
 M.config = function()
-  local map = require('utils.keymap').map
+  local map = require('sQVe.utils.keymap').map
 
   map('n', 'go', '<Cmd>Sort<CR>')
   map('n', 'go"', 'vi"<Esc><Cmd>Sort<CR>')

@@ -16,7 +16,7 @@ end
 
 M.config = function()
   local gitsigns = require('gitsigns')
-  local map = require('utils.keymap').map
+  local map = require('sQVe.utils.keymap').map
 
   gitsigns.setup({
     on_attach = function(bufnr)

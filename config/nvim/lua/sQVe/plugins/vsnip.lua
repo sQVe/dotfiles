@@ -10,7 +10,7 @@ M.init = function(use)
 end
 
 M.setup = function()
-  local map = require('utils.keymap').map
+  local map = require('sQVe.utils.keymap').map
 
   vim.g.vsnip_snippet_dir = vim.fn.expand('$XDG_CONFIG_HOME/nvim/snippets')
   vim.g.vsnip_filetypes = {

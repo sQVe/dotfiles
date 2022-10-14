@@ -18,7 +18,7 @@ M.init = function(use)
 end
 
 M.config = function()
-  local map = require('utils.keymap').map
+  local map = require('sQVe.utils.keymap').map
 
   require('fm-nvim').setup({
     ui = {

@@ -10,12 +10,11 @@
 -- Move everything under `lua/sQVe` scope.
 -- Create init.lua
 
-require('disable')
-require('autocmds')
-require('options')
-require('commands')
+require('sQVe.options')
 
--- Load async due to packer_compiled.
-vim.defer_fn(function()
-  require('plugins')
-end, 0)
+vim.schedule(function()
+  require('sQVe.disable-features')
+  require('sQVe.autocmds')
+  require('sQVe.commands')
+  require('sQVe.plugins')
+end)
