@@ -7,6 +7,7 @@ vim.cmd('packadd cfilter')
 
 local customized_plugins = {
   'alpha',
+  'bbye',
   'cmp',
   'comment',
   'fidget',
@@ -17,10 +18,10 @@ local customized_plugins = {
   'gruvbox',
   'indent-blankline',
   'leap',
-  'pasta',
   'lsp',
   'lualine',
   'null-ls',
+  'pasta',
   'project',
   'rust-tools',
   'sort',
@@ -43,10 +44,6 @@ return require('packer').startup({
 
     -- Editorconfig.
     use({ 'gpanders/editorconfig.nvim', event = 'BufEnter' })
-
-    -- Delete buffers without closing window.
-    -- TODO: Replace with https://github.com/echasnovski/mini.nvim/blob/main/doc/mini-bufremove.txt.
-    use({ 'moll/vim-bbye', cmd = { 'Bdelete', 'Bwipeout' } })
 
     -- Git mergetool.
     use({

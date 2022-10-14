@@ -76,4 +76,25 @@ command('CommitMsgPrev', function()
 end, { nargs = 0 })
 
 -- Search on DuckDuckGo.
-command('Ddg', 'call Ddg(<q-args>)', { nargs = '?' })
+command('Ddg', function(input)
+  local root_url = 'https://duckduckgo.com/?q='
+  local args = input.args or ''
+  local query = (#args > 0 and args) or vim.fn.getreg('o')
+  local safe_query = string.gsub(query, '%s', ' ')
+
+  vim.cmd(
+    'silent execute "!open-qutebrowser '
+      .. vim.fn.shellescape(root_url .. safe_query)
+      .. '"'
+  )
+end, { nargs = '?' })
+
+-- Save notes.
+command('SaveNotes', function()
+  vim.cmd(
+    'silent execute "!'
+      .. vim.fn.expand('$SCRIPTS')
+      .. '/nvim/save-notes.sh'
+      .. ' &"'
+  )
+end, { nargs = 0 })

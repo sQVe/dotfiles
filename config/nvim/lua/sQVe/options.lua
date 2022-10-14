@@ -120,3 +120,6 @@ local options = {
 for k, v in pairs(options) do
   vim.opt[k] = v
 end
+
+-- Use <Space> as Leader key.
+vim.g.mapleader = ' '

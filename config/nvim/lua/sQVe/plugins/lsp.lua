@@ -66,14 +66,25 @@ M.config = function()
   -- Disable virtual text for diagnostics.
   vim.diagnostic.config({ severity_sort = true, virtual_text = false })
 
+  -- Format code.
   map('n', '<Leader><Leader>', require('sQVe.utils.lsp').format)
+
+  -- Rename reference.
   map('n', '<Leader>r', vim.lsp.buf.rename)
+
+  -- Show documention for current word.
   map('n', 'K', require('sQVe.utils.lsp').show_documentation)
+
+  -- List code actions.
   map('n', '<Leader>a', vim.lsp.buf.code_action)
   map('x', '<Leader>a', vim.lsp.buf.range_code_action)
+
+  -- Show diagnostics for current line.
   map('n', 'gl', function()
     vim.diagnostic.open_float(0, { scope = 'line', header = false })
   end)
+
+  -- Move to next or previous diagnostic item.
   map('n', '<Leader>lj', function()
     vim.diagnostic.goto_next({ float = false })
   end)

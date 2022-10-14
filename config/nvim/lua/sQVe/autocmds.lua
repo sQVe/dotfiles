@@ -4,7 +4,6 @@
 
 local augroups = {}
 local augroup_keys = {
-  'DisableNetrw',
   'ExcludeFormatOptions',
   'HighlightYank',
   'ReloadBuffer',
@@ -16,12 +15,6 @@ local augroup_keys = {
 for _, augroup_key in ipairs(augroup_keys) do
   table.insert(augroups, vim.api.nvim_create_augroup(augroup_key, {}))
 end
-
--- Disable Netrw.
-vim.api.nvim_create_autocmd('VimEnter', {
-  group = augroups.DisableNetrw,
-  command = 'silent! autocmd! FileExplorer',
-})
 
 -- Resize windows on VimResized.
 vim.api.nvim_create_autocmd('VimResized', {

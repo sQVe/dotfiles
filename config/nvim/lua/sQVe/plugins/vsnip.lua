@@ -20,6 +20,7 @@ M.setup = function()
     typescriptreact = { 'javascript', 'javascriptreact', 'typescript', 'hooks' },
   }
 
+  -- Expand snippet or jump to next input point.
   map(
     'i',
     '<C-l>',
