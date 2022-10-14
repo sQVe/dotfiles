@@ -51,7 +51,7 @@ M.config = function()
   local telescope = require('telescope')
   local actions = require('telescope.actions')
   local builtin = require('telescope.builtin')
-  local map = require('sQVe.utils.keymap').map
+  local map = require('sQVe.utils.vim').map
 
   telescope.setup({
     defaults = {

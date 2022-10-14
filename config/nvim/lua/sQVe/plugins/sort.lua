@@ -18,7 +18,7 @@ M.init = function(use)
 end
 
 M.config = function()
-  local map = require('sQVe.utils.keymap').map
+  local map = require('sQVe.utils.vim').map
 
   -- Sort current line or selection.
   map('n', 'go', '<Cmd>Sort<CR>')

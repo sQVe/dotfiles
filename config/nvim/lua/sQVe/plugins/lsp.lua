@@ -11,7 +11,7 @@ end
 M.config = function()
   local lspconfig = require('lspconfig')
   local lsp_utils = require('sQVe.utils.lsp')
-  local map = require('sQVe.utils.keymap').map
+  local map = require('sQVe.utils.vim').map
   local on_attach = function() end
 
   local base_setup = lsp_utils.create_base_setup({

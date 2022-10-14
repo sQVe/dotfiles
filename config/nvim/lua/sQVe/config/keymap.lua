@@ -2,7 +2,7 @@
 -- ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
 -- ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
-local map = require('sQVe.utils.keymap').map
+local map = require('sQVe.utils.vim').map
 
 -- Remove search highlight.
 map('n', '<Esc><Esc>', '<Cmd>nohl<CR>')
@@ -107,11 +107,11 @@ map('n', 'yon', '<Cmd>set number!<CR>')
 map('n', 'yor', '<Cmd>set relativenumber!<CR>')
 map('n', 'yos', '<Cmd>set spell!<CR>')
 map('n', 'yow', '<Cmd>set wrap!<CR>')
-map('i', '<C-s>', '<C-o><C-s>')
-map('', '<C-s>', 'yos')
+map('i', '<C-s>', '<C-o><C-s>', { remap = true })
+map('', '<C-s>', '<Cmd>set spell!<CR>', { remap = true })
 
 -- Star search but stay at same word.
-map('', '<C-n>', '*N')
+map('', '<C-n>', '*N', { remap = true })
 
 -- Set undo breakpoints.
 map('i', '!', '!<c-g>u')

@@ -2,6 +2,8 @@
 -- ┣━┫┃ ┃ ┃ ┃ ┃┃  ┃┃┃ ┃┃┗━┓
 -- ╹ ╹┗━┛ ╹ ┗━┛┗━╸╹ ╹╺┻┛┗━┛
 
+local autocmd = require('sQVe.utils.vim').autocmd
+
 local augroups = {}
 local augroup_keys = {
   'ExcludeFormatOptions',
@@ -17,13 +19,13 @@ for _, augroup_key in ipairs(augroup_keys) do
 end
 
 -- Resize windows on VimResized.
-vim.api.nvim_create_autocmd('VimResized', {
-  group = augroups.VimResized,
-  callback = require('focus').resize,
-})
+autocmd(
+  'VimResized',
+  { group = augroups.VimResized, callback = require('focus').resize }
+)
 
--- Force formatoptions to exclude 'o'.
-vim.api.nvim_create_autocmd('FileType', {
+-- Force formatoptionsasd to exclude 'o'.
+autocmd('FileType', {
   group = augroups.ExcludeFormatOptions,
   callback = function()
     vim.opt_local.formatoptions:remove({ 'o' })
@@ -31,7 +33,7 @@ vim.api.nvim_create_autocmd('FileType', {
 })
 
 -- Highlight yanked text.
-vim.api.nvim_create_autocmd('TextYankPost', {
+autocmd('TextYankPost', {
   group = augroups.HighlightYank,
   callback = function()
     vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 200 })
@@ -39,20 +41,20 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 })
 
 -- Reload buffer on enter or focus.
-vim.api.nvim_create_autocmd({ 'BufEnter', 'FocusGained' }, {
-  group = augroups.ReloadBuffer,
-  command = 'silent! !',
-})
+autocmd(
+  { 'BufEnter', 'FocusGained' },
+  { group = augroups.ReloadBuffer, command = 'silent! !' }
+)
 
 -- Save commit message for later.
-vim.api.nvim_create_autocmd('BufWritePost', {
+autocmd('BufWritePost', {
   group = augroups.SaveCommitMsg,
   pattern = { '*/.git/COMMIT_EDITMSG', '*/.git/worktrees/*/COMMIT_EDITMSG' },
   command = 'silent! call writefile(nvim_buf_get_lines(0, 0, -1, 1), "/tmp/PREV_COMMIT_EDITMSG")',
 })
 
 -- Stop Neovim Daemons.
-vim.api.nvim_create_autocmd('ExitPre', {
+autocmd('ExitPre', {
   group = augroups.StopNeovimDaemons,
   command = 'silent exec "!('
     .. vim.fn.expand('$HOME')
@@ -60,7 +62,7 @@ vim.api.nvim_create_autocmd('ExitPre', {
 })
 
 -- Use internal formatting for bindings like gq.
-vim.api.nvim_create_autocmd('LspAttach', {
+autocmd('LspAttach', {
   callback = function(args)
     vim.bo[args.buf].formatexpr = nil
   end,

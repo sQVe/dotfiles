@@ -10,7 +10,7 @@ M.init = function(use)
 end
 
 M.setup = function()
-  local map = require('sQVe.utils.keymap').map
+  local map = require('sQVe.utils.vim').map
 
   -- Close buffer.
   map('n', '<Leader>d', '<Cmd>Bdelete<CR>')
