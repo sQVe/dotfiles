@@ -10,6 +10,7 @@ local customized_plugins = {
   'bbye',
   'cmp',
   'comment',
+  'dial',
   'fidget',
   'fm',
   'focus',
@@ -62,15 +63,6 @@ return require('packer').startup({
       config = function()
         require('nvim-autopairs').setup()
       end,
-    })
-
-    -- Increment / decrement dates, times and more.
-    use({
-      'tpope/vim-speeddating',
-      keys = {
-        { 'n', '<c-a>' },
-        { 'n', '<c-x>' },
-      },
     })
 
     -- Interactive registers.
