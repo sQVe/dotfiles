@@ -12,15 +12,17 @@ end
 M.config = function()
   local leap = require('leap')
 
-  leap.set_default_keymaps()
+  leap.add_default_mappings()
   leap.setup({
     special_keys = {
       repeat_search = '<CR>',
-      next_aot_match = '<CR>',
-      next_match = { ',', '<CR>' },
-      prev_match = { ';', '<S-CR>' },
+      next_phase_one_target = '<CR>',
+      next_target = { ',', '<CR>' },
+      prev_target = { ';', '<S-CR>' },
       next_group = '<Tab>',
       prev_group = '<S-Tab>',
+      multi_accept = '<CR>',
+      multi_revert = '<Backspace>',
     },
   })
 end
