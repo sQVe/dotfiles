@@ -68,14 +68,6 @@ M.format = function(bufnr, async)
   })
 end
 
-M.show_documentation = function()
-  if vim.api.nvim_buf_get_option(0, 'filetype') == 'help' then
-    pcall(vim.cmd, 'execute \'h \'.expand(\'<cword>\')')
-  else
-    vim.lsp.buf.hover()
-  end
-end
-
 -- Mirror capabilities set by `update_capabilities` in `cmp-nvim-lsp`, since
 -- we want to decouple LSP from it.
 -- https://github.com/hrsh7th/cmp-nvim-lsp/blob/main/lua/cmp_nvim_lsp/init.lua.

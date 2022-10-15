@@ -12,7 +12,10 @@ M.config = function()
   local lspconfig = require('lspconfig')
   local lsp_utils = require('sQVe.utils.lsp')
   local map = require('sQVe.utils.vim').map
-  local on_attach = function() end
+  local on_attach = function(_, bufnr)
+    -- Show LSP documetation under cursor for buffers which has LSP enabled.
+    map('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
+  end
 
   local base_setup = lsp_utils.create_base_setup({
     on_attach = on_attach,
@@ -71,9 +74,6 @@ M.config = function()
 
   -- Rename reference.
   map('n', '<Leader>r', vim.lsp.buf.rename)
-
-  -- Show documention for current word.
-  map('n', 'K', require('sQVe.utils.lsp').show_documentation)
 
   -- List code actions.
   map('n', '<Leader>a', vim.lsp.buf.code_action)

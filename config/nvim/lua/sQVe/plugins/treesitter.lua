@@ -38,6 +38,7 @@ M.config = function()
       'markdown_inline',
       'rust',
       'scss',
+      'toml',
       'tsx',
       'typescript',
       'vim',
