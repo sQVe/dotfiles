@@ -68,6 +68,14 @@ M.format = function(bufnr, async)
   })
 end
 
+-- Map keys for buffers which has LSP enabled.
+M.map_lsp_buffer_keys = function(bufnr)
+  local map = require('sQVe.utils.vim').map
+
+  -- Show LSP documetation under cursor.
+  map('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
+end
+
 -- Mirror capabilities set by `update_capabilities` in `cmp-nvim-lsp`, since
 -- we want to decouple LSP from it.
 -- https://github.com/hrsh7th/cmp-nvim-lsp/blob/main/lua/cmp_nvim_lsp/init.lua.

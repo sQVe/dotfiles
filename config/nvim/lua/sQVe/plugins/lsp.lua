@@ -13,8 +13,7 @@ M.config = function()
   local lsp_utils = require('sQVe.utils.lsp')
   local map = require('sQVe.utils.vim').map
   local on_attach = function(_, bufnr)
-    -- Show LSP documetation under cursor for buffers which has LSP enabled.
-    map('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
+    lsp_utils.map_lsp_buffer_keys(bufnr)
   end
 
   local base_setup = lsp_utils.create_base_setup({
