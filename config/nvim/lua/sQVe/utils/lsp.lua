@@ -72,8 +72,24 @@ end
 M.map_lsp_buffer_keys = function(bufnr)
   local map = require('sQVe.utils.vim').map
 
+  -- Format code.
+  map(
+    'n',
+    '<Leader><Leader>',
+    require('sQVe.utils.lsp').format,
+    { buffer = bufnr }
+  )
+
   -- Show LSP documetation under cursor.
   map('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
+
+  -- Show diagnostics for current line.
+  map('n', 'gl', function()
+    vim.diagnostic.open_float(
+      0,
+      { buffer = bufnr, header = false, scope = 'line' }
+    )
+  end)
 end
 
 -- Mirror capabilities set by `update_capabilities` in `cmp-nvim-lsp`, since

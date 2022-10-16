@@ -10,6 +10,7 @@ local customized_plugins = {
   'bbye',
   'cmp',
   'comment',
+  'dap',
   'fidget',
   'fm',
   'focus',

@@ -14,6 +14,7 @@ M.init = function(use)
       'nvim-lua/plenary.nvim',
       'nvim-telescope/telescope-ui-select.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+      'nvim-telescope/telescope-dap.nvim',
     },
   })
 end
@@ -99,6 +100,9 @@ M.config = function()
     },
   })
 
+  -- Enable dap telescope extension.
+  telescope.load_extension('dap')
+
   -- Use fzf native.
   telescope.load_extension('fzf')
 
@@ -133,6 +137,8 @@ M.config = function()
   map('n', 'å', function()
     require('sQVe.plugins.telescope').find_files(true)
   end)
+
+  map('n', '<Leader>i', telescope.extensions.dap.commands)
 end
 
 return M
