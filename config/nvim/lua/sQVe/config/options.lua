@@ -9,7 +9,6 @@ local options = {
   exrc = true,                                      -- Source local vimrc at root directory.
   gdefault = true,                                  -- Use 'g' flag by default with :s/foo/bar/.
   lazyredraw = true,                                -- Enable lazy redraw.
-  mouse = 'a',                                      -- Enable mouse.
   scrolloff = 8,                                    -- Set scroll offset to 8 lines.
   shortmess =
     vim.opt.shortmess  + { I = true, c = true },    -- Disable version intro text.
@@ -64,6 +63,10 @@ local options = {
   foldnestmax = 4,                                  -- Folding max.
   foldlevelstart = 9999,                            -- Folding level.
   foldtext = [[substitute(getline(v:foldstart), '\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]],
+
+  -- Mouse.
+  mouse = 'a',                                      -- Enable mouse.
+  mousemodel = 'extend',                            -- Right mouse extends selection,
 
   -- Programs.
   grepformat = '%f:%l:%c:%m,%f:%l:%m',
