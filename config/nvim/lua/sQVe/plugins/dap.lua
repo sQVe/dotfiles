@@ -8,7 +8,8 @@ local M = {}
 M.init = function(use)
   use({
     'mfussenegger/nvim-dap',
-    commands = {
+    after = 'rust-tools.nvim',
+    cmd = {
       'DapSetLogLevel',
       'DapShowLog',
       'DapContinue',
@@ -38,7 +39,6 @@ M.configs = {
   dap = function()
     local dap = require('dap')
     local get_codelldb_adapter = require('rust-tools.dap').get_codelldb_adapter
-    local map = require('sQVe.utils.vim').map
 
     local codelldb_path = '/usr/bin/codelldb'
     local liblldb_path = '/usr/lib/liblldb.so'
