@@ -86,7 +86,7 @@ M.config = function()
           group = format_augroup,
           buffer = bufnr,
           callback = function()
-            lsp_utils.format(bufnr)
+            lsp_utils.format(bufnr, false)
           end,
         })
       end
