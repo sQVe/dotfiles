@@ -6,6 +6,7 @@
 local options = {
   clipboard = 'unnamedplus',                        -- Use the + (clipboard) register.
   conceallevel = 0,                                 -- Disable conceal.
+  confirm = true,                                   -- Ask to save modified changes when exiting.
   exrc = true,                                      -- Source local vimrc at root directory.
   gdefault = true,                                  -- Use 'g' flag by default with :s/foo/bar/.
   lazyredraw = true,                                -- Enable lazy redraw.
@@ -48,7 +49,7 @@ local options = {
   completeopt = { 'menu','menuone', 'noselect' },   -- Set compete options.
   pumheight = 20,                                   -- Show max 20 items in completion menu.
   wildignorecase = true,                            -- Disable case check for wildmenu.
-  wildmode = 'longest:full',                        -- Set wildmenu modes.
+  wildmode = { 'longest:full', 'full' },            -- Set wildmenu modes.
 
   -- Disable backups.
   backup = false,
