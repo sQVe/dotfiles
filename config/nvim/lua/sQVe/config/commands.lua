@@ -67,6 +67,7 @@ command('CommitMsgFromBranchName', function()
     vim.api.nvim_command('normal kdd')
     vim.api.nvim_command('substitute /\\//: /e')
     vim.api.nvim_command('substitute /-/ /e')
+    vim.api.nvim_command('nohl')
   end
 end, { nargs = 0 })
 

@@ -102,11 +102,4 @@ return require('packer').startup({
       require('sQVe.plugins.' .. customized_plugin).init(use)
     end
   end,
-  config = {
-    display = {
-      open_fn = function()
-        return require('packer.util').float({ border = 'single' })
-      end,
-    },
-  },
 })

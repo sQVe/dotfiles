@@ -55,16 +55,28 @@ M.config = function()
     overrides = overrides,
   })
 
+  -- Set diagnostic signs.
+  vim.fn.sign_define(
+    'DiagnosticSignError',
+    { text = '■', texthl = 'DiagnosticSignError' }
+  )
+  vim.fn.sign_define(
+    'DiagnosticSignHint',
+    { text = '■', texthl = 'DiagnosticSignHint' }
+  )
+  vim.fn.sign_define(
+    'DiagnosticSignInfo',
+    { text = '■', texthl = 'DiagnosticSignInfo' }
+  )
+  vim.fn.sign_define(
+    'DiagnosticSignWarn',
+    { text = '■', texthl = 'DiagnosticSignWarn' }
+  )
+
   vim.o.background = 'dark'
   vim.cmd([[
     " Set colorscheme.
     colorscheme gruvbox
-
-    " Set diagnostic signs.
-    sign define DiagnosticSignError text=■ texthl=DiagnosticSignError
-    sign define DiagnosticSignHint text=■ texthl=DiagnosticSignHint
-    sign define DiagnosticSignInfo text=■ texthl=DiagnosticSignInfo
-    sign define DiagnosticSignWarn text=■ texthl=DiagnosticSignWarn
 
     " Telescope.
     hi! link TelescopeBorder GruvboxYellowBold

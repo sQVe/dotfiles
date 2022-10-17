@@ -38,12 +38,13 @@ end
 M.configs = {
   dap = function()
     local dap = require('dap')
-    local get_codelldb_adapter = require('rust-tools.dap').get_codelldb_adapter
+    local rust_tools = require('rust-tools')
 
     local codelldb_path = '/usr/bin/codelldb'
     local liblldb_path = '/usr/lib/liblldb.so'
 
-    dap.adapters.codelldb = get_codelldb_adapter(codelldb_path, liblldb_path)
+    dap.adapters.codelldb =
+      rust_tools.dap.get_codelldb_adapter(codelldb_path, liblldb_path)
 
     dap.configurations.rust = {
       {
@@ -51,16 +52,29 @@ M.configs = {
         name = 'Debug executable',
         request = 'launch',
         program = function()
-          return vim.fn.input(
-            'Path to executable: ',
-            vim.fn.getcwd() .. '/target/debug/',
-            'file'
-          )
+          local cwd = vim.fn.getcwd()
+          local current_directory = vim.fn.fnamemodify(cwd, ':t')
+          local debug_path = cwd .. '/target/debug/' .. current_directory
+
+          return vim.fn.input('Path to binary: ', debug_path, 'file')
         end,
         cwd = '${workspaceFolder}',
         stopOnEntry = false,
       },
     }
+
+    vim.fn.sign_define(
+      'DapBreakpoint',
+      { text = '', texthl = 'GruvboxRedSign' }
+    )
+    vim.fn.sign_define(
+      'DapBreakpointCondition',
+      { text = '', texthl = 'GruvboxYellowSign' }
+    )
+    vim.fn.sign_define(
+      'DapStopped',
+      { text = '', texthl = 'GruvboxGreenSign' }
+    )
   end,
   dap_go = function()
     require('dap-go').setup()
