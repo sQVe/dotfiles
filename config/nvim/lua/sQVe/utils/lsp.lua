@@ -4,22 +4,20 @@
 
 local M = {}
 
-M.create_diagnostics_handler = function(ignored_codes)
-  return function(...)
-    local params = select(2, ...)
+M.diagnostic_handler = function(_, result, ctx, ...)
+  local client = vim.lsp.get_client_by_id(ctx.client_id)
 
-    if params.diagnostics ~= nil then
-      for idx, diagnostic in ipairs(params.diagnostics) do
-        for _, code in ipairs(ignored_codes) do
-          if diagnostic.code == code then
-            table.remove(params.diagnostics, idx)
-          end
-        end
-      end
-    end
+  if client and client.name == 'tsserver' then
+    -- More codes can be found here:
+    -- https://github.com/microsoft/TypeScript/blob/main/src/compiler/diagnosticMessages.json
+    local ignored_codes = { 80001 }
 
-    vim.lsp.handlers['textDocument/publishDiagnostics'](...)
+    result.diagnostics = vim.tbl_filter(function(diagnostic)
+      return not vim.tbl_contains(ignored_codes, diagnostic.code)
+    end, result.diagnostics)
   end
+
+  return vim.lsp.diagnostic.on_publish_diagnostics(nil, result, ctx, ...)
 end
 
 M.create_base_setup = function(settings)

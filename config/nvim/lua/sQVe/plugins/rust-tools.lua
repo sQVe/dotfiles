@@ -26,7 +26,12 @@ M.config = function()
       adapter = get_codelldb_adapter(codelldb_path, liblldb_path),
     },
     tools = {
-      inlay_hints = { auto = false },
+      inlay_hints = {
+        -- auto = false,
+        highlight = 'LspCodeLens',
+        other_hints_prefix = '    ',
+        parameter_hints_prefix = '    ',
+      },
     },
     server = {
       on_attach = function(_, bufnr)

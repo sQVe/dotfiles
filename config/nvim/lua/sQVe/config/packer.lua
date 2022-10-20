@@ -29,6 +29,7 @@ local customized_plugins = {
   'surround',
   'telescope',
   'treesitter',
+  'typescript',
   'vsnip',
 }
 
