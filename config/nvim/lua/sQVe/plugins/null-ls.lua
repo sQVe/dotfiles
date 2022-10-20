@@ -110,7 +110,10 @@ M.config = function()
       }),
       formatters.stylua.with({ runtime_condition = stylua_runtime_condition }),
 
-      linters.eslint_d.with({ runtime_condition = eslint_runtime_condition }),
+      linters.eslint_d.with({
+        runtime_condition = eslint_runtime_condition,
+        timeout = 20000,
+      }),
       linters.shellcheck,
       linters.vale.with({ runtime_condition = vale_runtime_condition }),
     },
