@@ -25,14 +25,7 @@ M.config = function()
     dap = {
       adapter = get_codelldb_adapter(codelldb_path, liblldb_path),
     },
-    tools = {
-      inlay_hints = {
-        -- auto = false,
-        highlight = 'LspCodeLens',
-        other_hints_prefix = '    ',
-        parameter_hints_prefix = '    ',
-      },
-    },
+    tools = { inlay_hints = { auto = false } },
     server = {
       on_attach = function(_, bufnr)
         lsp_utils.map_lsp_buffer_keys(bufnr)
