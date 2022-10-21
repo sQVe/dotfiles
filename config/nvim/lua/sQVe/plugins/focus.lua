@@ -10,7 +10,6 @@ M.init = function(use)
     'beauwilliams/focus.nvim',
     config = M.config,
     event = 'BufEnter',
-    module = 'focus',
   })
 end
 

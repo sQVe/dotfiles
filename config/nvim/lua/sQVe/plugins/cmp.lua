@@ -10,7 +10,7 @@ M.init = function(use)
     'hrsh7th/nvim-cmp',
     config = M.config,
     event = { 'CmdlineEnter', 'InsertEnter' },
-    requires = { 'onsails/lspkind-nvim' },
+    requires = { { 'onsails/lspkind-nvim', module = 'lspkind' } },
   })
   use({ 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }) -- Buffer completion.
   use({ 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }) -- Command completion.

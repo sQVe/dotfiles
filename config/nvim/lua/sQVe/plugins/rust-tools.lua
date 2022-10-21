@@ -10,6 +10,7 @@ M.init = function(use)
     'simrat39/rust-tools.nvim',
     after = 'nvim-lspconfig',
     config = M.config,
+    ft = 'rust',
   })
 end
 

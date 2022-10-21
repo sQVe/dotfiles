@@ -11,10 +11,10 @@ M.init = function(use)
     config = M.config,
     event = 'BufEnter',
     requires = {
-      'nvim-lua/plenary.nvim',
+      { 'nvim-lua/plenary.nvim', module = 'plenary' },
+      'nvim-telescope/telescope-dap.nvim',
       'nvim-telescope/telescope-ui-select.nvim',
       { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
-      'nvim-telescope/telescope-dap.nvim',
     },
   })
 end

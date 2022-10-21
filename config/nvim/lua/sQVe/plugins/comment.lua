@@ -18,7 +18,7 @@ M.init = function(use)
     requires = {
       {
         'JoosepAlviste/nvim-ts-context-commentstring',
-        after = 'nvim-treesitter',
+        module = 'ts_context_commentstring',
       },
     },
   })
