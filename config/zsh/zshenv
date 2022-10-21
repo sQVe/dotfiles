@@ -6,7 +6,10 @@ if [[ -f $ZDOTDIR/secretenv ]]; then
   source $ZDOTDIR/secretenv
 fi
 
+# GPG.
 export GPG_TTY="$(tty)"
+export SSH_AGENT_PID=""
+export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 
 # Set default node version.
 export PATH="$PATH:$BIN_HOME:$GOPATH_BIN:$($SCRIPTS/default-node-version.sh)"

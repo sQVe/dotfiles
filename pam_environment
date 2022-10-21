@@ -25,10 +25,6 @@ PICTURES         DEFAULT=@{HOME}/pictures
 SCRIPTS          DEFAULT=@{HOME}/scripts
 WORK             DEFAULT=@{HOME}/work
 
-# Runtime.
-SSH_AUTH_SOCK  DEFAULT=${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh
-XAUTHORITY     DEFAULT=${XDG_RUNTIME_DIR}/Xauthority
-
 # Application config.
 ANDROID_AVD_HOME      DEFAULT=${XDG_DATA_HOME}/android/virtual
 ANDROID_EMULATOR_HOME DEFAULT=${XDG_DATA_HOME}/android/emulator
