@@ -14,7 +14,7 @@ map('', 'qö', 'q:', { silent = false })
 map('', 'qÖ', 'q:', { silent = false })
 
 -- Escape terminal.
-map('t', '<C-q>', '<C-><C-n>')
+map('t', '<Esc><Esc>', '<C-\\><C-N>')
 
 -- Add certain motions to jumplist.
 map('i', '<Down>', '<C-o>gj')

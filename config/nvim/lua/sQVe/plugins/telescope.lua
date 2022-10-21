@@ -12,9 +12,19 @@ M.init = function(use)
     event = 'BufEnter',
     requires = {
       { 'nvim-lua/plenary.nvim', module = 'plenary' },
-      'nvim-telescope/telescope-dap.nvim',
-      'nvim-telescope/telescope-ui-select.nvim',
-      { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' },
+      {
+        'nvim-telescope/telescope-dap.nvim',
+        module = 'telescope._extensions.dap',
+      },
+      {
+        'nvim-telescope/telescope-ui-select.nvim',
+        module = 'telescope._extensions.ui-select',
+      },
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        module = 'telescope._extensions.fzf',
+        run = 'make',
+      },
     },
   })
 end
