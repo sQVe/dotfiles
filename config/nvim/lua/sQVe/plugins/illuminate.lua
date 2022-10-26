@@ -17,7 +17,7 @@ M.config = function()
   require('illuminate').configure({
     delay = 250,
     modes_allowlist = { 'n' },
-    providers = { 'lsp', 'treesitter' },
+    providers = { 'treesitter' },
   })
 end
 
