@@ -17,6 +17,7 @@ local customized_plugins = {
   'fugitive',
   'gitsigns',
   'gruvbox',
+  'illuminate',
   'indent-blankline',
   'leap',
   'lsp',
