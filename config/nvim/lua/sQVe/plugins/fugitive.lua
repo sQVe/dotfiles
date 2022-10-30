@@ -12,20 +12,20 @@ M.init = function(use)
 end
 
 M.config = function()
+  local map = require('sQVe.utils.vim').map
+
   vim.g.fugitive_pty = 0
   vim.g.fugitive_gitlab_domains = { 'https://git.detectify.net/' }
 
-  vim.cmd([[
-    nnoremap <Leader>G :Git<Space>
-    nnoremap <silent> <Leader>gb <Cmd>Git blame<CR>
-    nnoremap <silent> <Leader>gd <Cmd>Gdiffsplit<CR>
-    nnoremap <silent> <Leader>gl <Cmd>vertical Git log --oneline<CR>
-    nnoremap <silent> <Leader>gL <Cmd>vertical Git log --oneline %<CR>
-    nnoremap <silent> <Leader>gq <Cmd>Gclog %<CR>
-    nnoremap <silent> <Leader>gQ <Cmd>Gclog<CR>
-    nnoremap <silent> <Leader>gmt <Cmd>DiffConflicts<CR>
-    nnoremap <silent> <Leader>gs <Cmd>vertical Git<CR>
-  ]])
+  map('n', '<Leader>G', ':Git<Space>')
+  map('n', '<Leader>gb', '<Cmd>Git blame<CR>')
+  map('n', '<Leader>gd', '<Cmd>Gdiffsplit<CR>')
+  map('n', '<Leader>gl', '<Cmd>vertical Git log --oneline<CR>')
+  map('n', '<Leader>gL', '<Cmd>vertical Git log --oneline %<CR>')
+  map('n', '<Leader>gq', '<Cmd>Gclog<CR>')
+  map('n', '<Leader>gQ', '<Cmd>Gclog %<CR>')
+  map('n', '<Leader>gmt', '<Cmd>DiffConflicts<CR>')
+  map('n', '<Leader>gs', '<Cmd>vertical Git<CR>')
 end
 
 return M
