@@ -26,6 +26,7 @@ local customized_plugins = {
   'pasta',
   'project',
   'rust-tools',
+  'scroll',
   'sort',
   'surround',
   'telescope',
