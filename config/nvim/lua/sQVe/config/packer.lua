@@ -12,7 +12,6 @@ local customized_plugins = {
   'comment',
   'dap',
   'fidget',
-  'fm',
   'focus',
   'fugitive',
   'gitsigns',
@@ -42,20 +41,20 @@ return require('packer').startup({
     -- Optimize startup.
     use({ 'lewis6991/impatient.nvim' })
 
-    -- Repeat for plugins.
-    use({ 'tpope/vim-repeat', event = 'BufEnter' })
+    -- Dependencies.
+    use({ 'tpope/vim-repeat', event = 'BufEnter' }) -- Repeat support.
+    use({ 'nvim-lua/plenary.nvim', module = 'plenary' }) -- Lua utilities.
 
     -- Editorconfig.
     use({ 'gpanders/editorconfig.nvim', event = 'BufEnter' })
 
-    -- Git mergetool.
+    -- Improved f, F, t, and T motions.
     use({
-      'whiteinge/diffconflicts',
-      cmd = {
-        'DiffConflicts',
-        'DiffConflictsShowHistory',
-        'DiffConflictsWithHistory ',
-      },
+      'ggandor/flit.nvim',
+      after = 'leap.nvim',
+      config = function()
+        require('flit').setup()
+      end,
     })
 
     -- Complete pairs.
@@ -81,23 +80,29 @@ return require('packer').startup({
       },
     })
 
-    -- Improved f, F, t, and T motions.
+    -- Git mergetool.
     use({
-      'ggandor/flit.nvim',
-      after = 'leap.nvim',
+      'whiteinge/diffconflicts',
+      cmd = {
+        'DiffConflicts',
+        'DiffConflictsShowHistory',
+        'DiffConflictsWithHistory ',
+      },
+    })
+
+    -- Complete pairs.
+    use({
+      'windwp/nvim-autopairs',
+      event = { 'InsertEnter' },
       config = function()
-        require('flit').setup()
+        require('nvim-autopairs').setup()
       end,
     })
 
-    -- Smart selection.
-    use({ 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter' })
-
-    -- Indent text object.
-    use({ 'michaeljsmith/vim-indent-object', event = 'CursorMoved' })
-
-    -- Additional text objects.
-    use({ 'wellle/targets.vim', event = 'CursorMoved' })
+    -- Text objects.
+    use({ 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter' }) -- Smart selection.
+    use({ 'michaeljsmith/vim-indent-object', event = 'CursorMoved' }) -- Indent text object.
+    use({ 'wellle/targets.vim', event = 'CursorMoved' }) -- Additional text objects.
 
     -- Initialize all customized plugins.
     for _, customized_plugin in ipairs(customized_plugins) do

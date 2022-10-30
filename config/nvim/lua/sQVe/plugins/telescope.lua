@@ -11,7 +11,6 @@ M.init = function(use)
     config = M.config,
     event = 'BufEnter',
     requires = {
-      { 'nvim-lua/plenary.nvim', module = 'plenary' },
       {
         'nvim-telescope/telescope-dap.nvim',
         module = 'telescope._extensions.dap',
@@ -69,12 +68,11 @@ M.config = function()
       dynamic_preview_title = true,
       layout_strategy = 'flex',
       layout_config = {
-        height = 0.8,
+        height = 0.9,
         prompt_position = 'top',
-        width = 0.8,
+        width = 0.9,
         flex = { flip_columns = 280 },
-        horizontal = { preview_width = 80 },
-        vertical = { preview_height = 0.25 },
+        vertical = { preview_height = 0.4 },
       },
       mappings = {
         i = {
@@ -138,13 +136,13 @@ M.config = function()
     builtin.diagnostics({ bufnr = 0 })
   end)
   map('n', '<Leader>L', builtin.diagnostics)
-  map('n', '<Leader>s', builtin.lsp_document_symbols)
-  map('n', '<Leader>S', builtin.lsp_dynamic_workspace_symbols)
+  map('n', '<Leader>s', builtin.lsp_dynamic_workspace_symbols)
+  map('n', '<Leader>S', builtin.lsp_document_symbols)
   map('n', 'z=', builtin.spell_suggest)
 
   map('n', '<Leader><Backspace>', require('sQVe.plugins.telescope').git_status)
   map('n', 'ä', require('sQVe.plugins.telescope').find_files)
-  map('n', 'å', function()
+  map('n', 'Ä', function()
     require('sQVe.plugins.telescope').find_files(true)
   end)
 

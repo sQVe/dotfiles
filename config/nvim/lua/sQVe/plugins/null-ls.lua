@@ -10,9 +10,6 @@ M.init = function(use)
     'jose-elias-alvarez/null-ls.nvim',
     after = 'nvim-lspconfig',
     config = M.config,
-    requires = {
-      { 'nvim-lua/plenary.nvim', module = 'plenary' },
-    },
   })
 end
 

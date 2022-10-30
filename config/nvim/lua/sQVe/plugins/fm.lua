@@ -36,10 +36,10 @@ M.config = function()
   })
 
   -- Open Vifm in PWD.
-  map('n', 'Ä', '<Cmd>Vifm<CR>')
+  -- map('n', 'å', '<Cmd>Vifm<CR>')
 
   -- Open Vifm relative to current buffer.
-  map('n', 'Å', '<Cmd>Vifm %:p:h<CR>')
+  -- map('n', 'Å', '<Cmd>Vifm %:p:h<CR>')
 end
 
 return M

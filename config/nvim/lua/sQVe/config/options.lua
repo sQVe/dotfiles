@@ -84,7 +84,7 @@ local options = {
   spelllang = 'en_us',
   spelloptions = 'camel',
 
-  -- Status and winbar.
+  -- Status and winbar.                             -- Global statusline.
   laststatus = 3,
   winbar = "%{%v:lua.require('sQVe.utils.options').get_winbar_layout()%}",
 

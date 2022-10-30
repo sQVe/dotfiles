@@ -10,9 +10,6 @@ M.init = function(use)
     'lewis6991/gitsigns.nvim',
     config = M.config,
     event = 'BufEnter',
-    requires = {
-      { 'nvim-lua/plenary.nvim', module = 'plenary' },
-    },
   })
 end
 
