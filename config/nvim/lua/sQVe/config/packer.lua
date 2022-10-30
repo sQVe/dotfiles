@@ -7,6 +7,7 @@ vim.cmd('packadd cfilter')
 
 local customized_plugins = {
   'alpha',
+  'autopairs',
   'bbye',
   'cmp',
   'comment',
@@ -57,15 +58,6 @@ return require('packer').startup({
       end,
     })
 
-    -- Complete pairs.
-    use({
-      'windwp/nvim-autopairs',
-      event = { 'InsertEnter' },
-      config = function()
-        require('nvim-autopairs').setup()
-      end,
-    })
-
     -- Interactive registers.
     use({
       'tversteeg/registers.nvim',
@@ -88,15 +80,6 @@ return require('packer').startup({
         'DiffConflictsShowHistory',
         'DiffConflictsWithHistory ',
       },
-    })
-
-    -- Complete pairs.
-    use({
-      'windwp/nvim-autopairs',
-      event = { 'InsertEnter' },
-      config = function()
-        require('nvim-autopairs').setup()
-      end,
     })
 
     -- Text objects.

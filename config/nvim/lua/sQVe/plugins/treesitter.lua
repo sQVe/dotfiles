@@ -12,6 +12,13 @@ M.init = function(use)
     event = 'BufEnter',
     run = ':TSUpdate',
   })
+  use({
+    'windwp/nvim-ts-autotag',
+    after = 'nvim-treesitter',
+    config = function()
+      require('nvim-ts-autotag').setup()
+    end,
+  })
 end
 
 M.config = function()

@@ -6,7 +6,7 @@
 local M = {}
 
 M.init = function(use)
-  use({ 'j-hui/fidget.nvim', after = 'lualine.nvim', config = M.config })
+  use({ 'j-hui/fidget.nvim', config = M.config, event = 'BufEnter' })
 end
 
 M.config = function()
