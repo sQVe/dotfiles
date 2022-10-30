@@ -188,6 +188,9 @@ noremap <C-w><C-q> :quit<CR>
 " Sane tagging.
 noremap t tj
 
+" Toggle showing ignored files.
+noremap zi za
+
 " Word forward/backward with Ctrl-Left and Ctrl-Right.
 cnoremap <Esc>[1;5C <A-f>
 cnoremap <Esc>[1;5D <A-b>
@@ -219,7 +222,7 @@ nnoremap cc cw<C-u>
 nnoremap af :touch<Space>
 nnoremap ad :mkdir<Space>
 
-" Fasd.
+" Z.
 nnoremap <Space>z :z<Space>
 
 " Move between open windows.

@@ -18,12 +18,6 @@ for _, augroup_key in ipairs(augroup_keys) do
   table.insert(augroups, vim.api.nvim_create_augroup(augroup_key, {}))
 end
 
--- Resize windows on VimResized.
-autocmd(
-  'VimResized',
-  { group = augroups.VimResized, callback = require('focus').resize }
-)
-
 -- Force formatoptionsasd to exclude 'o'.
 autocmd('FileType', {
   group = augroups.ExcludeFormatOptions,

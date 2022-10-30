@@ -61,6 +61,8 @@ M.config = function()
   local telescope = require('telescope')
   local actions = require('telescope.actions')
   local builtin = require('telescope.builtin')
+  local utils = require('telescope.utils')
+
   local map = require('sQVe.utils.vim').map
 
   telescope.setup({
@@ -121,12 +123,12 @@ M.config = function()
     builtin.oldfiles({ cwd_only = true })
   end)
   map('n', '<Leader>U', builtin.resume)
+
   map('n', '<Backspace>', function()
     builtin.buffers({ sort_mru = true })
   end)
-  map('n', '<Leader>+', builtin.live_grep)
-  map('n', '<Leader>/', builtin.live_grep)
-  map('n', '<Leader>?', builtin.live_grep)
+  map('n', '<Leader><Backspace>', require('sQVe.plugins.telescope').git_status)
+
   map('n', 'gR', builtin.grep_string)
   map('n', 'gd', builtin.lsp_definitions)
   map('n', 'gD', builtin.lsp_implementations)
@@ -140,7 +142,10 @@ M.config = function()
   map('n', '<Leader>S', builtin.lsp_document_symbols)
   map('n', 'z=', builtin.spell_suggest)
 
-  map('n', '<Leader><Backspace>', require('sQVe.plugins.telescope').git_status)
+  map('n', 'å', builtin.live_grep)
+  map('n', 'Å', function()
+    builtin.live_grep({ cwd = utils.buffer_dir() })
+  end)
   map('n', 'ä', require('sQVe.plugins.telescope').find_files)
   map('n', 'Ä', function()
     require('sQVe.plugins.telescope').find_files(true)

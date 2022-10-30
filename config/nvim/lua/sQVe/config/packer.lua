@@ -29,6 +29,7 @@ local customized_plugins = {
   'sort',
   'surround',
   'telescope',
+  'tree',
   'treesitter',
   'typescript',
   'vsnip',
@@ -45,6 +46,7 @@ return require('packer').startup({
     -- Dependencies.
     use({ 'tpope/vim-repeat', event = 'BufEnter' }) -- Repeat support.
     use({ 'nvim-lua/plenary.nvim', module = 'plenary' }) -- Lua utilities.
+    use({ 'nvim-tree/nvim-web-devicons', module = 'nvim-web-devicons' }) -- File icons.
 
     -- Editorconfig.
     use({ 'gpanders/editorconfig.nvim', event = 'BufEnter' })

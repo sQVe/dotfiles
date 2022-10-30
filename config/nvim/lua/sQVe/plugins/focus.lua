@@ -14,10 +14,18 @@ M.init = function(use)
 end
 
 M.config = function()
+  local autocmd = require('sQVe.utils.vim').autocmd
+
   require('focus').setup({
-    excluded_filetypes = { 'fugitiveblame' },
+    excluded_filetypes = { 'NvimTree', 'fugitiveblame' },
     number = false,
     signcolumn = false,
+  })
+
+  -- Resize windows on VimResized.
+  autocmd('VimResized', {
+    group = vim.api.nvim_create_augroup('VimResized', {}),
+    callback = require('focus').resize,
   })
 end
 
