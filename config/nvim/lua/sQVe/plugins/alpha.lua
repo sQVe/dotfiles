@@ -27,13 +27,14 @@ M.config = function()
       '📝  Find File',
       '<Cmd>lua require("sQVe.plugins.telescope").find_files()<CR>'
     ),
+    dashboard.button('å', '🔎  Live Word', '<Cmd>Telescope live_grep<CR>'),
     dashboard.button(
       '<Leader>f',
       '📁  File Manager',
       '<Cmd>NvimTreeToggle<CR>'
     ),
     dashboard.button(
-      's',
+      '<Backspace>',
       '🔴  Git Status',
       '<Cmd>lua require("sQVe.plugins.telescope").git_status()<CR>'
     ),
@@ -42,7 +43,6 @@ M.config = function()
       '🎒  Recently Used Files',
       '<Cmd>Telescope oldfiles cwd_only=true<CR>'
     ),
-    dashboard.button('å', '🔎  Grep Word', '<Cmd>Telescope live_grep<CR>'),
     dashboard.button('e', '💎  New File', '<Cmd>enew<CR>'),
     dashboard.button('C', '🛠️  Packer Compile', '<Cmd>PackerCompile<CR>'),
     dashboard.button('S', '🔃  Packer Sync', '<Cmd>PackerSync<CR>'),

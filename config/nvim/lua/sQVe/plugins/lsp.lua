@@ -64,8 +64,7 @@ M.config = function()
   map('n', '<Leader>r', vim.lsp.buf.rename)
 
   -- List code actions.
-  map('n', '<Leader>a', vim.lsp.buf.code_action)
-  map('x', '<Leader>a', vim.lsp.buf.range_code_action)
+  map({ 'n', 'x' }, '<Leader>a', vim.lsp.buf.code_action)
 
   -- Move to next or previous diagnostic item.
   map('n', '<Leader>lj', function()
