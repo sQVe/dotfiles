@@ -14,9 +14,7 @@ M.init = function(use)
 end
 
 M.config = function()
-  require('neoscroll').setup({
-    respect_scrolloff = true,
-  })
+  require('neoscroll').setup()
 
   require('neoscroll.config').set_mappings({
     ['<C-u>'] = { 'scroll', { '-vim.wo.scroll', 'true', '100' } },
