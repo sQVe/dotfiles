@@ -4,14 +4,23 @@ separator_block_width=14
 
 [cpu-usage]
 interval=2
-label=﬙ 
+label=﬙
 
 [temperature]
 interval=2
-label= 
-
-[vpn]
+label=
+[screensaver]
 interval=10
+
+[display-mode]
+interval=10
+signal=2
+label=
+
+[brightness]
+interval=once
+signal=10
+label=
 
 [wifi]
 interval=10
@@ -19,18 +28,12 @@ interval=10
 [ethernet]
 interval=10
 
-[screensaver]
+[vpn]
 interval=10
 
-[display-mode]
-interval=10
-signal=2
-label= 
-
-[brightness]
-interval=once
-signal=10
-label=
+[github]
+interval=120
+label=
 
 [microphone]
 interval=10
@@ -43,10 +46,6 @@ signal=8
 [battery]
 interval=5
 markup=pango
-
-[github]
-interval=120
-label= 
 
 [time]
 interval=60
