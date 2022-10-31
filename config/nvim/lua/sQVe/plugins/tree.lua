@@ -46,8 +46,8 @@ M.config = function()
 
           { key = '{', action = 'first_sibling' },
           { key = '}', action = 'last_sibling' },
-          { key = '(', action = 'prev_sibling' },
-          { key = ')', action = 'next_sibling' },
+          { key = '<C-k>', action = 'prev_sibling' },
+          { key = '<C-j>', action = 'next_sibling' },
 
           { key = 'K', action = 'toggle_file_info' },
           {
