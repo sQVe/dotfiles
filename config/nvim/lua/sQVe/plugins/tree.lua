@@ -18,6 +18,12 @@ M.config = function()
   local map = require('sQVe.utils.vim').map
 
   require('nvim-tree').setup({
+    actions = {
+      open_file = {
+        resize_window = false,
+        window_picker = { enable = false },
+      },
+    },
     filters = { dotfiles = true },
     hijack_cursor = true,
     remove_keymaps = true,
@@ -36,7 +42,10 @@ M.config = function()
 
       mappings = {
         list = {
-          { key = { '<CR>', '<Right>', 'l', '<2-LeftMouse' }, action = 'edit' },
+          {
+            key = { '<CR>', '<Right>', 'l', '<2-LeftMouse>' },
+            action = 'edit',
+          },
           { key = { '<Left>', 'h' }, action = 'close_node' },
           { key = { 'cd' }, action = 'cd' },
 
