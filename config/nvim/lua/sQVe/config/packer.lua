@@ -84,8 +84,9 @@ return require('packer').startup({
       },
     })
 
+    use({ 'stevearc/dressing.nvim', after = 'telescope.nvim' })
+
     -- Text objects.
-    use({ 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter' }) -- Smart selection.
     use({ 'michaeljsmith/vim-indent-object', event = 'CursorMoved' }) -- Indent text object.
     use({ 'wellle/targets.vim', event = 'CursorMoved' }) -- Additional text objects.
 

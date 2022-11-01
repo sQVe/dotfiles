@@ -12,6 +12,8 @@ M.init = function(use)
     event = 'BufEnter',
     run = ':TSUpdate',
   })
+
+  use({ 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter' }) -- Smart selection.
   use({
     'windwp/nvim-ts-autotag',
     after = 'nvim-treesitter',
