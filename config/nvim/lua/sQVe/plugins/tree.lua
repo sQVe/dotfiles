@@ -36,9 +36,9 @@ M.config = function()
     system_open = { cmd = 'mimeo', args = { '-q' } },
     trash = { cmd = 'trash' },
     view = {
-      adaptive_size = true,
       hide_root_folder = true,
       preserve_window_proportions = true,
+      width = 40,
 
       mappings = {
         list = {
