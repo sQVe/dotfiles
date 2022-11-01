@@ -10,6 +10,7 @@ M.init = function(use)
     'nvim-treesitter/nvim-treesitter',
     config = M.config,
     event = 'BufEnter',
+    module = 'nvim-treesitter',
     run = ':TSUpdate',
   })
 

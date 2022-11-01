@@ -38,7 +38,7 @@ local customized_plugins = {
 return require('packer').startup({
   function(use)
     -- Handle packer with packer.
-    use({ 'wbthomason/packer.nvim', opt = true })
+    use({ 'wbthomason/packer.nvim' })
 
     -- Optimize startup.
     use({ 'lewis6991/impatient.nvim' })
