@@ -10,15 +10,8 @@ M.init = function(use)
     'nvim-telescope/telescope.nvim',
     config = M.config,
     event = 'BufEnter',
+    module = 'telescope',
     requires = {
-      {
-        'nvim-telescope/telescope-dap.nvim',
-        module = 'telescope._extensions.dap',
-      },
-      {
-        'nvim-telescope/telescope-ui-select.nvim',
-        module = 'telescope._extensions.ui-select',
-      },
       {
         'nvim-telescope/telescope-fzf-native.nvim',
         module = 'telescope._extensions.fzf',
@@ -110,14 +103,8 @@ M.config = function()
     },
   })
 
-  -- Enable dap telescope extension.
-  telescope.load_extension('dap')
-
   -- Use fzf native.
   telescope.load_extension('fzf')
-
-  -- Set vim.ui.select to telescope.
-  telescope.load_extension('ui-select')
 
   map('n', '<Leader>u', function()
     builtin.oldfiles({ cwd_only = true })
@@ -150,8 +137,6 @@ M.config = function()
   map('n', 'Ä', function()
     require('sQVe.plugins.telescope').find_files(true)
   end)
-
-  map('n', '<Leader>i', telescope.extensions.dap.commands)
 end
 
 return M

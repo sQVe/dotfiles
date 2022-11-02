@@ -9,22 +9,18 @@ M.init = function(use)
   use({
     'mfussenegger/nvim-dap',
     after = 'rust-tools.nvim',
-    cmd = {
-      'DapSetLogLevel',
-      'DapShowLog',
-      'DapContinue',
-      'DapToggleBreakpoint',
-      'DapToggleRepl',
-      'DapStepOver',
-      'DapStepInto',
-      'DapStepOut',
-      'DapTerminate',
-      'DapLoadLaunchJSON',
-      'DapRestartFrame',
-      'RustDebuggables',
+    ft = {
+      'go',
+      'rust',
     },
     config = M.configs.dap,
-    requires = { 'rust-tools.nvim' },
+    -- Need rust tools internals to set CodeLLDB.
+    -- Need telescope to setup dap telescope extension.
+    requires = { 'rust-tools.nvim', 'telescope.nvim' },
+  })
+  use({
+    'nvim-telescope/telescope-dap.nvim',
+    module = 'telescope._extensions.dap',
   })
   use({ 'rcarriga/nvim-dap-ui', after = 'nvim-dap', config = M.configs.dap_ui })
   use({ 'leoluz/nvim-dap-go', after = 'nvim-dap', config = M.configs.dap_go })
@@ -38,7 +34,9 @@ end
 M.configs = {
   dap = function()
     local dap = require('dap')
+    local map = require('sQVe.utils.vim').map
     local rust_tools = require('rust-tools')
+    local telescope = require('telescope')
 
     local codelldb_path = '/usr/bin/codelldb'
     local liblldb_path = '/usr/lib/liblldb.so'
@@ -75,6 +73,9 @@ M.configs = {
       'DapStopped',
       { text = '', texthl = 'GruvboxGreenSign' }
     )
+
+    telescope.load_extension('dap')
+    map('n', '<Leader>i', telescope.extensions.dap.commands)
   end,
   dap_go = function()
     require('dap-go').setup()

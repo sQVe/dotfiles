@@ -84,6 +84,7 @@ return require('packer').startup({
       },
     })
 
+    -- Improved UI.
     use({ 'stevearc/dressing.nvim', after = 'telescope.nvim' })
 
     -- Text objects.
