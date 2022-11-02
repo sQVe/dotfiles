@@ -14,7 +14,6 @@ local options = {
   shortmess =
     vim.opt.shortmess  + { I = true, c = true },    -- Disable version intro text.
   showmode = false,                                 -- Disable show mode.
-  wrap = false,                                     -- Disable wrap.
   suffixesadd = {                                   -- File extension lookup when going to file.
     '.css',
     '.go',
