@@ -7,16 +7,15 @@ local M = {}
 
 M.init = function(use)
   use({
-
     'nvim-tree/nvim-tree.lua',
-    tag = 'nightly',
+    commands = { 'NvimTreeToggle' },
     config = M.config,
+    setup = M.setup,
+    tag = 'nightly',
   })
 end
 
 M.config = function()
-  local map = require('sQVe.utils.vim').map
-
   require('nvim-tree').setup({
     actions = {
       open_file = {
@@ -112,6 +111,10 @@ M.config = function()
       update_root = true,
     },
   })
+end
+
+M.setup = function()
+  local map = require('sQVe.utils.vim').map
 
   -- Toggle file explorer tree.
   map('n', '<Leader>f', '<Cmd>NvimTreeToggle<CR>')
