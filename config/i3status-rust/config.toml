@@ -1,0 +1,136 @@
+[theme]
+theme = "gruvbox-dark"
+[theme.overrides]
+idle_bg = ""
+idle_fg = "#bdae93"
+info_bg = ""
+info_fg = "#ebdbb2"
+good_bg = ""
+good_fg = "#83a598"
+warning_bg = ""
+warning_fg = "#fabd2f"
+critical_bg = ""
+critical_fg = "#fb4934"
+separator = " "
+separator_bg = ""
+separator_fg = ""
+
+[icons]
+icons = "material-nf"
+
+[[block]]
+block = "cpu"
+interval = 1
+format = " $frequency  $icon $barchart $utilization "
+
+[[block]]
+block = "temperature"
+format = " $icon $max "
+format_alt = " $icon $min min, $max max, $average avg "
+interval = 10
+chip = "*-isa-*"
+
+[[block]]
+block = "backlight"
+cycle = [30, 70]
+[block.theme_overrides]
+idle_bg = "#3c3836"
+idle_fg = "#ebdbb2"
+
+[[block]]
+block = "custom"
+command = "$SCRIPTS/blocks/screensaver"
+json = true
+[[block.click]]
+button = "left"
+cmd = "$SCRIPTS/toggles/screensaver.sh"
+
+[[block]]
+block = "custom"
+command = "$SCRIPTS/blocks/hue-shift"
+json = true
+interval = 5
+[[block.click]]
+button = "left"
+cmd = "$SCRIPTS/toggles/redshift.sh"
+[block.theme_overrides]
+idle_bg = "#282828"
+idle_fg = "#8ec07c"
+good_bg = "#282828"
+good_fg = "#fabd2f"
+warning_bg = "#282828"
+warning_fg = "#d3869b"
+
+[[block]]
+block = "custom"
+if_command = '''nmcli -f IN-USE device wifi | rg '^\*''''
+command =  '''nmcli -f IN-USE,SSID device wifi | rg '^\*' | awk '{ print $2 }''''
+interval = 10
+[block.theme_overrides]
+idle_fg = "#8ec07c"
+
+[[block]]
+block = "net"
+format = " $icon {$ssid |}"
+
+[[block]]
+block = "custom"
+command = "$SCRIPTS/blocks/vpn"
+interval = 10
+json = true
+[[block.click]]
+button = "left"
+cmd = "mullvad-vpn"
+
+[[block]]
+block = "sound"
+device_kind = "source"
+format = " $icon {$volume.eng(2) |}"
+max_vol = 100
+step_width = 5
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "sound"
+device_kind = "sink"
+format = " $icon {$volume.eng(2) |}"
+max_vol = 100
+step_width = 5
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "custom"
+command = "$SCRIPTS/blocks/github"
+json = true
+[[block.click]]
+button = "left"
+cmd = "$BROWSER 'https://github.com/notifications'"
+
+[[block]]
+block = "battery"
+format = " $icon $percentage "
+good = 80
+info = 60
+warning = 40
+critical = 20
+full_format = "$icon"
+[block.theme_overrides]
+idle_bg = "#83a598"
+idle_fg = "#282828"
+info_bg = "#d3869b"
+info_fg = "#282828"
+good_bg = "#8ec07c"
+good_fg = "#282828"
+warning_bg = "#fabd2f"
+warning_fg = "#282828"
+critical_bg = "#fb4934"
+critical_fg = "#282828"
+
+[[block]]
+block = "time"
+format = " $icon %Y-%m-%d %H:%M "
+interval = 60
