@@ -48,9 +48,9 @@ M.config = function()
           { key = { '<Left>', 'h' }, action = 'close_node' },
           { key = { 'cd' }, action = 'cd' },
 
-          { key = '<C-v', action = 'vsplit' },
-          { key = '<C-s', action = 'split' },
-          { key = '<C-t', action = 'tabnew' },
+          { key = '<C-v>', action = 'vsplit' },
+          { key = '<C-s>', action = 'split' },
+          { key = '<C-t>', action = 'tabnew' },
 
           { key = '{', action = 'first_sibling' },
           { key = '}', action = 'last_sibling' },
