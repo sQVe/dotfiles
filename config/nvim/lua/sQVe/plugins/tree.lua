@@ -84,7 +84,7 @@ M.config = function()
             action = 'copy_absolute_path',
           },
 
-          { key = '-', action = 'dir_up' },
+          { key = '<BS>', action = 'dir_up' },
           { key = 'i', action = 'system_open' },
 
           { key = '<C-f>', action = 'live_filter' },
@@ -117,7 +117,7 @@ M.setup = function()
   local map = require('sQVe.utils.vim').map
 
   -- Toggle file explorer tree.
-  map('n', 'Å', '<Cmd>NvimTreeToggle<CR>')
+  map('n', '-', '<Cmd>NvimTreeToggle<CR>')
 end
 
 return M
