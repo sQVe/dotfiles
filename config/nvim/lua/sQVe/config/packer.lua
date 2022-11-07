@@ -23,7 +23,6 @@ local customized_plugins = {
   'lsp',
   'lualine',
   'null-ls',
-  'pasta',
   'project',
   'rust-tools',
   'sort',
