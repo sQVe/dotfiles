@@ -7,10 +7,11 @@ local options = {
   clipboard = 'unnamedplus',                        -- Use the + (clipboard) register.
   conceallevel = 0,                                 -- Disable conceal.
   confirm = true,                                   -- Ask to save modified changes when exiting.
+  diffopt =
+    vim.opt.diffopt + { 'linematch:60' },           -- Enable second stage diff on each hunk.
   exrc = true,                                      -- Source local vimrc at root directory.
   gdefault = true,                                  -- Use 'g' flag by default with :s/foo/bar/.
-  lazyredraw = true,                                -- Enable lazy redraw.
-  scrolloff = 4,                                    -- Set scroll offset to 8 lines.
+  scrolloff = 4,                                    -- Set scroll offset to 4 lines.
   shortmess =
     vim.opt.shortmess  + { I = true, c = true },    -- Disable version intro text.
   showmode = false,                                 -- Disable show mode.
@@ -23,6 +24,7 @@ local options = {
     '.jsx',
     '.lua',
     '.md',
+    '.rs',
     '.scss',
     '.sh',
     '.ts',
