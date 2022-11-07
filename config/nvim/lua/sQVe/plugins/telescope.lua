@@ -54,7 +54,6 @@ M.config = function()
   local telescope = require('telescope')
   local actions = require('telescope.actions')
   local builtin = require('telescope.builtin')
-  local utils = require('telescope.utils')
 
   local map = require('sQVe.utils.vim').map
 
@@ -130,9 +129,6 @@ M.config = function()
   map('n', 'z=', builtin.spell_suggest)
 
   map('n', 'å', builtin.live_grep)
-  map('n', 'Å', function()
-    builtin.live_grep({ cwd = utils.buffer_dir() })
-  end)
   map('n', 'ä', require('sQVe.plugins.telescope').find_files)
   map('n', 'Ä', function()
     require('sQVe.plugins.telescope').find_files(true)

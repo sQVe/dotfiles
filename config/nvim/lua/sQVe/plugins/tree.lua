@@ -117,7 +117,7 @@ M.setup = function()
   local map = require('sQVe.utils.vim').map
 
   -- Toggle file explorer tree.
-  map('n', '<Leader>f', '<Cmd>NvimTreeToggle<CR>')
+  map('n', 'Å', '<Cmd>NvimTreeToggle<CR>')
 end
 
 return M
