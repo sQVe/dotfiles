@@ -99,14 +99,17 @@ function vifm-cd() {
 # Load keybindings after vi-mode init, ensuring that they will not be
 # overwritten.
 function zvm_after_init() {
-  bindkey -r '^T'
-
   source /usr/share/fzf/key-bindings.zsh
+
+  # # Remove default fzf bindings.
+  bindkey -r '^T'
+  bindkey -r '^[c'
+
   bindkey '^F' fzf-file-widget
   bindkey '^G' fzf-cd-widget
+  bindkey '^R' fzf-completion
 
   autopair-init
-
   bindkey '^ ' autosuggest-accept
   bindkey '^E' edit-command-line
   bindkey '^[^?' backward-kill-word
@@ -128,8 +131,14 @@ function zvm_after_init() {
 
 # Load normal and visual bindings after lazy load of vi-mode.
 function zvm_after_lazy_keybindings() {
+  # Remove default fzf bindings.
+  bindkey -M vicmd -r '^T'
+  bindkey -M vicmd -r '^[c'
+
   bindkey -M vicmd '^F' fzf-file-widget
   bindkey -M vicmd '^G' fzf-cd-widget
+  bindkey -M vicmd '^R' fzf-completion
+
   bindkey -M vicmd 'k' history-substring-search-up
   bindkey -M vicmd 'j' history-substring-search-down
 }

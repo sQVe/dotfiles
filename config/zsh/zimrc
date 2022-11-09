@@ -10,7 +10,6 @@ zmodule input
 zmodule zsh-users/zsh-completions
 zmodule unixorn/git-extra-commands
 zmodule completion
-zmodule BuonOmo/yarn-completion
 zmodule lukechilds/zsh-better-npm-completion
 
 # Modes.
