@@ -12,11 +12,12 @@ set $mod Mod4
 
 set $font monospace 8
 set $color-bg #282828
-set $color-bg-active #928374
+set $color-bg-active #504945
 set $color-bg-focused #ebdbb2
 set $color-fg #ebdbb2
 set $color-fg-inverted #282828
 set $color-border-active #b16286
+set $color-indicator #83a598
 set $color-urgent #fabd2f
 
 set $workspace-1 "1"
@@ -80,11 +81,11 @@ default_border pixel 2
 default_floating_border pixel 2
 hide_edge_borders smart
 
-# Window types           Border                Background            Text       Indicator  Child border
-client.focused           $color-border-active  $color-border-active  $color-bg  $color-bg  $color-border-active
-client.focused_inactive  $color-border-active  $color-border-active  $color-bg  $color-bg  $color-bg
-client.unfocused         $color-bg             $color-bg             $color-fg  $color-bg  $color-bg
-client.urgent            $color-urgent         $color-urgent         $color-fg  $color-bg  $color-bg
+# Window types           Border                Background            Text       Indicator         Child border
+client.focused           $color-border-active  $color-border-active  $color-fg  $color-indicator  $color-border-active
+client.focused_inactive  $color-border-active  $color-border-active  $color-fg  $color-bg         $color-bg
+client.unfocused         $color-bg             $color-bg             $color-fg  $color-bg         $color-bg
+client.urgent            $color-urgent         $color-urgent         $color-fg  $color-bg         $color-bg
 
 bar {
   colors {
@@ -93,14 +94,14 @@ bar {
 
     # Workspace type    Border             Background         Text
     focused_workspace   $color-bg-focused  $color-bg-focused  $color-fg-inverted
-    active_workspace    $color-bg-active   $color-bg-active   $color-fg-inverted
+    active_workspace    $color-bg-active   $color-bg-active   $color-fg
     inactive_workspace  $color-bg          $color-bg          $color-fg
     urgent_workspace    $color-urgent      $color-urgent      $color-fg-inverted
   }
 
   position top
   status_command i3status-rs
-  workspace_min_width 30
+  workspace_min_width 20
 
   # Set to either primary or output name.
   tray_output none
