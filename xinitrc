@@ -43,7 +43,12 @@ touch /tmp/rofi_calc_history
 mkdir "$XDG_DATA_HOME/rofi"
 ln -sf /tmp/rofi_calc_history "$XDG_DATA_HOME/rofi/rofi_calc_history"
 
-# Restore playground boxes.
+# Clear notes.
+if [[ -d  "$NOTES" ]]; then
+  git -C "$NOTES" checkout -- .
+fi
+
+# Clear playground boxes.
 if [[ -d  "$CODE/playground" ]]; then
   git -C "$CODE/playground" checkout -- boxes
 fi
