@@ -19,14 +19,6 @@ separator_fg = ""
 icons = "material-nf"
 
 [[block]]
-block = "music"
-format = "$icon $artist - $title"
-hide_when_empty = true
-player = "spotify"
-[block.theme_overrides]
-info_fg = "#bdae93"
-
-[[block]]
 block = "cpu"
 interval = 1
 format = " $frequency  $icon $barchart $utilization "
