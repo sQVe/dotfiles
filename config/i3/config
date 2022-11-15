@@ -12,22 +12,23 @@ set $mod Mod4
 
 set $font monospace 8
 set $color-bg #282828
-set $color-bg-hi #3c3836
-set $color-bright-aqua #8ec07c
-set $color-neutral-aqua #689d6a
-set $color-neutral-purple #b16286
-set $color-text #a89984
+set $color-bg-active #928374
+set $color-bg-focused #ebdbb2
+set $color-fg #ebdbb2
+set $color-fg-inverted #282828
+set $color-border-active #b16286
+set $color-urgent #fabd2f
 
-set $workspace-1 "1  "
-set $workspace-2 "2  "
-set $workspace-3 "3  "
-set $workspace-4 "4  "
-set $workspace-5 "5  "
-set $workspace-6 "6  "
-set $workspace-7 "7  "
-set $workspace-8 "8  "
-set $workspace-9 "9  "
-set $workspace-0 "10  "
+set $workspace-1 "1"
+set $workspace-2 "2"
+set $workspace-3 "3"
+set $workspace-4 "4"
+set $workspace-5 "5"
+set $workspace-6 "6"
+set $workspace-7 "7"
+set $workspace-8 "8"
+set $workspace-9 "9"
+set $workspace-0 "10"
 
 set $lock --no-startup-id lock
 set $menu-apps --no-startup-id $SCRIPTS/menus/apps.sh
@@ -79,22 +80,22 @@ default_border pixel 2
 default_floating_border pixel 2
 hide_edge_borders smart
 
-# Window types              Border                    Background                Text            Indicator               Child border
-client.focused              $color-neutral-purple     $color-neutral-purple     $color-bg       $color-neutral-aqua     $color-neutral-purple
-client.focused_inactive     $color-neutral-purple     $color-neutral-purple     $color-bg       $color-neutral-aqua     $color-bg
-client.unfocused            $color-bg                 $color-bg                 $color-text     $color-neutral-aqua     $color-bg
-client.urgent               $color-red                $color-red                $color-text     $color-neutral-aqua     $color-bg
+# Window types           Border                Background            Text       Indicator  Child border
+client.focused           $color-border-active  $color-border-active  $color-bg  $color-bg  $color-border-active
+client.focused_inactive  $color-border-active  $color-border-active  $color-bg  $color-bg  $color-bg
+client.unfocused         $color-bg             $color-bg             $color-fg  $color-bg  $color-bg
+client.urgent            $color-urgent         $color-urgent         $color-fg  $color-bg  $color-bg
 
 bar {
   colors {
     background $color-bg
-    statusline $color-text
+    statusline $color-fg
 
-    # Workspace type       Border                    Background                Text
-    focused_workspace      $color-bg-hi              $color-bg-hi              $color-bright-aqua
-    active_workspace       $color-bg-hi              $color-bg-hi              $color-neutral-aqua
-    inactive_workspace     $color-bg                 $color-bg                 $color-text
-    urgent_workspace       $color-neutral-purple     $color-neutral-purple     $color-bg
+    # Workspace type    Border             Background         Text
+    focused_workspace   $color-bg-focused  $color-bg-focused  $color-fg-inverted
+    active_workspace    $color-bg-active   $color-bg-active   $color-fg-inverted
+    inactive_workspace  $color-bg          $color-bg          $color-fg
+    urgent_workspace    $color-urgent      $color-urgent      $color-fg-inverted
   }
 
   position top
