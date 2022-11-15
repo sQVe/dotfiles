@@ -20,16 +20,16 @@ set $color-border-active #b16286
 set $color-indicator #83a598
 set $color-urgent #fabd2f
 
-set $workspace-1 "1"
-set $workspace-2 "2"
-set $workspace-3 "3"
-set $workspace-4 "4"
-set $workspace-5 "5"
-set $workspace-6 "6"
-set $workspace-7 "7"
-set $workspace-8 "8"
-set $workspace-9 "9"
-set $workspace-0 "10"
+set $workspace-1 "1:<b>1</b>"
+set $workspace-2 "2:<b>2</b>"
+set $workspace-3 "3:<b>3</b>"
+set $workspace-4 "4:<b>4</b>"
+set $workspace-5 "5:<b>5</b>"
+set $workspace-6 "6:<b>6</b>"
+set $workspace-7 "7:<b>7</b>"
+set $workspace-8 "8:<b>8</b>"
+set $workspace-9 "9:<b>9</b>"
+set $workspace-0 "10:<b>0</b>"
 
 set $lock --no-startup-id lock
 set $menu-apps --no-startup-id $SCRIPTS/menus/apps.sh
@@ -79,6 +79,7 @@ workspace_layout default
 font pango: $font
 default_border pixel 2
 default_floating_border pixel 2
+default_orientation horizontal
 hide_edge_borders smart
 
 # Window types           Border                Background            Text       Indicator         Child border
@@ -101,6 +102,7 @@ bar {
 
   position top
   status_command i3status-rs
+  strip_workspace_numbers yes
   workspace_min_width 20
 
   # Set to either primary or output name.
@@ -118,10 +120,6 @@ bar {
 
 # workaround https://github.com/i3/i3/issues/5149
 for_window [all] border pixel 2
-
-# Assign workspaces.
-assign [class="Slack"]   → $workspace-7
-assign [class="Spotify"] → $workspace-6
 
 # Window role settings.
 for_window [window_role="bubble"] floating enable
