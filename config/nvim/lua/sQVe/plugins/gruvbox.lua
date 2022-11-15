@@ -51,7 +51,7 @@ M.config = function()
   }, sign_column_override_map)
 
   gruvbox.setup({
-    italic = false,
+    italic = true,
     overrides = overrides,
   })
 
