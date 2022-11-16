@@ -35,11 +35,15 @@ M.config = function()
 
   local overrides = vim.tbl_deep_extend('force', {
     ColorColumn = { fg = none, bg = none },
-    Comment = { italic = 1 },
+    Comment = { italic = true },
     Cursor = { fg = palette.dark0, bg = palette.light1 },
-    String = { italic = 1 },
+    String = { italic = true },
+    Todo = { italic = true },
     WinBar = { fg = palette.light2 },
     WinBarNC = { fg = palette.gray },
+    ['@text.emphasis'] = { italic = true },
+    markdownBoldItalic = { italic = true },
+    markdownItalic = { italic = true },
 
     -- Indent blankline.
     IndentBlanklineChar = { fg = palette.dark1 },
