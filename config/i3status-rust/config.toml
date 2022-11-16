@@ -117,7 +117,7 @@ good = 80
 info = 60
 warning = 40
 critical = 20
-full_format = "$icon"
+full_format = " $icon "
 [block.theme_overrides]
 idle_bg = "#83a598"
 idle_fg = "#282828"
