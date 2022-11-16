@@ -37,6 +37,7 @@ M.config = function()
     ColorColumn = { fg = none, bg = none },
     Comment = { italic = 1 },
     Cursor = { fg = palette.dark0, bg = palette.light1 },
+    String = { italic = 1 },
     WinBar = { fg = palette.light2 },
     WinBarNC = { fg = palette.gray },
 
@@ -51,7 +52,7 @@ M.config = function()
   }, sign_column_override_map)
 
   gruvbox.setup({
-    italic = true,
+    italic = false,
     overrides = overrides,
   })
 
