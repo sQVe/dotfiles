@@ -41,7 +41,19 @@ M.config = function()
     Todo = { italic = true },
     WinBar = { fg = palette.light2 },
     WinBarNC = { fg = palette.gray },
+    ['@text.danger'] = {
+      fg = palette.bright_red,
+      bold = true,
+    },
     ['@text.emphasis'] = { italic = true },
+    ['@text.note'] = {
+      fg = palette.bright_aqua,
+      bold = true,
+    },
+    ['@text.warning'] = {
+      fg = palette.bright_yellow,
+      bold = true,
+    },
     markdownBoldItalic = { italic = true },
     markdownItalic = { italic = true },
 
