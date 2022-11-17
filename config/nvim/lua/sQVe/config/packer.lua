@@ -12,6 +12,7 @@ local customized_plugins = {
   'cmp',
   'comment',
   'dap',
+  'dressing',
   'fidget',
   'focus',
   'fugitive',
@@ -83,9 +84,6 @@ return require('packer').startup({
         'DiffConflictsWithHistory ',
       },
     })
-
-    -- Improved UI.
-    use({ 'stevearc/dressing.nvim', after = 'telescope.nvim' })
 
     -- Text objects.
     use({ 'michaeljsmith/vim-indent-object', event = 'CursorMoved' }) -- Indent text object.

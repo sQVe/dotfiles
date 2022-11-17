@@ -1,7 +1,7 @@
 -- ╺┳╸╻ ╻┏━┓┏━╸┏━┓┏━╸┏━┓╻┏━┓╺┳╸
 --  ┃ ┗┳┛┣━┛┣╸ ┗━┓┃  ┣┳┛┃┣━┛ ┃
 --  ╹  ╹ ╹  ┗━╸┗━┛┗━╸╹┗╸╹╹   ╹
--- JavaScript and TypeScript LSP setup and commands.
+-- JavaScript and TypeScript LSP setup.
 
 local M = {}
 
@@ -15,28 +15,13 @@ M.init = function(use)
       'typescript',
       'typescriptreact',
     },
+    module = 'typescript',
     config = M.config,
   })
 end
 
 M.config = function()
-  local lsp_utils = require('sQVe.utils.lsp')
-  local typescript = require('typescript')
-  local map = require('sQVe.utils.vim').map
-
-  local on_attach = function(_, bufnr)
-    lsp_utils.map_lsp_buffer_keys(bufnr)
-    map(
-      'n',
-      'gd',
-      '<Cmd>TypescriptGoToSourceDefinition<CR>',
-      { buffer = bufnr }
-    )
-  end
-
-  typescript.setup({
-    server = { on_attach = on_attach },
-  })
+  require('typescript').setup({ disable_commands = false })
 end
 
 return M
