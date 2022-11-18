@@ -21,7 +21,17 @@ M.init = function(use)
 end
 
 M.config = function()
-  require('typescript').setup({ disable_commands = false })
+  local lsp_utils = require('sQVe.utils.lsp')
+  local typescript = require('typescript')
+
+  local on_attach = function(_, bufnr)
+    lsp_utils.map_lsp_buffer_keys(bufnr)
+  end
+
+  typescript.setup({
+    disable_commands = false,
+    server = { on_attach = on_attach },
+  })
 end
 
 return M
