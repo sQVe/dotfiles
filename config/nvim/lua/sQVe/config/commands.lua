@@ -34,8 +34,16 @@ command('Bpwd', 'echo expand("%:p")')
 command('Cdb', 'cd %:p:h')
 
 -- Term.
-command('Term', '!term')
-command('BTerm', '!term "%:p"')
+command('Term', function(input)
+  vim.cmd('silent !term ' .. input.args)
+end, { nargs = '?' })
+command('BTerm', function(input)
+  vim.cmd('silent !term ' .. input.args .. ' ' .. vim.fn.expand('%:p:h'))
+end, { nargs = '?' })
+
+-- File manager.
+command('FileManager', 'Term fm')
+command('BFileManager', 'BTerm fm')
 
 -- Write, close and quit typos.
 command('Q', 'quit')
