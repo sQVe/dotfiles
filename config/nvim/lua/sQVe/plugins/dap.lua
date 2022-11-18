@@ -8,15 +8,11 @@ local M = {}
 M.init = function(use)
   use({
     'mfussenegger/nvim-dap',
-    after = 'rust-tools.nvim',
     ft = {
       'go',
       'rust',
     },
     config = M.configs.dap,
-    -- Need rust tools internals to set CodeLLDB.
-    -- Need telescope to setup dap telescope extension.
-    requires = { 'rust-tools.nvim', 'telescope.nvim' },
   })
   use({
     'nvim-telescope/telescope-dap.nvim',
@@ -35,14 +31,20 @@ M.configs = {
   dap = function()
     local dap = require('dap')
     local map = require('sQVe.utils.vim').map
-    local rust_tools = require('rust-tools')
     local telescope = require('telescope')
 
     local codelldb_path = '/usr/bin/codelldb'
     local liblldb_path = '/usr/lib/liblldb.so'
 
-    dap.adapters.codelldb =
-      rust_tools.dap.get_codelldb_adapter(codelldb_path, liblldb_path)
+    dap.adapters.codelldb = {
+      type = 'server',
+      port = '${port}',
+      host = '127.0.0.1',
+      executable = {
+        command = codelldb_path,
+        args = { '--liblldb', liblldb_path, '--port', '${port}' },
+      },
+    }
 
     dap.configurations.rust = {
       {
