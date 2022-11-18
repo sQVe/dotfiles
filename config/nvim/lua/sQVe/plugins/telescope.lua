@@ -127,7 +127,7 @@ M.config = function()
   telescope.load_extension('fzf')
 
   map('n', '<Leader>u', function()
-    builtin.oldfiles({ cwd_only = true })
+    builtin.oldfiles({ cwd_only = true, sort_lastused = true })
   end)
   map('n', '<Leader>U', builtin.resume)
 

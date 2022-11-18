@@ -8,8 +8,8 @@ local M = {}
 M.init = function(use)
   use({
     'stevearc/dressing.nvim',
-    after = 'telescope.nvim',
     config = M.config,
+    event = 'BufEnter',
   })
 end
 

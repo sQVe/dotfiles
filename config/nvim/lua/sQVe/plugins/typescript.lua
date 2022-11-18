@@ -8,7 +8,6 @@ local M = {}
 M.init = function(use)
   use({
     'jose-elias-alvarez/typescript.nvim',
-    after = 'nvim-lspconfig',
     ft = {
       'javascript',
       'javascriptreact',

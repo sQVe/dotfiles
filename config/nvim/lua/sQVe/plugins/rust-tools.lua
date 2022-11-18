@@ -8,7 +8,6 @@ local M = {}
 M.init = function(use)
   use({
     'simrat39/rust-tools.nvim',
-    after = 'nvim-lspconfig',
     config = M.config,
     ft = 'rust',
   })

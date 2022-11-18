@@ -8,7 +8,6 @@ local M = {}
 M.init = function(use)
   use({
     'jose-elias-alvarez/null-ls.nvim',
-    after = 'nvim-lspconfig',
     config = M.config,
     ft = {
       -- gofmt
