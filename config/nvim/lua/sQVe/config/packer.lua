@@ -21,7 +21,7 @@ local customized_plugins = {
   'illuminate',
   'indent-blankline',
   'leap',
-  'lsp',
+  'lspconfig',
   'lualine',
   'null-ls',
   'paint',

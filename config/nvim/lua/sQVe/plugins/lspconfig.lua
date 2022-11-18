@@ -1,7 +1,7 @@
--- ╻  ┏━┓┏━┓
--- ┃  ┗━┓┣━┛
--- ┗━╸┗━┛╹
--- Setup Language Server Protocol.
+-- ╻  ┏━┓┏━┓┏━╸┏━┓┏┓╻┏━╸╻┏━╸
+-- ┃  ┗━┓┣━┛┃  ┃ ┃┃┗┫┣╸ ┃┃╺┓
+-- ┗━╸┗━┛╹  ┗━╸┗━┛╹ ╹╹  ╹┗━┛
+-- Setup Language Server Protocol servers.
 
 local M = {}
 
