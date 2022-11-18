@@ -14,7 +14,6 @@ local customized_plugins = {
   'dap',
   'dressing',
   'fidget',
-  'focus',
   'fugitive',
   'gitsigns',
   'gruvbox',
