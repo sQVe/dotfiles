@@ -96,6 +96,10 @@ map('n', '<C-q><C-n>', '<Cmd>cnext<CR>')
 map('n', '<C-q>p', '<Cmd>cprevious<CR>')
 map('n', '<C-q><C-p>', '<Cmd>cprevious<CR>')
 
+-- Tabs.
+map('n', '<Leader>n', '<Cmd>tabnew<CR>')
+map('n', '<Leader>q', '<Cmd>tabclose<CR>')
+
 -- Spell completion.
 map('i', '<C-x><C-s>', '<C-x>s')
 
