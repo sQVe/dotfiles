@@ -6,7 +6,49 @@
 local M = {}
 
 M.init = function(use)
-  use({ 'neovim/nvim-lspconfig', config = M.config, event = { 'BufEnter' } })
+  use({
+    'neovim/nvim-lspconfig',
+    config = M.config,
+    ft = {
+      -- bashls
+      'sh',
+
+      -- cssls
+      'css',
+      'scss',
+
+      -- gopls
+      'go',
+      'gomod',
+
+      -- html
+      'html',
+
+      -- jsonls
+      'json',
+      'jsonc',
+
+      -- sumneko_lua
+      'lua',
+
+      -- rust
+      'rust',
+
+      -- tsserver
+      'javascript',
+      'javascriptreact',
+      'typescript',
+      'typescriptreact',
+
+      -- yamlls
+      'yaml',
+
+      -- misc (further filetypes to handle with null-ls)
+      'graphql',
+      'markdown',
+    },
+    module = 'lspconfig',
+  })
 end
 
 M.config = function()

@@ -23,9 +23,7 @@ M.config = function()
   local liblldb_path = '/usr/lib/liblldb.so'
 
   rust_tools.setup({
-    dap = {
-      adapter = get_codelldb_adapter(codelldb_path, liblldb_path),
-    },
+    dap = { adapter = get_codelldb_adapter(codelldb_path, liblldb_path) },
     tools = { inlay_hints = { auto = false } },
     server = {
       on_attach = function(_, bufnr)

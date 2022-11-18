@@ -10,6 +10,35 @@ M.init = function(use)
     'jose-elias-alvarez/null-ls.nvim',
     after = 'nvim-lspconfig',
     config = M.config,
+    ft = {
+      -- gofmt
+      'go',
+
+      -- prettierd
+      'css',
+      'graphql',
+      'html',
+      'json',
+      'jsonc',
+      'markdown',
+      'scss',
+      'yaml',
+
+      -- rust
+      'rust',
+
+      -- shellcheck
+      'sh',
+
+      -- stylua
+      'lua',
+
+      -- eslintd
+      'javascript',
+      'javascriptreact',
+      'typescript',
+      'typescriptreact',
+    },
   })
 end
 
@@ -42,7 +71,6 @@ M.config = function()
   })
 
   null_ls.setup({
-    cmd = { 'nvim' },
     default_timeout = 5000,
     diagnostics_format = '#{c}: #{m} (#{s})',
     on_attach = function(client, bufnr)

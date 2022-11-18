@@ -6,7 +6,7 @@
 local M = {}
 
 M.init = function(use)
-  use({ 'ahmedkhalf/project.nvim', cmd = { 'ProjectRoot' }, config = M.config })
+  use({ 'ahmedkhalf/project.nvim', cmd = 'ProjectRoot', config = M.config })
 end
 
 M.config = function()

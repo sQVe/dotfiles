@@ -9,7 +9,27 @@ M.init = function(use)
   use({
     'nvim-telescope/telescope.nvim',
     config = M.config,
-    event = 'BufEnter',
+    cmd = 'Telescope',
+    keys = {
+      { 'n', '<Leader>u' },
+      { 'n', '<Leader>U' },
+      { 'n', '<Backspace>' },
+      { 'n', '<Leader><Backspace>' },
+      { 'n', 'gR' },
+      { 'n', 'gd' },
+      { 'n', 'gD' },
+      { 'n', 'gr' },
+      { 'n', 'gy' },
+      { 'n', '<Leader>l' },
+      { 'n', '<Leader>L' },
+      { 'n', '<Leader>s' },
+      { 'n', '<Leader>S' },
+      { 'n', 'z=' },
+      { 'n', 'å' },
+      { 'n', 'Å' },
+      { 'n', 'ä' },
+      { 'n', 'Ä' },
+    },
     module = 'telescope',
     requires = {
       {

@@ -8,7 +8,7 @@ local M = {}
 M.init = function(use)
   use({
     'sQVe/sort.nvim',
-    cmd = { 'Sort' },
+    cmd = 'Sort',
     config = M.config,
     keys = {
       { 'n', 'go' },
