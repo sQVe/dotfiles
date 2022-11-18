@@ -8,6 +8,7 @@ local augroups = {}
 local augroup_keys = {
   'ExcludeFormatOptions',
   'HighlightYank',
+  'LspAttach',
   'ReloadBuffer',
   'SaveCommitMsg',
   'StopNeovimDaemons',
@@ -57,7 +58,13 @@ autocmd('ExitPre', {
 
 -- Use internal formatting for bindings like gq.
 autocmd('LspAttach', {
+  group = augroups.LspAttach,
   callback = function(args)
     vim.bo[args.buf].formatexpr = nil
   end,
+})
+
+autocmd('VimResized', {
+  group = augroups.VimResized,
+  command = 'wincmd =',
 })

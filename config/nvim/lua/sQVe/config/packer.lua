@@ -12,6 +12,7 @@ local customized_plugins = {
   'cmp',
   'comment',
   'dap',
+  'diffview',
   'dressing',
   'fidget',
   'fugitive',

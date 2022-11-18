@@ -177,6 +177,7 @@ alias dud='du -chd'
 alias free='free -m'
 alias ga='git-alias-lookup $XDG_DATA_HOME/zim/modules/git'
 alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
+alias gmt='nvim -c DiffviewOpen'
 alias grep='grep --color=auto -d skip'
 alias mkdir='mkdir -pv'
 alias more=less
@@ -184,10 +185,10 @@ alias np='nvim -w PKGBUILD'
 alias o=open
 alias open='mimeo -q'
 alias q=exit
-alias sudo='sudo '
-alias sudoedit='sudoedit '
 alias s=sudo
 alias se=sudoedit
+alias sudo='sudo '
+alias sudoedit='sudoedit '
 
 # Globals.
 alias -g CP='| xsel -ib'
