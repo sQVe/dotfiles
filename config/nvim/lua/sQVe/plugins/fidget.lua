@@ -6,7 +6,11 @@
 local M = {}
 
 M.init = function(use)
-  use({ 'j-hui/fidget.nvim', config = M.config, event = 'BufEnter' })
+  use({
+    'j-hui/fidget.nvim',
+    after = 'nvim-lspconfig',
+    config = M.config,
+  })
 end
 
 M.config = function()
