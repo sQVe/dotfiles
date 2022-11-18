@@ -28,8 +28,8 @@ M.config = function()
     options = {
       disabled_filetypes = { 'alpha' },
       theme = gruvbox,
-      component_separators = { '', '' },
-      section_separators = { '', '' },
+      section_separators = { left = '', right = '' },
+      component_separators = { left = '', right = '' },
     },
     sections = {
       lualine_a = { 'mode' },
