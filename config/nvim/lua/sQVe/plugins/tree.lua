@@ -8,7 +8,7 @@ local M = {}
 M.init = function(use)
   use({
     'nvim-tree/nvim-tree.lua',
-    commands = { 'NvimTreeToggle' },
+    cmd = { 'NvimTreeToggle' },
     config = M.config,
     setup = M.setup,
     tag = 'nightly',
