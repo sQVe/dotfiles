@@ -75,16 +75,6 @@ return require('packer').startup({
       },
     })
 
-    -- Git mergetool.
-    use({
-      'whiteinge/diffconflicts',
-      cmd = {
-        'DiffConflicts',
-        'DiffConflictsShowHistory',
-        'DiffConflictsWithHistory ',
-      },
-    })
-
     -- Text objects.
     use({ 'michaeljsmith/vim-indent-object', event = 'CursorMoved' }) -- Indent text object.
     use({ 'wellle/targets.vim', event = 'CursorMoved' }) -- Additional text objects.
