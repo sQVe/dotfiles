@@ -34,12 +34,28 @@ M.config = function()
     sections = {
       lualine_a = { 'mode' },
       lualine_b = { 'branch' },
-      lualine_c = {},
+      lualine_c = {
+        {
+          'diagnostics',
+          sections = { 'error', 'warn' },
+          symbols = { error = '', warn = '' },
+        },
+      },
       lualine_x = { 'filetype' },
       lualine_y = { 'progress' },
       lualine_z = { 'location' },
     },
+    tabline = {
+      lualine_a = {},
+      lualine_b = {},
+      lualine_c = {},
+      lualine_x = {},
+      lualine_y = {},
+      lualine_z = { 'tabs' },
+    },
   })
+
+  vim.opt.showtabline = 1
 end
 
 return M

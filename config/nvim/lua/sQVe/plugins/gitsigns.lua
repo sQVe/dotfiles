@@ -20,8 +20,8 @@ M.config = function()
   gitsigns.setup({
     on_attach = function(bufnr)
       -- Move to hunks.
-      map('n', '<Leader>hj', gitsigns.next_hunk, { buffer = bufnr })
-      map('n', '<Leader>hk', gitsigns.prev_hunk, { buffer = bufnr })
+      map('n', '<Leader>hn', gitsigns.next_hunk, { buffer = bufnr })
+      map('n', '<Leader>hp', gitsigns.prev_hunk, { buffer = bufnr })
 
       -- Hunk actions.
       map({ 'n', 'v' }, '<Leader>hs', gitsigns.stage_hunk, { buffer = bufnr })

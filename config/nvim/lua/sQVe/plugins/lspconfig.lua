@@ -109,10 +109,10 @@ M.config = function()
   map({ 'n', 'x' }, '<Leader>a', vim.lsp.buf.code_action)
 
   -- Move to next or previous diagnostic item.
-  map('n', '<Leader>lj', function()
+  map('n', '<Leader>ln', function()
     vim.diagnostic.goto_next({ float = false })
   end)
-  map('n', '<Leader>lk', function()
+  map('n', '<Leader>lp', function()
     vim.diagnostic.goto_prev({ float = false })
   end)
 end

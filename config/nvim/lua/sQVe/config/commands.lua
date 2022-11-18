@@ -59,6 +59,7 @@ command('Wqa', 'wqa')
 
 -- Print as a commented Ascii Header.
 command('AsciiHeader', function(input)
+  ---@diagnostic disable-next-line: different-requires
   require('packer').loader('Comment.nvim')
 
   local ok =
