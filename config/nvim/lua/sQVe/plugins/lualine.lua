@@ -34,14 +34,15 @@ M.config = function()
     sections = {
       lualine_a = { 'mode' },
       lualine_b = { 'branch' },
-      lualine_c = {
+      lualine_c = { 'diff' },
+      lualine_x = {
         {
           'diagnostics',
           sections = { 'error', 'warn' },
           symbols = { error = '', warn = '' },
         },
+        'filetype',
       },
-      lualine_x = { 'filetype' },
       lualine_y = { 'progress' },
       lualine_z = { 'location' },
     },
