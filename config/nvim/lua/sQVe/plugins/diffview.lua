@@ -8,15 +8,14 @@ local M = {}
 M.init = function(use)
   use({
     'sindrets/diffview.nvim',
-    after = 'plenary.nvim',
+    cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
     config = M.config,
+    setup = M.setup,
     requires = 'nvim-lua/plenary.nvim',
   })
 end
 
 M.config = function()
-  local map = require('sQVe.utils.vim').map
-
   require('diffview').setup({
     hooks = {
       diff_buf_win_enter = function()
@@ -30,6 +29,10 @@ M.config = function()
       end,
     },
   })
+end
+
+M.setup = function()
+  local map = require('sQVe.utils.vim').map
 
   map('n', '<Leader>gd', '<Cmd>DiffviewOpen<CR>')
   map('n', '<Leader>gl', '<Cmd>DiffviewFileHistory<CR>')
