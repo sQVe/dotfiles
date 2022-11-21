@@ -11,7 +11,6 @@ M.init = function(use)
     cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
     config = M.config,
     setup = M.setup,
-    requires = 'nvim-lua/plenary.nvim',
   })
 end
 
