@@ -84,12 +84,6 @@ map('n', '<C-Down>', '<Cmd>wincmd j<CR>')
 map('n', '<C-Up>', '<Cmd>wincmd k<CR>')
 map('n', '<C-Right>', '<Cmd>wincmd l<CR>')
 
--- Window resize.
-map('n', '<C-S-Left>', '<Cmd>vertical resize -10<CR>')
-map('n', '<C-S-Down>', '<Cmd>resize -10<CR>')
-map('n', '<C-S-Up>', '<Cmd>resize +10<CR>')
-map('n', '<C-S-Right>', '<Cmd>vertical resize +10<CR>')
-
 -- Quickfix.
 map('n', '<C-q>w', '<Cmd>copen<CR>')
 map('n', '<C-q><C-w>', '<Cmd>copen<CR>')
