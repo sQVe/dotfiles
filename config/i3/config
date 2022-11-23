@@ -14,11 +14,11 @@ set $font monospace 8
 set $color-bg #282828
 set $color-bg-active #504945
 set $color-bg-focused #ebdbb2
+set $color-border-active #a89984
 set $color-fg #ebdbb2
-set $color-fg-inverted #282828
-set $color-border-active #b16286
-set $color-indicator #83a598
+set $color-indicator #d3869b
 set $color-urgent #fabd2f
+set $color-window-active #d3869b
 
 set $workspace-1 "1:<b>1</b>"
 set $workspace-2 "2:<b>2</b>"
@@ -83,8 +83,8 @@ default_orientation horizontal
 hide_edge_borders smart
 
 # Window types           Border                Background            Text       Indicator         Child border
-client.focused           $color-border-active  $color-border-active  $color-fg  $color-indicator  $color-border-active
-client.focused_inactive  $color-border-active  $color-border-active  $color-fg  $color-bg         $color-bg
+client.focused           $color-window-active  $color-window-active  $color-bg  $color-indicator  $color-border-active
+client.focused_inactive  $color-window-active  $color-window-active  $color-bg  $color-bg         $color-bg
 client.unfocused         $color-bg             $color-bg             $color-fg  $color-bg         $color-bg
 client.urgent            $color-urgent         $color-urgent         $color-fg  $color-bg         $color-bg
 
@@ -94,10 +94,10 @@ bar {
     statusline $color-fg
 
     # Workspace type    Border             Background         Text
-    focused_workspace   $color-bg-focused  $color-bg-focused  $color-fg-inverted
+    focused_workspace   $color-bg-focused  $color-bg-focused  $color-bg
     active_workspace    $color-bg-active   $color-bg-active   $color-fg
     inactive_workspace  $color-bg          $color-bg          $color-fg
-    urgent_workspace    $color-urgent      $color-urgent      $color-fg-inverted
+    urgent_workspace    $color-urgent      $color-urgent      $color-bg
   }
 
   position top
