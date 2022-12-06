@@ -95,8 +95,6 @@ M.config = function()
     " Set colorscheme.
     colorscheme gruvbox
 
-    hi! link CurSearch IncSearch
-
     " Telescope.
     hi! link TelescopeBorder GruvboxYellowBold
     hi! link TelescopePromptBorder Normal
