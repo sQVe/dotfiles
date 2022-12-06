@@ -36,7 +36,7 @@ M.config = function()
   local overrides = vim.tbl_deep_extend('force', {
     ColorColumn = { fg = none, bg = none },
     Comment = { italic = true },
-    Cursor = { fg = palette.dark0, bg = palette.light1 },
+    Cursor = { fg = palette.dark0, bg = palette.light1, reverse = false },
     String = { italic = true },
     Todo = { italic = true },
     WinBar = { fg = palette.light2 },
