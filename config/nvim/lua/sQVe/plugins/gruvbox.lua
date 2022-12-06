@@ -36,7 +36,7 @@ M.config = function()
   local overrides = vim.tbl_deep_extend('force', {
     ColorColumn = { fg = none, bg = none },
     Comment = { italic = true },
-    Cursor = { fg = palette.dark0, bg = palette.light1, reverse = false },
+    Cursor = { fg = palette.dark0, bg = palette.bright_orange, reverse = false },
     String = { italic = true },
     Todo = { italic = true },
     WinBar = { fg = palette.light2 },
@@ -64,7 +64,7 @@ M.config = function()
     -- Leap.
     LeapMatch = { fg = black, bg = palette.bright_yellow },
     LeapLabelPrimary = { fg = black, bg = palette.bright_purple },
-    LeapLabelSecondary = { fg = black, bg = palette.bright_orange },
+    LeapLabelSecondary = { fg = black, bg = palette.bright_red },
   }, sign_column_override_map)
 
   gruvbox.setup({
@@ -94,6 +94,8 @@ M.config = function()
   vim.cmd([[
     " Set colorscheme.
     colorscheme gruvbox
+
+    hi! link CurSearch IncSearch
 
     " Telescope.
     hi! link TelescopeBorder GruvboxYellowBold
