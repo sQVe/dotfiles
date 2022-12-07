@@ -23,6 +23,7 @@ local customized_plugins = {
   'leap',
   'lspconfig',
   'lualine',
+  'neo-tree',
   'null-ls',
   'paint',
   'project',
@@ -30,7 +31,6 @@ local customized_plugins = {
   'sort',
   'surround',
   'telescope',
-  'tree',
   'treesitter',
   'typescript',
   'vsnip',
@@ -45,9 +45,10 @@ return require('packer').startup({
     use({ 'lewis6991/impatient.nvim' })
 
     -- Dependencies.
-    use({ 'tpope/vim-repeat', event = 'BufEnter' }) -- Repeat support.
+    use({ 'MunifTanjim/nui.nvim', module = 'nui' }) -- UI component library.
     use({ 'nvim-lua/plenary.nvim', module = 'plenary' }) -- Lua utilities.
     use({ 'nvim-tree/nvim-web-devicons', module = 'nvim-web-devicons' }) -- File icons.
+    use({ 'tpope/vim-repeat', event = 'BufEnter' }) -- Repeat support.
 
     -- Editorconfig.
     use({ 'gpanders/editorconfig.nvim', event = 'BufEnter' })

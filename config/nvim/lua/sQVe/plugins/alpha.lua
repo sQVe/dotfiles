@@ -28,7 +28,7 @@ M.config = function()
       '<Cmd>lua require("sQVe.plugins.telescope").find_files()<CR>'
     ),
     dashboard.button('å', '🔎  Live Word', '<Cmd>Telescope live_grep<CR>'),
-    dashboard.button('-', '📁  File Manager', '<Cmd>NvimTreeToggle<CR>'),
+    dashboard.button('-', '📁  File Manager', '<Cmd>Neotree<CR>'),
     dashboard.button(
       '<Backspace>',
       '🔴  Git Status',
