@@ -35,7 +35,7 @@ M.config = function()
   })
 
   -- Toggle file explorer tree.
-  map('n', '-', '<Cmd>Neotree<CR>')
+  map('n', '-', '<Cmd>Neotree action=show toggle<CR>')
 end
 
 return M
