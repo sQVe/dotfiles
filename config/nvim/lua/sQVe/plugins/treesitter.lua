@@ -34,6 +34,7 @@ M.config = function()
       'go',
       'gomod',
       'graphql',
+      'hcl',
       'help',
       'html',
       'javascript',
