@@ -107,7 +107,14 @@ M.config = function()
         },
         priority = 40,
       },
-      { name = 'vsnip', keyword_length = 2, priority = 20 },
+      {
+        name = 'vsnip',
+        keyword_length = 2,
+        -- TODO: Remove this once https://github.com/hrsh7th/cmp-vsnip/issues/5
+        -- is fixed.
+        keyword_pattern = '\\%([^[:alnum:][:blank:]]\\|\\w\\+\\)',
+        priority = 20,
+      },
       { name = 'emoji', priority = 10 },
     })
   end

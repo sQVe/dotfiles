@@ -25,7 +25,9 @@ M.config = function()
       mappings = {
         ['-'] = 'close_window',
         ['h'] = 'close_node',
+        ['<Left>'] = 'close_node',
         ['l'] = 'open',
+        ['<Right>'] = 'open',
         ['v'] = 'open_vsplit',
         ['c'] = { 'copy', config = { show_path = 'relative' } },
         ['m'] = { 'move', config = { show_path = 'relative' } },
