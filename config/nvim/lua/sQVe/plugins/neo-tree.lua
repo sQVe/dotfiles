@@ -18,7 +18,7 @@ M.config = function()
     hide_root_node = true,
     log_level = 'warn',
     filesystem = {
-      follow_current_file = true,
+      follow_current_file = false,
       hijack_netrw_behavior = 'open_current',
     },
     window = {
@@ -38,6 +38,7 @@ M.config = function()
 
   -- Toggle file explorer tree.
   map('n', '-', '<Cmd>Neotree action=show toggle<CR>')
+  map('n', '_', '<Cmd>Neotree action=show reveal<CR>')
 end
 
 return M

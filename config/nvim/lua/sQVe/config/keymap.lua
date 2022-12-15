@@ -44,9 +44,6 @@ map('', 'N', '\'nN\'[v:searchforward] . \'zzzv\'', { expr = true })
 -- Consistent CR movement.
 map('', '<S-CR>', '-')
 
--- Blackhole
-map('', '_', '"_')
-
 -- Keep cursor position when joining lines.
 map('', 'J', 'mzJ`z')
 
