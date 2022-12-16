@@ -65,9 +65,6 @@ M.config = function()
     'stylua.toml',
     '.stylua.toml',
   })
-  local vale_runtime_condition = lsp_utils.create_runtime_condition({
-    '.vale.ini',
-  })
 
   null_ls.setup({
     default_timeout = 5000,
@@ -109,7 +106,6 @@ M.config = function()
         timeout = 20000,
       }),
       linters.shellcheck,
-      linters.vale.with({ runtime_condition = vale_runtime_condition }),
     },
   })
 end

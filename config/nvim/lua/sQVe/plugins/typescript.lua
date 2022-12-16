@@ -29,7 +29,15 @@ M.config = function()
 
   typescript.setup({
     disable_commands = false,
-    server = { on_attach = on_attach },
+    server = {
+      init_options = {
+        preferences = {
+          importModuleSpecifierPreference = 'relative',
+          quotePreference = 'single',
+        },
+      },
+      on_attach = on_attach,
+    },
   })
 end
 
