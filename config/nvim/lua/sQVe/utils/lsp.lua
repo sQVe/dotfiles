@@ -98,27 +98,51 @@ M.format = function(bufnr, async)
 end
 
 -- Map keys for buffers which has LSP enabled.
-M.map_lsp_buffer_keys = function(bufnr)
+M.map_lsp_buffer_keys = function(bufnr, include)
+  include = include or {}
+
+  local builtin = require('telescope.builtin')
   local map = require('sQVe.utils.vim').map
+  local includeMap = {
+    diagnostics = function()
+      map('n', 'gl', function()
+        vim.diagnostic.open_float(
+          0,
+          { buffer = bufnr, header = false, scope = 'line' }
+        )
+      end, { buffer = bufnr })
+      map('n', '<Leader>l', function()
+        builtin.diagnostics({ bufnr = 0 })
+      end, { buffer = bufnr })
+      map('n', '<Leader>L', builtin.diagnostics, { buffer = bufnr })
+    end,
+    formatting = function()
+      map(
+        'n',
+        '<Leader><Leader>',
+        require('sQVe.utils.lsp').format,
+        { buffer = bufnr }
+      )
+    end,
+    lookup = function()
+      map('n', 'gd', builtin.lsp_definitions, { buffer = bufnr })
+      map('n', 'gD', builtin.lsp_implementations, { buffer = bufnr })
+      map('n', 'gr', builtin.lsp_references, { buffer = bufnr })
+      map('n', 'gy', builtin.lsp_type_definitions, { buffer = bufnr })
+      map('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
+      map(
+        'n',
+        '<Leader>s',
+        builtin.lsp_dynamic_workspace_symbols,
+        { buffer = bufnr }
+      )
+      map('n', '<Leader>S', builtin.lsp_document_symbols, { buffer = bufnr })
+    end,
+  }
 
-  -- Format code.
-  map(
-    'n',
-    '<Leader><Leader>',
-    require('sQVe.utils.lsp').format,
-    { buffer = bufnr }
-  )
-
-  -- Show LSP documetation under cursor.
-  map('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
-
-  -- Show diagnostics for current line.
-  map('n', 'gl', function()
-    vim.diagnostic.open_float(
-      0,
-      { buffer = bufnr, header = false, scope = 'line' }
-    )
-  end)
+  for _, includeKey in pairs(include) do
+    includeMap[includeKey]()
+  end
 end
 
 -- Mirror capabilities set by `update_capabilities` in `cmp-nvim-lsp`, since

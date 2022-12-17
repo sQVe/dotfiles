@@ -70,6 +70,8 @@ M.config = function()
     default_timeout = 5000,
     diagnostics_format = '#{c}: #{m} (#{s})',
     on_attach = function(client, bufnr)
+      lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'formatting' })
+
       if client.supports_method('textDocument/formatting') then
         vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
         vim.api.nvim_create_autocmd('BufWritePre', {

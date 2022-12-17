@@ -56,7 +56,7 @@ M.config = function()
   local lsp_utils = require('sQVe.utils.lsp')
   local map = require('sQVe.utils.vim').map
   local on_attach = function(_, bufnr)
-    lsp_utils.map_lsp_buffer_keys(bufnr)
+    lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
   end
 
   vim.lsp.handlers['textDocument/publishDiagnostics'] =

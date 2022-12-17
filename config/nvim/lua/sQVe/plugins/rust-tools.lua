@@ -26,7 +26,7 @@ M.config = function()
     tools = { inlay_hints = { auto = false } },
     server = {
       on_attach = function(_, bufnr)
-        lsp_utils.map_lsp_buffer_keys(bufnr)
+        lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
       end,
       settings = {
         ['rust-analyzer'] = {

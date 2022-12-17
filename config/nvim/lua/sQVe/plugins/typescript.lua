@@ -24,7 +24,7 @@ M.config = function()
   local typescript = require('typescript')
 
   local on_attach = function(_, bufnr)
-    lsp_utils.map_lsp_buffer_keys(bufnr)
+    lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
   end
 
   typescript.setup({
