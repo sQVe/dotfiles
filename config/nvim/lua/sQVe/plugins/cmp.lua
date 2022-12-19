@@ -90,11 +90,20 @@ M.config = function()
     vim.fn['vsnip#anonymous'](args.body)
   end
 
-  local compare_locality = function(...)
-    return require('cmp_buffer'):compare_locality(...)
-  end
+  local get_sources = function(keyword_length, kind)
+    if kind == 'cmdline' then
+      return config.sources({
+        { name = 'path', priority = 40 },
+        { name = 'cmdline', option = { ignore_cmds = { '!' } }, priority = 20 },
+        {
+          name = 'buffer',
+          keyword_length = 4,
+          option = { keyword_pattern = anyWord },
+          priority = 10,
+        },
+      })
+    end
 
-  local get_sources = function(keyword_length)
     return config.sources({
       { name = 'nvim_lua', keyword_length = keyword_length, priority = 80 },
       { name = 'nvim_lsp', keyword_length = keyword_length, priority = 80 },
@@ -120,16 +129,15 @@ M.config = function()
   end
 
   local get_mapping = function(is_cmdline)
-    local triggerCompleteMapping = is_cmdline and mapKey(cmp.mapping.complete())
-      or mapKey(mapping.complete({
-        reason = cmp.ContextReason.Auto,
-        config = { sources = get_sources(0) },
-      }))
+    local completeMapping = mapKey(mapping.complete({
+      reason = cmp.ContextReason.Auto,
+      config = { sources = get_sources(0, is_cmdline) },
+    }))
 
     return mapping.preset.insert({
       ['()'] = is_cmdline and mapKey(fallback) or mapKey(parentheses),
-      ['<C-CR>'] = triggerCompleteMapping,
-      ['<C-Space>'] = triggerCompleteMapping,
+      ['<C-CR>'] = completeMapping,
+      ['<C-Space>'] = completeMapping,
       ['<C-d>'] = mapKey(mapping.scroll_docs(8)),
       ['<C-e>'] = mapKey(mapping.close()),
       ['<C-k>'] = mapKey(signature_help),
@@ -157,18 +165,7 @@ M.config = function()
     },
     mapping = get_mapping(),
     snippet = { expand = expand_snippet },
-    sorting = {
-      comparators = {
-        compare_locality,
-        config.compare.offset,
-        config.compare.exact,
-        config.compare.score,
-        config.compare.length,
-        config.compare.sort_text,
-        config.compare.order,
-      },
-    },
-    sources = get_sources(1),
+    sources = get_sources(0),
     preselect = cmp.PreselectMode.None,
   })
 
@@ -182,18 +179,10 @@ M.config = function()
       },
     }),
   })
+
   cmp.setup.cmdline(':', {
     mapping = get_mapping(true),
-    sources = config.sources({
-      { name = 'cmdline', priority = 40 },
-      { name = 'path', priority = 20 },
-      {
-        name = 'buffer',
-        keyword_length = 4,
-        option = { keyword_pattern = anyWord },
-        priority = 10,
-      },
-    }),
+    sources = get_sources(1, 'cmdline'),
   })
 end
 
