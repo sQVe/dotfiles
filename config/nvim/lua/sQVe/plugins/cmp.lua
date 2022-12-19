@@ -90,7 +90,7 @@ M.config = function()
     vim.fn['vsnip#anonymous'](args.body)
   end
 
-  local get_sources = function(keyword_length, kind)
+  local get_sources = function(kind)
     if kind == 'cmdline' then
       return config.sources({
         { name = 'path', priority = 40 },
@@ -105,15 +105,13 @@ M.config = function()
     end
 
     return config.sources({
-      { name = 'nvim_lua', keyword_length = keyword_length, priority = 80 },
-      { name = 'nvim_lsp', keyword_length = keyword_length, priority = 80 },
-      { name = 'path', keyword_length = keyword_length, priority = 60 },
+      { name = 'nvim_lsp', priority = 80 },
+      { name = 'nvim_lua', priority = 80 },
+      { name = 'path', priority = 60 },
       {
         name = 'buffer',
         keyword_length = 4,
-        option = {
-          keyword_pattern = anyWord,
-        },
+        option = { keyword_pattern = anyWord },
         priority = 40,
       },
       {
@@ -131,7 +129,7 @@ M.config = function()
   local get_mapping = function(is_cmdline)
     local completeMapping = mapKey(mapping.complete({
       reason = cmp.ContextReason.Auto,
-      config = { sources = get_sources(0, is_cmdline) },
+      config = { sources = get_sources(is_cmdline) },
     }))
 
     return mapping.preset.insert({
@@ -165,7 +163,7 @@ M.config = function()
     },
     mapping = get_mapping(),
     snippet = { expand = expand_snippet },
-    sources = get_sources(0),
+    sources = get_sources(),
     preselect = cmp.PreselectMode.None,
   })
 
@@ -182,7 +180,7 @@ M.config = function()
 
   cmp.setup.cmdline(':', {
     mapping = get_mapping(true),
-    sources = get_sources(1, 'cmdline'),
+    sources = get_sources('cmdline'),
   })
 end
 
