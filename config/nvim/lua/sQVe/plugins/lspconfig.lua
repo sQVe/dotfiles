@@ -100,7 +100,11 @@ M.config = function()
   end
 
   -- Disable virtual text for diagnostics.
-  vim.diagnostic.config({ severity_sort = true, virtual_text = false })
+  vim.diagnostic.config({
+    severity_sort = true,
+    update_in_insert = false,
+    virtual_text = false,
+  })
 
   -- Rename reference.
   map('n', '<Leader>r', vim.lsp.buf.rename)

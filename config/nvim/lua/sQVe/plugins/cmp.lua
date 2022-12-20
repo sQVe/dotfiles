@@ -57,7 +57,7 @@ M.config = function()
 
   local next = function(fallback)
     if cmp.visible() then
-      cmp.select_next_item()
+      cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
     elseif has_words_before() then
       cmp.complete()
     else
@@ -67,7 +67,7 @@ M.config = function()
 
   local previous = function(fallback)
     if cmp.visible() then
-      cmp.select_prev_item()
+      cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
     else
       fallback()
     end
@@ -149,6 +149,7 @@ M.config = function()
   cmp.setup({
     experimental = { ghost_text = { hl_group = 'GruvboxGray' } },
     formatting = {
+      fields = { 'abbr', 'menu', 'kind' },
       format = lspkind.cmp_format({
         with_text = false,
         menu = {
