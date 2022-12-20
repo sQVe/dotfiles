@@ -57,7 +57,7 @@ M.config = function()
 
   local next = function(fallback)
     if cmp.visible() then
-      cmp.select_next_item({ behavior = cmp.SelectBehavior.Select })
+      cmp.select_next_item()
     elseif has_words_before() then
       cmp.complete()
     else
@@ -67,7 +67,7 @@ M.config = function()
 
   local previous = function(fallback)
     if cmp.visible() then
-      cmp.select_prev_item({ behavior = cmp.SelectBehavior.Select })
+      cmp.select_prev_item()
     else
       fallback()
     end
