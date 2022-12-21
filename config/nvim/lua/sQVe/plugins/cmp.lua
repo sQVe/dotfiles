@@ -129,6 +129,7 @@ M.config = function()
   local get_mapping = function(kind)
     local completeMapping = mapKey(mapping.complete({
       config = { sources = get_sources(kind) },
+      reason = cmp.ContextReason.Manual,
     }))
 
     return mapping.preset.insert({
