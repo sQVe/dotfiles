@@ -60,6 +60,12 @@ autocmd('ExitPre', {
 autocmd('LspAttach', {
   group = augroups.LspAttach,
   callback = function(args)
+    local client = vim.lsp.get_client_by_id(args.data.client_id)
+    -- Disable Semantic Tokens.
+    -- NOTE: Reevaluate this once it's supported by gruvbox.nvim
+    -- (see https://github.com/ellisonleao/gruvbox.nvim/issues/158).
+    client.server_capabilities.semanticTokensProvider = nil
+
     vim.bo[args.buf].formatexpr = nil
   end,
 })
