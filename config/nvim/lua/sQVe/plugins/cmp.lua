@@ -126,14 +126,13 @@ M.config = function()
     })
   end
 
-  local get_mapping = function(is_cmdline)
+  local get_mapping = function(kind)
     local completeMapping = mapKey(mapping.complete({
-      reason = cmp.ContextReason.Auto,
-      config = { sources = get_sources(is_cmdline) },
+      config = { sources = get_sources(kind) },
     }))
 
     return mapping.preset.insert({
-      ['()'] = is_cmdline and mapKey(fallback) or mapKey(parentheses),
+      ['()'] = kind == 'cmdline' and mapKey(fallback) or mapKey(parentheses),
       ['<C-CR>'] = completeMapping,
       ['<C-Space>'] = completeMapping,
       ['<C-d>'] = mapKey(mapping.scroll_docs(8)),
@@ -169,7 +168,7 @@ M.config = function()
   })
 
   cmp.setup.cmdline({ '/', '?' }, {
-    mapping = get_mapping(true),
+    mapping = get_mapping('cmdline'),
     sources = config.sources({
       {
         name = 'buffer',
@@ -180,7 +179,7 @@ M.config = function()
   })
 
   cmp.setup.cmdline(':', {
-    mapping = get_mapping(true),
+    mapping = get_mapping('cmdline'),
     sources = get_sources('cmdline'),
   })
 end
