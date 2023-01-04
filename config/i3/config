@@ -118,9 +118,6 @@ bar {
 # ¤¤¤¤  Workspace setttings  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-# workaround https://github.com/i3/i3/issues/5149
-for_window [all] border pixel 2
-
 # Window role settings.
 for_window [window_role="bubble"] floating enable
 for_window [window_role="bubble"] sticky enable
