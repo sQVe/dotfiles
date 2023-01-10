@@ -15,13 +15,6 @@ M.init = function(use)
   })
 
   use({ 'RRethy/nvim-treesitter-textsubjects', after = 'nvim-treesitter' }) -- Smart selection.
-  use({
-    'windwp/nvim-ts-autotag',
-    after = 'nvim-treesitter',
-    config = function()
-      require('nvim-ts-autotag').setup()
-    end,
-  })
 end
 
 M.config = function()
