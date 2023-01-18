@@ -1,13 +1,13 @@
 {
-  "ApolloUseMutation": {
+  "apolloUseMutation": {
     "prefix": "useMutation",
     "body": ["const [${1:mutationName}, {loading}] = use$0Mutation();"]
   },
-  "ApolloUseQuery": {
+  "apolloUseQuery": {
     "prefix": "useQuery",
     "body": ["const { data, loading } = use$0Query();"]
   },
-  "Reducer": {
+  "reducer": {
     "prefix": "reducer",
     "body": [
       "const reducer = (state, action) => {",
@@ -20,36 +20,36 @@
       "};"
     ]
   },
-  "UseCallback": {
+  "useCallback": {
     "prefix": "useCallback",
     "body": "const ${1:callback} = useCallback(() => $2, [${0:dependencies}]);"
   },
-  "UseContext": {
+  "useContext": {
     "prefix": "useContext",
     "body": "const ${1:context} = useContext($0);"
   },
-  "UseDebugValue": { "prefix": "UseDebugValue", "body": "useDebugValue($0)" },
-  "UseEffect": {
+  "useDebugValue": { "prefix": "useDebugValue", "body": "useDebugValue($0)" },
+  "useEffect": {
     "prefix": "useEffect",
     "body": ["useEffect(() => {", "\t$1", "}, [${0:dependencies}]);"]
   },
-  "UseImperativeHandle": {
-    "prefix": "UseImperativeHandle",
+  "useImperativeHandle": {
+    "prefix": "useImperativeHandle",
     "body": ["useImperitiveHandle((${1:ref}) => () => $0);"]
   },
-  "UseMemo": {
+  "useMemo": {
     "prefix": "useMemo",
     "body": "const ${1:value} = useMemo(() => $2), [${0:dependencies}]);"
   },
-  "UseReducer": {
+  "useReducer": {
     "prefix": "useReducer",
     "body": "const [${1:state}, ${2:dispatch}] = useReducer(${3:reducer}, ${0:initialState});"
   },
-  "UseRef": {
+  "useRef": {
     "prefix": "useRef",
     "body": "const ${1:ref} = useRef(${0:initialValue});"
   },
-  "UseState": {
+  "useState": {
     "prefix": "useState",
     "body": "const [${1:state}, set${2:State}] = useState(${0:initialState});"
   }

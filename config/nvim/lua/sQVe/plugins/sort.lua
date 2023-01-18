@@ -3,34 +3,22 @@
 -- ┗━┛┗━┛╹┗╸ ╹
 -- Sort by line and delimiter.
 
-local M = {}
+local M = {
+  'sQVe/sort.nvim',
+  cmd = 'Sort',
+  keys = {
+    -- Sort current line or selection.
+    { 'go', '<Cmd>Sort<CR>' },
+    { 'go', '<Esc><Cmd>Sort<CR>', mode = { 'v' } },
 
-M.init = function(use)
-  use({
-    'sQVe/sort.nvim',
-    cmd = 'Sort',
-    config = M.config,
-    keys = {
-      { 'n', 'go' },
-      { 'v', 'go' },
-    },
-  })
-end
-
-M.config = function()
-  local map = require('sQVe.utils.vim').map
-
-  -- Sort current line or selection.
-  map('n', 'go', '<Cmd>Sort<CR>')
-  map('v', 'go', '<Esc><Cmd>Sort<CR>')
-
-  -- Sort motions.
-  map('n', 'go"', 'vi"<Esc><Cmd>Sort<CR>')
-  map('n', 'go\'', 'vi\'<Esc><Cmd>Sort<CR>')
-  map('n', 'go(', 'vi(<Esc><Cmd>Sort<CR>')
-  map('n', 'go{', 'vi{<Esc><Cmd>Sort<CR>')
-  map('n', 'go[', 'vi[<Esc><Cmd>Sort<CR>')
-  map('n', 'gop', 'vip<Esc><Cmd>Sort<CR>')
-end
+    -- Sort motions.
+    { 'go"', 'vi"<Esc><Cmd>Sort<CR>' },
+    { 'go\'', 'vi\'<Esc><Cmd>Sort<CR>' },
+    { 'go(', 'vi(<Esc><Cmd>Sort<CR>' },
+    { 'go{', 'vi{<Esc><Cmd>Sort<CR>' },
+    { 'go[', 'vi[<Esc><Cmd>Sort<CR>' },
+    { 'gop', 'vip<Esc><Cmd>Sort<CR>' },
+  },
+}
 
 return M

@@ -3,14 +3,9 @@
 -- ┗━┛╹┗╸┗━┛┗┛ ┗━┛┗━┛╹ ╹
 -- Gruvbox color theme.
 
-local M = {}
+local M = { 'npxbr/gruvbox.nvim', event = 'BufEnter' }
 
-M.init = function(use)
-  use({ 'npxbr/gruvbox.nvim', config = M.config })
-end
-
-M.config = function()
-  local gruvbox = require('gruvbox')
+M.opts = function()
   local palette = require('gruvbox.palette')
 
   -- Custom colors.
@@ -67,10 +62,14 @@ M.config = function()
     LeapLabelSecondary = { fg = black, bg = palette.bright_red },
   }, sign_column_override_map)
 
-  gruvbox.setup({
+  return {
     italic = false,
     overrides = overrides,
-  })
+  }
+end
+
+M.config = function(_, opts)
+  require('gruvbox').setup(opts)
 
   -- Set diagnostic signs.
   vim.fn.sign_define(

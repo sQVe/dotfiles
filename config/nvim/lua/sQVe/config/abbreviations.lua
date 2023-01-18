@@ -18,11 +18,6 @@ vim.cmd([[
   iabbrev undefiend undefined
 ]])
 
--- Lorem.
-vim.cmd([[
-  iabbrev getlorem Lorem ipsum dolor sit amet consectetur adipiscing elit, faucibus id sollicitudin at class vivamus quis vel, fringilla sodales a quisque blandit eget inceptos, congue dis tristique ad velit hendrerit. Eros enim curae praesent egestas conubia aptent himenaeos iaculis tempor, venenatis fermentum urna posuere habitant viverra aenean nulla interdum, lectus dui penatibus nostra vehicula suspendisse nisl netus.
-]])
-
 -- English words.
 vim.cmd([[
   iabbrev Adn         And

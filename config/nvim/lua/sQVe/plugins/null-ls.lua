@@ -3,45 +3,12 @@
 -- ╹ ╹┗━┛┗━╸┗━╸   ┗━╸┗━┛
 -- Code actions, formatting, and linting.
 
-local M = {}
+local M = {
+  'jose-elias-alvarez/null-ls.nvim',
+  ft = require('sQVe.plugins.lspconfig').ft,
+}
 
-M.init = function(use)
-  use({
-    'jose-elias-alvarez/null-ls.nvim',
-    config = M.config,
-    ft = {
-      -- gofmt
-      'go',
-
-      -- prettierd
-      'css',
-      'graphql',
-      'html',
-      'json',
-      'jsonc',
-      'markdown',
-      'scss',
-      'yaml',
-
-      -- rust
-      'rust',
-
-      -- shellcheck
-      'sh',
-
-      -- stylua
-      'lua',
-
-      -- eslintd
-      'javascript',
-      'javascriptreact',
-      'typescript',
-      'typescriptreact',
-    },
-  })
-end
-
-M.config = function()
+M.opts = function()
   local null_ls = require('null-ls')
   local lsp_utils = require('sQVe.utils.lsp')
 
@@ -66,7 +33,7 @@ M.config = function()
     '.stylua.toml',
   })
 
-  null_ls.setup({
+  return {
     default_timeout = 5000,
     diagnostics_format = '#{c}: #{m} (#{s})',
     on_attach = function(client, bufnr)
@@ -109,7 +76,7 @@ M.config = function()
       }),
       linters.shellcheck,
     },
-  })
+  }
 end
 
 return M

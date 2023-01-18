@@ -3,25 +3,19 @@
 -- ╹┗╸┗━┛┗━┛ ╹     ╹ ┗━┛┗━┛┗━╸┗━┛
 -- Rust LSP setup and tooling.
 
-local M = {}
+local M = {
+  'simrat39/rust-tools.nvim',
+  ft = 'rust',
+}
 
-M.init = function(use)
-  use({
-    'simrat39/rust-tools.nvim',
-    config = M.config,
-    ft = 'rust',
-  })
-end
-
-M.config = function()
+M.opts = function()
   local lsp_utils = require('sQVe.utils.lsp')
-  local rust_tools = require('rust-tools')
   local get_codelldb_adapter = require('rust-tools.dap').get_codelldb_adapter
 
   local codelldb_path = '/usr/bin/codelldb'
   local liblldb_path = '/usr/lib/liblldb.so'
 
-  rust_tools.setup({
+  return {
     dap = { adapter = get_codelldb_adapter(codelldb_path, liblldb_path) },
     tools = { inlay_hints = { auto = false } },
     server = {
@@ -35,7 +29,7 @@ M.config = function()
         },
       },
     },
-  })
+  }
 end
 
 return M

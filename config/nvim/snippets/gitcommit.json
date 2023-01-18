@@ -1,105 +1,105 @@
 {
-  "Build": {
+  "build": {
     "prefix": "build",
     "body": ["build: ${0:description}"]
   },
-  "BuildWithScope": {
+  "buildWithScope": {
     "prefix": "build(",
     "body": ["build(${1:scope}): ${0:description}"]
   },
-  "Chore": {
+  "chore": {
     "prefix": "chore",
     "body": ["chore: ${0:description}"]
   },
-  "ChoreWithScope": {
+  "choreWithScope": {
     "prefix": "chore(",
     "body": ["chore(${1:scope}): ${0:description}"]
   },
-  "CI": {
+  "ci": {
     "prefix": "ci",
     "body": ["ci: ${0:description}"]
   },
-  "CIWithScope": {
+  "ciWithScope": {
     "prefix": "ci(",
     "body": ["ci(${1:scope}): ${0:description}"]
   },
-  "Docs": {
+  "docs": {
     "prefix": "docs",
     "body": ["docs: ${0:description}"]
   },
-  "DocsWithScope": {
+  "docsWithScope": {
     "prefix": "docs(",
     "body": ["docs(${1:scope}): ${0:description}"]
   },
-  "Feat": {
+  "feat": {
     "prefix": "feat",
     "body": ["feat: ${0:description}"]
   },
-  "FeatWithScope": {
+  "featWithScope": {
     "prefix": "feat(",
     "body": ["feat(${1:scope}): ${0:description}"]
   },
-  "Fix": {
+  "fix": {
     "prefix": "fix",
     "body": ["fix: ${0:description}"]
   },
-  "FixWithScope": {
+  "fixWithScope": {
     "prefix": "fix(",
     "body": ["fix(${1:scope}): ${0:description}"]
   },
-  "Perf": {
+  "perf": {
     "prefix": "perf",
     "body": ["perf: ${0:description}"]
   },
-  "PerfWithScope": {
+  "perfWithScope": {
     "prefix": "perf(",
     "body": ["perf(${1:scope}): ${0:description}"]
   },
-  "Refactor": {
+  "refactor": {
     "prefix": "refactor",
     "body": ["refactor: ${0:description}"]
   },
-  "RefactorWithScope": {
+  "refactorWithScope": {
     "prefix": "refactor(",
     "body": ["refactor(${1:scope}): ${0:description}"]
   },
-  "Revert": {
+  "revert": {
     "prefix": "revert",
     "body": ["revert: ${0:description}"]
   },
-  "RevertWithScope": {
+  "revertWithScope": {
     "prefix": "revert(",
     "body": ["revert(${1:scope}): ${0:description}"]
   },
-  "Review": {
+  "review": {
     "prefix": "review",
     "body": ["review: ${0:description}"]
   },
-  "ReviewWithScope": {
+  "reviewWithScope": {
     "prefix": "review(",
     "body": ["review(${1:scope}): ${0:description}"]
   },
-  "Style": {
+  "style": {
     "prefix": "style",
     "body": ["style: ${0:description}"]
   },
-  "StyleWithScope": {
+  "styleWithScope": {
     "prefix": "style(",
     "body": ["style(${1:scope}): ${0:description}"]
   },
-  "Test": {
+  "test": {
     "prefix": "test",
     "body": ["test: ${0:description}"]
   },
-  "TestWithScope": {
+  "testWithScope": {
     "prefix": "test(",
     "body": ["test(${1:scope}): ${0:description}"]
   },
-  "WIP": {
+  "wip": {
     "prefix": "wip",
     "body": ["wip: ${0:description}"]
   },
-  "WIPWithScope": {
+  "wipWithScope": {
     "prefix": "wip(",
     "body": ["wip(${1:scope}): ${0:description}"]
   }

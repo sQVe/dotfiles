@@ -130,13 +130,13 @@ M.map_lsp_buffer_keys = function(bufnr, include)
       map('n', 'gr', builtin.lsp_references, { buffer = bufnr })
       map('n', 'gy', builtin.lsp_type_definitions, { buffer = bufnr })
       map('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
+      map('n', '<Leader>s', builtin.lsp_document_symbols, { buffer = bufnr })
       map(
         'n',
-        '<Leader>s',
+        '<Leader>S',
         builtin.lsp_dynamic_workspace_symbols,
         { buffer = bufnr }
       )
-      map('n', '<Leader>S', builtin.lsp_document_symbols, { buffer = bufnr })
     end,
   }
 

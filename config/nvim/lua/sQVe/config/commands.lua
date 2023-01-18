@@ -31,7 +31,7 @@ command('Bdo', '%bd|e#|bd#')
 command('Bpwd', 'echo expand("%:p")')
 
 -- Set pwd to path of open buffer.
-command('Cdb', 'cd %:p:h')
+command('Bcd', 'cd %:p:h')
 
 -- Term.
 command('Term', function(input)
@@ -59,8 +59,8 @@ command('Wqa', 'wqa')
 
 -- Print as a commented Ascii Header.
 command('AsciiHeader', function(input)
-  ---@diagnostic disable-next-line: different-requires
-  require('packer').loader('Comment.nvim')
+  -- Ensure that we have comment plugin loaded.
+  require('Comment')
 
   local ok =
     pcall(vim.cmd, 'execute "read !toilet -f future ' .. input.args .. '"')

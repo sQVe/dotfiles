@@ -1,10 +1,10 @@
 {
-  "Interface": {
+  "interface": {
     "prefix": "interface",
     "body": ["interface ${1:Name} {", "\t$0", "}"]
   },
-  "LSPCheck": { "prefix": "ts-check", "body": "// @ts-check" },
-  "LSPExpect": { "prefix": "ts-expect", "body": "// @ts-expect-error" },
-  "LSPIgnore": { "prefix": "ts-ignore", "body": "// @ts-ignore" },
-  "LSPNoCheck": { "prefix": "ts-nocheck", "body": "// @ts-nocheck" }
+  "lspCheck": { "prefix": "ts-check", "body": "// @ts-check" },
+  "lspExpect": { "prefix": "ts-expect", "body": "// @ts-expect-error" },
+  "lspIgnore": { "prefix": "ts-ignore", "body": "// @ts-ignore" },
+  "lspNoCheck": { "prefix": "ts-nocheck", "body": "// @ts-nocheck" }
 }

@@ -3,13 +3,12 @@
 -- ╹ ╹┗━╸╹  ╹ ╹╹ ╹
 -- Dashboard.
 
-local M = {}
+local M = {
+  'goolord/alpha-nvim',
+  event = 'VimEnter',
+}
 
-M.init = function(use)
-  use({ 'goolord/alpha-nvim', config = M.config, event = 'VimEnter' })
-end
-
-M.config = function()
+M.opts = function()
   local dashboard = require('alpha.themes.dashboard')
 
   dashboard.section.header.val = {
@@ -25,10 +24,14 @@ M.config = function()
     dashboard.button(
       'ä',
       '📝  Find File',
-      '<Cmd>lua require("sQVe.plugins.telescope").find_files()<CR>'
+      '<Cmd>lua require("sQVe.plugins.telescope").find_files(true)<CR>'
     ),
-    dashboard.button('å', '🔎  Live Word', '<Cmd>Telescope live_grep<CR>'),
-    dashboard.button('-', '📁  File Manager', '<Cmd>Neotree<CR>'),
+    dashboard.button(
+      'Å',
+      '🔎  Grep In All Files',
+      '<Cmd>lua require("telescope.builtin").live_grep({ prompt_title = "Grep In All Files" })<CR>'
+    ),
+    dashboard.button('-', '📁  File Tree', '<Cmd>Neotree<CR>'),
     dashboard.button(
       '<Backspace>',
       '🔴  Git Status',
@@ -40,14 +43,13 @@ M.config = function()
       '<Cmd>Telescope oldfiles cwd_only=true<CR>'
     ),
     dashboard.button('e', '💎  New File', '<Cmd>enew<CR>'),
-    dashboard.button('C', '🛠️  Packer Compile', '<Cmd>PackerCompile<CR>'),
-    dashboard.button('S', '🔃  Packer Sync', '<Cmd>PackerSync<CR>'),
+    dashboard.button('l', '💤  Lazy', '<Cmd>Lazy<CR>'),
     dashboard.button('q', '🥺  Quit', '<Cmd>qa<CR>'),
   }
 
   dashboard.section.footer.val = { vim.fn.getcwd() }
 
-  require('alpha').setup({
+  return {
     layout = {
       { type = 'padding', val = 8 },
       dashboard.section.header,
@@ -57,7 +59,7 @@ M.config = function()
       dashboard.section.footer,
     },
     opts = { margin = 5 },
-  })
+  }
 end
 
 return M

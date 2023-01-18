@@ -1,114 +1,114 @@
 {
-  "CommentCompactJsDoc": { "prefix": "**!", "body": "/** $0 */" },
-  "CommentJsDoc": { "prefix": "**", "body": ["/**", " * $0", " */"] },
-  "CommentLine": {
+  "commentCompactJsDoc": { "prefix": "**!", "body": "/** $0 */" },
+  "commentJsDoc": { "prefix": "**", "body": ["/**", " * $0", " */"] },
+  "commentLine": {
     "prefix": "--",
     "body": "// ----------------------------------------------------------------------------"
   },
-  "ConditionElse": { "prefix": "else", "body": ["else {", "\t$0", "}"] },
-  "ConditionElseIf": {
+  "conditionElse": { "prefix": "else", "body": ["else {", "\t$0", "}"] },
+  "conditionElseIf": {
     "prefix": "elseif",
     "body": ["else if (${1:condition}) {", "\t$0", "}"]
   },
-  "ConditionIf": {
+  "conditionIf": {
     "prefix": "if",
     "body": ["if (${1:condition}) {", "\t$0", "}"]
   },
-  "ConsoleAsset": {
+  "consoleAsset": {
     "prefix": "ca",
     "body": "console.assert($1:assertion, $0);"
   },
-  "ConsoleDir": {
+  "consoleDir": {
     "prefix": "cd",
     "body": "console.dir($0);"
   },
-  "ConsoleError": {
+  "consoleError": {
     "prefix": "ce",
     "body": "console.error($0);"
   },
-  "ConsoleLog": {
+  "consoleLog": {
     "prefix": "cl",
     "body": "console.log($0);"
   },
-  "ConsoleLogContext": {
+  "consoleLogContext": {
     "prefix": "clc",
     "body": "console.log('$TM_FILENAME:$TM_LINE_NUMBER ==>', $0);"
   },
-  "ConsoleTable": {
+  "consoleTable": {
     "prefix": "ct",
     "body": "console.table($0);"
   },
-  "ConsoleVariable": {
+  "consoleVariable": {
     "prefix": "cv",
     "body": "console.log('$0:', $0);"
   },
-  "ConsoleWarn": {
+  "consoleWarn": {
     "prefix": "cw",
     "body": "console.warn($0);"
   },
-  "DependencyExport": {
+  "dependencyExport": {
     "prefix": "export",
     "body": "export ${1:name} from '${0:path}';"
   },
-  "DependencyImport": {
+  "dependencyImport": {
     "prefix": "import",
     "body": "import ${1:name} from '${0:path}';"
   },
-  "DependencyRequire": {
+  "dependencyRequire": {
     "prefix": "require",
     "body": "const ${1:name} = require('${0:path}');"
   },
-  "ESLintDisable": {
+  "eslintDisable": {
     "prefix": "eslint-disable",
     "body": ["/* eslint-disable ${1:rule} */", "$0", "/* eslint-enable */"]
   },
-  "ESLintDisableLine": {
+  "eslintDisableLine": {
     "prefix": "eslint-disable-line",
     "body": "// eslint-disable-line ${0:rule}"
   },
-  "ESLintDisableNextLine": {
+  "eslintDisableNextLine": {
     "prefix": "eslint-disable-next-line",
     "body": "// eslint-disable-next-line ${0:rule}"
   },
-  "FPEvery": {
+  "every": {
     "prefix": "every",
     "body": "every((${1:item}) => $0);"
   },
-  "FPFilter": {
+  "filter": {
     "prefix": "filter",
     "body": "filter((${1:item}) => $0);"
   },
-  "FPFind": {
+  "find": {
     "prefix": "find",
     "body": "find((${1:item}) => $0);"
   },
-  "FPForEach": {
+  "foreach": {
     "prefix": "forEach",
     "body": "forEach((${1:item}) => $0);"
   },
-  "FPIncludes": {
+  "includes": {
     "prefix": "includes",
     "body": "includes((${1:item}) => $0);"
   },
-  "FPMap": { "prefix": "map", "body": "map((${1:item}) => $0);" },
-  "FPReduce": {
+  "map": { "prefix": "map", "body": "map((${1:item}) => $0);" },
+  "reduce": {
     "prefix": "reduce",
     "body": "reduce((${1:acc}, ${2:current}) => $0, ${3:initialValue});"
   },
-  "FPSome": {
+  "some": {
     "prefix": "some",
     "body": "some((${1:item}) => $0);"
   },
-  "Function": {
+  "function": {
     "prefix": "fn",
     "body": ["function ${1:name}(${2:arguments}) {", "\t$0", "}"]
   },
-  "FunctionRocket": { "prefix": "fr", "body": "(${1:arguments}) => $0" },
-  "IIFE": {
+  "functionRocket": { "prefix": "fr", "body": "(${1:arguments}) => $0" },
+  "iife": {
     "prefix": "iife",
     "body": ["(function (${1:arguments}) {", "\t$0", "})(${2:sync});"]
   },
-  "LoopFor": {
+  "loopFor": {
     "prefix": "for",
     "body": [
       "for (let ${1:idx} = 0, ${2:length} = ${3:iterable}.length; ${1:idx} < ${2:length}; ${1:idx}++) {",
@@ -116,28 +116,28 @@
       "}"
     ]
   },
-  "LoopForIn": {
+  "loopForIn": {
     "prefix": "forin",
     "body": ["for (const ${1:key} in ${2:source}) {", "\t$0", "}"]
   },
-  "LoopForOf": {
+  "loopForOf": {
     "prefix": "forof",
     "body": ["for (const ${1:item} of ${2:source}) {", "\t$0", "}"]
   },
-  "LoopWhile": {
+  "loopWhile": {
     "prefix": "while",
     "body": ["while (${1:condition}) {", "\t$0", "}"]
   },
-  "PrettierDisable": {
+  "prettierDisable": {
     "prefix": "prettier-ignore",
     "body": "// prettier-ignore"
   },
-  "Shebang": { "prefix": "#!", "body": "#!/usr/bin/env node" },
-  "Sleep": {
+  "shebang": { "prefix": "#!", "body": "#!/usr/bin/env node" },
+  "sleep": {
     "prefix": "sleep",
     "body": "await new Promise((resolve) => setTimeout(resolve, $0))"
   },
-  "Switch": {
+  "switch": {
     "prefix": "switch",
     "body": [
       "switch (${1:value}) {",
@@ -147,48 +147,46 @@
       "\tdefault:",
       "\t\tbreak;",
       "}"
-    ],
-    "description": "Switch Statement"
+    ]
   },
-  "SwitchCase": {
+  "switchCase": {
     "prefix": "case",
-    "body": ["case ${1:match}:", "\t$0", "\tbreak;"],
-    "description": "Switch Statement"
+    "body": ["case ${1:match}:", "\t$0", "\tbreak;"]
   },
-  "TestAfter": {
+  "testAfter": {
     "prefix": "after",
     "body": ["after(() => {", "\t$0", "});"]
   },
-  "TestAfterAll": {
+  "testAfterAll": {
     "prefix": "afterAll",
     "body": ["afterAll(() => {", "\t$0", "});"]
   },
-  "TestAfterEach": {
+  "testAfterEach": {
     "prefix": "afterEach",
     "body": ["afterEach(() => {", "\t$0", "});"]
   },
-  "TestBefore": {
+  "testBefore": {
     "prefix": "before",
     "body": ["before(() => {", "\t$0", "});"]
   },
-  "TestBeforeAll": {
+  "testBeforeAll": {
     "prefix": "beforeAll",
     "body": ["beforeAll(() => {", "\t$0", "});"]
   },
-  "TestBeforeEach": {
+  "testBeforeEach": {
     "prefix": "beforeEach",
     "body": ["beforeEach(() => {", "\t$0", "});"]
   },
-  "TestDescribe": {
+  "testDescribe": {
     "prefix": "describe",
     "body": ["describe('${1:description}', () => {", "\t$0", "});"]
   },
-  "TestExpect": { "prefix": "expect", "body": "expect(${1:subject}).to$0" },
-  "TestIt": {
+  "testExpect": { "prefix": "expect", "body": "expect(${1:subject}).to$0" },
+  "testIt": {
     "prefix": "it",
     "body": ["it('${1:description}', () => {", "\t$0", "});"]
   },
-  "Try": {
+  "try": {
     "prefix": "try",
     "body": [
       "try {",
@@ -198,7 +196,7 @@
       "}"
     ]
   },
-  "TryFinally": {
+  "tryFinally": {
     "prefix": "tryfinally",
     "body": [
       "try {",
@@ -208,7 +206,7 @@
       "}"
     ]
   },
-  "TryCatchFinally": {
+  "tryCatchFinally": {
     "prefix": "trycatchfinally",
     "body": [
       "try {",

@@ -12,10 +12,10 @@ M.get_winbar_layout = function()
   local filetype = vim.bo.filetype
 
   local disabled_filetypes = {
-    'NvimTree',
     'alpha',
     'fugitive',
-    'packer',
+    'lazy',
+    'neo-tree',
     'qf',
   }
 

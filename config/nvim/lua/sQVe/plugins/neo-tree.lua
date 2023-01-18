@@ -1,44 +1,50 @@
-local M = {}
+-- ┏┓╻┏━╸┏━┓╺┳╸┏━┓┏━╸┏━╸
+-- ┃┗┫┣╸ ┃ ┃ ┃ ┣┳┛┣╸ ┣╸
+-- ╹ ╹┗━╸┗━┛ ╹ ╹┗╸┗━╸┗━╸
+-- File Tree
 
-M.init = function(use)
-  use({
-    'nvim-neo-tree/neo-tree.nvim',
-    branch = 'v2.x',
-    config = M.config,
-    event = 'BufEnter',
-  })
-end
+local M = {
+  'nvim-neo-tree/neo-tree.nvim',
+  branch = 'v2.x',
+  event = 'BufEnter',
+  keys = {
+    { '-', '<Cmd>Neotree action=show toggle<CR>' },
+    { '_', '<Cmd>Neotree action=show reveal<CR>' },
+  },
+}
 
-M.config = function()
-  local map = require('sQVe.utils.vim').map
+M.opts = {
+  hide_root_node = true,
+  log_level = 'warn',
+  filesystem = {
+    follow_current_file = false,
+    hijack_netrw_behavior = 'open_current',
+  },
+  window = {
+    mappings = {
+      ['-'] = 'close_window',
+      ['<Left>'] = 'close_node',
+      ['<Right>'] = 'open',
+      ['F'] = 'clear_filter',
+      ['P'] = 'toggle_preview',
+      ['c'] = { 'copy', config = { show_path = 'relative' } },
+      ['h'] = 'close_node',
+      ['l'] = 'open',
+      ['m'] = { 'move', config = { show_path = 'relative' } },
+      ['s'] = 'open_split',
+      ['v'] = 'open_vsplit',
+      ['z'] = false,
+      ['<Backspace'] = false,
+      ['<'] = 'navigate_up',
+      ['>'] = 'set_root',
+    },
+  },
+}
 
+M.config = function(_, opts)
   vim.cmd([[ let g:neo_tree_remove_legacy_commands = 1 ]])
 
-  require('neo-tree').setup({
-    hide_root_node = true,
-    log_level = 'warn',
-    filesystem = {
-      follow_current_file = false,
-      hijack_netrw_behavior = 'open_current',
-    },
-    window = {
-      mappings = {
-        ['-'] = 'close_window',
-        ['h'] = 'close_node',
-        ['<Left>'] = 'close_node',
-        ['l'] = 'open',
-        ['<Right>'] = 'open',
-        ['v'] = 'open_vsplit',
-        ['c'] = { 'copy', config = { show_path = 'relative' } },
-        ['m'] = { 'move', config = { show_path = 'relative' } },
-        ['F'] = 'clear_filter',
-      },
-    },
-  })
-
-  -- Toggle file explorer tree.
-  map('n', '-', '<Cmd>Neotree action=show toggle<CR>')
-  map('n', '_', '<Cmd>Neotree action=show reveal<CR>')
+  require('neo-tree').setup(opts)
 end
 
 return M

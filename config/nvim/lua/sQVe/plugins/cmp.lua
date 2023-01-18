@@ -3,27 +3,24 @@
 -- ┗━╸╹ ╹╹
 -- Completion engine.
 
-local M = {}
-
-M.init = function(use)
-  use({
-    'hrsh7th/nvim-cmp',
-    config = M.config,
-    event = { 'CmdlineEnter', 'InsertEnter' },
-    requires = { { 'onsails/lspkind-nvim', module = 'lspkind' } },
-  })
-  use({ 'hrsh7th/cmp-buffer', after = 'nvim-cmp' }) -- Buffer completion.
-  use({ 'hrsh7th/cmp-cmdline', after = 'nvim-cmp' }) -- Command completion.
-  use({ 'hrsh7th/cmp-emoji', after = 'nvim-cmp' }) -- Emoji completion.
-  use({ 'hrsh7th/cmp-nvim-lsp', after = 'nvim-cmp' }) -- LSP completion.
-  use({ 'hrsh7th/cmp-nvim-lua', after = 'nvim-cmp' }) -- API completion.
-  use({ 'hrsh7th/cmp-path', after = 'nvim-cmp' }) -- Path completion.
-  use({ 'hrsh7th/cmp-vsnip', after = 'nvim-cmp' }) -- VSnip completion.
-end
+local M = {
+  'hrsh7th/nvim-cmp',
+  event = { 'CmdlineEnter', 'InsertEnter' },
+  dependencies = {
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-cmdline',
+    'hrsh7th/cmp-emoji',
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-path',
+    'onsails/lspkind-nvim',
+    'saadparwaiz1/cmp_luasnip',
+  },
+}
 
 M.config = function()
   local cmp = require('cmp')
   local lspkind = require('lspkind')
+  local luasnip = require('luasnip')
 
   local config = cmp.config
   local mapping = cmp.mapping
@@ -44,8 +41,10 @@ M.config = function()
         == nil
   end
 
-  local mapKey = function(keymap)
-    return mapping(keymap, { 'c', 'i' })
+  local mapKey = function(fn, modes)
+    local defaultModes = { 'c', 'i' }
+
+    return mapping(fn, vim.tbl_extend('force', defaultModes, modes or {}))
   end
 
   local signature_help = function()
@@ -58,6 +57,8 @@ M.config = function()
   local next = function(fallback)
     if cmp.visible() then
       cmp.select_next_item()
+    elseif luasnip.expand_or_jumpable() then
+      luasnip.expand_or_jump()
     elseif has_words_before() then
       cmp.complete()
     else
@@ -68,6 +69,8 @@ M.config = function()
   local previous = function(fallback)
     if cmp.visible() then
       cmp.select_prev_item()
+    elseif luasnip.jumpable(-1) then
+      luasnip.jump(-1)
     else
       fallback()
     end
@@ -82,68 +85,8 @@ M.config = function()
     end
   end
 
-  local fallback = function(fallback)
-    fallback()
-  end
-
   local expand_snippet = function(args)
-    vim.fn['vsnip#anonymous'](args.body)
-  end
-
-  local get_sources = function(kind)
-    if kind == 'cmdline' then
-      return config.sources({
-        { name = 'path', priority = 40 },
-        { name = 'cmdline', option = { ignore_cmds = { '!' } }, priority = 20 },
-        {
-          name = 'buffer',
-          keyword_length = 4,
-          option = { keyword_pattern = anyWord },
-          priority = 10,
-        },
-      })
-    end
-
-    return config.sources({
-      { name = 'nvim_lsp', priority = 80 },
-      { name = 'nvim_lua', priority = 80 },
-      { name = 'path', priority = 60 },
-      {
-        name = 'buffer',
-        keyword_length = 4,
-        option = { keyword_pattern = anyWord },
-        priority = 40,
-      },
-      {
-        name = 'vsnip',
-        keyword_length = 2,
-        -- TODO: Remove this once https://github.com/hrsh7th/cmp-vsnip/issues/5
-        -- is fixed.
-        keyword_pattern = '\\%([^[:alnum:][:blank:]]\\|\\w\\+\\)',
-        priority = 20,
-      },
-      { name = 'emoji', priority = 10 },
-    })
-  end
-
-  local get_mapping = function(kind)
-    local completeMapping = mapKey(mapping.complete({
-      config = { sources = get_sources(kind) },
-      reason = cmp.ContextReason.Manual,
-    }))
-
-    return mapping.preset.insert({
-      ['()'] = kind == 'cmdline' and mapKey(fallback) or mapKey(parentheses),
-      ['<C-CR>'] = completeMapping,
-      ['<C-Space>'] = completeMapping,
-      ['<C-d>'] = mapKey(mapping.scroll_docs(8)),
-      ['<C-e>'] = mapKey(mapping.close()),
-      ['<C-k>'] = mapKey(signature_help),
-      ['<C-u>'] = mapKey(mapping.scroll_docs(-8)),
-      ['<CR>'] = mapKey(mapping.confirm({ select = false })),
-      ['<Tab>'] = mapKey(next),
-      ['<S-Tab>'] = mapKey(previous),
-    })
+    require('luasnip').lsp_expand(args.body)
   end
 
   cmp.setup({
@@ -155,33 +98,69 @@ M.config = function()
         menu = {
           buffer = ' buf',
           emoji = ' emo',
+          luasnip = ' snip',
           nvim_lsp = ' lsp',
           nvim_lua = ' api',
           path = ' path',
-          vsnip = ' snip',
         },
       }),
     },
-    mapping = get_mapping(),
+    mapping = mapping.preset.insert({
+      ['()'] = mapKey(parentheses),
+      ['<C-CR>'] = mapKey(
+        mapping.complete({ reason = cmp.ContextReason.Manual })
+      ),
+      ['<C-Space>'] = mapKey(
+        mapping.complete({ reason = cmp.ContextReason.Manual })
+      ),
+      ['<C-d>'] = mapKey(mapping.scroll_docs(8)),
+      ['<C-e>'] = mapKey(mapping.close()),
+      ['<C-k>'] = mapKey(signature_help),
+      ['<C-u>'] = mapKey(mapping.scroll_docs(-8)),
+      ['<CR>'] = mapKey(mapping.confirm({ select = false })),
+      ['<Tab>'] = mapKey(next, { 's' }),
+      ['<S-Tab>'] = mapKey(previous, { 's' }),
+    }),
     snippet = { expand = expand_snippet },
-    sources = get_sources(),
+    sources = config.sources({
+      { name = 'nvim_lsp' },
+      { name = 'path' },
+      {
+        name = 'luasnip',
+        keyword_length = 2,
+      },
+      {
+        name = 'buffer',
+        keyword_length = 4,
+        option = { keyword_pattern = anyWord },
+      },
+      { name = 'emoji' },
+    }),
     preselect = cmp.PreselectMode.None,
   })
 
   cmp.setup.cmdline({ '/', '?' }, {
-    mapping = get_mapping('cmdline'),
-    sources = config.sources({
+    mapping = mapping.preset.cmdline(),
+    sources = {
       {
         name = 'buffer',
         keyword_length = 2,
         option = { keyword_pattern = anyWord },
       },
-    }),
+    },
   })
 
   cmp.setup.cmdline(':', {
-    mapping = get_mapping('cmdline'),
-    sources = get_sources('cmdline'),
+    mapping = mapping.preset.cmdline(),
+    sources = config.sources({
+      { name = 'path' },
+      { name = 'cmdline', option = { ignore_cmds = { '!' } } },
+      {
+        name = 'buffer',
+        keyword_length = 4,
+        option = { keyword_pattern = anyWord },
+      },
+    }),
   })
 end
 

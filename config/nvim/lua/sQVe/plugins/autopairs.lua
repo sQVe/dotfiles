@@ -3,24 +3,17 @@
 -- ╹ ╹┗━┛ ╹ ┗━┛╹  ╹ ╹╹╹┗╸┗━┛
 -- Complete pairs.
 
-local M = {}
+local M = {
+  'windwp/nvim-autopairs',
+  event = { 'InsertEnter' },
+}
 
-M.init = function(use)
-  use({
-    'windwp/nvim-autopairs',
-    config = M.config,
-    event = { 'InsertEnter' },
-  })
-end
-
-M.config = function()
-  require('nvim-autopairs').setup({
-    check_ts = true,
-    ts_config = {
-      javascript = { 'template_string' },
-      lua = { 'string' },
-    },
-  })
-end
+M.opts = {
+  check_ts = true,
+  ts_config = {
+    javascript = { 'template_string' },
+    lua = { 'string' },
+  },
+}
 
 return M

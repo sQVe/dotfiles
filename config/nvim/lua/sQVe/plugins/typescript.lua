@@ -3,31 +3,24 @@
 --  ╹  ╹ ╹  ┗━╸┗━┛┗━╸╹┗╸╹╹   ╹
 -- JavaScript and TypeScript LSP setup.
 
-local M = {}
+local M = {
+  'jose-elias-alvarez/typescript.nvim',
+  ft = {
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact',
+  },
+}
 
-M.init = function(use)
-  use({
-    'jose-elias-alvarez/typescript.nvim',
-    ft = {
-      'javascript',
-      'javascriptreact',
-      'typescript',
-      'typescriptreact',
-    },
-    module = 'typescript',
-    config = M.config,
-  })
-end
-
-M.config = function()
+M.opts = function()
   local lsp_utils = require('sQVe.utils.lsp')
-  local typescript = require('typescript')
 
   local on_attach = function(_, bufnr)
     lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
   end
 
-  typescript.setup({
+  return {
     disable_commands = false,
     server = {
       init_options = {
@@ -38,7 +31,7 @@ M.config = function()
       },
       on_attach = on_attach,
     },
-  })
+  }
 end
 
 return M

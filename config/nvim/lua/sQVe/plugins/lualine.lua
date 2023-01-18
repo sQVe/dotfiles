@@ -3,13 +3,12 @@
 -- ┗━╸┗━┛╹ ╹┗━╸╹╹ ╹┗━╸
 -- Statusline.
 
-local M = {}
+local M = {
+  'nvim-lualine/lualine.nvim',
+  event = 'VeryLazy',
+}
 
-M.init = function(use)
-  use({ 'nvim-lualine/lualine.nvim', config = M.config, event = 'BufEnter' })
-end
-
-M.config = function()
+M.opts = function()
   local gruvbox = require('lualine.themes.gruvbox')
   local modes = {
     'command',
@@ -24,7 +23,7 @@ M.config = function()
     gruvbox[mode].c.gui = 'italic'
   end
 
-  require('lualine').setup({
+  return {
     options = {
       disabled_filetypes = { 'alpha' },
       theme = gruvbox,
@@ -54,7 +53,11 @@ M.config = function()
       lualine_y = {},
       lualine_z = { 'tabs' },
     },
-  })
+  }
+end
+
+M.config = function(_, opts)
+  require('lualine').setup(opts)
 
   vim.opt.showtabline = 1
 end

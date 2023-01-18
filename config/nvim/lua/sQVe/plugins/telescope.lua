@@ -3,43 +3,68 @@
 --  ╹ ┗━╸┗━╸┗━╸┗━┛┗━╸┗━┛╹  ┗━╸
 -- Fuzzy finder.
 
-local M = {}
-
-M.init = function(use)
-  use({
-    'nvim-telescope/telescope.nvim',
-    config = M.config,
-    cmd = 'Telescope',
-    keys = {
-      { 'n', '<Leader>u' },
-      { 'n', '<Leader>U' },
-      { 'n', '<Backspace>' },
-      { 'n', '<Leader><Backspace>' },
-      { 'n', 'gR' },
-      { 'n', 'gd' },
-      { 'n', 'gD' },
-      { 'n', 'gr' },
-      { 'n', 'gy' },
-      { 'n', '<Leader>l' },
-      { 'n', '<Leader>L' },
-      { 'n', '<Leader>s' },
-      { 'n', '<Leader>S' },
-      { 'n', 'z=' },
-      { 'n', 'å' },
-      { 'n', 'Å' },
-      { 'n', 'ä' },
-      { 'n', 'Ä' },
+local M = {
+  'nvim-telescope/telescope.nvim',
+  cmd = 'Telescope',
+  keys = {
+    {
+      '<Leader>u',
+      function()
+        require('telescope.builtin').oldfiles({
+          cwd_only = true,
+          sort_lastused = true,
+        })
+      end,
     },
-    module = 'telescope',
-    requires = {
-      {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        module = 'telescope._extensions.fzf',
-        run = 'make',
-      },
+    { '<Leader>U', '<Cmd>Telescope resume<CR>' },
+    {
+      '<Backspace>',
+      function()
+        require('telescope.builtin').buffers({ sort_mru = true })
+      end,
     },
-  })
-end
+    {
+      '<Leader><Backspace>',
+      function()
+        require('sQVe.plugins.telescope').git_status()
+      end,
+    },
+    { 'gR', '<Cmd>Telescope grep_string<CR>' },
+    { 'z=', '<Cmd>Telescope spell_suggest<CR>' },
+    {
+      'å',
+      function()
+        require('telescope.builtin').live_grep({
+          prompt_title = 'Grep In Open Buffers',
+          grep_open_files = true,
+        })
+      end,
+    },
+    {
+      'Å',
+      function()
+        require('telescope.builtin').live_grep({
+          prompt_title = 'Grep In All Files',
+        })
+      end,
+    },
+    {
+      'ä',
+      function()
+        require('sQVe.plugins.telescope').find_files(true)
+      end,
+    },
+    {
+      'Ä',
+      function()
+        require('sQVe.plugins.telescope').find_files()
+      end,
+    },
+  },
+  dependencies = {
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+  },
+}
 
 M.git_status = function()
   local builtin = require('telescope.builtin')
@@ -56,6 +81,7 @@ M.find_files = function(use_buffer_cwd)
   local opts = {
     follow = true,
     hidden = true,
+    prompt_title = use_buffer_cwd and 'Find Buffer Sibling File' or 'Find File',
     show_untracked = true,
     use_git_root = false,
   }
@@ -70,15 +96,10 @@ M.find_files = function(use_buffer_cwd)
   end
 end
 
-M.config = function()
-  local telescope = require('telescope')
+M.opts = function()
   local actions = require('telescope.actions')
-  local builtin = require('telescope.builtin')
-  local utils = require('telescope.utils')
 
-  local map = require('sQVe.utils.vim').map
-
-  telescope.setup({
+  return {
     defaults = {
       dynamic_preview_title = true,
       layout_strategy = 'flex',
@@ -121,32 +142,14 @@ M.config = function()
         find_command = { 'fd', '--type', 'f', '--strip-cwd-prefix' },
       },
     },
-  })
+  }
+end
 
-  -- Use fzf native.
+M.config = function(_, opts)
+  local telescope = require('telescope')
+
+  telescope.setup(opts)
   telescope.load_extension('fzf')
-
-  map('n', '<Leader>u', function()
-    builtin.oldfiles({ cwd_only = true, sort_lastused = true })
-  end)
-  map('n', '<Leader>U', builtin.resume)
-
-  map('n', '<Backspace>', function()
-    builtin.buffers({ sort_mru = true })
-  end)
-  map('n', '<Leader><Backspace>', require('sQVe.plugins.telescope').git_status)
-
-  map('n', 'gR', builtin.grep_string)
-  map('n', 'z=', builtin.spell_suggest)
-
-  map('n', 'å', builtin.live_grep)
-  map('n', 'Å', function()
-    builtin.live_grep({ cwd = utils.buffer_dir() })
-  end)
-  map('n', 'ä', require('sQVe.plugins.telescope').find_files)
-  map('n', 'Ä', function()
-    require('sQVe.plugins.telescope').find_files(true)
-  end)
 end
 
 return M

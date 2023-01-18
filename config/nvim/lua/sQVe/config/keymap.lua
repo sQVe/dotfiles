@@ -60,12 +60,12 @@ map('v', '<', '<gv')
 map('v', '>', '>gv')
 
 -- Term.
-map('n', '<Leader>t', '<Cmd>Term<CR>')
-map('n', '<Leader>T', '<Cmd>BTerm<CR>')
+map('n', '<Leader>t', '<Cmd>BTerm<CR>')
+map('n', '<Leader>T', '<Cmd>Term<CR>')
 
--- File manager..
-map('n', '<Leader>f', '<Cmd>FileManager<CR>')
-map('n', '<Leader>F', '<Cmd>BFileManager<CR>')
+-- File manager.
+map('n', '<Leader>f', '<Cmd>BFileManager<CR>')
+map('n', '<Leader>F', '<Cmd>FileManager<CR>')
 
 -- Move between jumps.
 map('n', '<C-o>', '<C-o>')

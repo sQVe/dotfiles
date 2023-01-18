@@ -1,5 +1,5 @@
 {
-  "ClassCompoment": {
+  "classCompoment": {
     "prefix": "rcc",
     "body": [
       "import React, { Component } from 'react';",
@@ -15,7 +15,7 @@
       "};"
     ]
   },
-  "FunctionComponent": {
+  "functionComponent": {
     "prefix": "rfc",
     "body": [
       "import React from 'react';",
@@ -29,7 +29,7 @@
       "};"
     ]
   },
-  "JsxElement": {
+  "jsxElement": {
     "prefix": "jsx",
     "body": "<${element}>$0</${element}>"
   }

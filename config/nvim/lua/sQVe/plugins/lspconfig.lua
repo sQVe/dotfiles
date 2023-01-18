@@ -3,58 +3,70 @@
 -- ┗━╸┗━┛╹  ┗━╸┗━┛╹ ╹╹  ╹┗━┛
 -- Setup Language Server Protocol servers.
 
-local M = {}
+local M = {
+  'neovim/nvim-lspconfig',
+  dependencies = {
+    { 'folke/neodev.nvim', opts = { experimental = { pathStrict = true } } },
+  },
+  ft = {
+    -- bashls
+    'sh',
 
-M.init = function(use)
-  use({
-    'neovim/nvim-lspconfig',
-    config = M.config,
-    ft = {
-      -- bashls
-      'sh',
+    -- cssls
+    'css',
+    'scss',
 
-      -- cssls
-      'css',
-      'scss',
+    -- gopls
+    'go',
+    'gomod',
 
-      -- gopls
-      'go',
-      'gomod',
+    -- html
+    'html',
 
-      -- html
-      'html',
+    -- jsonls
+    'json',
+    'jsonc',
 
-      -- jsonls
-      'json',
-      'jsonc',
+    -- sumneko_lua
+    'lua',
 
-      -- sumneko_lua
-      'lua',
+    -- rust
+    'rust',
 
-      -- rust
-      'rust',
+    -- tsserver
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact',
 
-      -- tsserver
-      'javascript',
-      'javascriptreact',
-      'typescript',
-      'typescriptreact',
+    -- yamlls
+    'yaml',
 
-      -- yamlls
-      'yaml',
-
-      -- misc (further filetypes to handle with null-ls)
-      'graphql',
-      'markdown',
+    -- misc (further filetypes to handle with null-ls)
+    'graphql',
+    'markdown',
+  },
+  keys = {
+    { '<Leader>r', vim.lsp.buf.rename },
+    { '<Leader>a', vim.lsp.buf.code_action, mode = { 'n', 'x' } },
+    {
+      '<Leader>ln',
+      function()
+        vim.diagnostic.goto_next({ float = false })
+      end,
     },
-    module = 'lspconfig',
-  })
-end
+    {
+      '<Leader>lp',
+      function()
+        vim.diagnostic.goto_prev({ float = false })
+      end,
+    },
+  },
+}
 
 M.config = function()
   local lspconfig = require('lspconfig')
   local lsp_utils = require('sQVe.utils.lsp')
-  local map = require('sQVe.utils.vim').map
   local on_attach = function(_, bufnr)
     lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
   end
@@ -68,8 +80,9 @@ M.config = function()
 
   local servers = {
     -- Servers already handled by plugin setup:
-    --   Rust (rust-tools)
     --   JavaScript and TypeScript (typescript)
+    --   Neodev (nvim lua API)
+    --   Rust (rust-tools)
 
     bashls = base_setup,
     cssls = base_setup,
@@ -77,12 +90,10 @@ M.config = function()
     html = base_setup,
     jsonls = base_setup,
     sumneko_lua = lsp_utils.create_base_setup({
-      cmd = { 'lua-language-server' },
       settings = {
         Lua = {
-          diagnostics = { globals = { 'vim' } },
-          runtime = { version = 'LuaJIT' },
-          telemetry = { enable = false },
+          workspace = { checkThirdParty = false },
+          completion = { callSnippet = 'Replace' },
         },
       },
       on_attach = on_attach,
@@ -105,20 +116,6 @@ M.config = function()
     update_in_insert = false,
     virtual_text = false,
   })
-
-  -- Rename reference.
-  map('n', '<Leader>r', vim.lsp.buf.rename)
-
-  -- List code actions.
-  map({ 'n', 'x' }, '<Leader>a', vim.lsp.buf.code_action)
-
-  -- Move to next or previous diagnostic item.
-  map('n', '<Leader>ln', function()
-    vim.diagnostic.goto_next({ float = false })
-  end)
-  map('n', '<Leader>lp', function()
-    vim.diagnostic.goto_prev({ float = false })
-  end)
 end
 
 return M

@@ -3,22 +3,19 @@
 -- ╹┗━╸┗━╸┗━┛╹ ╹╹╹ ╹╹ ╹ ╹ ┗━╸
 -- Highlight word under cursor.
 
-local M = {}
+local M = {
+  'RRethy/vim-illuminate',
+  event = 'VeryLazy',
+}
 
-M.init = function(use)
-  use({
-    'RRethy/vim-illuminate',
-    event = 'CursorMoved',
-    config = M.config,
-  })
-end
+M.opts = {
+  delay = 250,
+  modes_allowlist = { 'n' },
+  providers = { 'treesitter' },
+}
 
-M.config = function()
-  require('illuminate').configure({
-    delay = 250,
-    modes_allowlist = { 'n' },
-    providers = { 'treesitter' },
-  })
+M.config = function(_, opts)
+  require('illuminate').configure(opts)
 end
 
 return M

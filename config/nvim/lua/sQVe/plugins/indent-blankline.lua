@@ -3,24 +3,19 @@
 -- ╹╹ ╹╺┻┛┗━╸╹ ╹ ╹    ┗━┛┗━╸╹ ╹╹ ╹╹ ╹┗━╸╹╹ ╹┗━╸
 -- Indention guides.
 
-local M = {}
+local M = {
+  'lukas-reineke/indent-blankline.nvim',
+  event = 'BufReadPre',
+}
 
-M.init = function(use)
-  use({
-    'lukas-reineke/indent-blankline.nvim',
-    after = 'nvim-treesitter',
-    config = M.config,
-  })
-end
-
-M.config = function()
-  require('indent_blankline').setup({
+M.opts = function()
+  return {
     buftype_exclude = { 'nofile', 'terminal' },
-    filetype_exclude = { 'alpha', 'help', 'packer' },
+    filetype_exclude = { 'alpha', 'help', 'neo-tree', 'lazy' },
     show_current_context = true,
     show_first_indent_level = false,
-    use_treesitter = true,
-  })
+    show_trailing_blankline_indent = false,
+  }
 end
 
 return M

@@ -3,11 +3,13 @@
 -- ┗━╸┗━╸╹ ╹╹
 -- Quick jump via labels.
 
-local M = {}
-
-M.init = function(use)
-  use({ 'ggandor/leap.nvim', config = M.config, after = 'vim-repeat' })
-end
+local M = {
+  'ggandor/leap.nvim',
+  event = 'VeryLazy',
+  dependencies = {
+    { 'ggandor/flit.nvim', config = true },
+  },
+}
 
 M.config = function()
   local leap = require('leap')
