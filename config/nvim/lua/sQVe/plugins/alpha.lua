@@ -27,7 +27,7 @@ M.opts = function()
       '<Cmd>lua require("sQVe.plugins.telescope").find_files(true)<CR>'
     ),
     dashboard.button(
-      'Å',
+      'å',
       '🔎  Grep In All Files',
       '<Cmd>lua require("telescope.builtin").live_grep({ prompt_title = "Grep In All Files" })<CR>'
     ),
