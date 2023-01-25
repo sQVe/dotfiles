@@ -14,7 +14,6 @@ local M = {
 }
 
 M.opts = {
-  hide_root_node = true,
   log_level = 'warn',
   filesystem = {
     follow_current_file = false,
