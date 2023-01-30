@@ -15,50 +15,57 @@ local M = {
           sort_lastused = true,
         })
       end,
+      desc = 'Recent files',
     },
-    { '<Leader>U', '<Cmd>Telescope resume<CR>' },
+    { '<Leader>U', '<Cmd>Telescope resume<CR>', desc = 'Resume' },
     {
       '<Backspace>',
       function()
         require('telescope.builtin').buffers({ sort_mru = true })
       end,
+      desc = 'Buffers',
     },
     {
       '<Leader><Backspace>',
       function()
         require('sQVe.plugins.telescope').git_status()
       end,
+      desc = 'Git status',
     },
-    { 'gR', '<Cmd>Telescope grep_string<CR>' },
-    { 'z=', '<Cmd>Telescope spell_suggest<CR>' },
+    { 'gR', '<Cmd>Telescope grep_string<CR>', desc = 'Grep word' },
+    { 'z=', '<Cmd>Telescope spell_suggest<CR>', desc = 'Spell suggest' },
     {
       'å',
       function()
         require('telescope.builtin').live_grep({
-          prompt_title = 'Grep In Open Buffers',
+          prompt_title = 'Grep (open buffers)',
           grep_open_files = true,
         })
       end,
+      desc = 'Grep (open buffers)',
     },
     {
       'Å',
       function()
         require('telescope.builtin').live_grep({
-          prompt_title = 'Grep In All Files',
+          prompt_title = 'Grep',
         })
       end,
+      desc = 'Grep',
     },
     {
       'ä',
       function()
         require('sQVe.plugins.telescope').find_files(true)
       end,
+      'Find file (buffer directory)',
     },
     {
       'Ä',
       function()
         require('sQVe.plugins.telescope').find_files()
       end,
+      desc = 'Find file',
     },
   },
   dependencies = {
@@ -81,7 +88,8 @@ M.find_files = function(use_buffer_cwd)
   local opts = {
     follow = true,
     hidden = true,
-    prompt_title = use_buffer_cwd and 'Find Buffer Sibling File' or 'Find File',
+    prompt_title = use_buffer_cwd and 'Find file (buffer directory)'
+      or 'Find file',
     show_untracked = true,
     use_git_root = false,
   }

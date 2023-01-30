@@ -11,6 +11,7 @@ local M = {
       function()
         require('luasnip').expand()
       end,
+      desc = 'Expand snippet',
       mode = { 'i' },
     },
   },

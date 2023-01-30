@@ -97,7 +97,7 @@ local options = {
   tabstop = 2,                                      -- Render Tabs using this many spaces.
 
   -- Timings.
-  timeoutlen = 400,                                 -- Timeout Leader after 400 ms.
+  timeoutlen = 300,                                 -- Timeout Leader after 400 ms.
   updatetime = 100,                                 -- Set update time to 100 ms.
 
   -- Undo.

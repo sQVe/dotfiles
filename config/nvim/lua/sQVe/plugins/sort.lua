@@ -12,12 +12,12 @@ local M = {
     { 'go', '<Esc><Cmd>Sort<CR>', mode = { 'v' } },
 
     -- Sort motions.
-    { 'go"', 'vi"<Esc><Cmd>Sort<CR>' },
-    { 'go\'', 'vi\'<Esc><Cmd>Sort<CR>' },
-    { 'go(', 'vi(<Esc><Cmd>Sort<CR>' },
-    { 'go{', 'vi{<Esc><Cmd>Sort<CR>' },
-    { 'go[', 'vi[<Esc><Cmd>Sort<CR>' },
-    { 'gop', 'vip<Esc><Cmd>Sort<CR>' },
+    { 'go"', 'vi"<Esc><Cmd>Sort<CR>', desc = 'Sort inside "' },
+    { 'go\'', 'vi\'<Esc><Cmd>Sort<CR>', desc = 'Sort inside \'' },
+    { 'go(', 'vi(<Esc><Cmd>Sort<CR>', desc = 'Sort inside (' },
+    { 'go{', 'vi{<Esc><Cmd>Sort<CR>', desc = 'Sort inside {}' },
+    { 'go[', 'vi[<Esc><Cmd>Sort<CR>', desc = 'Sort inside [' },
+    { 'gop', 'vip<Esc><Cmd>Sort<CR>', desc = 'Sort inside paragraph' },
   },
 }
 

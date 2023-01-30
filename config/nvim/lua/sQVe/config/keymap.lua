@@ -4,116 +4,156 @@
 
 local map = require('sQVe.utils.vim').map
 
--- Remove search highlight.
-map('n', '<Esc><Esc>', '<Cmd>nohl<CR>')
+-- Clear search matches.
+map('n', '<Esc><Esc>', '<Cmd>nohl<CR>', { desc = 'Clear search matches' })
 
 -- Open command with right pinky.
-map('', 'ö', ':', { silent = false })
-map('', 'Ö', ':', { silent = false })
-map('', 'qö', 'q:', { silent = false })
-map('', 'qÖ', 'q:', { silent = false })
+map('', 'ö', ':', { desc = 'Open command-line', silent = false })
+map('', 'Ö', ':', { desc = 'Open command-line', silent = false })
+map('', 'qö', 'q:', { desc = 'Edit command-line', silent = false })
+map('', 'qÖ', 'q:', { desc = 'Edit command-line', silent = false })
 
 -- Escape terminal.
-map('t', '<Esc><Esc>', '<C-\\><C-N>')
+map('t', '<Esc><Esc>', '<C-\\><C-N>', { desc = 'Escape terminal' })
 
 -- Add certain motions to jumplist.
-map('i', '<Down>', '<C-o>gj')
-map('i', '<Up>', '<C-o>gk')
+map('i', '<Down>', '<C-o>gj', { desc = 'Down' })
+map('i', '<Up>', '<C-o>gk', { desc = 'Up' })
 map(
   '',
   '<Down>',
   '(v:count > 4 ? "m\'" . v:count : "") . \'gj\' ',
-  { expr = true }
+  { desc = 'Down', expr = true }
 )
 map(
   '',
   '<Up>',
   '(v:count > 4 ? "m\'" . v:count : "") . \'gk\' ',
-  { expr = true }
+  { desc = 'Up', expr = true }
 )
-map('', 'j', '(v:count > 4 ? "m\'" . v:count : "") . \'gj\' ', { expr = true })
-map('', 'k', '(v:count > 4 ? "m\'" . v:count : "") . \'gk\' ', { expr = true })
-map('', 'k', '(v:count > 4 ? "m\'" . v:count : "") . \'gk\' ', { expr = true })
-map('', 'gj', 'j')
-map('', 'gk', 'k')
+map(
+  '',
+  'j',
+  '(v:count > 4 ? "m\'" . v:count : "") . \'gj\' ',
+  { desc = 'Down', expr = true }
+)
+map(
+  '',
+  'k',
+  '(v:count > 4 ? "m\'" . v:count : "") . \'gk\' ',
+  { desc = 'Up', expr = true }
+)
+map('', 'gj', 'j', { desc = 'Down' })
+map('', 'gk', 'k', { desc = 'Up' })
 
 -- Consistent centered search with n and N.
-map('', 'n', '\'Nn\'[v:searchforward] . \'zzzv\'', { expr = true })
-map('', 'N', '\'nN\'[v:searchforward] . \'zzzv\'', { expr = true })
+map(
+  '',
+  'n',
+  '\'Nn\'[v:searchforward] . \'zzzv\'',
+  { desc = 'Next match', expr = true }
+)
+map(
+  '',
+  'N',
+  '\'nN\'[v:searchforward] . \'zzzv\'',
+  { desc = 'Previous match', expr = true }
+)
 
 -- Consistent CR movement.
 map('', '<S-CR>', '-')
 
 -- Keep cursor position when joining lines.
-map('', 'J', 'mzJ`z')
+map('', 'J', 'mzJ`z', { desc = 'Join lines' })
 
 -- Next and previous buffer.
-map('', '<Tab>', '<Cmd>bnext<CR>')
-map('', '<S-Tab>', '<Cmd>bprev<CR>')
+map('', '<Tab>', '<Cmd>bnext<CR>', { desc = 'Next buffer' })
+map('', '<S-Tab>', '<Cmd>bprev<CR>', { desc = 'Previous buffer' })
 
 -- Flip f, t, F and T repeat.
-map('', ',', ';')
-map('', ';', ',')
+map('', ',', ';', { desc = 'Find next character' })
+map('', ';', ',', { desc = 'Find previous character' })
 
 -- Indent and un-indent without loosing selection.
-map('v', '<', '<gv')
-map('v', '>', '>gv')
+map('v', '<', '<gv', { desc = 'Un-indent' })
+map('v', '>', '>gv', { desc = 'Indent' })
 
 -- Term.
-map('n', '<Leader>t', '<Cmd>BTerm<CR>')
-map('n', '<Leader>T', '<Cmd>Term<CR>')
+map(
+  'n',
+  '<Leader>t',
+  '<Cmd>BTerm<CR>',
+  { desc = 'Open terminal (buffer directory)' }
+)
+map('n', '<Leader>T', '<Cmd>Term<CR>', { desc = 'Open terminal' })
 
 -- File manager.
-map('n', '<Leader>f', '<Cmd>BFileManager<CR>')
-map('n', '<Leader>F', '<Cmd>FileManager<CR>')
+map(
+  'n',
+  '<Leader>f',
+  '<Cmd>BFileManager<CR>',
+  { desc = 'Open file manager (buffer directory)' }
+)
+map('n', '<Leader>F', '<Cmd>FileManager<CR>', { desc = 'Open file manager' })
 
 -- Move between jumps.
-map('n', '<C-o>', '<C-o>')
-map('n', '<C-p>', '<C-i>')
+map('n', '<C-o>', '<C-o>', { desc = 'Previous jump' })
+map('n', '<C-p>', '<C-i>', { desc = 'Next jump' })
 
 -- Move between windows.
-map('n', '<C-h>', '<Cmd>wincmd h<CR>')
-map('n', '<C-j>', '<Cmd>wincmd j<CR>')
-map('n', '<C-k>', '<Cmd>wincmd k<CR>')
-map('n', '<C-l>', '<Cmd>wincmd l<CR>')
-map('n', '<C-Left>', '<Cmd>wincmd h<CR>')
-map('n', '<C-Down>', '<Cmd>wincmd j<CR>')
-map('n', '<C-Up>', '<Cmd>wincmd k<CR>')
-map('n', '<C-Right>', '<Cmd>wincmd l<CR>')
+map('n', '<C-h>', '<Cmd>wincmd h<CR>', { desc = 'Move window focus left' })
+map('n', '<C-j>', '<Cmd>wincmd j<CR>', { desc = 'Move window focus down' })
+map('n', '<C-k>', '<Cmd>wincmd k<CR>', { desc = 'Move window focus up' })
+map('n', '<C-l>', '<Cmd>wincmd l<CR>', { desc = 'Move window focus right' })
+map('n', '<C-Left>', '<Cmd>wincmd h<CR>', { desc = 'Move window focus left' })
+map('n', '<C-Down>', '<Cmd>wincmd j<CR>', { desc = 'Move window focus down' })
+map('n', '<C-Up>', '<Cmd>wincmd k<CR>', { desc = 'Move window focus up' })
+map('n', '<C-Right>', '<Cmd>wincmd l<CR>', { desc = 'Move window focus right' })
 
 -- Quickfix.
-map('n', '<C-q>w', '<Cmd>copen<CR>')
-map('n', '<C-q><C-w>', '<Cmd>copen<CR>')
-map('n', '<C-q>q', '<Cmd>cclose<CR>')
-map('n', '<C-q><C-q>', '<Cmd>cclose<CR>')
-map('n', '<C-q>n', '<Cmd>cnext<CR>')
-map('n', '<C-q><C-n>', '<Cmd>cnext<CR>')
-map('n', '<C-q>p', '<Cmd>cprevious<CR>')
-map('n', '<C-q><C-p>', '<Cmd>cprevious<CR>')
+map('n', '<C-q>w', '<Cmd>copen<CR>', { desc = 'Open quickfix' })
+map('n', '<C-q><C-w>', '<Cmd>copen<CR>', { desc = 'Open quickfix' })
+map('n', '<C-q>q', '<Cmd>cclose<CR>', { desc = 'Close quickfix' })
+map('n', '<C-q><C-q>', '<Cmd>cclose<CR>', { desc = 'Close quickfix' })
+map('n', '<C-q>n', '<Cmd>cnext<CR>', { desc = 'Next quickfix entry' })
+map('n', '<C-q><C-n>', '<Cmd>cnext<CR>', { desc = 'Next quickfix entry' })
+map('n', '<C-q>p', '<Cmd>cprevious<CR>', { desc = 'Previous quickfix entry' })
+map(
+  'n',
+  '<C-q><C-p>',
+  '<Cmd>cprevious<CR>',
+  { desc = 'Previous quickfix entry' }
+)
 
 -- Tabs.
-map('n', '<Leader>n', '<Cmd>tabnew<CR>')
-map('n', '<Leader>q', '<Cmd>tabclose<CR>')
+map('n', '<Leader>n', '<Cmd>tabnew<CR>', { desc = 'New tab' })
+map('n', '<Leader>q', '<Cmd>tabclose<CR>', { desc = 'Close tab' })
 
 -- Spell completion.
-map('i', '<C-x><C-s>', '<C-x>s')
+map('i', '<C-x><C-s>', '<C-x>s', { desc = 'Open spell completion' })
 
 -- Toggle settings.
 map(
   'n',
   'yoc',
-  ':set conceallevel=<C-r>=&conceallevel == 0 ? \'2\' : \'0\'<CR><CR>'
+  ':set conceallevel=<C-r>=&conceallevel == 0 ? \'2\' : \'0\'<CR><CR>',
+  { desc = 'Toggle conceal' }
 )
-map('n', 'ol', '<Cmd>set cursorline!<CR>')
-map('n', 'yon', '<Cmd>set number!<CR>')
-map('n', 'yor', '<Cmd>set relativenumber!<CR>')
-map('n', 'yos', '<Cmd>set spell!<CR>')
-map('n', 'yow', '<Cmd>set wrap!<CR>')
-map('i', '<C-s>', '<C-o><C-s>', { remap = true })
-map('', '<C-s>', '<Cmd>set spell!<CR>', { remap = true })
+map('n', 'yol', '<Cmd>set cursorline!<CR>', { desc = 'Toggle cursorline' })
+map('n', 'yon', '<Cmd>set number!<CR>', { desc = 'Toggle number' })
+map(
+  'n',
+  'yor',
+  '<Cmd>set relativenumber!<CR>',
+  { desc = 'Toggle relativenumber' }
+)
+map('n', 'yow', '<Cmd>set wrap!<CR>', { desc = 'Toggle wrap' })
+map('n', 'yos', '<Cmd>set spell!<CR>', { desc = 'Toggle spell' })
+map('', '<C-s>', '<Cmd>set spell!<CR>', { desc = 'Toggle spell', remap = true })
+map('i', '<C-s>', '<C-o><C-s>', { desc = 'Toggle spell', remap = true })
 
 -- Star search but stay at same word.
-map('', '<C-n>', '*N', { remap = true })
+map('', '<C-n>', '*N', { desc = 'Search for word or selection', remap = true })
 
 -- Set undo breakpoints.
 map('i', '!', '!<c-g>u')
@@ -125,11 +165,17 @@ map('i', '[', '[<c-g>u')
 map('i', '{', '{<c-g>u')
 
 -- Search for selected text with DuckDuckGo.
-map('v', 'K', '"oy<Esc><Cmd>Ddg<CR>')
+map(
+  'v',
+  'K',
+  '"oy<Esc><Cmd>Ddg<CR>',
+  { desc = 'Search for selection in DuckDuckGo' }
+)
 
 -- Open file or URL with mimeo.
 map(
   'n',
   'gx',
-  '<Cmd>silent execute "!mimeo " . shellescape(expand(\'<cfile>\'))<CR>'
+  '<Cmd>silent execute "!mimeo " . shellescape(expand(\'<cfile>\'))<CR>',
+  { desc = 'Open file or URL with mimeo' }
 )

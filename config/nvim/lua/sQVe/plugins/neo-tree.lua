@@ -8,14 +8,19 @@ local M = {
   branch = 'v2.x',
   event = 'BufEnter',
   keys = {
-    { '-', '<Cmd>Neotree action=show toggle<CR>' },
-    { '_', '<Cmd>Neotree action=show reveal<CR>' },
+    { '-', '<Cmd>Neotree action=show toggle<CR>', desc = 'Toggle Neotree' },
+    {
+      '_',
+      '<Cmd>Neotree action=show reveal<CR>',
+      desc = 'Reveal buffer in Neotree',
+    },
   },
 }
 
 M.opts = {
   log_level = 'warn',
   filesystem = {
+    hide_root_node = true,
     follow_current_file = false,
     hijack_netrw_behavior = 'open_current',
   },

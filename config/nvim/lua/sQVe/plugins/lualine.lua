@@ -53,6 +53,7 @@ M.opts = function()
       lualine_y = {},
       lualine_z = { 'tabs' },
     },
+    extensions = { 'neo-tree' },
   }
 end
 

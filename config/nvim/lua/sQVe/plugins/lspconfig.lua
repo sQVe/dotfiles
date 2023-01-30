@@ -47,19 +47,26 @@ local M = {
     'markdown',
   },
   keys = {
-    { '<Leader>r', vim.lsp.buf.rename },
-    { '<Leader>a', vim.lsp.buf.code_action, mode = { 'n', 'x' } },
+    { '<Leader>r', vim.lsp.buf.rename, desc = 'Rename symbol' },
+    {
+      '<Leader>a',
+      vim.lsp.buf.code_action,
+      mode = { 'n', 'x' },
+      desc = 'List code actions',
+    },
     {
       '<Leader>ln',
       function()
         vim.diagnostic.goto_next({ float = false })
       end,
+      desc = 'Next diagnostic entry',
     },
     {
       '<Leader>lp',
       function()
         vim.diagnostic.goto_prev({ float = false })
       end,
+      desc = 'Previous diagnostic entry',
     },
   },
 }

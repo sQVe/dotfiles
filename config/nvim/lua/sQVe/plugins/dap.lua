@@ -68,7 +68,12 @@ M.config = function()
   )
 
   telescope.load_extension('dap')
-  map('n', '<Leader>i', telescope.extensions.dap.commands)
+  map(
+    'n',
+    '<Leader>i',
+    telescope.extensions.dap.commands,
+    { desc = 'List DAP commands' }
+  )
 end
 
 return M

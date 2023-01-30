@@ -6,8 +6,8 @@
 local M = {
   'numToStr/Comment.nvim',
   keys = {
-    { 'gb', mode = { 'n', 'v' } },
-    { 'gc', mode = { 'n', 'v' } },
+    { 'gb', mode = { 'n', 'v' }, desc = 'Block comment' },
+    { 'gc', mode = { 'n', 'v' }, desc = 'Comment' },
   },
   dependencies = { 'JoosepAlviste/nvim-ts-context-commentstring' },
 }

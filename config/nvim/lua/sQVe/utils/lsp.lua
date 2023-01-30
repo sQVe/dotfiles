@@ -110,32 +110,67 @@ M.map_lsp_buffer_keys = function(bufnr, include)
           0,
           { buffer = bufnr, header = false, scope = 'line' }
         )
-      end, { buffer = bufnr })
-      map('n', '<Leader>l', function()
+      end, { buffer = bufnr, desc = 'View diagnostics (line)' })
+      map('n', '<Leader>ll', function()
         builtin.diagnostics({ bufnr = 0 })
-      end, { buffer = bufnr })
-      map('n', '<Leader>L', builtin.diagnostics, { buffer = bufnr })
+      end, { buffer = bufnr, desc = 'List diagnostics (buffer)' })
+      map(
+        'n',
+        '<Leader>lo',
+        builtin.diagnostics,
+        { buffer = bufnr, desc = 'List diagnostics (open buffers)' }
+      )
     end,
     formatting = function()
       map(
         'n',
         '<Leader><Leader>',
         require('sQVe.utils.lsp').format,
-        { buffer = bufnr }
+        { buffer = bufnr, desc = 'Format with LSP' }
       )
     end,
     lookup = function()
-      map('n', 'gd', builtin.lsp_definitions, { buffer = bufnr })
-      map('n', 'gD', builtin.lsp_implementations, { buffer = bufnr })
-      map('n', 'gr', builtin.lsp_references, { buffer = bufnr })
-      map('n', 'gy', builtin.lsp_type_definitions, { buffer = bufnr })
-      map('n', 'K', vim.lsp.buf.hover, { buffer = bufnr })
-      map('n', '<Leader>s', builtin.lsp_document_symbols, { buffer = bufnr })
+      map(
+        'n',
+        'gd',
+        builtin.lsp_definitions,
+        { buffer = bufnr, desc = 'Goto definitions' }
+      )
+      map(
+        'n',
+        'gD',
+        builtin.lsp_implementations,
+        { buffer = bufnr, desc = 'Goto implementations' }
+      )
+      map(
+        'n',
+        'gr',
+        builtin.lsp_references,
+        { buffer = bufnr, desc = 'Goto references' }
+      )
+      map(
+        'n',
+        'gy',
+        builtin.lsp_type_definitions,
+        { buffer = bufnr, desc = 'Goto type definitions' }
+      )
+      map(
+        'n',
+        'K',
+        vim.lsp.buf.hover,
+        { buffer = bufnr, desc = 'View symbol information' }
+      )
+      map(
+        'n',
+        '<Leader>s',
+        builtin.lsp_document_symbols,
+        { buffer = bufnr, desc = 'Goto buffer symbols' }
+      )
       map(
         'n',
         '<Leader>S',
         builtin.lsp_dynamic_workspace_symbols,
-        { buffer = bufnr }
+        { buffer = bufnr, desc = 'Goto workspace symbols' }
       )
     end,
   }
