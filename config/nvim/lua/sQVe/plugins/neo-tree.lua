@@ -20,7 +20,6 @@ local M = {
 M.opts = {
   log_level = 'warn',
   filesystem = {
-    hide_root_node = true,
     follow_current_file = false,
     hijack_netrw_behavior = 'open_current',
   },
