@@ -6,7 +6,7 @@
 local M = { 'npxbr/gruvbox.nvim', event = 'BufEnter' }
 
 M.opts = function()
-  local palette = require('gruvbox.palette')
+  local colors = require('gruvbox.palette').colors
 
   -- Custom colors.
   local black = '#000000'
@@ -33,33 +33,32 @@ M.opts = function()
     Comment = { italic = true },
     String = { italic = true },
     Todo = { italic = true },
-    WinBar = { fg = palette.light2 },
-    WinBarNC = { fg = palette.gray },
+    WinBar = { fg = colors.light2 },
+    WinBarNC = { fg = colors.gray },
     ['@text.danger'] = {
-      fg = palette.bright_red,
+      fg = colors.bright_red,
       bold = true,
     },
     ['@text.emphasis'] = { italic = true },
     ['@text.note'] = {
-      fg = palette.bright_aqua,
+      fg = colors.bright_aqua,
       bold = true,
     },
     ['@text.warning'] = {
-      fg = palette.bright_yellow,
+      fg = colors.bright_yellow,
       bold = true,
     },
     markdownBoldItalic = { italic = true },
     markdownItalic = { italic = true },
 
     -- Indent blankline.
-    IndentBlanklineChar = { fg = palette.dark1 },
-    IndentBlanklineContextChar = { fg = palette.light4 },
+    IndentBlanklineContextChar = { fg = colors.light4 },
 
     -- Leap.
-    Cursor = { fg = palette.dark0, bg = palette.bright_orange, reverse = false },
-    LeapMatch = { fg = black, bg = palette.bright_yellow },
-    LeapLabelPrimary = { fg = black, bg = palette.bright_purple },
-    LeapLabelSecondary = { fg = black, bg = palette.bright_red },
+    Cursor = { fg = colors.dark0, bg = colors.bright_orange, reverse = false },
+    LeapMatch = { fg = black, bg = colors.bright_yellow },
+    LeapLabelPrimary = { fg = black, bg = colors.bright_purple },
+    LeapLabelSecondary = { fg = black, bg = colors.bright_red },
   }, sign_column_override_map)
 
   return {
