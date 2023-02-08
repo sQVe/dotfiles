@@ -2,7 +2,7 @@
 -- ┃ ┃┣━┛ ┃ ┃┃ ┃┃┗┫┗━┓
 -- ┗━┛╹   ╹ ╹┗━┛╹ ╹┗━┛
 
-local table_contains = require('sQVe.utils.table').table_contains
+local table_contains = require('sQVe.utils.lua').table_contains
 
 local M = {}
 

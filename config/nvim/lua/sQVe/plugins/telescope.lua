@@ -28,7 +28,7 @@ local M = {
     {
       '<Leader><Backspace>',
       function()
-        require('sQVe.plugins.telescope').git_status()
+        require('sQVe.utils.telescope').git_status()
       end,
       desc = 'Git status',
     },
@@ -56,14 +56,14 @@ local M = {
     {
       'ä',
       function()
-        require('sQVe.plugins.telescope').find_files(true)
+        require('sQVe.utils.telescope').find_files(true)
       end,
       'Find file (buffer directory)',
     },
     {
       'Ä',
       function()
-        require('sQVe.plugins.telescope').find_files()
+        require('sQVe.utils.telescope').find_files()
       end,
       desc = 'Find file',
     },
@@ -72,37 +72,6 @@ local M = {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
   },
 }
-
-M.git_status = function()
-  local builtin = require('telescope.builtin')
-
-  local ok = pcall(builtin.git_status, {})
-  if not ok then
-    print('No git directory found')
-  end
-end
-
-M.find_files = function(use_buffer_cwd)
-  local builtin = require('telescope.builtin')
-  local utils = require('telescope.utils')
-  local opts = {
-    follow = true,
-    hidden = true,
-    prompt_title = use_buffer_cwd and 'Find file (buffer directory)'
-      or 'Find file',
-    show_untracked = true,
-    use_git_root = false,
-  }
-
-  if use_buffer_cwd then
-    opts.cwd = utils.buffer_dir()
-  end
-
-  local ok = pcall(builtin.git_files, opts)
-  if not ok then
-    builtin.find_files(opts)
-  end
-end
 
 M.opts = function()
   local actions = require('telescope.actions')

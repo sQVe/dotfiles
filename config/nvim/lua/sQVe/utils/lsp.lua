@@ -16,7 +16,7 @@ M.create_base_setup = function(settings)
 end
 
 M.create_runtime_condition = function(config_names)
-  local starts_with = require('sQVe.utils.string').starts_with
+  local string_starts_with = require('sQVe.utils.lua').string_starts_with
 
   local bufnr_cache = {}
   local config_path_cache = {}
@@ -26,7 +26,7 @@ M.create_runtime_condition = function(config_names)
       return bufnr_cache[params.bufnr]
     else
       for _, cached_config_path in ipairs(config_path_cache) do
-        if starts_with(params.bufname, cached_config_path) then
+        if string_starts_with(params.bufname, cached_config_path) then
           bufnr_cache[params.bufnr] = true
           return true
         end

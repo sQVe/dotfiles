@@ -24,7 +24,7 @@ M.opts = function()
     dashboard.button(
       'ä',
       '📝  Find file',
-      '<Cmd>lua require("sQVe.plugins.telescope").find_files(true)<CR>'
+      '<Cmd>lua require("sQVe.utils.telescope").find_files(true)<CR>'
     ),
     dashboard.button(
       'å',
@@ -35,7 +35,7 @@ M.opts = function()
     dashboard.button(
       '<Backspace>',
       '🔴  Git status',
-      '<Cmd>lua require("sQVe.plugins.telescope").git_status()<CR>'
+      '<Cmd>lua require("sQVe.utils.telescope").git_status()<CR>'
     ),
     dashboard.button(
       'u',

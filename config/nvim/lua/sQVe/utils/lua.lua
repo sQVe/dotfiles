@@ -1,8 +1,12 @@
--- ╺┳╸┏━┓┏┓ ╻  ┏━╸
---  ┃ ┣━┫┣┻┓┃  ┣╸
---  ╹ ╹ ╹┗━┛┗━╸┗━╸
+-- ╻  ╻ ╻┏━┓
+-- ┃  ┃ ┃┣━┫
+-- ┗━╸┗━┛╹ ╹
 
 local M = {}
+
+M.string_starts_with = function(str, start)
+  return string.sub(str, 1, #start) == start
+end
 
 M.table_contains = function(tbl, value)
   local found = false
