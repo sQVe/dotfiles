@@ -52,6 +52,7 @@ M.opts = function()
     markdownItalic = { italic = true },
 
     -- Indent blankline.
+    IndentBlanklineChar = { fg = colors.dark1 },
     IndentBlanklineContextChar = { fg = colors.light4 },
 
     -- Leap.
