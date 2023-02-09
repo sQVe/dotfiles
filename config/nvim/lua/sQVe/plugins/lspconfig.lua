@@ -78,6 +78,8 @@ M.config = function()
     lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
   end
 
+  vim.lsp.set_log_level('OFF')
+
   vim.lsp.handlers['textDocument/publishDiagnostics'] =
     lsp_utils.diagnostic_handler
 
