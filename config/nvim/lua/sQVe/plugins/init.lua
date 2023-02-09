@@ -13,7 +13,7 @@ return {
   { 'tpope/vim-repeat', event = 'VeryLazy' }, -- Repeat support for plugins.
 
   -- Editorconfig.
-  { 'gpanders/editorconfig.nvim', event = 'BufReadPre' },
+  { 'gpanders/editorconfig.nvim', event = { 'BufNew', 'BufRead' } },
 
   -- Text objects.
   { 'michaeljsmith/vim-indent-object', event = 'VeryLazy' }, -- Indent text object.

@@ -5,7 +5,7 @@
 
 local M = {
   'kylechui/nvim-surround',
-  event = 'BufReadPost',
+  event = { 'BufNew', 'BufRead' },
 }
 
 M.opts = function()
