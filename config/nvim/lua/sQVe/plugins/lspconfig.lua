@@ -74,18 +74,18 @@ local M = {
 M.config = function()
   local lspconfig = require('lspconfig')
   local lsp_utils = require('sQVe.utils.lsp')
+
   local on_attach = function(_, bufnr)
     lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
   end
 
-  vim.lsp.set_log_level('OFF')
-
-  vim.lsp.handlers['textDocument/publishDiagnostics'] =
-    lsp_utils.diagnostic_handler
-
-  local base_setup = lsp_utils.create_base_setup({
+  local server_setup = lsp_utils.create_server_setup({
     on_attach = on_attach,
   })
+
+  vim.lsp.set_log_level('OFF')
+  vim.lsp.handlers['textDocument/publishDiagnostics'] =
+    lsp_utils.diagnostic_handler
 
   local servers = {
     -- Servers already handled by plugin setup:
@@ -93,21 +93,20 @@ M.config = function()
     --   Neodev (nvim lua API)
     --   Rust (rust-tools)
 
-    bashls = base_setup,
-    cssls = base_setup,
-    gopls = base_setup,
-    html = base_setup,
-    jsonls = base_setup,
-    sumneko_lua = lsp_utils.create_base_setup({
+    bashls = server_setup,
+    cssls = server_setup,
+    gopls = server_setup,
+    html = server_setup,
+    jsonls = server_setup,
+    sumneko_lua = lsp_utils.create_server_setup({
       settings = {
         Lua = {
           workspace = { checkThirdParty = false },
           completion = { callSnippet = 'Replace' },
         },
       },
-      on_attach = on_attach,
     }),
-    yamlls = base_setup,
+    yamlls = server_setup,
   }
 
   for server, config in pairs(servers) do

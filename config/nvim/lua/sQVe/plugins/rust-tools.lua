@@ -15,20 +15,24 @@ M.opts = function()
   local codelldb_path = '/usr/bin/codelldb'
   local liblldb_path = '/usr/lib/liblldb.so'
 
+  local on_attach = function(_, bufnr)
+    lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
+  end
+
+  local server_setup = lsp_utils.create_server_setup({
+    on_attach = on_attach,
+    settings = {
+      ['rust-analyzer'] = {
+        cargo = { allFeatures = true },
+        checkOnSave = { allFeatures = true, command = 'clippy' },
+      },
+    },
+  })
+
   return {
     dap = { adapter = get_codelldb_adapter(codelldb_path, liblldb_path) },
     tools = { inlay_hints = { auto = false } },
-    server = {
-      on_attach = function(_, bufnr)
-        lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
-      end,
-      settings = {
-        ['rust-analyzer'] = {
-          cargo = { allFeatures = true },
-          checkOnSave = { allFeatures = true, command = 'clippy' },
-        },
-      },
-    },
+    server = server_setup,
   }
 end
 

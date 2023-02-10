@@ -20,17 +20,19 @@ M.opts = function()
     lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
   end
 
+  local server_setup = lsp_utils.create_server_setup({
+    init_options = {
+      preferences = {
+        importModuleSpecifierPreference = 'relative',
+        quotePreference = 'single',
+      },
+    },
+    on_attach = on_attach,
+  })
+
   return {
     disable_commands = false,
-    server = {
-      init_options = {
-        preferences = {
-          importModuleSpecifierPreference = 'relative',
-          quotePreference = 'single',
-        },
-      },
-      on_attach = on_attach,
-    },
+    server = server_setup,
   }
 end
 

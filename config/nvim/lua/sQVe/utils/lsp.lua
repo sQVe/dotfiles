@@ -4,15 +4,15 @@
 
 local M = {}
 
-M.create_base_setup = function(settings)
+M.create_server_setup = function(opts)
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
   local common_setup = {
-    capabilities = M.update_capabilities(
-      vim.lsp.protocol.make_client_capabilities()
-    ),
+    capabilities = capabilities,
     root_dir = M.create_root_dir_handler(),
   }
 
-  return vim.tbl_extend('force', common_setup, settings or {})
+  return vim.tbl_extend('force', common_setup, opts or {})
 end
 
 M.create_runtime_condition = function(config_names)
