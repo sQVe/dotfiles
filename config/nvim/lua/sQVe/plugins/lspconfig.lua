@@ -27,7 +27,7 @@ local M = {
     'json',
     'jsonc',
 
-    -- sumneko_lua
+    -- lua_ls
     'lua',
 
     -- rust
@@ -98,7 +98,8 @@ M.config = function()
     gopls = server_setup,
     html = server_setup,
     jsonls = server_setup,
-    sumneko_lua = lsp_utils.create_server_setup({
+    lua_ls = lsp_utils.create_server_setup({
+      on_attach = on_attach,
       settings = {
         Lua = {
           workspace = { checkThirdParty = false },
@@ -118,10 +119,12 @@ M.config = function()
     lspconfig[server].setup(config)
   end
 
-  -- Disable virtual text for diagnostics.
+  -- Configure diagnostics.
   vim.diagnostic.config({
     severity_sort = true,
-    update_in_insert = false,
+    underline = {
+      severity = { min = vim.diagnostic.severity.WARN },
+    },
     virtual_text = false,
   })
 end
