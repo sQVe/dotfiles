@@ -186,15 +186,9 @@
     "prefix": "it",
     "body": ["it('${1:description}', () => {", "\t$0", "});"]
   },
-  "try": {
-    "prefix": "try",
-    "body": [
-      "try {",
-      "\t$0",
-      "} catch (${1:err}) {",
-      "\t// TODO: Handle $1.",
-      "}"
-    ]
+  "tryCatch": {
+    "prefix": "trycatch",
+    "body": "try {\n\t${0}\n} catch (${1:error}) {\n\t\n}"
   },
   "tryFinally": {
     "prefix": "tryfinally",
@@ -202,7 +196,7 @@
       "try {",
       "\t$0",
       "} finally {",
-      "\t// TODO: Handle finally clause.",
+      "",
       "}"
     ]
   },
@@ -211,10 +205,10 @@
     "body": [
       "try {",
       "\t$0",
-      "} catch (${1:err}) {",
-      "\t// TODO: Handle $1.",
+      "} catch (${1:error}) {",
+      "",
       "} finally {",
-      "\t// TODO: Handle finally clause.",
+      "",
       "}"
     ]
   }
