@@ -3,6 +3,9 @@
 --  ╹ ╹┗╸┗━╸┗━╸┗━┛╹ ╹  ╹ ┗━╸╹┗╸
 -- Syntax highlighting.
 
+local is_filesize_larger_than =
+  require('sQVe.utils.treesitter').is_filesize_larger_than
+
 local M = {
   'nvim-treesitter/nvim-treesitter',
   event = 'BufReadPost',
@@ -40,7 +43,15 @@ M.opts = {
     'yaml',
   },
   context_commentstring = { enable = true, enable_autocmd = false },
-  highlight = { enable = true },
+  highlight = {
+    enable = true,
+    disable = function(_, buf)
+      return is_filesize_larger_than(
+        buf,
+        100 * 1024 -- 100 KiB
+      )
+    end,
+  },
   indent = { enable = true },
   textsubjects = {
     enable = true,
