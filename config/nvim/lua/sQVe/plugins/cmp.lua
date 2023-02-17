@@ -136,7 +136,6 @@ M.config = function()
       },
       { name = 'emoji' },
     }),
-    preselect = cmp.PreselectMode.None,
   })
 
   cmp.setup.cmdline({ '/', '?' }, {
