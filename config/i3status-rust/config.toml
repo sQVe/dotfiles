@@ -85,7 +85,6 @@ cmd = "mullvad-vpn"
 [[block]]
 block = "sound"
 device_kind = "source"
-format = " $icon {$volume.eng(2) |}"
 max_vol = 100
 step_width = 5
 [[block.click]]
@@ -95,7 +94,6 @@ cmd = "pavucontrol"
 [[block]]
 block = "sound"
 device_kind = "sink"
-format = " $icon {$volume.eng(2) |}"
 max_vol = 100
 step_width = 5
 [[block.click]]
@@ -132,5 +130,6 @@ critical_fg = "#282828"
 
 [[block]]
 block = "time"
-format = " $icon %Y-%m-%d %H:%M "
 interval = 60
+[block.format]
+full = " $icon $timestamp.datetime(f:'%Y-%m-%d %H:%M') "
