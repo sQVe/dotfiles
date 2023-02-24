@@ -41,6 +41,7 @@ idle_fg = "#ebdbb2"
 block = "custom"
 command = "$SCRIPTS/blocks/screensaver"
 json = true
+signal = 6
 [[block.click]]
 button = "left"
 cmd = "$SCRIPTS/toggles/screensaver.sh"
@@ -48,8 +49,9 @@ cmd = "$SCRIPTS/toggles/screensaver.sh"
 [[block]]
 block = "custom"
 command = "$SCRIPTS/blocks/hue-shift"
-json = true
 interval = 5
+json = true
+signal = 8
 [[block.click]]
 button = "left"
 cmd = "$SCRIPTS/toggles/redshift.sh"
