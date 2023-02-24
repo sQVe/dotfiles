@@ -19,7 +19,7 @@ for _, augroup_key in ipairs(augroup_keys) do
   table.insert(augroups, vim.api.nvim_create_augroup(augroup_key, {}))
 end
 
--- Force formatoptionsasd to exclude 'o'.
+-- Force formatoptions to exclude 'o'.
 autocmd('FileType', {
   group = augroups.ExcludeFormatOptions,
   callback = function()
@@ -51,12 +51,12 @@ autocmd('BufWritePost', {
 -- Stop Neovim Daemons.
 autocmd('ExitPre', {
   group = augroups.StopNeovimDaemons,
-  command = 'silent exec "!('
+  command = 'silent! exec "!('
     .. vim.fn.expand('$HOME')
     .. '/scripts/nvim/stop-nvim-daemons.sh &)"',
 })
 
--- Use internal formatting for bindings like gq.
+-- Set settings on LSP attach.
 autocmd('LspAttach', {
   group = augroups.LspAttach,
   callback = function(args)
