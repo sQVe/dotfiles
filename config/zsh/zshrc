@@ -220,6 +220,7 @@ alias fm=vifm-cd
 alias format-opinionated='npx prettier --single-quote --trailing-comma es5 --write'
 alias format='npx prettier --write'
 alias glab='BROWSER=google-chrome-stable glab'
+alias icat="kitten icat"
 alias kubectl="kubectl --cache-dir $XDG_CACHE_HOME/kube"
 alias l=less
 alias mixer=pavucontrol
