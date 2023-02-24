@@ -48,14 +48,6 @@ autocmd('BufWritePost', {
   command = 'silent! call writefile(nvim_buf_get_lines(0, 0, -1, 1), "/tmp/PREV_COMMIT_EDITMSG")',
 })
 
--- Stop Neovim Daemons.
-autocmd('ExitPre', {
-  group = augroups.StopNeovimDaemons,
-  command = 'silent! exec "!('
-    .. vim.fn.expand('$HOME')
-    .. '/scripts/nvim/stop-nvim-daemons.sh &)"',
-})
-
 -- Set settings on LSP attach.
 autocmd('LspAttach', {
   group = augroups.LspAttach,
