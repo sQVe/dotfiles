@@ -35,19 +35,14 @@ M.opts = function()
     Todo = { italic = true },
     WinBar = { fg = colors.light2 },
     WinBarNC = { fg = colors.gray },
-    ['@text.danger'] = {
-      fg = colors.bright_red,
-      bold = true,
-    },
+
+    -- Treesitter.
+    ['@text.danger'] = { fg = colors.bright_red, bold = true },
     ['@text.emphasis'] = { italic = true },
-    ['@text.note'] = {
-      fg = colors.bright_aqua,
-      bold = true,
-    },
-    ['@text.warning'] = {
-      fg = colors.bright_yellow,
-      bold = true,
-    },
+    ['@text.note'] = { fg = colors.bright_aqua, bold = true },
+    ['@text.warning'] = { fg = colors.bright_yellow, bold = true },
+
+    -- Markdown.
     markdownBoldItalic = { italic = true },
     markdownItalic = { italic = true },
 
@@ -60,6 +55,12 @@ M.opts = function()
     LeapMatch = { fg = black, bg = colors.bright_yellow },
     LeapLabelPrimary = { fg = black, bg = colors.bright_purple },
     LeapLabelSecondary = { fg = black, bg = colors.bright_red },
+
+    -- Telescope.
+    TelescopeBorder = { link = 'GruvboxYellowBold' },
+    TelescopePromptBorder = { link = 'Normal' },
+    TelescopePreviewBorder = { link = 'FloatBorder' },
+    TelescopeResultsBorder = { link = 'FloatBorder' },
   }, sign_column_override_map)
 
   return {
@@ -90,16 +91,7 @@ M.config = function(_, opts)
   )
 
   vim.o.background = 'dark'
-  vim.cmd([[
-    " Set colorscheme.
-    colorscheme gruvbox
-
-    " Telescope.
-    hi! link TelescopeBorder GruvboxYellowBold
-    hi! link TelescopePromptBorder Normal
-    hi! link TelescopeResultsBorder FloatBorder
-    hi! link TelescopePreviewBorder FloatBorder
-  ]])
+  vim.cmd.colorscheme('gruvbox')
 end
 
 return M
