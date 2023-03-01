@@ -14,7 +14,6 @@ M.opts = function()
 
   local sign_highlights = {
     'GruvboxAquaSign',
-    'GruvboxBlueSign',
     'GruvboxGreenSign',
     'GruvboxOrangeSign',
     'GruvboxPurpleSign',
@@ -33,18 +32,8 @@ M.opts = function()
     Comment = { italic = true },
     String = { italic = true },
     Todo = { italic = true },
-    WinBar = { fg = colors.light2 },
-    WinBarNC = { fg = colors.gray },
-
-    -- Treesitter.
-    ['@text.danger'] = { fg = colors.bright_red, bold = true },
-    ['@text.emphasis'] = { italic = true },
-    ['@text.note'] = { fg = colors.bright_aqua, bold = true },
-    ['@text.warning'] = { fg = colors.bright_yellow, bold = true },
-
-    -- Markdown.
-    markdownBoldItalic = { italic = true },
-    markdownItalic = { italic = true },
+    WinBar = { bg = none },
+    WinBarNC = { bg = none },
 
     -- Indent blankline.
     IndentBlanklineChar = { fg = colors.dark1 },
@@ -56,11 +45,29 @@ M.opts = function()
     LeapLabelPrimary = { fg = black, bg = colors.bright_purple },
     LeapLabelSecondary = { fg = black, bg = colors.bright_red },
 
+    -- Markdown.
+    markdownBoldItalic = { italic = true },
+    markdownItalic = { italic = true },
+
+    -- Neotree.
+    NeoTreeCursorLine = { bg = colors.dark3 },
+    NeoTreeIndentMarker = { fg = colors.dark2 },
+    NeoTreeNormal = { bg = colors.dark1 },
+    NeoTreeNormalNC = { bg = colors.dark1 },
+    NeoTreeRootName = { fg = colors.gray, italic = true },
+    NeoTreeWinSeparator = { fg = colors.dark0, bg = colors.dark0 },
+
     -- Telescope.
     TelescopeBorder = { link = 'GruvboxYellowBold' },
     TelescopePromptBorder = { link = 'Normal' },
     TelescopePreviewBorder = { link = 'FloatBorder' },
     TelescopeResultsBorder = { link = 'FloatBorder' },
+
+    -- Treesitter.
+    ['@text.danger'] = { fg = colors.bright_red, bold = true },
+    ['@text.emphasis'] = { italic = true },
+    ['@text.note'] = { fg = colors.bright_aqua, bold = true },
+    ['@text.warning'] = { fg = colors.bright_yellow, bold = true },
   }, sign_column_override_map)
 
   return {

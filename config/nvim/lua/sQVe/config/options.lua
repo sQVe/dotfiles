@@ -86,9 +86,9 @@ local options = {
   spelllang = 'en_us',
   spelloptions = 'camel',
 
-  -- Status and winbar.                             -- Global statusline.
-  laststatus = 3,
-  winbar = "%{%v:lua.require('sQVe.utils.options').get_winbar_layout()%}",
+  -- Status and winbar.
+  laststatus = 3,                                   -- Global statusline.
+  winbar = " ",                                     -- Empty winbar to remove content jumps.
 
   -- Tabs and spaces.
   expandtab = true,                                 -- Insert spaces when TAB is pressed.

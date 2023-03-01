@@ -3,6 +3,7 @@
 -- ╹ ╹┗━┛ ╹ ┗━┛┗━╸╹ ╹╺┻┛┗━┛
 
 local autocmd = require('sQVe.utils.vim').autocmd
+local augroup = require('sQVe.utils.vim').augroup
 
 local augroups = {}
 local augroup_keys = {
@@ -16,7 +17,7 @@ local augroup_keys = {
 }
 
 for _, augroup_key in ipairs(augroup_keys) do
-  table.insert(augroups, vim.api.nvim_create_augroup(augroup_key, {}))
+  table.insert(augroups, augroup(augroup_key))
 end
 
 -- Force formatoptions to exclude 'o'.

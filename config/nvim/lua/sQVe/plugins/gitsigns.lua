@@ -84,7 +84,7 @@ M.opts = {
       { 'o', 'x' },
       'ih',
       ':<C-U>Gitsigns select_hunk<CR>',
-      { buffer = bufnr, desc = 'Select hunk' }
+      { buffer = bufnr, desc = 'List hunks in quickfix' }
     )
   end,
 }
