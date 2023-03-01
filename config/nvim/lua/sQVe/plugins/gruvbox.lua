@@ -11,6 +11,7 @@ M.opts = function()
   -- Custom colors.
   local black = '#000000'
   local none = 'NONE'
+  local sidebar = '#262626'
 
   local sign_highlights = {
     'GruvboxAquaSign',
@@ -30,6 +31,7 @@ M.opts = function()
   local overrides = vim.tbl_deep_extend('force', {
     ColorColumn = { fg = none, bg = none },
     Comment = { italic = true },
+    EndOfBuffer = { fg = colors.dark0 },
     String = { italic = true },
     Todo = { italic = true },
     WinBar = { bg = none },
@@ -50,11 +52,11 @@ M.opts = function()
     markdownItalic = { italic = true },
 
     -- Neotree.
-    NeoTreeCursorLine = { bg = colors.dark3 },
-    NeoTreeIndentMarker = { fg = colors.dark2 },
-    NeoTreeNormal = { bg = colors.dark1 },
-    NeoTreeNormalNC = { bg = colors.dark1 },
+    NeoTreeEndOfBuffer = { fg = sidebar },
+    NeoTreeNormal = { bg = sidebar },
+    NeoTreeNormalNC = { bg = sidebar },
     NeoTreeRootName = { fg = colors.gray, italic = true },
+    NeoTreeTabActive = { bg = sidebar },
     NeoTreeWinSeparator = { fg = colors.dark0, bg = colors.dark0 },
 
     -- Telescope.

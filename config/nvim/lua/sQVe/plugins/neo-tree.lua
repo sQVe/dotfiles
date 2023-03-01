@@ -23,6 +23,13 @@ M.opts = {
     follow_current_file = false,
     hijack_netrw_behavior = 'open_current',
   },
+  sources = { 'filesystem' },
+  source_selector = {
+    winbar = true,
+    tab_labels = {
+      filesystem = '',
+    },
+  },
   window = {
     mappings = {
       ['-'] = 'close_window',
