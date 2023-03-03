@@ -16,7 +16,7 @@ return {
   -- Editorconfig.
   { 'gpanders/editorconfig.nvim', event = { 'BufNew', 'BufRead' } },
 
-  -- Text objects.
-  { 'michaeljsmith/vim-indent-object', event = 'VeryLazy' }, -- Indent text object.
-  { 'wellle/targets.vim', event = 'VeryLazy' }, -- Additional text objects.
+  -- Textobjects.
+  { 'michaeljsmith/vim-indent-object', event = 'VeryLazy' }, -- Indent textobject.
+  { 'echasnovski/mini.ai', event = 'VeryLazy' }, -- Additional textobjects.
 }
