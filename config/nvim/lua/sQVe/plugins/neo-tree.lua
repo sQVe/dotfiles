@@ -5,7 +5,6 @@
 
 local M = {
   'nvim-neo-tree/neo-tree.nvim',
-  branch = 'v2.x',
   event = 'BufEnter',
   keys = {
     { '-', '<Cmd>Neotree action=show toggle<CR>', desc = 'Toggle Neotree' },

@@ -12,7 +12,6 @@ local augroup_keys = {
   'LspAttach',
   'ReloadBuffer',
   'SaveCommitMsg',
-  'StopNeovimDaemons',
   'VimResized',
 }
 
