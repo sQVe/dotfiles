@@ -17,6 +17,10 @@ M.opts = function()
   local formatters = null_ls.builtins.formatting
   local linters = null_ls.builtins.diagnostics
 
+  local eslint_extra_args = {
+    '--rule',
+    '@typescript-eslint/no-confusing-void-expression: off',
+  }
   local eslint_runtime_condition = lsp_utils.create_runtime_condition({
     '.eslintrc.cjs',
     '.eslintrc.js',
@@ -60,6 +64,7 @@ M.opts = function()
       -- condition.
       formatters.prettierd,
       formatters.eslint_d.with({
+        extra_args = eslint_extra_args,
         runtime_condition = eslint_runtime_condition,
         timeout = 20000,
       }),
@@ -71,6 +76,7 @@ M.opts = function()
       formatters.stylua.with({ runtime_condition = stylua_runtime_condition }),
 
       linters.eslint_d.with({
+        extra_args = eslint_extra_args,
         runtime_condition = eslint_runtime_condition,
         timeout = 20000,
       }),
