@@ -32,10 +32,12 @@ M.config = function(_, opts)
   wk.setup(opts)
   wk.register({
     mode = { 'n', 'v' },
+    ['"'] = { name = 'Registers' },
     ['<C-q>'] = { name = 'Quickfix' },
     ['<C-w>'] = { name = 'Window' },
     ['<Leader>g'] = { name = 'Git' },
-    ['"'] = { name = 'Registers' },
+    ['<Leader>h'] = { name = 'Hunks' },
+    ['<Leader>l'] = { name = 'Diagnostics' },
     ['@'] = { name = 'Registers' },
     ['['] = { name = 'Previous' },
     ['\''] = { name = 'Marks' },
