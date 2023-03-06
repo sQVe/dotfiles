@@ -17,7 +17,7 @@ zmodule sQVe/zsh-vi-mode
 
 # Prompt and color.
 zmodule miekg/lean
-zmodule zdharma-continuum/fast-syntax-highlighting
+zmodule zsh-users/zsh-syntax-highlighting
 
 # Do not touch order.
 zmodule zsh-users/zsh-autosuggestions
