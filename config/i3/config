@@ -77,8 +77,8 @@ workspace_layout default
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 font pango: $font
-default_border pixel 2
-default_floating_border pixel 2
+default_border pixel 1
+default_floating_border pixel 1
 default_orientation horizontal
 hide_edge_borders smart
 
@@ -114,9 +114,9 @@ bar {
 }
 
 
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
-# ¤¤¤¤  Workspace setttings  ¤¤¤¤
-# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
+# ¤¤¤¤  Workspace settings  ¤¤¤¤
+# ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 # Window role settings.
 for_window [window_role="bubble"] floating enable
