@@ -15,6 +15,9 @@ end
 vim.opt.rtp:prepend(path)
 
 require('lazy').setup('sQVe.plugins', {
+  change_detection = {
+    notify = false,
+  },
   performance = {
     rtp = {
       disabled_plugins = {
