@@ -22,7 +22,7 @@
   },
   "useCallback": {
     "prefix": "useCallback",
-    "body": "const ${1:callback} = useCallback(() => $2, [${0:dependencies}]);"
+    "body": "const ${1:callback} = useCallback(() => $2, [${0}]);"
   },
   "useContext": {
     "prefix": "useContext",
@@ -31,7 +31,7 @@
   "useDebugValue": { "prefix": "useDebugValue", "body": "useDebugValue($0)" },
   "useEffect": {
     "prefix": "useEffect",
-    "body": ["useEffect(() => {", "\t$1", "}, [${0:dependencies}]);"]
+    "body": ["useEffect(() => {", "\t$1", "}, [${0}]);"]
   },
   "useImperativeHandle": {
     "prefix": "useImperativeHandle",
@@ -39,7 +39,7 @@
   },
   "useMemo": {
     "prefix": "useMemo",
-    "body": "const ${1:value} = useMemo(() => $2), [${0:dependencies}]);"
+    "body": "const ${1:value} = useMemo(() => $2), [${0}]);"
   },
   "useReducer": {
     "prefix": "useReducer",
