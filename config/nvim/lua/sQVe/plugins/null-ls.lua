@@ -5,6 +5,7 @@
 
 local M = {
   'jose-elias-alvarez/null-ls.nvim',
+  dev = true,
   ft = require('sQVe.plugins.lspconfig').ft,
 }
 
@@ -77,6 +78,9 @@ M.opts = function()
 
       linters.eslint_d.with({
         extra_args = eslint_extra_args,
+        filter = function(diagnostic)
+          return not diagnostic.user_data.fixable
+        end,
         runtime_condition = eslint_runtime_condition,
         timeout = 20000,
       }),

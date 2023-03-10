@@ -18,6 +18,9 @@ require('lazy').setup('sQVe.plugins', {
   change_detection = {
     notify = false,
   },
+  dev = {
+    path = '~/code',
+  },
   performance = {
     rtp = {
       disabled_plugins = {
