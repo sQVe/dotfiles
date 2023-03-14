@@ -102,8 +102,9 @@ M.config = function()
       on_attach = on_attach,
       settings = {
         Lua = {
-          workspace = { checkThirdParty = false },
           completion = { callSnippet = 'Replace' },
+          telemetry = { enable = false },
+          workspace = { checkThirdParty = false },
         },
       },
     }),

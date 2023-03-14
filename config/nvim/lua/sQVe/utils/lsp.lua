@@ -71,14 +71,21 @@ end
 M.diagnostic_handler = function(_, result, ctx, ...)
   local client = vim.lsp.get_client_by_id(ctx.client_id)
 
-  if client and client.name == 'tsserver' then
-    -- More codes can be found here:
-    -- https://github.com/microsoft/TypeScript/blob/main/src/compiler/diagnosticMessages.json
-    local ignored_codes = { 80001 }
+  if client then
+    if client.name == 'tsserver' then
+      -- https://github.com/microsoft/TypeScript/blob/main/src/compiler/diagnosticMessages.json
+      local ignored_codes = { 80001 }
 
-    result.diagnostics = vim.tbl_filter(function(diagnostic)
-      return not vim.tbl_contains(ignored_codes, diagnostic.code)
-    end, result.diagnostics)
+      result.diagnostics = vim.tbl_filter(function(diagnostic)
+        return not vim.tbl_contains(ignored_codes, diagnostic.code)
+      end, result.diagnostics)
+    elseif client.name == 'yamlls' then
+      result.diagnostics = vim.tbl_filter(function(diagnostic)
+        local ignored_codes = { 'mapKeyOrder' }
+
+        return not vim.tbl_contains(ignored_codes, diagnostic.code)
+      end, result.diagnostics)
+    end
   end
 
   return vim.lsp.diagnostic.on_publish_diagnostics(nil, result, ctx, ...)
@@ -106,10 +113,11 @@ M.map_lsp_buffer_keys = function(bufnr, include)
   local includeMap = {
     diagnostics = function()
       map('n', 'gl', function()
-        vim.diagnostic.open_float(
-          0,
-          { buffer = bufnr, header = false, scope = 'line' }
-        )
+        vim.diagnostic.open_float({
+          buffer = bufnr,
+          header = false,
+          scope = 'line',
+        })
       end, { buffer = bufnr, desc = 'View diagnostics (line)' })
       map('n', '<Leader>ll', function()
         builtin.diagnostics({ bufnr = 0 })
