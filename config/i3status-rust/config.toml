@@ -64,16 +64,10 @@ warning_bg = "#282828"
 warning_fg = "#d3869b"
 
 [[block]]
-block = "custom"
-if_command = '''nmcli -f IN-USE device wifi | rg '^\*''''
-command =  '''nmcli -f IN-USE,SSID device wifi | rg '^\*' | awk '{ print $2 }''''
-interval = 10
-[block.theme_overrides]
-idle_fg = "#8ec07c"
-
-[[block]]
 block = "net"
 format = " $icon {$ssid |}"
+[block.theme_overrides]
+idle_fg = "#8ec07c"
 
 [[block]]
 block = "custom"
