@@ -1,0 +1,10 @@
+[Denoise]
+Enabled=true
+Aggressive=false
+Gamma=1.7
+ChrominanceMethod=1
+ChrominanceAutoFactor=0.5
+SmoothingEnabled=true
+SmoothingMethod=1
+GuidedChromaRadius=2
+GuidedChromaStrength=100

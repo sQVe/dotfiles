@@ -1,0 +1,16 @@
+[Version]
+AppVersion=1.19.1
+Version=1039
+
+[Color Management]
+InputProfile=file://U/input-profiles/fujifilm-xt5-adobe-standard.dcp
+ToneCurve=true
+ApplyLookTable=true
+ApplyBaselineExposureOffset=true
+ApplyHueSatMap=true
+DCPIlluminant=0
+WorkingProfile=Rec2020
+OutputProfile=RTv4_sRGB
+OutputProfileIntent=Relative
+OutputBPC=true
+InputProfileCAT=false

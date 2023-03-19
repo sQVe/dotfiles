@@ -1,0 +1,10 @@
+[Version]
+AppVersion=1.19.1
+Version=1039
+
+[Exposure]
+Enabled=true
+Compensation=2
+Black=0
+HLRecovery=Off
+HLRecoveryBlur=0
