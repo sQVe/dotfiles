@@ -31,11 +31,9 @@ M.opts = function()
   local overrides = vim.tbl_deep_extend('force', {
     ColorColumn = { fg = none, bg = none },
     CursorLine = { bg = '#303030' },
-    Comment = { italic = true },
     EndOfBuffer = { fg = colors.dark0 },
     Pmenu = { bg = colors.dark1 },
     PmenuSel = { fg = colors.dark0, bg = colors.bright_aqua },
-    String = { italic = true },
     Todo = { italic = true },
     WinBar = { bg = none },
     WinBarNC = { bg = none },
@@ -76,7 +74,12 @@ M.opts = function()
   }, sign_column_override_map)
 
   return {
-    italic = false,
+    italic = {
+      strings = true,
+      comments = true,
+      operators = false,
+      folds = true,
+    },
     overrides = overrides,
   }
 end
