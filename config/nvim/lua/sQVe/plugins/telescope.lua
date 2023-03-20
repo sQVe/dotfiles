@@ -21,16 +21,16 @@ local M = {
     {
       '<Backspace>',
       function()
-        require('telescope.builtin').buffers({ sort_mru = true })
+        require('sQVe.utils.telescope').git_status()
       end,
-      desc = 'Buffers',
+      desc = 'Git status',
     },
     {
       '<Leader><Backspace>',
       function()
-        require('sQVe.utils.telescope').git_status()
+        require('telescope.builtin').buffers({ sort_mru = true })
       end,
-      desc = 'Git status',
+      desc = 'Buffers',
     },
     { 'gR', '<Cmd>Telescope grep_string<CR>', desc = 'Grep word' },
     { 'z=', '<Cmd>Telescope spell_suggest<CR>', desc = 'Spell suggest' },
