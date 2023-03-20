@@ -1,7 +1,7 @@
 [General]
 TabbedEditor=false
 StartupDirectory=last
-StartupPath=/mnt/shishigami/media/photos
+StartupPath=/home/sqve/download
 DateFormat=%Y-%m-%d
 AdjusterMinDelay=100
 AdjusterMaxDelay=200
@@ -44,7 +44,7 @@ MaxCacheEntries=20000
 ParseExtensions=3fr;arw;arq;cr2;cr3;crf;crw;dcr;dng;fff;iiq;jpg;jpeg;kdc;mef;mos;mrw;nef;nrw;orf;pef;png;raf;raw;rw2;rwl;rwz;sr2;srf;srw;tif;tiff;x3f;
 ParseExtensionsEnabled=1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;1;0;1;1;1;1;1;1;1;1;1;1;1;
 ThumbnailInterpolation=1
-FavoriteDirs=/home/sqve;/home/sqve/pictures;/mnt/shishigami/media/photos;
+FavoriteDirs=/home/sqve;/home/sqve/pictures;/mnt/shishigami/media/photos;/home/sqve/download;
 ThumbnailZoomRatios=0.20000000000000001;0.29999999999999999;0.45000000000000001;0.59999999999999998;0.80000000000000004;1;
 OverlayedFileNames=false
 FilmStripOverlayedFileNames=false
@@ -52,7 +52,7 @@ ShowFileNames=true
 FilmStripShowFileNames=false
 InternalThumbIfUntouched=true
 MaxRecentFolders=15
-RecentFolders=/mnt/shishigami/media/photos;/mnt/shishigami/media/comics;/mnt;/home/sqve/download/import;/home/sqve/download;/home/sqve;/home/sqve/pictures;
+RecentFolders=/home/sqve/download;/home/sqve/pictures;/home/sqve;/mnt/shishigami/media/photos;/mnt/shishigami/media/comics;/mnt;/home/sqve/download/import;
 ThumbnailRatingMode=xmp
 
 [Clipping Indication]
@@ -85,8 +85,8 @@ ThumbnailHover=false
 
 [Output]
 Format=jpg
-JpegQuality=92
-JpegSubSamp=2
+JpegQuality=100
+JpegSubSamp=3
 PngBps=8
 TiffBps=8
 TiffFloat=false
@@ -105,8 +105,8 @@ PathFolder=
 AutoSuffix=true
 ForceFormatOpts=true
 SaveMethodNum=0
-UsePathTemplate=true
-LastSaveAsPath=/home/sqve/pictures
+UsePathTemplate=false
+LastSaveAsPath=/mnt/shishigami/media/photos/keepers
 OverwriteOutputFile=false
 ProcParamsAutosaveInterval=0
 
@@ -149,7 +149,7 @@ PreferencesWidth=1185
 PreferencesHeight=809
 SaveAsDialogWidth=920
 SaveAsDialogHeight=680
-ToolPanelWidth=535
+ToolPanelWidth=407
 BrowserToolPanelWidth=477
 BrowserToolPanelHeight=600
 BrowserToolPanelOpened=false
