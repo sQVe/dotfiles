@@ -8,11 +8,11 @@
 ! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 Xft.dpi:       96
 Xft.antialias: true
-Xft.hinting:   true
-Xft.rgba:      rgb
 Xft.autohint:  false
+Xft.hinting:   true
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
+Xft.rgba:      rgb
 Xcursor.theme: Bibata-Modern-Ice
 Xcursor.size:  24
 
