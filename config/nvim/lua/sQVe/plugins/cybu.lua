@@ -9,6 +9,21 @@ local M = {
 }
 
 M.opts = {
+  behavior = {
+    mode = {
+      default = {
+        view = 'paging',
+      },
+    },
+  },
+  display_time = 1000,
+  position = {
+    anchor = 'topright',
+    vertical_offset = 0,
+    horizontal_offset = 1,
+    max_win_height = 20,
+    max_win_width = 0.75,
+  },
   style = {
     border = 'rounded',
     padding = '2',
