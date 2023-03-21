@@ -1,7 +1,7 @@
 [General]
 TabbedEditor=false
 StartupDirectory=last
-StartupPath=/home/sqve/download
+StartupPath=/mnt/shishigami/media/photos
 DateFormat=%Y-%m-%d
 AdjusterMinDelay=100
 AdjusterMaxDelay=200
@@ -52,7 +52,7 @@ ShowFileNames=true
 FilmStripShowFileNames=false
 InternalThumbIfUntouched=true
 MaxRecentFolders=15
-RecentFolders=/home/sqve/download;/home/sqve/pictures;/home/sqve;/mnt/shishigami/media/photos;/mnt/shishigami/media/comics;/mnt;/home/sqve/download/import;
+RecentFolders=/mnt/shishigami/media/photos;/home/sqve/download;/home/sqve/pictures;/home/sqve;/mnt/shishigami/media/comics;/mnt;/home/sqve/download/import;
 ThumbnailRatingMode=xmp
 
 [Clipping Indication]
@@ -130,7 +130,7 @@ WindowWidth=1200
 WindowHeight=680
 WindowX=0
 WindowY=0
-WindowMonitor=2
+WindowMonitor=0
 MeowMonitor=-1
 MeowFullScreen=false
 MeowMaximized=true
@@ -154,7 +154,7 @@ BrowserToolPanelWidth=477
 BrowserToolPanelHeight=600
 BrowserToolPanelOpened=false
 EditorFilmStripOpened=false
-BrowserDirPanelOpened=true
+BrowserDirPanelOpened=false
 InspectorDirPanelOpened=true
 HistoryPanelWidth=330
 FontFamily=default
