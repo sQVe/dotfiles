@@ -10,7 +10,7 @@ gpg-connect-agent updatestartuptty /bye
 eval $(/usr/bin/gnome-keyring-daemon --start --components=pkcs11,secrets)
 
 # Load the Xresources settings.
-xrdb "$XDG_CONFIG_HOME/Xresources"
+xrdb "${XDG_CONFIG_HOME}/Xresources"
 
 # Start xiccd colord daemon.
 xiccd &
@@ -34,29 +34,29 @@ xset dpms 240 240 240
 # Start composition manager (xcompmgr).
 xcompmgr -c -l 0 -t 0 -r 0 -o 0 &
 
-# Setup peek cache symlink to tmp.
-mkdir /tmp/peek
-ln -sf /tmp/peek "$XDG_CACHE_HOME/peek"
+# Setup ART to use persistent cache.
+mkdir -p "${PERSISTENT_CACHE}/ART" 
+ln -sf "${PERSISTENT_CACHE}/ART" "${XDG_CACHE_HOME}/ART"
 
-# Setup rofi-calc to only save history per session.
+# Setup rofi-calc session cache.
+mkdir -p "${XDG_DATA_HOME}/rofi"
 touch /tmp/rofi_calc_history
-mkdir "$XDG_DATA_HOME/rofi"
-ln -sf /tmp/rofi_calc_history "$XDG_DATA_HOME/rofi/rofi_calc_history"
+ln -sf /tmp/rofi_calc_history "${XDG_DATA_HOME}/rofi/rofi_calc_history"
 
 # Clear notes.
-if [[ -d  "$NOTES" ]]; then
-  git -C "$NOTES" checkout -- .
+if [[ -d  "${NOTES}" ]]; then
+  git -C "${NOTES}" checkout -- .
 fi
 
 # Clear playground boxes.
-if [[ -d  "$CODE/playground" ]]; then
-  git -C "$CODE/playground" checkout -- boxes
+if [[ -d  "${CODE}/playground" ]]; then
+  git -C "${CODE}/playground" checkout -- boxes
 fi
 
 # Run the scripts in xinitrc.d.
 if [[ -d /etc/X11/xinit/xinitrc.d ]]; then
   for f in /etc/X11/xinit/xinitrc.d/?*.sh; do
-    [[ -x "$f" ]] && . "$f"
+    [[ -x "${f}" ]] && . "${f}"
   done
   unset f
 fi
