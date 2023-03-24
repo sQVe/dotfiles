@@ -7,10 +7,16 @@ zstyle ':zim:completion' dumpfile "$XDG_CACHE_HOME/.zcompdump"
 zstyle ':zim:git' aliases-prefix 'g'
 zstyle ':zim:input' double-dot-expand yes
 
-source $ZIM_HOME/init.zsh
-source $XDG_CONFIG_HOME/glab-cli/glab.zsh
-source $XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh
+source "${ZIM_HOME}/init.zsh"
 source /usr/share/fzf/completion.zsh
+
+if [[ -e "$XDG_CONFIG_HOME/glab-cli/glab.zsh" ]]; then
+  source "$XDG_CONFIG_HOME/glab-cli/glab.zsh"
+fi
+
+if [[ -e "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh" ]]; then
+  source "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh"
+fi
 
 # Use matcher-list from marlonrichert/zsh-autocomplete.
 zstyle ':completion:*' matcher-list \
@@ -91,8 +97,8 @@ function nvm() {
 function vifm-cd() {
   local path="$(command vifm --choose-dir - "$@" 2> /dev/null)"
 
-  if [[ -n "$path" ]]; then
-    cd "$path"
+  if [[ -n "${path}" ]]; then
+    cd "${path}"
   fi
 }
 
@@ -230,11 +236,11 @@ alias format-opinionated='npx prettier --single-quote --trailing-comma es5 --wri
 alias format='npx prettier --write'
 alias glab='BROWSER=google-chrome-stable glab'
 alias icat="kitten icat"
-alias kubectl="kubectl --cache-dir $XDG_CACHE_HOME/kube"
+alias kubectl="kubectl --cache-dir ${XDG_CACHE_HOME}/kube"
 alias l=less
 alias mixer=pavucontrol
 alias qutebrowser=open-qutebrowser
-alias rcup="$SCRIPTS/extended-rcup.sh"
+alias rcup="${SCRIPTS}/extended-rcup.sh"
 alias rg='rg --hidden --follow'
 alias t=term
 alias td="term --detach"
