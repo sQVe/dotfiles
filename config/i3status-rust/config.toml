@@ -107,6 +107,7 @@ cmd = "$BROWSER 'https://github.com/notifications'"
 [[block]]
 block = "custom"
 command = "$SCRIPTS/blocks/arch"
+interval = 300
 json = true
 signal = 4
 [[block.click]]
