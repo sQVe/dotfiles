@@ -42,7 +42,10 @@ M.opts = {
     'vim',
     'yaml',
   },
-  context_commentstring = { enable = true, enable_autocmd = false },
+  context_commentstring = {
+    enable = true,
+    enable_autocmd = false,
+  },
   highlight = {
     enable = true,
     disable = function(_, buf)
