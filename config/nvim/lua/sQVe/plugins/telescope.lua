@@ -75,6 +75,7 @@ local M = {
 
 M.opts = function()
   local actions = require('telescope.actions')
+  local action_state = require('telescope.actions.state')
 
   return {
     defaults = {
@@ -91,11 +92,24 @@ M.opts = function()
         i = {
           ['<C-Down>'] = actions.cycle_history_next,
           ['<C-Up>'] = actions.cycle_history_prev,
+          ['<C-a>'] = actions.toggle_all,
           ['<C-j>'] = actions.move_selection_next,
           ['<C-k>'] = actions.move_selection_previous,
-          ['<C-a>'] = actions.toggle_all,
           ['<C-s>'] = actions.select_horizontal,
           ['<C-x>'] = actions.delete_buffer,
+          ['<CR>'] = function(prompt_bufnr)
+            local picker = action_state.get_current_picker(prompt_bufnr)
+            local multi = picker.get_multi_selection(picker)
+
+            actions.select_default(prompt_bufnr)
+
+            for _, selection in pairs(multi) do
+              if selection.path ~= nil then
+                --Open file if path is defined.
+                vim.cmd(string.format('%s %s', 'edit', selection.path))
+              end
+            end
+          end,
           ['<Esc>'] = actions.close,
         },
       },
