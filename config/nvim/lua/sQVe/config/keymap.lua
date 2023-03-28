@@ -66,10 +66,6 @@ map('', '<S-CR>', '-')
 -- Keep cursor position when joining lines.
 map('', 'J', 'mzJ`z', { desc = 'Join lines' })
 
--- Next and previous buffer.
-map('', '<Tab>', '<Cmd>bnext<CR>', { desc = 'Next buffer' })
-map('', '<S-Tab>', '<Cmd>bprev<CR>', { desc = 'Previous buffer' })
-
 -- Flip f, t, F and T repeat.
 map('', ',', ';', { desc = 'Find next character' })
 map('', ';', ',', { desc = 'Find previous character' })

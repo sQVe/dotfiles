@@ -45,6 +45,7 @@ local M = {
     -- misc (further filetypes to handle with null-ls)
     'graphql',
     'markdown',
+    'terraform',
   },
   keys = {
     { '<Leader>r', vim.lsp.buf.rename, desc = 'Rename symbol' },
