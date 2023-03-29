@@ -197,11 +197,11 @@ alias grep='grep --color=auto -d skip'
 alias mkdir='mkdir -pv'
 alias more=less
 alias np='nvim -w PKGBUILD'
-alias o=open
+alias o='mimeo -q'
 alias open='mimeo -q'
 alias q=exit
-alias s=sudo
-alias se=sudoedit
+alias s='sudo '
+alias se='sudoedit '
 alias sudo='sudo '
 alias sudoedit='sudoedit '
 
