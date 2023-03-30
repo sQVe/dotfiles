@@ -33,6 +33,10 @@ local M = {
     -- rust
     'rust',
 
+    -- terraform
+    'terraform',
+    'terraform-vars',
+
     -- tsserver
     'javascript',
     'javascriptreact',
@@ -45,7 +49,6 @@ local M = {
     -- misc (further filetypes to handle with null-ls)
     'graphql',
     'markdown',
-    'terraform',
   },
   keys = {
     { '<Leader>r', vim.lsp.buf.rename, desc = 'Rename symbol' },
@@ -109,6 +112,7 @@ M.config = function()
         },
       },
     }),
+    terraformls = server_setup,
     yamlls = server_setup,
   }
 
