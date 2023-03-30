@@ -100,15 +100,20 @@ M.opts = function()
           ['<C-x>'] = actions.drop_all,
           ['<CR>'] = function(prompt_bufnr)
             local picker = action_state.get_current_picker(prompt_bufnr)
-            local multi = picker.get_multi_selection(picker)
+            local multi_selections = picker.get_multi_selection(picker)
 
-            actions.select_default(prompt_bufnr)
+            local file_selections = vim.tbl_filter(function(selection)
+              return selection.path ~= nil
+            end, multi_selections)
 
-            for _, selection in pairs(multi) do
-              if selection.path ~= nil then
-                --Open file if path is defined.
-                vim.cmd(string.format('%s %s', 'edit', selection.path))
-              end
+            if vim.tbl_isempty(file_selections) then
+              actions.select_default(prompt_bufnr)
+            else
+              actions.close(prompt_bufnr)
+            end
+
+            for _, file_selection in pairs(file_selections) do
+              vim.cmd(string.format('%s %s', 'edit', file_selection.path))
             end
           end,
           ['<Esc>'] = actions.close,
