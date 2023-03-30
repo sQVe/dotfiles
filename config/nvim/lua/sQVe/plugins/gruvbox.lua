@@ -11,7 +11,8 @@ M.opts = function()
   -- Custom colors.
   local black = '#000000'
   local none = 'NONE'
-  local sidebar = '#262626'
+  local float_bg = '#303030'
+  local sidebar_bg = '#262626'
 
   local sign_highlights = {
     'GruvboxAquaSign',
@@ -30,8 +31,10 @@ M.opts = function()
 
   local overrides = vim.tbl_deep_extend('force', {
     ColorColumn = { fg = none, bg = none },
-    CursorLine = { bg = '#303030' },
+    CursorLine = { bg = float_bg },
     EndOfBuffer = { fg = colors.dark0 },
+    FloatBorder = { fg = float_bg, bg = float_bg },
+    NormalFloat = { bg = float_bg },
     Pmenu = { bg = colors.dark1 },
     PmenuSel = { fg = colors.dark0, bg = colors.bright_aqua },
     Todo = { italic = true },
@@ -57,18 +60,22 @@ M.opts = function()
     markdownItalic = { italic = true },
 
     -- Neotree.
-    NeoTreeEndOfBuffer = { fg = sidebar },
-    NeoTreeNormal = { bg = sidebar },
-    NeoTreeNormalNC = { bg = sidebar },
+    NeoTreeEndOfBuffer = { fg = sidebar_bg },
+    NeoTreeNormal = { bg = sidebar_bg },
+    NeoTreeNormalNC = { bg = sidebar_bg },
     NeoTreeRootName = { fg = colors.gray, italic = true },
-    NeoTreeTabActive = { bg = sidebar },
+    NeoTreeTabActive = { bg = sidebar_bg },
     NeoTreeWinSeparator = { fg = colors.dark0, bg = colors.dark0 },
 
     -- Telescope.
-    TelescopeBorder = { link = 'GruvboxYellowBold' },
-    TelescopePromptBorder = { link = 'Normal' },
-    TelescopePreviewBorder = { link = 'FloatBorder' },
+    TelescopeNormal = { bg = float_bg },
+    TelescopeBorder = { fg = colors.bright_yellow },
+    TelescopePreviewBorder = { fg = float_bg, bg = float_bg, italic = true },
+    TelescopePromptBorder = { fg = colors.dark2, bg = float_bg, bold = true },
     TelescopeResultsBorder = { link = 'FloatBorder' },
+    TelescopeTitle = { fg = colors.bright_purple },
+    TelescopePromptTitle = { fg = colors.bright_yellow },
+    TelescopeResultsTitle = { fg = float_bg },
 
     -- Treesitter.
     ['@text.danger'] = { fg = colors.bright_red, bold = true },
