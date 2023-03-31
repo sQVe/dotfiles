@@ -168,15 +168,18 @@ M.map_lsp_buffer_keys = function(bufnr, include)
         vim.lsp.buf.hover,
         { buffer = bufnr, desc = 'View symbol information' }
       )
+      map('n', '<Leader>s', function()
+        require('nvim-navbuddy').open()
+      end, { buffer = bufnr, desc = 'Goto buffer symbols tree' })
       map(
         'n',
-        '<Leader>s',
+        '<Leader>S',
         builtin.lsp_document_symbols,
         { buffer = bufnr, desc = 'Goto buffer symbols' }
       )
       map(
         'n',
-        '<Leader>S',
+        '<Leader>w',
         builtin.lsp_dynamic_workspace_symbols,
         { buffer = bufnr, desc = 'Goto workspace symbols' }
       )

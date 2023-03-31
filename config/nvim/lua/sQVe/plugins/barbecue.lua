@@ -6,9 +6,6 @@
 local M = {
   'utilyre/barbecue.nvim',
   event = 'VeryLazy',
-  dependencies = {
-    'SmiteshP/nvim-navic',
-  },
   name = 'barbecue',
 }
 
