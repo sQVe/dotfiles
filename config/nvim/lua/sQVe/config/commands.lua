@@ -59,7 +59,7 @@ command('Wqa', 'wqa')
 
 -- Print as a commented Ascii Header.
 command('AsciiHeader', function(input)
-  -- Ensure that we have comment plugin loaded.
+  -- Ensure that we have the comment plugin loaded.
   require('Comment')
 
   local ok =
@@ -101,10 +101,10 @@ end, { nargs = '?' })
 
 -- Save notes.
 command('SaveNotes', function()
-  vim.cmd(
-    'silent execute "!'
-      .. vim.fn.expand('$SCRIPTS')
-      .. '/nvim/save-notes.sh'
-      .. ' &"'
-  )
+  local script_path = vim.fn.expand('$SCRIPTS') .. '/nvim/save-notes.sh'
+
+  local ok = pcall(vim.cmd, 'silent execute "!' .. script_path .. ' &"')
+  if not ok then
+    vim.api.nvim_err_writeln('Unable to save notes.')
+  end
 end, { nargs = 0 })

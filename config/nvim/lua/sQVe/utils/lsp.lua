@@ -16,8 +16,6 @@ M.create_server_setup = function(opts)
 end
 
 M.create_runtime_condition = function(config_names)
-  local string_starts_with = require('sQVe.utils.lua').string_starts_with
-
   local bufnr_cache = {}
   local config_path_cache = {}
 
@@ -26,7 +24,7 @@ M.create_runtime_condition = function(config_names)
       return bufnr_cache[params.bufnr]
     else
       for _, cached_config_path in ipairs(config_path_cache) do
-        if string_starts_with(params.bufname, cached_config_path) then
+        if vim.startswith(params.bufname, cached_config_path) then
           bufnr_cache[params.bufnr] = true
           return true
         end
@@ -70,29 +68,23 @@ end
 
 M.diagnostic_handler = function(_, result, ctx, ...)
   local client = vim.lsp.get_client_by_id(ctx.client_id)
+  local ignored_codes = {}
 
-  if client then
-    if client.name == 'tsserver' then
-      -- https://github.com/microsoft/TypeScript/blob/main/src/compiler/diagnosticMessages.json
-      local ignored_codes = { 80001 }
-
-      result.diagnostics = vim.tbl_filter(function(diagnostic)
-        return not vim.tbl_contains(ignored_codes, diagnostic.code)
-      end, result.diagnostics)
-    elseif client.name == 'yamlls' then
-      result.diagnostics = vim.tbl_filter(function(diagnostic)
-        local ignored_codes = { 'mapKeyOrder' }
-
-        return not vim.tbl_contains(ignored_codes, diagnostic.code)
-      end, result.diagnostics)
-    end
+  if client and client.name == 'tsserver' then
+    ignored_codes = { 80001 }
+  elseif client and client.name == 'yamlls' then
+    ignored_codes = { 'mapKeyOrder' }
   end
+
+  result.diagnostics = vim.tbl_filter(function(diagnostic)
+    return not vim.tbl_contains(ignored_codes, diagnostic.code)
+  end, result.diagnostics)
 
   return vim.lsp.diagnostic.on_publish_diagnostics(nil, result, ctx, ...)
 end
 
 M.format = function(bufnr, async)
-  async = async == nil and true or false
+  async = async or true
 
   vim.lsp.buf.format({
     async = async,
@@ -189,26 +181,6 @@ M.map_lsp_buffer_keys = function(bufnr, include)
   for _, includeKey in pairs(include) do
     includeMap[includeKey]()
   end
-end
-
--- Mirror capabilities set by `update_capabilities` in `cmp-nvim-lsp`, since
--- we want to decouple LSP from it.
--- https://github.com/hrsh7th/cmp-nvim-lsp/blob/main/lua/cmp_nvim_lsp/init.lua.
-M.update_capabilities = function(capabilities)
-  local completionItem = capabilities.textDocument.completion.completionItem
-
-  completionItem.commitCharactersSupport = true
-  completionItem.deprecatedSupport = true
-  completionItem.insertReplaceSupport = true
-  completionItem.labelDetailsSupport = true
-  completionItem.preselectSupport = true
-  completionItem.resolveSupport = {
-    properties = { 'additionalTextEdits', 'detail', 'documentation' },
-  }
-  completionItem.snippetSupport = true
-  completionItem.tagSupport = { valueSet = { 1 } }
-
-  return capabilities
 end
 
 return M
