@@ -71,11 +71,10 @@ M.opts = function()
     TelescopeNormal = { bg = float_bg },
     TelescopeBorder = { fg = colors.bright_yellow },
     TelescopePreviewBorder = { fg = float_bg, bg = float_bg, italic = true },
-    TelescopePromptBorder = { fg = colors.dark2, bg = float_bg, bold = true },
-    TelescopeResultsBorder = { fg = float_bg, bg = float_bg },
+    TelescopePromptBorder = { fg = colors.dark4, bg = float_bg, bold = true },
+    TelescopeResultsBorder = { fg = colors.dark4, bg = float_bg },
     TelescopeTitle = { fg = colors.bright_purple },
     TelescopePromptTitle = { fg = colors.bright_yellow },
-    TelescopeResultsTitle = { fg = float_bg },
 
     -- Treesitter.
     ['@text.danger'] = { fg = colors.bright_red, bold = true },
