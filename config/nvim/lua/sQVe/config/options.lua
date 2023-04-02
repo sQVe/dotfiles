@@ -2,20 +2,116 @@
 -- ┃ ┃┣━┛ ┃ ┃┃ ┃┃┗┫┗━┓
 -- ┗━┛╹   ╹ ╹┗━┛╹ ╹┗━┛
 
--- stylua: ignore
-local options = {
-  clipboard = 'unnamedplus',                        -- Use the + (clipboard) register.
-  conceallevel = 0,                                 -- Disable conceal.
-  confirm = true,                                   -- Ask to save modified changes when exiting.
-  diffopt =
-    vim.opt.diffopt + { 'linematch:60' },           -- Enable second stage diff on each hunk.
-  exrc = true,                                      -- Source local vimrc at root directory.
-  gdefault = true,                                  -- Use 'g' flag by default with :s/foo/bar/.
-  scrolloff = 4,                                    -- Set scroll offset to 4 lines.
-  shortmess =
-    vim.opt.shortmess  + { I = true, c = true },    -- Disable version intro text.
-  showmode = false,                                 -- Disable show mode.
-  suffixesadd = {                                   -- File extension lookup when going to file.
+local character = {
+  -- Configure fill characters for various UI elements.
+  fillchars = vim.opt.fillchars + {
+    diff = '╱', -- Character for vertical separators in diff mode.
+    fold = [[-]], -- Character for the fold column when a fold is closed.
+  },
+
+  -- Show characters listed in 'listchars' for better text visibility.
+  list = true,
+  listchars = {
+    extends = '›', -- Character indicating a line continues to the right.
+    nbsp = '•', -- Character indicating a non-breaking space.
+    precedes = '‹', -- Character indicating a line continues to the left.
+    tab = '→ ', -- Character indicating a TAB character.
+    trail = '•', -- Character indicating trailing spaces.
+  },
+
+  -- Set the character to indicate wrapped lines.
+  showbreak = '↲ ',
+}
+
+local completion = {
+  -- Set completion menu options for better usability.
+  completeopt = { 'menu', 'menuone', 'noselect' },
+
+  -- Limit the completion menu to a maximum of 20 items.
+  pumheight = 20,
+
+  -- Ignore case when using the wildmenu for file name completion.
+  wildignorecase = true,
+
+  -- Set wildmenu completion modes for efficient command line completion.
+  wildmode = { 'longest:full', 'full' },
+}
+
+local fold = {
+  -- Start with all folds open by default.
+  foldlevelstart = 9999,
+
+  -- Enable folding to collapse sections of code.
+  foldenable = true,
+
+  -- Set maximum nesting level for folds.
+  foldnestmax = 4,
+
+  -- Configure fold text to display the first line of the fold and the last line.
+  foldtext = [[substitute(getline(v:foldstart), '\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]],
+
+  -- Use indentation-based folding.
+  foldmethod = 'indent',
+}
+
+local indent = {
+  -- Align wrapped lines with the start of the line.
+  breakindent = true,
+
+  -- Use spaces instead of TAB characters when indentin.
+  expandtab = true,
+
+  -- Avoid inserting double spaces after punctuation when joining lines with
+  -- the 'J' mapping.
+  joinspaces = false,
+
+  -- Wrap long lines at characters specified in 'breakat'.
+  linebreak = true,
+
+  -- Set the number of spaces for each indentation level when using the < and >
+  -- mappings.
+  shiftwidth = 2,
+
+  -- Display TAB characters using the specified number of spaces for visual
+  -- alignment.
+  tabstop = 2,
+}
+
+local misc = {
+  -- Allow clipboard register for yank and paste operations.
+  clipboard = 'unnamedplus',
+
+  -- Always display hidden characters.
+  conceallevel = 0,
+
+  -- Prompt to save changes on quitting Neovim.
+  confirm = true,
+
+  -- Enhance diff alignment with second stage diff on each hunk.
+  diffopt = vim.opt.diffopt + { 'linematch:60' },
+
+  -- Permit sourcing local vimrc files in project root directories.
+  exrc = true,
+
+  -- Maintain 4 lines context when scrolling.
+  scrolloff = 4,
+
+  -- Refine "hit enter" prompts for cleaner message area.
+  shortmess = vim.opt.shortmess + {
+    C = true, -- Suppress "ins-completion-menu" message.
+    I = true, -- Suppress "search hit BOTTOM, continuing at TOP" message.
+    W = true, -- Suppress "written" message on file write.
+    c = true, -- Briefly show completion messages.
+  },
+
+  -- Show matching brackets when cursor is over them.
+  showmatch = true,
+
+  -- Avoid mode messages in the command line.
+  showmode = false,
+
+  -- Support file lookup for specified file extensions.
+  suffixesadd = {
     '.css',
     '.go',
     '.html',
@@ -32,100 +128,137 @@ local options = {
     '.yaml',
     '.yml',
   },
-  termguicolors = true,                             -- Enable 24-bit colors.
-  tildeop = true,                                   -- Enable ~ operator.
-  virtualedit = 'block',                            -- Enable virtualedit when in Visual Block mode.
 
-  -- Case.
-  ignorecase = false,                               -- Enforce correct case.
-  smartcase = false,                                -- Disable smart case.
+  -- Allow ~ operator to change case of characters.
+  tildeop = true,
 
-  -- Columns, lines and numbering.
-  colorcolumn = '80',                               -- Indicate column 80 with a colored column.
-  cursorline = true,                                -- Show cursor line.
-  number = true,                                    -- Show the line numbers on the left side.
-  relativenumber = true,                            -- Relative line numbers.
-  signcolumn = 'yes',                               -- Always show sign column.
-
-  -- Completion.
-  completeopt = { 'menu','menuone', 'noselect' },   -- Set compete options.
-  pumheight = 20,                                   -- Show max 20 items in completion menu.
-  wildignorecase = true,                            -- Disable case check for wildmenu.
-  wildmode = { 'longest:full', 'full' },            -- Set wildmenu modes.
-
-  -- Disable backups.
-  backup = false,
-  backupdir = '/tmp',
-  directory = '/tmp',
-  swapfile = false,
-  writebackup = false,
-
-  -- Folding.
-  foldenable = true,                                -- Enable folding.
-  foldmethod='indent',                              -- Fold based on indention.
-  foldnestmax = 4,                                  -- Folding max.
-  foldlevelstart = 9999,                            -- Folding level.
-  foldtext = [[substitute(getline(v:foldstart), '\\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]],
-
-  -- Mouse.
-  mouse = 'a',                                      -- Enable mouse.
-  mousemodel = 'extend',                            -- Right mouse extends selection,
-
-  -- Programs.
-  grepformat = '%f:%l:%c:%m,%f:%l:%m',
-  grepprg = 'rg --vimgrep --no-heading',
-
-  -- Searching.
-  inccommand = 'nosplit',                           -- Highlight patterns and ranges for Ex commands.
-  showmatch = true,                                 -- Show matching brackets.
-
-  -- Spelling.
-  dictionary = vim.o.dictionary .. '/usr/share/dict/words',
-  spellfile = vim.fn.expand('$XDG_CONFIG_HOME')
-    .. '/nvim/spell/en.utf-8.add',
-  spelllang = 'en_us',
-  spelloptions = 'camel',
-
-  -- Status and winbar.
-  laststatus = 3,                                   -- Global statusline.
-  winbar = " ",                                     -- Empty winbar to remove content jumps.
-
-  -- Tabs and spaces.
-  expandtab = true,                                 -- Insert spaces when TAB is pressed.
-  joinspaces = false,                               -- Prevents inserting two spaces after punctuation on a join (J).
-  shiftwidth = 2,                                   -- Indentation amount for < and > commands.
-  tabstop = 2,                                      -- Render Tabs using this many spaces.
-
-  -- Timings.
-  timeoutlen = 300,                                 -- Timeout Leader after 400 ms.
-  updatetime = 100,                                 -- Set update time to 100 ms.
-
-  -- Undo.
-  undofile = true,                                  -- Keep a persistent backup file.
-
-  -- Whitespace.
-  fillchars = vim.opt.fillchars + {                 -- Set fill chars.
-   diff = '╱',
-   fold = [[-]]
-  },
-  list = true,                                      -- Show characters listed in 'listchars'.
-  listchars = {
-    extends = '›',
-    precedes = '‹',
-    tab = '→ ',
-    nbsp = '•',
-    trail = '•',
-  },
-  showbreak = '↲ ',                                 -- Set show break character.
-
-  -- Windows.
-  splitbelow = true,                                -- Horizontal split below current.
-  splitright = true,                                -- Vertical split to right of current.
+  -- Enable flexible cursor movement in Visual Block mode.
+  virtualedit = 'block',
 }
 
-for k, v in pairs(options) do
-  vim.opt[k] = v
+local mouse = {
+  -- Enable mouse support across all modes.
+  mouse = 'a',
+
+  -- Use the "extend" mouse model to extend text selection using the right
+  -- button.
+  mousemodel = 'extend',
+}
+
+local program = {
+  -- Configure the format for grep results.
+  grepformat = '%f:%l:%c:%m,%f:%l:%m',
+
+  -- Set the grep program to use with Neovim.
+  grepprg = 'rg --vimgrep --no-heading',
+}
+local search_and_substitute = {
+  -- Use 'g' flag by default in :s/foo/bar/ for global search and replace.
+  gdefault = true,
+
+  -- Enforce case sensitivity for search patterns.
+  ignorecase = false,
+
+  -- Enable incremental highlighting for Ex commands without window split.
+  inccommand = 'nosplit',
+
+  -- Disable smart case, which enables case-insensitive search when the pattern
+  -- is all lowercase.
+  smartcase = false,
+}
+
+local spell = {
+  -- Set the system dictionary.
+  dictionary = vim.o.dictionary .. '/usr/share/dict/words',
+
+  -- Set the language for spell checking.
+  spelllang = 'en_us',
+
+  -- Set the options for spell checking, such as camel case sensitivity.
+  spelloptions = 'camel',
+
+  -- Set the user-specific spellfile.
+  spellfile = vim.fn.expand('$XDG_CONFIG_HOME') .. '/nvim/spell/en.utf-8.add',
+}
+
+local split = {
+  -- Place new horizontal splits below the current window.
+  splitbelow = true,
+
+  -- Place new vertical splits to the right of the current window.
+  splitright = true,
+}
+
+local timeout = {
+  -- Set Leader key timeout to 300 ms.
+  timeoutlen = 300,
+
+  -- Set buffer update time to 100 ms.
+  updatetime = 100,
+}
+
+local ui = {
+  -- Display a colored indicator at column 80.
+  colorcolumn = '80',
+
+  -- Highlight the line containing the cursor.
+  cursorline = true,
+
+  -- Show absolute line numbers.
+  number = true,
+
+  -- Ensure the statusline is always visible for all windows.
+  laststatus = 3,
+
+  -- Display relative line numbers instead of absolute line numbers.
+  relativenumber = true,
+
+  -- Keep the sign column visible at all times for a consistent window layout.
+  signcolumn = 'yes',
+
+  -- Enable 24-bit color support in terminal.
+  termguicolors = true,
+
+  -- Use an empty winbar to avoid content shifts.
+  winbar = ' ',
+}
+
+local undo = {
+  -- Enable persistent undo history across Neovim sessions.
+  undofile = true,
+
+  -- Disable backup files and set temporary directories.
+  -- This avoids cluttering the working directory with backup and swap files.
+  backup = false,
+  swapfile = false,
+  writebackup = false,
+  backupdir = '/tmp',
+  directory = '/tmp',
+}
+
+-- Apply the options settings.
+for option, value in
+  pairs(
+    vim.tbl_extend(
+      'error',
+      misc,
+      search_and_substitute,
+      character,
+      completion,
+      program,
+      fold,
+      indent,
+      mouse,
+      spell,
+      split,
+      ui,
+      timeout,
+      undo
+    )
+  )
+do
+  vim.opt[option] = value
 end
 
--- Use <Space> as Leader key.
+-- Set the <Space> key as the Leader key.
 vim.g.mapleader = ' '
