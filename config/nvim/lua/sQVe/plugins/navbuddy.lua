@@ -38,7 +38,14 @@ M.opts = function()
       ['r'] = actions.rename,
     },
     lsp = { auto_attach = true },
-    window = { border = 'rounded' },
+    window = {
+      border = 'rounded',
+      sections = {
+        left = { size = '30%' },
+        mid = { size = '40%' },
+        right = { size = '30%' },
+      },
+    },
   }
 end
 
