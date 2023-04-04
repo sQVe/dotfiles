@@ -2,6 +2,8 @@
 -- ┃┃┗┫┃ ┃
 -- ╹╹ ╹╹ ╹
 
+vim.loader.enable()
+
 require('sQVe.config.options')
 require('sQVe.config.lazy')
 
