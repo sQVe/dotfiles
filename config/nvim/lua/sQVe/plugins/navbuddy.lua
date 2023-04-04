@@ -23,6 +23,9 @@ M.opts = function()
       ['h'] = actions.parent,
       ['l'] = actions.children,
 
+      ['<Left>'] = actions.parent,
+      ['<Right>'] = actions.children,
+
       ['v'] = actions.visual_name,
       ['V'] = actions.visual_scope,
 
@@ -40,6 +43,7 @@ M.opts = function()
     lsp = { auto_attach = true },
     window = {
       border = 'rounded',
+      scrolloff = tonumber(vim.opt.scrolloff),
       sections = {
         left = { size = '30%' },
         mid = { size = '40%' },
