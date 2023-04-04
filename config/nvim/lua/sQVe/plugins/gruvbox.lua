@@ -47,6 +47,7 @@ M.opts = function()
 
     -- Indent blankline.
     IndentBlanklineChar = { fg = colors.dark1 },
+    IndentBlanklineSpaceChar = { fg = colors.dark1 },
     IndentBlanklineContextChar = { fg = colors.light4 },
 
     -- Leap.
