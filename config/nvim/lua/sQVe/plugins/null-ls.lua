@@ -63,13 +63,13 @@ M.opts = function()
 
       -- Always run prettierd before eslint_d to prevent occassional race
       -- condition.
+      formatters.prettierd,
       formatters.eslint_d.with({
         extra_args = eslint_extra_args,
         runtime_condition = eslint_runtime_condition,
         timeout = 20000,
       }),
       formatters.gofmt,
-      formatters.prettierd,
       formatters.rustfmt.with({ runtime_condition = rust_runtime_condition }),
       formatters.shfmt.with({
         extra_args = { '-i', '2', '-bn', '-ci', '-sr' },

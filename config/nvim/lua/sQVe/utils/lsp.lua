@@ -84,7 +84,7 @@ M.diagnostic_handler = function(_, result, ctx, ...)
 end
 
 M.format = function(bufnr, async)
-  async = async or true
+  async = async == nil and true or false
 
   vim.lsp.buf.format({
     async = async,
