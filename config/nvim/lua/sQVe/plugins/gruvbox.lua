@@ -71,6 +71,9 @@ M.opts = function()
     NeoTreeTabActive = { bg = sidebar_bg },
     NeoTreeWinSeparator = { fg = colors.dark0, bg = colors.dark0 },
 
+    -- Noice.
+    NoiceMini = { bg = float_bg },
+
     -- Telescope.
     TelescopeNormal = { bg = float_bg },
     TelescopeBorder = { fg = colors.bright_yellow },
