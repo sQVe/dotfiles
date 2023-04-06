@@ -43,7 +43,6 @@ M.opts = {
     },
     signature = { enabled = false },
   },
-  notify = { enabled = false },
   routes = {
     -- Show all messages over 4 lines in popup.
     {
