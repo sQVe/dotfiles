@@ -1,7 +1,7 @@
 -- ╺┳┓┏━┓┏━╸┏━┓┏━┓╻┏┓╻┏━╸
 --  ┃┃┣┳┛┣╸ ┗━┓┗━┓┃┃┗┫┃╺┓
 -- ╺┻┛╹┗╸┗━╸┗━┛┗━┛╹╹ ╹┗━┛
--- Improve default interfaces.
+-- Improve default UI elements for input and select.
 
 local M = {
   'stevearc/dressing.nvim',
