@@ -12,6 +12,7 @@ M.opts = function()
   local actions = require('nvim-navbuddy.actions')
 
   return {
+    use_default_mappings = false,
     mappings = {
       ['<Enter>'] = actions.select,
       ['<Esc>'] = actions.select,
