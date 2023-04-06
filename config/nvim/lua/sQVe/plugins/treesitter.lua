@@ -33,6 +33,7 @@ M.opts = {
     'make',
     'markdown',
     'markdown_inline',
+    'regex',
     'rust',
     'scss',
     'terraform',

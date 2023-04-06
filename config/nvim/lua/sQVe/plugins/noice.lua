@@ -5,51 +5,55 @@
 
 local M = {
   'folke/noice.nvim',
+  event = 'VimEnter',
 }
 
 M.opts = {
   cmdline = {
     view = 'cmdline',
     format = {
-      cmdline = { pattern = '^:', icon = '', lang = 'vim' },
-      filter = { pattern = '^:%s*!', icon = '', lang = 'bash' },
-      help = { pattern = '^:%s*he?l?p?%s+', icon = '' },
+      cmdline = { icon = ' > ', lang = 'vim', pattern = '^:' },
+      filter = { icon = ' ! ', lang = 'bash', pattern = '^:%s*!' },
+      help = { pattern = '' },
       lua = {
-        pattern = { '^:%s*lua%s+', '^:%s*lua%s*=%s*', '^:%s*=%s*' },
-        icon = '',
+        icon = ' lua ',
         lang = 'lua',
+        pattern = { '^:%s*lua%s+', '^:%s*lua%s*=%s*', '^:%s*=%s*' },
       },
       search_down = {
+        icon = ' / ',
         kind = 'search',
-        pattern = '^/',
-        icon = ' ',
         lang = 'regex',
+        pattern = '^/',
+        view = 'cmdline',
       },
       search_up = {
+        icon = ' ? ',
         kind = 'search',
-        pattern = '^%?',
-        icon = ' ',
         lang = 'regex',
+        pattern = '^%?',
+        view = 'cmdline',
       },
     },
   },
-  notify = { enabled = false },
   lsp = {
     override = {
       ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
       ['vim.lsp.util.stylize_markdown'] = true,
-      ['cmp.entry.get_documentation'] = true,
     },
     signature = { enabled = false },
-    documentation = {
-      view = 'hover',
-      opts = {
-        lang = 'markdown',
-        replace = true,
-        render = 'plain',
-        format = { '{message}' },
-        win_options = { concealcursor = 'n', conceallevel = 3 },
-      },
+  },
+  notify = { enabled = false },
+  routes = {
+    -- Show all messages over 4 lines in popup.
+    {
+      filter = { event = 'msg_show', min_height = 4 },
+      view = 'popup',
+    },
+    -- Skip any write message.
+    {
+      filter = { event = 'msg_show', find = '%d+L, %d+B$' },
+      opts = { skip = true },
     },
   },
 }
