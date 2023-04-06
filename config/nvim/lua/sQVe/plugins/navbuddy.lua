@@ -23,6 +23,10 @@ M.opts = function()
 
       ['h'] = actions.parent,
       ['l'] = actions.children,
+      ['0'] = actions.root,
+
+      ['J'] = actions.move_down,
+      ['K'] = actions.move_up,
 
       ['<Left>'] = actions.parent,
       ['<Right>'] = actions.children,
