@@ -79,15 +79,6 @@ M.config = function()
     end
   end
 
-  local parentheses = function(fallback)
-    if cmp.visible() then
-      cmp.complete()
-      vim.api.nvim_put({ '()' }, 'c', false, true)
-    else
-      fallback()
-    end
-  end
-
   local expand_snippet = function(args)
     require('luasnip').lsp_expand(args.body)
   end
@@ -109,7 +100,6 @@ M.config = function()
       }),
     },
     mapping = mapping.preset.insert({
-      ['()'] = mapKey(parentheses),
       ['<C-CR>'] = mapKey(
         mapping.complete({ reason = cmp.ContextReason.Manual })
       ),
