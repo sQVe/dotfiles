@@ -17,37 +17,42 @@ M.opts = {
     },
     {
       filter = {},
-      pattern = 'NOTE',
+      pattern = '%s+(BUG)[%s:]+',
+      hl = '@text.danger',
+    },
+    {
+      filter = {},
+      pattern = '%s+(FIXME)[%s:]+',
+      hl = '@text.danger',
+    },
+    {
+      filter = {},
+      pattern = '%s+(HACK)[%s:]+',
+      hl = '@text.warning',
+    },
+    {
+      filter = {},
+      pattern = '%s+(NOTE)[%s:]+',
       hl = '@text.note',
     },
     {
       filter = {},
-      pattern = 'TODO',
+      pattern = '%s+(REMEMBER)[%s:]+',
+      hl = '@text.note',
+    },
+    {
+      filter = {},
+      pattern = '%s+(TODO)[%s:]+',
       hl = '@text.warning',
     },
     {
       filter = {},
-      pattern = 'HACK',
+      pattern = '%s+(WARNING)[%s:]+',
       hl = '@text.warning',
     },
     {
       filter = {},
-      pattern = 'WARNING',
-      hl = '@text.warning',
-    },
-    {
-      filter = {},
-      pattern = 'FIXME',
-      hl = '@text.danger',
-    },
-    {
-      filter = {},
-      pattern = 'XXX',
-      hl = '@text.danger',
-    },
-    {
-      filter = {},
-      pattern = 'BUG',
+      pattern = '%s+(XXX)[%s:]+',
       hl = '@text.danger',
     },
   },
