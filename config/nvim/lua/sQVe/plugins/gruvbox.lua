@@ -74,23 +74,6 @@ M.opts = function()
     -- Noice.
     NoiceMini = { bg = float_bg },
 
-    -- Notify.
-    NotifyDEBUGBorder = { fg = colors.bright_blue },
-    NotifyDEBUGIcon = { fg = colors.bright_blue },
-    NotifyDEBUGTitle = { fg = colors.bright_blue },
-    NotifyERRORBorder = { fg = colors.bright_red },
-    NotifyERRORIcon = { fg = colors.bright_red },
-    NotifyERRORTitle = { fg = colors.bright_red },
-    NotifyINFOBorder = { fg = colors.bright_aqua },
-    NotifyINFOIcon = { fg = colors.bright_aqua },
-    NotifyINFOTitle = { fg = colors.bright_aqua },
-    NotifyTRACEBorder = { fg = colors.bright_green },
-    NotifyTRACEIcon = { fg = colors.bright_green },
-    NotifyTRACETitle = { fg = colors.bright_green },
-    NotifyWARNBorder = { fg = colors.bright_yellow },
-    NotifyWARNIcon = { fg = colors.bright_yellow },
-    NotifyWARNTitle = { fg = colors.bright_yellow },
-
     --Telescope.
     TelescopeNormal = { bg = float_bg },
     TelescopeBorder = { fg = colors.bright_yellow },
