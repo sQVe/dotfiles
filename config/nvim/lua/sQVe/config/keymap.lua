@@ -149,7 +149,7 @@ map('', '<C-s>', '<Cmd>set spell!<CR>', { desc = 'Toggle spell', remap = true })
 map('i', '<C-s>', '<C-o><C-s>', { desc = 'Toggle spell', remap = true })
 
 -- Star search but stay at same word.
-map('', '<C-n>', '*N', { desc = 'Search for word or selection', remap = true })
+map('', '<C-n>', '*', { desc = 'Search for word or selection', remap = true })
 
 -- Set undo breakpoints.
 map('i', '!', '!<c-g>u')
