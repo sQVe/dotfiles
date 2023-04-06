@@ -44,7 +44,7 @@ M.opts = function()
     WinBar = { bg = none },
     WinBarNC = { bg = none },
 
-    -- Cyby.
+    -- Cybu.
     CybuFocus = { fg = colors.bright_yellow },
     CybuAdjacent = { fg = colors.gray },
 
