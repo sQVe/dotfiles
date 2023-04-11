@@ -83,6 +83,12 @@ M.opts = {
       filter = { event = 'msg_show', find = '^Already at newest change$' },
       opts = { skip = true },
     },
+
+    -- Skip any < and > indent messages.
+    {
+      filter = { event = 'msg_show', find = '^%d+ lines? [<>]ed %d+ times?' },
+      opts = { skip = true },
+    },
   },
 }
 
