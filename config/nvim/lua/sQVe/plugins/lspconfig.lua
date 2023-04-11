@@ -6,7 +6,7 @@
 local M = {
   'neovim/nvim-lspconfig',
   dependencies = {
-    { 'folke/neodev.nvim', opts = { experimental = { pathStrict = true } } },
+    { 'folke/neodev.nvim', config = true },
   },
   ft = {
     -- bashls
@@ -94,7 +94,7 @@ M.config = function()
   local servers = {
     -- Servers already handled by plugin setup:
     --   JavaScript and TypeScript (typescript)
-    --   Neodev (nvim lua API)
+    --   Neovim plugin development (neodev)
     --   Rust (rust-tools)
 
     bashls = server_setup,
