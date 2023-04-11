@@ -22,7 +22,6 @@ M.opts = {
     'go',
     'gomod',
     'graphql',
-    'help',
     'html',
     'javascript',
     'jsdoc',
@@ -41,6 +40,7 @@ M.opts = {
     'tsx',
     'typescript',
     'vim',
+    'vimdoc',
     'yaml',
   },
   context_commentstring = {
