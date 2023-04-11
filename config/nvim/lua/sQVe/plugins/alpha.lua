@@ -33,11 +33,6 @@ M.opts = function()
     ),
     dashboard.button('-', '📁  File tree', '<Cmd>Neotree<CR>'),
     dashboard.button(
-      '<Backspace>',
-      '🔴  Git status',
-      '<Cmd>lua require("sQVe.utils.telescope").git_status()<CR>'
-    ),
-    dashboard.button(
       'u',
       '🎒  Recently used files',
       '<Cmd>Telescope oldfiles cwd_only=true<CR>'
