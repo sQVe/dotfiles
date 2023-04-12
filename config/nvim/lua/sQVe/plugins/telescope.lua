@@ -32,14 +32,17 @@ local M = {
       end,
       desc = 'Git status',
     },
-    { 'gR', '<Cmd>Telescope grep_string<CR>', desc = 'Grep word' },
+    {
+      'gR',
+      '<Cmd>Telescope grep_string<CR>',
+      desc = 'String Grep',
+      mode = { 'n', 'v' },
+    },
     { 'z=', '<Cmd>Telescope spell_suggest<CR>', desc = 'Spell suggest' },
     {
       'å',
       function()
-        require('telescope.builtin').live_grep({
-          prompt_title = 'Live Grep',
-        })
+        require('telescope.builtin').live_grep()
       end,
       desc = 'Live Grep',
     },

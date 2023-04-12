@@ -123,7 +123,7 @@ M.map_lsp_buffer_keys = function(bufnr, include)
     end,
     formatting = function()
       map(
-        'n',
+        { 'n', 'v' },
         '<Leader><Leader>',
         require('sQVe.utils.lsp').format,
         { buffer = bufnr, desc = 'Format with LSP' }
