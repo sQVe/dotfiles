@@ -33,9 +33,8 @@ M.opts = function()
     ColorColumn = { fg = none, bg = none },
     CursorLine = { bg = float_bg },
     EndOfBuffer = { fg = colors.dark0 },
+    ErrorMsg = { fg = colors.bright_red, bg = none, bold = false },
     FloatBorder = { fg = colors.dark3, bg = float_bg },
-    -- NOTE: Remove this once
-    -- https://github.com/ellisonleao/gruvbox.nvim/pull/231 is merged.
     LspSignatureActiveParameter = { fg = colors.bright_orange, bold = true },
     NormalFloat = { bg = float_bg },
     Pmenu = { bg = colors.dark1 },
