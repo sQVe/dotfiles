@@ -28,8 +28,8 @@ M.opts = function()
     ),
     dashboard.button(
       'å',
-      '🔎  Grep',
-      '<Cmd>lua require("telescope.builtin").live_grep({ prompt_title = "Grep" })<CR>'
+      '🔎  Live Grep',
+      '<Cmd>lua require("telescope.builtin").live_grep({ prompt_title = "Live Grep" })<CR>'
     ),
     dashboard.button('-', '📁  File tree', '<Cmd>Neotree<CR>'),
     dashboard.button(

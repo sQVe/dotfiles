@@ -38,10 +38,20 @@ local M = {
       'å',
       function()
         require('telescope.builtin').live_grep({
-          prompt_title = 'Grep',
+          prompt_title = 'Live Grep',
         })
       end,
-      desc = 'Grep',
+      desc = 'Live Grep',
+    },
+    {
+      'å',
+      function()
+        require('telescope.builtin').grep_string({
+          prompt_title = 'Selection Grep',
+        })
+      end,
+      desc = 'Selection Grep',
+      mode = 'v',
     },
     {
       'Å',
@@ -49,11 +59,24 @@ local M = {
         local utils = require('telescope.utils')
 
         require('telescope.builtin').live_grep({
-          prompt_title = 'Grep (buffer directory)',
+          prompt_title = 'Live Grep (buffer directory)',
           cwd = utils.buffer_dir(),
         })
       end,
-      desc = 'Grep (buffer directory)',
+      desc = 'Live Grep (buffer directory)',
+    },
+    {
+      'Å',
+      function()
+        local utils = require('telescope.utils')
+
+        require('telescope.builtin').grep_string({
+          prompt_title = 'Selection Grep (buffer directory)',
+          cwd = utils.buffer_dir(),
+        })
+      end,
+      desc = 'Selection Grep (buffer directory)',
+      mode = 'v',
     },
     {
       'ä',
@@ -61,6 +84,7 @@ local M = {
         require('sQVe.utils.telescope').find_files()
       end,
       desc = 'Find file',
+      mode = { 'n', 'v' },
     },
     {
       'Ä',
@@ -68,6 +92,7 @@ local M = {
         require('sQVe.utils.telescope').find_files(true)
       end,
       desc = 'Find file (buffer directory)',
+      mode = { 'n', 'v' },
     },
   },
   dependencies = {
