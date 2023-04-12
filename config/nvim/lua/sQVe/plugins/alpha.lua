@@ -23,7 +23,7 @@ M.opts = function()
   dashboard.section.buttons.val = {
     dashboard.button(
       'ä',
-      '📝  Find file',
+      '📝  Find files',
       '<Cmd>lua require("sQVe.utils.telescope").find_files(true)<CR>'
     ),
     dashboard.button(

@@ -38,34 +38,36 @@ local M = {
       'å',
       function()
         require('telescope.builtin').live_grep({
-          prompt_title = 'Grep (open buffers)',
-          grep_open_files = true,
-        })
-      end,
-      desc = 'Grep (open buffers)',
-    },
-    {
-      'Å',
-      function()
-        require('telescope.builtin').live_grep({
           prompt_title = 'Grep',
         })
       end,
       desc = 'Grep',
     },
     {
-      'ä',
+      'Å',
       function()
-        require('sQVe.utils.telescope').find_files(true)
+        local utils = require('telescope.utils')
+
+        require('telescope.builtin').live_grep({
+          prompt_title = 'Grep (buffer directory)',
+          cwd = utils.buffer_dir(),
+        })
       end,
-      'Find file (buffer directory)',
+      desc = 'Grep (buffer directory)',
     },
     {
-      'Ä',
+      'ä',
       function()
         require('sQVe.utils.telescope').find_files()
       end,
       desc = 'Find file',
+    },
+    {
+      'Ä',
+      function()
+        require('sQVe.utils.telescope').find_files(true)
+      end,
+      desc = 'Find file (buffer directory)',
     },
   },
   dependencies = {
