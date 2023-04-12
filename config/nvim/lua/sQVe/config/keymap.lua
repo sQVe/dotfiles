@@ -122,8 +122,14 @@ map(
 )
 
 -- Tabs.
-map('n', '<Leader>n', '<Cmd>tabnew<CR>', { desc = 'New tab' })
-map('n', '<Leader>q', '<Cmd>tabclose<CR>', { desc = 'Close tab' })
+map('n', '<C-t>w', '<Cmd>tabnew<CR>', { desc = 'New tab' })
+map('n', '<C-t><C-w>', '<Cmd>tabnew<CR>', { desc = 'New tab' })
+map('n', '<C-t>n', '<Cmd>tabnext<CR>', { desc = 'Next tab' })
+map('n', '<C-t><C-n>', '<Cmd>tabnext<CR>', { desc = 'Next tab' })
+map('n', '<C-t>p', '<Cmd>tabprevious<CR>', { desc = 'Previous tab' })
+map('n', '<C-t><C-p>', '<Cmd>tabprevious<CR>', { desc = 'Previous tab' })
+map('n', '<C-t>q', '<Cmd>tabclose<CR>', { desc = 'Close tab' })
+map('n', '<C-t><C-q>', '<Cmd>tabclose<CR>', { desc = 'Close tab' })
 
 -- Spell completion.
 map('i', '<C-x><C-s>', '<C-x>s', { desc = 'Open spell completion' })
