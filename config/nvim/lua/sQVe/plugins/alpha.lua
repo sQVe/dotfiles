@@ -24,12 +24,12 @@ M.opts = function()
     dashboard.button(
       'ä',
       '📝  Find files',
-      '<Cmd>lua require("sQVe.utils.telescope").find_files(true)<CR>'
+      '<Cmd>lua require("sQVe.utils.telescope").find_files()<CR>'
     ),
     dashboard.button(
       'å',
-      '🔎  Live Grep',
-      '<Cmd>lua require("telescope.builtin").live_grep({ prompt_title = "Live Grep" })<CR>'
+      '🔎  Live grep',
+      '<Cmd>lua require("sQVe.utils.telescope")..live_grep()<CR>'
     ),
     dashboard.button('-', '📁  File tree', '<Cmd>Neotree<CR>'),
     dashboard.button(
