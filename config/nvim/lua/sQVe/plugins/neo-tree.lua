@@ -40,6 +40,7 @@ M.opts = {
       ['<C-v>'] = 'open_vsplit',
       ['<Left>'] = 'close_node',
       ['<Right>'] = 'open',
+      ['<Space>'] = false,
       ['>'] = 'expand_all_nodes',
       ['F'] = 'clear_filter',
       ['P'] = 'toggle_preview',
