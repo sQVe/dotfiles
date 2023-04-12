@@ -89,6 +89,15 @@ M.opts = {
       filter = { event = 'msg_show', find = '^%d+ lines? [<>]ed %d+ times?' },
       opts = { skip = true },
     },
+
+    -- Skip any search continuation messages.
+    {
+      filter = {
+        event = 'msg_show',
+        find = '^search hit %u+, continuing at %u+$',
+      },
+      opts = { skip = true },
+    },
   },
 }
 
