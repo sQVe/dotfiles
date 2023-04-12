@@ -45,9 +45,12 @@ M.config = function()
       program = function()
         local cwd = vim.fn.getcwd()
         local current_directory = vim.fn.fnamemodify(cwd, ':t')
-        local debug_path = cwd .. '/target/debug/' .. current_directory
+        local debug_path =
+          string.format('%s/target/debug/%s', cwd, current_directory)
 
-        return vim.fn.input('Path to binary: ' .. debug_path .. 'file')
+        return vim.fn.input(
+          string.format('Path to binary: %s file', debug_path)
+        )
       end,
       cwd = '${workspaceFolder}',
       stopOnEntry = false,

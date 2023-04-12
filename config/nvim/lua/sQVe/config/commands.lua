@@ -38,7 +38,9 @@ command('Term', function(input)
   vim.cmd('silent !term ' .. input.args)
 end, { nargs = '?' })
 command('BTerm', function(input)
-  vim.cmd('silent !term ' .. input.args .. ' ' .. vim.fn.expand('%:p:h'))
+  vim.cmd(
+    string.format('silent !term %s %s', input.args, vim.fn.expand('%:p:h'))
+  )
 end, { nargs = '?' })
 
 -- File manager.
@@ -62,8 +64,10 @@ command('AsciiHeader', function(input)
   -- Ensure that we have the comment plugin loaded.
   require('Comment')
 
-  local ok =
-    pcall(vim.cmd, 'execute "read !toilet -f future ' .. input.args .. '"')
+  local ok = pcall(
+    vim.cmd,
+    string.format('execute "read !toilet -f future %s"', input.args)
+  )
   if ok then
     vim.api.nvim_command('normal 0Vkkgc')
   end
@@ -93,9 +97,10 @@ command('Ddg', function(input)
   local safe_query = string.gsub(query, '%s', ' ')
 
   vim.cmd(
-    'silent execute "!open-qutebrowser '
-      .. vim.fn.shellescape(root_url .. safe_query)
-      .. '"'
+    string.format(
+      'silent execute "!open-qutebrowser %s"',
+      vim.fn.shellescape(root_url .. safe_query)
+    )
   )
 end, { nargs = '?' })
 
@@ -103,7 +108,8 @@ end, { nargs = '?' })
 command('SaveNotes', function()
   local script_path = vim.fn.expand('$SCRIPTS') .. '/nvim/save-notes.sh'
 
-  local ok = pcall(vim.cmd, 'silent execute "!' .. script_path .. ' &"')
+  local ok =
+    pcall(vim.cmd, string.format('silent execute "!%s &"', script_path))
   if not ok then
     vim.api.nvim_err_writeln('Unable to save notes.')
   end
