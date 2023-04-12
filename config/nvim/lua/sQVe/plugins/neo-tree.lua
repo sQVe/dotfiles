@@ -8,6 +8,7 @@ local M = {
   event = 'BufEnter',
   keys = {
     { '-', '<Cmd>Neotree action=show toggle<CR>', desc = 'Toggle Neotree' },
+    { '<C-->', '<Cmd>Neotree focus<CR>', desc = 'Focus Neotree' },
     {
       '_',
       '<Cmd>Neotree action=show reveal<CR>',
