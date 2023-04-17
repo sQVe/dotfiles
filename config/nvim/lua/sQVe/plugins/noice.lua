@@ -41,7 +41,6 @@ M.opts = {
       ['vim.lsp.util.convert_input_to_markdown_lines'] = true,
       ['vim.lsp.util.stylize_markdown'] = true,
     },
-    signature = { enabled = false },
   },
   routes = {
     -- Show all messages over 4 lines in popup.
