@@ -52,10 +52,6 @@ autocmd('BufWritePost', {
 autocmd('LspAttach', {
   group = augroups.LspAttach,
   callback = function(args)
-    local client = vim.lsp.get_client_by_id(args.data.client_id)
-    -- Disable Semantic Tokens.
-    client.server_capabilities.semanticTokensProvider = nil
-
     -- Use default formatexpr.
     vim.bo[args.buf].formatexpr = nil
   end,
