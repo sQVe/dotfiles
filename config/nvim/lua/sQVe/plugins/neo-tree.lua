@@ -26,8 +26,8 @@ M.opts = {
   sources = { 'filesystem' },
   source_selector = {
     winbar = true,
-    tab_labels = {
-      filesystem = '',
+    sources = {
+      { source = 'filesystem' },
     },
   },
   window = {
