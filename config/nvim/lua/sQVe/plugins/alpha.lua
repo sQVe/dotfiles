@@ -39,16 +39,16 @@ M.opts = function()
     ),
     dashboard.button('e', '💎  New file', '<Cmd>enew<CR>'),
     dashboard.button(
-      's',
+      'l',
       '💾  Load directory session',
       '<Cmd>lua require("persistence").load()<CR>'
     ),
     dashboard.button(
-      'S',
+      'L',
       '💾  Load global session',
       '<Cmd>lua require("persistence").load({ last = true })<CR>'
     ),
-    dashboard.button('l', '💤  Lazy', '<Cmd>Lazy<CR>'),
+    dashboard.button('z', '💤  Lazy', '<Cmd>Lazy<CR>'),
     dashboard.button('q', '🥺  Quit', '<Cmd>qa<CR>'),
   }
 
