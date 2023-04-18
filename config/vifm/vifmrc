@@ -154,9 +154,9 @@ fileviewer *.tar.gz,*.tgz,*.tar.bz,*.tbz,*.tar.bz2,*.tbz2,*.tar.Z,*.tZ,
 
 " Image preview.
 fileviewer <image/*>
-  \ kitty +icat --silent --transfer-mode=stream --place=%pwx%ph@%pxx%py %c %N
+  \ kitten icat --silent --transfer-mode=file --place=%pwx%ph@%pxx%py %c >/dev/tty </dev/tty %N
   \ %pc
-  \ kitty icat --clear --silent %pd
+  \ kitten icat --clear --silent >/dev/tty </dev/tty %N
 
 " Text and directory preview.
 fileviewer *[^/] env -u COLORTERM bat --color=always --pager=never --wrap=never  %c -p
