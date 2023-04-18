@@ -19,8 +19,6 @@ M.opts = {
     'css',
     'dockerfile',
     'gitignore',
-    'go',
-    'gomod',
     'graphql',
     'html',
     'javascript',

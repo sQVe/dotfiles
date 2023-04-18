@@ -5,13 +5,9 @@
 
 local M = {
   'mfussenegger/nvim-dap',
-  ft = {
-    'go',
-    'rust',
-  },
+  ft = { 'rust' },
   dependencies = {
     'nvim-telescope/telescope-dap.nvim',
-    { 'leoluz/nvim-dap-go', config = true },
     {
       'theHamsta/nvim-dap-virtual-text',
       opts = { enabled_commands = false },

@@ -113,7 +113,6 @@ local misc = {
   -- Support file lookup for specified file extensions.
   suffixesadd = {
     '.css',
-    '.go',
     '.html',
     '.js',
     '.json',

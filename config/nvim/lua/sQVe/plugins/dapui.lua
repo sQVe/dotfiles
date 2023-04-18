@@ -5,10 +5,7 @@
 
 local M = {
   'rcarriga/nvim-dap-ui',
-  ft = {
-    'go',
-    'rust',
-  },
+  ft = { 'rust' },
 }
 
 M.opts = {

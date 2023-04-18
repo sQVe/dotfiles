@@ -69,7 +69,6 @@ M.opts = function()
         runtime_condition = eslint_runtime_condition,
         timeout = 20000,
       }),
-      formatters.gofmt,
       formatters.rustfmt.with({ runtime_condition = rust_runtime_condition }),
       formatters.shfmt.with({
         extra_args = { '-i', '2', '-bn', '-ci', '-sr' },

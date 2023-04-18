@@ -16,10 +16,6 @@ local M = {
     'css',
     'scss',
 
-    -- gopls
-    'go',
-    'gomod',
-
     -- html
     'html',
 
@@ -99,7 +95,6 @@ M.config = function()
 
     bashls = server_setup,
     cssls = server_setup,
-    gopls = server_setup,
     html = server_setup,
     jsonls = server_setup,
     lua_ls = lsp_utils.create_server_setup({

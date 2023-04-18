@@ -52,11 +52,7 @@ M.create_root_dir_handler = function(opts)
   return function(filename)
     local manifest
 
-    if string.match(filename, '%.go$') then
-      manifest = util.root_pattern('go.mod')(filename)
-    else
-      manifest = util.find_package_json_ancestor(filename)
-    end
+    manifest = util.find_package_json_ancestor(filename)
 
     if opts.prioritizeManifest and manifest then
       return manifest
