@@ -9,12 +9,12 @@ local M = {
   keys = {
     { '<Leader>gd', '<Cmd>DiffviewOpen<CR>', desc = 'Diffview' },
     {
-      '<Leader>gl',
+      '<Leader>gh',
       '<Cmd>DiffviewFileHistory %<CR>',
       desc = 'File history (buffer)',
     },
     {
-      '<Leader>gL',
+      '<Leader>gH',
       '<Cmd>DiffviewFileHistory<CR>',
       desc = 'File history',
     },

@@ -107,14 +107,14 @@ M.map_lsp_buffer_keys = function(bufnr, include)
           scope = 'line',
         })
       end, { buffer = bufnr, desc = 'View diagnostics (line)' })
-      map('n', '<Leader>ll', function()
+      map('n', '<Leader>lg', function()
         builtin.diagnostics({ bufnr = 0 })
-      end, { buffer = bufnr, desc = 'List diagnostics (buffer)' })
+      end, { buffer = bufnr, desc = 'Goto diagnostics' })
       map(
         'n',
-        '<Leader>lo',
-        builtin.diagnostics,
-        { buffer = bufnr, desc = 'List diagnostics (open buffers)' }
+        '<Leader>ll',
+        require('lsp_lines').toggle,
+        { desc = 'Toggle diagnostic virtual lines' }
       )
     end,
     formatting = function()
@@ -158,7 +158,7 @@ M.map_lsp_buffer_keys = function(bufnr, include)
       )
       map('n', '<Leader>s', function()
         require('nvim-navbuddy').open()
-      end, { buffer = bufnr, desc = 'Goto buffer symbols tree' })
+      end, { buffer = bufnr, desc = 'View buffer symbols tree' })
       map(
         'n',
         '<Leader>S',

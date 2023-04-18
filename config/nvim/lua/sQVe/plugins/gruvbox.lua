@@ -3,7 +3,10 @@
 -- ┗━┛╹┗╸┗━┛┗┛ ┗━┛┗━┛╹ ╹
 -- Gruvbox color theme.
 
-local M = { 'npxbr/gruvbox.nvim', event = 'BufEnter' }
+local M = {
+  'npxbr/gruvbox.nvim',
+  event = 'BufEnter',
+}
 
 M.opts = function()
   local colors = require('gruvbox.palette').colors

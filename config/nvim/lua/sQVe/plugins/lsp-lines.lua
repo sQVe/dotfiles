@@ -6,7 +6,8 @@ local M = {
 M.config = function()
   require('lsp_lines').setup()
 
-  vim.diagnostic.config({ virtual_lines = { only_current_line = true } })
+  -- Disable virtual lines by default.
+  vim.diagnostic.config({ virtual_lines = false })
 end
 
 return M
