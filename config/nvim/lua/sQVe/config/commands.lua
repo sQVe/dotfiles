@@ -47,6 +47,12 @@ end, { nargs = '?' })
 command('FileManager', 'Term fm')
 command('BFileManager', 'BTerm fm')
 
+-- Neovim.
+command('Neovim', 'Term nvim')
+command('BNeovim', function()
+  vim.cmd('silent !term nvim ' .. vim.fn.expand('%:p'))
+end, { nargs = 0 })
+
 -- Tig.
 command('Tig', 'Term tig')
 command('BTig', function()

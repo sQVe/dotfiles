@@ -92,6 +92,15 @@ map(
   { desc = 'Open file manager in buffer directory' }
 )
 
+-- Neovim.
+map('n', '<Leader>on', '<Cmd>Neovim<CR>', { desc = 'Open Neovim' })
+map(
+  'n',
+  '<Leader>oN',
+  '<Cmd>BNeovim<CR>',
+  { desc = 'Open Neovim for current file' }
+)
+
 -- Tig.
 map('n', '<Leader>og', '<Cmd>Tig<CR>', { desc = 'Open tig' })
 map('n', '<Leader>oG', '<Cmd>BTig<CR>', { desc = 'Open tig for current file' })
