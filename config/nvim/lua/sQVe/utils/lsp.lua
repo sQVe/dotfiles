@@ -107,12 +107,12 @@ M.map_lsp_buffer_keys = function(bufnr, include)
           scope = 'line',
         })
       end, { buffer = bufnr, desc = 'View diagnostics (line)' })
-      map('n', '<Leader>lg', function()
+      map('n', '<Leader>dd', function()
         builtin.diagnostics({ bufnr = 0 })
       end, { buffer = bufnr, desc = 'Goto diagnostics' })
       map(
         'n',
-        '<Leader>ll',
+        '<Leader>dl',
         require('lsp_lines').toggle,
         { desc = 'Toggle diagnostic virtual lines' }
       )

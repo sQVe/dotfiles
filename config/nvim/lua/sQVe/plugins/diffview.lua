@@ -7,16 +7,16 @@ local M = {
   'sindrets/diffview.nvim',
   cmd = { 'DiffviewOpen', 'DiffviewFileHistory' },
   keys = {
-    { '<Leader>gd', '<Cmd>DiffviewOpen<CR>', desc = 'Diffview' },
+    { '<Leader>gd', '<Cmd>DiffviewOpen<CR>', desc = 'Open diffview' },
     {
       '<Leader>gh',
-      '<Cmd>DiffviewFileHistory %<CR>',
-      desc = 'File history (buffer)',
+      '<Cmd>DiffviewFileHistory<CR>',
+      desc = 'File history',
     },
     {
       '<Leader>gH',
-      '<Cmd>DiffviewFileHistory<CR>',
-      desc = 'File history',
+      '<Cmd>DiffviewFileHistory %<CR>',
+      desc = 'File history for buffer',
     },
   },
 }

@@ -7,7 +7,7 @@ return {
   'moll/vim-bbye',
   cmd = { 'Bdelete', 'Bwipeout' },
   keys = {
-    { '<Leader>d', '<Cmd>Bdelete<CR>', desc = 'Delete buffer' },
-    { '<Leader>D', '<Cmd>Bwipeout<CR>', desc = 'Wipeout buffer' },
+    { '<Leader>q', '<Cmd>Bdelete<CR>', desc = 'Delete buffer' },
+    { '<Leader>Q', '<Cmd>Bwipeout<CR>', desc = 'Wipeout buffer' },
   },
 }

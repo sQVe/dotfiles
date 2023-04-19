@@ -61,14 +61,14 @@ local M = {
       function()
         require('sQVe.utils.telescope').live_grep(true)
       end,
-      desc = 'Live grep (buffer directory)',
+      desc = 'Live grep in buffer directory',
     },
     {
       'Å',
       function()
         require('sQVe.utils.telescope').grep_string(true)
       end,
-      desc = 'Find text (buffer directory)',
+      desc = 'Find text in buffer directory',
       mode = 'v',
     },
     {
@@ -84,7 +84,7 @@ local M = {
       function()
         require('sQVe.utils.telescope').find_files(true)
       end,
-      desc = 'Find file (buffer directory)',
+      desc = 'Find file in buffer directory',
       mode = { 'n', 'v' },
     },
   },

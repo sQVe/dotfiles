@@ -50,13 +50,13 @@ map('', 'gk', 'k', { desc = 'Up' })
 map(
   '',
   'n',
-  '\'Nn\'[v:searchforward] . \'zzzv\'',
+  "'Nn'[v:searchforward] . 'zzzv'",
   { desc = 'Next match', expr = true }
 )
 map(
   '',
   'N',
-  '\'nN\'[v:searchforward] . \'zzzv\'',
+  "'nN'[v:searchforward] . 'zzzv'",
   { desc = 'Previous match', expr = true }
 )
 
@@ -75,22 +75,26 @@ map('v', '<', '<gv', { desc = 'Un-indent' })
 map('v', '>', '>gv', { desc = 'Indent' })
 
 -- Term.
+map('n', '<Leader>ot', '<Cmd>Term<CR>', { desc = 'Open terminal' })
 map(
   'n',
-  '<Leader>t',
+  '<Leader>oT',
   '<Cmd>BTerm<CR>',
-  { desc = 'Open terminal (buffer directory)' }
+  { desc = 'Open terminal in buffer directory' }
 )
-map('n', '<Leader>T', '<Cmd>Term<CR>', { desc = 'Open terminal' })
 
 -- File manager.
+map('n', '<Leader>of', '<Cmd>FileManager<CR>', { desc = 'Open file manager' })
 map(
   'n',
-  '<Leader>f',
+  '<Leader>oF',
   '<Cmd>BFileManager<CR>',
-  { desc = 'Open file manager (buffer directory)' }
+  { desc = 'Open file manager in buffer directory' }
 )
-map('n', '<Leader>F', '<Cmd>FileManager<CR>', { desc = 'Open file manager' })
+
+-- Tig.
+map('n', '<Leader>og', '<Cmd>Tig<CR>', { desc = 'Open tig' })
+map('n', '<Leader>oG', '<Cmd>BTig<CR>', { desc = 'Open tig for current file' })
 
 -- Move between jumps.
 map('n', '<C-o>', '<C-o>', { desc = 'Previous jump' })
@@ -138,7 +142,7 @@ map('i', '<C-x><C-s>', '<C-x>s', { desc = 'Open spell completion' })
 map(
   'n',
   'yoc',
-  ':set conceallevel=<C-r>=&conceallevel == 0 ? \'2\' : \'0\'<CR><CR>',
+  ":set conceallevel=<C-r>=&conceallevel == 0 ? '2' : '0'<CR><CR>",
   { desc = 'Toggle conceal' }
 )
 map('n', 'yol', '<Cmd>set cursorline!<CR>', { desc = 'Toggle cursorline' })

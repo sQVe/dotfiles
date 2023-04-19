@@ -47,6 +47,12 @@ end, { nargs = '?' })
 command('FileManager', 'Term fm')
 command('BFileManager', 'BTerm fm')
 
+-- Tig.
+command('Tig', 'Term tig')
+command('BTig', function()
+  vim.cmd('silent !term tig ' .. vim.fn.expand('%:p'))
+end, { nargs = 0 })
+
 -- Write, close and quit typos.
 command('Q', 'quit')
 command('Qa', 'qa')

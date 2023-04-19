@@ -55,14 +55,14 @@ local M = {
       desc = 'List code actions',
     },
     {
-      '<Leader>ln',
+      '<Leader>dn',
       function()
         vim.diagnostic.goto_next({ float = false })
       end,
       desc = 'Next diagnostic entry',
     },
     {
-      '<Leader>lp',
+      '<Leader>dp',
       function()
         vim.diagnostic.goto_prev({ float = false })
       end,
