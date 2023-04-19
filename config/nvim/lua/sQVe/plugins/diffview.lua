@@ -10,13 +10,13 @@ local M = {
     { '<Leader>gd', '<Cmd>DiffviewOpen<CR>', desc = 'Open diffview' },
     {
       '<Leader>gh',
-      '<Cmd>DiffviewFileHistory<CR>',
-      desc = 'Open file history',
+      '<Cmd>DiffviewFileHistory %<CR>',
+      desc = 'Open file history for buffer',
     },
     {
       '<Leader>gH',
-      '<Cmd>DiffviewFileHistory %<CR>',
-      desc = 'Open file history for buffer',
+      '<Cmd>DiffviewFileHistory<CR>',
+      desc = 'Open file history',
     },
   },
 }
