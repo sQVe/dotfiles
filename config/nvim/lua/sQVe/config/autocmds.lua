@@ -12,6 +12,7 @@ local augroup_keys = {
   'LspAttach',
   'ReloadBuffer',
   'SaveCommitMsg',
+  'StopNeovimDaemons',
   'VimResized',
 }
 
@@ -57,6 +58,18 @@ autocmd('LspAttach', {
   end,
 })
 
+-- Stop Neovim Daemons.
+autocmd('ExitPre', {
+  group = augroups.StopNeovimDaemons,
+  callback = function()
+    vim.fn.jobstart(
+      vim.fn.expand('$SCRIPTS') .. '/nvim/stop-nvim-daemons.sh',
+      { detach = true }
+    )
+  end,
+})
+
+-- Equalize windows on resize.
 autocmd('VimResized', {
   group = augroups.VimResized,
   command = 'wincmd =',
