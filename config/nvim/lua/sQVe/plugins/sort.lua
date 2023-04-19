@@ -13,7 +13,7 @@ local M = {
 
     -- Sort motions.
     { 'go"', 'vi"<Esc><Cmd>Sort<CR>', desc = 'Sort inside "' },
-    { 'go\'', 'vi\'<Esc><Cmd>Sort<CR>', desc = 'Sort inside \'' },
+    { "go'", "vi'<Esc><Cmd>Sort<CR>", desc = "Sort inside '" },
     { 'go(', 'vi(<Esc><Cmd>Sort<CR>', desc = 'Sort inside (' },
     { 'go{', 'vi{<Esc><Cmd>Sort<CR>', desc = 'Sort inside {}' },
     { 'go[', 'vi[<Esc><Cmd>Sort<CR>', desc = 'Sort inside [' },

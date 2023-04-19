@@ -40,7 +40,7 @@ M.config = function(_, opts)
     ['<Leader>l'] = { name = 'Diagnostics' },
     ['@'] = { name = 'Registers' },
     ['['] = { name = 'Previous' },
-    ['\''] = { name = 'Marks' },
+    ["'"] = { name = 'Marks' },
     [']'] = { name = 'Next' },
     ['`'] = { name = 'Marks' },
     ['go'] = { name = 'Sort' },
