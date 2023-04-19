@@ -11,9 +11,9 @@ local M = {
   },
   cmd = { 'Git', 'GBrowse' },
   keys = {
-    { '<Leader>gg', ':Git<Space>', desc = 'Input commmand' },
-    { '<Leader>gb', '<Cmd>Git blame<CR>', desc = 'Blame' },
-    { '<Leader>gs', '<Cmd>vertical Git<CR>', desc = 'Status' },
+    { '<Leader>gg', ':Git<Space>', desc = 'Input Git command' },
+    { '<Leader>gb', '<Cmd>Git blame<CR>', desc = 'Open blame sidebar' },
+    { '<Leader>gs', '<Cmd>vertical Git<CR>', desc = 'Open status window' },
   },
 }
 
