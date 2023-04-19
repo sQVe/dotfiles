@@ -1,6 +1,14 @@
 local M = {
   'https://git.sr.ht/~whynothugo/lsp_lines.nvim',
-  ft = require('sQVe.plugins.lspconfig').ft,
+  keys = {
+    {
+      '<Leader>dl',
+      function()
+        require('lsp_lines').toggle()
+      end,
+      desc = 'Toggle diagnostic virtual lines',
+    },
+  },
 }
 
 M.config = function()

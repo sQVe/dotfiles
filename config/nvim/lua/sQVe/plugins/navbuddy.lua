@@ -5,6 +5,7 @@
 
 local M = {
   'SmiteshP/nvim-navbuddy',
+  -- Plugin needs to be loaded with the LSP.
   ft = require('sQVe.plugins.lspconfig').ft,
 }
 
