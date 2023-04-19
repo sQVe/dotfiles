@@ -11,5 +11,6 @@ local M = {
 M.opts = {}
 
 M.config = true
+M.dev = true
 
 return M

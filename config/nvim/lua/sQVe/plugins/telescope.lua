@@ -133,7 +133,7 @@ M.opts = function()
             end
 
             for _, file_selection in pairs(file_selections) do
-              vim.cmd(string.format('%s %s', 'edit', file_selection.path))
+              vim.cmd(string.format('edit %s', file_selection.path))
             end
           end,
           ['<Esc>'] = actions.close,

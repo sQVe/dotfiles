@@ -35,11 +35,11 @@ command('Bcd', 'cd %:p:h')
 
 -- Term.
 command('Term', function(input)
-  vim.cmd('silent !term ' .. input.args)
+  vim.fn.jobstart('term ' .. input.args)
 end, { nargs = '?' })
 command('BTerm', function(input)
-  vim.cmd(
-    string.format('silent !term %s %s', input.args, vim.fn.expand('%:p:h'))
+  vim.fn.jobstart(
+    string.format('term %s %s', input.args, vim.fn.expand('%:p:h'))
   )
 end, { nargs = '?' })
 
@@ -50,13 +50,13 @@ command('BFileManager', 'BTerm fm')
 -- Neovim.
 command('Neovim', 'Term nvim')
 command('BNeovim', function()
-  vim.cmd('silent !term nvim ' .. vim.fn.expand('%:p'))
+  vim.fn.jobstart('term nvim ' .. vim.fn.expand('%:p'))
 end, { nargs = 0 })
 
 -- Tig.
 command('Tig', 'Term tig')
 command('BTig', function()
-  vim.cmd('silent !term tig ' .. vim.fn.expand('%:p'))
+  vim.fn.jobstart('term tig ' .. vim.fn.expand('%:p'))
 end, { nargs = 0 })
 
 -- Write, close and quit typos.
@@ -76,10 +76,7 @@ command('AsciiHeader', function(input)
   -- Ensure that we have the comment plugin loaded.
   require('Comment')
 
-  local ok = pcall(
-    vim.cmd,
-    string.format('execute "read !toilet -f future %s"', input.args)
-  )
+  local ok = pcall(vim.fn.execute, 'read !toilet -f future ' .. input.args)
   if ok then
     vim.api.nvim_command('normal 0Vkkgc')
   end
@@ -87,7 +84,7 @@ end, { nargs = 1 })
 
 -- Use branch name as commit message.
 command('CommitMsgFromBranchName', function()
-  local ok = pcall(vim.cmd, 'execute "read !git rev-parse --abbrev-ref HEAD"')
+  local ok = pcall(vim.fn.execute, 'read !git rev-parse --abbrev-ref HEAD')
   if ok then
     vim.api.nvim_command('normal kdd')
     vim.api.nvim_command('substitute /\\//: /e')
@@ -98,7 +95,7 @@ end, { nargs = 0 })
 
 -- Open prev git commit message.
 command('CommitMsgPrev', function()
-  vim.cmd('silent execute "vsplit /tmp/PREV_COMMIT_EDITMSG"')
+  vim.fn.execute('vsplit /tmp/PREV_COMMIT_EDITMSG')
 end, { nargs = 0 })
 
 -- Search on DuckDuckGo.
@@ -108,20 +105,22 @@ command('Ddg', function(input)
   local query = (#args > 0 and args) or vim.fn.getreg('o')
   local safe_query = string.gsub(query, '%s', ' ')
 
-  vim.cmd(
+  vim.fn.jobstart(
     string.format(
-      'silent execute "!open-qutebrowser %s"',
+      'open-qutebrowser "%s"',
       vim.fn.shellescape(root_url .. safe_query)
-    )
+    ),
+    { detach = true }
   )
 end, { nargs = '?' })
 
 -- Save notes.
 command('SaveNotes', function()
-  local script_path = vim.fn.expand('$SCRIPTS') .. '/nvim/save-notes.sh'
-
-  local ok =
-    pcall(vim.cmd, string.format('silent execute "!%s &"', script_path))
+  local ok = pcall(
+    vim.fn.jobstart,
+    vim.fn.expand('$SCRIPTS') .. '/nvim/save-notes.sh',
+    { detach = true }
+  )
   if not ok then
     vim.api.nvim_err_writeln('Unable to save notes.')
   end
