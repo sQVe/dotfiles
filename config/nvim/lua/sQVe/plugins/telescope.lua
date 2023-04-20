@@ -51,7 +51,7 @@ local M = {
     {
       'å',
       function()
-        require('sQVe.utils.telescope').grep_string(true)
+        require('sQVe.utils.telescope').grep_string()
       end,
       desc = 'Find text',
       mode = 'v',
