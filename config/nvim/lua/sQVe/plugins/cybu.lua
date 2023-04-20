@@ -6,6 +6,7 @@
 local M = {
   'ghillb/cybu.nvim',
   event = 'BufEnter',
+  enabled = false,
 }
 
 M.opts = {

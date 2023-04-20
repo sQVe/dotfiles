@@ -74,6 +74,10 @@ map('', ';', ',', { desc = 'Find previous character' })
 map('v', '<', '<gv', { desc = 'Un-indent' })
 map('v', '>', '>gv', { desc = 'Indent' })
 
+-- Next and previous buffer.
+map('', '<Tab>', '<Cmd>bnext<CR>', { desc = 'Next buffer' })
+map('', '<S-Tab>', '<Cmd>bprev<CR>', { desc = 'Previous buffer' })
+
 -- Term.
 map('n', '<Leader>ot', '<Cmd>Term<CR>', { desc = 'Open terminal' })
 map(
