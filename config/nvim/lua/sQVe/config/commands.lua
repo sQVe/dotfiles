@@ -53,12 +53,6 @@ command('BNeovim', function()
   vim.fn.jobstart('term nvim ' .. vim.fn.expand('%:p'))
 end, { nargs = 0 })
 
--- Tig.
-command('Tig', 'Term tig')
-command('BTig', function()
-  vim.fn.jobstart('term tig ' .. vim.fn.expand('%:p'))
-end, { nargs = 0 })
-
 -- Write, close and quit typos.
 command('Q', 'quit')
 command('Qa', 'qa')

@@ -105,10 +105,6 @@ map(
   { desc = 'Open Neovim for current file' }
 )
 
--- Tig.
-map('n', '<Leader>og', '<Cmd>Tig<CR>', { desc = 'Open tig' })
-map('n', '<Leader>oG', '<Cmd>BTig<CR>', { desc = 'Open tig for current file' })
-
 -- Move between jumps.
 map('n', '<C-o>', '<C-o>', { desc = 'Previous jump' })
 map('n', '<C-p>', '<C-i>', { desc = 'Next jump' })
