@@ -1,3 +1,8 @@
+-- ┏┓╻┏━┓╺┳╸╻┏━╸╻ ╻
+-- ┃┗┫┃ ┃ ┃ ┃┣╸ ┗┳┛
+-- ╹ ╹┗━┛ ╹ ╹╹   ╹
+-- Notification manager.
+
 local M = {
   'rcarriga/nvim-notify',
 }
