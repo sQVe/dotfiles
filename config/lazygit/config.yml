@@ -1,6 +1,7 @@
 gui:
   scrollHeight: 8
   showBottomLine: false
+  showFileTree: false
   showIcons: true
   showRandomTip: false
   authorColors:
