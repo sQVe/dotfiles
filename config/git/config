@@ -11,14 +11,14 @@
   diffFilter = delta --color-only
 
 [delta]
-  syntax-theme = gruvbox-dark
-  whitespace-error-style = 22 reverse
   features = line-numbers decorations
+  syntax-theme = gruvbox-dark
   line-numbers-minus-style = "#3b110c"
   line-numbers-plus-style = "#3c3d0f"
   line-numbers-zero-style = "#504945"
   minus-style = dim syntax "#3b110c"
   plus-style = syntax "#3c3d0f"
+  whitespace-error-style = 22 reverse
   zero-style = syntax
 
 [delta "decorations"]
@@ -26,6 +26,12 @@
   file-style = bold yellow box
   file-decoration-style = none
   hunk-header-decoration-style = magenta ul
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
 
 [pull]
   rebase = merges
