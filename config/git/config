@@ -23,7 +23,14 @@
   hunk-header-decoration-style = magenta ul
 
 [merge]
-    conflictstyle = diff3
+  tool = "nvim"
+
+[mergetool "nvim"]
+  cmd = nvim \"$MERGED\"
+
+[mergetool]
+  keepBackup = false
+  prompt = false
 
 [diff]
     colorMoved = default

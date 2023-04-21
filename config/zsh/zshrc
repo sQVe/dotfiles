@@ -188,16 +188,10 @@ alias rm='rm -I --preserve-root'
 alias cmd=command
 alias df='df -h'
 alias du='du -ch'
-alias dud='du -chd'
-alias free='free -m'
 alias ga='git-alias-lookup $XDG_DATA_HOME/zim/modules/git'
-alias get='curl --continue-at - --location --progress-bar --remote-name --remote-time'
-alias gmt='nvim -c DiffviewOpen'
 alias grep='grep --color=auto -d skip'
 alias mkdir='mkdir -pv'
 alias more=less
-alias np='nvim -w PKGBUILD'
-alias o='mimeo -q'
 alias open='mimeo -q'
 alias q=exit
 alias s='sudo -v && sudo '
