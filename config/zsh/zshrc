@@ -226,7 +226,6 @@ alias suspend='state suspend'
 
 # Apps.
 alias bluetooth=bluetoothctl
-alias c=cat
 alias cheat='cht.sh'
 alias chrome=google-chrome-stable
 alias fd='fd --hidden --follow'
@@ -237,16 +236,11 @@ alias format='npx prettier --write'
 alias glab='BROWSER=google-chrome-stable glab'
 alias icat="kitten icat"
 alias kubectl="kubectl --cache-dir ${XDG_CACHE_HOME}/kube"
-alias l=less
-alias mixer=pavucontrol
+alias lg=lazygit
 alias qutebrowser=open-qutebrowser
 alias rcup="${SCRIPTS}/extended-rcup.sh"
 alias rg='rg --hidden --follow'
-alias t=term
-alias td="term --detach"
-alias tiga='tig --all'
 alias v=nvim
-alias vi=nvim
 alias vifm=vifm-cd
 alias vim=nvim
 alias vimn='nvim -u NONE'
