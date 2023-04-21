@@ -1,0 +1,39 @@
+gui:
+  scrollHeight: 8
+  showBottomLine: false
+  showIcons: true
+  showRandomTip: false
+  authorColors:
+    '*': green
+    'Oskar Grunning': magenta
+  branchColors:
+    'chore': green
+    'docs': blue
+    'feat': magenta
+    'fix': yellow
+    'main': red
+    'master': red
+  theme:
+    activeBorderColor:
+      - cyan
+      - bold
+    inactiveBorderColor:
+      - '#444'
+    cherryPickedCommitBgColor:
+      - reverse
+    cherryPickedCommitFgColor:
+      - white
+      - bold
+    selectedLineBgColor:
+      - '#444'
+    selectedRangeBgColor:
+      - default
+git:
+  autoFetch: false
+  commit:
+    verbose: 'always'
+  paging:
+    pager: delta --dark --paging=never
+  log:
+    showGraph: 'always'
+notARepository: 'quit'
