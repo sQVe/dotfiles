@@ -88,21 +88,39 @@ map(
 )
 
 -- File manager.
-map('n', '<Leader>of', '<Cmd>FileManager<CR>', { desc = 'Open file manager' })
+map(
+  'n',
+  '<Leader>of',
+  '<Cmd>FileManager<CR>',
+  { desc = 'Open terminal with file manager' }
+)
 map(
   'n',
   '<Leader>oF',
   '<Cmd>BFileManager<CR>',
-  { desc = 'Open file manager in buffer directory' }
+  { desc = 'Open terminal with file manager in buffer directory' }
 )
 
 -- Neovim.
-map('n', '<Leader>on', '<Cmd>Neovim<CR>', { desc = 'Open Neovim' })
+map(
+  'n',
+  '<Leader>on',
+  '<Cmd>Neovim<CR>',
+  { desc = 'Open terminal with Neovim' }
+)
 map(
   'n',
   '<Leader>oN',
   '<Cmd>BNeovim<CR>',
-  { desc = 'Open Neovim for current file' }
+  { desc = 'Open terminal with Neovim for current file' }
+)
+
+-- Lazygit.
+map(
+  'n',
+  '<Leader>on',
+  '<Cmd>Lazygit<CR>',
+  { desc = 'Open terminal with Lazygit' }
 )
 
 -- Move between jumps.
