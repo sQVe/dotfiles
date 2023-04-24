@@ -46,10 +46,6 @@ M.opts = function()
     WinBar = { bg = none },
     WinBarNC = { bg = none },
 
-    -- Cybu.
-    CybuFocus = { fg = colors.bright_yellow },
-    CybuAdjacent = { fg = colors.gray },
-
     -- Indent blankline.
     IndentBlanklineChar = { fg = colors.dark1 },
     IndentBlanklineSpaceChar = { fg = colors.dark1 },
