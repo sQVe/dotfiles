@@ -16,6 +16,14 @@ local M = {
           cmd = 'lazygit',
           direction = 'float',
           hidden = true,
+          on_exit = function(_, _, exit_code)
+            if exit_code > 0 then
+              vim.notify(
+                vim.fn.getcwd() .. ' is not a git respository.',
+                vim.log.levels.WARN
+              )
+            end
+          end,
         }):toggle()
       end,
       desc = 'Open Lazygit',
