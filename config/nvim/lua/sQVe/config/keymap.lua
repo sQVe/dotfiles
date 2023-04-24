@@ -118,7 +118,7 @@ map(
 -- Lazygit.
 map(
   'n',
-  '<Leader>on',
+  '<Leader>ol',
   '<Cmd>Lazygit<CR>',
   { desc = 'Open terminal with Lazygit' }
 )
