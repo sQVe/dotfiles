@@ -52,6 +52,7 @@ M.find_files = function(use_buffer_cwd)
   local opts = {
     follow = true,
     hidden = true,
+    path_display = { 'truncate' },
     prompt_title = get_prompt_title(
       'Find file',
       use_buffer_cwd and utils.buffer_dir()
