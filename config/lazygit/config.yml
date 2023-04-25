@@ -38,4 +38,8 @@ git:
     pager: delta --dark --paging=never
   log:
     showGraph: 'always'
+keybinding:
+  branches:
+    viewGitFlowOptions: ''
 notARepository: 'quit'
+promptToReturnFromSubprocess: false
