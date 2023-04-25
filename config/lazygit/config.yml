@@ -41,5 +41,8 @@ git:
 keybinding:
   branches:
     viewGitFlowOptions: ''
+  commits:
+    renameCommitWithEditor: 'r'
+    renameCommit: ''
 notARepository: 'quit'
 promptToReturnFromSubprocess: false
