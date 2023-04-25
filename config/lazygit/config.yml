@@ -1,4 +1,5 @@
 gui:
+  commandLogSize: 16
   scrollHeight: 8
   showBottomLine: false
   showFileTree: false
@@ -34,10 +35,11 @@ git:
   autoFetch: false
   commit:
     verbose: 'always'
-  paging:
-    pager: delta --dark --paging=never
   log:
     showGraph: 'always'
+  paging:
+    pager: delta --dark --paging=never
+  skipHookPrefix: draft
 keybinding:
   branches:
     viewGitFlowOptions: ''
