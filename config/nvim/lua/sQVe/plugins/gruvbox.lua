@@ -47,9 +47,9 @@ M.opts = function()
     WinBarNC = { bg = none },
 
     -- Indent blankline.
-    IndentBlanklineChar = { fg = colors.dark1 },
-    IndentBlanklineSpaceChar = { fg = colors.dark1 },
     IndentBlanklineContextChar = { fg = colors.light4 },
+    IndentBlanklineIndent1 = { bg = colors.dark0 },
+    IndentBlanklineIndent2 = { bg = sidebar_bg },
 
     -- Leap.
     Cursor = { fg = colors.dark0, bg = colors.bright_orange, reverse = false },
