@@ -36,7 +36,6 @@ M.config = function(_, opts)
     ['<C-q>'] = { name = 'Quickfix' },
     ['<C-w>'] = { name = 'Window' },
     ['<Leader>d'] = { name = 'Diagnostics' },
-    ['<Leader>g'] = { name = 'Git' },
     ['<Leader>h'] = { name = 'Hunks' },
     ['<Leader>o'] = { name = 'Open' },
     ['@'] = { name = 'Registers' },
