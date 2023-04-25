@@ -31,6 +31,11 @@ M.opts = function()
       '🔎  Live grep',
       '<Cmd>lua require("sQVe.utils.telescope").live_grep()<CR>'
     ),
+    dashboard.button(
+      '<Backspace>',
+      '🔴  Git status',
+      '<Cmd>lua require("sQVe.utils.telescope").git_status()<CR>'
+    ),
     dashboard.button('-', '📁  File tree', '<Cmd>Neotree<CR>'),
     dashboard.button(
       'u',
@@ -39,16 +44,16 @@ M.opts = function()
     ),
     dashboard.button('e', '💎  New file', '<Cmd>enew<CR>'),
     dashboard.button(
-      'l',
+      'g',
       '💾  Load directory session',
       '<Cmd>lua require("persistence").load()<CR>'
     ),
     dashboard.button(
-      'L',
+      'G',
       '💾  Load global session',
       '<Cmd>lua require("persistence").load({ last = true })<CR>'
     ),
-    dashboard.button('z', '💤  Lazy', '<Cmd>Lazy<CR>'),
+    dashboard.button('l', '💤  Lazy', '<Cmd>Lazy<CR>'),
     dashboard.button('q', '🥺  Quit', '<Cmd>qa<CR>'),
   }
 

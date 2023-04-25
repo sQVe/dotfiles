@@ -18,10 +18,7 @@ local M = {
           hidden = true,
           on_exit = function(_, _, exit_code)
             if exit_code > 0 then
-              vim.notify(
-                vim.fn.getcwd() .. ' is not a git respository.',
-                vim.log.levels.WARN
-              )
+              vim.notify('No git directory found', vim.log.levels.WARN)
             end
           end,
         }):toggle()
