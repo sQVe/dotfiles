@@ -19,7 +19,8 @@ local M = {
 
 M.opts = {
   history = true,
-  delete_check_events = 'TextChanged',
+  region_check_events = 'InsertEnter',
+  delete_check_events = 'TextChanged,InsertLeave',
 }
 
 M.config = function(_, opts)
