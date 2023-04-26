@@ -219,8 +219,6 @@ alias shutdown='state shutdown'
 alias suspend='state suspend'
 
 # Apps.
-alias ai=sgpt
-alias aie="sgpt --editor"
 alias bluetooth=bluetoothctl
 alias cheat='cht.sh'
 alias chrome=google-chrome-stable
