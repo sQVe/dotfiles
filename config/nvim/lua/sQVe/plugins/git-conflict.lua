@@ -9,6 +9,12 @@ local M = {
   event = 'BufRead',
 }
 
-M.config = true
+M.opts = {
+  disable_diagnostics = true,
+  highlights = {
+    incoming = 'DiffChange',
+    current = 'DiffAdd',
+  },
+}
 
 return M
