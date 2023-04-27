@@ -104,7 +104,7 @@ command('Ddg', function(input)
 
   vim.fn.jobstart(
     string.format(
-      'open-qutebrowser "%s"',
+      'open-qutebrowser %s',
       vim.fn.shellescape(root_url .. safe_query)
     ),
     { detach = true }
