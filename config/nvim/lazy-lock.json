@@ -12,7 +12,7 @@
   "cmp_luasnip": { "branch": "master", "commit": "18095520391186d634a0045dacaa346291096566" },
   "dressing.nvim": { "branch": "master", "commit": "f5d7fa1fa5ce6bcebc8f07922f39b1eda4d01e37" },
   "flit.nvim": { "branch": "main", "commit": "f60e4b3d49bb5a5e97cfffe66f2e671eb422078e" },
-  "git-conflict.nvim": { "branch": "main", "commit": "97be43ed34bce7ec6fd7991f3621fecf7b033c95" },
+  "git-conflict.nvim": { "branch": "main", "commit": "8d962d83cae924a314965f738ed1e05a4000d682" },
   "gitsigns.nvim": { "branch": "main", "commit": "7dfe4be94b4f84a9931098f0f0f618d055e50bd5" },
   "gruvbox.nvim": { "branch": "main", "commit": "df149bccb19a02c5c2b9fa6ec0716f0c0487feb0" },
   "indent-blankline.nvim": { "branch": "master", "commit": "018bd04d80c9a73d399c1061fa0c3b14a7614399" },
@@ -55,5 +55,5 @@
   "vim-illuminate": { "branch": "master", "commit": "a2907275a6899c570d16e95b9db5fd921c167502" },
   "vim-indent-object": { "branch": "master", "commit": "5c5b24c959478929b54a9e831a8e2e651a465965" },
   "vim-repeat": { "branch": "master", "commit": "24afe922e6a05891756ecf331f39a1f6743d3d5a" },
-  "which-key.nvim": { "branch": "main", "commit": "94cb020ff33a1e0e22fac1c41663d2c439741f17" }
+  "which-key.nvim": { "branch": "main", "commit": "4acffc92953a90a790603bfdab7c92319ab167b1" }
 }
