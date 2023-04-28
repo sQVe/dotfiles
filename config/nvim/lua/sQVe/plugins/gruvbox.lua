@@ -72,7 +72,7 @@ M.opts = function()
     -- Noice.
     NoiceMini = { bg = float_bg },
 
-    --Telescope.
+    -- Telescope.
     TelescopeNormal = { bg = float_bg },
     TelescopeBorder = { fg = colors.bright_yellow },
     TelescopePreviewBorder = { fg = float_bg, bg = float_bg, italic = true },
@@ -86,6 +86,8 @@ M.opts = function()
     ['@text.emphasis'] = { italic = true },
     ['@text.note'] = { fg = colors.bright_aqua, bold = true },
     ['@text.warning'] = { fg = colors.bright_yellow, bold = true },
+    ['@lsp.type.interface'] = { link = '@type' },
+    ['@lsp.type.parameter'] = { link = '@variable' },
   }, sign_column_override_map)
 
   return {
