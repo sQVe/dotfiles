@@ -59,7 +59,6 @@ M.opts = function()
     sources = {
       code_actions.eslint_d,
       code_actions.shellcheck,
-      require('typescript.extensions.null-ls.code-actions'),
 
       -- Always run prettierd before eslint_d to prevent occassional race
       -- condition.
