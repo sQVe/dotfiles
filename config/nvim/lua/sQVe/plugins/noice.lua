@@ -18,6 +18,13 @@ M.opts = {
       ['cmp.entry.get_documentation'] = true,
     },
   },
+  views = {
+    mini = {
+      position = {
+        row = -2,
+      },
+    },
+  },
 }
 
 return M
