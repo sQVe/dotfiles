@@ -5,7 +5,6 @@
 
 local M = {
   'jose-elias-alvarez/null-ls.nvim',
-  dev = true,
   ft = require('sQVe.plugins.lspconfig').ft,
 }
 
