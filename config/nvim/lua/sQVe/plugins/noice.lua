@@ -17,6 +17,13 @@ M.opts = {
       ['vim.lsp.util.stylize_markdown'] = true,
       ['cmp.entry.get_documentation'] = true,
     },
+    signature = {
+      auto_open = {
+        enabled = false,
+        luasnip = false,
+        trigger = false,
+      },
+    },
   },
   views = {
     mini = {
