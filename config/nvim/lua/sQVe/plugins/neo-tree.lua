@@ -25,10 +25,11 @@ M.opts = {
   },
   sources = { 'filesystem' },
   source_selector = {
-    winbar = true,
     sources = {
       { source = 'filesystem' },
     },
+    statusline = false,
+    winbar = false,
   },
   window = {
     mappings = {

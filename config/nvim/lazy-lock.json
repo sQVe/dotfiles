@@ -19,7 +19,7 @@
   "lazy.nvim": { "branch": "main", "commit": "ceb413678dfcf3d5455208959185e3db1f7892c7" },
   "leap.nvim": { "branch": "main", "commit": "6f2912755c9c4ae790abd829f0cf1b07c037b2a4" },
   "lsp_lines.nvim": { "branch": "main", "commit": "512d8c79637e7aeb889240c2e0ca8ae327940737" },
-  "lspkind-nvim": { "branch": "master", "commit": "cec39a0651679931ce2e503123c633b0aeae5fc6" },
+  "lspkind-nvim": { "branch": "master", "commit": "57610d5ab560c073c465d6faf0c19f200cb67e6e" },
   "lualine.nvim": { "branch": "master", "commit": "05d78e9fd0cdfb4545974a5aa14b1be95a86e9c9" },
   "mini.ai": { "branch": "main", "commit": "aea7f12818a621f1d6f742a50b33e65e0bb82a2e" },
   "neo-tree.nvim": { "branch": "v2.x", "commit": "8d485aab32da9b8841d4af977f992b82b14af469" },
