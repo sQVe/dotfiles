@@ -37,6 +37,7 @@ git:
     verbose: 'always'
   log:
     showGraph: 'always'
+    showWholeGraph: true
   paging:
     pager: delta --dark --paging=never
   skipHookPrefix: draft
