@@ -15,36 +15,49 @@ M.opts = function()
   return {
     use_default_mappings = false,
     mappings = {
-      ['<Enter>'] = actions.select,
-      ['<Esc>'] = actions.select,
-      ['q'] = actions.select,
+      ['<Enter>'] = actions.select(),
+      ['<Esc>'] = actions.select(),
+      ['q'] = actions.select(),
 
-      ['j'] = actions.next_sibling,
-      ['k'] = actions.previous_sibling,
+      ['j'] = actions.next_sibling(),
+      ['k'] = actions.previous_sibling(),
 
-      ['h'] = actions.parent,
-      ['l'] = actions.children,
-      ['0'] = actions.root,
+      ['h'] = actions.parent(),
+      ['l'] = actions.children(),
+      ['0'] = actions.root(),
 
-      ['J'] = actions.move_down,
-      ['K'] = actions.move_up,
+      ['J'] = actions.move_down(),
+      ['K'] = actions.move_up(),
 
-      ['<Left>'] = actions.parent,
-      ['<Right>'] = actions.children,
+      ['<Left>'] = actions.parent(),
+      ['<Right>'] = actions.children(),
 
-      ['v'] = actions.visual_name,
-      ['V'] = actions.visual_scope,
+      ['v'] = actions.visual_name(),
+      ['V'] = actions.visual_scope(),
 
-      ['y'] = actions.yank_name,
-      ['Y'] = actions.yank_scope,
+      ['y'] = actions.yank_name(),
+      ['Y'] = actions.yank_scope(),
 
-      ['i'] = actions.insert_name,
-      ['I'] = actions.insert_scope,
+      ['i'] = actions.insert_name(),
+      ['I'] = actions.insert_scope(),
 
-      ['a'] = actions.append_name,
-      ['A'] = actions.append_scope,
+      ['a'] = actions.append_name(),
+      ['A'] = actions.append_scope(),
 
-      ['r'] = actions.rename,
+      ['r'] = actions.rename(),
+
+      ['f'] = actions.telescope({
+        layout_config = {
+          height = 0.60,
+          prompt_position = 'top',
+          width = 0.60,
+          flex = { flip_columns = 280 },
+          vertical = { preview_height = 0.4 },
+        },
+        layout_strategy = 'flex',
+      }),
+
+      ['g?'] = actions.help(),
     },
     lsp = { auto_attach = true },
     window = {
