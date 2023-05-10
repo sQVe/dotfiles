@@ -11,7 +11,7 @@ local M = {
 
 M.opts = function()
   local colors = require('gruvbox.palette').colors
-  local lspkind = require('lspkind')
+  local get_symbol_map = require('sQVe.utils.lsp').get_symbol_map
 
   return {
     show_modified = true,
@@ -20,7 +20,7 @@ M.opts = function()
       ellipsis = '…',
       separator = '',
     },
-    kinds = lspkind.symbol_map,
+    kinds = get_symbol_map(),
     theme = {
       normal = { fg = colors.bright_aqua },
       ellipsis = { fg = colors.gray },

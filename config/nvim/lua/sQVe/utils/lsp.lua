@@ -92,6 +92,33 @@ M.format = function(bufnr, async)
   })
 end
 
+M.get_symbol_map = function(pad)
+  local symbol_map = require('lspkind').symbol_map
+  local overriden_symbol_map = vim.tbl_extend('force', symbol_map, {
+    Module = '',
+    Variable = '',
+  })
+  local combined_symbol_map = vim.tbl_extend('keep', overriden_symbol_map, {
+    Array = '',
+    Boolean = '',
+    Key = '󰌋',
+    Namespace = '',
+    Null = '󰟢',
+    Number = '',
+    Object = '',
+    Package = '',
+    String = '',
+  })
+
+  if pad then
+    return vim.tbl_map(function(symbol)
+      return symbol .. ' '
+    end, combined_symbol_map)
+  end
+
+  return combined_symbol_map
+end
+
 -- Map keys for buffers which has LSP enabled.
 M.map_lsp_buffer_keys = function(bufnr, include)
   include = include or {}

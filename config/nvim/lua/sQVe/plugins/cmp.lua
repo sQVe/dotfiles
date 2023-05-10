@@ -20,6 +20,7 @@ M.config = function()
   local cmp = require('cmp')
   local lspkind = require('lspkind')
   local luasnip = require('luasnip')
+  local get_symbol_map = require('sQVe.utils.lsp').get_symbol_map
 
   local config = cmp.config
   local mapping = cmp.mapping
@@ -88,7 +89,6 @@ M.config = function()
     formatting = {
       fields = { 'abbr', 'menu', 'kind' },
       format = lspkind.cmp_format({
-        with_text = false,
         menu = {
           buffer = ' buf',
           emoji = ' emo',
@@ -97,6 +97,8 @@ M.config = function()
           nvim_lua = ' api',
           path = ' path',
         },
+        mode = 'symbol',
+        symbol_map = get_symbol_map(),
       }),
     },
     mapping = mapping.preset.insert({

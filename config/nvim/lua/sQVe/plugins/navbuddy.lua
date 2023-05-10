@@ -11,6 +11,7 @@ local M = {
 
 M.opts = function()
   local actions = require('nvim-navbuddy.actions')
+  local get_symbol_map = require('sQVe.utils.lsp').get_symbol_map
 
   return {
     use_default_mappings = false,
@@ -59,6 +60,7 @@ M.opts = function()
 
       ['g?'] = actions.help(),
     },
+    icons = get_symbol_map(true),
     lsp = { auto_attach = true },
     window = {
       border = 'rounded',
