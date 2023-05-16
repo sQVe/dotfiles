@@ -93,15 +93,6 @@ function nvm() {
   nvm "$@"
 }
 
-# Open vifm and cd into selected directory on exit.
-function vifm-cd() {
-  local path="$(command vifm --choose-dir - "$@" 2> /dev/null)"
-
-  if [[ -n "${path}" ]]; then
-    cd "${path}"
-  fi
-}
-
 # Temporary patch zsh-vi-mode compatibility with zsh-syntax-highlighting.
 # Remove once https://github.com/jeffreytse/zsh-vi-mode/pull/188 is merged.
 function patch_vi_mode_compatibility() {
@@ -224,7 +215,7 @@ alias cheat='cht.sh'
 alias chrome=google-chrome-stable
 alias fd='fd --hidden --follow'
 alias feh='feh --scale-down --auto-zoom --image-bg "#282828"'
-alias fm=vifm-cd
+alias fm=vifm
 alias format-opinionated='npx prettier --single-quote --trailing-comma es5 --write'
 alias format='npx prettier --write'
 alias glab='BROWSER=google-chrome-stable glab'
@@ -235,7 +226,6 @@ alias qutebrowser=open-qutebrowser
 alias rcup="${SCRIPTS}/extended-rcup.sh"
 alias rg='rg --hidden --follow'
 alias v=nvim
-alias vifm=vifm-cd
 alias vim=nvim
 alias vimn='nvim -u NONE'
 alias xsel='xsel -b'
