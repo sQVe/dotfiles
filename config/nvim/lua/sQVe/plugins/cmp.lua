@@ -29,20 +29,15 @@ M.config = function()
   local anyWord = [[\k\+]]
 
   local has_words_before = function()
-    local buf = 0
-    local buftype = vim.api.nvim_buf_get_option(buf, 'buftype')
-    if buftype == 'prompt' then
-      return false
-    end
-
+    unpack = unpack or table.unpack
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    if col == 0 then
-      return false
-    end
 
-    local line_content = vim.fn.getline(line)
-    local before_cursor = line_content:sub(1, col)
-    return before_cursor.match(before_cursor, '%s') == nil
+    return col ~= 0
+      and vim.api
+          .nvim_buf_get_lines(0, line - 1, line, true)[1]
+          :sub(col, col)
+          :match('%s')
+        == nil
   end
 
   local mapKey = function(fn, modes)
