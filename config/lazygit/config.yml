@@ -6,6 +6,7 @@ gui:
   showIcons: true
   showRandomTip: false
   skipRewordInEditorWarning: true
+  skipUnstageLineWarning: true
   authorColors:
     '*': green
     'Oskar Grunning': magenta
