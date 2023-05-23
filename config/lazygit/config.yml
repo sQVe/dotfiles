@@ -32,7 +32,7 @@ gui:
     selectedLineBgColor:
       - '#444'
     selectedRangeBgColor:
-      - default
+      - reverse
 git:
   autoFetch: false
   commit:
