@@ -37,17 +37,7 @@ M.opts = {
     },
     {
       filter = {},
-      pattern = '[%s-]+(REMEMBER)[%s:]+',
-      hl = '@text.note',
-    },
-    {
-      filter = {},
       pattern = '[%s-]+(TODO)[%s:]+',
-      hl = '@text.warning',
-    },
-    {
-      filter = {},
-      pattern = '[%s-]+(WARNING)[%s:]+',
       hl = '@text.warning',
     },
     {
