@@ -96,7 +96,7 @@ M.get_symbol_map = function(pad)
   local symbol_map = require('lspkind').symbol_map
   local overriden_symbol_map = vim.tbl_extend('force', symbol_map, {
     Module = '',
-    Variable = '',
+    TypeParameter = '',
   })
   local combined_symbol_map = vim.tbl_extend('keep', overriden_symbol_map, {
     Array = '',
