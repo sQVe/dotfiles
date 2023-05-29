@@ -19,6 +19,10 @@ local M = {
 
 M.opts = {
   log_level = 'warn',
+  default_component_configs = {
+    icon = { folder_empty = '󰜌', folder_empty_open = '󰜌' },
+    git_status = { symbols = { renamed = '󰁕', unstaged = '󰄱' } },
+  },
   filesystem = {
     follow_current_file = false,
     hijack_netrw_behavior = 'open_current',
