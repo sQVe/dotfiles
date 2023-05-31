@@ -14,7 +14,17 @@ return {
   { 'onsails/lspkind-nvim', lazy = true }, -- LSP kind icons.
   { 'tpope/vim-repeat', event = 'VeryLazy' }, -- Repeat support for plugins.
 
+  -- Unlist hidden buffers that are git ignored.
+  {
+    'sQVe/bufignore.nvim',
+    config = true,
+    event = { 'BufRead', 'BufWrite' },
+  },
+
+  -- Simple session management.
+  { 'folke/persistence.nvim', config = true, event = 'BufRead' },
+
   -- Textobjects.
   { 'michaeljsmith/vim-indent-object', event = 'VeryLazy' }, -- Indent textobject.
-  { 'echasnovski/mini.ai', event = 'VeryLazy' }, -- Additional textobjects.
+  { 'echasnovski/mini.ai', config = true, event = 'VeryLazy' }, -- Additional textobjects.
 }
