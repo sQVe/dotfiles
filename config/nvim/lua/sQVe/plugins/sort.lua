@@ -8,7 +8,6 @@ local M = {
   cmd = 'Sort',
   keys = {
     -- Sort current line or selection.
-    { 'go', '<Cmd>Sort<CR>' },
     { 'go', '<Esc><Cmd>Sort<CR>', mode = { 'v' } },
 
     -- Sort motions.
