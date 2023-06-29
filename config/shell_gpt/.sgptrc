@@ -8,3 +8,5 @@ OPENAI_API_HOST=https://api.openai.com
 DEFAULT_COLOR=magenta
 ROLE_STORAGE_PATH=/home/sqve/.config/shell_gpt/roles
 SYSTEM_ROLES=false
+DEFAULT_EXECUTE_SHELL_CMD=false
+DISABLE_STREAMING=false
