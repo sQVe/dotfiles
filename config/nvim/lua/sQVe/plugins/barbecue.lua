@@ -7,6 +7,7 @@ local M = {
   'utilyre/barbecue.nvim',
   event = 'VeryLazy',
   name = 'barbecue',
+  version = '*',
 }
 
 M.opts = function()

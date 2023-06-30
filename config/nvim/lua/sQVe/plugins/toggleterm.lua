@@ -30,6 +30,7 @@ local M = {
 }
 
 M.opts = {
+  direction = 'float',
   float_opts = {
     border = 'none',
     height = function()
