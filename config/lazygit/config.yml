@@ -1,9 +1,9 @@
 gui:
   commandLogSize: 16
+  nerdFontsVersion: "3"
   scrollHeight: 8
   showBottomLine: false
   showFileTree: false
-  showIcons: true
   showRandomTip: false
   skipRewordInEditorWarning: true
   skipUnstageLineWarning: true
@@ -43,6 +43,11 @@ git:
   paging:
     pager: delta --dark --paging=never
   skipHookPrefix: draft
+customCommands:
+  - key: 'p'
+    description: 'pull'
+    command: "git pull --ff-only --all --prune"
+    context: "global"
 keybinding:
   branches:
     viewGitFlowOptions: ''
