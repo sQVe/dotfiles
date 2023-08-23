@@ -46,6 +46,11 @@ M.opts = function()
     WinBar = { bg = none },
     WinBarNC = { bg = none },
 
+    -- Illuminate.
+    IlluminatedWordRead = { underline = true },
+    IlluminatedWordText = { underline = true },
+    IlluminatedWordWrite = { underline = true },
+
     -- Indent blankline.
     IndentBlanklineContextChar = { fg = colors.light4 },
     IndentBlanklineIndent1 = { bg = colors.dark0 },

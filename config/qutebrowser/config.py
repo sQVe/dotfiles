@@ -116,10 +116,10 @@ c.qt.args = []
 c.qt.force_platform = None
 
 # Turn on Qt HighDPI scaling. This is equivalent to setting
-# QT_AUTO_SCREEN_SCALE_FACTOR=1 or QT_ENABLE_HIGHDPI_SCALING=1 (Qt >=
-# 5.14) in the environment. It's off by default as it can cause issues
-# with some bitmap fonts. As an alternative to this, it's possible to
-# set font sizes and the `zoom.default` setting.
+# QT_ENABLE_HIGHDPI_SCALING=1 (Qt >= 5.14) in the environment. It's off
+# by default as it can cause issues with some bitmap fonts. As an
+# alternative to this, it's possible to set font sizes and the
+# `zoom.default` setting.
 # Type: Bool
 c.qt.highdpi = False
 
@@ -344,12 +344,6 @@ config.set('content.images', True, 'devtools://*')
 # Type: Bool
 c.content.javascript.alert = True
 
-# Allow JavaScript to read from or write to the clipboard. With
-# QtWebEngine, writing the clipboard as response to a user interaction
-# is always allowed.
-# Type: Bool
-c.content.javascript.can_access_clipboard = True
-
 # Allow JavaScript to open new tabs without user interaction.
 # Type: Bool
 c.content.javascript.can_open_tabs_automatically = False
@@ -400,9 +394,17 @@ c.content.javascript.prompt = True
 # Type: Bool
 c.content.local_content_can_access_remote_urls = False
 
+# Allow locally loaded documents to access remote URLs.
+# Type: Bool
+config.set('content.local_content_can_access_remote_urls', True, 'file:///home/sqve/.local/share/qutebrowser/userscripts/*')
+
 # Allow locally loaded documents to access other local URLs.
 # Type: Bool
 c.content.local_content_can_access_file_urls = True
+
+# Allow locally loaded documents to access other local URLs.
+# Type: Bool
+config.set('content.local_content_can_access_file_urls', False, 'file:///home/sqve/.local/share/qutebrowser/userscripts/*')
 
 # Enable support for HTML 5 local storage and Web SQL.
 # Type: Bool
