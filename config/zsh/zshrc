@@ -155,11 +155,11 @@ function zvm_after_lazy_keybindings() {
 #  ┗━╸╹ ╹╹  ┗━┛╹┗╸ ╹ ┗━┛
 
 export FZF_ALT_C_COMMAND='command fd --type d --hidden --follow --strip-cwd-prefix --exclude .git'
-export FZF_ALT_C_OPTS="--preview 'exa -T -L 1 --group-directories-first --color=always {}'"
+export FZF_ALT_C_OPTS="--preview 'eza -T -L 1 --group-directories-first --color=always {}'"
 export FZF_CTRL_T_COMMAND='command fd --hidden --follow --strip-cwd-prefix --exclude .git'
-export FZF_CTRL_T_OPTS="--preview 'bat --color=always {} 2> /dev/null || exa -T -L 1 --group-directories-first --color=always {}'"
+export FZF_CTRL_T_OPTS="--preview 'bat --color=always {} 2> /dev/null || eza -T -L 1 --group-directories-first --color=always {}'"
 export FZF_DEFAULT_COMMAND='command fd --hidden --follow --strip-cwd-prefix --exclude .git'
-export FZF_DEFAULT_OPTS="--bind ctrl-a:toggle-all,ctrl-b:page-up,ctrl-d:half-page-down,ctrl-f:page-down,ctrl-u:half-page-up --color=bg+:#282828,spinner:#b16286,hl:#b16286 --color=fg:#ebdbb2,info:#458588,pointer:#98971a --color=marker:#98971a,hl+:#98971a --reverse --tiebreak=length,end --preview 'bat --color=always {} 2> /dev/null || exa -T -L 1 --group-directories-first --color=always {} 2> /dev/null || echo {}' --preview-window 'down:50%'"
+export FZF_DEFAULT_OPTS="--bind ctrl-a:toggle-all,ctrl-b:page-up,ctrl-d:half-page-down,ctrl-f:page-down,ctrl-u:half-page-up --color=bg+:#282828,spinner:#b16286,hl:#b16286 --color=fg:#ebdbb2,info:#458588,pointer:#98971a --color=marker:#98971a,hl+:#98971a --reverse --tiebreak=length,end --preview 'bat --color=always {} 2> /dev/null || eza -T -L 1 --group-directories-first --color=always {} 2> /dev/null || echo {}' --preview-window 'down:50%'"
 
 
 #  ┏━┓╻  ╻┏━┓┏━┓┏━╸┏━┓
@@ -196,11 +196,11 @@ alias -g F='| fzf'
 alias -g V='| nvim'
 
 # Listing.
-alias exa='exa --group-directories-first --color=auto'
-alias la='exa -la'
-alias ll='exa -l'
-alias ls='exa'
-alias lt='exa -la -T'
+alias eza='eza --group-directories-first --color=auto'
+alias la='eza -la'
+alias ll='eza -l'
+alias ls='eza'
+alias lt='eza -la -T'
 
 # State.
 alias i3exit='state exit'

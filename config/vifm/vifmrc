@@ -92,7 +92,7 @@ command! df df -h %m 2> /dev/null
 command! diff nvim -d %f %F
 command! extract aunpack %f &> /dev/null &
 command! z :execute 'cd "'.system('~/scripts/zlua/list-directories.zsh | fzf 2> /dev/tty').'"'
-command! trashlist exa -T -L 1 --group-directories-first ~/.local/share/Trash/vifm
+command! trashlist eza -T -L 1 --group-directories-first ~/.local/share/Trash/vifmvifmrc
 
 
 "  ┏━╸╻╻  ┏━╸╺┳╸╻ ╻┏━┓┏━╸┏━┓
@@ -160,7 +160,7 @@ fileviewer <image/*>
 
 " Text and directory preview.
 fileviewer *[^/] env -u COLORTERM bat --color=always --pager=never --wrap=never  %c -p
-fileviewer */ exa -T -L 1 --group-directories-first --color=always
+fileviewer */ eza -T -L 1 --group-directories-first --color=always
 
 
 "  ╻┏ ┏━╸╻ ╻┏┳┓┏━┓┏━┓
