@@ -27,9 +27,6 @@ local M = {
     -- lua_ls
     'lua',
 
-    -- rust
-    'rust',
-
     -- terraform
     'terraform',
     'terraform-vars',
@@ -94,7 +91,6 @@ M.config = function()
   local servers = {
     -- Servers already handled by plugin setup:
     --   Neovim plugin development (neodev)
-    --   Rust (rust-tools)
 
     bashls = server_setup,
     cssls = server_setup,
