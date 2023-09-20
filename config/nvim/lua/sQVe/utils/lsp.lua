@@ -177,12 +177,9 @@ M.map_lsp_buffer_keys = function(bufnr, include)
         vim.lsp.buf.hover,
         { buffer = bufnr, desc = 'View symbol information' }
       )
-      map('n', '<Leader>s', function()
-        require('nvim-navbuddy').open()
-      end, { buffer = bufnr, desc = 'View buffer symbols tree' })
       map(
         'n',
-        '<Leader>S',
+        '<Leader>s',
         builtin.lsp_document_symbols,
         { buffer = bufnr, desc = 'Goto buffer symbols' }
       )
