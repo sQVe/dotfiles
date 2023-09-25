@@ -10,7 +10,7 @@
 set $alt Mod1
 set $mod Mod4
 
-set $font monospace 8
+set $font monospace 9
 set $color-bg #282828
 set $color-bg-active #504945
 set $color-bg-focused #ebdbb2

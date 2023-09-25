@@ -1000,11 +1000,11 @@ c.url.yank_ignored_parameters = ['ref', 'utm_source', 'utm_medium', 'utm_campaig
 
 # Default zoom level.
 # Type: Perc
-c.zoom.default = '100%'
+c.zoom.default = '110%'
 
 # Available zoom levels.
 # Type: List of Perc
-c.zoom.levels = ['25%', '50%', '75%', '100%', '125%', '150%', '175%', '200%', '250%', '300%']
+c.zoom.levels = ['25%', '50%', '75%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%']
 
 # Number of zoom increments to divide the mouse wheel movements to.
 # Type: Int
@@ -1374,7 +1374,7 @@ c.fonts.default_family = ['monospace']
 # either a float value with a "pt" suffix, or an integer value with a
 # "px" suffix.
 # Type: String
-c.fonts.default_size = '13px'
+c.fonts.default_size = '14px'
 
 # Font used in the completion widget.
 # Type: Font
