@@ -1,6 +1,4 @@
-30s
 @fsouza/prettierd
-@vtsls/language-server
 bash-language-server
 colorally
 eslint_d
@@ -15,4 +13,3 @@ typescript
 vscode-langservers-extracted
 yaml-language-server
 yarn
-zx
