@@ -7,7 +7,6 @@ local M = {
   'neovim/nvim-lspconfig',
   dependencies = {
     { 'folke/neodev.nvim', config = true },
-    { 'yioneko/nvim-vtsls' },
   },
   ft = {
     -- bashls
@@ -30,12 +29,6 @@ local M = {
     -- terraform
     'terraform',
     'terraform-vars',
-
-    -- tsserver
-    'javascript',
-    'javascriptreact',
-    'typescript',
-    'typescriptreact',
 
     -- yamlls
     'yaml',
@@ -73,9 +66,6 @@ M.config = function()
   local lspconfig = require('lspconfig')
   local lsp_utils = require('sQVe.utils.lsp')
 
-  local configs = require('lspconfig.configs')
-  configs.vtsls = require('vtsls').lspconfig
-
   local on_attach = function(_, bufnr)
     lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
   end
@@ -90,6 +80,7 @@ M.config = function()
 
   local servers = {
     -- Servers already handled by plugin setup:
+    --   JavaScript/TypeScript (typescript-tools)
     --   Neovim plugin development (neodev)
 
     bashls = server_setup,
@@ -107,15 +98,6 @@ M.config = function()
       },
     }),
     terraformls = server_setup,
-    vtsls = lsp_utils.create_server_setup({
-      init_options = {
-        preferences = {
-          importModuleSpecifierPreference = 'relative',
-          quotePreference = 'single',
-        },
-      },
-      on_attach = on_attach,
-    }),
     yamlls = server_setup,
   }
 
