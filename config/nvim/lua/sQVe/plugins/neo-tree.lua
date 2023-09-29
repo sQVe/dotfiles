@@ -24,7 +24,6 @@ M.opts = {
     git_status = { symbols = { renamed = '󰁕', unstaged = '󰄱' } },
   },
   filesystem = {
-    follow_current_file = false,
     hijack_netrw_behavior = 'open_current',
   },
   sources = { 'filesystem' },

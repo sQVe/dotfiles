@@ -5,6 +5,7 @@
 local character = {
   -- Configure fill characters for various UI elements.
   fillchars = vim.opt.fillchars + {
+    eob = ' ',
     diff = '╱', -- Character for vertical separators in diff mode.
     fold = [[-]], -- Character for the fold column when a fold is closed.
   },

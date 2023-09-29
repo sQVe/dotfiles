@@ -9,7 +9,7 @@ local M = {
 }
 
 M.opts = function()
-  local colors = require('gruvbox.palette').colors
+  local colors = require('gruvbox.palette').get_base_colors({}, 'dark', '')
 
   -- Custom colors.
   local black = '#000000'
@@ -36,12 +36,12 @@ M.opts = function()
     ColorColumn = { fg = none, bg = none },
     CursorLine = { bg = float_bg },
     EndOfBuffer = { fg = colors.dark0 },
-    ErrorMsg = { fg = colors.bright_red, bg = none, bold = false },
+    ErrorMsg = { fg = colors.red, bg = none, bold = false },
     FloatBorder = { fg = colors.dark3, bg = float_bg },
-    LspSignatureActiveParameter = { fg = colors.bright_orange, bold = true },
+    LspSignatureActiveParameter = { fg = colors.orange, bold = true },
     NormalFloat = { bg = float_bg },
     Pmenu = { bg = colors.dark1 },
-    PmenuSel = { fg = colors.dark0, bg = colors.bright_aqua },
+    PmenuSel = { fg = colors.dark0, bg = colors.aqua },
     Todo = { italic = true },
     WinBar = { bg = none },
     WinBarNC = { bg = none },
@@ -52,15 +52,13 @@ M.opts = function()
     IlluminatedWordWrite = { underline = true },
 
     -- Indent blankline.
-    IndentBlanklineContextChar = { fg = colors.light4 },
-    IndentBlanklineIndent1 = { bg = colors.dark0 },
-    IndentBlanklineIndent2 = { bg = sidebar_bg },
+    IblIndent = { fg = colors.bg1 },
 
     -- Leap.
-    Cursor = { fg = colors.dark0, bg = colors.bright_orange, reverse = false },
-    LeapMatch = { fg = black, bg = colors.bright_yellow },
-    LeapLabelPrimary = { fg = black, bg = colors.bright_purple },
-    LeapLabelSecondary = { fg = black, bg = colors.bright_red },
+    Cursor = { fg = colors.dark0, bg = colors.orange, reverse = false },
+    LeapMatch = { fg = black, bg = colors.yellow },
+    LeapLabelPrimary = { fg = black, bg = colors.purple },
+    LeapLabelSecondary = { fg = black, bg = colors.red },
 
     -- Markdown.
     markdownBoldItalic = { italic = true },
@@ -79,28 +77,28 @@ M.opts = function()
 
     -- Telescope.
     TelescopeNormal = { bg = float_bg },
-    TelescopeBorder = { fg = colors.bright_yellow },
+    TelescopeBorder = { fg = colors.yellow },
     TelescopePreviewBorder = { fg = float_bg, bg = float_bg, italic = true },
     TelescopePromptBorder = { fg = colors.dark4, bg = float_bg, bold = true },
     TelescopeResultsBorder = { fg = colors.dark4, bg = float_bg },
-    TelescopeTitle = { fg = colors.bright_purple },
-    TelescopePromptTitle = { fg = colors.bright_yellow },
+    TelescopeTitle = { fg = colors.purple },
+    TelescopePromptTitle = { fg = colors.yellow },
 
     -- Treesitter.
-    ['@text.danger'] = { fg = colors.bright_red, bold = true },
-    ['@text.emphasis'] = { italic = true },
-    ['@text.note'] = { fg = colors.bright_aqua, bold = true },
-    ['@text.warning'] = { fg = colors.bright_yellow, bold = true },
+    ['@text.danger'] = { fg = colors.red, bold = true },
+    ['@text.note'] = { fg = colors.aqua, bold = true },
+    ['@text.warning'] = { fg = colors.yellow, bold = true },
     ['@lsp.type.interface'] = { link = '@type' },
     ['@lsp.type.parameter'] = { link = '@variable' },
   }, sign_column_override_map)
 
   return {
     italic = {
-      strings = true,
       comments = true,
-      operators = false,
+      emphasis = true,
       folds = true,
+      operators = false,
+      strings = true,
     },
     overrides = overrides,
   }

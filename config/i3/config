@@ -10,7 +10,7 @@
 set $alt Mod1
 set $mod Mod4
 
-set $font monospace 9
+set $font monospace 10
 set $color-bg #282828
 set $color-bg-active #504945
 set $color-bg-focused #ebdbb2
@@ -303,14 +303,14 @@ mode "resize" {
 # ¤¤¤¤  Autostart  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-# Set startup workspace to workspace 1.
-exec --no-startup-id i3-msg "workspace $workspace-1"
+# Start polkit agent.
+exec --no-startup-id polkit-dumb-agent
+
+# Start polkit agent.
+exec --no-startup-id "$SCRIPTS/mons-handler.sh"
 
 # Set initial random wallpaper.
 exec --no-startup-id random-wallpaper
-
-# Start polkit agent.
-exec --no-startup-id polkit-dumb-agent
 
 # Delayed redshift start.
 exec --no-startup-id "sh -c 'sleep 4; exec $SCRIPTS/toggles/redshift.sh'"

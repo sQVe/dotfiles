@@ -741,7 +741,7 @@ c.prompt.radius = 8
 # Enable smooth scrolling for web pages. Note smooth scrolling does not
 # work with the `:scroll-px` command.
 # Type: Bool
-c.scrolling.smooth = True
+c.scrolling.smooth = False
 
 # Languages to use for spell checking. You can check for available
 # languages and install dictionaries using scripts/dictcli.py. Run the
@@ -1000,11 +1000,11 @@ c.url.yank_ignored_parameters = ['ref', 'utm_source', 'utm_medium', 'utm_campaig
 
 # Default zoom level.
 # Type: Perc
-c.zoom.default = '110%'
+c.zoom.default = '100%'
 
 # Available zoom levels.
 # Type: List of Perc
-c.zoom.levels = ['25%', '50%', '75%', '100%', '110%', '125%', '150%', '175%', '200%', '250%', '300%']
+c.zoom.levels = ['25%', '50%', '75%', '100%', '125%', '150%', '175%', '200%', '250%', '300%']
 
 # Number of zoom increments to divide the mouse wheel movements to.
 # Type: Int

@@ -24,5 +24,4 @@ zmodule zsh-users/zsh-autosuggestions
 zmodule zsh-users/zsh-history-substring-search
 
 # Misc.
-zmodule skywind3000/z.lua
 zmodule hlissner/zsh-autopair

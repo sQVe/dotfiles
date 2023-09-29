@@ -11,7 +11,7 @@ local M = {
 }
 
 M.opts = function()
-  local colors = require('gruvbox.palette').colors
+local colors = require("gruvbox.palette").get_base_colors({}, "dark", "")
   local get_symbol_map = require('sQVe.utils.lsp').get_symbol_map
 
   return {

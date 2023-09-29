@@ -16,7 +16,7 @@ xrdb "${XDG_CONFIG_HOME}/Xresources"
 xiccd &
 
 # Start mons daemon.
-mons -a &
+mons -a -x $SCRIPTS/mons-handler.sh &
 
 # XSS Lock - handle lid close, suspend etc.
 xss-lock -l -- lock &

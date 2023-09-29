@@ -10,10 +10,6 @@ zstyle ':zim:input' double-dot-expand yes
 source "${ZIM_HOME}/init.zsh"
 source /usr/share/fzf/completion.zsh
 
-if [[ -e "$XDG_CONFIG_HOME/glab-cli/glab.zsh" ]]; then
-  source "$XDG_CONFIG_HOME/glab-cli/glab.zsh"
-fi
-
 if [[ -e "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh" ]]; then
   source "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh"
 fi
@@ -22,6 +18,14 @@ fi
 zstyle ':completion:*' matcher-list \
   'm:{[:lower:]-}={[:upper:]_} r:|[.]=**' \
   '+l:|=*'
+
+
+# ┏━╸╻ ╻┏━┓╻
+# ┣╸ ┃┏┛┣━┫┃
+# ┗━╸┗┛ ╹ ╹┗━╸
+
+eval "$(zoxide init zsh)"
+
 
 #  ┏━┓┏━╸╺┳╸╺┳╸╻┏┓╻┏━╸┏━┓
 #  ┗━┓┣╸  ┃  ┃ ┃┃┗┫┃╺┓┗━┓
@@ -212,19 +216,20 @@ alias suspend='state suspend'
 # Apps.
 alias bluetooth=bluetoothctl
 alias cheat='cht.sh'
-alias chrome=google-chrome-stable
+alias chrome=open-chrome
 alias fd='fd --hidden --follow'
 alias feh='feh --scale-down --auto-zoom --image-bg "#282828"'
 alias fm=vifm
 alias format-opinionated='npx prettier --single-quote --trailing-comma es5 --write'
 alias format='npx prettier --write'
-alias glab='BROWSER=google-chrome-stable glab'
+alias gh='gh'
 alias icat="kitten icat"
-alias kubectl="kubectl --cache-dir ${XDG_CACHE_HOME}/kube"
 alias lg=lazygit
 alias qutebrowser=open-qutebrowser
 alias rcup="${SCRIPTS}/extended-rcup.sh"
 alias rg='rg --hidden --follow'
+alias spotify=open-spotify
+alias steam=open-steam
 alias v=nvim
 alias vim=nvim
 alias vimn='nvim -u NONE'

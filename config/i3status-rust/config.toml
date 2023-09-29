@@ -64,6 +64,14 @@ warning_bg = "#282828"
 warning_fg = "#d3869b"
 
 [[block]]
+block = "custom"
+command = "$SCRIPTS/blocks/gpu-mode"
+signal = 10
+[block.theme_overrides]
+idle_bg = "#3c3836"
+idle_fg = "#ebdbb2"
+
+[[block]]
 block = "net"
 format = " $icon {$ssid |}"
 [block.theme_overrides]
