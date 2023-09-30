@@ -8,10 +8,14 @@ local uv = vim.uv or vim.loop
 local M = {
   'mfussenegger/nvim-lint',
   ft = {
+    -- eslint_d.
     'javascript',
     'javascriptreact',
     'typescript',
     'typescriptreact',
+
+    -- shellcheck.
+    'sh',
   },
 }
 
