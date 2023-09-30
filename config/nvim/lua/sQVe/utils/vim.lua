@@ -9,7 +9,7 @@ M.autocmd = function(event, opts)
 end
 
 M.augroup = function(name)
-  return vim.api.nvim_create_augroup(name, {})
+  return vim.api.nvim_create_augroup(name, { clear = true })
 end
 
 M.highlight = function(namespace_id, name, opts)
