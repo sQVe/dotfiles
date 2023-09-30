@@ -15,35 +15,6 @@ M.create_server_setup = function(opts)
   return vim.tbl_extend('force', common_setup, opts or {})
 end
 
-M.create_runtime_condition = function(config_names)
-  local bufnr_cache = {}
-  local config_path_cache = {}
-
-  return function(params)
-    if bufnr_cache[params.bufnr] ~= nil then
-      return bufnr_cache[params.bufnr]
-    else
-      for _, cached_config_path in ipairs(config_path_cache) do
-        if vim.startswith(params.bufname, cached_config_path) then
-          bufnr_cache[params.bufnr] = true
-          return true
-        end
-      end
-    end
-
-    local config_path =
-      require('lspconfig').util.root_pattern(config_names)(params.bufname)
-
-    local has_config = config_path ~= nil
-    if has_config then
-      table.insert(config_path_cache, config_path)
-    end
-    bufnr_cache[params.bufnr] = has_config
-
-    return has_config
-  end
-end
-
 M.create_root_dir_handler = function(opts)
   local util = require('lspconfig').util
 
@@ -78,19 +49,6 @@ M.diagnostic_handler = function(_, result, ctx, ...)
 
   return vim.lsp.diagnostic.on_publish_diagnostics(nil, result, ctx, ...)
 end
-
--- M.format = function(bufnr, async)
---   async = async == nil and true or false
-
---   vim.lsp.buf.format({
---     async = async,
---     filter = function(client)
---       return client.name == 'null-ls'
---     end,
---     bufnr = bufnr,
---     timeout_ms = 20000,
---   })
--- end
 
 M.get_symbol_map = function(pad)
   local symbol_map = require('lspkind').symbol_map
