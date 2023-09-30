@@ -113,9 +113,7 @@ M.config = function()
   -- Configure diagnostics.
   vim.diagnostic.config({
     severity_sort = true,
-    underline = {
-      severity = { min = vim.diagnostic.severity.WARN },
-    },
+    underline = { severity = { min = vim.diagnostic.severity.WARN } },
     virtual_text = false,
   })
 end

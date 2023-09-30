@@ -90,6 +90,7 @@ M.map_lsp_buffer_keys = function(bufnr, include)
           buffer = bufnr,
           header = false,
           scope = 'line',
+          source = true,
         })
       end, { buffer = bufnr, desc = 'View diagnostics (line)' })
       map('n', '<Leader>dd', function()
