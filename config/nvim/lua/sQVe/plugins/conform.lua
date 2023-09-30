@@ -10,12 +10,19 @@ local M = {
 
 M.opts = {
   formatters_by_ft = {
+    css = { 'prettierd' },
+    html = { 'prettierd' },
     javascript = { 'prettierd', 'eslint_d' },
     javascriptreact = { 'prettierd', 'eslint_d' },
+    json = { 'prettierd' },
+    jsonc = { 'prettierd' },
     lua = { 'stylua' },
+    markdown = { 'prettierd', 'injected' },
     sh = { 'shfmt' },
+    terraform = { 'terraform_fmt' },
     typescript = { 'prettierd', 'eslint_d' },
     typescriptreact = { 'prettierd', 'eslint_d' },
+    yaml = { 'prettierd' },
     ['_'] = { 'trim_newlines', 'trim_whitespace' },
   },
   format_on_save = {
