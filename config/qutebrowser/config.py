@@ -32,7 +32,7 @@ c.confirm_quit = ['never']
 # between them are grouped when being displayed in `:history`. Use -1 to
 # disable separation.
 # Type: Int
-c.history_gap_interval = 30
+c.history_gap_interval = -1
 
 # When to find text on a page case-insensitively.
 # Type: IgnoreCase

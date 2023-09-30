@@ -5,7 +5,23 @@
 
 local M = {
   'jose-elias-alvarez/null-ls.nvim',
-  ft = require('sQVe.plugins.lspconfig').ft,
+  ft = {
+    -- shellcheck and shfmt
+    'sh',
+
+    -- stylua
+    'lua',
+
+    -- eslintd and prettierd
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact',
+
+    -- terraform_fmt
+    'terraform',
+    'terraform-vars',
+  },
 }
 
 M.opts = function()
@@ -37,37 +53,12 @@ M.opts = function()
     default_timeout = 5000,
     diagnostics_format = '#{c}: #{m} (#{s})',
     on_attach = function(client, bufnr)
-      lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'formatting' })
-
-      if client.supports_method('textDocument/formatting') then
-        vim.api.nvim_clear_autocmds({ group = format_augroup, buffer = bufnr })
-        vim.api.nvim_create_autocmd('BufWritePre', {
-          group = format_augroup,
-          buffer = bufnr,
-          callback = function()
-            lsp_utils.format(bufnr, false)
-          end,
-        })
-      end
+      lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics' })
     end,
     root_dir = lsp_utils.create_root_dir_handler({ prioritizeManifest = true }),
     sources = {
       code_actions.eslint_d,
       code_actions.shellcheck,
-
-      -- Always run prettierd before eslint_d to prevent occassional race
-      -- condition.
-      formatters.prettierd,
-      formatters.eslint_d.with({
-        extra_args = eslint_extra_args,
-        runtime_condition = eslint_runtime_condition,
-        timeout = 20000,
-      }),
-      formatters.shfmt.with({
-        extra_args = { '-i', '2', '-bn', '-ci', '-sr' },
-      }),
-      formatters.stylua.with({ runtime_condition = stylua_runtime_condition }),
-      formatters.terraform_fmt,
 
       linters.eslint_d.with({
         extra_args = eslint_extra_args,
