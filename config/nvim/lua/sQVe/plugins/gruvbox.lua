@@ -52,7 +52,7 @@ M.opts = function()
     IlluminatedWordWrite = { underline = true },
 
     -- Indent blankline.
-    IblIndent = { fg = colors.bg1 },
+    IblIndent = { fg = colors.dark1 },
 
     -- Leap.
     Cursor = { fg = colors.dark0, bg = colors.bright_orange, reverse = false },
