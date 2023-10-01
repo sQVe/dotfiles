@@ -36,7 +36,7 @@ M.config = function(_, opts)
 
   lint.linters_by_ft = opts.linters_by_ft
 
-  local debounce_ms = 250
+  local debounce_ms = 500
   local timer = assert(uv.new_timer())
 
   autocmd({ 'BufEnter', 'BufWritePost', 'TextChanged', 'InsertLeave' }, {
