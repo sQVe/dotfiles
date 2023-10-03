@@ -63,6 +63,10 @@ M.config = function(_, opts)
       }),
       require_cwd = true,
     })
+  conform.formatters.shfmt =
+    vim.tbl_deep_extend('force', require('conform.formatters.shfmt'), {
+      args = { '-filename', '$FILENAME', '-i', '2', '-bn', '-ci', '-sr' },
+    })
   conform.formatters.stylua =
     vim.tbl_deep_extend('force', require('conform.formatters.stylua'), {
       require_cwd = true,
