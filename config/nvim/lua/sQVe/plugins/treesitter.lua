@@ -16,6 +16,7 @@ local M = {
 M.opts = {
   ensure_installed = {
     'bash',
+    'c_sharp',
     'css',
     'dockerfile',
     'gitignore',

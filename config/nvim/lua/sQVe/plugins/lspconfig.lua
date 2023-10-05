@@ -26,6 +26,10 @@ local M = {
     -- lua_ls
     'lua',
 
+    -- omnisharp.
+    'cs',
+    'vb',
+
     -- terraform
     'terraform',
     'terraform-vars',
@@ -96,6 +100,10 @@ M.config = function()
           workspace = { checkThirdParty = false },
         },
       },
+    }),
+    omnisharp = lsp_utils.create_server_setup({
+      cmd = { 'omnisharp' },
+      on_attach = on_attach,
     }),
     terraformls = server_setup,
     yamlls = server_setup,
