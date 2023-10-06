@@ -32,32 +32,39 @@ M.opts = {
 M.config = function(_, opts)
   local autocmd = require('sQVe.utils.vim').autocmd
   local augroup = require('sQVe.utils.vim').augroup
-  local lint = require('lint')
+  local debounce = require('sQVe.utils.vim').debounce
 
+  local lint = require('lint')
   lint.linters_by_ft = opts.linters_by_ft
 
-  local debounce_ms = 250
-  local timer = assert(uv.new_timer())
+  local try_lint = function()
+    local names = lint.linters_by_ft[vim.bo.filetype] or {}
+    local ctx = { filename = vim.api.nvim_buf_get_name(0) }
 
-  autocmd({ 'BufEnter', 'BufWritePost', 'TextChanged', 'InsertLeave' }, {
-    group = augroup('Lint'),
-    callback = function()
-      local bufnr = vim.api.nvim_get_current_buf()
+    ctx.dirname = vim.fn.fnamemodify(ctx.filename, ':h')
+    names = vim.tbl_filter(function(name)
+      local linter = lint.linters[name]
 
-      timer:stop()
-      timer:start(
-        debounce_ms,
-        0,
-        vim.schedule_wrap(function()
-          if vim.api.nvim_buf_is_valid(bufnr) then
-            vim.api.nvim_buf_call(bufnr, function()
-              lint.try_lint(nil, { ignore_errors = true })
-            end)
-          end
-        end)
-      )
-    end,
-  })
+      return linter
+        and not (
+          type(linter) == 'table'
+          and linter.condition
+          and not linter.condition(ctx)
+        )
+    end, names)
+
+    if #names > 0 then
+      lint.try_lint(names)
+    end
+  end
+
+  vim.api.nvim_create_autocmd(
+    { 'BufWritePost', 'BufReadPost', 'InsertLeave' },
+    {
+      group = augroup('Lint'),
+      callback = debounce(200, try_lint),
+    }
+  )
 end
 
 return M
