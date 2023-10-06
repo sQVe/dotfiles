@@ -344,6 +344,16 @@ config.set('content.images', True, 'devtools://*')
 # Type: Bool
 c.content.javascript.alert = True
 
+# Allow JavaScript to read from or write to the clipboard. With
+# QtWebEngine, writing the clipboard as response to a user interaction
+# is always allowed.
+# Type: String
+# Valid values:
+#   - none: Disable access to clipboard.
+#   - access: Allow reading from and writing to the clipboard.
+#   - access-paste: Allow accessing the clipboard and pasting clipboard content.
+c.content.javascript.clipboard = 'access'
+
 # Allow JavaScript to open new tabs without user interaction.
 # Type: Bool
 c.content.javascript.can_open_tabs_automatically = False
