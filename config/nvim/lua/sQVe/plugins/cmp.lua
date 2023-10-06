@@ -18,16 +18,7 @@ local M = {
       config = function()
         require('copilot_cmp').setup()
       end,
-      dependencies = {
-        {
-          'zbirenbaum/copilot.lua',
-          cmd = 'Copilot',
-          opts = {
-            panel = { enabled = false },
-            suggestion = { enabled = false },
-          },
-        },
-      },
+      dependencies = 'copilot.lua',
     },
   },
 }

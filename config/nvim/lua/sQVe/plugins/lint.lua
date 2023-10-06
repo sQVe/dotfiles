@@ -3,8 +3,6 @@
 -- ┗━╸╹╹ ╹ ╹
 -- Linter.
 
-local uv = vim.uv or vim.loop
-
 local M = {
   'mfussenegger/nvim-lint',
   ft = {
@@ -58,13 +56,10 @@ M.config = function(_, opts)
     end
   end
 
-  vim.api.nvim_create_autocmd(
-    { 'BufWritePost', 'BufReadPost', 'InsertLeave' },
-    {
-      group = augroup('Lint'),
-      callback = debounce(200, try_lint),
-    }
-  )
+  autocmd({ 'BufWritePost', 'BufReadPost', 'InsertLeave' }, {
+    group = augroup('Lint'),
+    callback = debounce(200, try_lint),
+  })
 end
 
 return M
