@@ -59,6 +59,7 @@ M.get_symbol_map = function(pad)
   local combined_symbol_map = vim.tbl_extend('keep', overriden_symbol_map, {
     Array = '',
     Boolean = '',
+    Copilot = '',
     Key = '󰌋',
     Namespace = '',
     Null = '󰟢',
@@ -89,7 +90,7 @@ M.map_lsp_buffer_keys = function(bufnr, include)
         vim.diagnostic.open_float({
           buffer = bufnr,
           header = false,
-          scope = 'line',
+          severity_sort = true,
           source = true,
         })
       end, { buffer = bufnr, desc = 'View diagnostics (line)' })

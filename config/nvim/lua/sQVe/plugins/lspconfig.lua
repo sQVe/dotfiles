@@ -48,14 +48,20 @@ local M = {
     {
       '<Leader>dn',
       function()
-        vim.diagnostic.goto_next({ float = false })
+        vim.diagnostic.goto_next({
+          float = false,
+          severity = { min = vim.diagnostic.severity.WARN },
+        })
       end,
       desc = 'Next diagnostic entry',
     },
     {
       '<Leader>dp',
       function()
-        vim.diagnostic.goto_prev({ float = false })
+        vim.diagnostic.goto_prev({
+          float = false,
+          severity = { min = vim.diagnostic.severity.WARN },
+        })
       end,
       desc = 'Previous diagnostic entry',
     },
