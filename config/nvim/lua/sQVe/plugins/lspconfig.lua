@@ -30,10 +30,6 @@ local M = {
     'cs',
     'vb',
 
-    -- terraform
-    'terraform',
-    'terraform-vars',
-
     -- yamlls
     'yaml',
 
@@ -105,7 +101,6 @@ M.config = function()
       cmd = { 'omnisharp' },
       on_attach = on_attach,
     }),
-    terraformls = server_setup,
     yamlls = server_setup,
   }
 

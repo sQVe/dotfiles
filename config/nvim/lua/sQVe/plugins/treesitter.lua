@@ -33,7 +33,6 @@ M.opts = {
     'markdown_inline',
     'regex',
     'scss',
-    'terraform',
     'toml',
     'tsx',
     'typescript',

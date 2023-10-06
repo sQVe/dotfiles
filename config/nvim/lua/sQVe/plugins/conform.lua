@@ -19,7 +19,6 @@ M.opts = {
     lua = { 'stylua' },
     markdown = { 'prettierd', 'injected' },
     sh = { 'shfmt' },
-    terraform = { 'terraform_fmt' },
     typescript = { 'prettierd', 'eslint_d' },
     typescriptreact = { 'prettierd', 'eslint_d' },
     yaml = { 'prettierd' },
