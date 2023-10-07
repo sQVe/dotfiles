@@ -32,6 +32,7 @@ M.config = function(_, opts)
   local autocmd = require('sQVe.utils.vim').autocmd
   local augroup = require('sQVe.utils.vim').augroup
   local debounce = require('sQVe.utils.vim').debounce
+  local lsp_utils = require('sQVe.utils.lsp')
 
   local lint = require('lint')
   lint.linters_by_ft = opts.linters_by_ft
@@ -57,6 +58,7 @@ M.config = function(_, opts)
     end
   end
 
+  lsp_utils.map_lsp_buffer_keys(0, { 'diagnostics' })
   autocmd({ 'BufWritePost', 'BufReadPost', 'InsertLeave' }, {
     group = augroup('Lint'),
     callback = debounce(200, try_lint),
