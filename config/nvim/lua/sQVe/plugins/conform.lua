@@ -11,6 +11,7 @@ local M = {
 M.opts = {
   formatters_by_ft = {
     css = { 'prettierd' },
+    graphql = { 'prettierd' },
     html = { 'prettierd' },
     javascript = { 'prettierd', 'eslint_d' },
     javascriptreact = { 'prettierd', 'eslint_d' },
