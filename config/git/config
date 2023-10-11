@@ -50,6 +50,3 @@
   email = oskargrunning@gmail.com
   name = Oskar Grunning
   signingkey = 0x2FBF988E19D47B6E
-
-[url "git@git.detectify.net:"]
-  insteadOf = https://git.detectify.net/
