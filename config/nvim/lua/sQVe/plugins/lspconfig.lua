@@ -33,9 +33,11 @@ local M = {
     -- yamlls
     'yaml',
 
-    -- misc (further filetypes to handle with null-ls)
-    'graphql',
-    'markdown',
+    -- javascript and typescript (handled by typescript-tools)
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact',
   },
   keys = {
     { '<Leader>r', vim.lsp.buf.rename, desc = 'Rename symbol' },
