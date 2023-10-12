@@ -28,8 +28,14 @@ local completion = {
   -- Set completion menu options for better usability.
   completeopt = { 'menu', 'menuone', 'noselect' },
 
+  -- Make the completion menu slightly transparent.
+  pumblend = 10,
+
   -- Limit the completion menu to a maximum of 20 items.
   pumheight = 20,
+
+  -- Limit the completion menu to a maximum of 20 characters.
+  pumwidth = 20,
 
   -- Ignore case when using the wildmenu for file name completion.
   wildignorecase = true,
