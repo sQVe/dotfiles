@@ -79,19 +79,6 @@ M.diagnostic_handler = function(_, result, ctx, ...)
   return vim.lsp.diagnostic.on_publish_diagnostics(nil, result, ctx, ...)
 end
 
--- M.format = function(bufnr, async)
---   async = async == nil and true or false
-
---   vim.lsp.buf.format({
---     async = async,
---     filter = function(client)
---       return client.name == 'null-ls'
---     end,
---     bufnr = bufnr,
---     timeout_ms = 20000,
---   })
--- end
-
 M.get_symbol_map = function(pad)
   local symbol_map = require('lspkind').symbol_map
   local overriden_symbol_map = vim.tbl_extend('force', symbol_map, {

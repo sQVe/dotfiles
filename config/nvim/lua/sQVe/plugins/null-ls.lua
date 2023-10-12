@@ -4,23 +4,16 @@
 -- Code actions, formatting, and linting.
 
 local M = {
-  'jose-elias-alvarez/null-ls.nvim',
+  'nvimtools/none-ls.nvim',
   ft = {
-    -- shellcheck and shfmt
+    -- shellcheck.
     'sh',
 
-    -- stylua
-    'lua',
-
-    -- eslintd and prettierd
+    -- eslint_d.
     'javascript',
     'javascriptreact',
     'typescript',
     'typescriptreact',
-
-    -- terraform_fmt
-    'terraform',
-    'terraform-vars',
   },
 }
 
@@ -44,10 +37,6 @@ M.opts = function()
     '.eslintrc.yaml',
     '.eslintrc.yml',
   })
-  local stylua_runtime_condition = lsp_utils.create_runtime_condition({
-    'stylua.toml',
-    '.stylua.toml',
-  })
 
   return {
     default_timeout = 5000,
@@ -66,7 +55,7 @@ M.opts = function()
           return not diagnostic.user_data.fixable
         end,
         runtime_condition = eslint_runtime_condition,
-        timeout = 20000,
+        timeout = 5000,
       }),
       linters.shellcheck,
     },
