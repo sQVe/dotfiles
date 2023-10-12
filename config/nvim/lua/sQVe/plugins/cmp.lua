@@ -13,13 +13,6 @@ local M = {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
     'saadparwaiz1/cmp_luasnip',
-    {
-      'zbirenbaum/copilot-cmp',
-      config = function()
-        require('copilot_cmp').setup()
-      end,
-      dependencies = 'copilot.lua',
-    },
   },
 }
 
@@ -87,13 +80,11 @@ M.config = function()
   end
 
   cmp.setup({
-    experimental = { ghost_text = { hl_group = 'GruvboxGray' } },
     formatting = {
       fields = { 'abbr', 'menu', 'kind' },
       format = lspkind.cmp_format({
         menu = {
           buffer = ' buf',
-          copilot = ' cop',
           emoji = ' emo',
           luasnip = ' sni',
           nvim_lsp = ' lsp',
@@ -105,9 +96,6 @@ M.config = function()
       }),
     },
     mapping = mapping.preset.insert({
-      ['<C-CR>'] = mapKey(
-        mapping.complete({ reason = cmp.ContextReason.Manual })
-      ),
       ['<C-Space>'] = mapKey(
         mapping.complete({ reason = cmp.ContextReason.Manual })
       ),
@@ -122,7 +110,6 @@ M.config = function()
     snippet = { expand = expand_snippet },
     sources = config.sources({
       { name = 'nvim_lsp' },
-      { name = 'copilot' },
       { name = 'path' },
       {
         name = 'luasnip',
