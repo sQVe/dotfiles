@@ -16,7 +16,7 @@ M.opts = {
     enabled = true,
     auto_trigger = true,
     debounce = 250,
-    keymap = { accept = '<C-CR>' },
+    keymap = { accept = '<C-l>' },
   },
 }
 

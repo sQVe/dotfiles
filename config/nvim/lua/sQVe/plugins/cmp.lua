@@ -96,6 +96,9 @@ M.config = function()
       }),
     },
     mapping = mapping.preset.insert({
+      ['<C-CR>'] = mapKey(
+        mapping.complete({ reason = cmp.ContextReason.Manual })
+      ),
       ['<C-Space>'] = mapKey(
         mapping.complete({ reason = cmp.ContextReason.Manual })
       ),

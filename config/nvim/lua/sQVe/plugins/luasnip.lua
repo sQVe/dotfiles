@@ -5,16 +5,7 @@
 
 local M = {
   'L3MON4D3/LuaSnip',
-  keys = {
-    {
-      '<C-l>',
-      function()
-        require('luasnip').expand()
-      end,
-      desc = 'Expand snippet',
-      mode = { 'i' },
-    },
-  },
+  event = { 'CmdlineEnter', 'InsertEnter' },
 }
 
 M.opts = {
