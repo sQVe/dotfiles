@@ -31,12 +31,7 @@ M.opts = function()
       '🔎  Live grep',
       '<Cmd>lua require("sQVe.utils.telescope").live_grep()<CR>'
     ),
-    dashboard.button(
-      '<Backspace>',
-      '🔴  Git status',
-      '<Cmd>lua require("sQVe.utils.telescope").git_status()<CR>'
-    ),
-    dashboard.button('-', '📁  File tree', '<Cmd>Neotree<CR>'),
+    dashboard.button('-', '🌳  File tree', '<Cmd>Neotree<CR>'),
     dashboard.button(
       'u',
       '🎒  Recently used files',

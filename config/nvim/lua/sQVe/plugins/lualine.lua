@@ -8,6 +8,17 @@ local M = {
   event = 'VeryLazy',
 }
 
+M.init = function()
+  vim.g.lualine_laststatus = vim.o.laststatus
+  if vim.fn.argc(-1) > 0 then
+    -- Set an empty statusline till lualine loads.
+    vim.o.statusline = ' '
+  else
+    -- Hide the statusline on the starter page.
+    vim.o.laststatus = 0
+  end
+end
+
 M.opts = function()
   local gruvbox = require('lualine.themes.gruvbox')
   local modes = {
@@ -25,10 +36,11 @@ M.opts = function()
 
   return {
     options = {
-      disabled_filetypes = { 'alpha' },
-      theme = gruvbox,
-      section_separators = { left = '', right = '' },
       component_separators = { left = '', right = '' },
+      disabled_filetypes = { statusline = { 'alpha' } },
+      globalstatus = true,
+      section_separators = { left = '', right = '' },
+      theme = gruvbox,
     },
     sections = {
       lualine_a = { 'mode' },

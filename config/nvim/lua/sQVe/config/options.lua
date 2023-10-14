@@ -224,9 +224,6 @@ local ui = {
 
   -- Enable 24-bit color support in terminal.
   termguicolors = true,
-
-  -- Use an empty winbar to avoid content shifts.
-  winbar = ' ',
 }
 
 local undo = {
