@@ -10,16 +10,23 @@ local M = {
 
 M.opts = function()
   local dashboard = require('alpha.themes.dashboard')
+  local logo = [[
+             ▄ ▄
+         ▄   ▄▄▄     ▄ ▄▄▄ ▄ ▄
+         █ ▄ █▄█ ▄▄▄ █ █▄█ █ █
+      ▄▄ █▄█▄▄▄█ █▄█▄█▄▄█▄▄█ █
+    ▄ █▄▄█ ▄ ▄▄ ▄█ ▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+    █▄▄▄▄ ▄▄▄ █ ▄ ▄▄▄ ▄ ▄▄▄ ▄ ▄ █ ▄
+  ▄ █ █▄█ █▄█ █ █ █▄█ █ █▄█ ▄▄▄ █ █
+  █▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █
+      █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█
 
-  dashboard.section.header.val = {
-    [[███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗]],
-    [[████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║]],
-    [[██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║]],
-    [[██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║]],
-    [[██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║]],
-    [[╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝]],
-  }
 
+It is essential to know a thing first
+   before saying or acting upon it
+  ]]
+
+  dashboard.section.header.val = vim.split(logo, '\n')
   dashboard.section.buttons.val = {
     dashboard.button(
       'ä',
@@ -58,13 +65,40 @@ M.opts = function()
     layout = {
       { type = 'padding', val = 12 },
       dashboard.section.header,
-      { type = 'padding', val = 4 },
+      { type = 'padding', val = 2 },
       dashboard.section.buttons,
       { type = 'padding', val = 4 },
       dashboard.section.footer,
     },
     opts = { margin = 5 },
   }
+end
+
+M.config = function(_, opts)
+  require('alpha').setup(opts)
+
+  vim.api.nvim_create_autocmd('User', {
+    pattern = 'LazyVimStarted',
+    callback = function()
+      local dashboard = require('alpha.themes.dashboard')
+      local stats = require('lazy').stats()
+
+      print(vim.inspect(stats))
+
+      local startup_ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
+      local version = '         📦 v'
+        .. vim.version().major
+        .. '.'
+        .. vim.version().minor
+        .. '.'
+        .. vim.version().patch
+      local startup = '⚡ Rendered UI in ' .. startup_ms .. 'ms'
+      local footer = version .. '\n \n' .. startup
+
+      dashboard.section.footer.val = footer
+      pcall(vim.cmd.AlphaRedraw)
+    end,
+  })
 end
 
 return M
