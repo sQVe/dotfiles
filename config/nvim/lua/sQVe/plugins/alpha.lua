@@ -63,7 +63,7 @@ It is essential to know a thing first
 
   return {
     layout = {
-      { type = 'padding', val = 12 },
+      { type = 'padding', val = 8 },
       dashboard.section.header,
       { type = 'padding', val = 2 },
       dashboard.section.buttons,
@@ -93,7 +93,7 @@ M.config = function(_, opts)
         .. '.'
         .. vim.version().patch
       local startup = '⚡ Rendered UI in ' .. startup_ms .. 'ms'
-      local footer = version .. '\n \n' .. startup
+      local footer = version .. '\t\t' .. startup
 
       dashboard.section.footer.val = footer
       pcall(vim.cmd.AlphaRedraw)
