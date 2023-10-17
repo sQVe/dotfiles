@@ -66,7 +66,7 @@ M.diagnostic_handler = function(_, result, ctx, ...)
   local client = vim.lsp.get_client_by_id(ctx.client_id)
   local ignored_codes = {}
 
-  if client and client.name == 'tsserver' then
+  if client and client.name == 'typescript-tools' then
     ignored_codes = { 80001 }
   elseif client and client.name == 'yamlls' then
     ignored_codes = { 'mapKeyOrder' }
