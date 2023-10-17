@@ -83,8 +83,6 @@ M.config = function(_, opts)
       local dashboard = require('alpha.themes.dashboard')
       local stats = require('lazy').stats()
 
-      print(vim.inspect(stats))
-
       local startup_ms = (math.floor(stats.startuptime * 100 + 0.5) / 100)
       local version = '         📦 v'
         .. vim.version().major
