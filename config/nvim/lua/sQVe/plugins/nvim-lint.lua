@@ -5,7 +5,6 @@
 
 local M = {
   'mfussenegger/nvim-lint',
-  dev = true,
   ft = {
     -- eslint_d.
     'javascript',

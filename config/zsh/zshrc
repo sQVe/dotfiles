@@ -220,7 +220,6 @@ alias chrome=open-chrome
 alias fd='fd --hidden --follow'
 alias feh='feh --scale-down --auto-zoom --image-bg "#282828"'
 alias fm=vifm
-alias format-opinionated='npx prettier --single-quote --trailing-comma es5 --write'
 alias format='npx prettier --write'
 alias gh='gh'
 alias icat="kitten icat"
