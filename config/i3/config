@@ -304,7 +304,7 @@ mode "resize" {
 # Start polkit agent.
 exec --no-startup-id polkit-dumb-agent
 
-# Start polkit agent.
+# Trigger monitor handler.
 exec --no-startup-id "$SCRIPTS/mons-handler.sh"
 
 # Set initial random wallpaper.
