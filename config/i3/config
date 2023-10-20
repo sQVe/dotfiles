@@ -302,7 +302,7 @@ mode "resize" {
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
 # Start polkit agent.
-exec --no-startup-id polkit-dumb-agent
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Trigger monitor handler.
 exec --no-startup-id "$SCRIPTS/mons-handler.sh"
