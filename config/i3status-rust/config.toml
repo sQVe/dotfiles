@@ -107,6 +107,7 @@ cmd = "pavucontrol"
 [[block]]
 block = "custom"
 command = "$SCRIPTS/blocks/github"
+interval = 60
 json = true
 [[block.click]]
 button = "left"
