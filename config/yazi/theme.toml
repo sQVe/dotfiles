@@ -25,6 +25,9 @@ tab_width    = 1
 border_symbol = "│"
 border_style  = { fg = "#3c3836" }
 
+# Highlighting
+syntect_theme = "~/.config/bat/themes/gruvbox-dark.tmTheme"
+
 [status]
 separator_open  = ""
 separator_close = ""
@@ -100,7 +103,6 @@ rules = [
 	{ name = "*", fg = "#fbf1c7" },
 	{ name = "*/", fg = "#d3869b" }
 ]
-
 
 [icons]
 
