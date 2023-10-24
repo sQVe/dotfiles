@@ -42,7 +42,6 @@ M.opts = function()
     NormalFloat = { bg = float_bg },
     Pmenu = { bg = colors.dark1 },
     PmenuSel = { fg = colors.dark0, bg = colors.bright_aqua },
-    Todo = { italic = true },
     WinBar = { bg = none },
     WinBarNC = { bg = none },
 
@@ -60,10 +59,6 @@ M.opts = function()
     LeapLabelPrimary = { fg = black, bg = colors.bright_purple },
     LeapLabelSecondary = { fg = black, bg = colors.bright_red },
 
-    -- Markdown.
-    markdownBoldItalic = { italic = true },
-    markdownItalic = { italic = true },
-
     -- Neotree.
     NeoTreeEndOfBuffer = { fg = sidebar_bg },
     NeoTreeNormal = { bg = sidebar_bg },
@@ -71,9 +66,6 @@ M.opts = function()
     NeoTreeRootName = { fg = colors.gray, italic = true },
     NeoTreeTabActive = { bg = sidebar_bg },
     NeoTreeWinSeparator = { fg = colors.dark0, bg = colors.dark0 },
-
-    -- Noice.
-    NoiceMini = { bg = float_bg },
 
     -- Telescope.
     TelescopeNormal = { bg = float_bg },
@@ -83,13 +75,6 @@ M.opts = function()
     TelescopeResultsBorder = { fg = colors.dark4, bg = float_bg },
     TelescopeTitle = { fg = colors.bright_purple },
     TelescopePromptTitle = { fg = colors.bright_yellow },
-
-    -- Treesitter.
-    ['@text.danger'] = { fg = colors.bright_red, bold = true },
-    ['@text.note'] = { fg = colors.bright_aqua, bold = true },
-    ['@text.warning'] = { fg = colors.bright_yellow, bold = true },
-    ['@lsp.type.interface'] = { link = '@type' },
-    ['@lsp.type.parameter'] = { link = '@variable' },
   }, sign_column_override_map)
 
   return {
