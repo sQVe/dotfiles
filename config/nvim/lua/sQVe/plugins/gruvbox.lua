@@ -59,6 +59,28 @@ M.opts = function()
     LeapLabelPrimary = { fg = black, bg = colors.bright_purple },
     LeapLabelSecondary = { fg = black, bg = colors.bright_red },
 
+    -- Mini hipatterns.
+    MiniHipatternsFixme = {
+      bg = colors.bright_red,
+      fg = colors.dark0,
+      bold = true,
+    },
+    MiniHipatternsHack = {
+      bg = colors.bright_yellow,
+      fg = colors.dark0,
+      bold = true,
+    },
+    MiniHipatternsTodo = {
+      bg = colors.bright_yellow,
+      fg = colors.dark0,
+      bold = true,
+    },
+    MiniHipatternsNote = {
+      bg = colors.bright_aqua,
+      fg = colors.dark0,
+      bold = true,
+    },
+
     -- Neotree.
     NeoTreeEndOfBuffer = { fg = sidebar_bg },
     NeoTreeNormal = { bg = sidebar_bg },
