@@ -1,0 +1,69 @@
+[manager]
+layout         = [ 1, 2, 2 ]
+sort_by        = "alphabetical"
+sort_sensitive = true
+sort_reverse   = false
+sort_dir_first = true
+linemode       = "none"
+show_hidden    = false
+show_symlink   = true
+
+[preview]
+tab_size        = 2
+max_width       = 600
+max_height      = 900
+cache_dir       = ""
+ueberzug_scale  = 1
+ueberzug_offset = [ 0, 0, 0, 0 ]
+
+[opener]
+edit = [
+	{ exec = 'nvim "$@"', block = true },
+]
+open = [
+	{ exec = 'open "$@"', desc = "Open" },
+]
+reveal = [
+	{ exec = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF" },
+]
+extract = [
+	{ exec = 'unar "$1"', desc = "Extract here" },
+]
+play = [
+	{ exec = 'mpv "$@"', orphan = true },
+]
+
+[open]
+rules = [
+	{ name = "*/", use = [ "edit", "open", "reveal" ] },
+
+	{ mime = "text/*",  use = [ "edit", "reveal" ] },
+	{ mime = "image/*", use = [ "open", "reveal" ] },
+	{ mime = "video/*", use = [ "play", "reveal" ] },
+	{ mime = "audio/*", use = [ "play", "reveal" ] },
+	{ mime = "inode/x-empty", use = [ "edit", "reveal" ] },
+
+	{ mime = "application/json", use = [ "edit", "reveal" ] },
+	{ mime = "*/javascript",     use = [ "edit", "reveal" ] },
+
+	{ mime = "application/zip",             use = [ "extract", "reveal" ] },
+	{ mime = "application/gzip",            use = [ "extract", "reveal" ] },
+	{ mime = "application/x-tar",           use = [ "extract", "reveal" ] },
+	{ mime = "application/x-bzip",          use = [ "extract", "reveal" ] },
+	{ mime = "application/x-bzip2",         use = [ "extract", "reveal" ] },
+	{ mime = "application/x-7z-compressed", use = [ "extract", "reveal" ] },
+	{ mime = "application/x-rar",           use = [ "extract", "reveal" ] },
+
+	{ mime = "*", use = [ "open", "reveal" ] },
+]
+
+[tasks]
+micro_workers = 5
+macro_workers = 10
+bizarre_retry = 5
+
+[plugins]
+preload = []
+
+[log]
+enabled = false

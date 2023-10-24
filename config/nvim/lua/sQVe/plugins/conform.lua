@@ -25,10 +25,6 @@ M.opts = {
     yaml = { 'prettierd' },
     ['_'] = { 'trim_newlines', 'trim_whitespace' },
   },
-  format_on_save = {
-    lsp_fallback = true,
-    timeout_ms = 1000,
-  },
 }
 
 M.config = function(_, opts)
@@ -74,8 +70,20 @@ M.config = function(_, opts)
   conform.setup(opts)
 
   map({ 'n', 'v' }, '<Leader><Leader>', function()
-    conform.format({ async = true, timeout = 1000 })
+    conform.format({ async = true, lsp_fallback = true })
   end, { desc = 'Format' })
+
+  vim.api.nvim_create_autocmd('BufWritePre', {
+    pattern = '*',
+    callback = function(args)
+      -- Disable formatting for temporary yazi files.
+      if string.match(args.file, '^/tmp/yazi') then
+        return
+      end
+
+      conform.format({ async = false, lsp_fallback = true })
+    end,
+  })
 end
 
 return M
