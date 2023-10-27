@@ -35,6 +35,7 @@ M.opts = {
     'markdown_inline',
     'regex',
     'scss',
+    'sql',
     'toml',
     'tsx',
     'typescript',
