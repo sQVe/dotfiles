@@ -9,6 +9,7 @@ google-chrome-stable %U
   ^https?:\/\/.*\.figma\.com
   ^https?:\/\/.*\.google\.com/calendar
   ^https?:\/\/google\.zoom\.us
+  ^https?:\/\/linear\.app
   ^https?:\/\/localhost
 
 open-zoom %U
