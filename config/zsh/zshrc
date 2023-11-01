@@ -121,7 +121,6 @@ function zvm_after_init() {
 
   autopair-init
   bindkey '^ ' autosuggest-accept
-  bindkey '^E' edit-command-line
   bindkey '^[^?' backward-kill-word
   bindkey '^[^H' backward-kill-word
 
