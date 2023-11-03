@@ -302,9 +302,6 @@ mode "resize" {
 # Start polkit agent.
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# Set initial random wallpaper.
-exec --no-startup-id random-wallpaper
-
 # Auto setup connected monitors.
 exec --no-startup-id "sh -c 'sleep 2; autorandr --change'"
 
