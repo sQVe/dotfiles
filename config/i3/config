@@ -40,6 +40,7 @@ set $menu-passwords --no-startup-id $SCRIPTS/menus/passwords.sh
 set $menu-playground --no-startup-id $SCRIPTS/menus/playground.sh
 set $menu-projects --no-startup-id $SCRIPTS/menus/projects.sh
 set $menu-run --no-startup-id $SCRIPTS/menus/run.sh
+set $menu-toggles --no-startup-id $SCRIPTS/menus/toggles.sh
 set $menu-state --no-startup-id $SCRIPTS/menus/state.sh
 set $menu-windows --no-startup-id $SCRIPTS/menus/windows.sh
 set $music-next --no-startup-id playerctl next
@@ -51,14 +52,12 @@ set $term-detach --no-startup-id term --detach
 set $yazi --no-startup-id term yazi
 set $vim --no-startup-id term nvim
 
-set $brightness-down --no-startup-id light -U 5
-set $brightness-toggle --no-startup-id $SCRIPTS/toggles/brightness.sh
-set $brightness-up --no-startup-id light -A 5
-set $microphone-toggle --no-startup-id pamixer --default-source -t
-set $redshift-toggle --no-startup-id $SCRIPTS/toggles/redshift.sh
-set $volume-down --no-startup-id pamixer --unmute --decrease 5
-set $volume-toggle --no-startup-id pamixer -t
-set $volume-up --no-startup-id pamixer --unmute --increase 5
+set $brightness-down --no-startup-id brightnessctl set +5%
+set $brightness-up --no-startup-id brightnessctl set 5%-
+set $microphone-toggle --no-startup-id $SCRIPTS/toggles/microphone.sh
+set $volume-down --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -5%
+set $volume-toggle --no-startup-id $SCRIPTS/toggles/volume.sh
+set $volume-up --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +5%
 
 
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
@@ -164,7 +163,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace-0
 bindsym $mod+a exec $menu-windows
 bindsym $mod+b exec $qutebrowser
 bindsym $mod+d exec $menu-apps
-bindsym $mod+e exec $menu-state
+bindsym $mod+e exec $menu-emoji
 bindsym $mod+f exec $yazi
 bindsym $mod+g gaps inner current plus 40
 bindsym $mod+h focus left
@@ -172,20 +171,21 @@ bindsym $mod+i scratchpad show
 bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
-bindsym $mod+m exec $menu-emoji
-bindsym $mod+n exec $menu-playground
+bindsym $mod+m exec $menu-state
+bindsym $mod+n exec $menu-notes
 bindsym $mod+o floating toggle; resize set 1600 800; move position center
 bindsym $mod+p focus parent
 bindsym $mod+q kill
 bindsym $mod+r mode "resize"
 bindsym $mod+s split toggle
-bindsym $mod+t exec $menu-notes
+bindsym $mod+t exec $menu-toggles
 bindsym $mod+u exec $menu-passwords
 bindsym $mod+v exec $vim
 bindsym $mod+w layout toggle tabbed split
 bindsym $mod+x exec $lock
 bindsym $mod+y sticky toggle
 bindsym $mod+z exec $menu-projects
+bindsym $mod+adiaeresis exec $menu-playground
 bindsym $mod+odiaeresis exec dunstctl close
 
 bindsym $mod+Shift+b exec $music-toggle
@@ -217,8 +217,6 @@ bindsym $mod+Ctrl+l workspace next_on_output
 bindsym $mod+Ctrl+h workspace prev_on_output
 
 # Symbol based bindings.
-bindsym $mod+period exec $redshift-toggle
-bindsym $mod+minus exec $brightness-toggle
 bindsym $mod+plus exec $menu-calculator
 
 # Direction based bindings.
@@ -304,11 +302,11 @@ mode "resize" {
 # Start polkit agent.
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# Trigger monitor handler.
-exec --no-startup-id "$SCRIPTS/mons-handler.sh"
-
 # Set initial random wallpaper.
 exec --no-startup-id random-wallpaper
+
+# Auto setup connected monitors.
+exec --no-startup-id "sh -c 'sleep 2; autorandr --change'"
 
 # Delayed redshift start.
 exec --no-startup-id "sh -c 'sleep 4; exec $SCRIPTS/toggles/redshift.sh'"

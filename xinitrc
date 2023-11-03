@@ -15,8 +15,10 @@ xrdb "${XDG_CONFIG_HOME}/Xresources"
 # Start xiccd colord daemon.
 xiccd &
 
-# Start mons daemon.
-mons -a -x $SCRIPTS/mons-handler.sh &
+# Setup xorg for dGPU (nvidia) only mode.
+if [[ $(envycontrol --query) == "nvidia" ]]; then
+  xrandr --setprovideroutputsource modesetting NVIDIA-0
+fi
 
 # XSS Lock - handle lid close, suspend etc.
 xss-lock -l -- lock &
@@ -27,9 +29,11 @@ libinput-gestures-setup start &
 # Set background color.
 xsetroot -solid '#282828'
 
-# Set screen power timer.
-xset s 210 210
-xset dpms 240 240 240
+# Set screensaver timer.
+xset s 240 0
+
+# Disable DPMS.
+xset -dpms
 
 # Start composition manager (xcompmgr).
 xcompmgr -c -l 0 -t 0 -r 0 -o 0 &
