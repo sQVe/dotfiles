@@ -20,7 +20,7 @@ pos 440x0
 rate 59.95
 output eDP-1-2
 mode 2560x1600
-pos 3440x1360
+pos 3440x1440
 rate 165.00
 output DP-0
 mode 3440x1440

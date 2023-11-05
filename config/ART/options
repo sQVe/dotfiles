@@ -1,14 +1,14 @@
 [General]
 TabbedEditor=false
 StartupDirectory=last
-StartupPath=/home/sqve/pictures
+StartupPath=/home/sqve/download/photo-dump
 DateFormat=%Y-%m-%d
 AdjusterMinDelay=100
 AdjusterMaxDelay=200
 MultiUser=true
 Language=English (US)
 LanguageAutoDetect=true
-Theme=blackfoxx-GTK3-20_
+Theme=Default
 Version=1.20.2
 DarkFramesPath=
 FlatFieldsPath=
@@ -52,7 +52,7 @@ ShowFileNames=false
 FilmStripShowFileNames=false
 InternalThumbIfUntouched=true
 MaxRecentFolders=15
-RecentFolders=/home/sqve/pictures;/mnt/shishigami/media/photos;/mnt/shishigami/media/photos/keepers;/home/sqve/download;/home/sqve;/mnt;/home/sqve/download/import;
+RecentFolders=/home/sqve/download/photo-dump;/home/sqve/download;/home/sqve;/mnt/shishigami/media/photos;/mnt;/home/sqve/pictures;/mnt/shishigami/media/photos/keepers;/home/sqve/download/import;
 ThumbnailRatingMode=xmp
 
 [Clipping Indication]
