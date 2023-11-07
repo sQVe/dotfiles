@@ -3,14 +3,16 @@ open-qutebrowser %U
 
 google-chrome-stable %U
   ^https?:\/\/(docs|drive|jamboard|meet)\.google\.com
+  ^https?:\/\/(teams)\.microsoft\.com
   ^https?:\/\/(www\.)?sentry\.io
-  ^https?:\/\/(www\.)?slack\.com
   ^https?:\/\/.*\.amazonaws\.com
   ^https?:\/\/.*\.figma\.com
   ^https?:\/\/.*\.google\.com/calendar
+  ^https?:\/\/.*\.slack\.com
   ^https?:\/\/google\.zoom\.us
   ^https?:\/\/linear\.app
   ^https?:\/\/localhost
+  ^https?:\/\/outlook.office.com
 
 open-zoom %U
   ^https?:\/\/.*zoom\.us
