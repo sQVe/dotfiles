@@ -4,6 +4,7 @@ open-qutebrowser %U
 google-chrome-stable %U
   ^https?:\/\/(docs|drive|jamboard|meet)\.google\.com
   ^https?:\/\/(teams)\.microsoft\.com
+  ^https?:\/\/(www\.)?coda\.io
   ^https?:\/\/(www\.)?sentry\.io
   ^https?:\/\/.*\.amazonaws\.com
   ^https?:\/\/.*\.figma\.com
