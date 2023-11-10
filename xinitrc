@@ -15,11 +15,6 @@ xrdb "${XDG_CONFIG_HOME}/Xresources"
 # Start xiccd colord daemon.
 xiccd &
 
-# Setup xorg for dGPU (nvidia) only mode.
-if [[ $(envycontrol --query) == "nvidia" ]]; then
-  xrandr --setprovideroutputsource modesetting NVIDIA-0
-fi
-
 # XSS Lock - handle lid close, suspend etc.
 xss-lock -l -- lock &
 
