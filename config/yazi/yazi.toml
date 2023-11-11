@@ -21,7 +21,7 @@ edit = [
 	{ exec = 'nvim "$@"', block = true },
 ]
 open = [
-	{ exec = 'open "$@"', desc = "Open" },
+	{ exec = 'mimeo -q "$@"', desc = "Open" },
 ]
 reveal = [
 	{ exec = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF" },
