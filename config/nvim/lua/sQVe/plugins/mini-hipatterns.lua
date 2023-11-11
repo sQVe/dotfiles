@@ -5,6 +5,7 @@
 
 local M = {
   'echasnovski/mini.hipatterns',
+  event = 'VeryLazy',
   version = '*',
 }
 

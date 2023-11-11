@@ -38,7 +38,12 @@ It is essential to know a thing first
       '🔎  Live grep',
       '<Cmd>lua require("sQVe.utils.telescope").live_grep()<CR>'
     ),
-    dashboard.button('-', '🌳  File tree', '<Cmd>Neotree<CR>'),
+
+    dashboard.button(
+      '-',
+      '🌳  File tree',
+      '<Cmd>lua require("mini.files").open()<CR>'
+    ),
     dashboard.button(
       'u',
       '🎒  Recently used files',

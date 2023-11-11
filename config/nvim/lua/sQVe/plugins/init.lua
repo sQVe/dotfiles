@@ -26,5 +26,5 @@ return {
 
   -- Textobjects.
   { 'michaeljsmith/vim-indent-object', event = 'VeryLazy' }, -- Indent textobject.
-  { 'echasnovski/mini.ai', config = true, event = 'VeryLazy' }, -- Additional textobjects.
+  { 'echasnovski/mini.ai', config = true, event = 'VeryLazy', version = '*' }, -- Additional textobjects.
 }
