@@ -24,6 +24,9 @@ return {
   -- Simple session management.
   { 'folke/persistence.nvim', config = true, event = 'BufRead' },
 
+  -- Notifications and progression messages.
+  { 'j-hui/fidget.nvim', config = true, event = 'BufRead' },
+
   -- Textobjects.
   { 'michaeljsmith/vim-indent-object', event = 'VeryLazy' }, -- Indent textobject.
   { 'echasnovski/mini.ai', config = true, event = 'VeryLazy', version = '*' }, -- Additional textobjects.
