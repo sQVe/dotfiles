@@ -99,7 +99,6 @@ bar {
     urgent_workspace    $color-urgent      $color-urgent      $color-bg
   }
 
-  mode hide
   position top
   status_command i3status-rs
   strip_workspace_numbers yes
