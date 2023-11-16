@@ -81,7 +81,7 @@ M.config = function(_, opts)
         return
       end
 
-      local ok = pcall(conform.format, { async = true, lsp_fallback = true })
+      local ok = pcall(conform.format, { async = false, lsp_fallback = true })
       if not ok then
         vim.notify('Failed to format.')
       end
