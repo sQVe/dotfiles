@@ -5,7 +5,6 @@
 
 local M = {
   'echasnovski/mini.files',
-  version = '*',
 }
 
 M.opts = {

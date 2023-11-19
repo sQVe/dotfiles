@@ -27,6 +27,13 @@ return {
   -- Notifications and progression messages.
   { 'j-hui/fidget.nvim', config = true, event = 'BufRead' },
 
+  -- Auto close pairs.
+  {
+    'echasnovski/mini.pairs',
+    config = true,
+    event = 'VeryLazy',
+  },
+
   -- Textobjects.
   { 'michaeljsmith/vim-indent-object', event = 'VeryLazy' }, -- Indent textobject.
   { 'echasnovski/mini.ai', config = true, event = 'VeryLazy', version = '*' }, -- Additional textobjects.

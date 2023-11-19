@@ -19,9 +19,8 @@ M.opts = {
   },
   operators = {
     gc = 'Comment',
-    gb = 'Comment',
     gq = 'Format',
-    ys = 'Surround',
+    gs = 'Surround',
   },
   show_help = false,
 }

@@ -6,7 +6,6 @@
 local M = {
   'echasnovski/mini.hipatterns',
   event = 'VeryLazy',
-  version = '*',
 }
 
 M.opts = function()
