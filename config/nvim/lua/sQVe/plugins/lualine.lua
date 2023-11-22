@@ -45,7 +45,7 @@ M.opts = function()
     sections = {
       lualine_a = { 'mode' },
       lualine_b = { 'branch' },
-      lualine_c = { 'diff' },
+      lualine_c = { { 'filename', path = 1 }, 'diff' },
       lualine_x = {
         {
           'diagnostics',
