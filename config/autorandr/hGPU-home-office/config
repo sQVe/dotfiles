@@ -1,0 +1,27 @@
+output DP-2
+off
+output HDMI-2
+off
+output DP-3
+off
+output HDMI-3
+off
+output DP-4
+off
+output HDMI-4
+off
+output DP-1-1
+off
+output DP-1-2
+off
+output HDMI-1-0
+off
+output DP-1-0
+mode 3440x1440
+pos 0x0
+primary
+rate 143.97
+output eDP-2
+mode 2560x1600
+pos 3440x0
+rate 165.00
