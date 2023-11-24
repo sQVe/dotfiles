@@ -204,11 +204,3 @@ map(
   '"oy<Esc><Cmd>Ddg<CR>',
   { desc = 'Search for selection in DuckDuckGo' }
 )
-
--- Open file or URL with mimeo.
-map(
-  'n',
-  'gx',
-  '<Cmd>silent execute "!mimeo " . shellescape(expand(\'<cfile>\'))<CR>',
-  { desc = 'Open file or URL with mimeo' }
-)
