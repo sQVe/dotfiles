@@ -8,8 +8,8 @@ hovered         = { bg = "#504945" }
 preview_hovered = { bg = "#32302f" }
 
 # Find
-find_keyword  = { fg = "#ebdbb2", italic = true }
-find_position = { fg = "#d3869b", bg = "reset", italic = true }
+find_keyword  = { fg = "#282828", bg = "#fabd2f" }
+find_position = { fg = "#d3869b", bg = "reset" }
 
 # Marker
 marker_selected = { fg = "#fabd2f", bg = "#fabd2f" }
@@ -31,24 +31,24 @@ syntect_theme = "~/.config/bat/themes/gruvbox-dark.tmTheme"
 [status]
 separator_open  = ""
 separator_close = ""
-separator_style = { fg = "#45475a", bg = "#45475a" }
+separator_style = { fg = "#665c54", bg = "#665c54" }
 
 # Mode
-mode_normal = { fg = "#282828", bg = "#83a598", bold = true }
-mode_select = { fg = "#282828", bg = "#fabd2f", bold = true }
+mode_normal = { fg = "#282828", bg = "#bdae93", bold = true }
+mode_select = { fg = "#282828", bg = "#fe8019", bold = true }
 mode_unset  = { fg = "#282828", bg = "#ebdbb2", bold = true }
 
 # Progress
-progress_label  = { fg = "#ffffff", bold = true }
-progress_normal = { fg = "#83a598", bg = "#45475a" }
-progress_error  = { fg = "#d3869b", bg = "#45475a" }
+progress_label  = { fg = "#ebdbb2", bold = true }
+progress_normal = { fg = "#83a598", bg = "#665c54" }
+progress_error  = { fg = "#d3869b", bg = "#665c54" }
 
 # Permissions
 permissions_t = { fg = "#83a598" }
 permissions_r = { fg = "#ebdbb2" }
 permissions_w = { fg = "#d3869b" }
 permissions_x = { fg = "#fabd2f" }
-permissions_s = { fg = "#7f849c" }
+permissions_s = { fg = "#b8bd2f" }
 
 border   = { fg = "#83a598" }
 title    = {}
@@ -71,24 +71,23 @@ cand            = { fg = "#8ec07c" }
 rest            = { fg = "#504945" }
 desc            = { fg = "#d3869b" }
 separator       = "  "
-separator_style = { fg = "#585b70" }
+separator_style = { fg = "#504945" }
 
 [help]
 on      = { fg = "#d3869b" }
 exec    = { fg = "#8ec07c" }
-desc    = { fg = "#9399b2" }
-hovered = { bg = "#585b70", bold = true }
+desc    = { fg = "#83a598" }
+hovered = { bg = "#504945", bold = true }
 footer  = { bg = "#665c54", fg = "#ebdbb2" }
 
 [filetype]
-
 rules = [
 	# Images
 	{ mime = "image/*", fg = "#8ec07c" },
 
 	# Videos
-	{ mime = "video/*", fg = "#ebdbb2" },
-	{ mime = "audio/*", fg = "#ebdbb2" },
+	{ mime = "video/*", fg = "#b8bd2f" },
+	{ mime = "audio/*", fg = "#b8bd2f" },
 
 	# Archives
 	{ mime = "application/zip",             fg = "#d3869b" },
@@ -99,9 +98,14 @@ rules = [
 	{ mime = "application/x-7z-compressed", fg = "#d3869b" },
 	{ mime = "application/x-rar",           fg = "#d3869b" },
 
-	# Fallback
-	{ name = "*", fg = "#fbf1c7" },
-	{ name = "*/", fg = "#d3869b" }
+	# Dots
+	{ name = ".*", fg = "#928374" },
+	{ name = ".*/", fg = "#928374" },
+	{ name = "node_modules/", fg = "#928374" },
+
+  # Fallback
+	{ name = "*", fg = "#ebdbb2" },
+	{ name = "*/", fg = "#83a598" }
 ]
 
 [icons]
