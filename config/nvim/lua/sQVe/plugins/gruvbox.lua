@@ -81,14 +81,6 @@ M.opts = function()
       bold = true,
     },
 
-    -- Neotree.
-    NeoTreeEndOfBuffer = { fg = sidebar_bg },
-    NeoTreeNormal = { bg = sidebar_bg },
-    NeoTreeNormalNC = { bg = sidebar_bg },
-    NeoTreeRootName = { fg = colors.gray, italic = true },
-    NeoTreeTabActive = { bg = sidebar_bg },
-    NeoTreeWinSeparator = { fg = colors.dark0, bg = colors.dark0 },
-
     -- Telescope.
     TelescopeNormal = { bg = float_bg },
     TelescopeBorder = { fg = colors.bright_yellow },
