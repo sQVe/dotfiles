@@ -45,6 +45,10 @@ M.opts = function()
     WinBar = { bg = none },
     WinBarNC = { bg = none },
 
+    -- Copilot.
+    CopilotAnnotation = { fg = colors.gray },
+    CopilotSuggestion = { fg = colors.gray },
+
     -- Illuminate.
     IlluminatedWordRead = { underline = true },
     IlluminatedWordText = { underline = true },
