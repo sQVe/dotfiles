@@ -51,7 +51,7 @@ M.opts = function()
     -- Flash.
     FlashBackdrop = { fg = colors.dark3 },
     FlashCurrent = { fg = colors.dark0, bg = colors.bright_orange },
-    FlashLabel = { fg = colors.dark0, bg = colors.bright_purple, bold = true },
+    FlashLabel = { fg = colors.dark0, bg = colors.light0, bold = true },
     FlashMatch = { fg = colors.dark0, bg = colors.bright_yellow },
 
     -- Illuminate.
