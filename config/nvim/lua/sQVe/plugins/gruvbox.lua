@@ -48,6 +48,12 @@ M.opts = function()
     CopilotAnnotation = { fg = colors.gray },
     CopilotSuggestion = { fg = colors.gray },
 
+    -- Flash.
+    FlashBackdrop = { fg = colors.dark3 },
+    FlashCurrent = { fg = colors.dark0, bg = colors.bright_orange },
+    FlashLabel = { fg = colors.dark0, bg = colors.bright_purple, bold = true },
+    FlashMatch = { fg = colors.dark0, bg = colors.bright_yellow },
+
     -- Illuminate.
     IlluminatedWordRead = { underline = true },
     IlluminatedWordText = { underline = true },
@@ -55,12 +61,6 @@ M.opts = function()
 
     -- Indent blankline.
     IblIndent = { fg = colors.dark1 },
-
-    -- Leap.
-    Cursor = { fg = colors.dark0, bg = colors.bright_orange, reverse = false },
-    LeapMatch = { fg = black, bg = colors.bright_yellow },
-    LeapLabelPrimary = { fg = black, bg = colors.bright_purple },
-    LeapLabelSecondary = { fg = black, bg = colors.bright_red },
 
     -- Mini hipatterns.
     MiniHipatternsFixme = {
