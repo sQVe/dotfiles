@@ -15,7 +15,6 @@ M.opts = function()
   local black = '#000000'
   local none = 'NONE'
   local float_bg = '#303030'
-  local sidebar_bg = '#252525'
 
   local sign_highlights = {
     'GruvboxAquaSign',
@@ -98,7 +97,7 @@ M.opts = function()
   return {
     italic = {
       comments = true,
-      emphasis = true,
+      emphasis = false,
       folds = true,
       operators = false,
       strings = true,
