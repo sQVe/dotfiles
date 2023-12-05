@@ -36,6 +36,7 @@ M.config = function(_, opts)
     ['<C-w>'] = { name = 'Window' },
     ['<Leader>d'] = { name = 'Diagnostics' },
     ['<Leader>h'] = { name = 'Hunks' },
+    ['<Leader>i'] = { name = 'AI' },
     ['<Leader>o'] = { name = 'Open' },
     ['@'] = { name = 'Registers' },
     ['['] = { name = 'Previous' },
