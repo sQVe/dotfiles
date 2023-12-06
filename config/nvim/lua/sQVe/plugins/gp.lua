@@ -38,7 +38,7 @@ local agents = {
       .. '- Zoom out first to see the big picture and then zoom in to details.\n'
       .. '- Use Socratic method to improve your thinking and coding skills.\n'
       .. "- Don't exclude any code from your output if the answer requires coding.\n"
-      .. "- Take a deep breath; You've got this!\n",
+      .. "- Take a deep breath; You've got this!",
   },
   {
     name = 'CodeGPT4',
@@ -46,6 +46,8 @@ local agents = {
     command = true,
     model = { model = 'gpt-4-1106-preview', temperature = 0.8, top_p = 1 },
     system_prompt = 'You are an AI working as a code editor.\n\n'
+      .. 'For complex concepts or code, INCLUDE EXPLANATORY COMMENTS to ensure clarity.\n'
+      .. 'Keep comments succinct and focused on aiding comprehension.\n'
       .. 'Please AVOID COMMENTARY OUTSIDE OF THE SNIPPET RESPONSE.\n'
       .. 'START AND END YOUR ANSWER WITH:\n\n```',
   },
@@ -57,7 +59,7 @@ local hooks = {
   Docstring = function(gp, params)
     local template = 'I have the following code from {{filename}}:\n\n'
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
-      .. 'Please respond by writing docstrings the code above.\n\n'
+      .. 'Please respond by writing docstrings the code above.\n'
       .. 'Respond exclusively with the snippet.'
 
     local agent = gp.get_command_agent()
@@ -106,7 +108,7 @@ local hooks = {
   Tests = function(gp, params)
     local template = 'I have the following code from {{filename}}:\n\n'
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
-      .. 'Please respond by writing unit tests for the code above.\n\n'
+      .. 'Please respond by writing unit tests for the code above.'
 
     local current_filetype = vim.bo.filetype
     local javascript_filetypes = {
@@ -137,10 +139,10 @@ local hooks = {
   Optimize = function(gp, params)
     local template = 'I have the following code from {{filename}}:\n\n'
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
-      .. 'Please respond by optimizing the code above.\n\n'
-      .. 'Analyze for code smells and suggest improvements.'
+      .. 'Please respond by optimizing the code above.\n'
+      .. 'Analyze it for code smells and suggest improvements.'
 
-    local agent = gp.get_chat_agent()
+    local agent = gp.get_command_agent()
 
     gp.Prompt(
       params,
@@ -156,7 +158,7 @@ local hooks = {
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
       .. 'Please respond with readability improvements.'
 
-    local agent = gp.get_chat_agent()
+    local agent = gp.get_command_agent()
 
     gp.Prompt(
       params,
@@ -193,6 +195,7 @@ M.opts = {
   chat_shortcut_stop = { modes = { 'n', 'i', 'v', 'x' }, shortcut = '<C-c>' },
   chat_user_prefix = '💬:',
   cmd_prefix = 'AI',
+  command_auto_select_response = false,
   hooks = hooks,
 }
 
