@@ -54,6 +54,9 @@ M.opts = function()
     FlashLabel = { fg = colors.dark0, bg = colors.light0, bold = true },
     FlashMatch = { fg = colors.dark0, bg = colors.bright_yellow },
 
+    -- Gp.
+    GpHandlerStandout = { bg = colors.dark0 },
+
     -- Illuminate.
     IlluminatedWordRead = { underline = true },
     IlluminatedWordText = { underline = true },
