@@ -107,7 +107,21 @@ local hooks = {
     local template = 'I have the following code from {{filename}}:\n\n'
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
       .. 'Please respond by writing unit tests for the code above.\n\n'
-      .. 'Respond exclusively with the snippet.'
+
+    local current_filetype = vim.bo.filetype
+    local javascript_filetypes = {
+      'javascript',
+      'javascriptreact',
+      'typescript',
+      'typescriptreact',
+    }
+
+    if vim.tbl_contains(javascript_filetypes, current_filetype) then
+      template = template
+        .. 'Use vitest for running the tests and @testing-library for DOM-related testing.\n\n'
+    end
+
+    template = template .. 'Respond exclusively with the snippet.'
 
     local agent = gp.get_command_agent()
 
