@@ -8,16 +8,16 @@ local M = {
   keys = {
     -- stylua: ignore start
     { '<Leader>ia', mode = { 'v' }, ":<C-u>'<,'>AIAppend<CR>", desc = 'Append to selection with prompt', },
-    { '<Leader>ic', mode = { 'n' }, '<Cmd>AIChatToggle<CR>', desc = 'Toggle chat', },
-    { '<Leader>ic', mode = { 'v' }, ":<C-u>'<,'>AIChatNew vsplit<CR>", desc = 'New chat with selection', },
+    { '<Leader>ic', mode = { 'n', 'v' }, '<Cmd>AIChatToggle<CR>', desc = 'Toggle chat', },
     { '<Leader>ie', mode = { 'v' }, ":<C-u>'<,'>AIExplain<CR>", desc = 'Explain selection', },
     { '<Leader>if', mode = { 'n' }, '<Cmd>AIChatFinder<CR>', desc = 'Chat finder', },
     { '<Leader>if', mode = { 'v' }, ":<C-u>'<,'>AIBugs<CR>", desc = 'Fix bugs in selection', },
     { '<Leader>in', mode = { 'n' }, '<Cmd>AIChatNew vsplit<CR>', desc = 'New chat', },
+    { '<Leader>in', mode = { 'v' }, ":<C-u>'<,'>AIChatNew vsplit<CR>", desc = 'New chat with selection', },
     { '<Leader>io', mode = { 'v' }, ":<C-u>'<,'>AIOptimize<CR>", desc = 'Optimize selection', },
     { '<Leader>ip', mode = { 'v' }, ":<C-u>'<,'>AIChatPaste<CR>", desc = 'Paste selection into chat', },
-    { '<Leader>ir', mode = { 'v' }, ":<C-u>'<,'>AIReadability<CR>", desc = 'Improve readability of selection', },
     { '<Leader>iq', mode = { 'v' }, ":<C-u>'<,'>AIVnew<CR>", desc = 'Answer prompt with selection context', },
+    { '<Leader>ir', mode = { 'v' }, ":<C-u>'<,'>AIReadability<CR>", desc = 'Improve readability of selection', },
     { '<Leader>is', mode = { 'v' }, ":<C-u>'<,'>AISummarize<CR>", desc = 'Summarize selection', },
     { '<Leader>it', mode = { 'v' }, ":<C-u>'<,'>AITests<CR>", desc = 'Generate tests for selection', },
     -- stylua: ignore end
