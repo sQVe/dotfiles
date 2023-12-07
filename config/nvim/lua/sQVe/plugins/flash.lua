@@ -5,6 +5,7 @@
 
 local M = {
   'folke/flash.nvim',
+  event = 'VeryLazy',
   keys = {
     -- stylua: ignore start
     { 's', mode = { 'n', 'x', 'o' }, function() require('flash').jump() end, desc = 'Flash', },
@@ -16,6 +17,9 @@ local M = {
 
 M.opts = {
   modes = {
+    char = {
+      jump_labels = true,
+    },
     treesitter = {
       highlight = {
         backdrop = true,
