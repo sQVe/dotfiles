@@ -8,7 +8,7 @@ local M = {
   cmd = 'ToggleTerm',
   keys = {
     {
-      '<Leader>l',
+      '<Leader>g',
       function()
         local Terminal = require('toggleterm.terminal').Terminal
 

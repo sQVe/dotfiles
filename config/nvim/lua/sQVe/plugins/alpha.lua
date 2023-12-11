@@ -51,12 +51,12 @@ It is essential to know a thing first
     ),
     dashboard.button('e', '💎  New file', '<Cmd>enew<CR>'),
     dashboard.button(
-      'g',
+      's',
       '💾  Load directory session',
       '<Cmd>lua require("persistence").load()<CR>'
     ),
     dashboard.button(
-      'G',
+      'S',
       '💾  Load global session',
       '<Cmd>lua require("persistence").load({ last = true })<CR>'
     ),

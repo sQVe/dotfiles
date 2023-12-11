@@ -197,6 +197,8 @@ M.opts = {
   cmd_prefix = 'AI',
   command_auto_select_response = false,
   hooks = hooks,
+  image_dir = os.getenv('XDG_DATA_HOME') .. '/nvim/gp/images',
+  whisper_dir = os.getenv('XDG_DATA_HOME') .. '/nvim/gp/whispers',
 }
 
 return M
