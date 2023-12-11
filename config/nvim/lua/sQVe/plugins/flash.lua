@@ -17,9 +17,6 @@ local M = {
 
 M.opts = {
   modes = {
-    char = {
-      jump_labels = true,
-    },
     treesitter = {
       highlight = {
         backdrop = true,
