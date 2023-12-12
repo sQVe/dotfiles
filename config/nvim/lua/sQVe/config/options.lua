@@ -210,14 +210,11 @@ local ui = {
   -- Highlight the line containing the cursor.
   cursorline = true,
 
-  -- Show absolute line numbers.
+  -- Show absolute line numbers by default.
   number = true,
 
   -- Ensure the statusline is always visible for all windows.
   laststatus = 3,
-
-  -- Display relative line numbers instead of absolute line numbers.
-  relativenumber = true,
 
   -- Keep the sign column visible at all times for a consistent window layout.
   signcolumn = 'yes',
