@@ -1,57 +1,58 @@
 gui:
-    commandLogSize: 16
-    nerdFontsVersion: "3"
-    scrollHeight: 8
-    showBottomLine: false
-    showFileTree: false
-    showRandomTip: false
-    skipRewordInEditorWarning: true
-    skipDiscardChangeWarning: true
-    timeFormat: '2006-01-02 15:04'
-    authorColors:
-        '*': green
-        'Oskar Grunning': magenta
-    branchColors:
-        'chore': green
-        'docs': blue
-        'feat': magenta
-        'fix': yellow
-        'main': red
-        'master': red
-    theme:
-        activeBorderColor:
-            - cyan
-            - bold
-        inactiveBorderColor:
-            - '#444'
-        cherryPickedCommitBgColor:
-            - reverse
-        cherryPickedCommitFgColor:
-            - white
-            - bold
-        selectedLineBgColor:
-            - '#444'
-        selectedRangeBgColor:
-            - reverse
+  commandLogSize: 16
+  nerdFontsVersion: '3'
+  scrollHeight: 8
+  showBottomLine: false
+  showFileTree: false
+  showRandomTip: false
+  skipRewordInEditorWarning: true
+  skipDiscardChangeWarning: true
+  timeFormat: '2006-01-02 15:04'
+  authorColors:
+    '*': green
+    'Oskar Grunning': magenta
+  branchColors:
+    'chore': green
+    'docs': blue
+    'feat': magenta
+    'fix': yellow
+    'main': red
+    'master': red
+  theme:
+    activeBorderColor:
+      - cyan
+      - bold
+    inactiveBorderColor:
+      - '#444'
+    cherryPickedCommitBgColor:
+      - reverse
+    cherryPickedCommitFgColor:
+      - white
+      - bold
+    selectedLineBgColor:
+      - '#444'
+    selectedRangeBgColor:
+      - reverse
 git:
-    autoFetch: false
-    commit:
-        verbose: 'always'
-    log:
-        showGraph: 'always'
-    paging:
-        pager: delta --dark --paging=never
-    skipHookPrefix: draft
+  autoFetch: false
+  log:
+    showGraph: 'always'
+  paging:
+    pager: delta --dark --paging=never
+  skipHookPrefix: draft
 customCommands:
-    - key: 'p'
-      description: 'pull'
-      command: "git pull --ff-only --all --prune"
-      context: "global"
+  - key: 'p'
+    description: 'pull'
+    command: 'git pull --ff-only --all --prune'
+    context: 'global'
 keybinding:
-    branches:
-        viewGitFlowOptions: ''
-    commits:
-        renameCommitWithEditor: 'r'
-        renameCommit: ''
+  branches:
+    viewGitFlowOptions: ''
+  commits:
+    renameCommitWithEditor: 'r'
+    renameCommit: ''
+  universal:
+    nextTab: ')'
+    prevTab: '('
 notARepository: 'quit'
 promptToReturnFromSubprocess: false
