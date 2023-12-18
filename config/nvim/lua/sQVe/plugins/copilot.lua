@@ -15,7 +15,6 @@ M.opts = {
   suggestion = {
     enabled = true,
     auto_trigger = true,
-    debounce = 250,
     keymap = { accept = '<C-l>' },
   },
 }

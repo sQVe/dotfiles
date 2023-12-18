@@ -9,6 +9,7 @@ local M = {
     -- stylua: ignore start
     { '<Leader>ia', mode = { 'v' }, ":<C-u>'<,'>AIAppend<CR>", desc = 'Append to selection with prompt', },
     { '<Leader>ic', mode = { 'n', 'v' }, '<Cmd>AIChatToggle<CR>', desc = 'Toggle chat', },
+    { '<Leader>id', mode = { 'v' }, ":<C-u>'<,'>AIDocstring<CR>", desc = 'Generate docstring for selection', },
     { '<Leader>ie', mode = { 'v' }, ":<C-u>'<,'>AIExplain<CR>", desc = 'Explain selection', },
     { '<Leader>if', mode = { 'n' }, '<Cmd>AIChatFinder<CR>', desc = 'Chat finder', },
     { '<Leader>if', mode = { 'v' }, ":<C-u>'<,'>AIBugs<CR>", desc = 'Fix bugs in selection', },
