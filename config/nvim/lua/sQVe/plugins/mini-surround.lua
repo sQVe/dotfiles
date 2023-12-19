@@ -6,25 +6,21 @@
 local M = {
   'echasnovski/mini.surround',
   keys = {
-    { 'gsa', desc = 'Add surrounding', mode = { 'n', 'v' } },
-    { 'gsd', desc = 'Delete surrounding' },
-    { 'gsf', desc = 'Find right surrounding' },
-    { 'gsF', desc = 'Find left surrounding' },
-    { 'gsh', desc = 'Highlight surrounding' },
-    { 'gsr', desc = 'Replace surrounding' },
-    { 'gsn', desc = 'Update `MiniSurround.config.n_lines`' },
+    { 'gs', desc = 'Add surrounding', mode = { 'n', 'v' } },
+    { 'ds', desc = 'Delete surrounding' },
+    { 'cs', desc = 'Replace surrounding' },
   },
 }
 
 M.opts = {
   mappings = {
-    add = 'gsa',
-    delete = 'gsd',
-    find = 'gsf',
-    find_left = 'gsF',
-    highlight = 'gsh',
-    replace = 'gsr',
-    update_n_lines = 'gsn',
+    add = 'gs',
+    delete = 'ds',
+    replace = 'cs',
+    find = '',
+    find_left = '',
+    highlight = '',
+    update_n_lines = '',
   },
 }
 
