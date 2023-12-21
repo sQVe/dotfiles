@@ -84,7 +84,7 @@ local hooks = {
 
     gp.Prompt(
       params,
-      gp.Target.vnew,
+      gp.Target.vnew('markdown'),
       nil,
       agent.model,
       template,
@@ -100,7 +100,7 @@ local hooks = {
 
     gp.Prompt(
       params,
-      gp.Target.vnew,
+      gp.Target.vnew('markdown'),
       nil,
       agent.model,
       template,
@@ -180,7 +180,7 @@ local hooks = {
 
     gp.Prompt(
       params,
-      gp.Target.vnew,
+      gp.Target.vnew('markdown'),
       nil,
       agent.model,
       template,
@@ -196,7 +196,7 @@ local hooks = {
 
     gp.Prompt(
       params,
-      gp.Target.vnew,
+      gp.Target.vnew('markdown'),
       nil,
       agent.model,
       template,
