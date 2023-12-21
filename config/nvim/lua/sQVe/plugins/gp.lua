@@ -7,19 +7,20 @@ local M = {
   'robitx/gp.nvim',
   keys = {
     -- stylua: ignore start
+    { '<Leader>i=', mode = { 'v' }, ":<C-u>'<,'>AISummarize<CR>", desc = 'Summarize selection', },
     { '<Leader>ia', mode = { 'v' }, ":<C-u>'<,'>AIAppend<CR>", desc = 'Append to selection with prompt', },
+    { '<Leader>ib', mode = { 'v' }, ":<C-u>'<,'>AIBugs<CR>", desc = 'Repair bugs in selection', },
     { '<Leader>ic', mode = { 'n', 'v' }, '<Cmd>AIChatToggle<CR>', desc = 'Toggle chat', },
     { '<Leader>id', mode = { 'v' }, ":<C-u>'<,'>AIDocstring<CR>", desc = 'Generate docstring for selection', },
     { '<Leader>ie', mode = { 'v' }, ":<C-u>'<,'>AIExplain<CR>", desc = 'Explain selection', },
     { '<Leader>if', mode = { 'n' }, '<Cmd>AIChatFinder<CR>', desc = 'Chat finder', },
-    { '<Leader>if', mode = { 'v' }, ":<C-u>'<,'>AIBugs<CR>", desc = 'Fix bugs in selection', },
     { '<Leader>in', mode = { 'n' }, '<Cmd>AIChatNew vsplit<CR>', desc = 'New chat', },
     { '<Leader>in', mode = { 'v' }, ":<C-u>'<,'>AIChatNew vsplit<CR>", desc = 'New chat with selection', },
     { '<Leader>io', mode = { 'v' }, ":<C-u>'<,'>AIOptimize<CR>", desc = 'Optimize selection', },
     { '<Leader>ip', mode = { 'v' }, ":<C-u>'<,'>AIChatPaste<CR>", desc = 'Paste selection into chat', },
     { '<Leader>iq', mode = { 'v' }, ":<C-u>'<,'>AIVnew<CR>", desc = 'Answer prompt with selection context', },
     { '<Leader>ir', mode = { 'v' }, ":<C-u>'<,'>AIReadability<CR>", desc = 'Improve readability of selection', },
-    { '<Leader>is', mode = { 'v' }, ":<C-u>'<,'>AISummarize<CR>", desc = 'Summarize selection', },
+    { '<Leader>is', mode = { 'v' }, ":<C-u>'<,'>AISpelling<CR>", desc = 'Fix spelling in selection', },
     { '<Leader>it', mode = { 'v' }, ":<C-u>'<,'>AITests<CR>", desc = 'Generate tests for selection', },
     -- stylua: ignore end
   },
@@ -60,7 +61,7 @@ local hooks = {
   Docstring = function(gp, params)
     local template = 'I have the following code from {{filename}}:\n\n'
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
-      .. 'Please respond by writing docstrings the code above.\n'
+      .. 'Please respond by writing docstrings for the code above.\n'
       .. 'Respond exclusively with the snippet.'
 
     local agent = gp.get_command_agent()
@@ -160,6 +161,22 @@ local hooks = {
       .. 'Please respond with readability improvements.'
 
     local agent = gp.get_command_agent()
+
+    gp.Prompt(
+      params,
+      gp.Target.vnew,
+      nil,
+      agent.model,
+      template,
+      agent.system_prompt
+    )
+  end,
+  Spelling = function(gp, params)
+    local template = 'I have the following text from {{filename}}:\n\n'
+      .. '```{{filetype}}\n{{selection}}\n```\n\n'
+      .. 'Please respond with a text that has been checked for spelling and grammar issues.'
+
+    local agent = gp.get_chat_agent()
 
     gp.Prompt(
       params,
