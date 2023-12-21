@@ -13,6 +13,16 @@ local M = {
 }
 
 M.opts = {
+  custom_surroundings = {
+    ['('] = { output = { left = '(', right = ')' } },
+    [')'] = { output = { left = '( ', right = ' )' } },
+    ['<'] = { output = { left = '<', right = '>' } },
+    ['>'] = { output = { left = '< ', right = ' >' } },
+    ['['] = { output = { left = '[', right = ']' } },
+    [']'] = { output = { left = '[ ', right = ' ]' } },
+    ['{'] = { output = { left = '{', right = '}' } },
+    ['}'] = { output = { left = '{ ', right = ' }' } },
+  },
   mappings = {
     add = 'gs',
     delete = 'ds',
