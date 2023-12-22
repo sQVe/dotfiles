@@ -36,8 +36,6 @@ local agents = {
       .. 'The user provided the additional info about how they would like you to respond:\n\n'
       .. "- If you're unsure don't guess and say you don't know instead.\n"
       .. '- Ask question if you need clarification to provide better answer.\n'
-      .. '- Think deeply and carefully from first principles step by step.\n'
-      .. '- Zoom out first to see the big picture and then zoom in to details.\n'
       .. '- Use Socratic method to improve your thinking and coding skills.\n'
       .. "- Don't exclude any code from your output if the answer requires coding.\n"
       .. "- Take a deep breath; You've got this!",
@@ -49,7 +47,6 @@ local agents = {
     model = { model = 'gpt-4-1106-preview', temperature = 0.8, top_p = 1 },
     system_prompt = 'You are an AI working as a code editor.\n\n'
       .. 'For complex concepts or code, INCLUDE EXPLANATORY COMMENTS to ensure clarity.\n'
-      .. 'Keep comments succinct and focused on aiding comprehension.\n'
       .. 'Please AVOID COMMENTARY OUTSIDE OF THE SNIPPET RESPONSE.\n'
       .. 'START AND END YOUR ANSWER WITH:\n\n```',
   },
@@ -61,7 +58,7 @@ local hooks = {
   Docstring = function(gp, params)
     local template = 'I have the following code from {{filename}}:\n\n'
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
-      .. 'Please respond by writing docstrings for the code above.\n'
+      .. 'Please respond by writing docstrings for the code above, while excluding the code above from the answer.\n'
       .. 'Respond exclusively with the snippet.'
 
     local agent = gp.get_command_agent()
@@ -144,11 +141,11 @@ local hooks = {
       .. 'Please respond by optimizing the code above.\n'
       .. 'Analyze it for code smells and suggest improvements.'
 
-    local agent = gp.get_command_agent()
+    local agent = gp.get_chat_agent()
 
     gp.Prompt(
       params,
-      gp.Target.vnew,
+      gp.Target.vnew('markdown'),
       nil,
       agent.model,
       template,
@@ -160,11 +157,11 @@ local hooks = {
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
       .. 'Please respond with readability improvements.'
 
-    local agent = gp.get_command_agent()
+    local agent = gp.get_chat_agent()
 
     gp.Prompt(
       params,
-      gp.Target.vnew,
+      gp.Target.vnew('markdown'),
       nil,
       agent.model,
       template,
@@ -176,11 +173,11 @@ local hooks = {
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
       .. 'Please respond with a text that has been checked for spelling and grammar issues.'
 
-    local agent = gp.get_chat_agent()
+    local agent = gp.get_command_agent()
 
     gp.Prompt(
       params,
-      gp.Target.vnew('markdown'),
+      gp.Target.vnew,
       nil,
       agent.model,
       template,
@@ -192,11 +189,11 @@ local hooks = {
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
       .. 'Please respond with a summarization of the text above.'
 
-    local agent = gp.get_chat_agent()
+    local agent = gp.get_command_agent()
 
     gp.Prompt(
       params,
-      gp.Target.vnew('markdown'),
+      gp.Target,
       nil,
       agent.model,
       template,
