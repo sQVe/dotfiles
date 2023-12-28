@@ -95,6 +95,10 @@ M.opts = function()
     TelescopeResultsBorder = { fg = colors.dark4, bg = float_bg },
     TelescopeTitle = { fg = colors.bright_purple },
     TelescopePromptTitle = { fg = colors.bright_yellow },
+
+    -- Treesitter context.
+    TreesitterContext = { bg = '#202020' },
+    TreesitterContextLineNumber = { fg = colors.dark2, bg = '#202020' },
   }, sign_column_override_map)
 
   return {

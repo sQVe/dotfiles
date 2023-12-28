@@ -8,6 +8,8 @@ local M = {
   event = 'BufReadPost',
 }
 
-M.opts = { mode = 'cursor' }
+M.opts = {
+  mode = 'cursor',
+}
 
 return M
