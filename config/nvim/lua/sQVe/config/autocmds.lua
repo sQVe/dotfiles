@@ -37,10 +37,10 @@ autocmd('TextYankPost', {
 })
 
 -- Reload buffer on enter or focus.
-autocmd(
-  { 'BufEnter', 'FocusGained' },
-  { group = augroups.ReloadBuffer, command = 'silent! !' }
-)
+autocmd({ 'BufEnter', 'FocusGained' }, {
+  group = augroups.ReloadBuffer,
+  command = 'silent! !',
+})
 
 -- Save commit message for later.
 autocmd('BufWritePost', {

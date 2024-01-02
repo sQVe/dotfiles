@@ -43,6 +43,7 @@ M.opts = function()
     PmenuSel = { fg = colors.dark0, bg = colors.bright_aqua },
     WinBar = { bg = none },
     WinBarNC = { bg = none },
+    ['@text.todo'] = { bg = none, bold = true },
 
     -- Copilot.
     CopilotAnnotation = { fg = colors.gray },

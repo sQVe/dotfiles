@@ -75,6 +75,9 @@ local indent = {
   -- Wrap long lines at characters specified in 'breakat'.
   linebreak = true,
 
+  -- Round indentations to the nearest multiple of 'shiftwidth'.
+  shiftround = true,
+
   -- Set the number of spaces for each indentation level when using the < and >
   -- mappings.
   shiftwidth = 2,
@@ -88,7 +91,7 @@ local misc = {
   -- Allow clipboard register for yank and paste operations.
   clipboard = 'unnamedplus',
 
-  -- Always display hidden characters.
+  -- Never conceal any characters.
   conceallevel = 0,
 
   -- Prompt to save changes on quitting Neovim.
@@ -102,6 +105,9 @@ local misc = {
 
   -- Maintain 4 lines context when scrolling.
   scrolloff = 4,
+
+  -- Columns of content.
+  sidescrolloff = 4,
 
   -- Refine "hit enter" prompts for cleaner message area.
   shortmess = vim.opt.shortmess + {
@@ -188,6 +194,10 @@ local spell = {
 }
 
 local split = {
+  -- Keep the text cursor in the same position when opening a new horizontal
+  -- split.
+  splitkeep = 'screen',
+
   -- Place new horizontal splits below the current window.
   splitbelow = true,
 

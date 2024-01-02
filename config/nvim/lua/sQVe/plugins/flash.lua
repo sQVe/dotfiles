@@ -17,6 +17,7 @@ local M = {
 
 M.opts = {
   modes = {
+    search = { enabled = false },
     treesitter = {
       highlight = {
         backdrop = true,

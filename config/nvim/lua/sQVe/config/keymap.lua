@@ -79,10 +79,10 @@ map('', '<Tab>', '<Cmd>bnext<CR>', { desc = 'Next buffer' })
 map('', '<S-Tab>', '<Cmd>bprev<CR>', { desc = 'Previous buffer' })
 
 -- Term.
-map('n', '<Leader>ot', '<Cmd>Term<CR>', { desc = 'Open terminal' })
+map('n', '<Leader>tt', '<Cmd>Term<CR>', { desc = 'Open terminal' })
 map(
   'n',
-  '<Leader>oT',
+  '<Leader>tT',
   '<Cmd>BTerm<CR>',
   { desc = 'Open terminal in buffer directory' }
 )
@@ -90,13 +90,13 @@ map(
 -- File manager.
 map(
   'n',
-  '<Leader>of',
+  '<Leader>tf',
   '<Cmd>FileManager<CR>',
   { desc = 'Open terminal with file manager' }
 )
 map(
   'n',
-  '<Leader>oF',
+  '<Leader>tF',
   '<Cmd>BFileManager<CR>',
   { desc = 'Open terminal with file manager in buffer directory' }
 )
@@ -104,13 +104,13 @@ map(
 -- Neovim.
 map(
   'n',
-  '<Leader>on',
+  '<Leader>tn',
   '<Cmd>Neovim<CR>',
   { desc = 'Open terminal with Neovim' }
 )
 map(
   'n',
-  '<Leader>oN',
+  '<Leader>tN',
   '<Cmd>BNeovim<CR>',
   { desc = 'Open terminal with Neovim for current file' }
 )
@@ -118,7 +118,7 @@ map(
 -- Lazygit.
 map(
   'n',
-  '<Leader>ol',
+  '<Leader>tl',
   '<Cmd>Lazygit<CR>',
   { desc = 'Open terminal with Lazygit' }
 )
