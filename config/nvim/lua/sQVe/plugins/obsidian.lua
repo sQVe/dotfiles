@@ -27,15 +27,15 @@ local M = {
   },
   keys = {
     -- stylua: ignore start
+    { '<Leader>ob', mode = { 'n' }, '<Cmd>ObsidianBacklinks<CR>', desc = 'List all backlinks', },
     { '<Leader>od', mode = { 'n' }, '<Cmd>ObsidianToday<CR>', desc = 'New daily note', },
-    { '<Leader>oä', mode = { 'n' }, '<Cmd>ObsidianQuickSwitch<CR>', desc = 'Find note', },
-    { '<Leader>oå', mode = { 'n' }, '<Cmd>ObsidianSearch<CR>', desc = 'Live grep note', },
-    { '<Leader>ol', mode = { 'n' }, '<Cmd>ObsidianBacklinks<CR>', desc = 'List all backlinks', },
     { '<Leader>ol', mode = { 'v' }, ':ObsidianLink', desc = 'Link note to selection', },
     { '<Leader>on', mode = { 'n' }, ':ObsidianNew ', desc = 'New note', },
     { '<Leader>on', mode = { 'v' }, ':ObsidianLinkNew ', desc = 'Link new note to selection', },
     { '<Leader>oo', mode = { 'n' }, '<Cmd>ObsidianOpen<CR>', desc = 'Open current buffer in Obsidian', },
     { '<Leader>ot', mode = { 'n' }, '<Cmd>ObsidianTemplate<CR>', desc = 'New note from template', },
+    { '<Leader>oä', mode = { 'n' }, '<Cmd>ObsidianQuickSwitch<CR>', desc = 'Find note', },
+    { '<Leader>oå', mode = { 'n' }, '<Cmd>ObsidianSearch<CR>', desc = 'Live grep note', },
     -- stylua: ignore end
   },
 }
@@ -77,7 +77,7 @@ local function generate_note_id(title)
 end
 
 M.opts = {
-  attachments = { img_folder = '.attachments' },
+  attachments = { img_folder = 'attachments' },
   completion = { new_notes_location = 'notes_subdir' },
   daily_notes = {
     folder = '5-dailies',
@@ -96,7 +96,7 @@ M.opts = {
   note_frontmatter_func = generate_frontmatter_data,
   note_id_func = generate_note_id,
   notes_subdir = '0-inbox',
-  templates = { subdir = '.templates' },
+  templates = { subdir = 'templates' },
   workspaces = { { name = 'notes', path = NOTES_PATH } },
 }
 

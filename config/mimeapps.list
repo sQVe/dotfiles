@@ -127,3 +127,5 @@ x-scheme-handler/http=open-qutebrowser.desktop;
 x-scheme-handler/https=open-qutebrowser.desktop;
 [Removed Associations]
 application/pdf=calibre-gui.desktop;calibre-ebook-viewer.desktop;
+[Default Applications]
+x-scheme-handler/obsidian=obsidian.desktop;
