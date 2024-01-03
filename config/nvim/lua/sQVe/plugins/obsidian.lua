@@ -33,6 +33,7 @@ local M = {
     { '<Leader>on', mode = { 'n' }, ':ObsidianNew ', desc = 'New note', },
     { '<Leader>on', mode = { 'v' }, ':ObsidianLinkNew ', desc = 'Link new note to selection', },
     { '<Leader>oo', mode = { 'n' }, '<Cmd>ObsidianOpen<CR>', desc = 'Open current buffer in Obsidian', },
+    { '<Leader>op', mode = { 'n' }, '<Cmd>SaveNotes<CR>', desc = 'Commit and push notes', },
     { '<Leader>ot', mode = { 'n' }, '<Cmd>ObsidianTemplate<CR>', desc = 'New note from template', },
     { '<Leader>oä', mode = { 'n' }, '<Cmd>ObsidianQuickSwitch<CR>', desc = 'Find note', },
     { '<Leader>oå', mode = { 'n' }, '<Cmd>ObsidianSearch<CR>', desc = 'Live grep note', },
