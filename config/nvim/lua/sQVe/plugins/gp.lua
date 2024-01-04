@@ -18,7 +18,7 @@ local M = {
     { '<Leader>in', mode = { 'v' }, ":<C-u>'<,'>AIChatNew vsplit<CR>", desc = 'New chat with selection', },
     { '<Leader>io', mode = { 'v' }, ":<C-u>'<,'>AIOptimize<CR>", desc = 'Optimize selection', },
     { '<Leader>ip', mode = { 'v' }, ":<C-u>'<,'>AIChatPaste<CR>", desc = 'Paste selection into chat', },
-    { '<Leader>iq', mode = { 'v' }, ":<C-u>'<,'>AIVnew<CR>", desc = 'Answer prompt with selection context', },
+    { '<Leader>iq', mode = { 'v' }, ":<C-u>'<,'>AIEnew<CR>", desc = 'Answer prompt with selection context', },
     { '<Leader>ir', mode = { 'v' }, ":<C-u>'<,'>AIReadability<CR>", desc = 'Improve readability of selection', },
     { '<Leader>is', mode = { 'v' }, ":<C-u>'<,'>AISpelling<CR>", desc = 'Fix spelling in selection', },
     { '<Leader>it', mode = { 'v' }, ":<C-u>'<,'>AITests<CR>", desc = 'Generate tests for selection', },
@@ -65,7 +65,7 @@ local hooks = {
 
     gp.Prompt(
       params,
-      gp.Target.vnew,
+      gp.Target.enew,
       nil,
       agent.model,
       template,
@@ -81,7 +81,7 @@ local hooks = {
 
     gp.Prompt(
       params,
-      gp.Target.vnew('markdown'),
+      gp.Target.enew('markdown'),
       nil,
       agent.model,
       template,
@@ -97,7 +97,7 @@ local hooks = {
 
     gp.Prompt(
       params,
-      gp.Target.vnew('markdown'),
+      gp.Target.enew('markdown'),
       nil,
       agent.model,
       template,
@@ -128,7 +128,7 @@ local hooks = {
 
     gp.Prompt(
       params,
-      gp.Target.vnew,
+      gp.Target.enew,
       nil,
       agent.model,
       template,
@@ -145,7 +145,7 @@ local hooks = {
 
     gp.Prompt(
       params,
-      gp.Target.vnew('markdown'),
+      gp.Target.enew('markdown'),
       nil,
       agent.model,
       template,
@@ -161,7 +161,7 @@ local hooks = {
 
     gp.Prompt(
       params,
-      gp.Target.vnew('markdown'),
+      gp.Target.enew('markdown'),
       nil,
       agent.model,
       template,
@@ -177,7 +177,7 @@ local hooks = {
 
     gp.Prompt(
       params,
-      gp.Target.vnew,
+      gp.Target.enew,
       nil,
       agent.model,
       template,

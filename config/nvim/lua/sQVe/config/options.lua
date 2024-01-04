@@ -103,8 +103,8 @@ local misc = {
   -- Permit sourcing local vimrc files in project root directories.
   exrc = true,
 
-  -- Maintain 4 lines context when scrolling.
-  scrolloff = 4,
+  -- Maintain 8 lines context when scrolling.
+  scrolloff = 8,
 
   -- Columns of content.
   sidescrolloff = 4,
