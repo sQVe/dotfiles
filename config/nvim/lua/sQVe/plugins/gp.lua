@@ -7,11 +7,12 @@ local M = {
   'robitx/gp.nvim',
   keys = {
     -- stylua: ignore start
+    { '<Leader>i*', mode = { 'v' }, ":<C-u>'<,'>AIDocstring<CR>", desc = 'Generate docstring for selection', },
     { '<Leader>i=', mode = { 'v' }, ":<C-u>'<,'>AISummarize<CR>", desc = 'Summarize selection', },
     { '<Leader>ia', mode = { 'v' }, ":<C-u>'<,'>AIAppend<CR>", desc = 'Append to selection with prompt', },
     { '<Leader>ib', mode = { 'v' }, ":<C-u>'<,'>AIBugs<CR>", desc = 'Repair bugs in selection', },
     { '<Leader>ic', mode = { 'n', 'v' }, '<Cmd>AIChatToggle<CR>', desc = 'Toggle chat', },
-    { '<Leader>id', mode = { 'v' }, ":<C-u>'<,'>AIDocstring<CR>", desc = 'Generate docstring for selection', },
+    { '<Leader>id', mode = { 'n' }, '<Cmd>AIChatDelete<CR>', desc = 'Delete chat', },
     { '<Leader>ie', mode = { 'v' }, ":<C-u>'<,'>AIExplain<CR>", desc = 'Explain selection', },
     { '<Leader>if', mode = { 'n' }, '<Cmd>AIChatFinder<CR>', desc = 'Chat finder', },
     { '<Leader>in', mode = { 'n' }, '<Cmd>AIChatNew vsplit<CR>', desc = 'New chat', },
