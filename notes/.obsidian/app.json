@@ -17,5 +17,6 @@
   ],
   "newFileLocation": "folder",
   "newFileFolderPath": "0-inbox",
-  "attachmentFolderPath": "attachments"
+  "attachmentFolderPath": "attachments",
+  "alwaysUpdateLinks": true
 }

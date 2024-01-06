@@ -2,6 +2,7 @@
   gpgSign = true
 
 [core]
+  editor = nvim
   pager = delta
 
 [init]
