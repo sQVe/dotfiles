@@ -49,6 +49,15 @@ M.opts = function()
     CopilotAnnotation = { fg = colors.gray },
     CopilotSuggestion = { fg = colors.gray },
 
+    -- Headlines.
+    CodeBlock = { bg = colors.dark1 },
+    Headline1 = { fg = colors.bright_green },
+    Headline2 = { fg = colors.bright_purple },
+    Headline3 = { fg = colors.bright_aqua },
+    Headline4 = { fg = colors.bright_yellow },
+    Headline5 = { fg = colors.bright_blue },
+    Headline6 = { fg = colors.bright_orange },
+
     -- Flash.
     FlashBackdrop = { fg = colors.dark3 },
     FlashCurrent = { fg = colors.dark0, bg = colors.bright_orange },
