@@ -26,6 +26,10 @@ local M = {
     -- lua_ls
     'lua',
 
+    -- markdown,
+    'markdown',
+    'markdown.mdx',
+
     -- omnisharp.
     'cs',
     'vb',
@@ -104,6 +108,7 @@ M.config = function()
         },
       },
     }),
+    marksman = server_setup,
     omnisharp = lsp_utils.create_server_setup({
       cmd = { 'omnisharp' },
       on_attach = on_attach,
