@@ -114,7 +114,7 @@ M.opts = function()
   return {
     italic = {
       comments = true,
-      emphasis = false,
+      emphasis = true,
       folds = true,
       operators = false,
       strings = true,
