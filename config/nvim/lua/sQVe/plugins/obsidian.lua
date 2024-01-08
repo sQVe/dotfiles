@@ -86,6 +86,9 @@ M.opts = {
     alias_format = '%Y-%m-%d',
     template = nil,
   },
+  follow_url_func = function(url)
+    vim.fn.jobstart({ 'mimeo', url })
+  end,
   mappings = {
     ['gf'] = {
       action = function()
