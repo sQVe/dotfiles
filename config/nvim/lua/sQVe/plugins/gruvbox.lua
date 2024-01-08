@@ -50,7 +50,7 @@ M.opts = function()
     CopilotSuggestion = { fg = colors.gray },
 
     -- Headlines.
-    CodeBlock = { bg = colors.dark1 },
+    CodeBlock = { bg = float_bg },
     Headline1 = { fg = colors.bright_green },
     Headline2 = { fg = colors.bright_purple },
     Headline3 = { fg = colors.bright_aqua },
