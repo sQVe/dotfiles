@@ -114,10 +114,7 @@ M.config = function()
     sources = config.sources({
       { name = 'nvim_lsp' },
       { name = 'path' },
-      {
-        name = 'luasnip',
-        keyword_length = 2,
-      },
+      { name = 'luasnip', keyword_length = 2 },
       {
         name = 'buffer',
         keyword_length = 4,
@@ -125,6 +122,20 @@ M.config = function()
       },
       { name = 'emoji' },
     }),
+  })
+
+  cmp.setup.filetype('markdown', {
+    sources = {
+      { name = 'nvim_lsp' },
+      { name = 'path' },
+      { name = 'luasnip', keyword_length = 2 },
+      {
+        name = 'buffer',
+        keyword_length = 2,
+        option = { keyword_pattern = anyWord },
+      },
+      { name = 'emoji' },
+    },
   })
 
   cmp.setup.cmdline({ '/', '?' }, {

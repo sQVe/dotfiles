@@ -1,6 +1,9 @@
+local autocmd = require('sQVe.utils.vim').autocmd
+local augroup = require('sQVe.utils.vim').augroup
+
 -- Set .mdx filetype.
-vim.api.nvim_create_autocmd({ 'BufNew', 'BufRead' }, {
-  group = vim.api.nvim_create_augroup('SetMdxFiletype', {}),
+autocmd({ 'BufNew', 'BufRead' }, {
+  group = augroup('SetMdxFiletype'),
   pattern = '*.mdx',
   command = 'set filetype=markdown',
 })

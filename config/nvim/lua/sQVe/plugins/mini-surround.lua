@@ -20,6 +20,7 @@ M.opts = {
     ['>'] = { output = { left = '< ', right = ' >' } },
     ['['] = { output = { left = '[', right = ']' } },
     [']'] = { output = { left = '[ ', right = ' ]' } },
+    ['w'] = { output = { left = '[[', right = ']]' } },
     ['{'] = { output = { left = '{', right = '}' } },
     ['}'] = { output = { left = '{ ', right = ' }' } },
   },

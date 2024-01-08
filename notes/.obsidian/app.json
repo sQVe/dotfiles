@@ -18,5 +18,6 @@
   "newFileLocation": "folder",
   "newFileFolderPath": "0-inbox",
   "attachmentFolderPath": "attachments",
-  "alwaysUpdateLinks": true
+  "alwaysUpdateLinks": true,
+  "spellcheck": true
 }

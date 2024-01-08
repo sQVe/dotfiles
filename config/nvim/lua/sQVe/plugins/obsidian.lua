@@ -77,15 +77,25 @@ local function generate_note_id(title)
   return os.date('%Y%m%d') .. '-' .. suffix
 end
 
+local function is_existing_file(filename)
+  local filesize = vim.fn.getfsize(NOTES_PATH .. '/' .. filename)
+
+  return filesize > 0
+end
+
 M.opts = {
   attachments = { img_folder = 'attachments' },
-  completion = { new_notes_location = 'notes_subdir' },
+  completion = {
+    -- Disable completion since we're using Marksman, a Markdown LSP.
+    nvim_cmp = false,
+  },
   daily_notes = {
     folder = '5-dailies',
     date_format = '%Y%m%d',
     alias_format = '%Y-%m-%d',
     template = nil,
   },
+  disable_frontmatter = is_existing_file,
   follow_url_func = function(url)
     vim.fn.jobstart({ 'mimeo', url })
   end,
