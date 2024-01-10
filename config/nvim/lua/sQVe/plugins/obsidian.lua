@@ -1,4 +1,4 @@
-local NOTES_PATH = vim.fn.expand('$NOTES')
+local NOTEBOX_PATH = vim.fn.expand('$NOTEBOX')
 
 local M = {
   'epwalsh/obsidian.nvim',
@@ -22,8 +22,8 @@ local M = {
     'ObsidianYesterday',
   },
   event = {
-    'BufReadPre ' .. NOTES_PATH .. '/**.md',
-    'BufNewFile ' .. NOTES_PATH .. '/**.md',
+    'BufReadPre ' .. NOTEBOX_PATH .. '/**.md',
+    'BufNewFile ' .. NOTEBOX_PATH .. '/**.md',
   },
   keys = {
     -- stylua: ignore start
@@ -80,7 +80,7 @@ local function generate_note_id(title)
 end
 
 local function is_existing_file(filename)
-  local filesize = vim.fn.getfsize(NOTES_PATH .. '/' .. filename)
+  local filesize = vim.fn.getfsize(NOTEBOX_PATH .. '/' .. filename)
 
   return filesize > 0
 end
@@ -113,7 +113,7 @@ M.opts = {
   note_id_func = generate_note_id,
   notes_subdir = '0-inbox',
   templates = { subdir = 'templates' },
-  workspaces = { { name = 'notes', path = NOTES_PATH } },
+  workspaces = { { name = 'notes', path = NOTEBOX_PATH } },
 }
 
 M.config = function(_, opts)
@@ -124,7 +124,7 @@ M.config = function(_, opts)
 
   autocmd('BufEnter', {
     group = augroup('Obsidian'),
-    pattern = NOTES_PATH .. '**/*.md',
+    pattern = NOTEBOX_PATH .. '**/*.md',
     callback = function()
       vim.opt_local.shiftwidth = 2
       vim.opt_local.tabstop = 2

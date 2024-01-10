@@ -8,6 +8,7 @@ local M = {
   keys = {
     -- stylua: ignore start
     { '<Leader>i*', mode = { 'v' }, ":<C-u>'<,'>AIDocstring<CR>", desc = 'Generate docstring for selection', },
+    { '<Leader>i-', mode = { 'v' }, '<Cmd>AICompress<CR>', desc = 'Compress selection', },
     { '<Leader>i=', mode = { 'v' }, ":<C-u>'<,'>AISummarize<CR>", desc = 'Summarize selection', },
     { '<Leader>ia', mode = { 'v' }, ":<C-u>'<,'>AIAppend<CR>", desc = 'Append to selection with prompt', },
     { '<Leader>ib', mode = { 'v' }, ":<C-u>'<,'>AIBugs<CR>", desc = 'Repair bugs in selection', },
@@ -56,6 +57,38 @@ local agents = {
 }
 
 local hooks = {
+  Bugs = function(gp, params)
+    local template = 'I have the following code from {{filename}}:\n\n'
+      .. '```{{filetype}}\n{{selection}}\n```\n\n'
+      .. 'Please respond by fixing the bugs for the code above.'
+
+    local agent = gp.get_chat_agent()
+
+    gp.Prompt(
+      params,
+      gp.Target.enew('markdown'),
+      nil,
+      agent.model,
+      template,
+      agent.system_prompt
+    )
+  end,
+  Compress = function(gp, params)
+    local template = 'I have the following code from {{filename}}:\n\n'
+      .. '```{{filetype}}\n{{selection}}\n```\n\n'
+      .. 'Please respond by making the text above as concise as possible.'
+
+    local agent = gp.get_command_agent()
+
+    gp.Prompt(
+      params,
+      gp.Target.enew,
+      nil,
+      agent.model,
+      template,
+      agent.system_prompt
+    )
+  end,
   Docstring = function(gp, params)
     local template = 'I have the following code from {{filename}}:\n\n'
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
@@ -77,22 +110,6 @@ local hooks = {
     local template = 'I have the following code from {{filename}}:\n\n'
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
       .. 'Please respond by explaining the code above.'
-
-    local agent = gp.get_chat_agent()
-
-    gp.Prompt(
-      params,
-      gp.Target.enew('markdown'),
-      nil,
-      agent.model,
-      template,
-      agent.system_prompt
-    )
-  end,
-  Bugs = function(gp, params)
-    local template = 'I have the following code from {{filename}}:\n\n'
-      .. '```{{filetype}}\n{{selection}}\n```\n\n'
-      .. 'Please respond by fixing the bugs for the code above.'
 
     local agent = gp.get_chat_agent()
 
@@ -156,7 +173,7 @@ local hooks = {
   Readability = function(gp, params)
     local template = 'I have the following code from {{filename}}:\n\n'
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
-      .. 'Please respond with readability improvements.'
+      .. 'Please respond with a more readable version of the text above.'
 
     local agent = gp.get_chat_agent()
 
@@ -172,7 +189,7 @@ local hooks = {
   Spelling = function(gp, params)
     local template = 'I have the following text from {{filename}}:\n\n'
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
-      .. 'Please respond with a text that has been checked for spelling and grammar issues.'
+      .. 'Please respond with a grammar and spelling corrected version for the text above.'
 
     local agent = gp.get_command_agent()
 

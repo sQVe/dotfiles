@@ -35,7 +35,7 @@ set $lock --no-startup-id lock
 set $menu-apps --no-startup-id $SCRIPTS/menus/apps.sh
 set $menu-calculator --no-startup-id $SCRIPTS/menus/calculator.sh
 set $menu-emoji --no-startup-id $SCRIPTS/menus/emoji.sh
-set $menu-notes --no-startup-id $SCRIPTS/menus/notes.sh
+set $menu-notebox --no-startup-id $SCRIPTS/menus/notebox.sh
 set $menu-passwords --no-startup-id $SCRIPTS/menus/passwords.sh
 set $menu-playground --no-startup-id $SCRIPTS/menus/playground.sh
 set $menu-projects --no-startup-id $SCRIPTS/menus/projects.sh
@@ -172,7 +172,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+m exec $menu-state
-bindsym $mod+n exec $menu-notes
+bindsym $mod+n exec $menu-notebox
 bindsym $mod+o floating toggle; resize set 1600 800; move position center
 bindsym $mod+p focus parent
 bindsym $mod+q kill

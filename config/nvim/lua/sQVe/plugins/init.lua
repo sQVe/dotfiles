@@ -30,6 +30,12 @@ return {
   -- Auto close pairs.
   { 'echasnovski/mini.pairs', config = true, event = 'VeryLazy' },
 
+  {
+    'sQVe/notebox.nvim',
+    dev = true,
+    opts = {},
+  },
+
   -- Textobjects.
   { 'michaeljsmith/vim-indent-object', event = 'VeryLazy' }, -- Indent textobject.
   { 'echasnovski/mini.ai', config = true, event = 'VeryLazy' }, -- Additional textobjects.
