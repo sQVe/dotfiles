@@ -128,7 +128,7 @@
     "prefix": "while",
     "body": ["while (${1:condition}) {", "\t$0", "}"]
   },
-  "prettierDisable": {
+  "prettierIgnore": {
     "prefix": "prettier-ignore",
     "body": "// prettier-ignore"
   },
