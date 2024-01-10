@@ -28,13 +28,15 @@ local M = {
   keys = {
     -- stylua: ignore start
     { '<Leader>ob', mode = { 'n' }, '<Cmd>ObsidianBacklinks<CR>', desc = 'List all backlinks', },
-    { '<Leader>od', mode = { 'n' }, '<Cmd>ObsidianToday<CR>', desc = 'New daily note', },
+    { '<Leader>od', mode = { 'n' }, '<Cmd>ObsidianToday<CR>', desc = 'Open daily note', },
     { '<Leader>ol', mode = { 'v' }, ':ObsidianLink', desc = 'Link note to selection', },
     { '<Leader>on', mode = { 'n' }, ':ObsidianNew ', desc = 'New note', },
     { '<Leader>on', mode = { 'v' }, ':ObsidianLinkNew ', desc = 'Link new note to selection', },
     { '<Leader>oo', mode = { 'n' }, '<Cmd>ObsidianOpen<CR>', desc = 'Open current buffer in Obsidian', },
     { '<Leader>op', mode = { 'n' }, '<Cmd>SaveNotes<CR>', desc = 'Commit and push notes', },
+    { '<Leader>or', mode = { 'n' }, '<Cmd>ObsidianRename<CR>', desc = 'Rename note', },
     { '<Leader>ot', mode = { 'n' }, '<Cmd>ObsidianTemplate<CR>', desc = 'Insert template', },
+    { '<Leader>oy', mode = { 'n' }, '<Cmd>ObsidianYesterday<CR>', desc = 'Open yesterdays daily note', },
     { '<Leader>oä', mode = { 'n' }, '<Cmd>ObsidianQuickSwitch<CR>', desc = 'Find note', },
     { '<Leader>oå', mode = { 'n' }, '<Cmd>ObsidianSearch<CR>', desc = 'Live grep note', },
     -- stylua: ignore end
