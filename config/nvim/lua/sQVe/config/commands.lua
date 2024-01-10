@@ -113,11 +113,7 @@ end, { nargs = '?' })
 
 -- Save notes.
 command('SaveNotes', function()
-  local ok = pcall(
-    vim.fn.jobstart,
-    vim.fn.expand('$SCRIPTS') .. '/nvim/save-notes.sh',
-    { detach = true }
-  )
+  local ok = pcall(vim.fn.jobstart, 'save-notes', { detach = true })
   if not ok then
     vim.api.nvim_err_writeln('Unable to save notes.')
   end
