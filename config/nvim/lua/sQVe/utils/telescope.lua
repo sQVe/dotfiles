@@ -80,36 +80,36 @@ M.git_status = function()
   end
 end
 
-M.live_grep = function(use_buffer_cwd)
+M.live_grep = function(use_buffer_directory)
   local builtin = require('telescope.builtin')
   local utils = require('telescope.utils')
 
   local opts = {
     prompt_title = get_prompt_title(
       'Live grep',
-      use_buffer_cwd and utils.buffer_dir()
+      use_buffer_directory and utils.buffer_dir()
     ),
   }
 
-  if use_buffer_cwd then
+  if use_buffer_directory then
     opts.cwd = utils.buffer_dir()
   end
 
   builtin.live_grep(opts)
 end
 
-M.grep_string = function(use_buffer_cwd)
+M.grep_string = function(use_buffer_directory)
   local builtin = require('telescope.builtin')
   local utils = require('telescope.utils')
 
   local opts = {
     prompt_title = get_prompt_title(
       string.format('Find text "%s"', get_cword_or_selection()),
-      use_buffer_cwd and utils.buffer_dir()
+      use_buffer_directory and utils.buffer_dir()
     ),
   }
 
-  if use_buffer_cwd then
+  if use_buffer_directory then
     opts.cwd = utils.buffer_dir()
   end
 

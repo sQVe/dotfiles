@@ -19,5 +19,11 @@
   "newFileFolderPath": "0-inbox",
   "attachmentFolderPath": "attachments",
   "alwaysUpdateLinks": true,
-  "spellcheck": true
+  "spellcheck": true,
+  "pdfExportSettings": {
+    "pageSize": "Letter",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 100
+  }
 }

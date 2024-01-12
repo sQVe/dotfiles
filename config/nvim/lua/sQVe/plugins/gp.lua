@@ -8,7 +8,7 @@ local M = {
   keys = {
     -- stylua: ignore start
     { '<Leader>i*', mode = { 'v' }, ":<C-u>'<,'>AIDocstring<CR>", desc = 'Generate docstring for selection', },
-    { '<Leader>i-', mode = { 'v' }, '<Cmd>AICompress<CR>', desc = 'Compress selection', },
+    { '<Leader>i-', mode = { 'v' }, ":<C-u>'<,'>AICompress<CR>", desc = 'Compress selection', },
     { '<Leader>i=', mode = { 'v' }, ":<C-u>'<,'>AISummarize<CR>", desc = 'Summarize selection', },
     { '<Leader>ia', mode = { 'v' }, ":<C-u>'<,'>AIAppend<CR>", desc = 'Append to selection with prompt', },
     { '<Leader>ib', mode = { 'v' }, ":<C-u>'<,'>AIBugs<CR>", desc = 'Repair bugs in selection', },
@@ -49,8 +49,8 @@ local agents = {
     model = { model = 'gpt-4-1106-preview', temperature = 0.8, top_p = 1 },
     system_prompt = 'You are an AI working as a code editor.\n\n'
       .. 'For complex concepts or code, INCLUDE EXPLANATORY COMMENTS to ensure clarity.\n'
-      .. 'Please AVOID COMMENTARY OUTSIDE OF THE SNIPPET RESPONSE.\n'
-      .. 'START AND END YOUR ANSWER WITH:\n\n```',
+      .. 'Please AVOID COMMENTARY OUTSIDE of the codeblock response.\n'
+      .. 'Start and end your answer with:\n\n```',
   },
   { name = 'ChatGPT3-5' },
   { name = 'CodeGPT3-5' },
@@ -74,7 +74,7 @@ local hooks = {
     )
   end,
   Compress = function(gp, params)
-    local template = 'I have the following code from {{filename}}:\n\n'
+    local template = 'I have the following text from {{filename}}:\n\n'
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
       .. 'Please respond by making the text above as concise as possible.'
 
@@ -171,7 +171,7 @@ local hooks = {
     )
   end,
   Readability = function(gp, params)
-    local template = 'I have the following code from {{filename}}:\n\n'
+    local template = 'I have the following text from {{filename}}:\n\n'
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
       .. 'Please respond with a more readable version of the text above.'
 
@@ -207,11 +207,11 @@ local hooks = {
       .. '```{{filetype}}\n{{selection}}\n```\n\n'
       .. 'Please respond with a summarization of the text above.'
 
-    local agent = gp.get_command_agent()
+    local agent = gp.get_chat_agent()
 
     gp.Prompt(
       params,
-      gp.Target,
+      gp.Target.enew('markdown'),
       nil,
       agent.model,
       template,
