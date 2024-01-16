@@ -43,7 +43,11 @@ M.opts = function()
     PmenuSel = { fg = colors.dark0, bg = colors.bright_aqua },
     WinBar = { bg = none },
     WinBarNC = { bg = none },
-    ['@text.todo'] = { bg = none, bold = true },
+    ['@heading.marker'] = { bold = true },
+    ['@punctuation.special'] = { fg = colors.gray },
+    ['@text.todo.checked'] = { fg = colors.bright_green },
+    ['@text.todo.checked.text'] = { fg = colors.gray },
+    ['@text.todo.unchecked'] = { fg = colors.bright_red },
 
     -- Copilot.
     CopilotAnnotation = { fg = colors.gray },
@@ -51,12 +55,12 @@ M.opts = function()
 
     -- Headlines.
     CodeBlock = { bg = float_bg },
-    Headline1 = { fg = colors.bright_green },
-    Headline2 = { fg = colors.bright_purple },
-    Headline3 = { fg = colors.bright_aqua },
-    Headline4 = { fg = colors.bright_yellow },
-    Headline5 = { fg = colors.bright_blue },
-    Headline6 = { fg = colors.bright_orange },
+    Headline1 = { fg = colors.bright_aqua, bold = true },
+    Headline2 = { fg = colors.bright_green, bold = true },
+    Headline3 = { fg = colors.bright_purple, bold = true },
+    Headline4 = { fg = colors.bright_yellow, bold = true },
+    Headline5 = { fg = colors.bright_orange, bold = true },
+    Headline6 = { fg = colors.bright_red, bold = true },
 
     -- Flash.
     FlashBackdrop = { fg = colors.dark3 },

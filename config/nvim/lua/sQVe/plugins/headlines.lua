@@ -11,7 +11,9 @@ local M = {
 
 M.opts = {
   markdown = {
-    fat_headlines = false,
+    fat_headlines = true,
+    fat_headline_upper_string = '',
+    fat_headline_lower_string = '˜',
     headline_highlights = {
       'Headline1',
       'Headline2',
