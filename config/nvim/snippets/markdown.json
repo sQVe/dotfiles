@@ -81,7 +81,7 @@
   },
   "insertTaskList": {
     "prefix": "task",
-    "body": ["- [${1| ,x|}] ${2:text}", "$0"]
+    "body": ["- [${1}] ${2:text}", "$0"]
   },
   "insertTable": {
     "prefix": "table",
