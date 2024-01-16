@@ -94,6 +94,10 @@
   },
   "prettierIgnore": {
     "prefix": "prettier-ignore",
-    "body": "<!-- prettier-ignore -->\n"
+    "body": ["<!-- prettier-ignore -->", "$0"]
+  },
+  "comment": {
+    "prefix": "comment",
+    "body": ["<!-- $1 -->", "$0"]
   }
 }
