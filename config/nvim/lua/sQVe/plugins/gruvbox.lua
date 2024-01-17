@@ -48,6 +48,7 @@ M.opts = function()
     ['@text.todo.checked'] = { fg = colors.bright_green },
     ['@text.todo.checked.text'] = { fg = colors.gray },
     ['@text.todo.unchecked'] = { fg = colors.bright_red },
+    ['@text.todo.unchecked.text'] = { fg = colors.light1 },
 
     -- Copilot.
     CopilotAnnotation = { fg = colors.gray },

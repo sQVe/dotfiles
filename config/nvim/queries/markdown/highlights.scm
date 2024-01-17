@@ -25,10 +25,15 @@
   (#offset! @text.todo.checked 0 -2 0 0)
   (#set! conceal "󰄲"))
 
-; Set a highlight for checked task list items.
+; Set a highlight for the text of checked task list items.
 (list_item
-  (task_list_marker_checked)
-  (_) @text.todo.checked.text)
+ (task_list_marker_checked)
+ (_) @text.todo.checked.text)
+
+; Set a highlight for the text of unchecked task list items.
+(list_item
+ (task_list_marker_unchecked)
+ (_) @text.todo.unchecked.text)
 
 ; Headers
 ((atx_h1_marker) @heading.marker
