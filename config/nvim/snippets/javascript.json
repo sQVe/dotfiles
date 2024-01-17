@@ -192,13 +192,7 @@
   },
   "tryFinally": {
     "prefix": "tryfinally",
-    "body": [
-      "try {",
-      "\t$0",
-      "} finally {",
-      "",
-      "}"
-    ]
+    "body": ["try {", "\t$0", "} finally {", "", "}"]
   },
   "tryCatchFinally": {
     "prefix": "trycatchfinally",
