@@ -25,10 +25,14 @@ format = " $frequency  $icon $barchart $utilization "
 
 [[block]]
 block = "temperature"
-format = " $icon $max "
+format = " $icon $average "
 format_alt = " $icon $min min, $max max, $average avg "
-interval = 10
+interval = 5
+info = 70
 chip = "*-isa-*"
+[block.theme_overrides]
+idle_bg = "#282828"
+idle_fg = "#8ec07c"
 
 [[block]]
 block = "backlight"
