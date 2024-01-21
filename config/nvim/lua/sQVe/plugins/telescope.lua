@@ -89,7 +89,7 @@ local M = {
     },
   },
   dependencies = {
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    { 'natecraddock/telescope-zf-native.nvim' },
   },
 }
 
@@ -165,7 +165,7 @@ M.config = function(_, opts)
   local telescope = require('telescope')
 
   telescope.setup(opts)
-  telescope.load_extension('fzf')
+  telescope.load_extension('zf-native')
 end
 
 return M
