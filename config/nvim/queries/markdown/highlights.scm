@@ -53,3 +53,5 @@
 
 ((atx_h6_marker) @heading.marker
   (#set! conceal "6"))
+
+(inline) @spell
