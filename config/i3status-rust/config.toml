@@ -132,8 +132,8 @@ block = "battery"
 format = " $icon $percentage "
 good = 80
 info = 60
-warning = 40
-critical = 20
+warning = 30
+critical = 15
 full_format = " $icon "
 [block.theme_overrides]
 idle_bg = "#83a598"
