@@ -129,3 +129,4 @@ x-scheme-handler/https=open-qutebrowser.desktop;
 application/pdf=calibre-gui.desktop;calibre-ebook-viewer.desktop;
 [Default Applications]
 x-scheme-handler/obsidian=obsidian.desktop;
+x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop
