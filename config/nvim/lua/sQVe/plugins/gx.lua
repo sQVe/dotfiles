@@ -5,8 +5,9 @@
 
 local M = {
   'chrishrb/gx.nvim',
+  cmd = { 'Browse' },
   keys = {
-    { 'gx', mode = { 'n', 'v' }, desc = 'Open in browser' },
+    { 'gx', '<Cmd>Browse<CR>', mode = { 'n', 'v' }, desc = 'Open in browser' },
   },
 }
 
