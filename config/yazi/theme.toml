@@ -60,12 +60,30 @@ border   = { fg = "#83a598" }
 active   = { fg = "#d3869b" }
 inactive = {}
 
+
+# TODO: Change the color settings here.
+[input]
+border   = { fg = "#665c54" }
+title    = { fg = "#d3869b" }
+value    = {}
+selected = { reversed = true }
+
+[completion]
+border   = { fg = "#83a598" }
+active   = { fg = "#d3869b" }
+inactive = {}
+
+icon_file    = " "
+icon_folder  = " "
+icon_command = " "
+
 [tasks]
 border  = { fg = "#83a598" }
 title   = {}
 hovered = { underline = true }
 
 [which]
+cols            = 3
 mask            = { bg = "#3c3836" }
 cand            = { fg = "#8ec07c" }
 rest            = { fg = "#504945" }
@@ -108,97 +126,146 @@ rules = [
 	{ name = "*/", fg = "#83a598" }
 ]
 
-[icons]
+[icon]
+rules = [
+	# Programming
+	{ name = "*.c"    , text = " " },
+	{ name = "*.cpp"  , text = " " },
+	{ name = "*.css"  , text = " " },
+	{ name = "*.fish" , text = " " },
+	{ name = "*.go"   , text = " " },
+	{ name = "*.h"    , text = " " },
+	{ name = "*.hpp"  , text = " " },
+	{ name = "*.html" , text = " " },
+	{ name = "*.java" , text = " " },
+	{ name = "*.js"   , text = " " },
+	{ name = "*.jsx"  , text = " " },
+	{ name = "*.lua"  , text = " " },
+	{ name = "*.nix"  , text = " " },
+	{ name = "*.php"  , text = " " },
+	{ name = "*.py"   , text = " " },
+	{ name = "*.rb"   , text = " " },
+	{ name = "*.rs"   , text = " " },
+	{ name = "*.scss" , text = " " },
+	{ name = "*.sh"   , text = " " },
+	{ name = "*.swift", text = " " },
+	{ name = "*.ts"   , text = " " },
+	{ name = "*.tsx"  , text = " " },
+	{ name = "*.vim"  , text = " " },
+	{ name = "*.vue"  , text = "󰡄 " },
 
-"Desktop/"     = " "
-"Documents/"   = " "
-"Downloads/"   = " "
-"Pictures/"    = " "
-"Music/"       = " "
-"Movies/"      = " "
-"Videos/"      = " "
-"Public/"      = " "
-"Library/"     = " "
-"Development/" = " "
-".config/"     = " "
+	# Text
+	{ name = "*.conf", text = " " },
+	{ name = "*.ini" , text = " " },
+	{ name = "*.json", text = " " },
+	{ name = "*.md" ,  text = " " },
+	{ name = "*.toml", text = " " },
+	{ name = "*.txt",  text = " " },
+	{ name = "*.yaml", text = " " },
+	{ name = "*.yml" , text = " " },
 
-# Git
-".git/"          = " "
-".gitignore"     = " "
-".gitmodules"    = " "
-".gitattributes" = " "
+	# Archives
+	{ name = "*.7z" , text = " " },
+	{ name = "*.bz2", text = " " },
+	{ name = "*.gz" , text = " " },
+	{ name = "*.rar", text = " " },
+	{ name = "*.tar", text = " " },
+	{ name = "*.xz" , text = " " },
+	{ name = "*.zip", text = " " },
 
-# Dotfiles
-".DS_Store"    = " "
-".bashrc"      = " "
-".bashprofile" = " "
-".zshrc"       = " "
-".zshenv"      = " "
-".zprofile"    = " "
-".vimrc"       = " "
+	# Images
+	{ name = "*.HEIC", text = " " },
+	{ name = "*.avif", text = " " },
+	{ name = "*.bmp" , text = " " },
+	{ name = "*.gif" , text = " " },
+	{ name = "*.ico" , text = " " },
+	{ name = "*.jpeg", text = " " },
+	{ name = "*.jpg" , text = " " },
+	{ name = "*.png" , text = " " },
+	{ name = "*.svg" , text = " " },
+	{ name = "*.webp", text = " " },
 
-# Text
-"*.txt" = " "
-"*.md"  = " "
+	# Movies
+	{ name = "*.avi" , text = " " },
+	{ name = "*.mkv" , text = " " },
+	{ name = "*.mov" , text = " " },
+	{ name = "*.mp4" , text = " " },
+	{ name = "*.webm", text = " " },
 
-# Archives
-"*.zip" = " "
-"*.tar" = " "
-"*.gz"  = " "
-"*.7z"  = " "
+	# Audio
+	{ name = "*.aac" , text = " " },
+	{ name = "*.flac", text = " " },
+	{ name = "*.m4a" , text = " " },
+	{ name = "*.mp3" , text = " " },
+	{ name = "*.ogg" , text = " " },
+	{ name = "*.wav" , text = " " },
 
-# Audio
-"*.mp3"  = " "
-"*.flac" = " "
-"*.wav"  = " "
+	# Documents
+	{ name = "*.csv" , text = " " },
+	{ name = "*.doc" , text = " " },
+	{ name = "*.doct", text = " " },
+	{ name = "*.docx", text = " " },
+	{ name = "*.dot" , text = " " },
+	{ name = "*.ods" , text = " " },
+	{ name = "*.ots" , text = " " },
+	{ name = "*.pdf" , text = " " },
+	{ name = "*.pom" , text = " " },
+	{ name = "*.pot" , text = " " },
+	{ name = "*.potx", text = " " },
+	{ name = "*.ppm" , text = " " },
+	{ name = "*.ppmx", text = " " },
+	{ name = "*.pps" , text = " " },
+	{ name = "*.ppsx", text = " " },
+	{ name = "*.ppt" , text = " " },
+	{ name = "*.pptx", text = " " },
+	{ name = "*.xlc" , text = " " },
+	{ name = "*.xlm" , text = " " },
+	{ name = "*.xls" , text = " " },
+	{ name = "*.xlsm", text = " " },
+	{ name = "*.xlsx", text = " " },
+	{ name = "*.xlt" , text = " " },
 
-# Movies
-"*.mp4" = " "
-"*.mkv" = " "
-"*.avi" = " "
-"*.mov" = " "
+	# Lockfiles
+	{ name = "*.lock", text = " " },
 
-# Images
-"*.jpg"  = " "
-"*.jpeg" = " "
-"*.png"  = " "
-"*.gif"  = " "
-"*.webp" = " "
-"*.avif" = " "
-"*.bmp"  = " "
-"*.ico"  = " "
-"*.svg"  = " "
+	# Misc
+	{ name = "*.bin", text = " " },
+	{ name = "*.exe", text = " " },
+	{ name = "*.pkg", text = " " },
 
-# Programming
-"*.c"     = " "
-"*.cpp"   = " "
-"*.h"     = " "
-"*.hpp"   = " "
-"*.rs"    = " "
-"*.go"    = " "
-"*.py"    = " "
-"*.js"    = " "
-"*.ts"    = " "
-"*.tsx"   = " "
-"*.jsx"   = " "
-"*.rb"    = " "
-"*.php"   = " "
-"*.java"  = " "
-"*.sh"    = " "
-"*.fish"  = " "
-"*.swift" = " "
-"*.vim"   = " "
-"*.lua"   = " "
-"*.html"  = " "
-"*.css"   = " "
-"*.scss"  = " "
-"*.json"  = " "
-"*.toml"  = " "
-"*.yml"   = " "
-"*.yaml"  = " "
-"*.ini"   = " "
-"*.conf"  = " "
+	# Dotfiles
+	{ name = ".DS_Store"     , text = " " },
+	{ name = ".bashprofile"  , text = " " },
+	{ name = ".bashrc"       , text = " " },
+	{ name = ".gitattributes", text = " " },
+	{ name = ".gitignore"    , text = " " },
+	{ name = ".gitmodules"   , text = " " },
+	{ name = ".vimrc"        , text = " " },
+	{ name = ".zprofile"     , text = " " },
+	{ name = ".zshenv"       , text = " " },
+	{ name = ".zshrc"        , text = " " },
 
-# Default
-"*"  = " "
-"*/" = " "
+	# Named files
+	{ name = "COPYING"      , text = "󰿃 " },
+	{ name = "Containerfile", text = "󰡨 " },
+	{ name = "Dockerfile"   , text = "󰡨 " },
+	{ name = "LICENSE"      , text = "󰿃 " },
+
+	# Directories
+	{ name = ".config/"    , text = " " },
+	{ name = ".git/"       , text = " " },
+	{ name = "Desktop/"    , text = " " },
+	{ name = "Development/", text = " " },
+	{ name = "Documents/"  , text = " " },
+	{ name = "Downloads/"  , text = " " },
+	{ name = "Library/"    , text = " " },
+	{ name = "Movies/"     , text = " " },
+	{ name = "Music/"      , text = " " },
+	{ name = "Pictures/"   , text = " " },
+	{ name = "Public/"     , text = " " },
+	{ name = "Videos/"     , text = " " },
+
+	# Default
+	{ name = "*" , text = " " },
+	{ name = "*/", text = " " },
+]
