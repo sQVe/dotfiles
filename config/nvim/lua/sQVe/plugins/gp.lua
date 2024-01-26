@@ -48,7 +48,6 @@ local M = {
     -- stylua: ignore start
     { '<Leader>i*', mode = { 'v' }, ":<C-u>'<,'>GpDocumentation<CR>", desc = 'Generate documentation for selection', },
     { '<Leader>i-', mode = { 'v' }, ":<C-u>'<,'>GpCompress<CR>", desc = 'Compress selection', },
-    { '<Leader>i=', mode = { 'v' }, ":<C-u>'<,'>GpSummarize<CR>", desc = 'Summarize selection', },
     { '<Leader>ia', mode = { 'v' }, ":<C-u>'<,'>GpAtomic<CR>", desc = 'Suggest note improvements for selection', },
     { '<Leader>ib', mode = { 'v' }, ":<C-u>'<,'>GpBugs<CR>", desc = 'Repair bugs in selection', },
     { '<Leader>ic', mode = { 'n', 'v' }, '<Cmd>GpChatToggle<CR>', desc = 'Toggle chat', },
@@ -65,6 +64,8 @@ local M = {
     { '<Leader>ir', mode = { 'v' }, ":<C-u>'<,'>GpReadability<CR>", desc = 'Improve readability of selection', },
     { '<Leader>is', mode = { 'v' }, ":<C-u>'<,'>GpSpelling<CR>", desc = 'Fix spelling in selection', },
     { '<Leader>it', mode = { 'v' }, ":<C-u>'<,'>GpTests<CR>", desc = 'Generate tests for selection', },
+    { '<Leader>iw', mode = { 'v' }, ":<C-u>'<,'>GpReword<CR>", desc = 'Reword selection', },
+    { '<Leader>iz', mode = { 'v' }, ":<C-u>'<,'>GpSummarize<CR>", desc = 'Summarize selection', },
     -- stylua: ignore end
   },
 }
@@ -299,6 +300,28 @@ local hooks = {
       '```',
       '',
       'Please enhance the clarity and readability of the code snippet above in your response.',
+    })
+
+    local agent = gp.get_chat_agent()
+
+    gp.Prompt(
+      params,
+      gp.Target.enew('markdown'),
+      nil,
+      agent.model,
+      prompt,
+      agent.system_prompt
+    )
+  end,
+  Reword = function(gp, params)
+    local prompt = generate_prompt({
+      'I need to express the text from {{filename}} differently:',
+      '',
+      '```{{filetype}}',
+      '{{selection}}',
+      '```',
+      '',
+      'Please reword the text, ensuring that the meaning is preserved.',
     })
 
     local agent = gp.get_chat_agent()
