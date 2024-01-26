@@ -35,8 +35,8 @@ local completion = {
   -- Make the completion menu slightly transparent.
   pumblend = 10,
 
-  -- Limit the completion menu to a maximum of 20 items.
-  pumheight = 20,
+  -- Limit the completion menu to a maximum of 15 items.
+  pumheight = 15,
 
   -- Limit the completion menu to a maximum of 20 characters.
   pumwidth = 20,
