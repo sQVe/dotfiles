@@ -101,26 +101,26 @@ map(
   { desc = 'Open terminal with file manager in buffer directory' }
 )
 
--- Neovim.
-map(
-  'n',
-  '<Leader>tn',
-  '<Cmd>Neovim<CR>',
-  { desc = 'Open terminal with Neovim' }
-)
-map(
-  'n',
-  '<Leader>tN',
-  '<Cmd>BNeovim<CR>',
-  { desc = 'Open terminal with Neovim for current file' }
-)
-
 -- Lazygit.
 map(
   'n',
   '<Leader>tl',
   '<Cmd>Lazygit<CR>',
   { desc = 'Open terminal with Lazygit' }
+)
+
+-- Neovim.
+map(
+  'n',
+  '<Leader>tv',
+  '<Cmd>Neovim<CR>',
+  { desc = 'Open terminal with Neovim' }
+)
+map(
+  'n',
+  '<Leader>tV',
+  '<Cmd>BNeovim<CR>',
+  { desc = 'Open terminal with Neovim for current file' }
 )
 
 -- Move between jumps.
