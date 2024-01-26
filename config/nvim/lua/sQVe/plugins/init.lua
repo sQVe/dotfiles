@@ -21,9 +21,6 @@ return {
   -- Simple session management.
   { 'folke/persistence.nvim', config = true, event = 'BufRead' },
 
-  -- Notifications and progression messages.
-  { 'j-hui/fidget.nvim', config = true, event = 'BufRead' },
-
   -- Auto close pairs.
   { 'echasnovski/mini.pairs', config = true, event = 'VeryLazy' },
 
