@@ -2,9 +2,6 @@
 -- ┣━┛┃  ┃ ┃┃╺┓┃┃┗┫┗━┓
 -- ╹  ┗━╸┗━┛┗━┛╹╹ ╹┗━┛
 
--- Add builtin plugins.
-vim.cmd('packadd cfilter')
-
 return {
   -- Dependencies.
   { 'MunifTanjim/nui.nvim', lazy = true }, -- UI component library.
