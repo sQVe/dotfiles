@@ -209,8 +209,11 @@ local timeout = {
   -- Set Leader key timeout to 300 ms.
   timeoutlen = 300,
 
-  -- Set buffer update time to 100 ms.
-  updatetime = 100,
+  -- Wait 10 ms for key sequences.
+  ttimeoutlen = 10,
+
+  -- Set buffer update time to 150 ms.
+  updatetime = 150,
 }
 
 local ui = {

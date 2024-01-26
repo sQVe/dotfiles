@@ -110,6 +110,10 @@ M.config = function()
       ['<Tab>'] = mapKey(next, { 's' }),
       ['<S-Tab>'] = mapKey(previous, { 's' }),
     }),
+    performance = {
+      fetching_timeout = 250,
+      max_view_entries = 100,
+    },
     snippet = { expand = expand_snippet },
     sources = config.sources({
       { name = 'nvim_lsp' },
