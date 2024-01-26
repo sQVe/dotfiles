@@ -1,3 +1,11 @@
+;; Conceal backticks.
+(fenced_code_block
+  (fenced_code_block_delimiter) @conceal
+  (#set! conceal ""))
+(fenced_code_block
+  (info_string (language) @conceal
+  (#set! conceal "")))
+
 ; Conceal bullet points.
 ([
   (list_marker_minus)
@@ -35,7 +43,7 @@
  (task_list_marker_unchecked)
  (_) @text.todo.unchecked.text)
 
-; Headers
+; Headers.
 ((atx_h1_marker) @heading.marker
   (#set! conceal "1"))
 
@@ -54,4 +62,5 @@
 ((atx_h6_marker) @heading.marker
   (#set! conceal "6"))
 
+; Enable spelling.
 (inline) @spell
