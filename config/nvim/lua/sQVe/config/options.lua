@@ -5,9 +5,13 @@
 local character = {
   -- Configure fill characters for various UI elements.
   fillchars = vim.opt.fillchars + {
-    eob = ' ',
     diff = '╱', -- Character for vertical separators in diff mode.
-    fold = [[-]], -- Character for the fold column when a fold is closed.
+    eob = ' ',
+    fold = ' ',
+    foldclose = '',
+    foldopen = '',
+    foldsep = ' ',
+    msgsep = '─',
   },
 
   -- Show characters listed in 'listchars' for better text visibility.
@@ -26,7 +30,7 @@ local character = {
 
 local completion = {
   -- Set completion menu options for better usability.
-  completeopt = { 'menu', 'menuone', 'noselect' },
+  completeopt = { 'menuone', 'noselect', 'noinsert' },
 
   -- Make the completion menu slightly transparent.
   pumblend = 10,
@@ -45,20 +49,22 @@ local completion = {
 }
 
 local fold = {
-  -- Start with all folds open by default.
-  foldlevelstart = 9999,
+  -- Show fold column.
+  foldcolumn = '1',
 
-  -- Enable folding to collapse sections of code.
-  foldenable = true,
+  -- Start with all folds open by default.
+  foldlevelstart = 99,
+
+  -- Set minimum lines for folds.
+  foldminlines = 4,
 
   -- Set maximum nesting level for folds.
-  foldnestmax = 4,
+  foldnestmax = 8,
 
-  -- Configure fold text to display the first line of the fold and the last line.
-  foldtext = [[substitute(getline(v:foldstart), '\t',repeat('\ ',&tabstop),'g').'...'.trim(getline(v:foldend))]],
-
-  -- Use indentation-based folding.
-  foldmethod = 'indent',
+  -- Use treesitter based folding.
+  foldmethod = 'expr',
+  foldexpr = 'v:lua.vim.treesitter.foldexpr()',
+  foldtext = 'v:lua.vim.treesitter.foldtext()',
 }
 
 local indent = {
@@ -111,10 +117,10 @@ local misc = {
 
   -- Refine "hit enter" prompts for cleaner message area.
   shortmess = vim.opt.shortmess + {
-    C = true, -- Suppress "ins-completion-menu" message.
-    I = true, -- Suppress "search hit BOTTOM, continuing at TOP" message.
+    I = true, -- Suppress intro message when starting Neovim.
+    S = true, -- Suppress "search hit BOTTOM, continuing at TOP" message.
     W = true, -- Suppress "written" message on file write.
-    c = true, -- Briefly show completion messages.
+    c = true, -- Suppress completion menu messages.
   },
 
   -- Show matching brackets when cursor is over them.
@@ -155,6 +161,9 @@ local mouse = {
   -- Use the "extend" mouse model to extend text selection using the right
   -- button.
   mousemodel = 'extend',
+
+  -- Disable horizontal scrolling.
+  mousescroll = 'ver:3,hor:0',
 }
 
 local program = {
@@ -164,6 +173,7 @@ local program = {
   -- Set the grep program to use with Neovim.
   grepprg = 'rg --vimgrep --no-heading',
 }
+
 local search_and_substitute = {
   -- Use 'g' flag by default in :s/foo/bar/ for global search and replace.
   gdefault = true,

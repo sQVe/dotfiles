@@ -34,15 +34,20 @@ M.opts = function()
   local overrides = vim.tbl_deep_extend('force', {
     ColorColumn = { fg = none, bg = none },
     CursorLine = { bg = float_bg },
+    CursorLineFold = { bg = colors.dark1 },
+    CursorLineSign = { bg = colors.dark1 },
     EndOfBuffer = { fg = colors.dark0 },
     ErrorMsg = { fg = colors.bright_red, bg = none, bold = false },
     FloatBorder = { fg = colors.dark3, bg = float_bg },
+    FoldColumn = { fg = colors.dark3, bg = none },
     LspSignatureActiveParameter = { fg = colors.bright_orange, bold = true },
     NormalFloat = { bg = float_bg },
     Pmenu = { bg = colors.dark1 },
     PmenuSel = { fg = colors.dark0, bg = colors.bright_aqua },
     WinBar = { bg = none },
     WinBarNC = { bg = none },
+
+    -- Treesitter specific.
     ['@heading.marker'] = { bold = true },
     ['@punctuation.special'] = { fg = colors.gray },
     ['@text.todo.checked'] = { fg = colors.bright_green },
@@ -134,19 +139,19 @@ M.config = function(_, opts)
   -- Set diagnostic signs.
   vim.fn.sign_define(
     'DiagnosticSignError',
-    { text = '', texthl = 'DiagnosticSignError' }
+    { text = '', texthl = 'DiagnosticSignError' }
   )
   vim.fn.sign_define(
     'DiagnosticSignHint',
-    { text = '', texthl = 'DiagnosticSignHint' }
+    { text = '', texthl = 'DiagnosticSignHint' }
   )
   vim.fn.sign_define(
     'DiagnosticSignInfo',
-    { text = '', texthl = 'DiagnosticSignInfo' }
+    { text = '', texthl = 'DiagnosticSignInfo' }
   )
   vim.fn.sign_define(
     'DiagnosticSignWarn',
-    { text = '', texthl = 'DiagnosticSignWarn' }
+    { text = '', texthl = 'DiagnosticSignWarn' }
   )
 
   vim.o.background = 'dark'
