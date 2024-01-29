@@ -52,7 +52,8 @@ local M = {
     { '<Leader>ib', mode = { 'v' }, ":<C-u>'<,'>GpBugs<CR>", desc = 'Repair bugs in selection', },
     { '<Leader>ic', mode = { 'n', 'v' }, '<Cmd>GpChatToggle<CR>', desc = 'Toggle chat', },
     { '<Leader>id', mode = { 'n' }, '<Cmd>GpChatDelete<CR>', desc = 'Delete chat', },
-    { '<Leader>ie', mode = { 'v' }, ":<C-u>'<,'>GpExplain<CR>", desc = 'Explain selection', },
+    { '<Leader>ie', mode = { 'v' }, ":<C-u>'<,'>GpEmojify<CR>", desc = 'Emojify selection', },
+    { '<Leader>i?', mode = { 'v' }, ":<C-u>'<,'>GpExplain<CR>", desc = 'Explain selection', },
     { '<Leader>if', mode = { 'n' }, '<Cmd>GpChatFinder<CR>', desc = 'Chat finder', },
     { '<Leader>ii', mode = { 'n' }, "<Cmd>GpAppend<CR>", desc = 'Append with prompt', },
     { '<Leader>ii', mode = { 'v' }, ":<C-u>'<,'>GpAppend<CR>", desc = 'Append to selection with prompt', },
@@ -209,6 +210,34 @@ local hooks = {
     gp.Prompt(
       params,
       gp.Target.enew,
+      nil,
+      agent.model,
+      prompt,
+      agent.system_prompt
+    )
+  end,
+  Emojify = function(gp, params)
+    local current_filetype = vim.bo.filetype
+    local prompt = generate_prompt(
+      {
+        'I have the following text from {{filename}}:',
+        '',
+        '```{{filetype}}',
+        '{{selection}}',
+        '```',
+        '',
+        '%s',
+      },
+      current_filetype == 'markdown'
+          and 'Please help me by prefixing each header with an emoji.'
+        or 'Please help me by giving me one more more emoji suggestions.'
+    )
+
+    local agent = gp.get_command_agent()
+
+    gp.Prompt(
+      params,
+      gp.Target.enew('markdown'),
       nil,
       agent.model,
       prompt,
