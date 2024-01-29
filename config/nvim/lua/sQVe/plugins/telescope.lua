@@ -139,7 +139,6 @@ M.opts = function()
           ['<Esc>'] = actions.close,
         },
       },
-      preview = { treesitter = { enable = false } },
       scroll_strategy = 'limit',
       sorting_strategy = 'ascending',
       vimgrep_arguments = {

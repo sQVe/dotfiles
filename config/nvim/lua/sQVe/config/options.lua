@@ -32,8 +32,8 @@ local completion = {
   -- Set completion menu options for better usability.
   completeopt = { 'menuone', 'noselect', 'noinsert' },
 
-  -- Make the completion menu slightly transparent.
-  pumblend = 10,
+  -- Ensure that completion menu isn't transparent.
+  pumblend = 0,
 
   -- Limit the completion menu to a maximum of 15 items.
   pumheight = 15,

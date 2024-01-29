@@ -20,7 +20,6 @@ M.init = function()
 end
 
 M.opts = function()
-  local gruvbox = require('lualine.themes.gruvbox')
   local modes = {
     'command',
     'inactive',
@@ -30,17 +29,13 @@ M.opts = function()
     'visual',
   }
 
-  for _, mode in pairs(modes) do
-    gruvbox[mode].c.gui = 'italic'
-  end
-
   return {
     options = {
       component_separators = { left = '', right = '' },
       disabled_filetypes = { statusline = { 'alpha' } },
       globalstatus = true,
       section_separators = { left = '', right = '' },
-      theme = gruvbox,
+      theme = 'catppuccin',
     },
     sections = {
       lualine_a = { 'mode' },
