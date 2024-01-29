@@ -5,6 +5,9 @@
 
 -- stylua: ignore
 local palette = {
+  custom = {
+    inset = "#242424"
+  },
   mocha = {
     blue      = "#89B4FA",
     flamingo  = "#F2CDCD",
@@ -67,23 +70,8 @@ local M = {
   priority = 1000,
 }
 
-M.opts = {
-  compile_path = vim.fn.expand('$PERSISTENT_CACHE') .. '/catppuccin',
-  styles = {
-    comments = { 'italic' },
-    conditionals = { 'italic' },
-    loops = {},
-    functions = {},
-    keywords = {},
-    strings = { 'italic' },
-    variables = {},
-    numbers = {},
-    booleans = { 'bold' },
-    properties = {},
-    types = {},
-    operators = {},
-  },
-  color_overrides = {
+M.opts = function()
+  local color_overrides = {
     all = {
       -- Colors.
       blue = palette.gruvbox.bright_blue,
@@ -115,19 +103,17 @@ M.opts = {
       mantle = palette.gruvbox.dark0_soft,
       crust = palette.gruvbox.dark0_hard,
     },
-  },
-  custom_highlights = function(colors)
+  }
+
+  local custom_highlights = function(colors)
     return {
       -- Syntax.
       ColorColumn = { bg = colors.base },
       CursorLine = { bg = palette.gruvbox.dark0_soft },
       CursorLineFold = { bg = palette.gruvbox.dark0_soft },
-      CursorLineNr = {
-        fg = colors.yellow,
-        bg = palette.gruvbox.dark0_soft,
-      },
+      CursorLineNr = { fg = colors.yellow, bg = palette.gruvbox.dark0_soft },
       CursorLineSign = { bg = palette.gruvbox.dark0_soft },
-      Folded = { bg = colors.surface0, italic = true },
+      Folded = { fg = colors.overlay1, bg = colors.surface0 },
       Include = { fg = colors.subtext0 },
       Keyword = { fg = colors.red },
       Number = { fg = colors.mauve },
@@ -149,6 +135,14 @@ M.opts = {
 
       -- Gp.
       GpHandlerStandout = { bg = colors.base },
+
+      -- Headlines.
+      Headline1 = { bg = colors.surface0, bold = true },
+      Headline2 = { bg = colors.surface0, bold = true },
+      Headline3 = { bg = colors.surface0, bold = true },
+      Headline4 = { bg = colors.surface0, bold = true },
+      Headline5 = { bg = colors.surface0, bold = true },
+      Headline6 = { bg = colors.surface0, bold = true },
 
       -- Illuminate.
       IlluminatedWordRead = { bg = colors.none, underline = true },
@@ -194,36 +188,40 @@ M.opts = {
 
       -- Treesitter.
       ['@function.macro.luadoc'] = { link = 'Macro' },
+      ['@heading.marker'] = { bold = true },
       ['@keyword.export'] = { fg = colors.subtext0 },
       ['@keyword.function'] = { fg = colors.red, bold = true },
       ['@keyword.return'] = { fg = colors.red },
       ['@lsp.type.interface'] = { link = 'Type' },
       ['@parameter'] = { fg = colors.peach },
       ['@tag.delimiter'] = { fg = colors.subtext0 },
+      ['@text.todo.checked'] = { fg = colors.green },
+      ['@text.todo.checked.text'] = { fg = colors.overlay1 },
+      ['@text.todo.unchecked'] = { fg = colors.red },
+      ['@text.todo.unchecked.text'] = { fg = colors.text },
       ['@variable.parameter'] = { fg = colors.peach },
+
+      -- Treesitter context.
+      TreesitterContext = { bg = palette.custom.inset },
+      TreesitterContextLineNumber = { bg = palette.custom.inset },
     }
-  end,
-  integrations = {
+  end
+
+  local integrations = {
     alpha = true,
     barbecue = false,
+    cmp = true,
+    dap = false,
+    dap_ui = false,
     dashboard = false,
     fidget = true,
     flash = true,
     gitsigns = true,
     headlines = true,
-    indent_blankline = {
-      enabled = true,
-      scope_color = '',
-    },
+    illuminate = { enabled = true },
+    indent_blankline = { enabled = true, scope_color = '' },
     markdown = true,
-    mini = {
-      enabled = true,
-      indentscope_color = '',
-    },
-    neogit = false,
-    cmp = true,
-    dap = false,
-    dap_ui = false,
+    mini = { enabled = true, indentscope_color = '' },
     native_lsp = {
       enabled = true,
       underlines = {
@@ -233,19 +231,60 @@ M.opts = {
         information = { 'underline' },
       },
     },
-    semantic_tokens = true,
+    neogit = false,
     nvimtree = false,
-    treesitter = true,
-    ufo = false,
     rainbow_delimiters = false,
+    semantic_tokens = true,
     telescope = { enabled = true },
-    illuminate = { enabled = true },
+    treesitter = true,
+    treesitter_context = true,
     which_key = true,
-  },
-}
+  }
+
+  local styles = {
+    booleans = { 'bold' },
+    comments = { 'italic' },
+    conditionals = { 'italic' },
+    functions = {},
+    keywords = {},
+    loops = {},
+    numbers = {},
+    operators = {},
+    properties = {},
+    strings = { 'italic' },
+    types = {},
+    variables = {},
+  }
+
+  return {
+    compile_path = vim.fn.expand('$PERSISTENT_CACHE') .. '/catppuccin',
+    color_overrides = color_overrides,
+    custom_highlights = custom_highlights,
+    integrations = integrations,
+    styles = styles,
+  }
+end
 
 M.config = function(_, opts)
   require('catppuccin').setup(opts)
+
+  -- Set diagnostic signs.
+  vim.fn.sign_define(
+    'DiagnosticSignError',
+    { text = '', texthl = 'DiagnosticSignError' }
+  )
+  vim.fn.sign_define(
+    'DiagnosticSignHint',
+    { text = '', texthl = 'DiagnosticSignHint' }
+  )
+  vim.fn.sign_define(
+    'DiagnosticSignInfo',
+    { text = '', texthl = 'DiagnosticSignInfo' }
+  )
+  vim.fn.sign_define(
+    'DiagnosticSignWarn',
+    { text = '', texthl = 'DiagnosticSignWarn' }
+  )
 
   vim.o.background = 'dark'
   vim.cmd.colorscheme('catppuccin')
