@@ -27,7 +27,13 @@ return {
   {
     'sQVe/notebox.nvim',
     dev = true,
-    opts = {},
+    opts = {
+      sub_directories = {
+        dailies = '5-dailies',
+        new_notes = '0-inbox',
+        templates = 'templates',
+      },
+    },
   },
 
   -- Textobjects.

@@ -129,9 +129,9 @@ M.opts = function()
       DiagnosticSignHint = { fg = colors.overlay0 },
 
       -- Flash.
-      FlashLabel = { fg = colors.yellow, bg = colors.crust, bold = true },
-      FlashCurrent = { fg = colors.text },
-      FlashMatch = { fg = colors.subtext0 },
+      FlashLabel = { fg = palette.gruvbox.light0, bold = true },
+      FlashCurrent = { fg = colors.maroon },
+      FlashMatch = { fg = colors.yellow },
 
       -- Gp.
       GpHandlerStandout = { bg = colors.base },
