@@ -108,21 +108,21 @@ M.opts = function()
   local custom_highlights = function(colors)
     return {
       -- Syntax.
+      Boolean = { fg = colors.mauve },
       ColorColumn = { bg = colors.base },
+      CurSearch = { bg = colors.maroon, bold = true },
       CursorLine = { bg = palette.gruvbox.dark0_soft },
       CursorLineFold = { bg = palette.gruvbox.dark0_soft },
       CursorLineNr = { fg = colors.yellow, bg = palette.gruvbox.dark0_soft },
       CursorLineSign = { bg = palette.gruvbox.dark0_soft },
       Folded = { fg = colors.overlay1, bg = colors.surface0 },
-      Include = { fg = colors.subtext0 },
+      IncSearch = { fg = colors.base, bg = colors.yellow, bold = true },
+      Include = { fg = colors.sky },
       Keyword = { fg = colors.red },
       Number = { fg = colors.mauve },
-      Boolean = { fg = colors.mauve },
       Operator = { fg = colors.text },
-      Special = { fg = colors.subtext0 },
       Search = { fg = colors.base, bg = colors.yellow },
-      IncSearch = { fg = colors.base, bg = colors.yellow, bold = true },
-      CurSearch = { bg = colors.maroon, bold = true },
+      Special = { fg = colors.subtext0 },
 
       -- Diagnostic.
       DiagnosticFloatingHint = { fg = colors.subtext0 },
@@ -179,17 +179,17 @@ M.opts = function()
         italic = true,
       },
       TelescopePromptBorder = {
-        fg = colors.surface0,
+        fg = colors.overlay0,
         bg = colors.base,
         bold = true,
       },
       TelescopeTitle = { fg = colors.subtext0 },
-      TelescopePromptTitle = { fg = colors.subtext0 },
+      TelescopePromptTitle = { fg = colors.yellow },
 
       -- Treesitter.
       ['@function.macro.luadoc'] = { link = 'Macro' },
       ['@heading.marker'] = { bold = true },
-      ['@keyword.export'] = { fg = colors.subtext0 },
+      ['@keyword.export'] = { fg = colors.sky },
       ['@keyword.function'] = { fg = colors.red, bold = true },
       ['@keyword.return'] = { fg = colors.red },
       ['@lsp.type.interface'] = { link = 'Type' },
