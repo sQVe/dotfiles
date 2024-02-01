@@ -100,10 +100,6 @@ local highlight_overrides = function(colors)
     Search = { fg = colors.base, bg = colors.yellow },
     Special = { fg = colors.subtext0 },
 
-    -- Diagnostic.
-    DiagnosticFloatingHint = { fg = colors.subtext0 },
-    DiagnosticSignHint = { fg = colors.overlay0 },
-
     -- Flash.
     FlashLabel = { fg = palette.gruvbox.light0, bold = true },
     FlashCurrent = { fg = colors.maroon },
