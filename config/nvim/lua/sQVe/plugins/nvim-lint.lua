@@ -3,6 +3,22 @@
 -- ┗━╸╹╹ ╹ ╹
 -- Linter.
 
+--- A custom `eslint_d` parser. The main purpose of overriding the default
+--- parser is to filter out certain unwanted diagnostics.
+local custom_eslint_d_parser = function(output, bufnr)
+  local result = require('lint.linters.eslint').parser(output, bufnr)
+
+  result = vim.tbl_filter(function(diagnostic)
+    return not string.find(diagnostic.message, 'output: No ESLint found')
+  end, result)
+
+  for _, diagnostic in ipairs(result) do
+    diagnostic.source = 'eslint_d'
+  end
+
+  return result
+end
+
 local M = {
   'mfussenegger/nvim-lint',
   ft = {
@@ -34,6 +50,7 @@ M.config = function(_, opts)
   local lsp_utils = require('sQVe.utils.lsp')
 
   local lint = require('lint')
+  lint.linters.eslint_d.parser = custom_eslint_d_parser
   lint.linters_by_ft = opts.linters_by_ft
 
   local try_lint = function()
