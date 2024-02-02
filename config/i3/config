@@ -259,7 +259,6 @@ bindsym XF86PowerOff exec $menu-state
 
 # Misc bindings.
 bindsym $mod+BackSpace workspace back_and_forth
-bindsym $mod+Delete kill
 bindsym $mod+Escape workspace prev_on_output
 
 bindsym $mod+Return exec $term
