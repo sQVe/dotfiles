@@ -7,9 +7,19 @@
 --- parser is to filter out certain unwanted diagnostics.
 local custom_eslint_d_parser = function(output, bufnr)
   local result = require('lint.linters.eslint').parser(output, bufnr)
+  local ignored_messages = {
+    'output: Error: No ESLint configuration found',
+    'output: No ESLint found',
+  }
 
   result = vim.tbl_filter(function(diagnostic)
-    return not string.find(diagnostic.message, 'output: No ESLint found')
+    for _, ignored_message in ipairs(ignored_messages) do
+      if string.find(diagnostic.message, ignored_message) then
+        return false
+      end
+    end
+
+    return true
   end, result)
 
   for _, diagnostic in ipairs(result) do
