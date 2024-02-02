@@ -24,18 +24,6 @@ return {
   -- Auto close pairs.
   { 'echasnovski/mini.pairs', config = true, event = 'VeryLazy' },
 
-  {
-    'sQVe/notebox.nvim',
-    dev = true,
-    opts = {
-      subdirectories = {
-        dailies = '5-dailies',
-        new_notes = '0-inbox',
-        templates = 'templates',
-      },
-    },
-  },
-
   -- Textobjects.
   { 'michaeljsmith/vim-indent-object', event = 'VeryLazy' }, -- Indent textobject.
   { 'echasnovski/mini.ai', config = true, event = 'VeryLazy' }, -- Additional textobjects.

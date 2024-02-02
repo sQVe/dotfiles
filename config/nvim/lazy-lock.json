@@ -32,6 +32,7 @@
   "mini.pairs": { "branch": "main", "commit": "552062017ff207e1f35f7028bfb3f27c7421d22d" },
   "mini.surround": { "branch": "main", "commit": "5ceb6a12d3761bc719fbdad5432c89333deb1498" },
   "neodev.nvim": { "branch": "main", "commit": "2793ba3127c2c93ee486b9072a3ef129eeb950cc" },
+  "notebox.nvim": { "branch": "main", "commit": "2e3c38524ec5a7b4fa9cb7c02bafac14913a85a2" },
   "nui.nvim": { "branch": "main", "commit": "35da9ca1de0fc4dda96c2e214d93d363c145f418" },
   "nvim-cmp": { "branch": "main", "commit": "04e0ca376d6abdbfc8b52180f8ea236cbfddf782" },
   "nvim-lint": { "branch": "master", "commit": "76af3422e3c82ea40adf9ade1ccf1dc1eb361789" },
