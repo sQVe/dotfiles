@@ -236,6 +236,3 @@ alias xsel='xsel -b'
 # Dunst.
 alias dunst-pause='dunstctl set-paused true'
 alias dunst-resume='dunstctl set-paused false'
-
-# Todo.
-alias todo='note todo'
