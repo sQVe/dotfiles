@@ -6,6 +6,43 @@
 local M = {
   'sQVe/notebox.nvim',
   dev = false,
+  keys = {
+    {
+      '<Leader>nd',
+      function()
+        require('notebox.note').new_note('daily')
+      end,
+      desc = 'Create new daily note',
+    },
+    {
+      '<Leader>nn',
+      function()
+        require('notebox.note').new_note()
+      end,
+      desc = 'Create new note',
+    },
+    {
+      '<Leader>no',
+      function()
+        require('notebox.note').open_note()
+      end,
+      desc = 'Open note in Obsidian',
+    },
+    {
+      '<Leader>nå',
+      function()
+        require('notebox.telescope').live_grep_note()
+      end,
+      desc = 'Live grep note',
+    },
+    {
+      '<Leader>nä',
+      function()
+        require('notebox.telescope').find_note()
+      end,
+      desc = 'Find note',
+    },
+  },
 }
 
 M.opts = {
