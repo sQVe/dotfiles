@@ -62,7 +62,8 @@ M.opts = {
   indent = { enable = true },
   textsubjects = {
     enable = true,
-    keymaps = { ['.'] = 'textsubjects-smart' },
+    prev_selection = ';',
+    keymaps = { [','] = 'textsubjects-smart' },
   },
 }
 
