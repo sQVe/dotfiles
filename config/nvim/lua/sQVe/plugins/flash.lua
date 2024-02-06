@@ -9,7 +9,7 @@ local M = {
   keys = {
     {
       's',
-      mode = { 'n', 'x', 'o' },
+      mode = { 'n', 'x' },
       function()
         require('flash').jump()
       end,
@@ -17,21 +17,13 @@ local M = {
     },
     {
       'S',
-      mode = { 'n', 'x', 'o' },
+      mode = { 'n', 'x' },
       function()
         require('flash').jump({
           continue = true,
         })
       end,
       desc = 'Continue flash search',
-    },
-    {
-      'r',
-      mode = 'o',
-      function()
-        require('flash').remote()
-      end,
-      desc = 'Remote flash search',
     },
   },
 }
