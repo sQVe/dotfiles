@@ -118,7 +118,7 @@ M.map_lsp_buffer_keys = function(bufnr, include)
       map('n', 'gl', function()
         vim.diagnostic.open_float({
           buffer = bufnr,
-          header = false,
+          header = '',
           severity_sort = true,
           source = true,
         })

@@ -1,7 +1,7 @@
 -- ┏┳┓╻┏┓╻╻   ┏━┓╻  ╻┏━╸┏┓╻
 -- ┃┃┃┃┃┗┫┃   ┣━┫┃  ┃┃╺┓┃┗┫
 -- ╹ ╹╹╹ ╹╹   ╹ ╹┗━╸╹┗━┛╹ ╹
--- Align text
+-- Align text.
 
 local M = {
   'echasnovski/mini.align',

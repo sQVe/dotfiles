@@ -7,12 +7,32 @@ local M = {
   'folke/flash.nvim',
   event = 'VeryLazy',
   keys = {
-    -- stylua: ignore start
-    { 's', mode = { 'n', 'x', 'o' }, function() require('flash').jump() end, desc = 'Flash search', },
-    { 'S', mode = { 'x' }, function() require('flash').treesitter() end, desc = 'Flash treesitter search', },
-    { 'S', mode = { 'n', 'o' }, function() require('flash').treesitter_search() end, desc = 'Flash treesitter search', },
-    { 'r', mode = 'o', function() require('flash').remote() end, desc = 'Remote flash search', },
-    -- stylua: ignore end
+    {
+      's',
+      mode = { 'n', 'x', 'o' },
+      function()
+        require('flash').jump()
+      end,
+      desc = 'Flash search',
+    },
+    {
+      'S',
+      mode = { 'n', 'x', 'o' },
+      function()
+        require('flash').jump({
+          continue = true,
+        })
+      end,
+      desc = 'Continue flash search',
+    },
+    {
+      'r',
+      mode = 'o',
+      function()
+        require('flash').remote()
+      end,
+      desc = 'Remote flash search',
+    },
   },
 }
 
