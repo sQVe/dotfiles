@@ -29,24 +29,70 @@ M.config = function(_, opts)
   local wk = require('which-key')
 
   wk.setup(opts)
+
+  -- Register general keys.
   wk.register({
     mode = { 'n', 'v' },
-    ['"'] = { name = 'Registers' },
-    ['<C-q>'] = { name = 'Quickfix' },
-    ['<C-w>'] = { name = 'Window' },
-    ['<Leader>d'] = { name = 'Diagnostics' },
-    ['<Leader>h'] = { name = 'Hunks' },
-    ['<Leader>i'] = { name = 'AI' },
-    ['<Leader>l'] = { name = 'LSP' },
-    ['<Leader>o'] = { name = 'Obsidian' },
-    ['<Leader>t'] = { name = 'Terminal' },
-    ['@'] = { name = 'Registers' },
-    ['['] = { name = 'Previous' },
-    ["'"] = { name = 'Marks' },
-    [']'] = { name = 'Next' },
-    ['`'] = { name = 'Marks' },
-    ['go'] = { name = 'Sort' },
-    ['yo'] = { name = 'Toggle settings' },
+    ["'"] = { 'Marks' },
+    ['"'] = { 'Registers' },
+    ['<C-q>'] = { 'Quickfix' },
+    ['<C-w>'] = { 'Window' },
+    ['<Leader>'] = {
+      d = { 'Diagnostics' },
+      h = { 'Hunks' },
+      i = { 'GPT Prompt' },
+      l = { 'LSP' },
+      n = { 'Note' },
+      t = { 'Terminal' },
+    },
+    ['@'] = { 'Registers' },
+    ['['] = { 'Previous' },
+    [']'] = { 'Next' },
+    ['`'] = { 'Marks' },
+    g = { o = 'Sort' },
+    y = { o = { 'Toggle settings' } },
+  })
+
+  local inner_textobjects = {
+    [' '] = 'Whitespace',
+    ['"'] = '"',
+    ["'"] = "'",
+    ['`'] = '`',
+    ['('] = '(',
+    [')'] = ') including white-space',
+    ['>'] = '> including white-space',
+    ['<lt>'] = '<',
+    [']'] = '] including white-space',
+    ['['] = '[',
+    ['}'] = '} including white-space',
+    ['{'] = '{',
+    ['?'] = 'User prompt',
+    _ = 'Underscore',
+    a = 'Argument',
+    b = '), ], }',
+    B = '], }',
+    c = 'Class',
+    f = 'Function',
+    i = 'Indentation',
+    o = 'Block, conditional, loop',
+    p = 'Paragraph',
+    q = 'Quote `, ", \'',
+    s = 'Sentence',
+    t = 'Tag',
+    w = 'word',
+    W = 'WORD',
+  }
+  local around_textobjects = vim.deepcopy(inner_textobjects)
+
+  for key, description in pairs(inner_textobjects) do
+    around_textobjects[key] = description:gsub(' including.*', '')
+  end
+
+  -- Register textobjects keys.
+  require('which-key').register({
+    mode = { 'o', 'x' },
+    i = inner_textobjects,
+    a = around_textobjects,
   })
 end
 
