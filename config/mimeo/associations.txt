@@ -11,6 +11,7 @@ google-chrome-stable %U
   ^https?:\/\/(.*\.)?sentry\.io
   ^https?:\/\/(.*\.)?slack\.com
   ^https?:\/\/(docs|drive|jamboard|meet)\.google\.com
+  ^https?:\/\/dev.azure.com
   ^https?:\/\/localhost
   ^https?:\/\/outlook.office.com
   ^https?:\/\/teams\.microsoft\.com
