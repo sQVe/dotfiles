@@ -64,7 +64,7 @@ local fold = {
   -- Use treesitter based folding.
   foldmethod = 'expr',
   foldexpr = 'v:lua.vim.treesitter.foldexpr()',
-  foldtext = 'v:lua.vim.treesitter.foldtext()',
+  foldtext = '',
 }
 
 local indent = {

@@ -8,8 +8,8 @@ local is_filesize_larger_than =
 
 local M = {
   'nvim-treesitter/nvim-treesitter',
-  event = 'BufReadPost',
   build = ':TSUpdate',
+  event = 'BufReadPost',
   dependencies = { 'RRethy/nvim-treesitter-textsubjects' },
 }
 
