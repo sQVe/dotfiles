@@ -28,6 +28,7 @@ local M = {
       end,
       desc = 'Open note in Obsidian',
     },
+    { '<Leader>ns', '<Cmd>SaveNotes<CR>', desc = 'Commit and push notes' },
     {
       '<Leader>nå',
       function()
