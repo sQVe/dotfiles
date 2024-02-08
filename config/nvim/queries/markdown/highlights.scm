@@ -43,24 +43,5 @@
  (task_list_marker_unchecked)
  (_) @text.todo.unchecked.text)
 
-; Headers.
-((atx_h1_marker) @heading.marker
-  (#set! conceal "1"))
-
-((atx_h2_marker) @heading.marker
-  (#set! conceal "2"))
-
-((atx_h3_marker) @heading.marker
-  (#set! conceal "3"))
-
-((atx_h4_marker) @heading.marker
-  (#set! conceal "4"))
-
-((atx_h5_marker) @heading.marker
-  (#set! conceal "5"))
-
-((atx_h6_marker) @heading.marker
-  (#set! conceal "6"))
-
 ; Enable spelling.
 (inline) @spell
