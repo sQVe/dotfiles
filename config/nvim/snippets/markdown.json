@@ -36,7 +36,7 @@
     "body": ["<${1}> $0"]
   },
   "image": {
-    "prefix": "img",
+    "prefix": "image",
     "body": ["![${1}](${2}) $0"]
   },
   "insertStrikethrough": {
@@ -99,6 +99,10 @@
   "comment": {
     "prefix": "comment",
     "body": ["<!-- $1 -->", "$0"]
+  },
+  "todoComment": {
+    "prefix": "todo",
+    "body": ["<!-- TODO -->", "$0"]
   },
   "youTubeEmbed": {
     "prefix": "youtube-embed",
