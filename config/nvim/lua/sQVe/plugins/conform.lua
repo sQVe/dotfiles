@@ -50,7 +50,6 @@ M.config = function(_, opts)
         '.prettierrc.json',
         '.prettierrc.yml',
         '.prettierrc.yaml',
-        '.prettierrc.json5',
         '.prettierrc.js',
         '.prettierrc.cjs',
         '.prettierrc.toml',

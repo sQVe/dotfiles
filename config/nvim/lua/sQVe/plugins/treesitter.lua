@@ -28,7 +28,6 @@ M.opts = {
     'javascript',
     'jsdoc',
     'json',
-    'json5',
     'jsonc',
     'lua',
     'luadoc',

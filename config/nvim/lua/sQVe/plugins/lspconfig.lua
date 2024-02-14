@@ -28,7 +28,6 @@ local M = {
 
     -- markdown,
     'markdown',
-    'markdown.mdx',
 
     -- omnisharp.
     'cs',
