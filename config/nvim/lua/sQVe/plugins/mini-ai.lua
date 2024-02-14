@@ -3,6 +3,11 @@
 -- ╹ ╹╹╹ ╹╹   ╹ ╹╹
 -- Additional textobjects.
 
+local M = {
+  'echasnovski/mini.ai',
+  event = 'VeryLazy',
+}
+
 local find_indent_boundary = function(line_number, indent_level, direction)
   local step = direction == 'up' and -1 or 1
   local boundary_line = line_number
@@ -27,14 +32,7 @@ local find_indent_boundary = function(line_number, indent_level, direction)
   return boundary_line
 end
 
-local M = {
-  'echasnovski/mini.ai',
-  event = 'VeryLazy',
-}
-
 M.opts = function()
-  local ai = require('mini.ai')
-
   return {
     custom_textobjects = {
       i = function()

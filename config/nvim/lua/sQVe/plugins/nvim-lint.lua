@@ -3,6 +3,30 @@
 -- ┗━╸╹╹ ╹ ╹
 -- Linter.
 
+local M = {
+  'mfussenegger/nvim-lint',
+  ft = {
+    -- eslint_d.
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact',
+
+    -- shellcheck.
+    'sh',
+  },
+}
+
+M.opts = {
+  linters_by_ft = {
+    javascript = { 'eslint_d' },
+    javascriptreact = { 'eslint_d' },
+    sh = { 'shellcheck' },
+    typescript = { 'eslint_d' },
+    typescriptreact = { 'eslint_d' },
+  },
+}
+
 --- A custom `eslint_d` parser. The main purpose of overriding the default
 --- parser is to filter out certain unwanted diagnostics.
 local custom_eslint_d_parser = function(output, bufnr)
@@ -28,30 +52,6 @@ local custom_eslint_d_parser = function(output, bufnr)
 
   return result
 end
-
-local M = {
-  'mfussenegger/nvim-lint',
-  ft = {
-    -- eslint_d.
-    'javascript',
-    'javascriptreact',
-    'typescript',
-    'typescriptreact',
-
-    -- shellcheck.
-    'sh',
-  },
-}
-
-M.opts = {
-  linters_by_ft = {
-    javascript = { 'eslint_d' },
-    javascriptreact = { 'eslint_d' },
-    sh = { 'shellcheck' },
-    typescript = { 'eslint_d' },
-    typescriptreact = { 'eslint_d' },
-  },
-}
 
 M.config = function(_, opts)
   local autocmd = require('sQVe.utils.vim').autocmd

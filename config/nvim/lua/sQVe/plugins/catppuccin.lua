@@ -3,6 +3,12 @@
 -- ┗━╸╹ ╹ ╹ ╹  ╹  ┗━┛┗━╸┗━╸╹╹ ╹
 -- Catppuccin color scheme, heavily customized with gruvbox colors.
 
+local M = {
+  'catppuccin/nvim',
+  name = 'catppuccin',
+  priority = 1000,
+}
+
 -- stylua: ignore
 local palette = {
   custom = {
@@ -233,12 +239,6 @@ local styles = {
   strings = { 'italic' },
   types = {},
   variables = {},
-}
-
-local M = {
-  'catppuccin/nvim',
-  name = 'catppuccin',
-  priority = 1000,
 }
 
 M.opts = {

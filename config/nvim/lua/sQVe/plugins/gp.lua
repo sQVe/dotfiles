@@ -3,6 +3,35 @@
 -- ┗━┛╹
 -- Communicate with the ChatGPT API.
 
+local M = {
+  'robitx/gp.nvim',
+  keys = {
+    -- stylua: ignore start
+    { '<Leader>i*', mode = { 'v' }, ":<C-u>'<,'>GpDocumentation<CR>", desc = 'Generate documentation for selection', },
+    { '<Leader>i-', mode = { 'v' }, ":<C-u>'<,'>GpCompress<CR>", desc = 'Compress selection', },
+    { '<Leader>ia', mode = { 'v' }, ":<C-u>'<,'>GpAtomic<CR>", desc = 'Suggest note improvements for selection', },
+    { '<Leader>ib', mode = { 'v' }, ":<C-u>'<,'>GpBugs<CR>", desc = 'Repair bugs in selection', },
+    { '<Leader>ic', mode = { 'n', 'v' }, '<Cmd>GpChatToggle<CR>', desc = 'Toggle chat', },
+    { '<Leader>id', mode = { 'n' }, '<Cmd>GpChatDelete<CR>', desc = 'Delete chat', },
+    { '<Leader>ie', mode = { 'v' }, ":<C-u>'<,'>GpEmojify<CR>", desc = 'Emojify selection', },
+    { '<Leader>i?', mode = { 'v' }, ":<C-u>'<,'>GpExplain<CR>", desc = 'Explain selection', },
+    { '<Leader>if', mode = { 'n' }, '<Cmd>GpChatFinder<CR>', desc = 'Chat finder', },
+    { '<Leader>ii', mode = { 'n' }, "<Cmd>GpAppend<CR>", desc = 'Append with prompt', },
+    { '<Leader>ii', mode = { 'v' }, ":<C-u>'<,'>GpAppend<CR>", desc = 'Append to selection with prompt', },
+    { '<Leader>in', mode = { 'n' }, '<Cmd>GpChatNew vsplit<CR>', desc = 'New chat', },
+    { '<Leader>in', mode = { 'v' }, ":<C-u>'<,'>GpChatNew vsplit<CR>", desc = 'New chat with selection', },
+    { '<Leader>io', mode = { 'v' }, ":<C-u>'<,'>GpOptimize<CR>", desc = 'Optimize selection', },
+    { '<Leader>ip', mode = { 'v' }, ":<C-u>'<,'>GpChatPaste<CR>", desc = 'Paste selection into chat', },
+    { '<Leader>iq', mode = { 'v' }, ":<C-u>'<,'>GpEnew<CR>", desc = 'Answer prompt with selection context', },
+    { '<Leader>ir', mode = { 'v' }, ":<C-u>'<,'>GpReadability<CR>", desc = 'Improve readability of selection', },
+    { '<Leader>is', mode = { 'v' }, ":<C-u>'<,'>GpSpelling<CR>", desc = 'Fix spelling in selection', },
+    { '<Leader>it', mode = { 'v' }, ":<C-u>'<,'>GpTests<CR>", desc = 'Generate tests for selection', },
+    { '<Leader>iw', mode = { 'v' }, ":<C-u>'<,'>GpReword<CR>", desc = 'Reword selection', },
+    { '<Leader>iz', mode = { 'v' }, ":<C-u>'<,'>GpSummarize<CR>", desc = 'Summarize selection', },
+    -- stylua: ignore end
+  },
+}
+
 local javascript_filetypes = {
   'javascript',
   'javascriptreact',
@@ -41,35 +70,6 @@ local generate_prompt = function(prompt_lines, ...)
 
   return sanitized_prompt
 end
-
-local M = {
-  'robitx/gp.nvim',
-  keys = {
-    -- stylua: ignore start
-    { '<Leader>i*', mode = { 'v' }, ":<C-u>'<,'>GpDocumentation<CR>", desc = 'Generate documentation for selection', },
-    { '<Leader>i-', mode = { 'v' }, ":<C-u>'<,'>GpCompress<CR>", desc = 'Compress selection', },
-    { '<Leader>ia', mode = { 'v' }, ":<C-u>'<,'>GpAtomic<CR>", desc = 'Suggest note improvements for selection', },
-    { '<Leader>ib', mode = { 'v' }, ":<C-u>'<,'>GpBugs<CR>", desc = 'Repair bugs in selection', },
-    { '<Leader>ic', mode = { 'n', 'v' }, '<Cmd>GpChatToggle<CR>', desc = 'Toggle chat', },
-    { '<Leader>id', mode = { 'n' }, '<Cmd>GpChatDelete<CR>', desc = 'Delete chat', },
-    { '<Leader>ie', mode = { 'v' }, ":<C-u>'<,'>GpEmojify<CR>", desc = 'Emojify selection', },
-    { '<Leader>i?', mode = { 'v' }, ":<C-u>'<,'>GpExplain<CR>", desc = 'Explain selection', },
-    { '<Leader>if', mode = { 'n' }, '<Cmd>GpChatFinder<CR>', desc = 'Chat finder', },
-    { '<Leader>ii', mode = { 'n' }, "<Cmd>GpAppend<CR>", desc = 'Append with prompt', },
-    { '<Leader>ii', mode = { 'v' }, ":<C-u>'<,'>GpAppend<CR>", desc = 'Append to selection with prompt', },
-    { '<Leader>in', mode = { 'n' }, '<Cmd>GpChatNew vsplit<CR>', desc = 'New chat', },
-    { '<Leader>in', mode = { 'v' }, ":<C-u>'<,'>GpChatNew vsplit<CR>", desc = 'New chat with selection', },
-    { '<Leader>io', mode = { 'v' }, ":<C-u>'<,'>GpOptimize<CR>", desc = 'Optimize selection', },
-    { '<Leader>ip', mode = { 'v' }, ":<C-u>'<,'>GpChatPaste<CR>", desc = 'Paste selection into chat', },
-    { '<Leader>iq', mode = { 'v' }, ":<C-u>'<,'>GpEnew<CR>", desc = 'Answer prompt with selection context', },
-    { '<Leader>ir', mode = { 'v' }, ":<C-u>'<,'>GpReadability<CR>", desc = 'Improve readability of selection', },
-    { '<Leader>is', mode = { 'v' }, ":<C-u>'<,'>GpSpelling<CR>", desc = 'Fix spelling in selection', },
-    { '<Leader>it', mode = { 'v' }, ":<C-u>'<,'>GpTests<CR>", desc = 'Generate tests for selection', },
-    { '<Leader>iw', mode = { 'v' }, ":<C-u>'<,'>GpReword<CR>", desc = 'Reword selection', },
-    { '<Leader>iz', mode = { 'v' }, ":<C-u>'<,'>GpSummarize<CR>", desc = 'Summarize selection', },
-    -- stylua: ignore end
-  },
-}
 
 local agents = {
   {

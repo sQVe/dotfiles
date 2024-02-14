@@ -16,6 +16,36 @@ local M = {
   },
 }
 
+local get_visible_bufnrs = function()
+  local bufnrs = {}
+
+  for _, win in ipairs(vim.api.nvim_list_wins()) do
+    local bufnr = vim.api.nvim_win_get_buf(win)
+
+    if not bufnrs[bufnr] then
+      table.insert(bufnrs, bufnr)
+    end
+  end
+
+  return bufnrs
+end
+
+local has_words_before = function()
+  unpack = unpack or table.unpack
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+
+  return col ~= 0
+    and vim.api
+        .nvim_buf_get_lines(0, line - 1, line, true)[1]
+        :sub(col, col)
+        :match('%s')
+      == nil
+end
+
+local expand_snippet = function(args)
+  require('luasnip').lsp_expand(args.body)
+end
+
 M.config = function()
   local cmp = require('cmp')
   local lspkind = require('lspkind')
@@ -27,18 +57,6 @@ M.config = function()
 
   -- Pattern that matches any consecutive characters, including special ones.
   local anyWord = [[\k\+]]
-
-  local has_words_before = function()
-    unpack = unpack or table.unpack
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-
-    return col ~= 0
-      and vim.api
-          .nvim_buf_get_lines(0, line - 1, line, true)[1]
-          :sub(col, col)
-          :match('%s')
-        == nil
-  end
 
   local mapKey = function(fn, modes)
     local defaultModes = { 'c', 'i' }
@@ -73,10 +91,6 @@ M.config = function()
     else
       fallback()
     end
-  end
-
-  local expand_snippet = function(args)
-    require('luasnip').lsp_expand(args.body)
   end
 
   cmp.setup({
@@ -122,7 +136,10 @@ M.config = function()
       {
         name = 'buffer',
         keyword_length = 4,
-        option = { keyword_pattern = anyWord },
+        option = {
+          get_bufnrs = get_visible_bufnrs,
+          keyword_pattern = anyWord,
+        },
       },
       { name = 'emoji' },
     }),
@@ -136,7 +153,10 @@ M.config = function()
       {
         name = 'buffer',
         keyword_length = 2,
-        option = { keyword_pattern = anyWord },
+        option = {
+          get_bufnrs = get_visible_bufnrs,
+          keyword_pattern = anyWord,
+        },
       },
       { name = 'emoji' },
     },
@@ -148,7 +168,10 @@ M.config = function()
       {
         name = 'buffer',
         keyword_length = 2,
-        option = { keyword_pattern = anyWord },
+        option = {
+          get_bufnrs = get_visible_bufnrs,
+          keyword_pattern = anyWord,
+        },
       },
     },
   })
@@ -161,7 +184,10 @@ M.config = function()
       {
         name = 'buffer',
         keyword_length = 4,
-        option = { keyword_pattern = anyWord },
+        option = {
+          get_bufnrs = get_visible_bufnrs,
+          keyword_pattern = anyWord,
+        },
       },
     }),
   })
