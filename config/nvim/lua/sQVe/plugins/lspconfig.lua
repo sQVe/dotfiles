@@ -29,10 +29,6 @@ local M = {
     -- markdown,
     'markdown',
 
-    -- omnisharp.
-    'cs',
-    'vb',
-
     -- yamlls
     'yaml',
 
@@ -108,10 +104,6 @@ M.config = function()
       },
     }),
     marksman = server_setup,
-    omnisharp = lsp_utils.create_server_setup({
-      cmd = { 'omnisharp' },
-      on_attach = on_attach,
-    }),
     yamlls = server_setup,
   }
 

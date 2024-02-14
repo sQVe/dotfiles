@@ -16,7 +16,6 @@ local is_filesize_larger_than =
 M.opts = {
   ensure_installed = {
     'bash',
-    'c_sharp',
     'css',
     'diff',
     'dockerfile',
