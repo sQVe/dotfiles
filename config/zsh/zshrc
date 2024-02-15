@@ -18,7 +18,7 @@ zstyle ':completion:*' matcher-list \
   '+l:|=*'
 
 # Zoxide.
-eval "$(zoxide init --cmd cd zsh)"
+eval "$(zoxide init zsh)"
 
 # Completion.
 source "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh"
