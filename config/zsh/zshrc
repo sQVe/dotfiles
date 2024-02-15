@@ -76,12 +76,12 @@ function colorize() {
 
 # Use fd in fzf completion for path listing.
 function _fzf_compgen_path() {
-  command fd --hidden --follow --exclude ".git" . "$1"
+  command fd --hidden --follow --exclude '.git' --exclude '.steam' --exclude 'Steam' . "$1"
 }
 
 # Use fd in fzf completion for directory listing.
 function _fzf_compgen_dir() {
-  command fd --type d --hidden --follow --exclude ".git" . "$1"
+  command fd --type directory --hidden --follow --exclude '.git' --exclude '.steam' --exclude 'Steam' . "$1"
 }
 
 # Colorize man
@@ -155,11 +155,11 @@ function zvm_after_lazy_keybindings() {
 #  ┣╸ ┏╋┛┣━┛┃ ┃┣┳┛ ┃ ┗━┓
 #  ┗━╸╹ ╹╹  ┗━┛╹┗╸ ╹ ┗━┛
 
-export FZF_ALT_C_COMMAND='command fd --type d --hidden --follow --strip-cwd-prefix --exclude .git'
+export FZF_ALT_C_COMMAND="command fd --type directory --hidden --follow --exclude '.git' --exclude '.steam' --exclude 'Steam'"
 export FZF_ALT_C_OPTS="--preview 'eza -T -L 1 --group-directories-first --color=always {}'"
-export FZF_CTRL_T_COMMAND='command fd --hidden --follow --strip-cwd-prefix --exclude .git'
+export FZF_CTRL_T_COMMAND="command fd --hidden --follow --exclude '.git' --exclude '.steam' --exclude 'Steam'"
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always {} 2> /dev/null || eza -T -L 1 --group-directories-first --color=always {}'"
-export FZF_DEFAULT_COMMAND='command fd --hidden --follow --strip-cwd-prefix --exclude .git'
+export FZF_DEFAULT_COMMAND="command fd --hidden --follow --exclude '.git' --exclude '.steam' --exclude 'Steam'"
 export FZF_DEFAULT_OPTS="--bind ctrl-a:toggle-all,ctrl-b:page-up,ctrl-d:half-page-down,ctrl-f:page-down,ctrl-u:half-page-up --color=bg+:#282828,spinner:#b16286,hl:#b16286 --color=fg:#ebdbb2,info:#458588,pointer:#98971a --color=marker:#98971a,hl+:#98971a --reverse --tiebreak=length,end --preview 'bat --color=always {} 2> /dev/null || eza -T -L 1 --group-directories-first --color=always {} 2> /dev/null || echo {}' --preview-window 'down:50%'"
 
 
@@ -213,7 +213,7 @@ alias suspend='state suspend'
 alias bluetooth=bluetoothctl
 alias cheat='cht.sh'
 alias chrome=open-chrome
-alias fd='fd --hidden --follow'
+alias fd="fd --hidden --follow --exclude .git --exclude '.steam' --exclude 'Steam'"
 alias feh='feh --scale-down --auto-zoom --image-bg "#282828"'
 alias fm=yazi
 alias format='npx prettier --write'
@@ -222,7 +222,6 @@ alias icat="kitten icat"
 alias lg=lazygit
 alias qutebrowser=open-qutebrowser
 alias rcup="${SCRIPTS}/extended-rcup.sh"
-alias rg='rg --hidden --follow'
 alias spotify=open-spotify
 alias steam=open-steam
 alias v=nvim

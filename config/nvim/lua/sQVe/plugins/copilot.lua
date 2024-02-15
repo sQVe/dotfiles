@@ -19,6 +19,7 @@ local enabled_filetypes = {
   'typescript',
   'typescriptreact',
   'yaml',
+  'zsh',
 }
 
 local M = {

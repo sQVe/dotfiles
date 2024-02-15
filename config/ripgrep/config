@@ -7,6 +7,10 @@
 # Ignore .git directories
 --glob=!.git
 
+# Ignore steam directories.
+--glob=!.steam
+--glob=!Steam
+
 # Set colors.
 --colors=line:fg:yellow
 --colors=path:fg:blue
