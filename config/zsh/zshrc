@@ -1,31 +1,29 @@
-#  ┏━┓┏━┓╻ ╻┏━┓┏━╸┏━╸
-#  ┗━┓┃ ┃┃ ┃┣┳┛┃  ┣╸
-#  ┗━┛┗━┛┗━┛╹┗╸┗━╸┗━╸
 
+# ┏━╸╻ ╻┏━┓╻    ┏━┓┏┓╻╺┳┓   ┏━┓┏━┓╻ ╻┏━┓┏━╸┏━╸
+# ┣╸ ┃┏┛┣━┫┃    ┣━┫┃┗┫ ┃┃   ┗━┓┃ ┃┃ ┃┣┳┛┃  ┣╸
+# ┗━╸┗┛ ╹ ╹┗━╸  ╹ ╹╹ ╹╺┻┛   ┗━┛┗━┛┗━┛╹┗╸┗━╸┗━╸
+
+
+# Zim settings.
 zstyle ':zim' disable-version-check yes
 zstyle ':zim:completion' dumpfile "$XDG_CACHE_HOME/.zcompdump"
 zstyle ':zim:git' aliases-prefix 'g'
 zstyle ':zim:input' double-dot-expand yes
 
 source "${ZIM_HOME}/init.zsh"
-source /usr/share/fzf/completion.zsh
-
-if [[ -e "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh" ]]; then
-  source "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh"
-fi
 
 # Use matcher-list from marlonrichert/zsh-autocomplete.
 zstyle ':completion:*' matcher-list \
   'm:{[:lower:]-}={[:upper:]_} r:|[.]=**' \
   '+l:|=*'
 
+# Zoxide.
+eval "$(zoxide init --cmd cd zsh)"
 
-# ┏━╸╻ ╻┏━┓╻
-# ┣╸ ┃┏┛┣━┫┃
-# ┗━╸┗┛ ╹ ╹┗━╸
-
-eval "$(zoxide init zsh)"
-
+# Completion.
+source "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh"
+source "$ZDOTDIR/zoxide_completions.zsh"
+source /usr/share/fzf/completion.zsh
 
 #  ┏━┓┏━╸╺┳╸╺┳╸╻┏┓╻┏━╸┏━┓
 #  ┗━┓┣╸  ┃  ┃ ┃┃┗┫┃╺┓┗━┓
