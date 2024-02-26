@@ -13,7 +13,7 @@ zmodule completion
 zmodule lukechilds/zsh-better-npm-completion
 
 # Modes.
-zmodule sQVe/zsh-vi-mode
+zmodule jeffreytse/zsh-vi-mode
 
 # Prompt and color.
 zmodule miekg/lean

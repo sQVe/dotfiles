@@ -63,7 +63,7 @@ zle -A backward-delete-char vi-backward-delete-char
 #  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
 #  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
 
-function colorize() {
+function _colorize() {
   command env \
     LESS_TERMCAP_mb=$(printf "\e[1;31m") \
     LESS_TERMCAP_md=$(printf "\e[1;31m") \
@@ -86,7 +86,7 @@ function _fzf_compgen_dir() {
 
 # Colorize man
 function man {
-  colorize $0 "$@"
+  _colorize $0 "$@"
 }
 
 # Disable nvm "use version" check.
@@ -95,18 +95,9 @@ function nvm() {
   nvm "$@"
 }
 
-# Temporary patch zsh-vi-mode compatibility with zsh-syntax-highlighting.
-# Remove once https://github.com/jeffreytse/zsh-vi-mode/pull/188 is merged.
-function patch_vi_mode_compatibility() {
-  autoload add-zle-hook-widget
-  add-zle-hook-widget zle-line-pre-redraw zvm_zle-line-pre-redraw
-}
-
 # Load keybindings after vi-mode init, ensuring that they will not be
 # overwritten.
 function zvm_after_init() {
-  patch_vi_mode_compatibility
-
   source /usr/share/fzf/key-bindings.zsh
 
   # # Remove default fzf bindings.
