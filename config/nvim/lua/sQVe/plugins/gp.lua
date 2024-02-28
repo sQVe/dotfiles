@@ -9,12 +9,13 @@ local M = {
     -- stylua: ignore start
     { '<Leader>i*', mode = { 'v' }, ":<C-u>'<,'>GpDocumentation<CR>", desc = 'Generate documentation for selection', },
     { '<Leader>i-', mode = { 'v' }, ":<C-u>'<,'>GpCompress<CR>", desc = 'Compress selection', },
+    { '<Leader>i?', mode = { 'v' }, ":<C-u>'<,'>GpExplain<CR>", desc = 'Explain selection', },
     { '<Leader>ia', mode = { 'v' }, ":<C-u>'<,'>GpAtomic<CR>", desc = 'Suggest note improvements for selection', },
     { '<Leader>ib', mode = { 'v' }, ":<C-u>'<,'>GpBugs<CR>", desc = 'Repair bugs in selection', },
     { '<Leader>ic', mode = { 'n', 'v' }, '<Cmd>GpChatToggle<CR>', desc = 'Toggle chat', },
     { '<Leader>id', mode = { 'n' }, '<Cmd>GpChatDelete<CR>', desc = 'Delete chat', },
+    { '<Leader>id', mode = { 'v' }, ":<C-u>'<,'>GpDiff<CR>", desc = 'Generate description from a diff', },
     { '<Leader>ie', mode = { 'v' }, ":<C-u>'<,'>GpEmojify<CR>", desc = 'Emojify selection', },
-    { '<Leader>i?', mode = { 'v' }, ":<C-u>'<,'>GpExplain<CR>", desc = 'Explain selection', },
     { '<Leader>if', mode = { 'n' }, '<Cmd>GpChatFinder<CR>', desc = 'Chat finder', },
     { '<Leader>ii', mode = { 'n' }, "<Cmd>GpAppend<CR>", desc = 'Append with prompt', },
     { '<Leader>ii', mode = { 'v' }, ":<C-u>'<,'>GpAppend<CR>", desc = 'Append to selection with prompt', },
@@ -78,15 +79,14 @@ local agents = {
     command = false,
     model = { model = 'gpt-4-1106-preview', temperature = 1.1, top_p = 1 },
     system_prompt = generate_prompt({
-      'You are a general AI assistant.',
+      'You are a general-purpose AI assistant.',
       '',
-      'The user has provided additional guidelines for your response:',
-      '',
-      '- Stay factual: If unsure, admit lack of knowledge rather than guessing.',
-      '- Seek clarity: When necessary, ask questions to provide better answers.',
-      '- Foster learning: Utilize the Socratic method to enhance thinking and coding abilities.',
-      '- Be comprehensive: Include any relevant code in your outputs when required.',
-      '- Remain calm: Remember to take a deep breath. Confidence is key!',
+      'Here are additional guidelines for your responses:',
+      '- Stay factual: Admit lack of knowledge rather than making assumptions if unsure.',
+      '- Seek clarity: Ask questions when necessary to provide more helpful answers.',
+      '- Foster learning: Use the Socratic method to guide users to better understanding and coding practices.',
+      '- Be comprehensive: When required, include relevant code examples in outputs.',
+      '- Pay attention to Markdown formatting: Use sentence case in Markdown headers.',
     }),
   },
   {
@@ -97,9 +97,10 @@ local agents = {
     system_prompt = generate_prompt({
       'You are an AI working as a code editor.',
       '',
-      'When handling complex concepts or code:',
+      'When handling code:',
       '- Make sure to INCLUDE EXPLANATORY COMMENTS within the code for better comprehension.',
       '- Refrain from adding commentary outside code blocks.',
+      '- Ensure that Markdown headers use sentence case.',
       '',
       'Enclose your code-centric answers within code block delimiters:',
       '```code',
@@ -169,6 +170,30 @@ local hooks = {
       '```',
       '',
       'Could you assist by condensing the text above to its most succinct form?.',
+    })
+
+    local agent = gp.get_command_agent()
+
+    gp.Prompt(
+      params,
+      gp.Target.enew,
+      nil,
+      agent.model,
+      prompt,
+      agent.system_prompt
+    )
+  end,
+  Diff = function(gp, params)
+    local prompt = generate_prompt({
+      'I have the following git diff from {{filename}}:',
+      '',
+      '```{{filetype}}',
+      '{{selection}}',
+      '```',
+      '',
+      'Please provide a PR description for the changes.',
+      'Keep the wording concise and clear.',
+      'The description should always start with a `### Overview` section, followed by a `### Key changes` section. Changes should preferably be grouped together.',
     })
 
     local agent = gp.get_command_agent()
