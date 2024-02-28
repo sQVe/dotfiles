@@ -31,13 +31,13 @@ gui:
       - bold
     selectedLineBgColor:
       - '#444'
-    selectedRangeBgColor:
-      - reverse
+  border: 'rounded'
 git:
   autoFetch: false
   log:
     showGraph: 'always'
   paging:
+    colorArg: always
     pager: delta --dark --paging=never
   skipHookPrefix: draft
 customCommands:
