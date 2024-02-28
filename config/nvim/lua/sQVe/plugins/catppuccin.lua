@@ -127,6 +127,9 @@ local highlight_overrides = function(colors)
     IlluminatedWordText = { bg = colors.none, underline = true },
     IlluminatedWordWrite = { bg = colors.none, underline = true },
 
+    -- LSP.
+    LspCodeLens = { fg = colors.surface2, italic = true },
+
     -- Mini hipatterns.
     MiniHipatternsFixme = {
       bg = colors.red,
@@ -171,6 +174,7 @@ local highlight_overrides = function(colors)
     ['@keyword.function'] = { fg = colors.red, bold = true },
     ['@keyword.return'] = { fg = colors.red },
     ['@lsp.type.class.markdown'] = { fg = colors.yellow },
+    ['@lsp.type.decorator.markdown'] = {},
     ['@lsp.type.interface'] = { link = 'Type' },
     ['@markup.link.label.markdown_inline'] = { fg = colors.yellow },
     ['@markup.link.markdown_inline'] = { fg = colors.text },
@@ -178,6 +182,7 @@ local highlight_overrides = function(colors)
       fg = colors.text,
       underline = true,
     },
+
     ['@parameter'] = { fg = colors.peach },
     ['@tag.delimiter'] = { fg = colors.subtext0 },
     ['@text.todo.checked'] = { fg = colors.green },

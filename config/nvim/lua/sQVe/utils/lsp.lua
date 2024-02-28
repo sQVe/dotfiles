@@ -79,6 +79,17 @@ M.diagnostic_handler = function(_, result, ctx, ...)
   return vim.lsp.diagnostic.on_publish_diagnostics(nil, result, ctx, ...)
 end
 
+function M.enable_code_lens(bufnr, allowed_filetypes)
+  local filetype = vim.api.nvim_get_option_value('filetype', { buf = bufnr })
+
+  if vim.tbl_contains(allowed_filetypes, filetype) then
+    vim.api.nvim_create_autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
+      buffer = bufnr,
+      callback = vim.lsp.codelens.refresh,
+    })
+  end
+end
+
 M.get_symbol_map = function(pad)
   local symbol_map = require('lspkind').symbol_map
   local overriden_symbol_map = vim.tbl_extend('force', symbol_map, {

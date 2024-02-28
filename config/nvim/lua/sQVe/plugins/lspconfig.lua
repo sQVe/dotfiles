@@ -74,6 +74,7 @@ M.config = function()
   local lsp_utils = require('sQVe.utils.lsp')
 
   local on_attach = function(_, bufnr)
+    lsp_utils.enable_code_lens(bufnr, { 'markdown' })
     lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
   end
 
