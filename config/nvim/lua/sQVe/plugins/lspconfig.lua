@@ -71,6 +71,7 @@ local M = {
 
 M.config = function()
   local lspconfig = require('lspconfig')
+  local configs = require('lspconfig.configs')
   local lsp_utils = require('sQVe.utils.lsp')
 
   local on_attach = function(_, bufnr)
@@ -85,6 +86,15 @@ M.config = function()
   vim.lsp.set_log_level('OFF')
   vim.lsp.handlers['textDocument/publishDiagnostics'] =
     lsp_utils.diagnostic_handler
+
+  configs['markdown_oxide'] = {
+    default_config = {
+      cmd = { 'markdown-oxide' },
+      filetypes = { 'markdown' },
+      root_dir = lspconfig.util.root_pattern('.git', vim.fn.getcwd()),
+    },
+    on_attach = on_attach,
+  }
 
   local servers = {
     -- Servers already handled by plugin setup:
@@ -104,7 +114,7 @@ M.config = function()
         },
       },
     }),
-    marksman = server_setup,
+    markdown_oxide = server_setup,
     yamlls = server_setup,
   }
 

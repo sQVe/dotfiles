@@ -130,7 +130,12 @@ M.config = function()
     },
     snippet = { expand = expand_snippet },
     sources = config.sources({
-      { name = 'nvim_lsp' },
+      {
+        name = 'nvim_lsp',
+        option = {
+          markdown_oxide = { keyword_pattern = [[\(\k\| \|\/\|#\|\^\)\+]] },
+        },
+      },
       { name = 'path' },
       { name = 'luasnip', keyword_length = 2 },
       {
@@ -147,7 +152,12 @@ M.config = function()
 
   cmp.setup.filetype('markdown', {
     sources = {
-      { name = 'nvim_lsp' },
+      {
+        name = 'nvim_lsp',
+        option = {
+          markdown_oxide = { keyword_pattern = [[\(\k\| \|\/\|#\|\^\)\+]] },
+        },
+      },
       { name = 'path' },
       { name = 'luasnip', keyword_length = 2 },
       {

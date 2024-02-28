@@ -7,6 +7,12 @@ local M = {}
 M.create_server_setup = function(opts)
   local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
+  capabilities.workspace = {
+    didChangeWatchedFiles = {
+      dynamicRegistration = true,
+    },
+  }
+
   local common_setup = {
     capabilities = capabilities,
     root_dir = M.create_root_dir_handler(),
