@@ -151,12 +151,23 @@ M.map_lsp_buffer_keys = function(bufnr, include)
         builtin.lsp_definitions,
         { buffer = bufnr, desc = 'Goto definitions' }
       )
-      map(
-        'n',
-        'gD',
-        builtin.lsp_implementations,
-        { buffer = bufnr, desc = 'Goto implementations' }
-      )
+      map('n', 'gD', function()
+        local filetype =
+          vim.api.nvim_get_option_value('filetype', { buf = bufnr })
+
+        local typescript_tools_filetypes =
+          require('sQVe.plugins.typescript-tools').ft
+
+        if vim.tbl_contains(typescript_tools_filetypes, filetype) then
+          require('typescript-tools.api').go_to_source_definition()
+          return
+        end
+
+        vim.lsp.buf.declaration()
+      end, { buffer = bufnr, desc = 'Goto declaration' })
+      map('n', 'gI', function()
+        builtin.lsp_implementations({ reuse_win = true })
+      end, { buffer = bufnr, desc = 'Goto implementations' })
       map(
         'n',
         'gr',
