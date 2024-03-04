@@ -64,11 +64,14 @@ M.config = function()
     return mapping(fn, vim.tbl_extend('force', defaultModes, modes or {}))
   end
 
-  local signature_help = function()
-    if cmp.visible() then
-      cmp.close()
+  local abort = function(fallback)
+    local selected_entry = cmp.get_selected_entry()
+
+    if selected_entry ~= nil then
+      cmp.abort()
+    else
+      fallback()
     end
-    vim.lsp.buf.signature_help()
   end
 
   local next = function(fallback)
@@ -93,21 +96,47 @@ M.config = function()
     end
   end
 
+  local signature_help = function()
+    if cmp.visible() then
+      cmp.close()
+    end
+    vim.lsp.buf.signature_help()
+  end
+
+  local format_label = function(vim_item)
+    local ELLIPSIS_CHAR = '…'
+    local MAX_LABEL_WIDTH = 60
+    local label = vim_item.abbr
+    local label_len = string.len(label)
+
+    if label_len > MAX_LABEL_WIDTH then
+      vim_item.abbr = vim.fn.strcharpart(label, 0, MAX_LABEL_WIDTH)
+        .. ELLIPSIS_CHAR
+    elseif label_len < MAX_LABEL_WIDTH then
+      vim_item.abbr = label .. string.rep(' ', MAX_LABEL_WIDTH - label_len)
+    end
+
+    return vim_item
+  end
   cmp.setup({
     formatting = {
       fields = { 'abbr', 'menu', 'kind' },
-      format = lspkind.cmp_format({
-        menu = {
-          buffer = ' buf',
-          emoji = ' emo',
-          luasnip = ' sni',
-          nvim_lsp = ' lsp',
-          nvim_lua = ' api',
-          path = ' path',
-        },
-        mode = 'symbol',
-        symbol_map = get_symbol_map(),
-      }),
+      format = function(entry, vim_item)
+        vim_item = lspkind.cmp_format({
+          menu = {
+            buffer = ' buf',
+            emoji = ' emo',
+            luasnip = ' sni',
+            nvim_lsp = ' lsp',
+            nvim_lua = ' api',
+            path = ' path',
+          },
+          mode = 'symbol',
+          symbol_map = get_symbol_map(),
+        })(entry, vim_item)
+
+        return format_label(vim_item)
+      end,
     },
     mapping = mapping.preset.insert({
       ['<C-CR>'] = mapKey(
@@ -116,8 +145,8 @@ M.config = function()
       ['<C-Space>'] = mapKey(
         mapping.complete({ reason = cmp.ContextReason.Manual })
       ),
+      ['<C-c>'] = mapKey(abort),
       ['<C-d>'] = mapKey(mapping.scroll_docs(8)),
-      ['<C-e>'] = mapKey(mapping.close()),
       ['<C-k>'] = mapKey(signature_help),
       ['<C-u>'] = mapKey(mapping.scroll_docs(-8)),
       ['<CR>'] = mapKey(mapping.confirm({ select = false })),
