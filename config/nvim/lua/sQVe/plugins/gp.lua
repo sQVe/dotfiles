@@ -176,7 +176,7 @@ local hooks = {
 
     gp.Prompt(
       params,
-      gp.Target.enew,
+      gp.Target.enew('markdown'),
       nil,
       agent.model,
       prompt,
@@ -200,7 +200,7 @@ local hooks = {
 
     gp.Prompt(
       params,
-      gp.Target.enew,
+      gp.Target.enew('markdown'),
       nil,
       agent.model,
       prompt,
@@ -234,7 +234,7 @@ local hooks = {
 
     gp.Prompt(
       params,
-      gp.Target.enew,
+      gp.Target.enew('markdown'),
       nil,
       agent.model,
       prompt,
@@ -315,7 +315,7 @@ local hooks = {
 
     gp.Prompt(
       params,
-      gp.Target.enew,
+      gp.Target.enew('markdown'),
       nil,
       agent.model,
       prompt,
