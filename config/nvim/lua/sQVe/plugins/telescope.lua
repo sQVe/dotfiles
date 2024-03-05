@@ -21,7 +21,10 @@ local M = {
     {
       '<Backspace>',
       function()
-        require('telescope.builtin').buffers({ sort_mru = true })
+        require('telescope.builtin').buffers({
+          ignore_current_buffer = true,
+          sort_mru = true,
+        })
       end,
       desc = 'Buffers',
     },
