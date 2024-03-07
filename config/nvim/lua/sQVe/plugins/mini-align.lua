@@ -12,8 +12,8 @@ local M = {
 
 M.opts = {
   mappings = {
-    start = '',
-    start_with_preview = 'ga',
+    start = 'ga',
+    start_with_preview = 'gA',
   },
   options = {
     split_pattern = '',
