@@ -70,16 +70,42 @@ end
 
 M.diagnostic_handler = function(_, result, ctx, ...)
   local client = vim.lsp.get_client_by_id(ctx.client_id)
-  local ignored_codes = {}
+  local ignored_diagnostics = {}
+  local severity = {
+    HINT = 1,
+    INFO = 2,
+    WARNING = 3,
+    ERROR = 4,
+  }
 
   if client and client.name == 'typescript-tools' then
-    ignored_codes = { 80001 }
+    ignored_diagnostics = {
+      { code = 7016, severity = severity.HINT },
+      { code = 80001 },
+    }
   elseif client and client.name == 'yamlls' then
-    ignored_codes = { 'mapKeyOrder' }
+    ignored_diagnostics = {
+      { code = 'mapKeyOrder' },
+    }
   end
 
   result.diagnostics = vim.tbl_filter(function(diagnostic)
-    return not vim.tbl_contains(ignored_codes, diagnostic.code)
+    for _, ignored_diagnostic in ipairs(ignored_diagnostics) do
+      local ignore = true
+
+      for key, value in pairs(ignored_diagnostic) do
+        if diagnostic[key] ~= value then
+          ignore = false
+          break
+        end
+      end
+
+      if ignore then
+        return true
+      end
+    end
+
+    return true
   end, result.diagnostics)
 
   return vim.lsp.diagnostic.on_publish_diagnostics(nil, result, ctx, ...)
