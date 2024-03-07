@@ -74,6 +74,32 @@ M.config = function()
     end
   end
 
+  local cycle_suggestions = function(fallback)
+    local suggestion = require('copilot.suggestion')
+
+    if cmp.visible() then
+      cmp.close()
+    end
+
+    if suggestion.is_visible() then
+      suggestion.next()
+    else
+      fallback()
+    end
+  end
+
+  local expand = function(fallback)
+    local suggestion = require('copilot.suggestion')
+
+    if luasnip.expandable() then
+      luasnip.expand_or_jump()
+    elseif suggestion.is_visible() then
+      suggestion.accept()
+    else
+      fallback()
+    end
+  end
+
   local next = function(fallback)
     if cmp.visible() then
       cmp.select_next_item()
@@ -147,7 +173,9 @@ M.config = function()
       ),
       ['<C-c>'] = mapKey(abort),
       ['<C-d>'] = mapKey(mapping.scroll_docs(8)),
+      ['<C-j>'] = mapKey(cycle_suggestions),
       ['<C-k>'] = mapKey(signature_help),
+      ['<C-l>'] = mapKey(expand),
       ['<C-u>'] = mapKey(mapping.scroll_docs(-8)),
       ['<CR>'] = mapKey(mapping.confirm({ select = false })),
       ['<Tab>'] = mapKey(next, { 's' }),
@@ -157,7 +185,7 @@ M.config = function()
       fetching_timeout = 250,
       max_view_entries = 100,
     },
-    snippet = { expand = expand_snippet },
+    snippet = { expand = expand },
     sources = config.sources({
       {
         name = 'nvim_lsp',

@@ -43,7 +43,7 @@ M.opts = function()
     suggestion = {
       enabled = true,
       auto_trigger = true,
-      keymap = { accept = '<C-l>' },
+      keymap = {}, -- Mapping is handled by cmp.
     },
   }
 end

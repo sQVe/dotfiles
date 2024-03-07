@@ -17,6 +17,7 @@ local palette = {
     lavender = "#BABBF1",
     peach    = "#EF9F76",
     pink     = "#EEBEBE",
+    steel    = "#7C7691",
   },
   gruvbox = {
     bright_aqua    = '#8EC07C',
@@ -105,6 +106,9 @@ local highlight_overrides = function(colors)
     Operator = { fg = colors.text },
     Search = { fg = colors.base, bg = colors.yellow },
     Special = { fg = colors.subtext0 },
+
+    -- Copilot.
+    CopilotSuggestion = { fg = palette.custom.steel, italic = true },
 
     -- Flash.
     FlashLabel = { fg = palette.gruvbox.light0, bold = true },
