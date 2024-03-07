@@ -102,7 +102,7 @@ local agents = {
       '- Refrain from adding commentary outside code blocks.',
       '- Ensure that Markdown headers use sentence case.',
       '',
-      'Enclose your code-centric answers within code block delimiters:',
+      'Enclose your answer within a code block delimiter:',
       '```code',
       '-- Your code and comments here',
       '```',
@@ -232,14 +232,7 @@ local hooks = {
 
     local agent = gp.get_command_agent()
 
-    gp.Prompt(
-      params,
-      gp.Target.enew('markdown'),
-      nil,
-      agent.model,
-      prompt,
-      agent.system_prompt
-    )
+    gp.Prompt(params, gp.Target, nil, agent.model, prompt, agent.system_prompt)
   end,
   Emojify = function(gp, params)
     local current_filetype = vim.bo.filetype
@@ -260,14 +253,7 @@ local hooks = {
 
     local agent = gp.get_command_agent()
 
-    gp.Prompt(
-      params,
-      gp.Target.enew('markdown'),
-      nil,
-      agent.model,
-      prompt,
-      agent.system_prompt
-    )
+    gp.Prompt(params, gp.Target, nil, agent.model, prompt, agent.system_prompt)
   end,
   Explain = function(gp, params)
     local prompt = generate_prompt({
@@ -313,14 +299,7 @@ local hooks = {
 
     local agent = gp.get_command_agent()
 
-    gp.Prompt(
-      params,
-      gp.Target.enew('markdown'),
-      nil,
-      agent.model,
-      prompt,
-      agent.system_prompt
-    )
+    gp.Prompt(params, gp.Target, nil, agent.model, prompt, agent.system_prompt)
   end,
   Optimize = function(gp, params)
     local prompt = generate_prompt({
