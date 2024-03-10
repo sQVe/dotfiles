@@ -19,17 +19,14 @@ local M = {
     },
     { '<Leader>U', '<Cmd>Telescope resume<CR>', desc = 'Resume' },
     {
-      '<Backspace>',
+      '<Leader><Backspace>',
       function()
-        require('telescope.builtin').buffers({
-          ignore_current_buffer = true,
-          sort_mru = true,
-        })
+        require('telescope.builtin').buffers({ sort_mru = true })
       end,
       desc = 'Buffers',
     },
     {
-      '<Leader><Backspace>',
+      '<S-Backspace>',
       function()
         require('sQVe.utils.telescope').git_status()
       end,
