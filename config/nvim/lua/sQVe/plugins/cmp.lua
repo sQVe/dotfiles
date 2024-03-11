@@ -92,7 +92,7 @@ M.config = function()
     local suggestion = require('copilot.suggestion')
 
     if luasnip.expandable() then
-      luasnip.expand_or_jump()
+      luasnip.expand()
     elseif suggestion.is_visible() then
       suggestion.accept()
     else
@@ -185,7 +185,7 @@ M.config = function()
       fetching_timeout = 250,
       max_view_entries = 100,
     },
-    snippet = { expand = expand },
+    snippet = { expand = expand_snippet },
     sources = config.sources({
       {
         name = 'nvim_lsp',

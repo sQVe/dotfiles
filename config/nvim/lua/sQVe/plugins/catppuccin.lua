@@ -107,6 +107,12 @@ local highlight_overrides = function(colors)
     Search = { fg = colors.base, bg = colors.yellow },
     Special = { fg = colors.subtext0 },
 
+    -- Arrow.
+    ArrowAction = { fg = colors.yellow },
+    ArrowCurrentFile = { fg = colors.overlay1 },
+    ArrowDeleteMode = { fg = colors.red },
+    ArrowFileIndex = { fg = colors.mauve },
+
     -- Copilot.
     CopilotSuggestion = { fg = palette.custom.steel, italic = true },
 

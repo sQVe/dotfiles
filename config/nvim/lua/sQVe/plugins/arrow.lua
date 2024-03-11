@@ -27,6 +27,16 @@ local M = {
 M.opts = {
   index_keys = 'afghjklwrtyuiopzcbnm1234567890',
   leader_key = '<Backspace>',
+  mappings = {
+    edit = 'e',
+    delete_mode = 'd',
+    clear_all_items = 'C',
+    toggle = ' ',
+    open_vertical = 'v',
+    open_horizontal = 's',
+    quit = 'q',
+  },
+  save_key = 'git_root',
   save_path = function()
     return vim.fn.stdpath('state') .. '/arrow'
   end,

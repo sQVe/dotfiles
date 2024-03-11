@@ -1,3 +1,6 @@
+[headsup]
+disable_exec_warn = true
+
 [manager]
 layout         = [ 1, 2, 2 ]
 sort_by        = "natural"
@@ -18,19 +21,19 @@ ueberzug_offset = [ 0, 0, 0, 0 ]
 
 [opener]
 edit = [
-	{ exec = 'nvim "$@"', block = true },
+	{ run = 'nvim "$@"', block = true },
 ]
 open = [
-	{ exec = 'mimeo -q "$@"', desc = "Open" },
+	{ run = 'mimeo -q "$@"', desc = "Open" },
 ]
 reveal = [
-	{ exec = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF" },
+	{ run = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF" },
 ]
 extract = [
-	{ exec = 'unar "$1"', desc = "Extract here" },
+	{ run = 'unar "$1"', desc = "Extract here" },
 ]
 play = [
-	{ exec = 'mpv "$@"', orphan = true },
+	{ run = 'mpv "$@"', orphan = true },
 ]
 
 [open]
