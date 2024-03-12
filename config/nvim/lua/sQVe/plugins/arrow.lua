@@ -25,16 +25,16 @@ local M = {
 }
 
 M.opts = {
-  index_keys = 'afghjklwrtyuiopzcbnm1234567890',
+  index_keys = 'afghjklwryuiopzcbnm1234567890',
   leader_key = '<Backspace>',
   mappings = {
-    edit = 'e',
-    delete_mode = 'd',
     clear_all_items = 'C',
-    toggle = ' ',
-    open_vertical = 'v',
+    delete_mode = 'd',
+    edit = 'e',
     open_horizontal = 's',
+    open_vertical = 'v',
     quit = 'q',
+    toggle = 't',
   },
   save_key = 'git_root',
   save_path = function()
