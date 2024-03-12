@@ -5,6 +5,7 @@
 
 local enabled_filetypes = {
   'css',
+  'cucumber',
   'dockerfile',
   'graphql',
   'html',
