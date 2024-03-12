@@ -5,7 +5,9 @@
 
 local M = {
   'pmizio/typescript-tools.nvim',
-  requires = { 'nvim-lua/plenary.nvim', 'neovim/nvim-lspconfig' },
+  dependencies = {
+    { 'dmmulroy/ts-error-translator.nvim', config = true },
+  },
   ft = {
     'javascript',
     'javascriptreact',

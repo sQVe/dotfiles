@@ -79,7 +79,6 @@ M.opts = {
       gitsigns.setqflist,
       { buffer = bufnr, desc = 'List hunks in quickfix' }
     )
-
     map(
       { 'o', 'x' },
       'ih',
