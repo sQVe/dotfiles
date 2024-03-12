@@ -1,0 +1,86 @@
+-- ┏━┓┏━┓╻  ┏━╸╺┳╸╺┳╸┏━╸
+-- ┣━┛┣━┫┃  ┣╸  ┃  ┃ ┣╸
+-- ╹  ╹ ╹┗━╸┗━╸ ╹  ╹ ┗━╸
+
+local M = {}
+
+-- stylua: ignore
+M.colors = {
+  custom = {
+    green    = "#A9B665",
+    inset    = "#242424",
+    lavender = "#BABBF1",
+    peach    = "#EF9F76",
+    pink     = "#EEBEBE",
+    steel    = "#7C7691",
+  },
+  gruvbox = {
+    bright_aqua    = '#8EC07C',
+    bright_blue    = '#83A598',
+    bright_green   = '#B8BB26',
+    bright_orange  = '#FE8019',
+    bright_purple  = '#D3869B',
+    bright_red     = '#FB4934',
+    bright_yellow  = '#FABD2F',
+    dark0          = '#282828',
+    dark0_hard     = '#1D2021',
+    dark0_soft     = '#32302F',
+    dark1          = '#3C3836',
+    dark2          = '#504945',
+    dark3          = '#665C54',
+    dark4          = '#7C6F64',
+    faded_aqua     = '#427B58',
+    faded_blue     = '#076678',
+    faded_green    = '#79740E',
+    faded_orange   = '#AF3A03',
+    faded_purple   = '#8F3F71',
+    faded_red      = '#9D0006',
+    faded_yellow   = '#B57614',
+    gray           = '#928374',
+    light0         = '#FBF1C7',
+    light0_hard    = '#F9F5D7',
+    light0_soft    = '#F2E5BC',
+    light1         = '#EBDBB2',
+    light2         = '#D5C4A1',
+    light3         = '#BDAE93',
+    light4         = '#A89984',
+    neutral_aqua   = '#689D6A',
+    neutral_blue   = '#458588',
+    neutral_green  = '#98971A',
+    neutral_orange = '#D65D0E',
+    neutral_purple = '#B16286',
+    neutral_red    = '#CC241D',
+    neutral_yellow = '#D79921',
+  },
+}
+
+M.gruvcat = {
+  blue = M.colors.gruvbox.bright_blue,
+  flamingo = M.colors.custom.pink,
+  green = M.colors.custom.green,
+  lavender = M.colors.gruvbox.light2,
+  maroon = M.colors.gruvbox.bright_orange,
+  mauve = M.colors.gruvbox.bright_purple,
+  peach = M.colors.custom.peach,
+  pink = M.colors.custom.pink,
+  red = M.colors.gruvbox.bright_red,
+  rosewater = M.colors.gruvbox.light2,
+  sapphire = M.colors.gruvbox.neutral_aqua,
+  sky = M.colors.custom.lavender,
+  teal = M.colors.gruvbox.bright_aqua,
+  yellow = M.colors.gruvbox.bright_yellow,
+  text = M.colors.gruvbox.light1,
+  subtext1 = M.colors.gruvbox.light2,
+  subtext0 = M.colors.gruvbox.light3,
+  overlay2 = M.colors.gruvbox.light4,
+  overlay1 = M.colors.gruvbox.gray,
+  overlay0 = M.colors.gruvbox.dark4,
+  surface2 = M.colors.gruvbox.dark3,
+  surface1 = M.colors.gruvbox.dark2,
+  surface0 = M.colors.gruvbox.dark1,
+  base = M.colors.gruvbox.dark0,
+  mantle = M.colors.gruvbox.dark0_soft,
+  crust = M.colors.gruvbox.dark0_hard,
+}
+
+return M
