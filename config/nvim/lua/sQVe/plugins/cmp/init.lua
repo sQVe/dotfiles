@@ -21,7 +21,6 @@ M.config = function()
   local lspkind = require('lspkind')
   local methods = require('sQVe.plugins.cmp.methods')
   local utils = require('sQVe.plugins.cmp.utils')
-  local get_symbol_map = require('sQVe.utils.lsp').get_symbol_map
 
   -- Pattern that matches any consecutive characters, including special ones.
   local anyWord = [[\k\+]]
@@ -46,7 +45,7 @@ M.config = function()
             path = ' path',
           },
           mode = 'symbol',
-          symbol_map = get_symbol_map(),
+          symbol_map = utils.get_symbol_map(),
         })(entry, vim_item)
 
         return methods.format_label(vim_item)

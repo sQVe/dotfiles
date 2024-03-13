@@ -66,12 +66,13 @@ end
 M.next = function(fallback)
   local cmp = require('cmp')
   local luasnip = require('luasnip')
+  local utils = require('sQVe.plugins.cmp.utils')
 
   if cmp.visible() then
     cmp.select_next_item()
   elseif luasnip.jumpable(1) then
     luasnip.jump(1)
-  elseif M.has_words_before() then
+  elseif utils.has_words_before() then
     cmp.complete()
   else
     fallback()
