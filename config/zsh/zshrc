@@ -210,6 +210,7 @@ alias fm=yazi
 alias format='npx prettier --write'
 alias gh='gh'
 alias icat="kitten icat"
+alias lazydocker='sudo lazydocker'
 alias lg=lazygit
 alias qutebrowser=open-qutebrowser
 alias rcup="${SCRIPTS}/extended-rcup.sh"

@@ -79,7 +79,7 @@ M.next = function(fallback)
   end
 end
 
-local previous = function(fallback)
+M.previous = function(fallback)
   local cmp = require('cmp')
   local luasnip = require('luasnip')
 
@@ -92,7 +92,7 @@ local previous = function(fallback)
   end
 end
 
-local signature_help = function()
+M.signature_help = function()
   local cmp = require('cmp')
 
   if cmp.visible() then
