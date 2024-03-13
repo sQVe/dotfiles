@@ -1,6 +1,6 @@
--- ╻  ┏━┓┏━┓
--- ┃  ┗━┓┣━┛
--- ┗━╸┗━┛╹
+-- ╻ ╻╺┳╸╻╻  ┏━┓
+-- ┃ ┃ ┃ ┃┃  ┗━┓
+-- ┗━┛ ╹ ╹┗━╸┗━┛
 
 local M = {}
 
@@ -120,34 +120,6 @@ function M.enable_code_lens(bufnr, allowed_filetypes)
       callback = vim.lsp.codelens.refresh,
     })
   end
-end
-
-M.get_symbol_map = function(pad)
-  local symbol_map = require('lspkind').symbol_map
-  local overriden_symbol_map = vim.tbl_extend('force', symbol_map, {
-    Module = '',
-    TypeParameter = '',
-  })
-  local combined_symbol_map = vim.tbl_extend('keep', overriden_symbol_map, {
-    Array = '',
-    Boolean = '',
-    Copilot = '',
-    Key = '󰌋',
-    Namespace = '',
-    Null = '󰟢',
-    Number = '',
-    Object = '',
-    Package = '',
-    String = '',
-  })
-
-  if pad then
-    return vim.tbl_map(function(symbol)
-      return symbol .. ' '
-    end, combined_symbol_map)
-  end
-
-  return combined_symbol_map
 end
 
 -- Map keys for buffers which has LSP enabled.

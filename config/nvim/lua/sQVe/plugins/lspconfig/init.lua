@@ -75,20 +75,19 @@ local M = {
 M.config = function()
   local lspconfig = require('lspconfig')
   local lspconfig_util = require('lspconfig.util')
-  local lsp_utils = require('sQVe.utils.lsp')
+  local utils = require('sQVe.plugins.lspconfig.utils')
 
   local on_attach = function(_, bufnr)
-    lsp_utils.enable_code_lens(bufnr, { 'markdown' })
-    lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
+    utils.enable_code_lens(bufnr, { 'markdown' })
+    utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
   end
 
-  local server_setup = lsp_utils.create_server_setup({
+  local server_setup = utils.create_server_setup({
     on_attach = on_attach,
   })
 
   vim.lsp.set_log_level('OFF')
-  vim.lsp.handlers['textDocument/publishDiagnostics'] =
-    lsp_utils.diagnostic_handler
+  vim.lsp.handlers['textDocument/publishDiagnostics'] = utils.diagnostic_handler
 
   local servers = {
     -- Servers already handled by plugin setup:
@@ -97,7 +96,7 @@ M.config = function()
 
     bashls = server_setup,
     cssls = server_setup,
-    cucumber_language_server = lsp_utils.create_server_setup({
+    cucumber_language_server = utils.create_server_setup({
       cmd = {
         -- Use a specific Node.js version that is compatible with
         -- cucumber-language-server.
@@ -120,7 +119,7 @@ M.config = function()
     }),
     html = server_setup,
     jsonls = server_setup,
-    lua_ls = lsp_utils.create_server_setup({
+    lua_ls = utils.create_server_setup({
       on_attach = on_attach,
       settings = {
         Lua = {
