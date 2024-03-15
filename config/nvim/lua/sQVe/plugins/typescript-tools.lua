@@ -17,7 +17,7 @@ local M = {
 }
 
 M.opts = function()
-  local lsp_utils = require('sQVe.utils.lsp')
+  local lsp_utils = require('sQVe.plugins.lspconfig.utils')
   local map = require('sQVe.utils.vim').map
 
   local on_attach = function(client, bufnr)
