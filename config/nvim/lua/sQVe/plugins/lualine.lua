@@ -20,14 +20,7 @@ M.init = function()
 end
 
 M.opts = function()
-  local modes = {
-    'command',
-    'inactive',
-    'insert',
-    'normal',
-    'replace',
-    'visual',
-  }
+  local palette = require('sQVe.plugins.catppuccin.palette')
 
   return {
     options = {
@@ -40,7 +33,9 @@ M.opts = function()
     sections = {
       lualine_a = { 'mode' },
       lualine_b = { 'branch' },
-      lualine_c = { { 'filename', path = 1 }, 'diff' },
+      lualine_c = {
+        { 'grapple', color = { fg = palette.colors.gruvbox.gray } },
+      },
       lualine_x = {
         {
           'diagnostics',
@@ -49,7 +44,7 @@ M.opts = function()
         },
         'filetype',
       },
-      lualine_y = { 'progress' },
+      lualine_y = { 'filename' },
       lualine_z = { 'location' },
     },
     tabline = {
@@ -60,7 +55,6 @@ M.opts = function()
       lualine_y = {},
       lualine_z = { 'tabs' },
     },
-    extensions = { 'neo-tree' },
   }
 end
 

@@ -23,12 +23,6 @@ return function(theme)
     Search = { fg = theme.base, bg = theme.yellow },
     Special = { fg = theme.subtext0 },
 
-    -- Arrow.
-    ArrowAction = { fg = theme.yellow },
-    ArrowCurrentFile = { fg = theme.overlay1 },
-    ArrowDeleteMode = { fg = theme.red },
-    ArrowFileIndex = { fg = theme.mauve },
-
     -- Copilot.
     CopilotSuggestion = { fg = colors.custom.steel, italic = true },
 
@@ -36,9 +30,6 @@ return function(theme)
     FlashLabel = { fg = colors.gruvbox.light0, bold = true },
     FlashCurrent = { fg = theme.maroon },
     FlashMatch = { fg = theme.yellow },
-
-    -- Gp.
-    GpHandlerStandout = { bg = theme.base },
 
     -- Headlines.
     Headline1 = { bg = theme.surface0, bold = true },
