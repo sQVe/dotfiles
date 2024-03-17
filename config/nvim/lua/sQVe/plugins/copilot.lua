@@ -15,6 +15,7 @@ local enabled_filetypes = {
   'jsonc',
   'lua',
   'markdown',
+  'mchat',
   'scss',
   'sh',
   'typescript',

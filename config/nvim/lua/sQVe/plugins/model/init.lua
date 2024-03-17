@@ -9,40 +9,33 @@ local M = {
   ft = 'mchat',
 }
 
-M.init = function()
-  vim.filetype.add({
-    extension = {
-      mchat = 'mchat',
-    },
-  })
-end
-
 M.opts = function()
   local openai = require('model.providers.openai')
-  -- local model = require('model')
 
-  -- local mode = model.mode
+  local chats = require('sQVe.plugins.model.chats')
+  local prompts = require('sQVe.plugins.model.prompts')
 
   return {
     chats = {
-      openai = {
-        provider = openai,
-        system = 'You are a helpful assistant. Your name is Groonk.',
-        params = { model = 'gpt-4-1106-preview' },
-        create = function(input, ctx)
-          return ctx.selection and input or ''
-        end,
-        run = function(messages, config)
-          if config.system then
-            table.insert(messages, 1, {
-              role = 'system',
-              content = config.system,
-            })
-          end
-
-          return { messages = messages }
-        end,
-      },
+      general = chats.get_general_chat(),
+    },
+    prompts = {
+      -- accessibility = prompts.accessibility(),
+      -- bdd_test = prompts.bdd_test(),
+      -- custom = prompts.custom(),
+      -- improve = prompts.improve(),
+      -- note = prompts.note(),
+      -- readability = prompts.readability(),
+      -- repair = prompts.repair(),
+      -- unit_test = prompts.unit_test(),
+      commit_message = prompts.commit_message(),
+      condense = prompts.condense(),
+      docstring = prompts.docstring(),
+      explain = prompts.explain(),
+      proofread = prompts.proofread(),
+      pull_request = prompts.pull_request(),
+      rephrase = prompts.rephrase(),
+      summary = prompts.summary(),
     },
   }
 end
