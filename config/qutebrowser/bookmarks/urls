@@ -1,42 +1,23 @@
-http://airbnb.io/enzyme/docs/api/index.html Development / JavaScript / Testing | Enzyme
 http://browserl.ist Development / Web / Compatibility | Browserlist
 http://cheat.sh Development / Apps | Cheat.sh
 http://expressjs.com/en/api.html Development / JavaScript / Node.js | Express
-http://flexbox.help Development / Styling | Flexbox Help
 http://guide.bash.academy Development / Bash | Bash Academy
 http://html5please.com Development / Web / Compatibility | HTML5 Please
-http://koajs.com Development / JavaScript / Node.js | Koa
 http://learnvimscriptthehardway.stevelosh.com Development / Vim Script | Learn Vim Script the hard way
-http://libgen.rs Books & Comics | Library Genesis
-http://materialuicolors.co Development / Colors | Material Colors
 http://mywiki.wooledge.org/BashGuide Development / Bash | Bash Guide
-http://ramdajs.com/docs Development / JavaScript / FP | Ramda
 http://sed.sourceforge.net/sed1line.txt Linux / Apps | Sed One Liners
 http://shishigami:5000 Local | Shishigami
-http://slashdot.org News / Tech | Slashdot
 http://susuwatari:2080 Local | Kodi
-http://techcrunch.com News / Tech | Tech Crunch
-http://ukhh.com Music | UKHH
-http://www.color-blindness.com/color-name-hue Development / Colors | Color Name & Hue
-http://www.comicscodes.com Books & Comics | ComicsCodes
-http://www.flatuicolorpicker.com Development / Colors | Flat UI Picker
 http://www.gnu.org/software/gawk/manual/gawk.html Linux / Apps | Awk Manual
 http://www.gnu.org/software/grep/manual/grep.html Linux / Apps | Grep Manual
 http://www.gnu.org/software/sed/manual/sed.html Linux / Apps | Sed Manual
-http://www.grumpicon.com Development / Web / Compatibility | Grumpicon
 http://www.heropatterns.com Development / Web / Resources | Hero Patterns
 http://www.imdb.com Movies | IMDb
 http://www.lua.org/manual/5.4 Development / Lua | Reference Manual
-http://www.svgeneration.com Development / Web / Resources | SVGeneration
-http://www.viemu.com/a_vi_vim_graphical_cheat_sheet_tutorial.html Linux / Apps | Vim Cheatsheet
-https://1lib.eu Books & Comics | Z-Library
 https://accessible-colors.com Development / Apps | Accessible Colors
-https://anilist.co Books & Comics | AniList
-https://app.pluralsight.com/library Development / Information | Pluralsight
 https://archive.archlinux.org Linux / Arch Linux | Archive
 https://archlinuxarm.org Linux / Arch Linux | ARM
 https://asciinema.org Development / Apps | Asciinema
-https://astexplorer.net Development / Apps | AST Explorer
 https://aur.archlinux.org Linux / Arch Linux | AUR
 https://basarat.gitbook.io/typescript Development / TypeScript | TypeScript Deep Dive
 https://bbs.archlinux.org Linux / Arch Linux | Forum
@@ -44,143 +25,66 @@ https://bigocheatsheet.io Development / Information | Big-O Cheatsheet
 https://bundlephobia.com Development / Apps | BundlePhobia
 https://calendar.google.com/calendar/r Services | Calendar
 https://caniuse.com Development / Web / Compatibility | Can I Use
-https://carbon.now.sh Development / Apps | Carbon
-https://char0n.github.io/ramda-adjunct/2.5.0 Development / JavaScript / FP | Ramda Adjunct
 https://cheatsheetseries.owasp.org Development / Security | OWASP Cheat Sheet Series
 https://clig.dev Development / Information | Command Line Interface Guidelines
 https://codesandbox.io/dashboard/recent Development / Apps | Code Sandbox
 https://color.adobe.com Development / Colors | Color Wheel
-https://comicbookroundup.com Books & Comics | Comic Book Roundup
-https://comicvine.gamespot.com Books & Comics | Comic Vine
-https://coveralls.io Development | Coveralls
-https://crates.io Rust | Package Registry
+https://compat-table.github.io/compat-table/es6 Development / Web / Compatibility | ECMAScript Compatibility Table
 https://crontab.guru Linux / Apps | Crontab Guru
 https://css-tricks.com/snippets Development / Information | CSS Tricks
 https://developer.mozilla.org/en-US/docs/Web Development / Information | MDN
 https://devhints.io Development / Information | Devhints
-https://doc.rust-lang.org/stable/book Rust | The Rust Programming Language
-https://docs.emmet.io/cheat-sheet Development / Information | Emmet Cheatsheet
-https://docs.nestjs.com Development / JavaScript / Node.js | Nest.js
-https://emotion.sh/docs Development / JavaScript / Styling | Emotions
 https://explainshell.com Development / Apps | Explain Shell
 https://facebook.github.io/jest/docs/en/api.html Development / JavaScript / Testing | Jest
-https://fontawesome.com/icons?d=gallery Development / Fonts | Font Awesome
 https://fonts.google.com Development / Fonts | Google Fonts
 https://geekhack.org Keeb | GeekHack
-https://genius.com Music | Genius
-https://getcomics.info Books & Comics | Get Comics
-https://getlorem.com Development / Apps | Lorem Ipsum
 https://gist.github.com/sQVe Development | GitHub Gist
-https://github.com/fantasyland/fantasy-land Development / Specification | Fantasy Land
-https://github.com/raine/ramda-cli Linux / Apps | Ramda CLI
-https://github.com/ramda/ramda/wiki/What-Function-Should-I-Use Development / JavaScript / FP | Ramda (What?)
-https://github.com/you-dont-need/You-Dont-Need-Lodash-Underscore Development / JavaScript / Snippets | You Don't Need Lodash or Underscore
-https://gitignore.io Development / Apps | Generate gitignore
-https://grids.help Development / Styling | CSS Grid Help
-https://hackr.io Development / Information | Hackr.io
 https://help.github.com Development | GitHub Help
 https://help.github.com/en/articles/keyboard-shortcuts Development | GitHub Keymap
-https://hiphopdx.com Music | HiphopDX
 https://i3wm.org/docs/userguide.html Linux / Apps | i3 Manual
 https://jmattthew.github.io/better-font-finder/better-font-finder.html Development / Fonts | Google Font Finder
-https://js.coach/ Development / Apps | JS Coach
-https://jsfiddle.net Development / Apps | JSFiddle
 https://jsonlint.com Development / Apps | JSON Lint
 https://jwt.io Development / Apps | JWT
-https://kangax.github.io/compat-table/es6 Development / Web / Compatibility | ECMAScript Compatibility Table
-https://keebmap.xyz Keeb | keebmap
-https://keycaplendar.firebaseapp.com Keeb | KeycapLendar
 https://leagueofcomicgeeks.com/comics Books & Comics | Comic Book Database
-https://leetcode.com Development | LeetCode
-https://listemoji.com Development / Apps | Emoji List
-https://lodash.com/docs Development / JavaScript / FP | Lodash
 https://mail.google.com/mail/u/0/#inbox Services | GMail
 https://mail.protonmail.com/u/0/inbox Services | ProtonMail
 https://man.archlinux.org Linux / Arch Linux | Manual pages
-https://mangadex.org Books & Comics | MangaDex
-https://materialdesignicons.com Development / Fonts | Material Design Icons
-https://matrixzj.github.io Keeb | Keycaps Info
 https://mechgroupbuys.com Keeb | MechGroupBuys
-https://mobx.js.org Development / JavaScript | MobX
-https://mochajs.org Development / JavaScript / Testing | Mocha
-https://monkeysfightingrobots.co Books & Comics | Monkeys Fighting Robots
 https://monkeytype.com Keeb | Monkeytype
 https://news.ycombinator.com News / Tech | Hacker News
-https://nextjs.org/docs Development / JavaScript / React & Redux | Next.js
+https://nextjs.org/docs Development / JavaScript | Next.js
 https://node.green/ Development / Web / Compatibility | Node Compatibility Table
-https://nodejs.org/api Development / JavaScript / Node.js | Node.js
-https://overreacted.io Development / Information | Overreacted
-https://pitchfork.com Music | Pitchfork
-https://polished.js.org/docs Development / JavaScript / Styling | Polished
-https://ponyfoo.com Development / Information | Pony Foo
-https://react-spring.io/common/props Development / JavaScript / Styling | React Spring
-https://reactjs.org/docs/hello-world.html Development / JavaScript / React & Redux | React
-https://reacttraining.com/react-router/web/guides/philosophy Development / JavaScript / React & Redux | React Router
-https://redux-saga.js.org/docs/api/index.html Development / JavaScript / React & Redux | React Saga
-https://redux.js.org Development / JavaScript / React & Redux | Redux
+https://nodejs.org/api Development / JavaScript | Node.js
 https://regex101.com Development / Apps | RegEx 101
-https://resourcecards.com Development / Web / Resources | Resource Cards
-https://roadmap.sh Development / Information | Developer Roadmap
-https://rust-lang-nursery.github.io/rust-cookbook Rust | Rust Cookbook
-https://sanctuary.js.org Development / JavaScript / FP | Sanctuary
 https://securityheaders.com Development / Web / Compatibility | Security Headers
-https://shields.io Development / Apps | Shields and badges
-https://sinonjs.org Development / JavaScript / Testing | Sinon
 https://spec.whatwg.org/ Development / Specification | WHATWG
-https://stackoverflow.com Development / Information | Stack Overflow
 https://start.duckduckgo.com Search engine | DuckDuckGo
 https://stedolan.github.io/jq/manual/#del%28path_expression%29 Linux / Apps | JQ Manual
-https://store.steampowered.com Gaming | Steam Store
-https://sw.kovidgoyal.net/kitty/conf Linux / Apps | Configuring Kitty
-https://switches.mx Keeb | SwitchesMX
-https://testing-library.com/docs/intro Development / JavaScript / Testing | Testing Library
-https://thenextweb.com News / Tech | TNW
-https://thocstock.com Keeb | ThocStock
-https://tmate.io Development / Apps | TMate
+https://sw.kovidgoyal.net/kitty/conf Linux / Apps | Kitty
 https://ts-ast-viewer.com Development / Apps | TS AST Viewer
-https://vim.rtorr.com Linux / Apps | Vim Commands
-https://vimawesome.com Linux / Apps | Vim Awesome
-https://w0rp.com/blog/post/vim-script-for-the-javascripter Development / Vim Script | Vim Script for the JavaScripter
 https://web.whatsapp.com Services | WhatsApp
 https://wiki.archlinux.org Linux / Arch Linux | Wiki
 https://wordoid.com Development / Apps | Wordoid
-https://www.30secondsofcode.org Development / Information | 30 seconds of code
-https://www.aftonbladet.se News / Newspaper | Aftonbladet
 https://www.archlinux.org Linux / Arch Linux | Arch Linux
-https://www.archlinux.org/packages Linux / Arch Linux | Packages
 https://www.astexplorer.net Development / Apps | AST Explorer
 https://www.browserstack.com Development / Web / Compatibility | BrowserStack
-https://www.chaijs.com/api/bdd Development / JavaScript / Testing | Chai
-https://www.crunchyroll.com Streaing | Crunchyroll
 https://www.digitalocean.com/community/tools/glob Development / Apps / Glob
 https://www.draw.io Development / Apps | Draw
-https://www.drop.com Keeb | Drop
-https://www.ecma-international.org/ecma-262 Development / Specification | ECMAScript 2019
-https://www.expressen.se News / Newspaper | Expressen
 https://www.figma.com Development / Apps | Figma
-https://www.framer.com/api/motion Development / JavaScript / Styling | Framer Motion
 https://www.github.com Development | GitHub
 https://www.gnu.org/software/bash/manual/bash.html Development / Specification | Bash
-https://www.goodreads.com Books & Comics | GoodReads
 https://www.google.com Search engine | Google
 https://www.hackerrank.com Development | HackerRank
-https://www.json-generator.com Development / Apps | JSON Generator
 https://www.justwatch.com/se Streaming | JustWatch
-https://www.keebtalk.com Keeb | KeebTalk
 https://www.nerdfonts.com/cheat-sheet Development / Apps | Nerd Fonts
 https://www.netflix.com/se-en/browse Streaming | Netflix
 https://www.protondb.com Gaming | ProtonDB
 https://www.reddit.com Forum | Reddit
 https://www.rottentomatoes.com Movies | Rotten Tomatoes
-https://www.styled-components.com Development / JavaScript / Styling | Styled Components
 https://www.svt.se News / Newspaper | SVT Nyheter
 https://www.sydsvenskan.se News / Newspaper | Sydsvenskan
 https://www.theguardian.com/international News / Newspaper | The Guardian
-https://www.theremingoat.com Keeb | ThereminGoat
-https://www.toptal.com/designers/subtlepatterns Development / Web / Resources | Subtle Patterns
 https://www.twitch.tv Streaming | Twitch
-https://www.typelit.io Typing | TypeLit
 https://www.typescriptlang.org/docs/ Development / TypeScript | TypeScript Handbook
 https://www.w3.org/TR/?status=rec&version=latest Development / Specification | W3C
-https://www.washingtonpost.com News / Newspaper | The Washington Post
 https://www.youtube.com VOD | YouTube
