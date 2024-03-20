@@ -19,7 +19,7 @@ local M = {
     },
     { '<Leader>U', '<Cmd>Telescope resume<CR>', desc = 'Resume' },
     {
-      '<Leader><Backspace>',
+      '<Backspace>',
       function()
         require('telescope.builtin').buffers({ sort_mru = true })
       end,
