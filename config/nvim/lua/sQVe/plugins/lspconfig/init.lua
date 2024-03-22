@@ -112,8 +112,8 @@ M.config = function()
       root_dir = lspconfig_util.root_pattern('package.json'),
       settings = {
         cucumber = {
-          features = { 'E2E/features/**/*.feature' },
-          glue = { 'E2E/steps/**/*.ts' },
+          features = { 'e2e/features/**/*.feature' },
+          glue = { 'e2e/steps/**/*.ts' },
         },
       },
     }),
