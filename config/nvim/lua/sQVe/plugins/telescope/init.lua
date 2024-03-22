@@ -145,17 +145,19 @@ M.opts = function()
         'rg',
         '--color=never',
         '--column',
+        '--glob=!pnpm-lock.yaml',
         '--hidden',
         '--line-number',
         '--no-heading',
-        '--with-filename',
         '--trim',
+        '--with-filename',
       },
     },
     pickers = {
       find_files = {
         find_command = {
           'fd',
+          '--hidden',
           '--type',
           'file',
           '--exclude',
