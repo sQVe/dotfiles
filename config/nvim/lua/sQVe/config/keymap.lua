@@ -101,14 +101,6 @@ map(
   { desc = 'Open terminal with file manager in buffer directory' }
 )
 
--- Lazygit.
-map(
-  'n',
-  '<Leader>tl',
-  '<Cmd>Lazygit<CR>',
-  { desc = 'Open terminal with Lazygit' }
-)
-
 -- Neovim.
 map(
   'n',
