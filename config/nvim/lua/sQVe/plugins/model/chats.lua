@@ -14,7 +14,7 @@ local run = function(messages, config)
   table.insert(messages, 1, {
     role = 'system',
     content = utils.format_text({
-      "You're a versatile AI assistant.",
+      "You're a versatile assistant.",
       '',
       'Follow these guidelines when writing responses:',
       '- Ask for clarification if unsure.',
@@ -34,9 +34,11 @@ end
 M.get_general_chat = function()
   local openai = require('model.providers.openai')
 
+  local tuning = require('sQVe.plugins.model.tuning')
+
   return {
     provider = openai,
-    params = { model = 'gpt-4-1106-preview', temperature = 1 },
+    params = tuning.conversation,
     create = create,
     run = run,
   }

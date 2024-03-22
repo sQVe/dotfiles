@@ -40,7 +40,6 @@ M.config = function(_, opts)
     ['<Leader>'] = {
       d = { 'Diagnostics' },
       h = { 'Hunks' },
-      i = { 'GPT Prompt' },
       n = { 'Note' },
       t = { 'Terminal' },
     },

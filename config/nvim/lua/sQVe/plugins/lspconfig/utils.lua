@@ -72,16 +72,16 @@ M.diagnostic_handler = function(_, result, ctx, ...)
   local client = vim.lsp.get_client_by_id(ctx.client_id)
   local ignored_diagnostics = {}
   local severity = {
-    HINT = 1,
-    INFO = 2,
-    WARNING = 3,
-    ERROR = 4,
+    ERROR = 1,
+    WARNING = 2,
+    INFO = 3,
+    HINT = 4,
   }
 
   if client and client.name == 'typescript-tools' then
     ignored_diagnostics = {
-      { code = 7016, severity = severity.HINT },
-      { code = 80001 },
+      { code = 7016, severity = severity.ERROR },
+      { code = 80001, severity = severity.HINT },
     }
   elseif client and client.name == 'yamlls' then
     ignored_diagnostics = {
@@ -101,7 +101,7 @@ M.diagnostic_handler = function(_, result, ctx, ...)
       end
 
       if ignore then
-        return true
+        return false
       end
     end
 

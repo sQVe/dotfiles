@@ -8,54 +8,13 @@ local guidelines = {
   language = 'Use straightforward and easy-to-understand language.',
 }
 
--- 0.01 = error-free code generation and calculations
--- 0.1 = classification, extraction, text processing
--- 0.2 = error free API function, if AI would invoke external tool to answer
--- 0.3 = factual question answering
--- 0.4 = factual documentation, technical writing
--- 0.5 = philosophical hypothetical question answering
--- 0.6 = friendly chat with AI
--- 0.7 = articles, essays
--- 0.8 = fiction writing
--- 1.0 = poetry, unexpected words
--- 1.2 = random results and unpredicable chosen text desired
--- 2.0 = nonsense incoherent output desired
-
-local model = 'gpt-4-1106-preview'
-
-local tuning = {
-  automation = { model = model, temperature = 0.5, top_p = 0.6 },
-  base = { model = model, temperature = 0.7 },
-  code_generation = { model = model, temperature = 0.1, top_p = 0.2 },
-  code_explanation = { model = model, temperature = 0.3, top_p = 0.5 },
-  comment_generation = { model = model, temperature = 0.3, top_p = 0.3 },
-  conversation = { model = model, temperature = 0.6, top_p = 0.9 },
-  creative_writing = { model = model, temperature = 0.6, top_p = 0.4 },
-  technical_writing = { model = model, temperature = 0.4, top_p = 0.4 },
-  test = { model = model, temperature = 0.4, top_p = 0.5 },
-  text_processing = { model = model, temperature = 0.2, top_p = 0.4 },
-  translation = { model = model, temperature = 0.3, top_p = 0.3 },
-}
-
--- Input with vim.ui.input().
--- builder = function(input, context)
---   return function(build)
---     vim.ui.input({ prompt = 'Instruction: ' }, function(user_input)
---       build({
---         messages = {
---           { role = 'user', content = user_input },
---         },
---       })
---     end)
---   end
--- end,
-
 M.commit_message = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')
   local extract = require('model.prompts.extract')
 
   local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
 
   return {
     provider = openai,
@@ -101,6 +60,7 @@ M.condense = function()
   local extract = require('model.prompts.extract')
 
   local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
 
   local get_content = function(filename, filetype, input)
     return utils.format_text({
@@ -150,17 +110,54 @@ M.condense = function()
   }
 end
 
-M.explain = function()
+M.custom = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')
-  local extract = require('model.prompts.extract')
 
   local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
 
   return {
     provider = openai,
     mode = mode.BUFFER,
-    params = { model = 'gpt-4-1106-preview' },
+    params = tuning.technical_writing,
+    builder = function(input, context)
+      return {
+        messages = {
+          {
+            role = 'system',
+            content = utils.format_text({
+              "You're a versatile code assistant.",
+              guidelines.language,
+            }),
+          },
+          {
+            role = 'user',
+            content = utils.format_text({
+              'I have the following text from %s:',
+              '```%s',
+              '%s',
+              '```',
+              '%s',
+            }, context.filename, vim.bo.filetype, input, context.args),
+          },
+        },
+      }
+    end,
+  }
+end
+
+M.explain = function()
+  local mode = require('model').mode
+  local openai = require('model.providers.openai')
+
+  local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
+
+  return {
+    provider = openai,
+    mode = mode.BUFFER,
+    params = tuning.code_explanation,
     builder = function(input, context)
       return {
         messages = {
@@ -194,6 +191,7 @@ M.docstring = function()
   local extract = require('model.prompts.extract')
 
   local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
 
   local get_content = function(filename, filetype, input)
     return utils.format_text({
@@ -259,6 +257,7 @@ M.rephrase = function()
   local extract = require('model.prompts.extract')
 
   local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
 
   local get_content = function(filename, filetype, input)
     return utils.format_text({
@@ -273,7 +272,7 @@ M.rephrase = function()
   return {
     provider = openai,
     mode = mode.REPLACE,
-    params = { model = 'gpt-4-1106-preview' },
+    params = tuning.technical_writing,
     builder = function(input, context)
       return {
         messages = {
@@ -308,12 +307,51 @@ M.rephrase = function()
   }
 end
 
+M.improve = function()
+  local mode = require('model').mode
+  local openai = require('model.providers.openai')
+
+  local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
+
+  return {
+    provider = openai,
+    mode = mode.BUFFER,
+    params = tuning.code_explanation,
+    builder = function(input, context)
+      return {
+        messages = {
+          {
+            role = 'system',
+            content = utils.format_text({
+              "You're an assistant specialized in suggesting improvements to code.",
+              'Your response should contain the improved code, together with an structured explanation of the changes made.',
+              guidelines.language,
+            }),
+          },
+          {
+            role = 'user',
+            content = utils.format_text({
+              'I have the following code from %s:',
+              '```%s',
+              '%s',
+              '```',
+              'Please suggest improvements and optimizations.',
+            }, context.filename, vim.bo.filetype, input),
+          },
+        },
+      }
+    end,
+  }
+end
+
 M.proofread = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')
   local extract = require('model.prompts.extract')
 
   local utils = require('sQVe.plugins.model.utils')
+  local tubing = require('sQVe.plugins.model.tuning')
 
   local get_content = function(filename, filetype, input)
     return utils.format_text({
@@ -328,7 +366,7 @@ M.proofread = function()
   return {
     provider = openai,
     mode = mode.REPLACE,
-    params = { model = 'gpt-4-1106-preview', temperature = 0.8 },
+    params = tubing.creative_writing,
     builder = function(input, context)
       return {
         messages = {
@@ -369,11 +407,12 @@ M.pull_request = function()
   local extract = require('model.prompts.extract')
 
   local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
 
   return {
     provider = openai,
     mode = mode.INSERT,
-    params = { model = 'gpt-4-1106-preview', temperature = 0.4 },
+    params = tuning.code_explanation,
     builder = function(input, context)
       local base_branch = (context.args ~= '' and context.args) or 'main'
 
@@ -417,11 +456,12 @@ M.summary = function()
   local extract = require('model.prompts.extract')
 
   local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
 
   return {
     provider = openai,
     mode = mode.BUFFER,
-    params = { model = 'gpt-4-1106-preview' },
+    params = tuning.text_processing,
     builder = function(input, context)
       return {
         messages = {
@@ -441,6 +481,60 @@ M.summary = function()
               '%s',
               '```',
               'Please summarize it.',
+            }, context.filename, vim.bo.filetype, input),
+          },
+        },
+      }
+    end,
+    transform = extract.markdown_code,
+  }
+end
+
+M.unit_test = function()
+  local mode = require('model').mode
+  local openai = require('model.providers.openai')
+  local extract = require('model.prompts.extract')
+
+  local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
+
+  local vitest_filetypes = {
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact',
+  }
+
+  return {
+    provider = openai,
+    mode = mode.BUFFER,
+    params = tuning.text_processing,
+    builder = function(input, context)
+      return {
+        messages = {
+          {
+            role = 'system',
+            content = utils.format_text(
+              {
+                "You're an assistant specialized in writing unit tests.",
+                'Your response should contain the unit tests, testing each possible state of the unit.',
+                '%s',
+                guidelines.language,
+              },
+              (
+                vim.tbl_contains(vitest_filetypes, vim.bo.filetype)
+                and 'Use `vitest` as the test runner and `@testing-library` for any DOM-related tests.'
+              ) or ''
+            ),
+          },
+          {
+            role = 'user',
+            content = utils.format_text({
+              'I have the following text from %s:',
+              '```%s',
+              '%s',
+              '```',
+              'Please write unit tests for it.',
             }, context.filename, vim.bo.filetype, input),
           },
         },
