@@ -53,6 +53,9 @@ command('BNeovim', function()
   vim.fn.jobstart('term nvim ' .. vim.fn.expand('%:p'))
 end, { nargs = 0 })
 
+-- Lazygit.
+command('Lazygit', 'Term lazygit')
+
 -- Write, close and quit typos.
 command('Q', 'quit')
 command('Qa', 'qa')
