@@ -32,20 +32,22 @@ M.opts = function()
     },
     sections = {
       lualine_a = { 'mode' },
-      lualine_b = { 'branch' },
+      lualine_b = {
+        {
+          'filename',
+          color = { fg = palette.colors.gruvbox.light3, gui = 'italic' },
+          path = 1,
+          shorting_target = 80,
+        },
+      },
       lualine_c = {
         { 'grapple', color = { fg = palette.colors.gruvbox.gray } },
       },
       lualine_x = {
-        {
-          'diagnostics',
-          sections = { 'error', 'warn' },
-          symbols = { error = '', warn = '' },
-        },
-        'filetype',
+        { 'filetype', color = { fg = palette.colors.gruvbox.gray } },
       },
-      lualine_y = { 'filename' },
-      lualine_z = { 'location' },
+      lualine_y = { 'location' },
+      lualine_z = {},
     },
     tabline = {
       lualine_a = {},
