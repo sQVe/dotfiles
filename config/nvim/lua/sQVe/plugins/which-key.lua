@@ -41,7 +41,6 @@ M.config = function(_, opts)
       d = { 'Diagnostics' },
       h = { 'Hunks' },
       i = { 'GPT Prompt' },
-      l = { 'LSP' },
       n = { 'Note' },
       t = { 'Terminal' },
     },

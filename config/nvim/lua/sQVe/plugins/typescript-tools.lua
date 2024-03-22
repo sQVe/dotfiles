@@ -22,39 +22,6 @@ M.opts = function()
 
   local on_attach = function(client, bufnr)
     lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
-
-    if client.name == 'typescript-tools' then
-      map(
-        'n',
-        '<Leader>la',
-        '<Cmd>TSToolsAddMissingImports<CR>',
-        { desc = 'Add missing imports' }
-      )
-      map(
-        'n',
-        '<Leader>ldd',
-        '<Cmd>TSToolsRemoveUnused<CR>',
-        { desc = 'Remove unused statements' }
-      )
-      map(
-        'n',
-        '<Leader>ldi',
-        '<Cmd>TSToolsRemoveUnusedImports<CR>',
-        { desc = 'Remove unused imports' }
-      )
-      map(
-        'n',
-        '<Leader>lf',
-        '<Cmd>TSToolsFixAll<CR>',
-        { desc = 'Fix all fixable errors' }
-      )
-      map(
-        'n',
-        '<Leader>lr',
-        '<Cmd>TSToolsRenameFile<CR>',
-        { desc = 'Rename current file and fix references' }
-      )
-    end
   end
 
   return {
