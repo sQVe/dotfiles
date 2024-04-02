@@ -1,0 +1,23 @@
+-- ┏┓ ╻  ┏━┓┏┳┓┏━╸
+-- ┣┻┓┃  ┣━┫┃┃┃┣╸
+-- ┗━┛┗━╸╹ ╹╹ ╹┗━╸
+-- Git blame.
+
+local M = {
+  'FabijanZulj/blame.nvim',
+  cmd = 'ToggleBlame',
+  keys = {
+    {
+      '<Leader>hb',
+      '<Cmd>ToggleBlame<CR>',
+      desc = 'Toggle git blame',
+    },
+  },
+}
+
+M.opts = {
+  commit_detail_view = 'vsplit',
+  date_format = '%Y-%m-%d %H:%M',
+}
+
+return M
