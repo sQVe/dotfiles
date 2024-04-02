@@ -31,12 +31,12 @@ It is essential to know a thing first
     dashboard.button(
       'ä',
       '📝  Find files',
-      '<Cmd>lua require("sQVe.utils.telescope").find_files()<CR>'
+      '<Cmd>lua require("sQVe.plugins.telescope.pickers").find_files()<CR>'
     ),
     dashboard.button(
       'å',
       '🔎  Live grep',
-      '<Cmd>lua require("sQVe.utils.telescope").live_grep()<CR>'
+      '<Cmd>lua require("sQVe.plugins.telescope.pickers").live_grep()<CR>'
     ),
 
     dashboard.button(

@@ -9,7 +9,7 @@ local M = {
   cmd = 'Grapple',
   keys = {
     {
-      '<Leader>g',
+      '<Leader><CR>',
       function()
         local grapple = require('grapple')
 
