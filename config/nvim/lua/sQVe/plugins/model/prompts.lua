@@ -8,6 +8,44 @@ local guidelines = {
   language = 'Use straightforward and easy-to-understand language.',
 }
 
+M.accessibility = function()
+  local mode = require('model').mode
+  local openai = require('model.providers.openai')
+
+  local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
+
+  return {
+    provider = openai,
+    mode = mode.BUFFER,
+    params = tuning.technical_writing,
+    builder = function(input, context)
+      return {
+        messages = {
+          {
+            role = 'system',
+            content = utils.format_text({
+              "You're a accessibility assistant.",
+              'Your response should contain the improved code, together with an structured explanation of the changes made.',
+              guidelines.language,
+            }),
+          },
+          {
+            role = 'user',
+            content = utils.format_text({
+              'I have the following code from %s:',
+              '```%s',
+              '%s',
+              '```',
+              'Please make it more accessible.',
+            }, context.filename, vim.bo.filetype, input),
+          },
+        },
+      }
+    end,
+  }
+end
+
 M.commit_message = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')
@@ -55,7 +93,6 @@ M.commit_message = function()
 end
 
 M.condense = function()
-  local mode = require('model').mode
   local openai = require('model.providers.openai')
   local extract = require('model.prompts.extract')
 
@@ -74,7 +111,7 @@ M.condense = function()
 
   return {
     provider = openai,
-    mode = mode.REPLACE,
+    mode = utils.get_multi_mode(),
     params = tuning.text_processing,
     builder = function(input, context)
       return {
@@ -110,79 +147,44 @@ M.condense = function()
   }
 end
 
-M.custom = function()
-  local mode = require('model').mode
+M.custom_instruction = function(opts)
+  opts = opts or {}
+
   local openai = require('model.providers.openai')
 
   local utils = require('sQVe.plugins.model.utils')
   local tuning = require('sQVe.plugins.model.tuning')
 
-  return {
-    provider = openai,
-    mode = mode.BUFFER,
-    params = tuning.technical_writing,
-    builder = function(input, context)
-      return {
-        messages = {
-          {
-            role = 'system',
-            content = utils.format_text({
-              "You're a versatile code assistant.",
-              guidelines.language,
-            }),
+  return function()
+    return {
+      provider = openai,
+      mode = opts.mode,
+      params = tuning.technical_writing,
+      builder = function(input, context)
+        return {
+          messages = {
+            {
+              role = 'system',
+              content = utils.format_text({
+                "You're a versatile code assistant.",
+                guidelines.language,
+              }),
+            },
+            {
+              role = 'user',
+              content = utils.format_text({
+                'I have the following text from %s:',
+                '```%s',
+                '%s',
+                '```',
+                '%s',
+              }, context.filename, vim.bo.filetype, input, context.args),
+            },
           },
-          {
-            role = 'user',
-            content = utils.format_text({
-              'I have the following text from %s:',
-              '```%s',
-              '%s',
-              '```',
-              '%s',
-            }, context.filename, vim.bo.filetype, input, context.args),
-          },
-        },
-      }
-    end,
-  }
-end
-
-M.explain = function()
-  local mode = require('model').mode
-  local openai = require('model.providers.openai')
-
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
-
-  return {
-    provider = openai,
-    mode = mode.BUFFER,
-    params = tuning.code_explanation,
-    builder = function(input, context)
-      return {
-        messages = {
-          {
-            role = 'system',
-            content = utils.format_text({
-              "You're an assistant specialized in explaining code.",
-              'Use examples to illustrate your explaining, if necessary.',
-              guidelines.language,
-            }),
-          },
-          {
-            role = 'user',
-            content = utils.format_text({
-              'I have the following code from %s:',
-              '```%s',
-              '%s',
-              '```',
-              'Please provide a brief explanation of what it does.',
-            }, context.filename, vim.bo.filetype, input),
-          },
-        },
-      }
-    end,
-  }
+        }
+      end,
+    }
+  end
 end
 
 M.docstring = function()
@@ -251,59 +253,41 @@ M.docstring = function()
   }
 end
 
-M.rephrase = function()
+M.explain = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')
-  local extract = require('model.prompts.extract')
 
   local utils = require('sQVe.plugins.model.utils')
   local tuning = require('sQVe.plugins.model.tuning')
 
-  local get_content = function(filename, filetype, input)
-    return utils.format_text({
-      'I have the following text from %s:',
-      '```%s',
-      '%s',
-      '```',
-      'Please rephrase it while ensuring that the meaning remains the same.',
-    }, filename, filetype, input)
-  end
-
   return {
     provider = openai,
-    mode = mode.REPLACE,
-    params = tuning.technical_writing,
+    mode = mode.BUFFER,
+    params = tuning.code_explanation,
     builder = function(input, context)
       return {
         messages = {
           {
             role = 'system',
             content = utils.format_text({
-              "You're a rephrasing assistant.",
-              'Your response should only contain the rephrased text, without needing any further editing.',
+              "You're an assistant specialized in explaining code.",
+              'Use examples to illustrate your explaining, if necessary.',
               guidelines.language,
             }),
           },
           {
             role = 'user',
-            content = get_content(
-              'neovim.txt',
-              'txt',
-              '"Neovim is a modern and powerful text editor that is fully compatible with Vim and supports Lua plugins, LSP client, and remote plugins.",'
-            ),
-          },
-          {
-            role = 'assistant',
-            content = '"Neovim is an advanced text editor with complete Vim compatibility, offering support for Lua extensions, a language server protocol client, and external plugins.",',
-          },
-          {
-            role = 'user',
-            content = get_content(context.filename, vim.bo.filetype, input),
+            content = utils.format_text({
+              'I have the following code from %s:',
+              '```%s',
+              '%s',
+              '```',
+              'Please provide a brief explanation of what it does.',
+            }, context.filename, vim.bo.filetype, input),
           },
         },
       }
     end,
-    transform = extract.markdown_code,
   }
 end
 
@@ -345,8 +329,48 @@ M.improve = function()
   }
 end
 
-M.proofread = function()
+M.note = function()
   local mode = require('model').mode
+  local openai = require('model.providers.openai')
+
+  local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
+
+  return {
+    provider = openai,
+    mode = mode.BUFFER,
+    params = tuning.code_explanation,
+    builder = function(input, context)
+      return {
+        messages = {
+          {
+            role = 'system',
+            content = utils.format_text({
+              "You're an assistant specialized note-taking.",
+              'Your response should contain the improved notes, together with an structured explanation of the changes made.',
+              'Keep YAML data intact with its formatting and content.',
+              'Improve grammar and spelling for clear, comprehensible notes.',
+              'Use lists, bullet points, or headings to clarify note structure where appropriate.',
+              guidelines.language,
+            }),
+          },
+          {
+            role = 'user',
+            content = utils.format_text({
+              'I have the following text from %s:',
+              '```%s',
+              '%s',
+              '```',
+              'Please suggest improvements to my note.',
+            }, context.filename, vim.bo.filetype, input),
+          },
+        },
+      }
+    end,
+  }
+end
+
+M.proofread = function()
   local openai = require('model.providers.openai')
   local extract = require('model.prompts.extract')
 
@@ -365,7 +389,7 @@ M.proofread = function()
 
   return {
     provider = openai,
-    mode = mode.REPLACE,
+    mode = utils.get_multi_mode(),
     params = tubing.creative_writing,
     builder = function(input, context)
       return {
@@ -413,7 +437,7 @@ M.pull_request = function()
     provider = openai,
     mode = mode.INSERT,
     params = tuning.code_explanation,
-    builder = function(input, context)
+    builder = function(_, context)
       local base_branch = (context.args ~= '' and context.args) or 'main'
 
       local git_diff =
@@ -442,6 +466,101 @@ M.pull_request = function()
               '```',
               'Please write a pull request description.',
             }, vim.bo.filetype, git_diff),
+          },
+        },
+      }
+    end,
+    transform = extract.markdown_code,
+  }
+end
+
+M.readability = function()
+  local mode = require('model').mode
+  local openai = require('model.providers.openai')
+  local extract = require('model.prompts.extract')
+
+  local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
+
+  return {
+    provider = openai,
+    mode = mode.BUFFER,
+    params = tuning.technical_writing,
+    builder = function(input, context)
+      return {
+        messages = {
+          {
+            role = 'system',
+            content = utils.format_text({
+              "You're a readability assistant.",
+              'Your response should contain the improved text, together with an structured explanation of the changes made.',
+              guidelines.language,
+            }),
+          },
+          {
+            role = 'user',
+            content = utils.format_text({
+              'I have the following text from %s:',
+              '```%s',
+              '%s',
+              '```',
+              'Please rewrite it to make it more readable.',
+            }, context.filename, vim.bo.filetype, input),
+          },
+        },
+      }
+    end,
+    transform = extract.markdown_code,
+  }
+end
+
+M.rephrase = function()
+  local openai = require('model.providers.openai')
+  local extract = require('model.prompts.extract')
+
+  local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
+
+  local get_content = function(filename, filetype, input)
+    return utils.format_text({
+      'I have the following text from %s:',
+      '```%s',
+      '%s',
+      '```',
+      'Please rephrase it while ensuring that the meaning remains the same.',
+    }, filename, filetype, input)
+  end
+
+  return {
+    provider = openai,
+    mode = utils.get_multi_mode(),
+    params = tuning.technical_writing,
+    builder = function(input, context)
+      return {
+        messages = {
+          {
+            role = 'system',
+            content = utils.format_text({
+              "You're a rephrasing assistant.",
+              'Your response should only contain the rephrased text, replacing the input directly without needing any further editing.',
+              guidelines.language,
+            }),
+          },
+          {
+            role = 'user',
+            content = get_content(
+              'neovim.txt',
+              'txt',
+              '"Neovim is a modern and powerful text editor that is fully compatible with Vim and supports Lua plugins, LSP client, and remote plugins.",'
+            ),
+          },
+          {
+            role = 'assistant',
+            content = '"Neovim is an advanced text editor with complete Vim compatibility, offering support for Lua extensions, a language server protocol client, and external plugins.",',
+          },
+          {
+            role = 'user',
+            content = get_content(context.filename, vim.bo.filetype, input),
           },
         },
       }

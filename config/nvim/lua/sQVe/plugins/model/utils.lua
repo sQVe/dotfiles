@@ -28,4 +28,10 @@ M.format_text = function(prompt_lines, ...)
   return sanitized_prompt
 end
 
+M.get_multi_mode = function()
+  local mode = require('model').mode
+
+  return vim.fn.visualmode() == 'V' and mode.REPLACE or mode.BUFFER
+end
+
 return M
