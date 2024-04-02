@@ -108,6 +108,12 @@ map(
   '<Cmd>Lazygit<CR>',
   { desc = 'Open terminal with Lazygit' }
 )
+map(
+  'n',
+  '<Leader>tL',
+  '<Cmd>BLazygit<CR>',
+  { desc = 'Open terminal with Lazygit with buffer filter' }
+)
 
 -- Neovim.
 map(

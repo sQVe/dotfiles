@@ -49,6 +49,9 @@ end, { nargs = 0 })
 
 -- Lazygit.
 command('Lazygit', 'Term lazygit')
+command('BLazygit', function()
+  vim.fn.jobstart('term lazygit --filter ' .. vim.fn.expand('%:p'))
+end)
 
 -- Write, close and quit typos.
 command('Q', 'quit')
