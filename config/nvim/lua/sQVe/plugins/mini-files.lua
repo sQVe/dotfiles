@@ -38,12 +38,12 @@ M.config = function(_, opts)
 
   mini_files.setup(opts)
 
-  map('n', '<Leader>f', function()
-    toggle()
-  end, { desc = 'Open file tree' })
-  map('n', '<Leader>F', function()
-    toggle(vim.api.nvim_buf_get_name(0), false)
-  end, { desc = 'Open file tree at current file' })
+  -- map('n', '<Leader>f', function()
+  --   toggle()
+  -- end, { desc = 'Open file tree' })
+  -- map('n', '<Leader>F', function()
+  --   toggle(vim.api.nvim_buf_get_name(0), false)
+  -- end, { desc = 'Open file tree at current file' })
 
   autocmd('User', {
     group = augroup('MiniFilesBufferCreate'),

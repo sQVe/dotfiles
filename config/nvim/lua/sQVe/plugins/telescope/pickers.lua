@@ -116,4 +116,39 @@ M.grep_string = function(use_buffer_directory)
   builtin.grep_string(opts)
 end
 
+M.tmp = function()
+  vim.ui.select({
+    { description = 'Find files' },
+    'Git status',
+    'Live grep',
+    'Grep string',
+  }, {
+    prompt = 'Pick a picker',
+    format_item = function(item)
+      if type(item) == 'string' then
+        return item
+      end
+
+      item.foo = 'bar'
+      return item.description
+    end,
+  }, function(choice)
+    if choice == nil then
+      return
+    end
+
+    print(vim.inspect(choice))
+
+    if choice == 'Find files' then
+      M.find_files()
+    elseif choice == 'Git status' then
+      M.git_status()
+    elseif choice == 'Live grep' then
+      M.live_grep()
+    elseif choice == 'Grep string' then
+      M.grep_string()
+    end
+  end)
+end
+
 return M
