@@ -11,6 +11,11 @@ local M = {
       '<Leader>q',
       function()
         local bufnr = vim.api.nvim_get_current_buf()
+        local winnr = vim.api.nvim_get_current_win()
+
+        if vim.api.nvim_get_option_value('winfixbuf', { win = winnr }) then
+          return vim.api.nvim_win_close(winnr, true)
+        end
 
         require('mini.bufremove').delete(bufnr)
       end,
@@ -19,11 +24,13 @@ local M = {
     {
       '<Leader>Q',
       function()
-        local bufnr = vim.api.nvim_get_current_buf()
-
-        require('mini.bufremove').wipeout(bufnr)
+        for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
+          if vim.api.nvim_get_current_buf() ~= bufnr then
+            require('mini.bufremove').delete(bufnr)
+          end
+        end
       end,
-      desc = 'Wipeout buffer',
+      desc = 'Delete all buffers',
     },
   },
 }

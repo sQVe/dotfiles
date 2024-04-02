@@ -21,12 +21,6 @@ command(
   'for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor'
 )
 
--- Delete all open buffers.
-command('Bda', 'bufdo bd')
-
--- Delete all buffers but the open one.
-command('Bdo', '%bd|e#|bd#')
-
 -- Show full path to open buffer.
 command('Bpwd', 'echo expand("%:p")')
 
