@@ -9,8 +9,6 @@ local M = {
 }
 
 M.opts = function()
-  local hi = require('mini.hipatterns')
-
   return {
     highlighters = {
       fixme = {
@@ -29,7 +27,9 @@ M.opts = function()
         pattern = '%f[%w]()NOTE()%f[%W]',
         group = 'MiniHipatternsNote',
       },
-      hex_color = hi.gen_highlighter.hex_color({ priority = 2000 }),
+      hex_color = require('mini.hipatterns').gen_highlighter.hex_color({
+        priority = 2000,
+      }),
     },
   }
 end

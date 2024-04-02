@@ -9,7 +9,7 @@ local M = {
 }
 
 M.opts = {
-  delay = 250,
+  delay = 200,
   modes_allowlist = { 'n' },
   providers = { 'treesitter' },
 }
