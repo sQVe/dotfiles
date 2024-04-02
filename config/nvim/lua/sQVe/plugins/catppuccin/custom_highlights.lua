@@ -47,6 +47,11 @@ return function(theme)
     -- LSP.
     LspCodeLens = { fg = theme.surface2, italic = true },
 
+    -- Mini diff.
+    MiniDiffSignAdd = { fg = theme.green },
+    MiniDiffSignChange = { fg = theme.yellow },
+    MiniDiffSignDelete = { fg = theme.red },
+
     -- Mini hipatterns.
     MiniHipatternsFixme = {
       bg = theme.red,
