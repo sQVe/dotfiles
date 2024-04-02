@@ -40,7 +40,7 @@ It is essential to know a thing first
     ),
 
     dashboard.button(
-      '-',
+      'f',
       '🌳  File tree',
       '<Cmd>lua require("mini.files").open()<CR>'
     ),
