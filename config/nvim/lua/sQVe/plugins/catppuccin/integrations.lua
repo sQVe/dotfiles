@@ -4,11 +4,7 @@
 
 return {
   alpha = true,
-  barbecue = false,
   cmp = true,
-  dap = false,
-  dap_ui = false,
-  dashboard = false,
   fidget = true,
   flash = true,
   gitsigns = true,
@@ -19,16 +15,20 @@ return {
   mini = { enabled = true, indentscope_color = '' },
   native_lsp = {
     enabled = true,
+    inlay_hints = { background = true },
     underlines = {
       errors = { 'undercurl' },
       hints = { 'underline' },
       warnings = { 'undercurl' },
       information = { 'underline' },
     },
+    virtual_text = {
+      errors = { 'italic' },
+      hints = { 'italic' },
+      warnings = { 'italic' },
+      information = { 'italic' },
+    },
   },
-  neogit = false,
-  nvimtree = false,
-  rainbow_delimiters = false,
   semantic_tokens = true,
   telescope = { enabled = true },
   treesitter = true,

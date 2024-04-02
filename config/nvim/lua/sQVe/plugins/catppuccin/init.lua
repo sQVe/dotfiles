@@ -18,6 +18,7 @@ M.opts = {
   compile_path = vim.fn.expand('$PERSISTENT_CACHE') .. '/catppuccin',
   color_overrides = { all = palette.gruvcat },
   custom_highlights = custom_highlights,
+  default_integrations = false,
   integrations = integrations,
   styles = styles,
 }
@@ -26,22 +27,12 @@ M.config = function(_, opts)
   require('catppuccin').setup(opts)
 
   -- Set diagnostic signs.
-  vim.fn.sign_define(
-    'DiagnosticSignError',
-    { text = '', texthl = 'DiagnosticSignError' }
-  )
-  vim.fn.sign_define(
-    'DiagnosticSignHint',
-    { text = '', texthl = 'DiagnosticSignHint' }
-  )
-  vim.fn.sign_define(
-    'DiagnosticSignInfo',
-    { text = '', texthl = 'DiagnosticSignInfo' }
-  )
-  vim.fn.sign_define(
-    'DiagnosticSignWarn',
-    { text = '', texthl = 'DiagnosticSignWarn' }
-  )
+  for _, sign in ipairs({ 'Error', 'Hint', 'Info', 'Warn' }) do
+    vim.fn.sign_define(
+      'DiagnosticSign' .. sign,
+      { text = '', texthl = 'DiagnosticSign' .. sign }
+    )
+  end
 
   vim.o.background = 'dark'
   vim.cmd.colorscheme('catppuccin')
