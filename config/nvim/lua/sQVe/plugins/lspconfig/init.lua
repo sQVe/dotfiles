@@ -101,10 +101,10 @@ M.config = function()
         -- Use a specific Node.js version that is compatible with
         -- cucumber-language-server.
         vim.fn.expand('$NVM_DIR')
-          .. '/versions/node/v18.19.1/bin'
+          .. '/versions/node/v18.20.1/bin'
           .. '/node',
         vim.fn.expand('$NVM_DIR')
-          .. '/versions/node/v18.19.1/bin'
+          .. '/versions/node/v18.20.1/bin'
           .. '/cucumber-language-server',
         '--stdio',
       },
