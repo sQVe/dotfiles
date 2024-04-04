@@ -6,13 +6,14 @@ local M = {}
 
 M.try_lint = function()
   local lint = require('lint')
+  local linters = require('sQVe.plugins.nvim-lint.linters').by_ft[vim.bo.filetype]
+    or {}
 
-  local names = lint.linters_by_ft[vim.bo.filetype] or {}
   local ctx = { filename = vim.api.nvim_buf_get_name(0) }
-
   ctx.dirname = vim.fn.fnamemodify(ctx.filename, ':h')
-  names = vim.tbl_filter(function(name)
-    local linter = lint.linters[name]
+
+  linters = vim.tbl_filter(function(linter_name)
+    local linter = lint.linters[linter_name]
 
     return linter
       and not (
@@ -20,10 +21,10 @@ M.try_lint = function()
         and linter.condition
         and not linter.condition(ctx)
       )
-  end, names)
+  end, linters)
 
-  if #names > 0 then
-    lint.try_lint(names)
+  if #linters > 0 then
+    lint.try_lint(linters)
   end
 end
 
