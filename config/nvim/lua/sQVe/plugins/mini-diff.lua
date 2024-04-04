@@ -34,7 +34,7 @@ M.opts = {
     goto_prev = '<Leader>hp',
     goto_next = '<Leader>hn',
   },
-  view = { style = 'sign' },
+  view = { style = 'sign', priority = 0 },
 }
 
 return M

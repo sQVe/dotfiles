@@ -52,7 +52,7 @@ M.opts = {
     local config = require('notebox.config')
     local utils = require('notebox.utils')
 
-    local current_buffer_path = Path:new((vim.fn.expand('%:p') or ''))
+    local current_buffer_path = Path:new(vim.fn.expand('%:p') or '')
     local absolute_buffer_path = current_buffer_path:absolute()
     local user_config = config.get_user_config()
 
