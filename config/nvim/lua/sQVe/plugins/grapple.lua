@@ -20,9 +20,15 @@ local M = {
             vim.log.levels.INFO
           )
         else
+          local generic_filenames = { 'index', 'init', 'package' }
+          local name = vim.fn.expand('%:t:r') -- Name without extension.
+
+          if vim.tbl_contains(generic_filenames, name) then
+            name = vim.fn.expand('%:p:h:t') .. '/' .. name -- Parent directory + name without extension.
+          end
+
           grapple.tag({
-            -- Set tag name to the file name without the extension.
-            name = vim.fn.expand('%:t:r'),
+            name = name,
             vim.notify(
               string.format('Tagged file %s.', vim.fn.expand('%:t')),
               vim.log.levels.INFO
