@@ -4,9 +4,11 @@
 
 local autocmd = require('sQVe.utils.vim').autocmd
 local augroup = require('sQVe.utils.vim').augroup
+local buffer = require('sQVe.utils.buffer')
 
 local augroups = {}
 local augroup_keys = {
+  'DeleteCertainBuffers',
   'ExcludeFormatOptions',
   'HighlightYank',
   'LspAttach',
@@ -19,6 +21,22 @@ local augroup_keys = {
 for _, augroup_key in ipairs(augroup_keys) do
   table.insert(augroups, augroup(augroup_key))
 end
+
+-- Delete certain buffers on window close.
+autocmd('WinClosed', {
+  group = augroups.DeleteCertainBuffers,
+  callback = function(args)
+    local bufnr = args.buf
+
+    if
+      buffer.is_valid_buffer(bufnr)
+      and buffer.is_ignored_buffer(bufnr)
+      and not buffer.is_saved_buffer(bufnr)
+    then
+      require('mini.bufremove').delete(bufnr)
+    end
+  end,
+})
 
 -- Force formatoptions to exclude 'o'.
 autocmd('FileType', {

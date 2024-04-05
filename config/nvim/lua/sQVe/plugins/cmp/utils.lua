@@ -20,30 +20,28 @@ end
 
 M.get_symbol_map = function(pad)
   local symbol_map = require('lspkind').symbol_map
-  local overriden_symbol_map = vim.tbl_extend('force', symbol_map, {
-    Module = '',
-    TypeParameter = '',
-  })
-  local combined_symbol_map = vim.tbl_extend('keep', overriden_symbol_map, {
+  local extended_symbol_map = vim.tbl_extend('force', symbol_map, {
     Array = '',
     Boolean = '',
     Copilot = '',
     Key = '󰌋',
+    Module = '',
     Namespace = '',
     Null = '󰟢',
     Number = '',
     Object = '',
     Package = '',
     String = '',
+    TypeParameter = '',
   })
 
   if pad then
     return vim.tbl_map(function(symbol)
       return symbol .. ' '
-    end, combined_symbol_map)
+    end, extended_symbol_map)
   end
 
-  return combined_symbol_map
+  return extended_symbol_map
 end
 
 M.has_words_before = function()

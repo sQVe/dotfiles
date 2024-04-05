@@ -33,22 +33,6 @@ It is essential to know a thing first
       '📝  Find files',
       '<Cmd>lua require("sQVe.plugins.telescope.pickers").find_files()<CR>'
     ),
-    dashboard.button(
-      'å',
-      '🔎  Live grep',
-      '<Cmd>lua require("sQVe.plugins.telescope.pickers").live_grep()<CR>'
-    ),
-
-    dashboard.button(
-      'f',
-      '🌳  File tree',
-      '<Cmd>lua require("mini.files").open()<CR>'
-    ),
-    dashboard.button(
-      'u',
-      '🎒  Recently used files',
-      '<Cmd>Telescope oldfiles cwd_only=true<CR>'
-    ),
     dashboard.button('e', '💎  New file', '<Cmd>enew<CR>'),
     dashboard.button(
       's',

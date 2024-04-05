@@ -22,6 +22,11 @@ M.opts = {
     gq = 'Format',
     gs = 'Surround',
   },
+  plugins = {
+    spelling = {
+      enabled = false,
+    },
+  },
   show_help = false,
 }
 

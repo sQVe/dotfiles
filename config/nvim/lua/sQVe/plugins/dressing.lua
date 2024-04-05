@@ -23,7 +23,12 @@ M.init = function()
 end
 
 M.opts = {
-  select = { backend = { 'telescope', 'builtin' } },
+  select = {
+    backend = { 'telescope' },
+
+    -- TODO: Make the select window wider by default.
+    -- telescope = {}
+  },
 }
 
 return M

@@ -7,6 +7,11 @@ local M = {
   'echasnovski/mini.files',
 }
 
+local augroup = require('sQVe.utils.vim').augroup
+local autocmd = require('sQVe.utils.vim').autocmd
+local buffer = require('sQVe.utils.buffer')
+local map = require('sQVe.utils.vim').map
+
 M.opts = {
   mappings = {
     go_in = '',
@@ -27,15 +32,11 @@ M.opts = {
 M.config = function(_, opts)
   local mini_files = require('mini.files')
 
-  local augroup = require('sQVe.utils.vim').augroup
-  local autocmd = require('sQVe.utils.vim').autocmd
-  local map = require('sQVe.utils.vim').map
-
   mini_files.setup(opts)
 
   map('n', 'Å', function()
     if not mini_files.close() then
-      mini_files.open(vim.api.nvim_buf_get_name(0), false)
+      mini_files.open(buffer.get_buffer_path(), false)
     end
   end, { desc = 'Open file tree' })
 
