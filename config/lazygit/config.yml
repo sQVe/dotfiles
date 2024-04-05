@@ -42,11 +42,6 @@ git:
     colorArg: always
     pager: delta --dark --paging=never
   skipHookPrefix: draft
-customCommands:
-  - key: 'p'
-    description: 'pull'
-    command: 'git pull --ff-only --all --prune'
-    context: 'global'
 keybinding:
   branches:
     viewGitFlowOptions: ''
