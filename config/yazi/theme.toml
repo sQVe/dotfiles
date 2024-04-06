@@ -60,8 +60,6 @@ border   = { fg = "#83a598" }
 active   = { fg = "#d3869b" }
 inactive = {}
 
-
-# TODO: Change the color settings here.
 [input]
 border   = { fg = "#665c54" }
 title    = { fg = "#d3869b" }
