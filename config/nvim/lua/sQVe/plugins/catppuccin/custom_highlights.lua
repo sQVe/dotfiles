@@ -53,23 +53,28 @@ return function(theme)
     MiniDiffSignDelete = { fg = theme.red },
 
     -- Mini hipatterns.
+    MiniHipatternsDone = {
+      bg = theme.green,
+      fg = theme.base,
+      bold = true,
+    },
     MiniHipatternsFixme = {
       bg = theme.red,
       fg = theme.base,
       bold = true,
     },
     MiniHipatternsHack = {
-      bg = theme.yellow,
+      bg = theme.maroon,
+      fg = theme.base,
+      bold = true,
+    },
+    MiniHipatternsNote = {
+      bg = theme.teal,
       fg = theme.base,
       bold = true,
     },
     MiniHipatternsTodo = {
       bg = theme.yellow,
-      fg = theme.base,
-      bold = true,
-    },
-    MiniHipatternsNote = {
-      bg = theme.green,
       fg = theme.base,
       bold = true,
     },

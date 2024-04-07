@@ -4,66 +4,18 @@
 
 local M = {}
 
-local function replace_base_path(path, base, replacement)
-  local start_position, end_position = path:find(base, 1, true)
-
-  if start_position == 1 then
-    return replacement .. path:sub(end_position + 1)
-  end
-
-  local home_path = vim.fn.expand('$HOME')
-  if base == home_path then
-    return path
-  end
-
-  return replace_base_path(path, home_path, '~')
-end
-
-local get_cword_or_selection = function()
-  local visual_mode = vim.fn.mode() == 'v'
-
-  if visual_mode == true then
-    local saved_registry = vim.fn.getreg('v')
-    vim.cmd([[noautocmd sil norm "vy]])
-    local selection = vim.fn.getreg('v')
-    vim.fn.setreg('v', saved_registry)
-
-    return selection
-  else
-    return vim.fn.expand('<cword>')
-  end
-end
-
-local get_prompt_title = function(name, cwd)
-  if cwd then
-    return string.format(
-      '%s in %s',
-      name,
-      replace_base_path(cwd, vim.fn.getcwd(), '.')
-    )
-  end
-
-  return name
-end
-
-M.find_files = function(use_buffer_cwd)
+M.find_files = function(opts)
   local builtin = require('telescope.builtin')
-  local utils = require('telescope.utils')
-  local opts = {
+
+  opts = vim.tbl_extend('force', {
+    cwd = vim.fn.getcwd(),
     follow = true,
     hidden = true,
     path_display = { 'truncate' },
-    prompt_title = get_prompt_title(
-      'Find file',
-      use_buffer_cwd and utils.buffer_dir()
-    ),
+    prompt_title = 'Find file',
     show_untracked = true,
     use_git_root = false,
-  }
-
-  if use_buffer_cwd then
-    opts.cwd = utils.buffer_dir()
-  end
+  }, opts or {})
 
   local ok = pcall(builtin.git_files, opts)
   if not ok then
@@ -71,84 +23,58 @@ M.find_files = function(use_buffer_cwd)
   end
 end
 
-M.git_status = function()
-  local builtin = require('telescope.builtin')
-
-  local ok = pcall(builtin.git_status, {})
-  if not ok then
-    print('No git directory found')
-  end
-end
-
-M.live_grep = function(use_buffer_directory)
-  local builtin = require('telescope.builtin')
+-- Create custom Git status picker since the builtin one fails to open via a
+-- select window.
+M.git_status = function(opts)
+  local actions = require('telescope.actions')
+  local action_state = require('telescope.actions.state')
+  local conf = require('telescope.config').values
+  local finders = require('telescope.finders')
+  local make_entry = require('telescope.make_entry')
+  local pickers = require('telescope.pickers')
+  local previewers = require('telescope.previewers')
   local utils = require('telescope.utils')
 
-  local opts = {
-    prompt_title = get_prompt_title(
-      'Live grep',
-      use_buffer_directory and utils.buffer_dir()
-    ),
-  }
+  local args = { 'status', '--porcelain=v1', '-uall', '--', '.' }
 
-  if use_buffer_directory then
-    opts.cwd = utils.buffer_dir()
+  local finder = function()
+    local git_cmd = utils.__git_command(args, opts)
+    opts.entry_maker = make_entry.gen_from_git_status(opts)
+    return finders.new_oneshot_job(git_cmd, opts)
   end
 
-  builtin.live_grep(opts)
-end
-
-M.grep_string = function(use_buffer_directory)
-  local builtin = require('telescope.builtin')
-  local utils = require('telescope.utils')
-
-  local opts = {
-    prompt_title = get_prompt_title(
-      string.format('Find text "%s"', get_cword_or_selection()),
-      use_buffer_directory and utils.buffer_dir()
-    ),
-  }
-
-  if use_buffer_directory then
-    opts.cwd = utils.buffer_dir()
+  local initial_finder = finder()
+  if not initial_finder then
+    return
   end
 
-  builtin.grep_string(opts)
-end
+  pickers
+    .new(opts, {
+      prompt_title = 'Git status',
+      finder = initial_finder,
+      previewer = previewers.git_file_diff.new(opts),
+      sorter = conf.file_sorter(opts),
+      attach_mappings = function(prompt_bufnr, map)
+        actions.git_staging_toggle:enhance({
+          post = function()
+            local picker = action_state.get_current_picker(prompt_bufnr)
 
-M.tmp = function()
-  vim.ui.select({
-    { description = 'Find files' },
-    'Git status',
-    'Live grep',
-    'Grep string',
-  }, {
-    prompt = 'Pick a picker',
-    format_item = function(item)
-      if type(item) == 'string' then
-        return item
-      end
+            local selection = picker:get_selection_row()
+            local callbacks = { unpack(picker._completion_callbacks) }
+            picker:register_completion_callback(function(self)
+              self:set_selection(selection)
+              self._completion_callbacks = callbacks
+            end)
 
-      item.foo = 'bar'
-      return item.description
-    end,
-  }, function(choice)
-    if choice == nil then
-      return
-    end
+            picker:refresh(finder(), { reset_prompt = false })
+          end,
+        })
 
-    print(vim.inspect(choice))
-
-    if choice == 'Find files' then
-      M.find_files()
-    elseif choice == 'Git status' then
-      M.git_status()
-    elseif choice == 'Live grep' then
-      M.live_grep()
-    elseif choice == 'Grep string' then
-      M.grep_string()
-    end
-  end)
+        map({ 'i', 'n' }, '<Tab>', actions.git_staging_toggle)
+        return true
+      end,
+    })
+    :find()
 end
 
 return M

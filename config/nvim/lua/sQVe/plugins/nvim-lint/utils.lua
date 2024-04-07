@@ -5,6 +5,10 @@
 local M = {}
 
 M.try_lint = function()
+  if not vim.g.linting then
+    return
+  end
+
   local lint = require('lint')
   local linters = require('sQVe.plugins.nvim-lint.linters').by_ft[vim.bo.filetype]
     or {}

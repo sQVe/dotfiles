@@ -2,7 +2,7 @@
 -- ┣┻┓┣╸ ┗┳┛┃┃┃┣━┫┣━┛
 -- ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
-local map = require('sQVe.utils.vim').map
+local map = require('sQVe.utils.map')
 
 -- Clear search matches.
 map('n', '<Esc><Esc>', '<Cmd>nohl<CR>', { desc = 'Clear search matches' })
@@ -78,57 +78,6 @@ map('v', '>', '>gv', { desc = 'Indent' })
 map('', '<Tab>', '<Cmd>bnext<CR>', { desc = 'Next buffer' })
 map('', '<S-Tab>', '<Cmd>bprev<CR>', { desc = 'Previous buffer' })
 
--- Term.
-map('n', '<Leader>tt', '<Cmd>Term<CR>', { desc = 'Open terminal' })
-map(
-  'n',
-  '<Leader>tT',
-  '<Cmd>BTerm<CR>',
-  { desc = 'Open terminal in buffer directory' }
-)
-
--- File manager.
-map(
-  'n',
-  '<Leader>tf',
-  '<Cmd>FileManager<CR>',
-  { desc = 'Open terminal with file manager' }
-)
-map(
-  'n',
-  '<Leader>tF',
-  '<Cmd>BFileManager<CR>',
-  { desc = 'Open terminal with file manager in buffer directory' }
-)
-
--- Lazygit.
-map(
-  'n',
-  '<Leader>tl',
-  '<Cmd>Lazygit<CR>',
-  { desc = 'Open terminal with Lazygit' }
-)
-map(
-  'n',
-  '<Leader>tL',
-  '<Cmd>BLazygit<CR>',
-  { desc = 'Open terminal with Lazygit with buffer filter' }
-)
-
--- Neovim.
-map(
-  'n',
-  '<Leader>tv',
-  '<Cmd>Neovim<CR>',
-  { desc = 'Open terminal with Neovim' }
-)
-map(
-  'n',
-  '<Leader>tV',
-  '<Cmd>BNeovim<CR>',
-  { desc = 'Open terminal with Neovim for current file' }
-)
-
 -- Move between jumps.
 map('n', '<C-o>', '<C-o>', { desc = 'Previous jump' })
 map('n', '<C-p>', '<C-i>', { desc = 'Next jump' })
@@ -172,22 +121,22 @@ map('n', '<C-t><C-q>', '<Cmd>tabclose<CR>', { desc = 'Close tab' })
 map('i', '<C-x><C-s>', '<C-x>s', { desc = 'Open spell completion' })
 
 -- Toggle settings.
-map(
-  'n',
-  'yoc',
-  ":set conceallevel=<C-r>=&conceallevel == 0 ? '2' : '0'<CR><CR>",
-  { desc = 'Toggle conceal' }
-)
-map('n', 'yol', '<Cmd>set cursorline!<CR>', { desc = 'Toggle cursorline' })
-map('n', 'yon', '<Cmd>set number!<CR>', { desc = 'Toggle number' })
-map(
-  'n',
-  'yor',
-  '<Cmd>set relativenumber!<CR>',
-  { desc = 'Toggle relativenumber' }
-)
-map('n', 'yow', '<Cmd>set wrap!<CR>', { desc = 'Toggle wrap' })
-map('n', 'yos', '<Cmd>set spell!<CR>', { desc = 'Toggle spell' })
+-- map(
+--   'n',
+--   'yoc',
+--   ":set conceallevel=<C-r>=&conceallevel == 0 ? '2' : '0'<CR><CR>",
+--   { desc = 'Toggle conceal' }
+-- )
+-- map('n', 'yol', '<Cmd>set cursorline!<CR>', { desc = 'Toggle cursorline' })
+-- map('n', 'yon', '<Cmd>set number!<CR>', { desc = 'Toggle number' })
+-- map(
+--   'n',
+--   'yor',
+--   '<Cmd>set relativenumber!<CR>',
+--   { desc = 'Toggle relativenumber' }
+-- )
+-- map('n', 'yow', '<Cmd>set wrap!<CR>', { desc = 'Toggle wrap' })
+-- map('n', 'yos', '<Cmd>set spell!<CR>', { desc = 'Toggle spell' })
 map('', '<C-s>', '<Cmd>set spell!<CR>', { desc = 'Toggle spell', remap = true })
 map('i', '<C-s>', '<C-o><C-s>', { desc = 'Toggle spell', remap = true })
 

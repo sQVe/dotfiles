@@ -46,6 +46,48 @@ M.accessibility = function()
   }
 end
 
+M.append_instruction = function()
+  local mode = require('model').mode
+  local openai = require('model.providers.openai')
+  local extract = require('model.prompts.extract')
+
+  local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
+
+  return function()
+    return {
+      provider = openai,
+      mode = mode.APPEND,
+      params = tuning.technical_writing,
+      builder = function(input, context)
+        return {
+          messages = {
+            {
+              role = 'system',
+              content = utils.format_text({
+                "You're a versatile code assistant.",
+                'Your response should only contain the response, without needing any further editing.',
+                guidelines.language,
+              }),
+            },
+            {
+              role = 'user',
+              content = utils.format_text({
+                'I have the following text from %s:',
+                '```%s',
+                '%s',
+                '```',
+                '%s',
+              }, context.filename, vim.bo.filetype, input, context.args),
+            },
+          },
+        }
+      end,
+      transform = extract.markdown_code,
+    }
+  end
+end
+
 M.commit_message = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')
@@ -145,46 +187,6 @@ M.condense = function()
     end,
     transform = extract.markdown_code,
   }
-end
-
-M.custom_instruction = function(opts)
-  opts = opts or {}
-
-  local openai = require('model.providers.openai')
-
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
-
-  return function()
-    return {
-      provider = openai,
-      mode = opts.mode,
-      params = tuning.technical_writing,
-      builder = function(input, context)
-        return {
-          messages = {
-            {
-              role = 'system',
-              content = utils.format_text({
-                "You're a versatile code assistant.",
-                guidelines.language,
-              }),
-            },
-            {
-              role = 'user',
-              content = utils.format_text({
-                'I have the following text from %s:',
-                '```%s',
-                '%s',
-                '```',
-                '%s',
-              }, context.filename, vim.bo.filetype, input, context.args),
-            },
-          },
-        }
-      end,
-    }
-  end
 end
 
 M.docstring = function()

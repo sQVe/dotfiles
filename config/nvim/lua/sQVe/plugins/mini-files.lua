@@ -7,10 +7,9 @@ local M = {
   'echasnovski/mini.files',
 }
 
-local augroup = require('sQVe.utils.vim').augroup
-local autocmd = require('sQVe.utils.vim').autocmd
+local autocmd = require('sQVe.utils.autocmd')
 local buffer = require('sQVe.utils.buffer')
-local map = require('sQVe.utils.vim').map
+local map = require('sQVe.utils.map')
 
 M.opts = {
   mappings = {
@@ -41,7 +40,7 @@ M.config = function(_, opts)
   end, { desc = 'Open file tree' })
 
   autocmd('User', {
-    group = augroup('MiniFilesBufferCreate'),
+    group = 'MiniFilesBufferCreate',
     pattern = 'MiniFilesBufferCreate',
     callback = function(args)
       local buf_id = args.data.buf_id

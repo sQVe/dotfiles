@@ -6,13 +6,6 @@
 local M = {
   'FabijanZulj/blame.nvim',
   cmd = 'ToggleBlame',
-  keys = {
-    {
-      '<Leader>hb',
-      '<Cmd>ToggleBlame<CR>',
-      desc = 'Toggle git blame',
-    },
-  },
 }
 
 M.opts = {

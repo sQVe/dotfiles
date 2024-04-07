@@ -2,8 +2,7 @@
 
 local NOTEBOX_PATH = vim.fn.expand('$NOTEBOX')
 
-local autocmd = require('sQVe.utils.vim').autocmd
-local augroup = require('sQVe.utils.vim').augroup
+local autocmd = require('sQVe.utils.autocmd')
 
 -- Enable conceal.
 vim.opt_local.conceallevel = 2
@@ -14,7 +13,7 @@ vim.opt_local.shiftwidth = 2
 
 -- Enable spellchecking for notes.
 autocmd({ 'BufEnter' }, {
-  group = augroup('SetNoteSpellcheck'),
+  group = 'EnableSpellCheckingForNotes',
   pattern = NOTEBOX_PATH .. '**/*.md',
   command = 'setlocal spell',
 })

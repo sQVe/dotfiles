@@ -3,6 +3,8 @@
 -- ╹ ╹┗━╸╹  ╹ ╹╹ ╹
 -- Dashboard.
 
+local autocmd = require('sQVe.utils.autocmd')
+
 local M = {
   'goolord/alpha-nvim',
   event = 'VimEnter',
@@ -28,6 +30,11 @@ It is essential to know a thing first
 
   dashboard.section.header.val = vim.split(logo, '\n')
   dashboard.section.buttons.val = {
+    dashboard.button(
+      'å',
+      '🗃️ Command palette',
+      '<Cmd>lua require("sQVe.ui.command_palette").open_command_palette()<CR>'
+    ),
     dashboard.button(
       'ä',
       '📝  Find files',
@@ -67,7 +74,8 @@ end
 M.config = function(_, opts)
   require('alpha').setup(opts)
 
-  vim.api.nvim_create_autocmd('User', {
+  autocmd('User', {
+    group = 'AlphaRedraw',
     pattern = 'LazyVimStarted',
     callback = function()
       local dashboard = require('alpha.themes.dashboard')

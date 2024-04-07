@@ -21,38 +21,6 @@ command(
   'for i in range(34,122) | silent! call setreg(nr2char(i), []) | endfor'
 )
 
--- Show full path to open buffer.
-command('Bpwd', 'echo expand("%:p")')
-
--- Set pwd to path of open buffer.
-command('Bcd', 'cd %:p:h')
-
--- Term.
-command('Term', function(input)
-  vim.fn.jobstart('term ' .. input.args)
-end, { nargs = '?' })
-command('BTerm', function(input)
-  vim.fn.jobstart(
-    string.format('term %s %s', input.args, vim.fn.expand('%:p:h'))
-  )
-end, { nargs = '?' })
-
--- File manager.
-command('FileManager', 'Term fm')
-command('BFileManager', 'BTerm fm')
-
--- Neovim.
-command('Neovim', 'Term nvim')
-command('BNeovim', function()
-  vim.fn.jobstart('term nvim ' .. vim.fn.expand('%:p'))
-end, { nargs = 0 })
-
--- Lazygit.
-command('Lazygit', 'Term lazygit')
-command('BLazygit', function()
-  vim.fn.jobstart('term lazygit --filter ' .. vim.fn.expand('%:p'))
-end)
-
 -- Write, close and quit typos.
 command('Q', 'quit')
 command('Qa', 'qa')
@@ -76,22 +44,6 @@ command('AsciiHeader', function(input)
   end
 end, { nargs = 1 })
 
--- Use branch name as commit message.
-command('CommitMsgFromBranchName', function()
-  local ok = pcall(vim.fn.execute, 'read !git rev-parse --abbrev-ref HEAD')
-  if ok then
-    vim.api.nvim_command('normal kdd')
-    vim.api.nvim_command('substitute /\\//: /e')
-    vim.api.nvim_command('substitute /-/ /e')
-    vim.api.nvim_command('nohl')
-  end
-end, { nargs = 0 })
-
--- Open prev git commit message.
-command('CommitMsgPrev', function()
-  vim.fn.execute('vsplit /tmp/PREV_COMMIT_EDITMSG')
-end, { nargs = 0 })
-
 -- Search on DuckDuckGo.
 command('Ddg', function(input)
   local root_url = 'https://duckduckgo.com/?q='
@@ -99,19 +51,7 @@ command('Ddg', function(input)
   local query = (#args > 0 and args) or vim.fn.getreg('o')
   local safe_query = string.gsub(query, '%s', ' ')
 
-  vim.fn.jobstart(
-    string.format(
-      'open-qutebrowser %s',
-      vim.fn.shellescape(root_url .. safe_query)
-    ),
-    { detach = true }
-  )
+  vim
+    .system({ 'open-qutebrowser', root_url .. safe_query }, { detach = true })
+    :wait()
 end, { nargs = '?' })
-
--- Save notes.
-command('SaveNotes', function()
-  local ok = pcall(vim.fn.jobstart, 'save-notes', { detach = true })
-  if not ok then
-    vim.api.nvim_err_writeln('Unable to save notes.')
-  end
-end, { nargs = 0 })

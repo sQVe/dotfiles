@@ -42,12 +42,6 @@ M.config = function(_, opts)
     ['"'] = { 'Registers' },
     ['<C-q>'] = { 'Quickfix' },
     ['<C-w>'] = { 'Window' },
-    ['<Leader>'] = {
-      d = { 'Diagnostics' },
-      h = { 'Hunks' },
-      n = { 'Note' },
-      t = { 'Terminal' },
-    },
     ['@'] = { 'Registers' },
     ['['] = { 'Previous' },
     [']'] = { 'Next' },

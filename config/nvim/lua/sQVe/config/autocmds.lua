@@ -2,29 +2,12 @@
 -- ┣━┫┃ ┃ ┃ ┃ ┃┃  ┃┃┃ ┃┃┗━┓
 -- ╹ ╹┗━┛ ╹ ┗━┛┗━╸╹ ╹╺┻┛┗━┛
 
-local autocmd = require('sQVe.utils.vim').autocmd
-local augroup = require('sQVe.utils.vim').augroup
+local autocmd = require('sQVe.utils.autocmd')
 local buffer = require('sQVe.utils.buffer')
-
-local augroups = {}
-local augroup_keys = {
-  'DeleteCertainBuffers',
-  'ExcludeFormatOptions',
-  'HighlightYank',
-  'LspAttach',
-  'ReloadBuffer',
-  'SaveCommitMsg',
-  'StopNeovimDaemons',
-  'VimResized',
-}
-
-for _, augroup_key in ipairs(augroup_keys) do
-  table.insert(augroups, augroup(augroup_key))
-end
 
 -- Delete certain buffers on window close.
 autocmd('WinClosed', {
-  group = augroups.DeleteCertainBuffers,
+  group = 'DeleteCertainBuffersOnWindowClose',
   callback = function(args)
     local bufnr = args.buf
 
@@ -40,7 +23,7 @@ autocmd('WinClosed', {
 
 -- Force formatoptions to exclude 'o'.
 autocmd('FileType', {
-  group = augroups.ExcludeFormatOptions,
+  group = 'ForceFormatOptions',
   callback = function()
     vim.opt_local.formatoptions:remove({ 'o' })
   end,
@@ -48,7 +31,7 @@ autocmd('FileType', {
 
 -- Highlight yanked text.
 autocmd('TextYankPost', {
-  group = augroups.HighlightYank,
+  group = 'HighlightYankedText',
   callback = function()
     vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 200 })
   end,
@@ -56,29 +39,29 @@ autocmd('TextYankPost', {
 
 -- Reload buffer on enter or focus.
 autocmd({ 'BufEnter', 'FocusGained' }, {
-  group = augroups.ReloadBuffer,
+  group = 'ReloadBufferOnEnterOrFocus',
   command = 'silent! !',
 })
 
 -- Save commit message for later.
 autocmd('BufWritePost', {
-  group = augroups.SaveCommitMsg,
+  group = 'SaveCommitMessageForLater',
   pattern = { '*/.git/COMMIT_EDITMSG', '*/.git/worktrees/*/COMMIT_EDITMSG' },
   command = 'silent! call writefile(nvim_buf_get_lines(0, 0, -1, 1), "/tmp/PREV_COMMIT_EDITMSG")',
 })
 
--- Set settings on LSP attach.
+-- Disable format expression on LSP attach.
 autocmd('LspAttach', {
-  group = augroups.LspAttach,
+  group = 'DisableFormatExpressionOnLspAttach',
   callback = function(args)
     -- Use default formatexpr.
     vim.bo[args.buf].formatexpr = nil
   end,
 })
 
--- Stop Neovim Daemons.
+-- Spawn Neovim daemons script on exit.
 autocmd('ExitPre', {
-  group = augroups.StopNeovimDaemons,
+  group = 'SpawnNeovimDaemonsScriptOnExit',
   callback = function()
     vim.fn.jobstart(
       vim.fn.expand('$SCRIPTS') .. '/nvim/stop-nvim-daemons.sh',
@@ -89,6 +72,6 @@ autocmd('ExitPre', {
 
 -- Equalize windows on resize.
 autocmd('VimResized', {
-  group = augroups.VimResized,
+  group = 'EqualizeWindowsOnResize',
   command = 'wincmd =',
 })

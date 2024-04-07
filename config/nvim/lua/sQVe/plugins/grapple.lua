@@ -3,6 +3,9 @@
 -- ┗━┛╹┗╸╹ ╹╹  ╹  ┗━╸┗━╸
 -- Bookmark files to quickly navigate between them.
 
+local buffer = require('sQVe.utils.buffer')
+local path = require('sQVe.utils.path')
+
 local M = {
   'cbochs/grapple.nvim',
   event = { 'BufReadPost', 'BufNewFile' },
@@ -13,24 +16,22 @@ local M = {
       function()
         local grapple = require('grapple')
 
+        local buffer_path = buffer.get_buffer_path()
+        local basename = path.get_basename(buffer_path)
+        local name =
+          path.remove_extension(path.get_descriptive_name(buffer_path))
+
         if grapple.exists() then
-          grapple.untag({ path = vim.fn.expand('%:p') })
+          grapple.untag({ path = buffer_path })
           vim.notify(
-            string.format('Untagged file %s.', vim.fn.expand('%:t')),
+            string.format('Untagged file %s', basename),
             vim.log.levels.INFO
           )
         else
-          local generic_filenames = { 'index', 'init', 'package' }
-          local name = vim.fn.expand('%:t:r') -- Name without extension.
-
-          if vim.tbl_contains(generic_filenames, name) then
-            name = vim.fn.expand('%:p:h:t') .. '/' .. name -- Parent directory + name without extension.
-          end
-
           grapple.tag({
             name = name,
             vim.notify(
-              string.format('Tagged file %s.', vim.fn.expand('%:t')),
+              string.format('Tagged file %s', basename),
               vim.log.levels.INFO
             ),
           })

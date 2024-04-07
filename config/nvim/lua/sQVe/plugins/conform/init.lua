@@ -3,10 +3,18 @@
 -- ┗━╸┗━┛╹ ╹╹  ┗━┛╹┗╸╹ ╹
 -- Formatter.
 
+local autocmd = require('sQVe.utils.autocmd')
+
+local map = require('sQVe.utils.map')
+
 local M = {
   'stevearc/conform.nvim',
   event = 'VeryLazy',
 }
+
+M.init = function()
+  vim.g.format_on_save = true
+end
 
 M.opts = function()
   local formatters = require('sQVe.plugins.conform.formatters')
@@ -20,7 +28,6 @@ M.config = function(_, opts)
   local conform = require('conform')
   local util = require('conform.util')
 
-  local map = require('sQVe.utils.vim').map
   local formatters = require('sQVe.plugins.conform.formatters')
 
   formatters.override_formatting_settings()
@@ -30,11 +37,14 @@ M.config = function(_, opts)
     conform.format({ async = true, lsp_fallback = true })
   end, { desc = 'Format' })
 
-  vim.api.nvim_create_autocmd('BufWritePre', {
+  autocmd('BufWritePre', {
+    group = 'FormatOnSave',
     pattern = '*',
     callback = function(args)
-      -- Disable formatting for temporary yazi files.
-      if string.match(args.file, '^/tmp/yazi') then
+      if
+        not vim.g.format_on_save
+        or string.match(args.file, '^/tmp/yazi') -- Do not format yazi files.
+      then
         return
       end
 

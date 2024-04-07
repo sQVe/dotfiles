@@ -32,14 +32,7 @@ M.opts = function()
     },
     sections = {
       lualine_a = { 'mode' },
-      lualine_b = {
-        {
-          'filename',
-          color = { fg = palette.colors.gruvbox.light3, gui = 'italic' },
-          path = 1,
-          shorting_target = 80,
-        },
-      },
+      lualine_b = {},
       lualine_c = {
         { 'grapple', color = { fg = palette.colors.gruvbox.gray } },
       },

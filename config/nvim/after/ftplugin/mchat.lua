@@ -1,4 +1,4 @@
-local map = require('sQVe.utils.vim').map
+local map = require('sQVe.utils.map')
 
 -- Allow buffer to be closed without saving.
 vim.opt_local.buftype = 'nofile'

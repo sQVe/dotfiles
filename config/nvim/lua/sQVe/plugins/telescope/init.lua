@@ -3,78 +3,42 @@
 --  ╹ ┗━╸┗━╸┗━╸┗━┛┗━╸┗━┛╹  ┗━╸
 -- Fuzzy finder.
 
+local commands = require('sQVe.ui.command_palette.commands')
+local path = require('sQVe.utils.path')
+local utils = require('sQVe.ui.command_palette.utils')
+
 local M = {
   'nvim-telescope/telescope.nvim',
   cmd = 'Telescope',
   keys = {
-    -- {
-    --   '<Leader>u',
-    --   function()
-    --     require('telescope.builtin').oldfiles({
-    --       cwd_only = true,
-    --       sort_lastused = true,
-    --     })
-    --   end,
-    --   desc = 'Recent files',
-    -- },
-    -- { '<Leader>U', '<Cmd>Telescope resume<CR>', desc = 'Resume' },
     {
       '<Backspace>',
       function()
-        require('telescope.builtin').buffers({ sort_mru = true })
+        commands.buffers.callback()
       end,
       desc = 'Buffers',
     },
-    -- {
-    --   '<S-Backspace>',
-    --   function()
-    --     require('sQVe.plugins.telescope.pickers').git_status()
-    --   end,
-    --   desc = 'Git status',
-    -- },
     {
-      'gR',
+      'z=',
       function()
-        require('sQVe.plugins.telescope.pickers').grep_string()
+        require('telescope.builtin').spell_suggest({
+          prompt_title = 'Spell suggest',
+        })
       end,
-      desc = 'Find text',
+      desc = 'Spell suggest',
+    },
+    {
+      'å',
+      function()
+        require('sQVe.ui.command_palette').open_command_palette()
+      end,
+      desc = 'Command palette',
       mode = { 'n', 'v' },
-    },
-    { 'z=', '<Cmd>Telescope spell_suggest<CR>', desc = 'Spell suggest' },
-    {
-      'å',
-      function()
-        require('sQVe.plugins.telescope.pickers').tmp()
-      end,
-      desc = 'Live grep',
-    },
-    {
-      'å',
-      function()
-        require('sQVe.plugins.telescope.pickers').grep_string()
-      end,
-      desc = 'Find text',
-      mode = 'v',
-    },
-    {
-      'Å',
-      function()
-        require('sQVe.plugins.telescope.pickers').live_grep(true)
-      end,
-      desc = 'Live grep in buffer directory',
-    },
-    {
-      'Å',
-      function()
-        require('sQVe.plugins.telescope.pickers').grep_string(true)
-      end,
-      desc = 'Find text in buffer directory',
-      mode = 'v',
     },
     {
       'ä',
       function()
-        require('sQVe.plugins.telescope.pickers').find_files()
+        commands.find_files.callback()
       end,
       desc = 'Find file',
       mode = { 'n', 'v' },
@@ -82,7 +46,10 @@ local M = {
     {
       'Ä',
       function()
-        require('sQVe.plugins.telescope.pickers').find_files(true)
+        commands.find_files_in_subdirectory.callback({
+          bufnr = 0,
+          cwd = path.get_cwd(),
+        })
       end,
       desc = 'Find file in buffer directory',
       mode = { 'n', 'v' },
@@ -99,6 +66,7 @@ M.opts = function()
 
   return {
     defaults = {
+      cache_picker = { ignore_empty = true, num_pickers = -1 },
       dynamic_preview_title = true,
       layout_strategy = 'flex',
       layout_config = {
