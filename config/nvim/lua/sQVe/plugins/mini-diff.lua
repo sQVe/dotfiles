@@ -8,7 +8,7 @@ local M = {
   event = 'VeryLazy',
   keys = {
     { '[h', desc = 'Go to previous hunk' },
-    { ']h', desc = 'Goto next hunk' },
+    { ']h', desc = 'Go to next hunk' },
   },
 }
 

@@ -10,11 +10,6 @@ local path = require('sQVe.utils.path')
 local utils = require('sQVe.ui.command_palette.utils')
 local var = require('sQVe.utils.var')
 
--- TODO: LSP commands.
---         - Rename
---         - Action
---         - Document symbols
---         - Workspace symbols
 -- TODO: AI.
 
 M.buffers = {
@@ -53,6 +48,18 @@ M.change_cwd_git_root_path = {
   name = function(opts)
     return utils.get_name_with_git_root_path('Change cwd', opts)
   end,
+}
+
+M.code_action = {
+  callback = function()
+    vim.lsp.buf.code_action()
+  end,
+  condition = function(opts)
+    local lspconfig = require('sQVe.plugins.lspconfig')
+
+    return vim.tbl_contains(lspconfig.ft, vim.bo[opts.bufnr].filetype)
+  end,
+  name = 'Apply code action',
 }
 
 M.commit_message_from_branch_name = {
@@ -95,104 +102,18 @@ M.diagnostics = {
   name = 'Go to diagnostic',
 }
 
-M.toggle_conceal_level = {
-  callback = function(opts)
-    vim.wo[opts.winnr].conceallevel = vim.wo[opts.winnr].conceallevel == 0 and 2
-      or 0
-  end,
-  name = function(opts)
-    return string.format(
-      '%s character conceal',
-      vim.wo[opts.winnr].conceallevel == 0 and 'Enable' or 'Disable'
-    )
-  end,
-}
-
-M.toggle_format_on_save = {
+M.document_symbols = {
   callback = function()
-    var.toggle_global('format_on_save')
+    require('telescope.builtin').lsp_document_symbols({
+      prompt_title = 'Go to document symbol',
+    })
   end,
-  condition = function()
-    local conform = require('lazy.core.config').plugins['conform.nvim']
+  condition = function(opts)
+    local lspconfig = require('sQVe.plugins.lspconfig')
 
-    return conform ~= nil and conform._.loaded
+    return vim.tbl_contains(lspconfig.ft, vim.bo[opts.bufnr].filetype)
   end,
-  name = function()
-    return string.format(
-      '%s format on save',
-      var.get_global('format_on_save') and 'Disable' or 'Enable'
-    )
-  end,
-}
-
-M.toggle_git_blame = {
-  callback = function(opts)
-    require('blame').toggle({ args = 'window' })
-    var.toggle_buffer(opts.bufnr, 'git_blame')
-  end,
-  condition = function()
-    return git.is_inside_repo()
-  end,
-  name = function(opts)
-    return string.format(
-      '%s git blame window',
-      var.get_buffer(opts.bufnr, 'git_blame') and 'Hide' or 'Show'
-    )
-  end,
-}
-
-M.toggle_git_diff_overlay = {
-  callback = function(opts)
-    require('mini.diff').toggle_overlay(opts.bufnr)
-    var.toggle_buffer(opts.bufnr, 'git_diff')
-  end,
-  condition = function()
-    local mini_diff = require('lazy.core.config').plugins['mini.diff']
-
-    return mini_diff ~= nil and mini_diff._.loaded
-  end,
-  name = function(opts)
-    return string.format(
-      '%s git diff overlay',
-      var.get_buffer(opts.bufnr, 'git_diff') and 'Hide' or 'Show'
-    )
-  end,
-}
-
-M.toggle_relative_numbers = {
-  callback = function(opts)
-    vim.wo[opts.winnr].relativenumber = not vim.wo[opts.winnr].relativenumber
-  end,
-  name = function(opts)
-    return string.format(
-      '%s relative numbers',
-      vim.wo[opts.winnr].relativenumber and 'Disable' or 'Enable'
-    )
-  end,
-}
-
-M.toggle_spell = {
-  callback = function(opts)
-    vim.wo[opts.winnr].spell = not vim.wo[opts.winnr].spell
-  end,
-  name = function(opts)
-    return string.format(
-      '%s spell checking',
-      vim.wo[opts.winnr].spell and 'Disable' or 'Enable'
-    )
-  end,
-}
-
-M.toggle_wrap = {
-  callback = function(opts)
-    vim.wo[opts.winnr].wrap = not vim.wo[opts.winnr].wrap
-  end,
-  name = function(opts)
-    return string.format(
-      '%s line wrapping',
-      vim.wo[opts.winnr].wrap and 'Disable' or 'Enable'
-    )
-  end,
+  name = 'Go to document symbol',
 }
 
 M.file_explorer = {
@@ -311,6 +232,20 @@ M.recent_files = {
   name = 'Recent files',
 }
 
+M.rename_symbol = {
+  callback = function()
+    vim.lsp.buf.rename()
+  end,
+  condition = function(opts)
+    local lspconfig = require('sQVe.plugins.lspconfig')
+
+    return vim.tbl_contains(lspconfig.ft, vim.bo[opts.bufnr].filetype)
+  end,
+  name = function(opts)
+    return string.format('Rename symbol `%s`', opts.query)
+  end,
+}
+
 M.resume = {
   callback = function()
     require('telescope.builtin').pickers({
@@ -400,6 +335,106 @@ M.spawn_terminal_in_subdirectory = {
   name = 'Spawn terminal from buffer path',
 }
 
+M.toggle_conceal_level = {
+  callback = function(opts)
+    vim.wo[opts.winnr].conceallevel = vim.wo[opts.winnr].conceallevel == 0 and 2
+      or 0
+  end,
+  name = function(opts)
+    return string.format(
+      '%s character conceal',
+      vim.wo[opts.winnr].conceallevel == 0 and 'Enable' or 'Disable'
+    )
+  end,
+}
+
+M.toggle_format_on_save = {
+  callback = function()
+    var.toggle_global('format_on_save')
+  end,
+  condition = function()
+    local conform = require('lazy.core.config').plugins['conform.nvim']
+
+    return conform ~= nil and conform._.loaded
+  end,
+  name = function()
+    return string.format(
+      '%s format on save',
+      var.get_global('format_on_save') and 'Disable' or 'Enable'
+    )
+  end,
+}
+
+M.toggle_git_blame = {
+  callback = function(opts)
+    require('blame').toggle({ args = 'window' })
+    var.toggle_buffer(opts.bufnr, 'git_blame')
+  end,
+  condition = function()
+    return git.is_inside_repo()
+  end,
+  name = function(opts)
+    return string.format(
+      '%s git blame window',
+      var.get_buffer(opts.bufnr, 'git_blame') and 'Hide' or 'Show'
+    )
+  end,
+}
+
+M.toggle_git_diff_overlay = {
+  callback = function(opts)
+    require('mini.diff').toggle_overlay(opts.bufnr)
+    var.toggle_buffer(opts.bufnr, 'git_diff')
+  end,
+  condition = function()
+    local mini_diff = require('lazy.core.config').plugins['mini.diff']
+
+    return mini_diff ~= nil and mini_diff._.loaded
+  end,
+  name = function(opts)
+    return string.format(
+      '%s git diff overlay',
+      var.get_buffer(opts.bufnr, 'git_diff') and 'Hide' or 'Show'
+    )
+  end,
+}
+
+M.toggle_relative_numbers = {
+  callback = function(opts)
+    vim.wo[opts.winnr].relativenumber = not vim.wo[opts.winnr].relativenumber
+  end,
+  name = function(opts)
+    return string.format(
+      '%s relative numbers',
+      vim.wo[opts.winnr].relativenumber and 'Disable' or 'Enable'
+    )
+  end,
+}
+
+M.toggle_spell = {
+  callback = function(opts)
+    vim.wo[opts.winnr].spell = not vim.wo[opts.winnr].spell
+  end,
+  name = function(opts)
+    return string.format(
+      '%s spell checking',
+      vim.wo[opts.winnr].spell and 'Disable' or 'Enable'
+    )
+  end,
+}
+
+M.toggle_wrap = {
+  callback = function(opts)
+    vim.wo[opts.winnr].wrap = not vim.wo[opts.winnr].wrap
+  end,
+  name = function(opts)
+    return string.format(
+      '%s line wrapping',
+      vim.wo[opts.winnr].wrap and 'Disable' or 'Enable'
+    )
+  end,
+}
+
 M.undo_tree = {
   callback = function()
     require('telescope').extensions.undo.undo({
@@ -407,6 +442,20 @@ M.undo_tree = {
     })
   end,
   name = 'Undo tree',
+}
+
+M.workspace_symbols = {
+  callback = function()
+    require('telescope.builtin').lsp_workspace_symbols({
+      prompt_title = 'Go to workspace symbol',
+    })
+  end,
+  condition = function(opts)
+    local lspconfig = require('sQVe.plugins.lspconfig')
+
+    return vim.tbl_contains(lspconfig.ft, vim.bo[opts.bufnr].filetype)
+  end,
+  name = 'Go to workspace symbol',
 }
 
 return M

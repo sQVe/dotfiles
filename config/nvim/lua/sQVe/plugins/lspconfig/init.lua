@@ -41,35 +41,6 @@ local M = {
     'typescript',
     'typescriptreact',
   },
-  -- keys = {
-  --   { '<Leader>r', vim.lsp.buf.rename, desc = 'Rename symbol' },
-  --   {
-  --     '<Leader>a',
-  --     vim.lsp.buf.code_action,
-  --     mode = { 'n', 'x' },
-  --     desc = 'List code actions',
-  --   },
-  --   {
-  --     ']d',
-  --     function()
-  --       vim.diagnostic.goto_next({
-  --         float = false,
-  --         severity = { min = vim.diagnostic.severity.WARN },
-  --       })
-  --     end,
-  --     desc = 'Next diagnostic entry',
-  --   },
-  --   {
-  --     '[d',
-  --     function()
-  --       vim.diagnostic.goto_prev({
-  --         float = false,
-  --         severity = { min = vim.diagnostic.severity.WARN },
-  --       })
-  --     end,
-  --     desc = 'Previous diagnostic entry',
-  --   },
-  -- },
 }
 
 M.config = function()

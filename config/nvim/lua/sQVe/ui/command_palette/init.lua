@@ -15,10 +15,12 @@ local default_commands = {
   commands.buffers,
   commands.change_cwd_buffer_path,
   commands.change_cwd_git_root_path,
+  commands.code_action,
   commands.commit_message_from_branch_name,
   commands.create_new_daily_note,
   commands.create_new_note,
   commands.diagnostics,
+  commands.document_symbols,
   commands.file_explorer,
   commands.find_files,
   commands.find_files_in_subdirectory,
@@ -28,6 +30,7 @@ local default_commands = {
   commands.live_grep_in_subdirectory,
   commands.previous_commit_message,
   commands.recent_files,
+  commands.rename_symbol,
   commands.resume,
   commands.search_history,
   commands.spawn_file_manager,
@@ -44,6 +47,7 @@ local default_commands = {
   commands.toggle_spell,
   commands.toggle_wrap,
   commands.undo_tree,
+  commands.workspace_symbols,
 }
 
 M.open_command_palette = function(additional_commands)

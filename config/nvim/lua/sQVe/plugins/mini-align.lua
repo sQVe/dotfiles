@@ -6,14 +6,14 @@
 local M = {
   'echasnovski/mini.align',
   keys = {
-    { 'ga', mode = { 'n', 'v' }, desc = 'Align' },
+    { 'g=', mode = { 'n', 'v' }, desc = 'Align' },
   },
 }
 
 M.opts = {
   mappings = {
-    start = 'ga',
-    start_with_preview = 'gA',
+    start = '',
+    start_with_preview = 'g=',
   },
   options = {
     split_pattern = '',

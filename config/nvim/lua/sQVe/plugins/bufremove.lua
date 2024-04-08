@@ -15,7 +15,7 @@ local M = {
         local bufnr = buffer.get_bufnr()
         local winnr = vim.api.nvim_get_current_win()
 
-        if vim.api.nvim_get_option_value('winfixbuf', { win = winnr }) then
+        if vim.wo[winnr].winfixbuf then
           return vim.api.nvim_win_close(winnr, true)
         end
 

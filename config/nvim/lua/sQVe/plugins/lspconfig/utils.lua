@@ -127,6 +127,11 @@ function M.enable_code_lens(bufnr, allowed_filetypes)
 end
 
 M.map_diagnostic_keys = function(bufnr)
+  local shared_diagnostic_opts = {
+    float = false,
+    severity = { min = vim.diagnostic.severity.WARN },
+  }
+
   map('n', 'gl', function()
     vim.diagnostic.open_float({
       buffer = bufnr,
@@ -135,13 +140,20 @@ M.map_diagnostic_keys = function(bufnr)
       source = true,
     })
   end, { buffer = bufnr, desc = 'View diagnostic (line)' })
-
-  -- TODO: Add next and prev bindings.
+  map('n', '[d', function()
+    vim.diagnostic.goto_next(shared_diagnostic_opts)
+  end, { buffer = bufnr, desc = 'Go to previous diagnostic' })
+  map('n', ']d', function()
+    vim.diagnostic.goto_next(shared_diagnostic_opts)
+  end, { buffer = bufnr, desc = 'Go to next diagnostic' })
 end
 
 M.map_lookup_keys = function(bufnr)
   local builtin = require('telescope.builtin')
 
+  map('n', 'ga', function()
+    vim.lsp.buf.code_action()
+  end, { buffer = bufnr, desc = 'Apply code action' })
   map(
     'n',
     'gd',
@@ -149,7 +161,7 @@ M.map_lookup_keys = function(bufnr)
     { buffer = bufnr, desc = 'Go to definition' }
   )
   map('n', 'gD', function()
-    local filetype = vim.api.nvim_get_option_value('filetype', { buf = bufnr })
+    local filetype = vim.bo[bufnr].filetype
 
     local typescript_tools_filetypes =
       require('sQVe.plugins.typescript-tools').ft
@@ -170,6 +182,9 @@ M.map_lookup_keys = function(bufnr)
     builtin.lsp_references,
     { buffer = bufnr, desc = 'Go to reference' }
   )
+  map('n', 'gR', function()
+    vim.lsp.buf.rename()
+  end, { buffer = bufnr, desc = 'Rename symbol' })
   map(
     'n',
     'gy',
@@ -182,20 +197,6 @@ M.map_lookup_keys = function(bufnr)
     vim.lsp.buf.hover,
     { buffer = bufnr, desc = 'View symbol information' }
   )
-
-  -- TODO: Remove this.
-  -- map(
-  --   'n',
-  --   '<Leader>s',
-  --   builtin.lsp_document_symbols,
-  --   { buffer = bufnr, desc = 'Go to buffer symbols' }
-  -- )
-  -- map(
-  --   'n',
-  --   '<Leader>w',
-  --   builtin.lsp_dynamic_workspace_symbols,
-  --   { buffer = bufnr, desc = 'Go to workspace symbols' }
-  -- )
 end
 
 return M
