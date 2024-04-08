@@ -3,8 +3,6 @@
 --  ╹  ╹ ╹  ┗━╸┗━┛┗━╸╹┗╸╹╹   ╹     ╹ ┗━┛┗━┛┗━╸┗━┛
 -- JavaScript and TypeScript integration.
 
-local map = require('sQVe.utils.map')
-
 local M = {
   'pmizio/typescript-tools.nvim',
   dependencies = {
@@ -21,8 +19,9 @@ local M = {
 M.opts = function()
   local lsp_utils = require('sQVe.plugins.lspconfig.utils')
 
-  local on_attach = function(client, bufnr)
-    lsp_utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
+  local on_attach = function(_, bufnr)
+    lsp_utils.map_diagnostic_keys(bufnr)
+    lsp_utils.map_lookup_keys(bufnr)
   end
 
   return {

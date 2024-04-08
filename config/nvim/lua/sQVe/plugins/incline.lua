@@ -21,18 +21,18 @@ M.opts = {
     },
   },
   render = function(args)
-    if not buffer.is_saved_buffer(args.buf) then
+    if not buffer.is_saved(args.buf) then
       return
     end
 
-    local buffer_path = buffer.get_buffer_path(args.buf)
+    local buffer_path = buffer.get_path(args.buf)
     local filename = path.get_descriptive_name(buffer_path)
 
     local window_count = 0
     for _, win in ipairs(vim.api.nvim_list_wins()) do
       local bufnr = vim.api.nvim_win_get_buf(win)
 
-      if buffer.is_valid_buffer(bufnr) and buffer.is_saved_buffer(bufnr) then
+      if buffer.is_valid(bufnr) and buffer.is_saved(bufnr) then
         window_count = window_count + 1
       end
     end

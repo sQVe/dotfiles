@@ -49,49 +49,82 @@ end
 M.append_instruction = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')
-  local extract = require('model.prompts.extract')
 
   local utils = require('sQVe.plugins.model.utils')
   local tuning = require('sQVe.plugins.model.tuning')
 
-  return function()
-    return {
-      provider = openai,
-      mode = mode.APPEND,
-      params = tuning.technical_writing,
-      builder = function(input, context)
-        return {
-          messages = {
-            {
-              role = 'system',
-              content = utils.format_text({
-                "You're a versatile code assistant.",
-                'Your response should only contain the response, without needing any further editing.',
-                guidelines.language,
-              }),
-            },
-            {
-              role = 'user',
-              content = utils.format_text({
-                'I have the following text from %s:',
-                '```%s',
-                '%s',
-                '```',
-                '%s',
-              }, context.filename, vim.bo.filetype, input, context.args),
-            },
+  return {
+    provider = openai,
+    mode = mode.APPEND,
+    params = tuning.technical_writing,
+    builder = function(input, context)
+      return {
+        messages = {
+          {
+            role = 'system',
+            content = utils.format_text({
+              "You're a versatile code assistant.",
+              'Your response should only contain the response, without needing any further editing.',
+              guidelines.language,
+            }),
           },
-        }
-      end,
-      transform = extract.markdown_code,
-    }
-  end
+          {
+            role = 'user',
+            content = utils.format_text({
+              'I have the following text from %s:',
+              '```%s',
+              '%s',
+              '```',
+              '%s',
+            }, context.filename, vim.bo.filetype, input, context.args),
+          },
+        },
+      }
+    end,
+  }
+end
+
+M.buffer_instruction = function()
+  local mode = require('model').mode
+  local openai = require('model.providers.openai')
+
+  local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
+
+  return {
+    provider = openai,
+    mode = mode.BUFFER,
+    params = tuning.technical_writing,
+    builder = function(input, context)
+      return {
+        messages = {
+          {
+            role = 'system',
+            content = utils.format_text({
+              "You're a versatile code assistant.",
+              guidelines.language,
+            }),
+          },
+          {
+            role = 'user',
+            content = utils.format_text({
+              'I have the following text from %s:',
+              '```%s',
+              '%s',
+              '```',
+              '%s',
+            }, context.filename, vim.bo.filetype, input, context.args),
+          },
+        },
+      }
+    end,
+  }
 end
 
 M.commit_message = function()
   local mode = require('model').mode
-  local openai = require('model.providers.openai')
   local extract = require('model.prompts.extract')
+  local openai = require('model.providers.openai')
 
   local utils = require('sQVe.plugins.model.utils')
   local tuning = require('sQVe.plugins.model.tuning')
@@ -99,7 +132,7 @@ M.commit_message = function()
   return {
     provider = openai,
     mode = mode.REPLACE,
-    params = tuning.code_comment_generation,
+    params = tuning.comment_generation,
     builder = function()
       local git_diff = vim.fn.system({ 'git', 'diff', '--staged' })
 
@@ -135,8 +168,8 @@ M.commit_message = function()
 end
 
 M.condense = function()
-  local openai = require('model.providers.openai')
   local extract = require('model.prompts.extract')
+  local openai = require('model.providers.openai')
 
   local utils = require('sQVe.plugins.model.utils')
   local tuning = require('sQVe.plugins.model.tuning')
@@ -191,8 +224,8 @@ end
 
 M.docstring = function()
   local mode = require('model').mode
-  local openai = require('model.providers.openai')
   local extract = require('model.prompts.extract')
+  local openai = require('model.providers.openai')
 
   local utils = require('sQVe.plugins.model.utils')
   local tuning = require('sQVe.plugins.model.tuning')
@@ -210,7 +243,7 @@ M.docstring = function()
   return {
     provider = openai,
     mode = mode.INSERT,
-    params = tuning.code_comment_generation,
+    params = tuning.comment_generation,
     builder = function(input, context)
       return {
         messages = {
@@ -303,7 +336,7 @@ M.improve = function()
   return {
     provider = openai,
     mode = mode.BUFFER,
-    params = tuning.code_explanation,
+    params = tuning.code_generation,
     builder = function(input, context)
       return {
         messages = {
@@ -341,7 +374,7 @@ M.note = function()
   return {
     provider = openai,
     mode = mode.BUFFER,
-    params = tuning.code_explanation,
+    params = tuning.creative_writing,
     builder = function(input, context)
       return {
         messages = {
@@ -373,11 +406,11 @@ M.note = function()
 end
 
 M.proofread = function()
-  local openai = require('model.providers.openai')
   local extract = require('model.prompts.extract')
+  local openai = require('model.providers.openai')
 
   local utils = require('sQVe.plugins.model.utils')
-  local tubing = require('sQVe.plugins.model.tuning')
+  local tuning = require('sQVe.plugins.model.tuning')
 
   local get_content = function(filename, filetype, input)
     return utils.format_text({
@@ -392,7 +425,7 @@ M.proofread = function()
   return {
     provider = openai,
     mode = utils.get_multi_mode(),
-    params = tubing.creative_writing,
+    params = tuning.creative_writing,
     builder = function(input, context)
       return {
         messages = {
@@ -429,8 +462,8 @@ end
 
 M.pull_request = function()
   local mode = require('model').mode
-  local openai = require('model.providers.openai')
   local extract = require('model.prompts.extract')
+  local openai = require('model.providers.openai')
 
   local utils = require('sQVe.plugins.model.utils')
   local tuning = require('sQVe.plugins.model.tuning')
@@ -478,8 +511,8 @@ end
 
 M.readability = function()
   local mode = require('model').mode
-  local openai = require('model.providers.openai')
   local extract = require('model.prompts.extract')
+  local openai = require('model.providers.openai')
 
   local utils = require('sQVe.plugins.model.utils')
   local tuning = require('sQVe.plugins.model.tuning')
@@ -516,9 +549,12 @@ M.readability = function()
   }
 end
 
+-- TODO: Implement prompt.
+M.repair = function() end
+
 M.rephrase = function()
-  local openai = require('model.providers.openai')
   local extract = require('model.prompts.extract')
+  local openai = require('model.providers.openai')
 
   local utils = require('sQVe.plugins.model.utils')
   local tuning = require('sQVe.plugins.model.tuning')
@@ -571,10 +607,48 @@ M.rephrase = function()
   }
 end
 
-M.summary = function()
+M.replace_instruction = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')
+
+  local utils = require('sQVe.plugins.model.utils')
+  local tuning = require('sQVe.plugins.model.tuning')
+
+  return {
+    provider = openai,
+    mode = mode.REPLACE,
+    params = tuning.technical_writing,
+    builder = function(input, context)
+      return {
+        messages = {
+          {
+            role = 'system',
+            content = utils.format_text({
+              "You're a versatile code assistant.",
+              'Your response should only contain the response, without needing any further editing.',
+              guidelines.language,
+            }),
+          },
+          {
+            role = 'user',
+            content = utils.format_text({
+              'I have the following text from %s:',
+              '```%s',
+              '%s',
+              '```',
+              '%s',
+            }, context.filename, vim.bo.filetype, input, context.args),
+          },
+        },
+      }
+    end,
+  }
+end
+
+M.summary = function()
+  local mode = require('model').mode
   local extract = require('model.prompts.extract')
+  local openai = require('model.providers.openai')
 
   local utils = require('sQVe.plugins.model.utils')
   local tuning = require('sQVe.plugins.model.tuning')
@@ -613,8 +687,8 @@ end
 
 M.unit_test = function()
   local mode = require('model').mode
-  local openai = require('model.providers.openai')
   local extract = require('model.prompts.extract')
+  local openai = require('model.providers.openai')
 
   local utils = require('sQVe.plugins.model.utils')
   local tuning = require('sQVe.plugins.model.tuning')
@@ -629,7 +703,7 @@ M.unit_test = function()
   return {
     provider = openai,
     mode = mode.BUFFER,
-    params = tuning.text_processing,
+    params = tuning.test_generation,
     builder = function(input, context)
       return {
         messages = {

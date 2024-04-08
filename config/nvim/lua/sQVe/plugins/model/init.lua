@@ -7,9 +7,6 @@ local M = {
   'gsuuon/model.nvim',
   cmd = { 'M', 'Model', 'Mchat' },
   ft = 'mchat',
-  keys = {
-    -- TODO: Add keymaps.
-  },
 }
 
 M.opts = function()
@@ -23,11 +20,9 @@ M.opts = function()
       general = chats.get_general_chat(),
     },
     prompts = {
-      -- bdd_test = prompts.bdd_test(),
-      -- repair = prompts.repair(),
       accessibility = prompts.accessibility(),
-      append_instruction = append_instruction(),
-      buffer_instruction = buffer_instruction(),
+      append_instruction = prompts.append_instruction(),
+      buffer_instruction = prompts.buffer_instruction(),
       commit_message = prompts.commit_message(),
       condense = prompts.condense(),
       docstring = prompts.docstring(),
@@ -37,6 +32,7 @@ M.opts = function()
       proofread = prompts.proofread(),
       pull_request = prompts.pull_request(),
       readability = prompts.readability(),
+      -- repair = prompts.repair(),
       rephrase = prompts.rephrase(),
       replace_instruction = prompts.replace_instruction(),
       summary = prompts.summary(),

@@ -126,88 +126,76 @@ function M.enable_code_lens(bufnr, allowed_filetypes)
   end
 end
 
--- Map keys for buffers which has LSP enabled.
-M.map_lsp_buffer_keys = function(bufnr, include)
-  include = include or {}
+M.map_diagnostic_keys = function(bufnr)
+  map('n', 'gl', function()
+    vim.diagnostic.open_float({
+      buffer = bufnr,
+      header = '',
+      severity_sort = true,
+      source = true,
+    })
+  end, { buffer = bufnr, desc = 'View diagnostic (line)' })
 
+  -- TODO: Add next and prev bindings.
+end
+
+M.map_lookup_keys = function(bufnr)
   local builtin = require('telescope.builtin')
 
-  local diagnostics = function()
-    map('n', 'gl', function()
-      vim.diagnostic.open_float({
-        buffer = bufnr,
-        header = '',
-        severity_sort = true,
-        source = true,
-      })
-    end, { buffer = bufnr, desc = 'View diagnostic (line)' })
-    map('n', '<Leader>dd', function()
-      builtin.diagnostics({ bufnr = 0 })
-    end, { buffer = bufnr, desc = 'Go to diagnostic' })
-  end
+  map(
+    'n',
+    'gd',
+    builtin.lsp_definitions,
+    { buffer = bufnr, desc = 'Go to definition' }
+  )
+  map('n', 'gD', function()
+    local filetype = vim.api.nvim_get_option_value('filetype', { buf = bufnr })
 
-  local lookup = function()
-    map(
-      'n',
-      'gd',
-      builtin.lsp_definitions,
-      { buffer = bufnr, desc = 'Go to definition' }
-    )
-    map('n', 'gD', function()
-      local filetype =
-        vim.api.nvim_get_option_value('filetype', { buf = bufnr })
+    local typescript_tools_filetypes =
+      require('sQVe.plugins.typescript-tools').ft
 
-      local typescript_tools_filetypes =
-        require('sQVe.plugins.typescript-tools').ft
+    if vim.tbl_contains(typescript_tools_filetypes, filetype) then
+      require('typescript-tools.api').go_to_source_definition()
+      return
+    end
 
-      if vim.tbl_contains(typescript_tools_filetypes, filetype) then
-        require('typescript-tools.api').go_to_source_definition()
-        return
-      end
+    vim.lsp.buf.declaration()
+  end, { buffer = bufnr, desc = 'Go to declaration' })
+  map('n', 'gI', function()
+    builtin.lsp_implementations({ reuse_win = true })
+  end, { buffer = bufnr, desc = 'Go to implementation' })
+  map(
+    'n',
+    'gr',
+    builtin.lsp_references,
+    { buffer = bufnr, desc = 'Go to reference' }
+  )
+  map(
+    'n',
+    'gy',
+    builtin.lsp_type_definitions,
+    { buffer = bufnr, desc = 'Go to type definition' }
+  )
+  map(
+    'n',
+    'K',
+    vim.lsp.buf.hover,
+    { buffer = bufnr, desc = 'View symbol information' }
+  )
 
-      vim.lsp.buf.declaration()
-    end, { buffer = bufnr, desc = 'Go to declaration' })
-    map('n', 'gI', function()
-      builtin.lsp_implementations({ reuse_win = true })
-    end, { buffer = bufnr, desc = 'Go to implementation' })
-    map(
-      'n',
-      'gr',
-      builtin.lsp_references,
-      { buffer = bufnr, desc = 'Go to reference' }
-    )
-    map(
-      'n',
-      'gy',
-      builtin.lsp_type_definitions,
-      { buffer = bufnr, desc = 'Go to type definition' }
-    )
-    map(
-      'n',
-      'K',
-      vim.lsp.buf.hover,
-      { buffer = bufnr, desc = 'View symbol information' }
-    )
-    -- map(
-    --   'n',
-    --   '<Leader>s',
-    --   builtin.lsp_document_symbols,
-    --   { buffer = bufnr, desc = 'Go to buffer symbols' }
-    -- )
-    -- map(
-    --   'n',
-    --   '<Leader>w',
-    --   builtin.lsp_dynamic_workspace_symbols,
-    --   { buffer = bufnr, desc = 'Go to workspace symbols' }
-    -- )
-  end
-
-  for _, includeKey in pairs(include) do
-    ({
-      diagnostics = diagnostics,
-      lookup = lookup,
-    })[includeKey]()
-  end
+  -- TODO: Remove this.
+  -- map(
+  --   'n',
+  --   '<Leader>s',
+  --   builtin.lsp_document_symbols,
+  --   { buffer = bufnr, desc = 'Go to buffer symbols' }
+  -- )
+  -- map(
+  --   'n',
+  --   '<Leader>w',
+  --   builtin.lsp_dynamic_workspace_symbols,
+  --   { buffer = bufnr, desc = 'Go to workspace symbols' }
+  -- )
 end
 
 return M

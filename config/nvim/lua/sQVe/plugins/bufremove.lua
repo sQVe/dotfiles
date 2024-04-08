@@ -3,6 +3,8 @@
 -- ┗━┛┗━┛╹  ╹┗╸┗━╸╹ ╹┗━┛┗┛ ┗━╸
 -- Delete buffers without losing window layout.
 
+local buffer = require('sQVe.utils.buffer')
+
 local M = {
   'echasnovski/mini.bufremove',
   config = true,
@@ -10,7 +12,7 @@ local M = {
     {
       '<Leader>q',
       function()
-        local bufnr = vim.api.nvim_get_current_buf()
+        local bufnr = buffer.get_bufnr()
         local winnr = vim.api.nvim_get_current_win()
 
         if vim.api.nvim_get_option_value('winfixbuf', { win = winnr }) then
@@ -24,8 +26,10 @@ local M = {
     {
       '<Leader>Q',
       function()
+        local current_bufnr = buffer.get_bufnr()
+
         for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-          if vim.api.nvim_get_current_buf() ~= bufnr then
+          if current_bufnr ~= bufnr then
             require('mini.bufremove').delete(bufnr)
           end
         end

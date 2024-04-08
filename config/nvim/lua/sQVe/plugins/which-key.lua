@@ -47,7 +47,6 @@ M.config = function(_, opts)
     [']'] = { 'Next' },
     ['`'] = { 'Marks' },
     g = { o = 'Sort' },
-    y = { o = { 'Toggle settings' } },
   })
 
   local inner_textobjects = {

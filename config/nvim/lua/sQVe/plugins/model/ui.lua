@@ -2,6 +2,8 @@
 -- ┃ ┃┃
 -- ┗━┛╹
 
+-- TODO: This module should be removed.
+
 local M = {}
 
 M.run_model = function(prompt, instruction)

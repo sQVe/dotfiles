@@ -10,6 +10,10 @@ local utils = require('sQVe.ui.command_palette.utils')
 local M = {
   'nvim-telescope/telescope.nvim',
   cmd = 'Telescope',
+  dependencies = {
+    { 'natecraddock/telescope-zf-native.nvim' },
+    { 'debugloop/telescope-undo.nvim' },
+  },
   keys = {
     {
       '<Backspace>',
@@ -54,9 +58,6 @@ local M = {
       desc = 'Find file in buffer directory',
       mode = { 'n', 'v' },
     },
-  },
-  dependencies = {
-    { 'natecraddock/telescope-zf-native.nvim' },
   },
 }
 
@@ -121,6 +122,13 @@ M.opts = function()
         '--with-filename',
       },
     },
+    extensions = {
+      undo = {
+        side_by_side = true,
+        layout_strategy = 'vertical',
+        layout_config = { preview_height = 0.6 },
+      },
+    },
     pickers = {
       find_files = {
         find_command = {
@@ -144,6 +152,7 @@ M.config = function(_, opts)
   local telescope = require('telescope')
 
   telescope.setup(opts)
+  telescope.load_extension('undo')
   telescope.load_extension('zf-native')
 end
 

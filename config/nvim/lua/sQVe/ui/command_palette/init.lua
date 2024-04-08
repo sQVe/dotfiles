@@ -2,7 +2,11 @@
 -- ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃   ┣━┛┣━┫┃  ┣╸  ┃  ┃ ┣╸
 -- ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛   ╹  ╹ ╹┗━╸┗━╸ ╹  ╹ ┗━╸
 
+local buffer = require('sQVe.utils.buffer')
+local git = require('sQVe.utils.git')
+local path = require('sQVe.utils.path')
 local selection = require('sQVe.utils.selection')
+
 local commands = require('sQVe.ui.command_palette.commands')
 
 local M = {}
@@ -12,57 +16,50 @@ local default_commands = {
   commands.change_cwd_buffer_path,
   commands.change_cwd_git_root_path,
   commands.commit_message_from_branch_name,
+  commands.create_new_daily_note,
+  commands.create_new_note,
   commands.diagnostics,
   commands.file_explorer,
   commands.find_files,
   commands.find_files_in_subdirectory,
   commands.git_status,
   commands.grep_text,
-  commands.lazygit,
-  commands.lazygit_with_filter,
   commands.live_grep,
   commands.live_grep_in_subdirectory,
   commands.previous_commit_message,
   commands.recent_files,
   commands.resume,
   commands.search_history,
-  commands.terminal,
-  commands.terminal_in_subdirectory,
+  commands.spawn_file_manager,
+  commands.spawn_file_manager_in_subdirectory,
+  commands.spawn_lazygit,
+  commands.spawn_lazygit_with_filter,
+  commands.spawn_terminal,
+  commands.spawn_terminal_in_subdirectory,
+  commands.toggle_conceal_level,
   commands.toggle_format_on_save,
   commands.toggle_git_blame,
   commands.toggle_git_diff_overlay,
-  commands.yazi,
-  commands.yazi_in_subdirectory,
+  commands.toggle_relative_numbers,
+  commands.toggle_spell,
+  commands.toggle_wrap,
+  commands.undo_tree,
 }
 
 M.open_command_palette = function(additional_commands)
   local visual_mode = selection.get_visual_mode()
 
   local opts = {
-    bufnr = vim.api.nvim_get_current_buf(),
-    cwd = vim.fn.getcwd(),
+    bufnr = buffer.get_bufnr(),
+    cwd = path.get_cwd(),
     git_root = '',
     is_visual_mode = selection.is_visual_mode(),
     query = '',
     winnr = vim.api.nvim_get_current_win(),
   }
 
-  local is_inside_git_repo = vim
-    .system({
-      'git',
-      'rev-parse',
-      '--is-inside-work-tree',
-    })
-    :wait().code == 0
-
-  if is_inside_git_repo then
-    opts.git_root = vim.trim(vim
-      .system({
-        'git',
-        'rev-parse',
-        '--show-toplevel',
-      }, { text = true })
-      :wait().stdout)
+  if git.is_inside_repo() then
+    opts.git_root = git.get_root()
   end
 
   opts.query = visual_mode == 'char'

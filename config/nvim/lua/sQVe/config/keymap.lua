@@ -117,26 +117,7 @@ map('n', '<C-t><C-p>', '<Cmd>tabprevious<CR>', { desc = 'Previous tab' })
 map('n', '<C-t>q', '<Cmd>tabclose<CR>', { desc = 'Close tab' })
 map('n', '<C-t><C-q>', '<Cmd>tabclose<CR>', { desc = 'Close tab' })
 
--- Spell completion.
-map('i', '<C-x><C-s>', '<C-x>s', { desc = 'Open spell completion' })
-
--- Toggle settings.
--- map(
---   'n',
---   'yoc',
---   ":set conceallevel=<C-r>=&conceallevel == 0 ? '2' : '0'<CR><CR>",
---   { desc = 'Toggle conceal' }
--- )
--- map('n', 'yol', '<Cmd>set cursorline!<CR>', { desc = 'Toggle cursorline' })
--- map('n', 'yon', '<Cmd>set number!<CR>', { desc = 'Toggle number' })
--- map(
---   'n',
---   'yor',
---   '<Cmd>set relativenumber!<CR>',
---   { desc = 'Toggle relativenumber' }
--- )
--- map('n', 'yow', '<Cmd>set wrap!<CR>', { desc = 'Toggle wrap' })
--- map('n', 'yos', '<Cmd>set spell!<CR>', { desc = 'Toggle spell' })
+-- Spelling.
 map('', '<C-s>', '<Cmd>set spell!<CR>', { desc = 'Toggle spell', remap = true })
 map('i', '<C-s>', '<C-o><C-s>', { desc = 'Toggle spell', remap = true })
 

@@ -32,12 +32,13 @@ local M = {
 }
 
 M.opts = function()
-  local filetypes = {}
+  local filetypes = {
+    ['*'] = false,
+  }
 
   for _, filetype in ipairs(enabled_filetypes) do
     filetypes[filetype] = true
   end
-  filetypes['*'] = false
 
   return {
     filetypes = filetypes,

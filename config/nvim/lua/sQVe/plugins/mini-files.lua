@@ -35,7 +35,7 @@ M.config = function(_, opts)
 
   map('n', 'Å', function()
     if not mini_files.close() then
-      mini_files.open(buffer.get_buffer_path(), false)
+      mini_files.open(buffer.get_path(), false)
     end
   end, { desc = 'Open file tree' })
 

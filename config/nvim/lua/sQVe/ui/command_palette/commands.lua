@@ -5,19 +5,16 @@
 local M = {}
 
 local buffer = require('sQVe.utils.buffer')
+local git = require('sQVe.utils.git')
 local path = require('sQVe.utils.path')
 local utils = require('sQVe.ui.command_palette.utils')
 local var = require('sQVe.utils.var')
 
--- TODO: Toggles. (yos and etc)
--- TODO: Undo tree.
 -- TODO: LSP commands.
 --         - Rename
 --         - Action
 --         - Document symbols
 --         - Workspace symbols
--- TODO: Notebox.
--- TODO: Move next and prev to default ] and [ bindings.
 -- TODO: AI.
 
 M.buffers = {
@@ -33,17 +30,13 @@ M.buffers = {
 M.change_cwd_buffer_path = {
   callback = function(opts)
     vim.cmd(
-      string.format(
-        'cd %s',
-        path.get_directory(buffer.get_buffer_path(opts.bufnr))
-      )
+      string.format('cd %s', path.get_parent(buffer.get_path(opts.bufnr)))
     )
   end,
   condition = function(opts)
-    return buffer.is_valid_buffer(opts.bufnr)
-      and buffer.is_saved_buffer(opts.bufnr)
-      and path.get_directory(buffer.get_buffer_path(opts.bufnr))
-        ~= path.get_cwd()
+    return buffer.is_valid(opts.bufnr)
+      and buffer.is_saved(opts.bufnr)
+      and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = function(opts)
     return utils.get_name_with_buffer_path('Change cwd', opts)
@@ -74,13 +67,23 @@ M.commit_message_from_branch_name = {
     end
   end,
   condition = function()
-    local is_inside_git_repo = vim.fn.trim(
-      vim.fn.system('git rev-parse --is-inside-work-tree')
-    ) == 'true'
-
-    return is_inside_git_repo
+    return git.is_inside_repo()
   end,
   name = 'Input commit message from branch name',
+}
+
+M.create_new_daily_note = {
+  callback = function()
+    require('notebox.note').new_note('daily')
+  end,
+  name = 'Create new daily note',
+}
+
+M.create_new_note = {
+  callback = function()
+    require('notebox.note').new_note()
+  end,
+  name = 'Create new note',
 }
 
 M.diagnostics = {
@@ -92,9 +95,22 @@ M.diagnostics = {
   name = 'Go to diagnostic',
 }
 
+M.toggle_conceal_level = {
+  callback = function(opts)
+    vim.wo[opts.winnr].conceallevel = vim.wo[opts.winnr].conceallevel == 0 and 2
+      or 0
+  end,
+  name = function(opts)
+    return string.format(
+      '%s character conceal',
+      vim.wo[opts.winnr].conceallevel == 0 and 'Enable' or 'Disable'
+    )
+  end,
+}
+
 M.toggle_format_on_save = {
   callback = function()
-    var.toggle_global_var('format_on_save')
+    var.toggle_global('format_on_save')
   end,
   condition = function()
     local conform = require('lazy.core.config').plugins['conform.nvim']
@@ -104,7 +120,7 @@ M.toggle_format_on_save = {
   name = function()
     return string.format(
       '%s format on save',
-      var.get_global_var('format_on_save') and 'Disable' or 'Enable'
+      var.get_global('format_on_save') and 'Disable' or 'Enable'
     )
   end,
 }
@@ -112,19 +128,15 @@ M.toggle_format_on_save = {
 M.toggle_git_blame = {
   callback = function(opts)
     require('blame').toggle({ args = 'window' })
-    var.toggle_buffer_var(opts.bufnr, 'git_blame')
+    var.toggle_buffer(opts.bufnr, 'git_blame')
   end,
   condition = function()
-    local is_inside_git_repo = vim.fn.trim(
-      vim.fn.system('git rev-parse --is-inside-work-tree')
-    ) == 'true'
-
-    return is_inside_git_repo
+    return git.is_inside_repo()
   end,
   name = function(opts)
     return string.format(
       '%s git blame window',
-      var.get_buffer_var(opts.bufnr, 'git_blame') and 'Hide' or 'Show'
+      var.get_buffer(opts.bufnr, 'git_blame') and 'Hide' or 'Show'
     )
   end,
 }
@@ -132,7 +144,7 @@ M.toggle_git_blame = {
 M.toggle_git_diff_overlay = {
   callback = function(opts)
     require('mini.diff').toggle_overlay(opts.bufnr)
-    var.toggle_buffer_var(opts.bufnr, 'git_diff')
+    var.toggle_buffer(opts.bufnr, 'git_diff')
   end,
   condition = function()
     local mini_diff = require('lazy.core.config').plugins['mini.diff']
@@ -142,14 +154,50 @@ M.toggle_git_diff_overlay = {
   name = function(opts)
     return string.format(
       '%s git diff overlay',
-      var.get_buffer_var(opts.bufnr, 'git_diff') and 'Hide' or 'Show'
+      var.get_buffer(opts.bufnr, 'git_diff') and 'Hide' or 'Show'
+    )
+  end,
+}
+
+M.toggle_relative_numbers = {
+  callback = function(opts)
+    vim.wo[opts.winnr].relativenumber = not vim.wo[opts.winnr].relativenumber
+  end,
+  name = function(opts)
+    return string.format(
+      '%s relative numbers',
+      vim.wo[opts.winnr].relativenumber and 'Disable' or 'Enable'
+    )
+  end,
+}
+
+M.toggle_spell = {
+  callback = function(opts)
+    vim.wo[opts.winnr].spell = not vim.wo[opts.winnr].spell
+  end,
+  name = function(opts)
+    return string.format(
+      '%s spell checking',
+      vim.wo[opts.winnr].spell and 'Disable' or 'Enable'
+    )
+  end,
+}
+
+M.toggle_wrap = {
+  callback = function(opts)
+    vim.wo[opts.winnr].wrap = not vim.wo[opts.winnr].wrap
+  end,
+  name = function(opts)
+    return string.format(
+      '%s line wrapping',
+      vim.wo[opts.winnr].wrap and 'Disable' or 'Enable'
     )
   end,
 }
 
 M.file_explorer = {
   callback = function()
-    require('mini.files').open(buffer.get_buffer_path(), false)
+    require('mini.files').open(buffer.get_path(), false)
   end,
   name = 'File explorer',
 }
@@ -166,15 +214,14 @@ M.find_files = {
 M.find_files_in_subdirectory = {
   callback = function(opts)
     require('sQVe.plugins.telescope.pickers').find_files({
-      cwd = path.get_directory(buffer.get_buffer_path(opts.bufnr)),
+      cwd = path.get_parent(buffer.get_path(opts.bufnr)),
       prompt_title = utils.get_name_with_buffer_path('Find file', opts),
     })
   end,
   condition = function(opts)
-    return buffer.is_valid_buffer(opts.bufnr)
-      and buffer.is_saved_buffer(opts.bufnr)
-      and path.get_directory(buffer.get_buffer_path(opts.bufnr))
-        ~= path.get_cwd()
+    return buffer.is_valid(opts.bufnr)
+      and buffer.is_saved(opts.bufnr)
+      and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = 'Find file from buffer path',
 }
@@ -189,14 +236,7 @@ M.git_status = {
     )
   end,
   condition = function()
-    local is_inside_git_repo = vim.fn.trim(
-      vim.fn.system('git rev-parse --is-inside-work-tree')
-    ) == 'true'
-    local has_changed_files = vim.fn.trim(
-      vim.fn.system('git status --porcelain')
-    ) ~= ''
-
-    return is_inside_git_repo and has_changed_files
+    return git.is_inside_repo() and git.has_changed_files()
   end,
   name = 'Git status',
 }
@@ -213,7 +253,7 @@ M.grep_text = {
     })
   end,
   condition = function(opts)
-    return buffer.is_valid_buffer(opts.bufnr)
+    return buffer.is_valid(opts.bufnr)
   end,
   name = function(opts)
     return string.format(
@@ -222,31 +262,6 @@ M.grep_text = {
       opts.query
     )
   end,
-}
-
-M.lazygit = {
-  callback = function()
-    vim.system({ 'term', 'lazygit' }, { detach = true }):wait()
-  end,
-  name = 'Spawn lazygit',
-}
-
-M.lazygit_with_filter = {
-  callback = function(opts)
-    vim
-      .system({
-        'term',
-        'lazygit',
-        '--filter',
-        buffer.get_buffer_path(opts.bufnr),
-      }, { detach = true })
-      :wait()
-  end,
-  condition = function(opts)
-    return buffer.is_valid_buffer(opts.bufnr)
-      and buffer.is_saved_buffer(opts.bufnr)
-  end,
-  name = 'Spawn lazygit from buffer path',
 }
 
 M.live_grep = {
@@ -261,15 +276,14 @@ M.live_grep = {
 M.live_grep_in_subdirectory = {
   callback = function(opts)
     require('telescope.builtin').live_grep({
-      cwd = path.get_directory(buffer.get_buffer_path(opts.bufnr)),
+      cwd = path.get_parent(buffer.get_path(opts.bufnr)),
       prompt_title = utils.get_name_with_buffer_path('Live grep', opts),
     })
   end,
   condition = function(opts)
-    return buffer.is_valid_buffer(opts.bufnr)
-      and buffer.is_saved_buffer(opts.bufnr)
-      and path.get_directory(buffer.get_buffer_path(opts.bufnr))
-        ~= path.get_cwd()
+    return buffer.is_valid(opts.bufnr)
+      and buffer.is_saved(opts.bufnr)
+      and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = 'Live grep from buffer path',
 }
@@ -315,53 +329,84 @@ M.search_history = {
   name = 'Search history',
 }
 
-M.terminal = {
+M.spawn_file_manager = {
+  callback = function()
+    vim.system({ 'term', 'yazi' }, { detach = true }):wait()
+  end,
+  name = 'Spawn file manager',
+}
+
+M.spawn_file_manager_in_subdirectory = {
+  callback = function(opts)
+    vim
+      .system({
+        'term',
+        'yazi',
+        buffer.get_path(opts.bufnr),
+      }, { detach = true })
+      :wait()
+  end,
+  condition = function(opts)
+    return buffer.is_valid(opts.bufnr) and buffer.is_saved(opts.bufnr)
+  end,
+  name = 'Spawn file file manager from buffer path',
+}
+
+M.spawn_lazygit = {
+  callback = function()
+    vim.system({ 'term', 'lazygit' }, { detach = true }):wait()
+  end,
+  name = 'Spawn lazygit',
+}
+
+M.spawn_lazygit_with_filter = {
+  callback = function(opts)
+    vim
+      .system({
+        'term',
+        'lazygit',
+        '--filter',
+        buffer.get_path(opts.bufnr),
+      }, { detach = true })
+      :wait()
+  end,
+  condition = function(opts)
+    return buffer.is_valid(opts.bufnr) and buffer.is_saved(opts.bufnr)
+  end,
+  name = 'Spawn lazygit from buffer path',
+}
+
+M.spawn_terminal = {
   callback = function()
     vim.system({ 'term' }, { detach = true }):wait()
   end,
   name = 'Spawn terminal',
 }
 
-M.terminal_in_subdirectory = {
+M.spawn_terminal_in_subdirectory = {
   callback = function(opts)
     vim
       .system({
         'term',
-        path.get_directory(buffer.get_buffer_path(opts.bufnr)),
+        path.get_parent(buffer.get_path(opts.bufnr)),
       }, { detach = true })
       :wait()
   end,
   condition = function(opts)
-    return buffer.is_valid_buffer(opts.bufnr)
-      and buffer.is_saved_buffer(opts.bufnr)
-      and path.get_directory(buffer.get_buffer_path(opts.bufnr))
-        ~= path.get_cwd()
+    return buffer.is_valid(opts.bufnr)
+      and buffer.is_saved(opts.bufnr)
+      and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = 'Spawn terminal from buffer path',
 }
 
-M.yazi = {
+M.undo_tree = {
   callback = function()
-    vim.system({ 'term', 'yazi' }, { detach = true }):wait()
+    require('telescope').extensions.undo.undo({
+      prompt_title = 'Undo tree',
+    })
   end,
-  name = 'Spawn yazi',
-}
-
-M.yazi_in_subdirectory = {
-  callback = function(opts)
-    vim
-      .system({
-        'term',
-        'yazi',
-        buffer.get_buffer_path(opts.bufnr),
-      }, { detach = true })
-      :wait()
-  end,
-  condition = function(opts)
-    return buffer.is_valid_buffer(opts.bufnr)
-      and buffer.is_saved_buffer(opts.bufnr)
-  end,
-  name = 'Spawn yazi from buffer path',
+  name = 'Undo tree',
 }
 
 return M

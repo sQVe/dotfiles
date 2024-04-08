@@ -11,14 +11,14 @@ local get_name_with_path = function(opts)
   return string.format(
     '%s (%s)',
     opts.name,
-    path.normalize_path(path.get_relative_path(opts.path, opts.cwd))
+    path.normalize(path.get_relative(opts.path, opts.cwd))
   )
 end
 
 M.get_name_with_buffer_path = function(name, opts)
   return get_name_with_path({
     name = name,
-    path = path.get_directory(buffer.get_buffer_path(opts.bufnr)),
+    path = path.get_parent(buffer.get_path(opts.bufnr)),
     cwd = opts.cwd,
   })
 end

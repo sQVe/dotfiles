@@ -41,35 +41,35 @@ local M = {
     'typescript',
     'typescriptreact',
   },
-  keys = {
-    { '<Leader>r', vim.lsp.buf.rename, desc = 'Rename symbol' },
-    {
-      '<Leader>a',
-      vim.lsp.buf.code_action,
-      mode = { 'n', 'x' },
-      desc = 'List code actions',
-    },
-    {
-      '<Leader>dn',
-      function()
-        vim.diagnostic.goto_next({
-          float = false,
-          severity = { min = vim.diagnostic.severity.WARN },
-        })
-      end,
-      desc = 'Next diagnostic entry',
-    },
-    {
-      '<Leader>dp',
-      function()
-        vim.diagnostic.goto_prev({
-          float = false,
-          severity = { min = vim.diagnostic.severity.WARN },
-        })
-      end,
-      desc = 'Previous diagnostic entry',
-    },
-  },
+  -- keys = {
+  --   { '<Leader>r', vim.lsp.buf.rename, desc = 'Rename symbol' },
+  --   {
+  --     '<Leader>a',
+  --     vim.lsp.buf.code_action,
+  --     mode = { 'n', 'x' },
+  --     desc = 'List code actions',
+  --   },
+  --   {
+  --     ']d',
+  --     function()
+  --       vim.diagnostic.goto_next({
+  --         float = false,
+  --         severity = { min = vim.diagnostic.severity.WARN },
+  --       })
+  --     end,
+  --     desc = 'Next diagnostic entry',
+  --   },
+  --   {
+  --     '[d',
+  --     function()
+  --       vim.diagnostic.goto_prev({
+  --         float = false,
+  --         severity = { min = vim.diagnostic.severity.WARN },
+  --       })
+  --     end,
+  --     desc = 'Previous diagnostic entry',
+  --   },
+  -- },
 }
 
 M.config = function()
@@ -79,7 +79,8 @@ M.config = function()
 
   local on_attach = function(_, bufnr)
     utils.enable_code_lens(bufnr, { 'markdown' })
-    utils.map_lsp_buffer_keys(bufnr, { 'diagnostics', 'lookup' })
+    utils.map_diagnostic_keys(bufnr)
+    utils.map_lookup_keys(bufnr)
   end
 
   local server_setup = utils.create_server_setup({

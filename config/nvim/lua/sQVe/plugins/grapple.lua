@@ -16,7 +16,7 @@ local M = {
       function()
         local grapple = require('grapple')
 
-        local buffer_path = buffer.get_buffer_path()
+        local buffer_path = buffer.get_path()
         local basename = path.get_basename(buffer_path)
         local name =
           path.remove_extension(path.get_descriptive_name(buffer_path))

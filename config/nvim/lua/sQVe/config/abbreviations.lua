@@ -15,6 +15,7 @@ vim.cmd([[
   iabbrev reutrn    return
   iabbrev strign    string
   iabbrev treu      true
+  iabbrev ture      true
   iabbrev undefiend undefined
 ]])
 

@@ -12,9 +12,9 @@ autocmd('WinClosed', {
     local bufnr = args.buf
 
     if
-      buffer.is_valid_buffer(bufnr)
-      and buffer.is_ignored_buffer(bufnr)
-      and not buffer.is_saved_buffer(bufnr)
+      buffer.is_valid(bufnr)
+      and buffer.is_ignored(bufnr)
+      and not buffer.is_saved(bufnr)
     then
       require('mini.bufremove').delete(bufnr)
     end

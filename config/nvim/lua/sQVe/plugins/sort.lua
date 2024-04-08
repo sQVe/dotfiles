@@ -6,7 +6,6 @@
 local M = {
   'sQVe/sort.nvim',
   cmd = 'Sort',
-  dev = false,
   keys = {
     -- Sort current line or selection.
     { 'go', '<Esc><Cmd>Sort<CR>', mode = { 'v' } },

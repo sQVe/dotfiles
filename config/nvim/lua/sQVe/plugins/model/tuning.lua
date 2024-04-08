@@ -13,5 +13,4 @@ return {
   technical_writing = { model = model, temperature = 0.4 },
   test_generation = { model = model, temperature = 0.4, top_p = 0.5 },
   text_processing = { model = model, temperature = 0.2, top_p = 0.4 },
-  translation = { model = model, temperature = 0.3 },
 }

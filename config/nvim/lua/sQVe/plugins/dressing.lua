@@ -3,6 +3,8 @@
 -- ╺┻┛╹┗╸┗━╸┗━┛┗━┛╹╹ ╹┗━┛
 -- Improve default UI elements for input and select.
 
+local map = require('sQVe.utils.map')
+
 local M = {
   'stevearc/dressing.nvim',
   lazy = true,
@@ -25,9 +27,25 @@ end
 M.opts = {
   select = {
     backend = { 'telescope' },
+    telescope = {
+      attach_mappings = function(prompt_bufnr, map)
+        -- Disable certain keymaps that breaks the select.
+        map('i', '<C-v>', function() end)
+        map('i', '<C-s>', function() end)
 
-    -- TODO: Make the select window wider by default.
-    -- telescope = {}
+        return true
+      end,
+      layout_strategy = 'horizontal',
+      layout_config = {
+        preview_cutoff = false,
+        width = function(_, max_columns, _)
+          return math.min(max_columns, 80)
+        end,
+        height = function(_, _, max_lines)
+          return math.min(max_lines, 20)
+        end,
+      },
+    },
   },
 }
 
