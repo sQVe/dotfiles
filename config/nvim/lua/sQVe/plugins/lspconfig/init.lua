@@ -80,7 +80,13 @@ M.config = function()
           .. '/cucumber-language-server',
         '--stdio',
       },
-      on_attach = on_attach,
+      on_attach = function(client, bufnr)
+        if client then
+          client.server_capabilities.semanticTokensProvider = nil
+        end
+
+        on_attach(client, bufnr)
+      end,
       root_dir = lspconfig_util.root_pattern('package.json'),
       settings = {
         cucumber = {
