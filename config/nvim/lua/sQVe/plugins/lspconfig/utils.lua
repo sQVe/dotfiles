@@ -5,6 +5,7 @@
 local M = {}
 
 local autocmd = require('sQVe.utils.autocmd')
+local buffer = require('sQVe.utils.buffer')
 local map = require('sQVe.utils.map')
 
 M.create_server_setup = function(opts)
@@ -81,7 +82,7 @@ M.diagnostic_handler = function(_, result, ctx, ...)
     HINT = 4,
   }
 
-  if client and client.name == 'typescript-tools' then
+  if client and client.name == 'tsserver' then
     ignored_diagnostics = {
       { code = 7016, severity = severity.ERROR },
       { code = 80001, severity = severity.HINT },
@@ -162,12 +163,21 @@ M.map_lookup_keys = function(bufnr)
   )
   map('n', 'gD', function()
     local filetype = vim.bo[bufnr].filetype
+    local tsserver_filetypes = {
+      'javascript',
+      'javascriptreact',
+      'typescript',
+      'typescriptreact',
+    }
 
-    local typescript_tools_filetypes =
-      require('sQVe.plugins.typescript-tools').ft
-
-    if vim.tbl_contains(typescript_tools_filetypes, filetype) then
-      require('typescript-tools.api').go_to_source_definition()
+    if vim.tbl_contains(tsserver_filetypes, filetype) then
+      vim.lsp.buf_request(bufnr, 'workspace/executeCommand', {
+        command = '_typescript.goToSourceDefinition',
+        arguments = {
+          vim.uri_from_bufnr(bufnr),
+          vim.lsp.util.make_position_params().position,
+        },
+      }, vim.lsp.handlers['textDocument/definition'])
       return
     end
 
