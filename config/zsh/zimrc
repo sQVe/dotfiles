@@ -7,10 +7,7 @@ zmodule git
 zmodule input
 
 # Completion.
-zmodule zsh-users/zsh-completions
-zmodule unixorn/git-extra-commands
 zmodule completion
-zmodule lukechilds/zsh-better-npm-completion
 
 # Modes.
 zmodule jeffreytse/zsh-vi-mode

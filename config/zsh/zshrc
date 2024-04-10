@@ -17,13 +17,13 @@ zstyle ':completion:*' matcher-list \
   'm:{[:lower:]-}={[:upper:]_} r:|[.]=**' \
   '+l:|=*'
 
+# Completion.
+source "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh"
+source /usr/share/fzf/completion.zsh
+
 # Zoxide.
 eval "$(zoxide init zsh)"
 
-# Completion.
-source "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh"
-source "$ZDOTDIR/zoxide_completions.zsh"
-source /usr/share/fzf/completion.zsh
 
 #  ┏━┓┏━╸╺┳╸╺┳╸╻┏┓╻┏━╸┏━┓
 #  ┗━┓┣╸  ┃  ┃ ┃┃┗┫┃╺┓┗━┓
@@ -100,7 +100,7 @@ function nvm() {
 function zvm_after_init() {
   source /usr/share/fzf/key-bindings.zsh
 
-  # # Remove default fzf bindings.
+  # Remove default fzf bindings.
   bindkey -r '^T'
   bindkey -r '^[c'
 
