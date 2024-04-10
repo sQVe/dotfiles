@@ -5,9 +5,6 @@
 
 local M = {
   'pmizio/typescript-tools.nvim',
-  dependencies = {
-    { 'dmmulroy/ts-error-translator.nvim', config = true },
-  },
   ft = {
     'javascript',
     'javascriptreact',
