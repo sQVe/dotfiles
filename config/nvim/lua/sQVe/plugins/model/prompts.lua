@@ -20,6 +20,10 @@ M.accessibility = function()
     mode = mode.BUFFER,
     params = tuning.technical_writing,
     builder = function(input, context)
+      -- Get the bufnr from the previous buffer, since the current buffer is
+      -- the prompt response buffer.
+      local bufnr = vim.fn.bufnr('#')
+
       return {
         messages = {
           {
@@ -38,7 +42,7 @@ M.accessibility = function()
               '%s',
               '```',
               'Please make it more accessible.',
-            }, context.filename, vim.bo.filetype, input),
+            }, context.filename, vim.bo[bufnr].filetype, input),
           },
         },
       }
@@ -75,7 +79,7 @@ M.append_instruction = function()
               '```%s',
               '%s',
               '```',
-              '%s',
+              'Instruction: %s',
             }, context.filename, vim.bo.filetype, input, context.args),
           },
         },
@@ -96,6 +100,10 @@ M.buffer_instruction = function()
     mode = mode.BUFFER,
     params = tuning.technical_writing,
     builder = function(input, context)
+      -- Get the bufnr from the previous buffer, since the current buffer is
+      -- the prompt response buffer.
+      local bufnr = vim.fn.bufnr('#')
+
       return {
         messages = {
           {
@@ -112,8 +120,8 @@ M.buffer_instruction = function()
               '```%s',
               '%s',
               '```',
-              '%s',
-            }, context.filename, vim.bo.filetype, input, context.args),
+              'Instruction: %s',
+            }, context.filename, vim.bo[bufnr].filetype, input, context.args),
           },
         },
       }
@@ -300,6 +308,10 @@ M.explain = function()
     mode = mode.BUFFER,
     params = tuning.code_explanation,
     builder = function(input, context)
+      -- Get the bufnr from the previous buffer, since the current buffer is
+      -- the prompt response buffer.
+      local bufnr = vim.fn.bufnr('#')
+
       return {
         messages = {
           {
@@ -318,7 +330,7 @@ M.explain = function()
               '%s',
               '```',
               'Please provide a brief explanation of what it does.',
-            }, context.filename, vim.bo.filetype, input),
+            }, context.filename, vim.bo[bufnr].filetype, input),
           },
         },
       }
@@ -338,6 +350,10 @@ M.improve = function()
     mode = mode.BUFFER,
     params = tuning.code_generation,
     builder = function(input, context)
+      -- Get the bufnr from the previous buffer, since the current buffer is
+      -- the prompt response buffer.
+      local bufnr = vim.fn.bufnr('#')
+
       return {
         messages = {
           {
@@ -356,7 +372,7 @@ M.improve = function()
               '%s',
               '```',
               'Please suggest improvements and optimizations.',
-            }, context.filename, vim.bo.filetype, input),
+            }, context.filename, vim.bo[bufnr].filetype, input),
           },
         },
       }
@@ -376,6 +392,10 @@ M.note = function()
     mode = mode.BUFFER,
     params = tuning.creative_writing,
     builder = function(input, context)
+      -- Get the bufnr from the previous buffer, since the current buffer is
+      -- the prompt response buffer.
+      local bufnr = vim.fn.bufnr('#')
+
       return {
         messages = {
           {
@@ -397,7 +417,7 @@ M.note = function()
               '%s',
               '```',
               'Please suggest improvements to my note.',
-            }, context.filename, vim.bo.filetype, input),
+            }, context.filename, vim.bo[bufnr].filetype, input),
           },
         },
       }
@@ -522,6 +542,10 @@ M.readability = function()
     mode = mode.BUFFER,
     params = tuning.technical_writing,
     builder = function(input, context)
+      -- Get the bufnr from the previous buffer, since the current buffer is
+      -- the prompt response buffer.
+      local bufnr = vim.fn.bufnr('#')
+
       return {
         messages = {
           {
@@ -540,7 +564,7 @@ M.readability = function()
               '%s',
               '```',
               'Please rewrite it to make it more readable.',
-            }, context.filename, vim.bo.filetype, input),
+            }, context.filename, vim.bo[bufnr].filetype, input),
           },
         },
       }
@@ -636,7 +660,7 @@ M.replace_instruction = function()
               '```%s',
               '%s',
               '```',
-              '%s',
+              'Instruction: %s',
             }, context.filename, vim.bo.filetype, input, context.args),
           },
         },
@@ -658,6 +682,10 @@ M.summary = function()
     mode = mode.BUFFER,
     params = tuning.text_processing,
     builder = function(input, context)
+      -- Get the bufnr from the previous buffer, since the current buffer is
+      -- the prompt response buffer.
+      local bufnr = vim.fn.bufnr('#')
+
       return {
         messages = {
           {
@@ -676,7 +704,7 @@ M.summary = function()
               '%s',
               '```',
               'Please summarize it.',
-            }, context.filename, vim.bo.filetype, input),
+            }, context.filename, vim.bo[bufnr].filetype, input),
           },
         },
       }
@@ -705,6 +733,10 @@ M.unit_test = function()
     mode = mode.BUFFER,
     params = tuning.test_generation,
     builder = function(input, context)
+      -- Get the bufnr from the previous buffer, since the current buffer is
+      -- the prompt response buffer.
+      local bufnr = vim.fn.bufnr('#')
+
       return {
         messages = {
           {
@@ -730,7 +762,7 @@ M.unit_test = function()
               '%s',
               '```',
               'Please write unit tests for it.',
-            }, context.filename, vim.bo.filetype, input),
+            }, context.filename, vim.bo[bufnr].filetype, input),
           },
         },
       }
