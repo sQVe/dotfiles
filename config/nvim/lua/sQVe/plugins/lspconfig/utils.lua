@@ -151,7 +151,7 @@ end
 M.map_lookup_keys = function(bufnr)
   local builtin = require('telescope.builtin')
 
-  map('n', 'ga', function()
+  map({ 'n', 'v' }, 'ga', function()
     vim.lsp.buf.code_action()
   end, { buffer = bufnr, desc = 'Apply code action' })
   map(

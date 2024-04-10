@@ -35,7 +35,7 @@ local M = {
     -- yamlls
     'yaml',
 
-    -- javascript and typescript (handled by typescript-tools)
+    -- javascript and typescript
     'javascript',
     'javascriptreact',
     'typescript',
@@ -63,7 +63,6 @@ M.config = function()
 
   local servers = {
     -- Servers already handled by plugin setup:
-    --   JavaScript/TypeScript (typescript-tools)
     --   Neovim plugin development (neodev)
 
     bashls = server_setup,
@@ -107,6 +106,17 @@ M.config = function()
       },
     }),
     markdown_oxide = server_setup,
+    tsserver = utils.create_server_setup({
+      on_attach = on_attach,
+      init_options = {
+        hostInfo = 'neovim',
+        maxTsServerMemory = 8192,
+        preferences = {
+          importModuleSpecifierPreference = 'relative',
+          quotePreference = 'single',
+        },
+      },
+    }),
     yamlls = server_setup,
   }
 

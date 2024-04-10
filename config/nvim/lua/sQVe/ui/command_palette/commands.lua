@@ -308,7 +308,7 @@ M.spawn_lazygit_with_filter = {
   condition = function(opts)
     return buffer.is_valid(opts.bufnr) and buffer.is_saved(opts.bufnr)
   end,
-  name = 'Spawn lazygit from buffer path',
+  name = 'Spawn lazygit from buffer filter',
 }
 
 M.spawn_terminal = {
