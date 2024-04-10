@@ -17,13 +17,12 @@ zstyle ':completion:*' matcher-list \
   'm:{[:lower:]-}={[:upper:]_} r:|[.]=**' \
   '+l:|=*'
 
-# Completion.
-source "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh"
-source /usr/share/fzf/completion.zsh
-
 # Zoxide.
 eval "$(zoxide init zsh)"
 
+# Completion.
+source "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh"
+source /usr/share/fzf/completion.zsh
 
 #  ┏━┓┏━╸╺┳╸╺┳╸╻┏┓╻┏━╸┏━┓
 #  ┗━┓┣╸  ┃  ┃ ┃┃┗┫┃╺┓┗━┓
