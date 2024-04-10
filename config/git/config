@@ -6,12 +6,6 @@
   editor = nvim
   pager = delta
 
-[init]
-  defaultBranch = main
-
-[interactive]
-  diffFilter = delta --color-only
-
 [delta]
   features = line-numbers decorations
   syntax-theme = gruvbox-dark
@@ -24,18 +18,24 @@
   file-decoration-style = none
   hunk-header-decoration-style = magenta ul
 
+[diff]
+  colorMoved = default
+
+[init]
+  defaultBranch = main
+
+[interactive]
+  diffFilter = delta --color-only
+
 [merge]
   tool = "nvim"
-
-[mergetool "nvim"]
-  cmd = nvim \"$MERGED\"
 
 [mergetool]
   keepBackup = false
   prompt = false
 
-[diff]
-    colorMoved = default
+[mergetool "nvim"]
+  cmd = nvim \"$MERGED\"
 
 [pull]
   rebase = merges
@@ -47,6 +47,9 @@
 [rebase]
   autostash = true
   autosquash = true
+
+[status]
+  showUntrackedFiles = all
 
 [user]
   email = oskargrunning@gmail.com
