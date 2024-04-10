@@ -45,7 +45,6 @@ M.get_symbol_map = function(pad)
 end
 
 M.has_words_before = function()
-  unpack = unpack or table.unpack
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
 
   return col ~= 0
