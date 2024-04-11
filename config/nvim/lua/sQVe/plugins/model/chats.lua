@@ -4,16 +4,16 @@
 
 local M = {}
 
+local format_lines = require('sQVe.utils.format_lines')
+
 local create = function(input, ctx)
   return ctx.selection and input or ''
 end
 
 local run = function(messages, config)
-  local utils = require('sQVe.plugins.model.utils')
-
   table.insert(messages, 1, {
     role = 'system',
-    content = utils.format_text({
+    content = format_lines({
       "You're a versatile assistant.",
       '',
       'Follow these guidelines when writing responses:',

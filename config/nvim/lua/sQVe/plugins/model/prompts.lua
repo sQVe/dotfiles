@@ -4,6 +4,9 @@
 
 local M = {}
 
+local format_lines = require('sQVe.utils.format_lines')
+local tuning = require('sQVe.plugins.model.tuning')
+
 local guidelines = {
   language = 'Use straightforward and easy-to-understand language.',
 }
@@ -11,9 +14,6 @@ local guidelines = {
 M.accessibility = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')
-
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
 
   return {
     provider = openai,
@@ -28,7 +28,7 @@ M.accessibility = function()
         messages = {
           {
             role = 'system',
-            content = utils.format_text({
+            content = format_lines({
               "You're a accessibility assistant.",
               'Your response should contain the improved code, together with an structured explanation of the changes made.',
               guidelines.language,
@@ -36,7 +36,7 @@ M.accessibility = function()
           },
           {
             role = 'user',
-            content = utils.format_text({
+            content = format_lines({
               'I have the following code from %s:',
               '```%s',
               '%s',
@@ -54,9 +54,6 @@ M.append_instruction = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')
 
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
-
   return {
     provider = openai,
     mode = mode.APPEND,
@@ -66,7 +63,7 @@ M.append_instruction = function()
         messages = {
           {
             role = 'system',
-            content = utils.format_text({
+            content = format_lines({
               "You're a versatile code assistant.",
               'Your response should only contain the response, without needing any further editing.',
               guidelines.language,
@@ -74,7 +71,7 @@ M.append_instruction = function()
           },
           {
             role = 'user',
-            content = utils.format_text({
+            content = format_lines({
               'I have the following text from %s:',
               '```%s',
               '%s',
@@ -92,9 +89,6 @@ M.buffer_instruction = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')
 
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
-
   return {
     provider = openai,
     mode = mode.BUFFER,
@@ -108,14 +102,14 @@ M.buffer_instruction = function()
         messages = {
           {
             role = 'system',
-            content = utils.format_text({
+            content = format_lines({
               "You're a versatile code assistant.",
               guidelines.language,
             }),
           },
           {
             role = 'user',
-            content = utils.format_text({
+            content = format_lines({
               'I have the following text from %s:',
               '```%s',
               '%s',
@@ -134,9 +128,6 @@ M.commit_message = function()
   local extract = require('model.prompts.extract')
   local openai = require('model.providers.openai')
 
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
-
   return {
     provider = openai,
     mode = mode.REPLACE,
@@ -152,7 +143,7 @@ M.commit_message = function()
         messages = {
           {
             role = 'system',
-            content = utils.format_text({
+            content = format_lines({
               "You're an advisor for writing optimal git commit messages based on diffs.",
               'Your response should only contain the git commit message, without needing any further editing.',
               'Try to stay below 80 characters total.',
@@ -160,7 +151,7 @@ M.commit_message = function()
           },
           {
             role = 'user',
-            content = utils.format_text({
+            content = format_lines({
               'I have made the following changes:',
               '```%s',
               '%s',
@@ -176,14 +167,12 @@ M.commit_message = function()
 end
 
 M.condense = function()
+  local mode = require('model').mode
   local extract = require('model.prompts.extract')
   local openai = require('model.providers.openai')
 
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
-
   local get_content = function(filename, filetype, input)
-    return utils.format_text({
+    return format_lines({
       'I have the following text from %s:',
       '```%s',
       '%s',
@@ -194,14 +183,14 @@ M.condense = function()
 
   return {
     provider = openai,
-    mode = utils.get_multi_mode(),
+    mode = vim.fn.visualmode() == 'V' and mode.REPLACE or mode.BUFFER,
     params = tuning.text_processing,
     builder = function(input, context)
       return {
         messages = {
           {
             role = 'system',
-            content = utils.format_text({
+            content = format_lines({
               "You're an assistant specialized in condensing text.",
               'Your response should only contain the condensed text, replacing the input directly without needing any further editing. If the input text is already as concise as possible, return it as is.',
               guidelines.language,
@@ -235,11 +224,8 @@ M.docstring = function()
   local extract = require('model.prompts.extract')
   local openai = require('model.providers.openai')
 
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
-
   local get_content = function(filename, filetype, input)
-    return utils.format_text({
+    return format_lines({
       'I have the following code from %s:',
       '```%s',
       '%s',
@@ -257,7 +243,7 @@ M.docstring = function()
         messages = {
           {
             role = 'system',
-            content = utils.format_text({
+            content = format_lines({
               "You're a coding assistant, specialized in writing docstrings.",
               'Your response should only contain the docstring, without needing any further editing.',
               'The output should ALWAYS end with a newline character.',
@@ -300,9 +286,6 @@ M.explain = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')
 
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
-
   return {
     provider = openai,
     mode = mode.BUFFER,
@@ -316,7 +299,7 @@ M.explain = function()
         messages = {
           {
             role = 'system',
-            content = utils.format_text({
+            content = format_lines({
               "You're an assistant specialized in explaining code.",
               'Use examples to illustrate your explaining, if necessary.',
               guidelines.language,
@@ -324,7 +307,7 @@ M.explain = function()
           },
           {
             role = 'user',
-            content = utils.format_text({
+            content = format_lines({
               'I have the following code from %s:',
               '```%s',
               '%s',
@@ -342,9 +325,6 @@ M.improve = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')
 
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
-
   return {
     provider = openai,
     mode = mode.BUFFER,
@@ -358,7 +338,7 @@ M.improve = function()
         messages = {
           {
             role = 'system',
-            content = utils.format_text({
+            content = format_lines({
               "You're an assistant specialized in suggesting improvements to code.",
               'Your response should contain the improved code, together with an structured explanation of the changes made.',
               guidelines.language,
@@ -366,7 +346,7 @@ M.improve = function()
           },
           {
             role = 'user',
-            content = utils.format_text({
+            content = format_lines({
               'I have the following code from %s:',
               '```%s',
               '%s',
@@ -384,9 +364,6 @@ M.note = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')
 
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
-
   return {
     provider = openai,
     mode = mode.BUFFER,
@@ -400,7 +377,7 @@ M.note = function()
         messages = {
           {
             role = 'system',
-            content = utils.format_text({
+            content = format_lines({
               "You're an assistant specialized note-taking.",
               'Your response should contain the improved notes, together with an structured explanation of the changes made.',
               'Keep YAML data intact with its formatting and content.',
@@ -411,7 +388,7 @@ M.note = function()
           },
           {
             role = 'user',
-            content = utils.format_text({
+            content = format_lines({
               'I have the following text from %s:',
               '```%s',
               '%s',
@@ -426,14 +403,12 @@ M.note = function()
 end
 
 M.proofread = function()
+  local mode = require('model').mode
   local extract = require('model.prompts.extract')
   local openai = require('model.providers.openai')
 
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
-
   local get_content = function(filename, filetype, input)
-    return utils.format_text({
+    return format_lines({
       'I have the following text from %s:',
       '```%s',
       '%s',
@@ -444,14 +419,14 @@ M.proofread = function()
 
   return {
     provider = openai,
-    mode = utils.get_multi_mode(),
+    mode = vim.fn.visualmode() == 'V' and mode.REPLACE or mode.BUFFER,
     params = tuning.creative_writing,
     builder = function(input, context)
       return {
         messages = {
           {
             role = 'system',
-            content = utils.format_text({
+            content = format_lines({
               "You're a proofreader.",
               'Your response should only contain the corrected text, replacing the input directly without needing any further editing. If the input text is already correct, return it as is.',
               'Strive for simple, clear language, avoiding complexity or ambiguity.',
@@ -485,9 +460,6 @@ M.pull_request = function()
   local extract = require('model.prompts.extract')
   local openai = require('model.providers.openai')
 
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
-
   return {
     provider = openai,
     mode = mode.INSERT,
@@ -506,7 +478,7 @@ M.pull_request = function()
         messages = {
           {
             role = 'system',
-            content = utils.format_text({
+            content = format_lines({
               "You're an advisor for writing optimal pull request descriptions based on diffs.",
               'Your response should only contain the pull request, without needing any further editing.',
               'Start the description with `### Overview`, followed by `### Key changes`. Try to group the changes into logical sections.',
@@ -514,7 +486,7 @@ M.pull_request = function()
           },
           {
             role = 'user',
-            content = utils.format_text({
+            content = format_lines({
               'I have made the following changes:',
               '```%s',
               '%s',
@@ -534,9 +506,6 @@ M.readability = function()
   local extract = require('model.prompts.extract')
   local openai = require('model.providers.openai')
 
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
-
   return {
     provider = openai,
     mode = mode.BUFFER,
@@ -550,7 +519,7 @@ M.readability = function()
         messages = {
           {
             role = 'system',
-            content = utils.format_text({
+            content = format_lines({
               "You're a readability assistant.",
               'Your response should contain the improved text, together with an structured explanation of the changes made.',
               guidelines.language,
@@ -558,7 +527,7 @@ M.readability = function()
           },
           {
             role = 'user',
-            content = utils.format_text({
+            content = format_lines({
               'I have the following text from %s:',
               '```%s',
               '%s',
@@ -573,18 +542,84 @@ M.readability = function()
   }
 end
 
--- TODO: Implement prompt.
-M.repair = function() end
+M.repair = function()
+  local mode = require('model').mode
+  local extract = require('model.prompts.extract')
+  local openai = require('model.providers.openai')
+  local prompts = require('model.util.prompts')
+
+  local get_content = function(filename, filetype, before, after, input)
+    return format_lines({
+      'I have the following code from %s:',
+      '```%s',
+      '%s<@@>%s',
+      '```',
+      'Existing text at the <@@>: %s.',
+      'Please fix the code.',
+    }, filename, filetype, before, after, input)
+  end
+
+  return {
+    provider = openai,
+    mode = mode.REPLACE,
+    params = tuning.code_generation,
+    builder = function(input, context)
+      local surrounding = prompts.limit_before_after(context, 50)
+
+      return {
+        messages = {
+          {
+            role = 'system',
+            content = format_lines({
+              "You're an expert debugger.",
+              "You're tasked to fix the code snippet provided, which includes the symbol <@@>.",
+              'Your response should only contain the corrected code for the <@@> symbol, replacing the input directly without needing any further editing.',
+            }),
+          },
+          {
+            role = 'user',
+            content = get_content(
+              'arithmetics.ts',
+              'typescript',
+              format_lines({
+                'const add = (a: number, b: number): number => {',
+                '  return <@@>',
+              }),
+              format_lines({
+                ';',
+                '};',
+              }),
+              'a - b'
+            ),
+          },
+          {
+            role = 'assistant',
+            content = 'a + b',
+          },
+
+          {
+            role = 'user',
+            content = get_content(
+              context.filename,
+              vim.bo.filetype,
+              surrounding.before,
+              surrounding.after,
+              input
+            ),
+          },
+        },
+      }
+    end,
+  }
+end
 
 M.rephrase = function()
+  local mode = require('model').mode
   local extract = require('model.prompts.extract')
   local openai = require('model.providers.openai')
 
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
-
   local get_content = function(filename, filetype, input)
-    return utils.format_text({
+    return format_lines({
       'I have the following text from %s:',
       '```%s',
       '%s',
@@ -595,14 +630,14 @@ M.rephrase = function()
 
   return {
     provider = openai,
-    mode = utils.get_multi_mode(),
+    mode = vim.fn.visualmode() == 'V' and mode.REPLACE or mode.BUFFER,
     params = tuning.technical_writing,
     builder = function(input, context)
       return {
         messages = {
           {
             role = 'system',
-            content = utils.format_text({
+            content = format_lines({
               "You're a rephrasing assistant.",
               'Your response should only contain the rephrased text, replacing the input directly without needing any further editing.',
               guidelines.language,
@@ -635,9 +670,6 @@ M.replace_instruction = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')
 
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
-
   return {
     provider = openai,
     mode = mode.REPLACE,
@@ -647,7 +679,7 @@ M.replace_instruction = function()
         messages = {
           {
             role = 'system',
-            content = utils.format_text({
+            content = format_lines({
               "You're a versatile code assistant.",
               'Your response should only contain the response, without needing any further editing.',
               guidelines.language,
@@ -655,7 +687,7 @@ M.replace_instruction = function()
           },
           {
             role = 'user',
-            content = utils.format_text({
+            content = format_lines({
               'I have the following text from %s:',
               '```%s',
               '%s',
@@ -674,9 +706,6 @@ M.summary = function()
   local extract = require('model.prompts.extract')
   local openai = require('model.providers.openai')
 
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
-
   return {
     provider = openai,
     mode = mode.BUFFER,
@@ -690,7 +719,7 @@ M.summary = function()
         messages = {
           {
             role = 'system',
-            content = utils.format_text({
+            content = format_lines({
               "You're an assistant specialized in summarizing text.",
               'Your response should only contain the summary, without needing any further editing. If the input text is as concise as possible, return it as is.',
               guidelines.language,
@@ -698,7 +727,7 @@ M.summary = function()
           },
           {
             role = 'user',
-            content = utils.format_text({
+            content = format_lines({
               'I have the following text from %s:',
               '```%s',
               '%s',
@@ -717,9 +746,6 @@ M.unit_test = function()
   local mode = require('model').mode
   local extract = require('model.prompts.extract')
   local openai = require('model.providers.openai')
-
-  local utils = require('sQVe.plugins.model.utils')
-  local tuning = require('sQVe.plugins.model.tuning')
 
   local vitest_filetypes = {
     'javascript',
@@ -741,7 +767,7 @@ M.unit_test = function()
         messages = {
           {
             role = 'system',
-            content = utils.format_text(
+            content = format_lines(
               {
                 "You're an assistant specialized in writing unit tests.",
                 'Your response should contain the unit tests, testing each possible state of the unit.',
@@ -756,7 +782,7 @@ M.unit_test = function()
           },
           {
             role = 'user',
-            content = utils.format_text({
+            content = format_lines({
               'I have the following text from %s:',
               '```%s',
               '%s',
