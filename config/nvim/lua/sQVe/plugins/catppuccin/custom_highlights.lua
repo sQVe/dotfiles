@@ -44,6 +44,11 @@ return function(theme)
     IlluminatedWordText = { bg = theme.none, underline = true },
     IlluminatedWordWrite = { bg = theme.none, underline = true },
 
+    -- Input.
+    InputBorder = { fg = colors.custom.inset, bg = colors.custom.inset },
+    InputNormat = { fg = theme.text, bg = colors.custom.inset },
+    InputTitle = { fg = colors.custom.inset, bg = theme.peach, bold = true },
+
     -- LSP.
     LspCodeLens = { fg = theme.surface2, italic = true },
 
@@ -80,19 +85,25 @@ return function(theme)
     },
 
     -- Telescope.
-    TelescopeBorder = { fg = theme.surface0 },
-    TelescopePreviewBorder = {
-      fg = theme.surface0,
-      bg = theme.base,
-      italic = true,
-    },
+    TelescopeNormal = { fg = theme.purple, bg = theme.mantle },
+    TelescopeBorder = { fg = theme.mantle, bg = theme.mantle },
+    TelescopeTitle = { fg = theme.mantle, bg = theme.mantle },
+    TelescopeResultsNormal = { fg = theme.overlay2, bg = theme.mantle },
+    TelescopeSelection = { fg = theme.text, bg = theme.surface0 },
+    TelescopeSelectionCaret = { fg = theme.yellow, bg = 'NONE' },
+    TelescopeMultiSelection = { fg = theme.pink, bg = 'NONE' },
+    TelescopeMatching = { fg = theme.text },
+    TelescopePromptNormal = { fg = theme.text, bg = colors.custom.inset },
     TelescopePromptBorder = {
-      fg = theme.overlay0,
-      bg = theme.base,
+      fg = colors.custom.inset,
+      bg = colors.custom.inset,
+    },
+    TelescopePromptTitle = {
+      fg = colors.custom.inset,
+      bg = theme.peach,
       bold = true,
     },
-    TelescopeTitle = { fg = theme.subtext0 },
-    TelescopePromptTitle = { fg = theme.yellow },
+    TelescopePreviewTitle = { fg = theme.overlay2, italic = true },
 
     -- Treesitter.
     ['@function.macro.luadoc'] = { link = 'Macro' },

@@ -23,6 +23,11 @@ M.init = function()
 end
 
 M.opts = {
+  input = {
+    win_options = {
+      winhighlight = 'NormalFloat:InputNormat,FloatBorder:InputBorder,FloatTitle:InputTitle',
+    },
+  },
   select = {
     backend = { 'telescope' },
     telescope = {
