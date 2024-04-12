@@ -29,7 +29,11 @@ local M = {
         local current_bufnr = buffer.get_bufnr()
 
         for _, bufnr in ipairs(vim.api.nvim_list_bufs()) do
-          if current_bufnr ~= bufnr then
+          if
+            current_bufnr ~= bufnr
+            and buffer.is_valid(bufnr)
+            and not buffer.is_ignored(bufnr)
+          then
             require('mini.bufremove').delete(bufnr)
           end
         end
