@@ -32,7 +32,7 @@ It is essential to know a thing first
   dashboard.section.buttons.val = {
     dashboard.button(
       'å',
-      '🗃️ Command palette',
+      '🗃️  Command palette',
       '<Cmd>lua require("sQVe.ui.command_palette").open_command_palette()<CR>'
     ),
     dashboard.button(

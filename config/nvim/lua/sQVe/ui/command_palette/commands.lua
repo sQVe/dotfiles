@@ -50,6 +50,42 @@ M.change_cwd_git_root_path = {
   end,
 }
 
+-- 1. `M.accessibility` - `ImproveAccessibility`
+-- 2. `M.append_instruction` - `StartAppendInstruction`
+-- 3. `M.buffer_instruction` - `StartBufferInstruction`
+-- 4. `M.commit_message` - `CreateCommitMessageTitle`
+-- 5. `M.condense` - `CondenseText`
+-- 6. `M.docstring` - `GenerateDocstring`
+-- 7. `M.explain` - `ExplainCode`
+-- 8. `M.improve` - `ImproveCode`
+-- 9. `M.note` - `RefineNote`
+-- 10. `M.proofread` - `ProofreadText`
+-- 11. `M.pull_request` - `CreatePullRequestDescription`
+-- 12. `M.readability` - `ImproveReadability`
+-- 13. `M.repair` - `Fix code`
+-- 14. `M.rephrase` - `RephraseText`
+-- 15. `M.replace_instruction` - `StartReplaceInstruction`
+-- 16. `M.summary` - `GenerateSummary`
+-- 17. `M.unit_test` - `GenerateUnitTest`
+
+M.accessibility = {}
+M.append_instruction = {}
+M.buffer_instruction = {}
+M.commit_message = {}
+M.condense = {}
+M.docstring = {}
+M.explain = {}
+M.improve = {}
+M.note = {}
+M.proofread = {}
+M.pull_request = {}
+M.readability = {}
+M.repair = {}
+M.rephrase = {}
+M.replace_instruction = {}
+M.summary = {}
+M.unit_test = {}
+
 M.code_action = {
   callback = function()
     vim.lsp.buf.code_action()
@@ -76,7 +112,7 @@ M.commit_message_from_branch_name = {
   condition = function()
     return git.is_inside_repo()
   end,
-  name = 'Input commit message from branch name',
+  name = 'Generate commit message title from branch name',
 }
 
 M.create_new_daily_note = {
@@ -440,6 +476,9 @@ M.undo_tree = {
     require('telescope').extensions.undo.undo({
       prompt_title = 'Undo tree',
     })
+  end,
+  condition = function(opts)
+    return buffer.is_valid(opts.bufnr) and not buffer.is_ignored(opts.bufnr)
   end,
   name = 'Undo tree',
 }
