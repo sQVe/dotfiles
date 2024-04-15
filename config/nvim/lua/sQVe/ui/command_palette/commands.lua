@@ -98,6 +98,15 @@ M.code_action = {
   name = 'Apply code action',
 }
 
+M.command_history = {
+  callback = function()
+    require('telescope.builtin').command_history({
+      prompt_title = 'Command history',
+    })
+  end,
+  name = 'Command history',
+}
+
 M.commit_message_from_branch_name = {
   callback = function()
     local ok = pcall(vim.fn.execute, 'read !git branch --show-current')
@@ -219,6 +228,15 @@ M.grep_text = {
       opts.query
     )
   end,
+}
+
+M.help_tags = {
+  callback = function()
+    require('telescope.builtin').help_tags({
+      prompt_title = 'Go to help tag',
+    })
+  end,
+  name = 'Go to help tag',
 }
 
 M.live_grep = {
