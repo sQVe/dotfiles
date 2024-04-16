@@ -89,9 +89,6 @@ local indent = {
 
   -- Number of spaces for indentation.
   tabstop = 2,
-
-  -- Disable wrap.
-  wrap = false,
 }
 
 local misc = {
