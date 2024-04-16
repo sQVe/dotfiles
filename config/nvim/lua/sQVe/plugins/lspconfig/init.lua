@@ -105,7 +105,7 @@ M.config = function()
         },
       },
     }),
-    markdown_oxide = server_setup,
+    marksman = server_setup,
     tsserver = utils.create_server_setup({
       on_attach = on_attach,
       init_options = {

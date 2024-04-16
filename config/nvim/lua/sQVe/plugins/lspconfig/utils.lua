@@ -5,7 +5,6 @@
 local M = {}
 
 local autocmd = require('sQVe.utils.autocmd')
-local buffer = require('sQVe.utils.buffer')
 local map = require('sQVe.utils.map')
 
 M.create_server_setup = function(opts)
