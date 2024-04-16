@@ -18,9 +18,18 @@ return {
     event = { 'BufRead', 'BufWrite' },
   },
 
+  -- Auto close pairs.
+  { 'echasnovski/mini.pairs', config = true, event = 'VeryLazy' },
+
   -- Simple session management.
   { 'folke/persistence.nvim', config = true, event = 'BufRead' },
 
-  -- Auto close pairs.
-  { 'echasnovski/mini.pairs', config = true, event = 'VeryLazy' },
+  -- Markdown preview.
+  {
+    'iamcco/markdown-preview.nvim',
+    ft = 'markdown',
+    build = function()
+      vim.fn['mkdp#util#install']()
+    end,
+  },
 }

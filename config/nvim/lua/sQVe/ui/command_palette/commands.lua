@@ -263,6 +263,16 @@ M.live_grep_in_subdirectory = {
   name = 'Live grep from buffer path',
 }
 
+M.markdown_preview = {
+  callback = function()
+    vim.api.nvim_command('MarkdownPreview')
+  end,
+  condition = function(opts)
+    return vim.bo[opts.bufnr].filetype == 'markdown'
+  end,
+  name = 'Start markdown preview',
+}
+
 M.marks = {
   callback = function()
     require('telescope.builtin').marks({

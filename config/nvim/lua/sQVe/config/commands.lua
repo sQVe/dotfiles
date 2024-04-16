@@ -35,10 +35,8 @@ command('Wqa', 'wqa')
 
 -- Print as a commented Ascii Header.
 command('AsciiHeader', function(input)
-  -- Ensure that we have the comment plugin loaded.
-  require('mini.comment')
-
   local ok = pcall(vim.fn.execute, 'read !toilet -f future ' .. input.args)
+
   if ok then
     vim.api.nvim_command('normal 0Vkkgc')
   end

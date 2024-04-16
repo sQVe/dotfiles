@@ -12,7 +12,7 @@
   (list_marker_plus)
   (list_marker_star)
  ] @punctuation.special
-  (#offset! @punctuation.special 0 0 0 -1)
+  (#offset! @punctuation.special 0 0 0 -2)
   (#set! conceal "󰧞"))
 
 ([
@@ -25,12 +25,12 @@
 
 ; Conceal unchecked task list items.
 ((task_list_marker_unchecked) @text.todo.unchecked
-  (#offset! @text.todo.unchecked 0 -2 0 0)
+  (#offset! @text.todo.unchecked 0 0 0 0)
   (#set! conceal "󰄱"))
 
 ; Conceal checked task list items.
 ((task_list_marker_checked) @text.todo.checked
-  (#offset! @text.todo.checked 0 -2 0 0)
+  (#offset! @text.todo.checked 0 0 0 0)
   (#set! conceal "󰄲"))
 
 ; Set a highlight for the text of checked task list items.
