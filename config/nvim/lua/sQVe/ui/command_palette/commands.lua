@@ -263,6 +263,15 @@ M.live_grep_in_subdirectory = {
   name = 'Live grep from buffer path',
 }
 
+M.marks = {
+  callback = function()
+    require('telescope.builtin').marks({
+      prompt_title = 'Go to mark',
+    })
+  end,
+  name = 'Go to mark',
+}
+
 M.previous_commit_message = {
   callback = function()
     vim.fn.execute('vsplit /tmp/PREV_COMMIT_EDITMSG')

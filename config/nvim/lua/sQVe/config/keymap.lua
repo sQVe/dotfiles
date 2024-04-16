@@ -5,7 +5,12 @@
 local map = require('sQVe.utils.map')
 
 -- Clear search matches.
-map('n', '<Esc><Esc>', '<Cmd>nohl<CR>', { desc = 'Clear search matches' })
+map(
+  'n',
+  '<Esc>',
+  '<Cmd>nohl<CR><Esc>',
+  { desc = 'Escape and clear search highlights' }
+)
 
 -- Open command with right pinky.
 map('', 'ö', ':', { desc = 'Open command-line', silent = false })
@@ -22,25 +27,25 @@ map('i', '<Up>', '<C-o>gk', { desc = 'Up' })
 map(
   '',
   '<Down>',
-  '(v:count > 4 ? "m\'" . v:count : "") . \'gj\' ',
+  '(v:count > 1 ? "m\'" . v:count : "") . \'gj\' ',
   { desc = 'Down', expr = true }
 )
 map(
   '',
   '<Up>',
-  '(v:count > 4 ? "m\'" . v:count : "") . \'gk\' ',
+  '(v:count > 1 ? "m\'" . v:count : "") . \'gk\' ',
   { desc = 'Up', expr = true }
 )
 map(
   '',
   'j',
-  '(v:count > 4 ? "m\'" . v:count : "") . \'gj\' ',
+  '(v:count > 1 ? "m\'" . v:count : "") . \'gj\' ',
   { desc = 'Down', expr = true }
 )
 map(
   '',
   'k',
-  '(v:count > 4 ? "m\'" . v:count : "") . \'gk\' ',
+  '(v:count > 1 ? "m\'" . v:count : "") . \'gk\' ',
   { desc = 'Up', expr = true }
 )
 map('', 'gj', 'j', { desc = 'Down' })
@@ -62,6 +67,18 @@ map(
 
 -- Consistent CR movement.
 map('', '<S-CR>', '-')
+
+-- Move to start and end of line.
+map('n', 'H', function()
+  local _, _, col, _ = unpack(vim.fn.getpos('.'))
+
+  vim.cmd('normal! ^')
+  if col == vim.fn.getpos('.')[3] then
+    vim.cmd('normal! 0')
+  end
+end, { desc = 'Go to start of line' })
+map({ 'o', 'v' }, 'H', '^', { desc = 'Go to start of line' })
+map({ 'n', 'o', 'v' }, 'L', '$', { desc = 'Go to end of line' })
 
 -- Keep cursor position when joining lines.
 map('', 'J', 'mzJ`z', { desc = 'Join lines' })

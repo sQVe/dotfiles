@@ -71,7 +71,7 @@ local indent = {
   -- Align wrapped lines with the start of the line.
   breakindent = true,
 
-  -- Use spaces instead of TAB characters when indentin.
+  -- Use spaces instead of TAB characters when indenting.
   expandtab = true,
 
   -- Avoid inserting double spaces after punctuation when joining lines with
@@ -84,13 +84,14 @@ local indent = {
   -- Round indentations to the nearest multiple of 'shiftwidth'.
   shiftround = true,
 
-  -- Set the number of spaces for each indentation level when using the < and >
-  -- mappings.
-  shiftwidth = 2,
+  -- Use 'tabstop' value.
+  shiftwidth = 0,
 
-  -- Display TAB characters using the specified number of spaces for visual
-  -- alignment.
+  -- Number of spaces for indentation.
   tabstop = 2,
+
+  -- Disable wrap.
+  wrap = false,
 }
 
 local misc = {
@@ -222,8 +223,8 @@ local timeout = {
   -- Wait 10 ms for key sequences.
   ttimeoutlen = 10,
 
-  -- Set buffer update time to 150 ms.
-  updatetime = 150,
+  -- Set buffer update time to 200 ms.
+  updatetime = 200,
 }
 
 local ui = {
@@ -236,7 +237,7 @@ local ui = {
   -- Show absolute line numbers by default.
   number = true,
 
-  -- Ensure the statusline is always visible for all windows.
+  -- Ensure the 'statusline' is always visible for all windows.
   laststatus = 3,
 
   -- Keep the sign column visible at all times for a consistent window layout.
@@ -246,7 +247,18 @@ local ui = {
   termguicolors = true,
 }
 
-local undo = {
+local persistance = {
+  sessionoptions = {
+    'buffers',
+    'curdir',
+    'folds',
+    'globals',
+    'help',
+    'skiprtp',
+    'tabpages',
+    'winsize',
+  },
+
   -- Enable persistent undo history across Neovim sessions.
   undofile = true,
 
@@ -264,19 +276,19 @@ for option, value in
   pairs(
     vim.tbl_extend(
       'error',
-      misc,
-      search_and_substitute,
       character,
       completion,
-      program,
       fold,
       indent,
+      misc,
       mouse,
+      persistance,
+      program,
+      search_and_substitute,
       spell,
       split,
-      ui,
       timeout,
-      undo
+      ui
     )
   )
 do
@@ -285,3 +297,6 @@ end
 
 -- Set the <Space> key as the Leader key.
 vim.g.mapleader = ' '
+
+-- Fix markdown indentation.
+vim.g.markdown_recommended_style = 0

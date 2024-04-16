@@ -30,6 +30,7 @@ local default_commands = {
   commands.help_tags,
   commands.live_grep,
   commands.live_grep_in_subdirectory,
+  commands.marks,
   commands.previous_commit_message,
   commands.recent_files,
   commands.rename_symbol,

@@ -1,11 +1,17 @@
+-- ┏┳┓┏━┓┏━┓╻┏ ╺┳┓┏━┓╻ ╻┏┓╻
+-- ┃┃┃┣━┫┣┳┛┣┻┓ ┃┃┃ ┃┃╻┃┃┗┫
+-- ╹ ╹╹ ╹╹┗╸╹ ╹╺┻┛┗━┛┗┻┛╹ ╹
 -- Markdown specific settings.
-
-local NOTEBOX_PATH = vim.fn.expand('$NOTEBOX')
 
 local autocmd = require('sQVe.utils.autocmd')
 
+local NOTEBOX_PATH = vim.fn.expand('$NOTEBOX')
+
 -- Enable conceal.
 vim.opt_local.conceallevel = 2
+
+-- Enable line wrapping.
+vim.opt_local.wrap = true
 
 -- Indent with two spaces.
 vim.opt_local.tabstop = 2

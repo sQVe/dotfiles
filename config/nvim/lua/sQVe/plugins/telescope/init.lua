@@ -58,6 +58,14 @@ local M = {
       desc = 'Find file in buffer directory',
       mode = { 'n', 'v' },
     },
+    {
+      'M',
+      function()
+        commands.marks.callback()
+      end,
+      desc = 'Go to mark',
+      mode = { 'n' },
+    },
   },
 }
 
