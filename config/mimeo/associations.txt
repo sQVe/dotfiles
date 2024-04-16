@@ -1,7 +1,7 @@
 open-qutebrowser %U
   ^https?:\/\/files\.slack\.com\/.+?\.(gif|jpe?g|png)
 
-google-chrome-stable %U
+open-chrome --new-window %U
   ^https?:\/\/(.*\.)?amazonaws\.com
   ^https?:\/\/(.*\.)?coda\.io
   ^https?:\/\/(.*\.)?figma\.com
@@ -15,9 +15,6 @@ google-chrome-stable %U
   ^https?:\/\/localhost
   ^https?:\/\/outlook.office.com
   ^https?:\/\/teams\.microsoft\.com
-
-open-zoom %U
-  ^https?:\/\/.*zoom\.us
 
 mpv %U
   ^https?:\/\/(www\.)?svtplay\.se/video
