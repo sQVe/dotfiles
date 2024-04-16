@@ -298,6 +298,9 @@ mode "resize" {
 # ¤¤¤¤  Autostart  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
+# Enable autotiling.
+exec --no-startup-id autotiling-rs
+
 # Start polkit agent.
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
