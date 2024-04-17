@@ -6,6 +6,9 @@ if [[ -f $ZDOTDIR/secretenv ]]; then
   source $ZDOTDIR/secretenv
 fi
 
+# Docker.
+export DOCKER_HOST="unix://${XDG_RUNTIME_DIR}/docker.sock"
+
 # GPG.
 export GPG_TTY="$(tty)"
 export SSH_AGENT_PID=""
