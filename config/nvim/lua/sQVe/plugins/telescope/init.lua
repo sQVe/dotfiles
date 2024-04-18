@@ -134,7 +134,7 @@ M.opts = function()
       },
     },
     extensions = {
-      fzf = { case_mode = 'respect_case' },
+      fzf = { case_mode = 'ignore_case' },
       undo = {
         side_by_side = true,
         layout_strategy = 'vertical',
