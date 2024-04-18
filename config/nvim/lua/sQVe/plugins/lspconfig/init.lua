@@ -112,7 +112,9 @@ M.config = function()
         hostInfo = 'neovim',
         maxTsServerMemory = 8192,
         preferences = {
-          importModuleSpecifierPreference = 'relative',
+          importModuleSpecifierEnding = 'minimal',
+          importModuleSpecifierPreference = 'shortest',
+          interactiveInlayHints = false,
           quotePreference = 'single',
         },
       },
