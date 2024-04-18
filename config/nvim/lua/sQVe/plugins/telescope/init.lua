@@ -5,16 +5,12 @@
 
 local commands = require('sQVe.ui.command_palette.commands')
 local path = require('sQVe.utils.path')
-local utils = require('sQVe.ui.command_palette.utils')
 
 local M = {
   'nvim-telescope/telescope.nvim',
   cmd = 'Telescope',
   dependencies = {
-    {
-      'nvim-telescope/telescope-fzf-native.nvim',
-      build = 'cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build',
-    },
+    { 'natecraddock/telescope-zf-native.nvim' },
     { 'debugloop/telescope-undo.nvim' },
   },
   keys = {
@@ -134,7 +130,6 @@ M.opts = function()
       },
     },
     extensions = {
-      fzf = { case_mode = 'ignore_case' },
       undo = {
         side_by_side = true,
         layout_strategy = 'vertical',
@@ -164,8 +159,8 @@ M.config = function(_, opts)
   local telescope = require('telescope')
 
   telescope.setup(opts)
-  telescope.load_extension('fzf')
   telescope.load_extension('undo')
+  telescope.load_extension('zf-native')
 end
 
 return M
