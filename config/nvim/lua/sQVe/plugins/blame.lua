@@ -5,7 +5,7 @@
 
 local M = {
   'FabijanZulj/blame.nvim',
-  cmd = 'ToggleBlame',
+  cmd = 'BlameToggle',
 }
 
 M.opts = {

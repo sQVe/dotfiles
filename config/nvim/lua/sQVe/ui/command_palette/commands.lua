@@ -112,10 +112,10 @@ M.commit_message_from_branch_name = {
     local ok = pcall(vim.fn.execute, 'read !git branch --show-current')
 
     if ok then
-      vim.api.nvim_command('normal kdd')
-      vim.api.nvim_command('substitute /\\//: /e')
-      vim.api.nvim_command('substitute /-/ /e')
-      vim.api.nvim_command('nohl')
+      vim.cmd('normal kdd')
+      vim.cmd('substitute /\\//: /e')
+      vim.cmd('substitute /-/ /e')
+      vim.cmd('nohl')
     end
   end,
   condition = function()
@@ -265,7 +265,7 @@ M.live_grep_in_subdirectory = {
 
 M.markdown_preview = {
   callback = function()
-    vim.api.nvim_command('MarkdownPreview')
+    vim.cmd('MarkdownPreview')
   end,
   condition = function(opts)
     return vim.bo[opts.bufnr].filetype == 'markdown'
@@ -440,7 +440,7 @@ M.toggle_format_on_save = {
 
 M.toggle_git_blame = {
   callback = function(opts)
-    require('blame').toggle({ args = 'window' })
+    vim.cmd('BlameToggle')
     var.toggle_buffer(opts.bufnr, 'git_blame')
   end,
   condition = function()
