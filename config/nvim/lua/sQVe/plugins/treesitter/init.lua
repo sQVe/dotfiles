@@ -10,6 +10,7 @@ local M = {
   dependencies = {
     'RRethy/nvim-treesitter-textsubjects',
     { 'nvim-treesitter/nvim-treesitter-context', opts = { mode = 'cursor' } },
+    { 'yorickpeterse/nvim-tree-pairs', config = true },
   },
 }
 
