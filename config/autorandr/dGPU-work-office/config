@@ -10,4 +10,4 @@ output DP-0
 mode 3840x1600
 pos 0x0
 primary
-rate 144.00
+rate 144

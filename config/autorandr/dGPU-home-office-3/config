@@ -5,13 +5,13 @@ off
 output HDMI-0
 mode 2560x1440
 pos 440x0
-rate 59.95
+rate 60
+output DP-2
+mode 2560x1600
+pos 3440x1280
+rate 60
 output DP-0
 mode 3440x1440
 pos 0x1440
 primary
-rate 143.97
-output DP-2
-mode 2560x1600
-pos 3440x1440
-rate 165.00
+rate 144
