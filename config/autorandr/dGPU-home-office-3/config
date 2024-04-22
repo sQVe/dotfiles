@@ -8,7 +8,7 @@ pos 440x0
 rate 60
 output DP-2
 mode 2560x1600
-pos 3440x1280
+pos 3440x1360
 rate 60
 output DP-0
 mode 3440x1440
