@@ -4,7 +4,7 @@ if type compdef &>/dev/null; then
     local reply
     local si=$IFS
 
-    IFS=$'\n' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" pnpm completion -- "${words[@]}"))
+    IFS=$'\n' reply=($(COMP_CWORD="$((CURRENT-1))" COMP_LINE="$BUFFER" COMP_POINT="$CURSOR" SHELL=zsh pnpm completion-server -- "${words[@]}"))
     IFS=$si
 
     if [ "$reply" = "__tabtab_complete_files__" ]; then
