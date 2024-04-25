@@ -67,6 +67,7 @@ M.config = function()
       ['<CR>'] = mapKey(cmp.mapping.confirm({ select = false })),
       ['<Tab>'] = mapKey(methods.next, { 's' }),
       ['<S-Tab>'] = mapKey(methods.previous, { 's' }),
+      ['()'] = mapKey(methods.parentheses),
     }),
     performance = {
       fetching_timeout = 250,

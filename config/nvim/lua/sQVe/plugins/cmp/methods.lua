@@ -79,6 +79,17 @@ M.next = function(fallback)
   end
 end
 
+M.parentheses = function(fallback)
+  local cmp = require('cmp')
+
+  if cmp.visible() then
+    cmp.complete()
+    vim.api.nvim_put({ '()' }, 'c', false, true)
+  else
+    fallback()
+  end
+end
+
 M.previous = function(fallback)
   local cmp = require('cmp')
   local luasnip = require('luasnip')
