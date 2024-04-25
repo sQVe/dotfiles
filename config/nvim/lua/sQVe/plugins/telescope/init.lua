@@ -10,8 +10,8 @@ local M = {
   'nvim-telescope/telescope.nvim',
   cmd = 'Telescope',
   dependencies = {
-    'natecraddock/telescope-zf-native.nvim',
-    'debugloop/telescope-undo.nvim',
+    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    { 'debugloop/telescope-undo.nvim' },
   },
   keys = {
     {
@@ -130,9 +130,10 @@ M.opts = function()
       },
     },
     extensions = {
-      ['zf-native'] = {
-        file = { enable = true, smart_case = false },
-        generic = { enable = false },
+      fzf = {
+        case_mode = 'respect_case',
+        override_file_sorter = true,
+        override_generic_sorter = false,
       },
       undo = {
         side_by_side = true,
@@ -163,8 +164,8 @@ M.config = function(_, opts)
   local telescope = require('telescope')
 
   telescope.setup(opts)
+  telescope.load_extension('fzf')
   telescope.load_extension('undo')
-  telescope.load_extension('zf-native')
 end
 
 return M
