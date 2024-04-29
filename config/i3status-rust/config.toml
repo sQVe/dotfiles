@@ -21,7 +21,7 @@ icons = "material-nf"
 [[block]]
 block = "cpu"
 interval = 1
-format = " $frequency  $icon $barchart $utilization "
+format = "$max_frequency $utilization $barchart  "
 
 [[block]]
 block = "temperature"
