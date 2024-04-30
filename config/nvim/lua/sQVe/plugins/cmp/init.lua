@@ -67,7 +67,6 @@ M.config = function()
       ['<CR>'] = mapKey(cmp.mapping.confirm({ select = false })),
       ['<Tab>'] = mapKey(methods.next, { 's' }),
       ['<S-Tab>'] = mapKey(methods.previous, { 's' }),
-      ['()'] = mapKey(methods.parentheses),
     }),
     performance = {
       fetching_timeout = 250,
@@ -75,12 +74,7 @@ M.config = function()
     },
     snippet = { expand = methods.expand_snippet },
     sources = cmp.config.sources({
-      {
-        name = 'nvim_lsp',
-        option = {
-          markdown_oxide = { keyword_pattern = [[\(\k\| \|\/\|#\|\^\)\+]] },
-        },
-      },
+      { name = 'nvim_lsp' },
       { name = 'path' },
       { name = 'luasnip', keyword_length = 2 },
       {
@@ -97,12 +91,7 @@ M.config = function()
 
   cmp.setup.filetype('markdown', {
     sources = {
-      {
-        name = 'nvim_lsp',
-        option = {
-          markdown_oxide = { keyword_pattern = [[\(\k\| \|\/\|#\|\^\)\+]] },
-        },
-      },
+      { name = 'nvim_lsp' },
       { name = 'path' },
       { name = 'luasnip', keyword_length = 2 },
       {
