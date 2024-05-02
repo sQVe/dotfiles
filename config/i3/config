@@ -126,7 +126,6 @@ no_focus [window_role="pop-up"]
 
 # Application specific window settings.
 for_window [class="Slack"] focus
-for_window [class="Tuple"] floating enable, move position center
 for_window [class="kitty"] focus
 for_window [class="mpv"] focus
 for_window [class="qutebrowser"] focus
