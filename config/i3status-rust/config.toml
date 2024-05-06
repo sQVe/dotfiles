@@ -19,14 +19,9 @@ separator_fg = ""
 icons = "material-nf"
 
 [[block]]
-block = "cpu"
-interval = 1
-format = "$max_frequency $utilization $barchart  "
-
-[[block]]
 block = "temperature"
-format = " $icon $average "
-format_alt = " $icon $min min, $max max, $average avg "
+format = " $icon $average"
+format_alt = " $icon $min min, $max max, $average avg"
 interval = 5
 info = 70
 chip = "*-isa-*"
@@ -35,11 +30,13 @@ idle_bg = "#282828"
 idle_fg = "#8ec07c"
 
 [[block]]
+block = "cpu"
+interval = 1
+format = "$max_frequency $utilization $barchart "
+
+[[block]]
 block = "backlight"
 cycle = [30, 70]
-[block.theme_overrides]
-idle_bg = "#3c3836"
-idle_fg = "#ebdbb2"
 
 [[block]]
 block = "custom"
@@ -77,7 +74,7 @@ idle_fg = "#ebdbb2"
 
 [[block]]
 block = "net"
-format = " $icon {$ssid |}"
+format = " $icon{ $ssid|}"
 [block.theme_overrides]
 idle_fg = "#8ec07c"
 
@@ -89,24 +86,6 @@ json = true
 [[block.click]]
 button = "left"
 cmd = "mullvad-vpn"
-
-[[block]]
-block = "sound"
-device_kind = "source"
-max_vol = 100
-step_width = 5
-[[block.click]]
-button = "left"
-cmd = "pavucontrol"
-
-[[block]]
-block = "sound"
-device_kind = "sink"
-max_vol = 100
-step_width = 5
-[[block.click]]
-button = "left"
-cmd = "pavucontrol"
 
 [[block]]
 block = "custom"
@@ -128,6 +107,30 @@ button = "left"
 cmd = "term paru"
 
 [[block]]
+block = "sound"
+device_kind = "source"
+max_vol = 100
+step_width = 5
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "sound"
+device_kind = "sink"
+max_vol = 100
+step_width = 5
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "time"
+interval = 60
+[block.format]
+full = "$timestamp.datetime(f:'%Y-%m-%d %H:%M') "
+
+[[block]]
 block = "battery"
 format = " $icon $percentage "
 good = 80
@@ -146,9 +149,3 @@ warning_bg = "#fabd2f"
 warning_fg = "#282828"
 critical_bg = "#fb4934"
 critical_fg = "#282828"
-
-[[block]]
-block = "time"
-interval = 60
-[block.format]
-full = " $icon $timestamp.datetime(f:'%Y-%m-%d %H:%M') "
