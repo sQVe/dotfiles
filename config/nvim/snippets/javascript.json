@@ -1,19 +1,6 @@
 {
   "commentCompactJsDoc": { "prefix": "**!", "body": "/** $0 */" },
   "commentJsDoc": { "prefix": "**", "body": ["/**", " * $0", " */"] },
-  "commentLine": {
-    "prefix": "--",
-    "body": "// ----------------------------------------------------------------------------"
-  },
-  "conditionElse": { "prefix": "else", "body": ["else {", "\t$0", "}"] },
-  "conditionElseIf": {
-    "prefix": "elseif",
-    "body": ["else if (${1:condition}) {", "\t$0", "}"]
-  },
-  "conditionIf": {
-    "prefix": "if",
-    "body": ["if (${1:condition}) {", "\t$0", "}"]
-  },
   "consoleAsset": {
     "prefix": "ca",
     "body": "console.assert($1:assertion, $0);"
@@ -46,18 +33,6 @@
     "prefix": "cw",
     "body": "console.warn($0);"
   },
-  "dependencyExport": {
-    "prefix": "export",
-    "body": "export ${1:name} from '${0:path}';"
-  },
-  "dependencyImport": {
-    "prefix": "import",
-    "body": "import ${1:name} from '${0:path}';"
-  },
-  "dependencyRequire": {
-    "prefix": "require",
-    "body": "const ${1:name} = require('${0:path}');"
-  },
   "eslintDisable": {
     "prefix": "eslint-disable",
     "body": ["/* eslint-disable ${1:rule} */", "$0", "/* eslint-enable */"]
@@ -69,44 +44,6 @@
   "eslintDisableNextLine": {
     "prefix": "eslint-disable-next-line",
     "body": "// eslint-disable-next-line ${0:rule}"
-  },
-  "every": {
-    "prefix": "every",
-    "body": "every((${1:item}) => $0);"
-  },
-  "filter": {
-    "prefix": "filter",
-    "body": "filter((${1:item}) => $0);"
-  },
-  "find": {
-    "prefix": "find",
-    "body": "find((${1:item}) => $0);"
-  },
-  "foreach": {
-    "prefix": "forEach",
-    "body": "forEach((${1:item}) => $0);"
-  },
-  "includes": {
-    "prefix": "includes",
-    "body": "includes((${1:item}) => $0);"
-  },
-  "map": { "prefix": "map", "body": "map((${1:item}) => $0);" },
-  "reduce": {
-    "prefix": "reduce",
-    "body": "reduce((${1:acc}, ${2:current}) => $0, ${3:initialValue});"
-  },
-  "some": {
-    "prefix": "some",
-    "body": "some((${1:item}) => $0);"
-  },
-  "function": {
-    "prefix": "fn",
-    "body": ["function ${1:name}(${2:arguments}) {", "\t$0", "}"]
-  },
-  "functionRocket": { "prefix": "fr", "body": "(${1:arguments}) => $0" },
-  "iife": {
-    "prefix": "iife",
-    "body": ["(function (${1:arguments}) {", "\t$0", "})(${2:sync});"]
   },
   "loopFor": {
     "prefix": "for",
@@ -133,10 +70,6 @@
     "body": "// prettier-ignore"
   },
   "shebang": { "prefix": "#!", "body": "#!/usr/bin/env node" },
-  "sleep": {
-    "prefix": "sleep",
-    "body": "await new Promise((resolve) => setTimeout(resolve, $0))"
-  },
   "switch": {
     "prefix": "switch",
     "body": [
@@ -152,39 +85,6 @@
   "switchCase": {
     "prefix": "case",
     "body": ["case ${1:match}:", "\t$0", "\tbreak;"]
-  },
-  "testAfter": {
-    "prefix": "after",
-    "body": ["after(() => {", "\t$0", "});"]
-  },
-  "testAfterAll": {
-    "prefix": "afterAll",
-    "body": ["afterAll(() => {", "\t$0", "});"]
-  },
-  "testAfterEach": {
-    "prefix": "afterEach",
-    "body": ["afterEach(() => {", "\t$0", "});"]
-  },
-  "testBefore": {
-    "prefix": "before",
-    "body": ["before(() => {", "\t$0", "});"]
-  },
-  "testBeforeAll": {
-    "prefix": "beforeAll",
-    "body": ["beforeAll(() => {", "\t$0", "});"]
-  },
-  "testBeforeEach": {
-    "prefix": "beforeEach",
-    "body": ["beforeEach(() => {", "\t$0", "});"]
-  },
-  "testDescribe": {
-    "prefix": "describe",
-    "body": ["describe('${1:description}', () => {", "\t$0", "});"]
-  },
-  "testExpect": { "prefix": "expect", "body": "expect(${1:subject}).to$0" },
-  "testIt": {
-    "prefix": "it",
-    "body": ["it('${1:description}', () => {", "\t$0", "});"]
   },
   "tryCatch": {
     "prefix": "trycatch",

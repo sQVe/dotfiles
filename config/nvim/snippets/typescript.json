@@ -1,8 +1,4 @@
 {
-  "interface": {
-    "prefix": "interface",
-    "body": ["interface ${1:Name} {", "\t$0", "}"]
-  },
   "lspCheck": { "prefix": "ts-check", "body": "// @ts-check" },
   "lspExpect": { "prefix": "ts-expect", "body": "// @ts-expect-error" },
   "lspIgnore": { "prefix": "ts-ignore", "body": "// @ts-ignore" },

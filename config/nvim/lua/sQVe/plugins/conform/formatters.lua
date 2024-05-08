@@ -11,6 +11,7 @@ M.by_ft = {
   javascript = { 'prettierd', 'eslint_d' },
   javascriptreact = { 'prettierd', 'eslint_d' },
   json = { 'prettierd' },
+  json5 = { 'prettierd' },
   jsonc = { 'prettierd' },
   lua = { 'stylua' },
   markdown = { 'prettierd', 'injected' },
