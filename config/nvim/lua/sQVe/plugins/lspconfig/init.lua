@@ -6,6 +6,7 @@
 local M = {
   'neovim/nvim-lspconfig',
   dependencies = {
+    { 'b0o/schemastore.nvim' },
     { 'folke/neodev.nvim', config = true },
   },
   ft = {
@@ -95,7 +96,15 @@ M.config = function()
       },
     }),
     html = server_setup,
-    jsonls = server_setup,
+    jsonls = utils.create_server_setup({
+      on_attach = on_attach,
+      settings = {
+        json = {
+          schemas = require('schemastore').json.schemas(),
+          validate = { enable = true },
+        },
+      },
+    }),
     lua_ls = utils.create_server_setup({
       on_attach = on_attach,
       settings = {
@@ -119,7 +128,15 @@ M.config = function()
         },
       },
     }),
-    yamlls = server_setup,
+    yamlls = utils.create_server_setup({
+      on_attach = on_attach,
+      settings = {
+        yaml = {
+          schemaStore = { enable = false, url = '' },
+          schemas = require('schemastore').yaml.schemas(),
+        },
+      },
+    }),
   }
 
   for server, config in pairs(servers) do
