@@ -322,10 +322,17 @@ M.rename_symbol = {
 M.resume = {
   callback = function()
     require('telescope.builtin').pickers({
-      prompt_title = 'Resume past picker',
+      prompt_title = 'Resume previous pickers',
     })
   end,
-  name = 'Resume past picker',
+  name = 'Resume previous pickers',
+}
+
+M.search_and_replace = {
+  callback = function()
+    vim.cmd('GrugFar')
+  end,
+  name = 'Search and replace',
 }
 
 M.search_history = {

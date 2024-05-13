@@ -36,6 +36,7 @@ local default_commands = {
   commands.recent_files,
   commands.rename_symbol,
   commands.resume,
+  commands.search_and_replace,
   commands.search_history,
   commands.spawn_file_manager,
   commands.spawn_file_manager_in_subdirectory,
