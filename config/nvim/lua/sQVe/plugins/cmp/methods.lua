@@ -15,38 +15,6 @@ M.abort = function(fallback)
   end
 end
 
-M.cycle_suggestions = function(fallback)
-  local cmp = require('cmp')
-  local suggestion = require('copilot.suggestion')
-
-  if cmp.visible() then
-    cmp.close()
-  end
-
-  if suggestion.is_visible() then
-    suggestion.next()
-  else
-    fallback()
-  end
-end
-
-M.expand = function(fallback)
-  local luasnip = require('luasnip')
-  local suggestion = require('copilot.suggestion')
-
-  if luasnip.expandable() then
-    luasnip.expand()
-  elseif suggestion.is_visible() then
-    suggestion.accept()
-  else
-    fallback()
-  end
-end
-
-M.expand_snippet = function(args)
-  require('luasnip').lsp_expand(args.body)
-end
-
 M.format_label = function(vim_item)
   local ELLIPSIS_CHAR = '…'
   local MAX_LABEL_WIDTH = 60

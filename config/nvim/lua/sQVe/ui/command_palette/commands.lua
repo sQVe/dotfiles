@@ -9,6 +9,7 @@ local git = require('sQVe.utils.git')
 local path = require('sQVe.utils.path')
 local utils = require('sQVe.ui.command_palette.utils')
 local var = require('sQVe.utils.var')
+local mode = require('sQVe.utils.mode')
 
 -- TODO: AI.
 
@@ -50,7 +51,6 @@ M.change_cwd_git_root_path = {
   end,
 }
 
--- 1. `M.accessibility` - `ImproveAccessibility`
 -- 2. `M.append_instruction` - `StartAppendInstruction`
 -- 3. `M.buffer_instruction` - `StartBufferInstruction`
 -- 4. `M.commit_message` - `CreateCommitMessageTitle`
@@ -68,7 +68,16 @@ M.change_cwd_git_root_path = {
 -- 16. `M.summary` - `GenerateSummary`
 -- 17. `M.unit_test` - `GenerateUnitTest`
 
-M.accessibility = {}
+M.accessibility = {
+  callback = function()
+    vim.cmd("'<,'>M accessibility")
+  end,
+  condition = function()
+    return mode.is_visual_mode()
+  end,
+  name = 'Improve accessibility',
+}
+
 M.append_instruction = {}
 M.buffer_instruction = {}
 M.commit_message = {}
