@@ -2,7 +2,7 @@
 --  ┃ ┃ ┃┃┗┫┃┃┗┫┃╺┓
 --  ╹ ┗━┛╹ ╹╹╹ ╹┗━┛
 
-local model = 'gpt-4-1106-preview'
+local model = 'gpt-4o'
 
 return {
   code_explanation = { model = model, temperature = 0.3, top_p = 0.5 },
