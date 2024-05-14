@@ -52,7 +52,6 @@ local default_commands = {
   commands.toggle_relative_numbers,
   commands.toggle_spell,
   commands.toggle_wrap,
-  commands.undo_tree,
   commands.workspace_symbols,
 }
 

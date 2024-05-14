@@ -11,7 +11,6 @@ local M = {
   cmd = 'Telescope',
   dependencies = {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-    { 'debugloop/telescope-undo.nvim' },
   },
   keys = {
     {
@@ -135,11 +134,6 @@ M.opts = function()
         override_file_sorter = true,
         override_generic_sorter = false,
       },
-      undo = {
-        side_by_side = true,
-        layout_strategy = 'vertical',
-        layout_config = { preview_height = 0.6 },
-      },
     },
     pickers = {
       find_files = {
@@ -165,7 +159,6 @@ M.config = function(_, opts)
 
   telescope.setup(opts)
   telescope.load_extension('fzf')
-  telescope.load_extension('undo')
 end
 
 return M

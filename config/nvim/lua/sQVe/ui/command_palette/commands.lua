@@ -339,7 +339,7 @@ M.resume = {
 
 M.search_and_replace = {
   callback = function()
-    vim.cmd('GrugFar')
+    require('grug-far').grug_far()
   end,
   name = 'Search and replace',
 }
@@ -522,18 +522,6 @@ M.toggle_wrap = {
       vim.wo[opts.winnr].wrap and 'Disable' or 'Enable'
     )
   end,
-}
-
-M.undo_tree = {
-  callback = function()
-    require('telescope').extensions.undo.undo({
-      prompt_title = 'Undo tree',
-    })
-  end,
-  condition = function(opts)
-    return buffer.is_valid(opts.bufnr) and not buffer.is_ignored(opts.bufnr)
-  end,
-  name = 'Undo tree',
 }
 
 M.workspace_symbols = {
