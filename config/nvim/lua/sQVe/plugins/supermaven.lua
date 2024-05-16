@@ -32,6 +32,7 @@ local M = {
 M.opts = {
   keymaps = {
     accept_suggestion = '<C-l>',
+    accept_word = '<C-j>',
   },
 }
 
