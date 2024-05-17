@@ -13,7 +13,7 @@ zmodule completion
 zmodule jeffreytse/zsh-vi-mode
 
 # Prompt and color.
-zmodule miekg/lean
+zmodule romkatv/powerlevel10k --use degit
 zmodule zsh-users/zsh-syntax-highlighting
 
 # Do not touch order.
