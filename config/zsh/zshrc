@@ -1,35 +1,3 @@
-# ┏━╸╻ ╻┏━┓╻    ┏━┓┏┓╻╺┳┓   ┏━┓┏━┓╻ ╻┏━┓┏━╸┏━╸
-# ┣╸ ┃┏┛┣━┫┃    ┣━┫┃┗┫ ┃┃   ┗━┓┃ ┃┃ ┃┣┳┛┃  ┣╸
-# ┗━╸┗┛ ╹ ╹┗━╸  ╹ ╹╹ ╹╺┻┛   ┗━┛┗━┛┗━┛╹┗╸┗━╸┗━╸
-
-# Enable Powerlevel10k instant prompt.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
-# Zim settings.
-zstyle ':zim' disable-version-check yes
-zstyle ':zim:completion' dumpfile "$XDG_CACHE_HOME/.zcompdump"
-zstyle ':zim:git' aliases-prefix 'g'
-zstyle ':zim:input' double-dot-expand yes
-
-source "${ZIM_HOME}/init.zsh"
-
-# Use matcher-list from marlonrichert/zsh-autocomplete.
-zstyle ':completion:*' matcher-list \
-  'm:{[:lower:]-}={[:upper:]_} r:|[.]=**' \
-  '+l:|=*'
-
-# Zoxide.
-eval "$(zoxide init zsh)"
-
-# Completion.
-source "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh"
-source /usr/share/fzf/completion.zsh
-
-# Load Powerlevel10k configuration.
-source ~/.config/zsh/p10k.config.zsh
-
 #  ┏━┓┏━╸╺┳╸╺┳╸╻┏┓╻┏━╸┏━┓
 #  ┗━┓┣╸  ┃  ┃ ┃┃┗┫┃╺┓┗━┓
 #  ┗━┛┗━╸ ╹  ╹ ╹╹ ╹┗━┛┗━┛
@@ -62,6 +30,40 @@ set -o ignoreeof
 zle -A kill-whole-line vi-kill-line
 zle -A backward-kill-word vi-backward-kill-word
 zle -A backward-delete-char vi-backward-delete-char
+
+# Zim settings.
+zstyle ':zim' disable-version-check yes
+zstyle ':zim:completion' dumpfile "$XDG_CACHE_HOME/.zcompdump"
+zstyle ':zim:git' aliases-prefix 'g'
+zstyle ':zim:input' double-dot-expand yes
+
+# Use matcher-list from marlonrichert/zsh-autocomplete.
+zstyle ':completion:*' matcher-list \
+  'm:{[:lower:]-}={[:upper:]_} r:|[.]=**' \
+  '+l:|=*'
+
+
+# ┏━╸╻ ╻┏━┓╻    ┏━┓┏┓╻╺┳┓   ┏━┓┏━┓╻ ╻┏━┓┏━╸┏━╸
+# ┣╸ ┃┏┛┣━┫┃    ┣━┫┃┗┫ ┃┃   ┗━┓┃ ┃┃ ┃┣┳┛┃  ┣╸
+# ┗━╸┗┛ ╹ ╹┗━╸  ╹ ╹╹ ╹╺┻┛   ┗━┛┗━┛┗━┛╹┗╸┗━╸┗━╸
+
+# Enable Powerlevel10k instant prompt.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+# Load Zim.
+source "${ZIM_HOME}/init.zsh"
+
+# Load Powerlevel10k configuration.
+source ~/.config/zsh/p10k.config.zsh
+
+# Zoxide.
+eval "$(zoxide init zsh)"
+
+# Completion.
+source "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh"
+source /usr/share/fzf/completion.zsh
 
 
 #  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓
