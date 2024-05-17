@@ -15,7 +15,7 @@ local M = {
 }
 
 M.opts = {
-  compile_path = vim.fn.expand('$PERSISTENT_CACHE') .. '/catppuccin',
+  compile_path = vim.fn.expand('$XDG_CACHE_HOME') .. '/catppuccin',
   color_overrides = { all = palette.gruvcat },
   custom_highlights = custom_highlights,
   default_integrations = false,

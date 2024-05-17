@@ -1,5 +1,3 @@
-# https://github.com/romkatv/powerlevel10k/issues/2399
-
 # Temporarily change options.
 'builtin' 'local' '-a' 'p10k_config_opts'
 [[ ! -o 'aliases'         ]] || p10k_config_opts+=('aliases')

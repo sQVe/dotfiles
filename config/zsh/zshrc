@@ -48,15 +48,15 @@ zstyle ':completion:*' matcher-list \
 # ┗━╸┗┛ ╹ ╹┗━╸  ╹ ╹╹ ╹╺┻┛   ┗━┛┗━┛┗━┛╹┗╸┗━╸┗━╸
 
 # Enable Powerlevel10k instant prompt.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+if [[ -r "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 # Load Zim.
 source "${ZIM_HOME}/init.zsh"
 
 # Load Powerlevel10k configuration.
-source ~/.config/zsh/p10k.config.zsh
+ source ~/.config/zsh/p10k.config.zsh
 
 # Zoxide.
 eval "$(zoxide init zsh)"
