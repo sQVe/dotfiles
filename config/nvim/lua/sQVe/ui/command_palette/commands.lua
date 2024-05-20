@@ -291,6 +291,13 @@ M.marks = {
   name = 'Go to mark',
 }
 
+M.octo = {
+  callback = function()
+    vim.cmd('Octo actions')
+  end,
+  name = 'Open octo action list',
+}
+
 M.previous_commit_message = {
   callback = function()
     vim.fn.execute('vsplit /tmp/PREV_COMMIT_EDITMSG')
