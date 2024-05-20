@@ -15,6 +15,33 @@ M.abort = function(fallback)
   end
 end
 
+M.expand_suggestion_word = function(fallback)
+  local suggestion = require('supermaven-nvim.completion_preview')
+
+  if suggestion.has_suggestion() then
+    suggestion.on_accept_suggestion_word()
+  else
+    fallback()
+  end
+end
+
+M.expand_snippet_or_suggestion = function(fallback)
+  local luasnip = require('luasnip')
+  local suggestion = require('supermaven-nvim.completion_preview')
+
+  if luasnip.expandable() then
+    luasnip.expand()
+  elseif suggestion.has_suggestion() then
+    suggestion.on_accept_suggestion()
+  else
+    fallback()
+  end
+end
+
+M.expand_snippet = function(args)
+  require('luasnip').lsp_expand(args.body)
+end
+
 M.format_label = function(vim_item)
   local ELLIPSIS_CHAR = '…'
   local MAX_LABEL_WIDTH = 60
