@@ -26,14 +26,6 @@ M.opts = {
 M.config = function(_, opts)
   require('catppuccin').setup(opts)
 
-  -- Set diagnostic signs.
-  for _, sign in ipairs({ 'Error', 'Hint', 'Info', 'Warn' }) do
-    vim.fn.sign_define(
-      'DiagnosticSign' .. sign,
-      { text = '', texthl = 'DiagnosticSign' .. sign }
-    )
-  end
-
   vim.o.background = 'dark'
   vim.cmd.colorscheme('catppuccin')
 end

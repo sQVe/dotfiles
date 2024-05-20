@@ -150,6 +150,14 @@ M.config = function()
 
   -- Configure diagnostics.
   vim.diagnostic.config({
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = '',
+        [vim.diagnostic.severity.WARN] = '',
+        [vim.diagnostic.severity.INFO] = '',
+        [vim.diagnostic.severity.HINT] = '',
+      },
+    },
     severity_sort = true,
     underline = { severity = { min = vim.diagnostic.severity.WARN } },
     virtual_text = false,
