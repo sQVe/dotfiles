@@ -25,9 +25,10 @@ M.init = function()
 end
 
 M.config = function()
-  local lsp_utils = require('sQVe.plugins.lspconfig.utils')
+  local linters = require('sQVe.plugins.nvim-lint.linters')
   local utils = require('sQVe.plugins.nvim-lint.utils')
 
+  linters.override_linting_settings()
   autocmd({ 'BufWritePost', 'BufReadPost', 'InsertLeave' }, {
     group = 'Lint',
     callback = timer.debounce(200, utils.try_lint),

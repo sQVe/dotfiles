@@ -16,12 +16,20 @@ M.by_ft = {
 --- parser is to filter out certain unwanted diagnostics.
 M.custom_eslint_d_parser = function(output, bufnr)
   local result = require('lint.linters.eslint').parser(output, bufnr)
+
+  local ignored_codes = {}
   local ignored_messages = {
     'output: Error: No ESLint configuration found',
     'output: No ESLint found',
   }
 
   result = vim.tbl_filter(function(diagnostic)
+    for _, ignored_code in ipairs(ignored_codes) do
+      if string.find(diagnostic.code, ignored_code) then
+        return false
+      end
+    end
+
     for _, ignored_message in ipairs(ignored_messages) do
       if string.find(diagnostic.message, ignored_message) then
         return false
