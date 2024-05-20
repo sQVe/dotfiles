@@ -79,7 +79,6 @@ M.config = function()
       { name = 'nvim_lsp' },
       { name = 'path' },
       { name = 'luasnip', keyword_length = 2 },
-      { name = 'git' },
       {
         name = 'buffer',
         keyword_length = 4,
@@ -90,6 +89,21 @@ M.config = function()
       },
       { name = 'emoji' },
     }),
+  })
+
+  cmp.setup.filetype({ 'gitcommit', 'octo' }, {
+    sources = {
+      { name = 'git' },
+      {
+        name = 'buffer',
+        keyword_length = 2,
+        option = {
+          get_bufnrs = utils.get_visible_bufnrs,
+          keyword_pattern = anyWord,
+        },
+      },
+      { name = 'emoji' },
+    },
   })
 
   cmp.setup.filetype('markdown', {

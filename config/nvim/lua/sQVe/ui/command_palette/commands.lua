@@ -291,6 +291,7 @@ M.marks = {
   name = 'Go to mark',
 }
 
+-- TODO: Break this out into multiple commands.
 M.octo = {
   callback = function()
     vim.cmd('Octo actions')
