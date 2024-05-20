@@ -12,6 +12,7 @@ local M = {
     'hrsh7th/cmp-emoji',
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
+    'petertriho/cmp-git',
     'saadparwaiz1/cmp_luasnip',
   },
 }
@@ -39,6 +40,7 @@ M.config = function()
           menu = {
             buffer = ' buf',
             emoji = ' emo',
+            git = ' git',
             luasnip = ' sni',
             nvim_lsp = ' lsp',
             nvim_lua = ' api',
@@ -77,6 +79,7 @@ M.config = function()
       { name = 'nvim_lsp' },
       { name = 'path' },
       { name = 'luasnip', keyword_length = 2 },
+      { name = 'git' },
       {
         name = 'buffer',
         keyword_length = 4,
@@ -135,6 +138,8 @@ M.config = function()
       },
     }),
   })
+
+  require('cmp_git').setup()
 end
 
 return M
