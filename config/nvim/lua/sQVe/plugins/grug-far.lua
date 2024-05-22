@@ -10,7 +10,8 @@ local M = {
 
 M.opts = {
   keymaps = {
-    syncLocations = '=',
+    syncLocations = { n = '=' },
+    syncLine = { n = '-' },
   },
 }
 

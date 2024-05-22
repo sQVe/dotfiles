@@ -4,6 +4,8 @@
 
 local M = {}
 
+local cursor = require('sQVe.utils.cursor')
+
 M.abort = function(fallback)
   local cmp = require('cmp')
   local selected_entry = cmp.get_selected_entry()
@@ -26,20 +28,20 @@ M.expand_suggestion_word = function(fallback)
 end
 
 M.expand_snippet_or_suggestion = function(fallback)
-  local luasnip = require('luasnip')
   local suggestion = require('supermaven-nvim.completion_preview')
+  local find_snippet_prefix = require('snippets.utils').find_snippet_prefix
 
-  if luasnip.expandable() then
-    luasnip.expand()
+  local word_before_cursor, row, col = cursor.get_word_before()
+  local snippet = find_snippet_prefix(word_before_cursor)
+
+  if snippet ~= nil then
+    cursor.clear_before_by_length(#word_before_cursor)
+    vim.snippet.expand(snippet.body)
   elseif suggestion.has_suggestion() then
     suggestion.on_accept_suggestion()
   else
     fallback()
   end
-end
-
-M.expand_snippet = function(args)
-  require('luasnip').lsp_expand(args.body)
 end
 
 M.format_label = function(vim_item)
@@ -60,13 +62,15 @@ end
 
 M.next = function(fallback)
   local cmp = require('cmp')
-  local luasnip = require('luasnip')
+  -- local luasnip = require('luasnip')
   local utils = require('sQVe.plugins.cmp.utils')
 
   if cmp.visible() then
     cmp.select_next_item()
-  elseif luasnip.jumpable(1) then
-    luasnip.jump(1)
+  elseif vim.snippet.active({ direction = 1 }) then
+    vim.schedule(function()
+      vim.snippet.jump(1)
+    end)
   elseif utils.has_words_before() then
     cmp.complete()
   else
@@ -76,12 +80,13 @@ end
 
 M.previous = function(fallback)
   local cmp = require('cmp')
-  local luasnip = require('luasnip')
 
   if cmp.visible() then
     cmp.select_prev_item()
-  elseif luasnip.jumpable(-1) then
-    luasnip.jump(-1)
+  elseif vim.snippet.active({ direction = -1 }) then
+    vim.schedule(function()
+      vim.snippet.jump(-1)
+    end)
   else
     fallback()
   end

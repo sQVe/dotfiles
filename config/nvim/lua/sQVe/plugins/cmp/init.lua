@@ -13,7 +13,6 @@ local M = {
     'hrsh7th/cmp-nvim-lsp',
     'hrsh7th/cmp-path',
     'petertriho/cmp-git',
-    'saadparwaiz1/cmp_luasnip',
   },
 }
 
@@ -41,7 +40,7 @@ M.config = function()
             buffer = ' buf',
             emoji = ' emo',
             git = ' git',
-            luasnip = ' sni',
+            snippets = ' sni',
             nvim_lsp = ' lsp',
             nvim_lua = ' api',
             path = ' path',
@@ -74,11 +73,15 @@ M.config = function()
       fetching_timeout = 250,
       max_view_entries = 100,
     },
-    snippet = { expand = methods.expand_snippet },
+    snippet = {
+      expand = function(args)
+        vim.snippet.expand(args.body)
+      end,
+    },
     sources = cmp.config.sources({
       { name = 'nvim_lsp' },
       { name = 'path' },
-      { name = 'luasnip', keyword_length = 2 },
+      { name = 'snippets' },
       {
         name = 'buffer',
         keyword_length = 4,
@@ -110,7 +113,7 @@ M.config = function()
     sources = {
       { name = 'nvim_lsp' },
       { name = 'path' },
-      { name = 'luasnip', keyword_length = 2 },
+      { name = 'snippets' },
       {
         name = 'buffer',
         keyword_length = 2,
