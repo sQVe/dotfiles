@@ -1,18 +1,6 @@
 {
   "commentCompactJsDoc": { "prefix": "**!", "body": "/** $0 */" },
-  "commentJsDoc": { "prefix": "**", "body": ["/**", " * $0", " */"] },
-  "consoleAsset": {
-    "prefix": "ca",
-    "body": "console.assert($1:assertion, $0);"
-  },
-  "consoleDir": {
-    "prefix": "cd",
-    "body": "console.dir($0);"
-  },
-  "consoleError": {
-    "prefix": "ce",
-    "body": "console.error($0);"
-  },
+  "commentJsDoc": { "prefix": "**", "body": "/**\n * $0\n */" },
   "consoleLog": {
     "prefix": "cl",
     "body": "console.log($0);"
@@ -21,21 +9,9 @@
     "prefix": "clc",
     "body": "console.log('$TM_FILENAME:$TM_LINE_NUMBER ==>', $0);"
   },
-  "consoleTable": {
-    "prefix": "ct",
-    "body": "console.table($0);"
-  },
-  "consoleVariable": {
-    "prefix": "cv",
-    "body": "console.log('$0:', $0);"
-  },
-  "consoleWarn": {
-    "prefix": "cw",
-    "body": "console.warn($0);"
-  },
   "eslintDisable": {
     "prefix": "eslint-disable",
-    "body": ["/* eslint-disable ${1:rule} */", "$0", "/* eslint-enable */"]
+    "body": "/* eslint-disable ${1:rule} */\n$0\n/* eslint-enable */"
   },
   "eslintDisableLine": {
     "prefix": "eslint-disable-line",
@@ -47,63 +23,19 @@
   },
   "loopFor": {
     "prefix": "for",
-    "body": [
-      "for (let ${1:idx} = 0, ${2:length} = ${3:iterable}.length; ${1:idx} < ${2:length}; ${1:idx}++) {",
-      "\t$0",
-      "}"
-    ]
+    "body": "for (let ${1:idx} = 0, ${2:length} = ${3:iterable}.length; ${1:idx} < ${2:length}; ${1:idx}++) {\n\t$0\n}"
   },
   "loopForIn": {
     "prefix": "forin",
-    "body": ["for (const ${1:key} in ${2:source}) {", "\t$0", "}"]
+    "body": "for (const ${1:key} in ${2:source}) {\n\t$0\n}"
   },
   "loopForOf": {
     "prefix": "forof",
-    "body": ["for (const ${1:item} of ${2:source}) {", "\t$0", "}"]
-  },
-  "loopWhile": {
-    "prefix": "while",
-    "body": ["while (${1:condition}) {", "\t$0", "}"]
+    "body": "for (const ${1:item} of ${2:source}) {\n\t$0\n}"
   },
   "prettierIgnore": {
     "prefix": "prettier-ignore",
     "body": "// prettier-ignore"
   },
-  "shebang": { "prefix": "#!", "body": "#!/usr/bin/env node" },
-  "switch": {
-    "prefix": "switch",
-    "body": [
-      "switch (${1:value}) {",
-      "\tcase ${2:match}:",
-      "\t\t$0",
-      "\t\tbreak;",
-      "\tdefault:",
-      "\t\tbreak;",
-      "}"
-    ]
-  },
-  "switchCase": {
-    "prefix": "case",
-    "body": ["case ${1:match}:", "\t$0", "\tbreak;"]
-  },
-  "tryCatch": {
-    "prefix": "trycatch",
-    "body": "try {\n\t${0}\n} catch (${1:error}) {\n\t\n}"
-  },
-  "tryFinally": {
-    "prefix": "tryfinally",
-    "body": ["try {", "\t$0", "} finally {", "", "}"]
-  },
-  "tryCatchFinally": {
-    "prefix": "trycatchfinally",
-    "body": [
-      "try {",
-      "\t$0",
-      "} catch (${1:error}) {",
-      "",
-      "} finally {",
-      "",
-      "}"
-    ]
-  }
+  "shebang": { "prefix": "#!", "body": "#!/usr/bin/env node" }
 }

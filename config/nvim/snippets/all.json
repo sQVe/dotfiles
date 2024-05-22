@@ -1,17 +1,15 @@
 {
   "date": {
     "prefix": "date",
-    "body": ["${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}"]
+    "body": "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}"
   },
   "time": {
     "prefix": "time",
-    "body": ["${CURRENT_HOUR}:${CURRENT_MINUTE}"]
+    "body": "${CURRENT_HOUR}:${CURRENT_MINUTE}"
   },
   "datetime": {
     "prefix": "datetime",
-    "body": [
-      "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}"
-    ]
+    "body": "${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE} ${CURRENT_HOUR}:${CURRENT_MINUTE}"
   },
   "lorem8": {
     "prefix": "lorem8",

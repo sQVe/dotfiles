@@ -1,122 +1,30 @@
 {
-  "header1": {
-    "prefix": "h1",
-    "body": ["# $0"]
-  },
-  "header2": {
-    "prefix": "h2",
-    "body": ["## $0"]
-  },
-  "header3": {
-    "prefix": "h3",
-    "body": ["### $0"]
-  },
-  "header4": {
-    "prefix": "h4",
-    "body": ["#### $0"]
-  },
-  "header5": {
-    "prefix": "h5",
-    "body": ["##### $0"]
-  },
-  "header6": {
-    "prefix": "h6",
-    "body": ["###### $0"]
-  },
   "link": {
-    "prefix": ["link"],
-    "body": ["[${2}](${1}) $0"]
-  },
-  "wiki": {
-    "prefix": ["wiki"],
-    "body": ["[[${1}]]"]
-  },
-  "url": {
-    "prefix": ["url"],
-    "body": ["<${1}> $0"]
+    "prefix": "link",
+    "body": "[${2}](${1}) $0"
   },
   "image": {
     "prefix": "image",
-    "body": ["![${1}](${2}) $0"]
+    "body": "![${1}](${2}) $0"
   },
   "insertStrikethrough": {
     "prefix": "strikethrough",
     "body": "~~${1}~~ $0"
   },
-  "insertBoldText": {
-    "prefix": ["bold", "b"],
-    "body": "**${1}**"
-  },
-  "insertItalicText": {
-    "prefix": ["italic", "i"],
-    "body": "*${1}*"
-  },
-  "insertBoldItalicText": {
-    "prefix": ["bold italic", "bi"],
-    "body": "***${1}***"
-  },
-  "insertQuotedText": {
-    "prefix": "quote",
-    "body": "> ${1}"
-  },
-  "insertCode": {
-    "prefix": "code",
-    "body": "`${1}`"
-  },
   "insertCodeBlock": {
     "prefix": "codeblock",
-    "body": ["```${1:language}", "$0", "```"]
-  },
-  "insertUnorderedList": {
-    "prefix": "unordered list",
-    "body": ["- ${1:first}", "- ${2:second}", "- ${3:third}", "$0"]
-  },
-  "insertOrderedList": {
-    "prefix": "ordered list",
-    "body": ["1. ${1:first}", "2. ${2:second}", "3. ${3:third}", "$0"]
-  },
-  "insertHorizontalRule": {
-    "prefix": "horizontal rule",
-    "body": "----------\n"
-  },
-  "insertTaskList": {
-    "prefix": "task",
-    "body": ["- [${1}] ${2:text}", "$0"]
-  },
-  "insertTable": {
-    "prefix": "table",
-    "body": [
-      "| ${1:Column1}  | ${2:Column2}   | ${3:Column3}   |",
-      "|-------------- | -------------- | -------------- |",
-      "| ${4:Item1}    | ${5:Item1}     | ${6:Item1}     |",
-      "$0"
-    ]
+    "body": "```${1:language}\n$0\n```"
   },
   "prettierIgnore": {
     "prefix": "prettier-ignore",
-    "body": ["<!-- prettier-ignore -->", "$0"]
+    "body": "<!-- prettier-ignore -->\n$0"
   },
   "comment": {
     "prefix": "comment",
-    "body": ["<!-- $1 -->", "$0"]
+    "body": "<!-- $1 -->\n$0"
   },
   "todoComment": {
     "prefix": "todo",
-    "body": ["<!-- TODO -->", "$0"]
-  },
-  "youTubeEmbed": {
-    "prefix": "youtube-embed",
-    "body": [
-      "<iframe",
-      "  width=\"560\"",
-      "  height=\"315\"",
-      "  src=\"https://www.youtube.com/embed/$1\"",
-      "  title=\"YouTube video player\"",
-      "  frameborder=\"0\"",
-      "  allow=\"accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share\"",
-      "  allowfullscreen",
-      "></iframe>",
-      "$0"
-    ]
+    "body": "<!-- TODO -->\n$0"
   }
 }
