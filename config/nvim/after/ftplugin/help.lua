@@ -9,6 +9,12 @@ local autocmd = require('sQVe.utils.autocmd')
 autocmd({ 'BufWinEnter' }, {
   group = 'EnableSpellCheckingForNotes',
   callback = function()
-    vim.cmd.wincmd('L')
+    if vim.bo.filetype == 'help' then
+      local window_width = vim.fn.winwidth(0)
+
+      if window_width > 160 then
+        vim.cmd.wincmd('L')
+      end
+    end
   end,
 })
