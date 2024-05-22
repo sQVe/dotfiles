@@ -24,6 +24,9 @@ return {
   -- Simple session management.
   { 'folke/persistence.nvim', config = true, event = 'BufRead' },
 
+  -- Set commentstring.
+  { 'folke/ts-comments.nvim', config = true, event = 'VeryLazy' },
+
   -- Markdown preview.
   {
     'iamcco/markdown-preview.nvim',
