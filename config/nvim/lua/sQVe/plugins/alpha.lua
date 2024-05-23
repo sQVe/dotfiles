@@ -41,7 +41,6 @@ It is essential to know a thing first
       '<Cmd>lua require("sQVe.plugins.telescope.pickers").find_files()<CR>'
     ),
     dashboard.button('e', '💎  New file', '<Cmd>enew<CR>'),
-    dashboard.button('o', '🐙  Octo', '<Cmd>Octo actions<CR>'),
     dashboard.button(
       's',
       '💾  Load directory session',

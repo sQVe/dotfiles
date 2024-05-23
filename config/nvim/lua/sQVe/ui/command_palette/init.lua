@@ -33,7 +33,6 @@ local default_commands = {
   commands.live_grep_in_subdirectory,
   commands.markdown_preview,
   commands.marks,
-  commands.octo,
   commands.previous_commit_message,
   commands.recent_files,
   commands.rename_symbol,
