@@ -11,13 +11,6 @@ return {
   { 'onsails/lspkind-nvim', lazy = true }, -- LSP kind icons.
   { 'tpope/vim-repeat', event = 'VeryLazy' }, -- Repeat support for plugins.
 
-  -- Unlist hidden buffers that are git ignored.
-  {
-    'sQVe/bufignore.nvim',
-    config = true,
-    event = { 'BufRead', 'BufWrite' },
-  },
-
   -- Auto close pairs.
   { 'echasnovski/mini.pairs', config = true, event = 'VeryLazy' },
 
@@ -34,5 +27,12 @@ return {
     build = function()
       vim.fn['mkdp#util#install']()
     end,
+  },
+
+  -- Unlist hidden buffers that are git ignored.
+  {
+    'sQVe/bufignore.nvim',
+    config = true,
+    event = { 'BufRead', 'BufWrite' },
   },
 }
