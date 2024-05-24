@@ -1,0 +1,5 @@
+git_protocol: ssh
+editor: nvim
+prompt: enabled
+pager: cat
+version: "1"
