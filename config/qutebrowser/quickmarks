@@ -12,6 +12,7 @@ excalidraw https://excalidraw.com/
 g https://www.google.com
 gh https://github.com
 gist https://gist.github.com/sQVe
+issues https://github.com/issues
 locg https://leagueofcomicgeeks.com/comics
 mail https://mail.google.com/mail/u/0/#inbox
 mdn https://developer.mozilla.org/en-US/docs/Web
@@ -19,8 +20,10 @@ mega https://mega.nz
 notebox https://github.com/sQVe/notebox
 platform https://github.com/hups-co/platform
 playground https://github.com/sQVe/playground
+prs https://github.com/pulls
 reddit https://www.reddit.com
 regex https://regex101.com
+review https://github.com/pulls/review-requested
 scripts https://github.com/sQVe/scripts
 secret https://github.com/sQVe/secret
 wiki https://en.wikipedia.org
