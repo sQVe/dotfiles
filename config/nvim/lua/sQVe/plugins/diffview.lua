@@ -12,7 +12,7 @@ local M = {
 }
 
 M.opts = {
-  default_ars = {
+  default_args = {
     DiffviewOpen = { '--imply-local' },
   },
   show_help_hints = false,
