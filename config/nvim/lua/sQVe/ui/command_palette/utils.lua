@@ -15,10 +15,18 @@ local get_name_with_path = function(opts)
   )
 end
 
-M.get_name_with_buffer_path = function(name, opts)
+M.get_name_with_buffer_directory = function(name, opts)
   return get_name_with_path({
     name = name,
     path = path.get_parent(buffer.get_path(opts.bufnr)),
+    cwd = opts.cwd,
+  })
+end
+
+M.get_name_with_buffer_path = function(name, opts)
+  return get_name_with_path({
+    name = name,
+    path = buffer.get_path(opts.bufnr),
     cwd = opts.cwd,
   })
 end

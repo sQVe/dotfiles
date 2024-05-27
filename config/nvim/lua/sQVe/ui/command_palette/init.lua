@@ -12,7 +12,6 @@ local commands = require('sQVe.ui.command_palette.commands')
 local M = {}
 
 local default_commands = {
-  commands.accessibility,
   commands.buffers,
   commands.change_cwd_buffer_path,
   commands.change_cwd_git_root_path,
@@ -22,8 +21,11 @@ local default_commands = {
   commands.create_new_daily_note,
   commands.create_new_note,
   commands.diagnostics,
+  commands.diff_view,
   commands.document_symbols,
   commands.file_explorer,
+  commands.file_history,
+  commands.file_history_buffer_path,
   commands.find_files,
   commands.find_files_in_subdirectory,
   commands.git_status,
@@ -37,6 +39,7 @@ local default_commands = {
   commands.recent_files,
   commands.rename_symbol,
   commands.resume,
+  commands.review_diff_view,
   commands.search_and_replace,
   commands.search_history,
   commands.spawn_file_manager,
@@ -48,7 +51,7 @@ local default_commands = {
   commands.toggle_conceal_level,
   commands.toggle_format_on_save,
   commands.toggle_git_blame,
-  commands.toggle_git_diff_overlay,
+  commands.toggle_inline_diff,
   commands.toggle_relative_numbers,
   commands.toggle_spell,
   commands.toggle_wrap,

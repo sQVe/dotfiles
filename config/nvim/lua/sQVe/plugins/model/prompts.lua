@@ -11,45 +11,6 @@ local guidelines = {
   language = 'Use straightforward and easy-to-understand language.',
 }
 
-M.accessibility = function()
-  local mode = require('model').mode
-  local openai = require('model.providers.openai')
-
-  return {
-    provider = openai,
-    mode = mode.BUFFER,
-    params = tuning.technical_writing,
-    builder = function(input, context)
-      -- Get the bufnr from the previous buffer, since the current buffer is
-      -- the prompt response buffer.
-      local bufnr = vim.fn.bufnr('#')
-
-      return {
-        messages = {
-          {
-            role = 'system',
-            content = format_lines({
-              "You're a accessibility assistant.",
-              'Your response should contain the improved code, together with an structured explanation of the changes made.',
-              guidelines.language,
-            }),
-          },
-          {
-            role = 'user',
-            content = format_lines({
-              'I have the following code from %s:',
-              '```%s',
-              '%s',
-              '```',
-              'Please make it more accessible.',
-            }, context.filename, vim.bo[bufnr].filetype, input),
-          },
-        },
-      }
-    end,
-  }
-end
-
 M.append_instruction = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')

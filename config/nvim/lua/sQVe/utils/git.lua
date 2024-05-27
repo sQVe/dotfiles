@@ -4,6 +4,17 @@
 
 local M = {}
 
+M.get_branch_name = function()
+  return vim.trim(vim
+    .system({
+      'git',
+      'rev-parse',
+      '--abbrev-ref',
+      'HEAD',
+    })
+    :wait().stdout)
+end
+
 M.get_root = function()
   return vim.trim(vim
     .system({

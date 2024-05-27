@@ -20,7 +20,6 @@ M.opts = function()
       general = chats.get_general_chat(),
     },
     prompts = {
-      accessibility = prompts.accessibility(),
       append_instruction = prompts.append_instruction(),
       buffer_instruction = prompts.buffer_instruction(),
       commit_message = prompts.commit_message(),
