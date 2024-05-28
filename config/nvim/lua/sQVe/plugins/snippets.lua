@@ -5,7 +5,6 @@
 
 local M = {
   'garymjr/nvim-snippets',
-  dev = true,
   event = 'InsertEnter',
 }
 
@@ -13,9 +12,9 @@ M.opts = {
   extended_filetypes = {
     javascriptreact = { 'javascript' },
     typescript = { 'javascript' },
-    typescriptreact = { 'typescript', 'javascriptreact' },
+    typescriptreact = { 'javascript', 'javascriptreact', 'typescript' },
   },
-  search_paths = { vim.fn.expand('$DOTFILES/config/nvim/snippets') },
+  search_paths = { vim.fn.expand('$XDG_CONFIG_HOME/nvim/snippets') },
 }
 
 return M
