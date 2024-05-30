@@ -1,6 +1,5 @@
 {
-  "commentCompactJsDoc": { "prefix": "**!", "body": "/** $0 */" },
-  "commentJsDoc": { "prefix": "**", "body": "/**\n * $0\n */" },
+  "docstring": { "prefix": "docstring", "body": "/**\n * $0\n */" },
   "consoleLog": {
     "prefix": "cl",
     "body": "console.log($0);"
