@@ -11,15 +11,13 @@ local M = {
   cmd = 'Telescope',
   dependencies = {
     { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    {
+      'danielfalk/smart-open.nvim',
+      branch = '0.2.x',
+      dependencies = { 'kkharji/sqlite.lua' },
+    },
   },
   keys = {
-    {
-      '<Backspace>',
-      function()
-        commands.buffers.callback()
-      end,
-      desc = 'Buffers',
-    },
     {
       'z=',
       function()
@@ -40,20 +38,17 @@ local M = {
     {
       'ä',
       function()
-        commands.find_files.callback()
+        commands.smart_open.callback()
       end,
-      desc = 'Find file',
+      desc = 'Smart open',
       mode = { 'n', 'v' },
     },
     {
       'Ä',
       function()
-        commands.find_files_in_subdirectory.callback({
-          bufnr = 0,
-          cwd = path.get_cwd(),
-        })
+        commands.live_grep.callback()
       end,
-      desc = 'Find file in buffer directory',
+      desc = 'Live grep',
       mode = { 'n', 'v' },
     },
     {
@@ -134,6 +129,15 @@ M.opts = function()
         override_file_sorter = true,
         override_generic_sorter = false,
       },
+      smart_open = {
+        match_algorithm = 'fzf',
+        ignore_patterns = {
+          '*.git/*',
+          '*.next/*',
+          '*/node_modules/*',
+          '*/tmp/*',
+        },
+      },
     },
     pickers = {
       find_files = {
@@ -159,6 +163,7 @@ M.config = function(_, opts)
 
   telescope.setup(opts)
   telescope.load_extension('fzf')
+  telescope.load_extension('smart_open')
 end
 
 return M

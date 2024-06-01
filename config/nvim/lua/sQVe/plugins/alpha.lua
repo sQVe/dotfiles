@@ -37,8 +37,13 @@ It is essential to know a thing first
     ),
     dashboard.button(
       'ä',
-      '📝  Find files',
-      '<Cmd>lua require("sQVe.plugins.telescope.pickers").find_files()<CR>'
+      '📝  Smart open',
+      '<Cmd>lua require("sQVe.ui.command_palette.commands").smart_open.callback()<CR>'
+    ),
+    dashboard.button(
+      'Ä',
+      '🔎  Live grep',
+      '<Cmd>lua require("sQVe.ui.command_palette.commands").live_grep.callback()<CR>'
     ),
     dashboard.button('e', '💎  New file', '<Cmd>enew<CR>'),
     dashboard.button(

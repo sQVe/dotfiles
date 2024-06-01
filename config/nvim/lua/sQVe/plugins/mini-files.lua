@@ -33,7 +33,7 @@ M.config = function(_, opts)
 
   mini_files.setup(opts)
 
-  map('n', 'Å', function()
+  map('n', '<Backspace>', function()
     if not mini_files.close() then
       mini_files.open(buffer.get_path(), false)
     end

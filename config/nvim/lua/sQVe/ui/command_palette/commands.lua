@@ -11,7 +11,16 @@ local utils = require('sQVe.ui.command_palette.utils')
 local var = require('sQVe.utils.var')
 local mode = require('sQVe.utils.mode')
 
--- TODO: AI.
+M.append_instruction = {
+  callback = function()
+    -- TODO: Input text.
+    vim.cmd("'<,'>M append_instruction")
+  end,
+  condition = function()
+    return mode.is_visual_mode()
+  end,
+  name = 'Write instruction and append answer below selection',
+}
 
 M.buffers = {
   callback = function()
@@ -35,7 +44,7 @@ M.change_cwd_buffer_path = {
       and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = function(opts)
-    return utils.get_name_with_buffer_path('Change cwd', opts)
+    return utils.get_name_with_buffer_directory('Change cwd', opts)
   end,
 }
 
@@ -51,7 +60,6 @@ M.change_cwd_git_root_path = {
   end,
 }
 
--- 2. `M.append_instruction` - `StartAppendInstruction`
 -- 3. `M.buffer_instruction` - `StartBufferInstruction`
 -- 4. `M.commit_message` - `CreateCommitMessageTitle`
 -- 5. `M.condense` - `CondenseText`
@@ -67,16 +75,6 @@ M.change_cwd_git_root_path = {
 -- 15. `M.replace_instruction` - `StartReplaceInstruction`
 -- 16. `M.summary` - `GenerateSummary`
 -- 17. `M.unit_test` - `GenerateUnitTest`
-
-M.accessibility = {
-  callback = function()
-    vim.cmd("'<,'>M accessibility")
-  end,
-  condition = function()
-    return mode.is_visual_mode()
-  end,
-  name = 'Improve accessibility',
-}
 
 M.append_instruction = {}
 M.buffer_instruction = {}
@@ -156,6 +154,16 @@ M.diagnostics = {
   name = 'Go to diagnostic',
 }
 
+M.diff_view = {
+  callback = function()
+    vim.cmd('DiffviewOpen')
+  end,
+  condition = function()
+    return git.is_inside_repo()
+  end,
+  name = 'Open diff view',
+}
+
 M.document_symbols = {
   callback = function()
     require('telescope.builtin').lsp_document_symbols({
@@ -177,6 +185,30 @@ M.file_explorer = {
   name = 'File explorer',
 }
 
+M.file_history = {
+  callback = function()
+    vim.cmd('DiffviewFileHistory')
+  end,
+  condition = function()
+    return git.is_inside_repo()
+  end,
+  name = 'Open file history',
+}
+
+M.file_history_buffer_path = {
+  callback = function()
+    vim.cmd('DiffviewFileHistory %')
+  end,
+  condition = function(opts)
+    return buffer.is_valid(opts.bufnr)
+      and buffer.is_saved(opts.bufnr)
+      and git.is_inside_repo()
+  end,
+  name = function(opts)
+    return utils.get_name_with_buffer_path('Open file history', opts)
+  end,
+}
+
 M.find_files = {
   callback = function()
     require('sQVe.plugins.telescope.pickers').find_files({
@@ -190,7 +222,7 @@ M.find_files_in_subdirectory = {
   callback = function(opts)
     require('sQVe.plugins.telescope.pickers').find_files({
       cwd = path.get_parent(buffer.get_path(opts.bufnr)),
-      prompt_title = utils.get_name_with_buffer_path('Find file', opts),
+      prompt_title = utils.get_name_with_buffer_directory('Find file', opts),
     })
   end,
   condition = function(opts)
@@ -261,7 +293,7 @@ M.live_grep_in_subdirectory = {
   callback = function(opts)
     require('telescope.builtin').live_grep({
       cwd = path.get_parent(buffer.get_path(opts.bufnr)),
-      prompt_title = utils.get_name_with_buffer_path('Live grep', opts),
+      prompt_title = utils.get_name_with_buffer_directory('Live grep', opts),
     })
   end,
   condition = function(opts)
@@ -289,14 +321,6 @@ M.marks = {
     })
   end,
   name = 'Go to mark',
-}
-
--- TODO: Break this out into multiple commands.
-M.octo = {
-  callback = function()
-    vim.cmd('Octo actions')
-  end,
-  name = 'Open octo action list',
 }
 
 M.previous_commit_message = {
@@ -345,6 +369,17 @@ M.resume = {
   name = 'Resume previous pickers',
 }
 
+M.review_diff_view = {
+  callback = function()
+    vim.cmd('DiffviewOpen origin/HEAD...HEAD')
+  end,
+  condition = function()
+    return git.is_inside_repo()
+      and not vim.tbl_contains({ 'main', 'master' }, git.get_branch_name())
+  end,
+  name = 'Open diff view (PR review)',
+}
+
 M.search_and_replace = {
   callback = function()
     require('grug-far').grug_far()
@@ -359,6 +394,16 @@ M.search_history = {
     })
   end,
   name = 'Search history',
+}
+
+M.smart_open = {
+  callback = function()
+    require('telescope').extensions.smart_open.smart_open({
+      filename_first = false,
+      cwd_only = true,
+    })
+  end,
+  name = 'Smart open',
 }
 
 M.spawn_file_manager = {
@@ -478,7 +523,7 @@ M.toggle_git_blame = {
   end,
 }
 
-M.toggle_git_diff_overlay = {
+M.toggle_inline_diff = {
   callback = function(opts)
     require('mini.diff').toggle_overlay(opts.bufnr)
     var.toggle_buffer(opts.bufnr, 'git_diff')
@@ -486,11 +531,11 @@ M.toggle_git_diff_overlay = {
   condition = function()
     local mini_diff = require('lazy.core.config').plugins['mini.diff']
 
-    return mini_diff ~= nil and mini_diff._.loaded
+    return git.is_inside_repo() and mini_diff ~= nil and mini_diff._.loaded
   end,
   name = function(opts)
     return string.format(
-      '%s git diff overlay',
+      '%s inline diff',
       var.get_buffer(opts.bufnr, 'git_diff') and 'Hide' or 'Show'
     )
   end,
