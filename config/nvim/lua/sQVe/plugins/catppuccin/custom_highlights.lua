@@ -84,15 +84,18 @@ return function(theme)
       bold = true,
     },
 
+    -- Smart open.
+    Directory = { fg = theme.overlay2 },
+
     -- Telescope.
     TelescopeNormal = { fg = theme.purple, bg = theme.mantle },
     TelescopeBorder = { fg = theme.mantle, bg = theme.mantle },
     TelescopeTitle = { fg = theme.mantle, bg = theme.mantle },
-    TelescopeResultsNormal = { fg = theme.overlay2, bg = theme.mantle },
+    TelescopeResultsNormal = { fg = theme.text, bg = theme.mantle },
     TelescopeSelection = { fg = theme.text, bg = theme.surface0 },
     TelescopeSelectionCaret = { fg = theme.yellow, bg = 'NONE' },
     TelescopeMultiSelection = { fg = theme.pink, bg = 'NONE' },
-    TelescopeMatching = { fg = theme.text },
+    TelescopeMatching = { fg = theme.blue },
     TelescopePromptNormal = { fg = theme.text, bg = colors.custom.inset },
     TelescopePromptBorder = {
       fg = colors.custom.inset,
