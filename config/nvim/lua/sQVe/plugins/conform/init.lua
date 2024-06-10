@@ -6,6 +6,8 @@
 local autocmd = require('sQVe.utils.autocmd')
 local map = require('sQVe.utils.map')
 
+local formatters = require('sQVe.plugins.conform.formatters')
+
 local M = {
   'stevearc/conform.nvim',
   event = 'VeryLazy',
@@ -15,13 +17,9 @@ M.init = function()
   vim.g.format_on_save = true
 end
 
-M.opts = function()
-  local formatters = require('sQVe.plugins.conform.formatters')
-
-  return {
-    formatters_by_ft = formatters.by_ft,
-  }
-end
+M.opts = {
+  formatters_by_ft = formatters.by_ft,
+}
 
 M.config = function(_, opts)
   local conform = require('conform')

@@ -5,7 +5,7 @@
 local M = {}
 
 M.debounce = function(ms, fn)
-  local timer = vim.loop.new_timer()
+  local timer = vim.uv.new_timer()
 
   return function(...)
     local argv = { ... }
@@ -15,6 +15,5 @@ M.debounce = function(ms, fn)
     end)
   end
 end
-
 
 return M

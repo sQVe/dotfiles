@@ -3,6 +3,9 @@
 -- ┗━╸╹ ╹╹
 -- Completion engine.
 
+local methods = require('sQVe.plugins.cmp.methods')
+local utils = require('sQVe.plugins.cmp.utils')
+
 local M = {
   'hrsh7th/nvim-cmp',
   event = { 'CmdlineEnter', 'InsertEnter' },
@@ -16,16 +19,25 @@ local M = {
   },
 }
 
-M.config = function()
-  local cmp = require('cmp')
-  local lspkind = require('lspkind')
-  local methods = require('sQVe.plugins.cmp.methods')
-  local utils = require('sQVe.plugins.cmp.utils')
-
+local get_buffer_source = function(keyword_length)
   -- Pattern that matches any consecutive characters, including special ones.
   local anyWord = [[\k\+]]
 
-  local mapKey = function(fn, modes)
+  return {
+    name = 'buffer',
+    keyword_length = keyword_length,
+    option = {
+      get_bufnrs = utils.get_visible_bufnrs,
+      keyword_pattern = anyWord,
+    },
+  }
+end
+
+M.config = function()
+  local cmp = require('cmp')
+  local lspkind = require('lspkind')
+
+  local mapping = function(fn, modes)
     local defaultModes = { 'c', 'i' }
 
     return cmp.mapping(fn, vim.tbl_extend('force', defaultModes, modes or {}))
@@ -33,6 +45,7 @@ M.config = function()
 
   cmp.setup({
     formatting = {
+      expandable_indicator = true,
       fields = { 'abbr', 'menu', 'kind' },
       format = function(entry, vim_item)
         vim_item = lspkind.cmp_format({
@@ -53,107 +66,58 @@ M.config = function()
       end,
     },
     mapping = cmp.mapping.preset.insert({
-      ['<C-CR>'] = mapKey(
+      ['<C-CR>'] = mapping(
         cmp.mapping.complete({ reason = cmp.ContextReason.Manual })
       ),
-      ['<C-Space>'] = mapKey(
+      ['<C-Space>'] = mapping(
         cmp.mapping.complete({ reason = cmp.ContextReason.Manual })
       ),
-      ['<C-c>'] = mapKey(methods.abort),
-      ['<C-d>'] = mapKey(cmp.mapping.scroll_docs(8)),
-      ['<C-j>'] = mapKey(methods.expand_suggestion_word),
-      ['<C-k>'] = mapKey(methods.signature_help),
-      ['<C-l>'] = mapKey(methods.expand_snippet_or_suggestion),
-      ['<C-u>'] = mapKey(cmp.mapping.scroll_docs(-8)),
-      ['<CR>'] = mapKey(cmp.mapping.confirm({ select = false })),
-      ['<Tab>'] = mapKey(methods.next, { 's' }),
-      ['<S-Tab>'] = mapKey(methods.previous, { 's' }),
+      ['<C-c>'] = mapping(methods.abort),
+      ['<C-d>'] = mapping(cmp.mapping.scroll_docs(8)),
+      ['<C-j>'] = mapping(methods.expand_suggestion_word),
+      ['<C-k>'] = mapping(methods.signature_help),
+      ['<C-l>'] = mapping(methods.expand_snippet_or_suggestion),
+      ['<C-u>'] = mapping(cmp.mapping.scroll_docs(-8)),
+      ['<CR>'] = mapping(cmp.mapping.confirm({ select = false })),
+      ['<Tab>'] = mapping(methods.next, { 's' }),
+      ['<S-Tab>'] = mapping(methods.previous, { 's' }),
     }),
     performance = {
+      async_budget = 1,
+      confirm_resolve_timeout = 80,
+      debounce = 60,
       fetching_timeout = 250,
       max_view_entries = 100,
+      throttle = 30,
     },
-    snippet = {
-      expand = function(args)
-        vim.snippet.expand(args.body)
-      end,
-    },
-    sources = cmp.config.sources({
-      { name = 'nvim_lsp' },
-      { name = 'path' },
-      { name = 'snippets' },
-      {
-        name = 'buffer',
-        keyword_length = 4,
-        option = {
-          get_bufnrs = utils.get_visible_bufnrs,
-          keyword_pattern = anyWord,
-        },
-      },
-      { name = 'emoji' },
-    }),
+    sources = cmp.config.sources(
+      { { name = 'path' }, { name = 'emoji' } },
+      { { name = 'snippets' } },
+      { { name = 'nvim_lsp' }, { name = 'lazydev' } },
+      { get_buffer_source(4) }
+    ),
   })
 
   cmp.setup.filetype('gitcommit', {
-    sources = {
-      { name = 'git' },
-      {
-        name = 'buffer',
-        keyword_length = 2,
-        option = {
-          get_bufnrs = utils.get_visible_bufnrs,
-          keyword_pattern = anyWord,
-        },
-      },
-      { name = 'emoji' },
-    },
-  })
-
-  cmp.setup.filetype('markdown', {
-    sources = {
-      { name = 'nvim_lsp' },
-      { name = 'path' },
-      { name = 'snippets' },
-      {
-        name = 'buffer',
-        keyword_length = 2,
-        option = {
-          get_bufnrs = utils.get_visible_bufnrs,
-          keyword_pattern = anyWord,
-        },
-      },
-      { name = 'emoji' },
-    },
+    sources = cmp.config.sources({
+      { { name = 'git' } },
+      { { name = 'emoji' } },
+      { get_buffer_source(2) },
+    }),
   })
 
   cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
-    sources = {
-      {
-        name = 'buffer',
-        keyword_length = 2,
-        option = {
-          get_bufnrs = utils.get_visible_bufnrs,
-          keyword_pattern = anyWord,
-        },
-      },
-    },
+    sources = { get_buffer_source(2) },
   })
 
   cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources({
-      { name = 'path' },
-      { name = 'cmdline', option = { ignore_cmds = { '!' } } },
-      {
-        name = 'buffer',
-        keyword_length = 4,
-        option = {
-          get_bufnrs = utils.get_visible_bufnrs,
-          keyword_pattern = anyWord,
-        },
-      },
-    }),
+    sources = cmp.config.sources(
+      { { name = 'path' } },
+      { { name = 'cmdline', option = { ignore_cmds = { '!' } } } },
+      { get_buffer_source(4) }
+    ),
   })
 
   require('cmp_git').setup()

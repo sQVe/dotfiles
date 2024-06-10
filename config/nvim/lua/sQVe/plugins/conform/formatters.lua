@@ -23,46 +23,39 @@ M.by_ft = {
 }
 
 M.override_formatting_settings = function()
-  local conform = require('conform')
   local util = require('conform.util')
 
-  conform.formatters.eslint_d =
-    vim.tbl_deep_extend('force', require('conform.formatters.eslint_d'), {
-      cwd = util.root_file({
-        '.eslintrc.cjs',
-        '.eslintrc.js',
-        '.eslintrc.json',
-        '.eslintrc.yaml',
-        '.eslintrc.yml',
-      }),
-      require_cwd = true,
-    })
+  local eslint_d_formatter = require('conform.formatters.eslint_d')
+  local prettierd_formatter = require('conform.formatters.prettierd')
+  local shfmt_formatter = require('conform.formatters.shfmt')
+  local stylua_formatter = require('conform.formatters.stylua')
 
-  conform.formatters.prettierd =
-    vim.tbl_deep_extend('force', require('conform.formatters.prettierd'), {
-      cwd = util.root_file({
-        '.prettierrc',
-        '.prettierrc.json',
-        '.prettierrc.yml',
-        '.prettierrc.yaml',
-        '.prettierrc.js',
-        '.prettierrc.cjs',
-        '.prettierrc.toml',
-        'prettier.config.js',
-        'prettier.config.cjs',
-      }),
-      require_cwd = true,
-    })
+  stylua_formatter.require_cwd = true
+  prettierd_formatter.require_cwd = true
+  eslint_d_formatter.require_cwd = true
 
-  conform.formatters.shfmt =
-    vim.tbl_deep_extend('force', require('conform.formatters.shfmt'), {
-      args = { '-filename', '$FILENAME', '-i', '2', '-bn', '-ci', '-sr' },
-    })
+  eslint_d_formatter.cwd = util.root_file({
+    '.eslintrc.cjs',
+    '.eslintrc.js',
+    '.eslintrc.json',
+    '.eslintrc.yaml',
+    '.eslintrc.yml',
+  })
 
-  conform.formatters.stylua =
-    vim.tbl_deep_extend('force', require('conform.formatters.stylua'), {
-      require_cwd = true,
-    })
+  prettierd_formatter.cwd = util.root_file({
+    '.prettierrc',
+    '.prettierrc.json',
+    '.prettierrc.yml',
+    '.prettierrc.yaml',
+    '.prettierrc.js',
+    '.prettierrc.cjs',
+    '.prettierrc.toml',
+    'prettier.config.js',
+    'prettier.config.cjs',
+  })
+
+  shfmt_formatter.args =
+    { '-filename', '$FILENAME', '-i', '2', '-bn', '-ci', '-sr' }
 end
 
 return M

@@ -3,11 +3,12 @@
 -- ┗━╸┗━┛╹  ┗━╸┗━┛╹ ╹╹  ╹┗━┛
 -- Setup Language Server Protocol servers.
 
+local utils = require('sQVe.plugins.lspconfig.utils')
+
 local M = {
   'neovim/nvim-lspconfig',
   dependencies = {
-    { 'b0o/schemastore.nvim' },
-    { 'folke/neodev.nvim', config = true },
+    'b0o/schemastore.nvim',
   },
   ft = {
     -- bashls
@@ -47,7 +48,6 @@ local M = {
 M.config = function()
   local lspconfig = require('lspconfig')
   local lspconfig_util = require('lspconfig.util')
-  local utils = require('sQVe.plugins.lspconfig.utils')
 
   local on_attach = function(_, bufnr)
     utils.enable_code_lens(bufnr, { 'markdown' })
