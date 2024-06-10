@@ -31,14 +31,24 @@ M.expand_snippet_or_suggestion = function(fallback)
   local suggestion = require('supermaven-nvim.completion_preview')
   local find_snippet_prefix = require('snippets.utils').find_snippet_prefix
 
-  local word_before_cursor, row, col = cursor.get_word_before()
+  local word_before_cursor = cursor.get_word_before()
   local snippet = find_snippet_prefix(word_before_cursor)
+  local is_whitespace_only_line = string.match(
+    vim.api.nvim_get_current_line(),
+    '^%s*$'
+  ) ~= nil
 
   if snippet ~= nil then
     cursor.clear_before_by_length(#word_before_cursor)
     vim.snippet.expand(snippet.body)
   elseif suggestion.has_suggestion() then
     suggestion.on_accept_suggestion()
+  elseif is_whitespace_only_line then
+    vim.api.nvim_feedkeys(
+      vim.api.nvim_replace_termcodes('<C-t>', true, false, true),
+      'n',
+      true
+    )
   else
     fallback()
   end
