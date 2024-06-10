@@ -9,18 +9,6 @@ local git = require('sQVe.utils.git')
 local path = require('sQVe.utils.path')
 local utils = require('sQVe.ui.command_palette.utils')
 local var = require('sQVe.utils.var')
-local mode = require('sQVe.utils.mode')
-
-M.append_instruction = {
-  callback = function()
-    -- TODO: Input text.
-    vim.cmd("'<,'>M append_instruction")
-  end,
-  condition = function()
-    return mode.is_visual_mode()
-  end,
-  name = 'Write instruction and append answer below selection',
-}
 
 M.buffers = {
   callback = function()
@@ -59,39 +47,6 @@ M.change_cwd_git_root_path = {
     return utils.get_name_with_git_root_path('Change cwd', opts)
   end,
 }
-
--- 3. `M.buffer_instruction` - `StartBufferInstruction`
--- 4. `M.commit_message` - `CreateCommitMessageTitle`
--- 5. `M.condense` - `CondenseText`
--- 6. `M.docstring` - `GenerateDocstring`
--- 7. `M.explain` - `ExplainCode`
--- 8. `M.improve` - `ImproveCode`
--- 9. `M.note` - `RefineNote`
--- 10. `M.proofread` - `ProofreadText`
--- 11. `M.pull_request` - `CreatePullRequestDescription`
--- 12. `M.readability` - `ImproveReadability`
--- 13. `M.repair` - `Fix code`
--- 14. `M.rephrase` - `RephraseText`
--- 15. `M.replace_instruction` - `StartReplaceInstruction`
--- 16. `M.summary` - `GenerateSummary`
--- 17. `M.unit_test` - `GenerateUnitTest`
-
-M.append_instruction = {}
-M.buffer_instruction = {}
-M.commit_message = {}
-M.condense = {}
-M.docstring = {}
-M.explain = {}
-M.improve = {}
-M.note = {}
-M.proofread = {}
-M.pull_request = {}
-M.readability = {}
-M.repair = {}
-M.rephrase = {}
-M.replace_instruction = {}
-M.summary = {}
-M.unit_test = {}
 
 M.code_action = {
   callback = function()

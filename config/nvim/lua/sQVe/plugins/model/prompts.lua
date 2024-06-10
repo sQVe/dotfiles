@@ -11,42 +11,7 @@ local guidelines = {
   language = 'Use straightforward and easy-to-understand language.',
 }
 
-M.append_instruction = function()
-  local mode = require('model').mode
-  local openai = require('model.providers.openai')
-
-  return {
-    provider = openai,
-    mode = mode.APPEND,
-    params = tuning.technical_writing,
-    builder = function(input, context)
-      return {
-        messages = {
-          {
-            role = 'system',
-            content = format_lines({
-              "You're a versatile code assistant.",
-              'Your response should only contain the response, without needing any further editing.',
-              guidelines.language,
-            }),
-          },
-          {
-            role = 'user',
-            content = format_lines({
-              'I have the following text from %s:',
-              '```%s',
-              '%s',
-              '```',
-              'Instruction: %s',
-            }, context.filename, vim.bo.filetype, input, context.args),
-          },
-        },
-      }
-    end,
-  }
-end
-
-M.buffer_instruction = function()
+M.instruction = function()
   local mode = require('model').mode
   local openai = require('model.providers.openai')
 
@@ -129,7 +94,6 @@ end
 
 M.condense = function()
   local mode = require('model').mode
-  local extract = require('model.prompts.extract')
   local openai = require('model.providers.openai')
 
   local get_content = function(filename, filetype, input)
@@ -144,7 +108,7 @@ M.condense = function()
 
   return {
     provider = openai,
-    mode = vim.fn.visualmode() == 'V' and mode.REPLACE or mode.BUFFER,
+    mode = mode.BUFFER,
     params = tuning.text_processing,
     builder = function(input, context)
       return {
@@ -176,7 +140,6 @@ M.condense = function()
         },
       }
     end,
-    transform = extract.markdown_code,
   }
 end
 
@@ -207,7 +170,7 @@ M.docstring = function()
             content = format_lines({
               "You're a coding assistant, specialized in writing docstrings.",
               'Your response should only contain the docstring, without needing any further editing.',
-              'The output should ALWAYS end with a newline character.',
+              'The output should ALWAYS follow correct comment syntax and end with a newline character.',
               guidelines.language,
             }),
           },
@@ -365,7 +328,6 @@ end
 
 M.proofread = function()
   local mode = require('model').mode
-  local extract = require('model.prompts.extract')
   local openai = require('model.providers.openai')
 
   local get_content = function(filename, filetype, input)
@@ -380,7 +342,7 @@ M.proofread = function()
 
   return {
     provider = openai,
-    mode = vim.fn.visualmode() == 'V' and mode.REPLACE or mode.BUFFER,
+    mode = mode.BUFFER,
     params = tuning.creative_writing,
     builder = function(input, context)
       return {
@@ -412,7 +374,6 @@ M.proofread = function()
         },
       }
     end,
-    transform = extract.markdown_code,
   }
 end
 
@@ -442,7 +403,7 @@ M.pull_request = function()
             content = format_lines({
               "You're an advisor for writing optimal pull request descriptions based on diffs.",
               'Your response should only contain the pull request, without needing any further editing.',
-              'Start the description with `### Overview`, followed by `### Key changes`. Try to group the changes into logical sections.',
+              'The description should be concise and to the point. It should always include: a bold TDLR summary of the changes, followed by a bulleted list of the key changes.',
             }),
           },
           {
@@ -499,84 +460,11 @@ M.readability = function()
         },
       }
     end,
-    transform = extract.markdown_code,
-  }
-end
-
-M.repair = function()
-  local mode = require('model').mode
-  local extract = require('model.prompts.extract')
-  local openai = require('model.providers.openai')
-  local prompts = require('model.util.prompts')
-
-  local get_content = function(filename, filetype, before, after, input)
-    return format_lines({
-      'I have the following code from %s:',
-      '```%s',
-      '%s<@@>%s',
-      '```',
-      'Existing text at the <@@>: %s.',
-      'Please fix the code.',
-    }, filename, filetype, before, after, input)
-  end
-
-  return {
-    provider = openai,
-    mode = mode.REPLACE,
-    params = tuning.code_generation,
-    builder = function(input, context)
-      local surrounding = prompts.limit_before_after(context, 50)
-
-      return {
-        messages = {
-          {
-            role = 'system',
-            content = format_lines({
-              "You're an expert debugger.",
-              "You're tasked to fix the code snippet provided, which includes the symbol <@@>.",
-              'Your response should only contain the corrected code for the <@@> symbol, replacing the input directly without needing any further editing.',
-            }),
-          },
-          {
-            role = 'user',
-            content = get_content(
-              'arithmetics.ts',
-              'typescript',
-              format_lines({
-                'const add = (a: number, b: number): number => {',
-                '  return <@@>',
-              }),
-              format_lines({
-                ';',
-                '};',
-              }),
-              'a - b'
-            ),
-          },
-          {
-            role = 'assistant',
-            content = 'a + b',
-          },
-
-          {
-            role = 'user',
-            content = get_content(
-              context.filename,
-              vim.bo.filetype,
-              surrounding.before,
-              surrounding.after,
-              input
-            ),
-          },
-        },
-      }
-    end,
   }
 end
 
 M.rephrase = function()
   local mode = require('model').mode
-  local extract = require('model.prompts.extract')
   local openai = require('model.providers.openai')
 
   local get_content = function(filename, filetype, input)
@@ -591,7 +479,7 @@ M.rephrase = function()
 
   return {
     provider = openai,
-    mode = vim.fn.visualmode() == 'V' and mode.REPLACE or mode.BUFFER,
+    mode = mode.BUFFER,
     params = tuning.technical_writing,
     builder = function(input, context)
       return {
@@ -623,48 +511,11 @@ M.rephrase = function()
         },
       }
     end,
-    transform = extract.markdown_code,
-  }
-end
-
-M.replace_instruction = function()
-  local mode = require('model').mode
-  local openai = require('model.providers.openai')
-
-  return {
-    provider = openai,
-    mode = mode.REPLACE,
-    params = tuning.technical_writing,
-    builder = function(input, context)
-      return {
-        messages = {
-          {
-            role = 'system',
-            content = format_lines({
-              "You're a versatile code assistant.",
-              'Your response should only contain the response, without needing any further editing.',
-              guidelines.language,
-            }),
-          },
-          {
-            role = 'user',
-            content = format_lines({
-              'I have the following text from %s:',
-              '```%s',
-              '%s',
-              '```',
-              'Instruction: %s',
-            }, context.filename, vim.bo.filetype, input, context.args),
-          },
-        },
-      }
-    end,
   }
 end
 
 M.summary = function()
   local mode = require('model').mode
-  local extract = require('model.prompts.extract')
   local openai = require('model.providers.openai')
 
   return {
@@ -699,13 +550,11 @@ M.summary = function()
         },
       }
     end,
-    transform = extract.markdown_code,
   }
 end
 
 M.unit_test = function()
   local mode = require('model').mode
-  local extract = require('model.prompts.extract')
   local openai = require('model.providers.openai')
 
   local vitest_filetypes = {
@@ -754,7 +603,6 @@ M.unit_test = function()
         },
       }
     end,
-    transform = extract.markdown_code,
   }
 end
 

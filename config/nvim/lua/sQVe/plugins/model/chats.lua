@@ -2,9 +2,8 @@
 -- ┃  ┣━┫┣━┫ ┃ ┗━┓
 -- ┗━╸╹ ╹╹ ╹ ╹ ┗━┛
 
-local M = {}
-
 local format_lines = require('sQVe.utils.format_lines')
+local tuning = require('sQVe.plugins.model.tuning')
 
 local create = function(input, ctx)
   return ctx.selection and input or ''
@@ -31,10 +30,10 @@ local run = function(messages, config)
   return { messages = messages }
 end
 
+local M = {}
+
 M.get_general_chat = function()
   local openai = require('model.providers.openai')
-
-  local tuning = require('sQVe.plugins.model.tuning')
 
   return {
     provider = openai,
