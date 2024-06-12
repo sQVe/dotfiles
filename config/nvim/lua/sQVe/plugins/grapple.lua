@@ -12,7 +12,7 @@ local M = {
   cmd = 'Grapple',
   keys = {
     {
-      '<Leader><CR>',
+      '<C-CR>',
       function()
         local grapple = require('grapple')
 
@@ -40,32 +40,32 @@ local M = {
       desc = 'Grapple toggle tag',
     },
     {
-      '<Leader><Backspace>',
+      '<C-Backspace>',
       '<Cmd>Grapple toggle_tags<CR>',
       desc = 'Grapple toggle tags',
     },
     {
-      '<Leader>1',
+      '<C-1>',
       '<Cmd>Grapple select index=1<CR>',
       desc = 'Go-to tag 1',
     },
     {
-      '<Leader>2',
+      '<C-2>',
       '<Cmd>Grapple select index=2<CR>',
       desc = 'Go-to tag 2',
     },
     {
-      '<Leader>3',
+      '<C-3>',
       '<Cmd>Grapple select index=3<CR>',
       desc = 'Go-to tag 3',
     },
     {
-      '<Leader>4',
+      '<C-4>',
       '<Cmd>Grapple select index=4<CR>',
       desc = 'Go-to tag 4',
     },
     {
-      '<Leader>5',
+      '<C-5>',
       '<Cmd>Grapple select index=5<CR>',
       desc = 'Go-to tag 5',
     },
