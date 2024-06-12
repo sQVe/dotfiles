@@ -31,7 +31,7 @@ It is essential to know a thing first
   dashboard.section.header.val = vim.split(logo, '\n')
   dashboard.section.buttons.val = {
     dashboard.button(
-      'å',
+      '<Backspace>',
       '🗃️  Command palette',
       '<Cmd>lua require("sQVe.ui.command_palette").open_command_palette()<CR>'
     ),
@@ -41,7 +41,7 @@ It is essential to know a thing first
       '<Cmd>lua require("sQVe.ui.command_palette.commands").smart_open.callback()<CR>'
     ),
     dashboard.button(
-      'Ä',
+      'å',
       '🔎  Live grep',
       '<Cmd>lua require("sQVe.ui.command_palette.commands").live_grep.callback()<CR>'
     ),

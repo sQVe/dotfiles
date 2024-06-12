@@ -19,19 +19,11 @@ local M = {
   },
 }
 
-local get_buffer_source = function(keyword_length)
-  -- Pattern that matches any consecutive characters, including special ones.
-  local anyWord = [[\k\+]]
-
-  return {
-    name = 'buffer',
-    keyword_length = keyword_length,
-    option = {
-      get_bufnrs = utils.get_visible_bufnrs,
-      keyword_pattern = anyWord,
-    },
-  }
-end
+local anyWord = [[\k\+]]
+local buffer_options = {
+  get_bufnrs = utils.get_visible_bufnrs,
+  keyword_pattern = anyWord,
+}
 
 M.config = function()
   local cmp = require('cmp')
@@ -90,25 +82,33 @@ M.config = function()
       max_view_entries = 100,
       throttle = 30,
     },
-    sources = cmp.config.sources(
-      { { name = 'path' }, { name = 'emoji' } },
-      { { name = 'snippets' } },
-      { { name = 'nvim_lsp' }, { name = 'lazydev' } },
-      { get_buffer_source(4) }
-    ),
+    sources = cmp.config.sources({
+      { name = 'path' },
+      { name = 'emoji' },
+    }, {
+      { name = 'nvim_lsp' },
+      { name = 'lazydev' },
+      { name = 'snippets' },
+      {
+        name = 'buffer',
+        keyword_length = 4,
+        option = buffer_options,
+      },
+    }),
   })
 
   cmp.setup.filetype('gitcommit', {
     sources = cmp.config.sources({
-      { { name = 'git' } },
-      { { name = 'emoji' } },
-      { get_buffer_source(2) },
+      { { name = 'git' }, { name = 'emoji' } },
+      { { name = 'buffer', keyword_length = 2, option = buffer_options } },
     }),
   })
 
   cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
-    sources = { get_buffer_source(2) },
+    sources = {
+      { name = 'buffer', keyword_length = 2, option = buffer_options },
+    },
   })
 
   cmp.setup.cmdline(':', {
@@ -116,7 +116,7 @@ M.config = function()
     sources = cmp.config.sources(
       { { name = 'path' } },
       { { name = 'cmdline', option = { ignore_cmds = { '!' } } } },
-      { get_buffer_source(4) }
+      { { name = 'buffer', keyword_length = 2, option = buffer_options } }
     ),
   })
 

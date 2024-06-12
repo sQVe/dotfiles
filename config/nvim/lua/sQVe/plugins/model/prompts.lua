@@ -2,10 +2,10 @@
 -- ┣━┛┣┳┛┃ ┃┃┃┃┣━┛ ┃ ┗━┓
 -- ╹  ╹┗╸┗━┛╹ ╹╹   ╹ ┗━┛
 
-local M = {}
-
 local format_lines = require('sQVe.utils.format_lines')
 local tuning = require('sQVe.plugins.model.tuning')
+
+local M = {}
 
 local guidelines = {
   language = 'Use straightforward and easy-to-understand language.',

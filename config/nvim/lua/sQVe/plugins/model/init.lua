@@ -35,4 +35,4 @@ M.opts = function()
   }
 end
 
-return M
+return {}

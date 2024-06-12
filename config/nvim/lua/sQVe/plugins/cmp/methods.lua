@@ -2,9 +2,9 @@
 -- ┃┃┃┣╸  ┃ ┣━┫┃ ┃ ┃┃┗━┓
 -- ╹ ╹┗━╸ ╹ ╹ ╹┗━┛╺┻┛┗━┛
 
-local M = {}
-
 local cursor = require('sQVe.utils.cursor')
+
+local M = {}
 
 M.abort = function(fallback)
   local cmp = require('cmp')
@@ -27,7 +27,7 @@ M.expand_suggestion_word = function(fallback)
   end
 end
 
-M.expand_snippet_or_suggestion = function(fallback)
+M.expand_snippet_or_suggestion = function()
   local suggestion = require('supermaven-nvim.completion_preview')
   local find_snippet_prefix = require('snippets.utils').find_snippet_prefix
 
@@ -40,6 +40,7 @@ M.expand_snippet_or_suggestion = function(fallback)
 
   if snippet ~= nil then
     cursor.clear_before_by_length(#word_before_cursor)
+    ---@diagnostic disable-next-line: param-type-mismatch
     vim.snippet.expand(snippet.body)
   elseif suggestion.has_suggestion() then
     suggestion.on_accept_suggestion()
@@ -49,8 +50,6 @@ M.expand_snippet_or_suggestion = function(fallback)
       'n',
       true
     )
-  else
-    fallback()
   end
 end
 

@@ -2,10 +2,10 @@
 -- ┃ ┃ ┃ ┃┃  ┗━┓
 -- ┗━┛ ╹ ╹┗━╸┗━┛
 
-local M = {}
-
 local autocmd = require('sQVe.utils.autocmd')
 local map = require('sQVe.utils.map')
+
+local M = {}
 
 M.create_server_setup = function(opts)
   local capabilities = require('cmp_nvim_lsp').default_capabilities()

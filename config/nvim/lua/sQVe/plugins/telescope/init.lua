@@ -4,7 +4,6 @@
 -- Fuzzy finder.
 
 local commands = require('sQVe.ui.command_palette.commands')
-local path = require('sQVe.utils.path')
 
 local M = {
   'nvim-telescope/telescope.nvim',
@@ -28,7 +27,7 @@ local M = {
       desc = 'Spell suggest',
     },
     {
-      'å',
+      '<Backspace>',
       function()
         require('sQVe.ui.command_palette').open_command_palette()
       end,
@@ -44,7 +43,7 @@ local M = {
       mode = { 'n', 'v' },
     },
     {
-      'Ä',
+      'å',
       function()
         commands.live_grep.callback()
       end,

@@ -2,14 +2,14 @@
 -- ┃ ┃┃
 -- ┗━┛╹
 
--- TODO: This module should be removed.
+local selection = require('sQVe.utils.selection')
 
 local M = {}
 
 M.run_model = function(prompt, instruction)
   instruction = instruction or ''
 
-  if vim.fn.visualmode() == 'V' then
+  if selection.is_visual_mode() then
     vim.api.nvim_command("'<,'>M " .. prompt .. ' ' .. instruction)
   else
     vim.api.nvim_command('M ' .. prompt .. ' ' .. instruction)
@@ -29,24 +29,16 @@ M.run_prompt = function()
       return
     end
 
-    local custom_instruction_prompts = {
-      'buffer_instruction',
-      'append_instruction',
-      'replace_instruction',
-    }
-
-    if vim.tbl_contains(custom_instruction_prompts, choice) then
-      local mode = choice:match('^(.-)_')
-
+    if choice == 'instruction' then
       vim.ui.input(
-        { prompt = string.format('🤖 Instruction for %s', mode) },
-        function(instruction)
+        { prompt = '🤖 Instruction' },
+        vim.schedule_wrap(function(instruction)
           if #instruction > 0 then
             M.run_model(choice, instruction)
           else
             vim.notify('No instruction provided.', vim.log.levels.WARN)
           end
-        end
+        end)
       )
     else
       M.run_model(choice)

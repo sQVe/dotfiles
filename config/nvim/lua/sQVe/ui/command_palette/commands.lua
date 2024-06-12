@@ -2,13 +2,13 @@
 -- ┃  ┃ ┃┃┃┃┃┃┃┣━┫┃┗┫ ┃┃┗━┓
 -- ┗━╸┗━┛╹ ╹╹ ╹╹ ╹╹ ╹╺┻┛┗━┛
 
-local M = {}
-
 local buffer = require('sQVe.utils.buffer')
 local git = require('sQVe.utils.git')
 local path = require('sQVe.utils.path')
 local utils = require('sQVe.ui.command_palette.utils')
 local var = require('sQVe.utils.var')
+
+local M = {}
 
 M.buffers = {
   callback = function()

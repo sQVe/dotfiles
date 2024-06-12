@@ -2,10 +2,10 @@
 -- ┃ ┃ ┃ ┃┃  ┗━┓
 -- ┗━┛ ╹ ╹┗━╸┗━┛
 
-local M = {}
-
 local path = require('sQVe.utils.path')
 local buffer = require('sQVe.utils.buffer')
+
+local M = {}
 
 local get_name_with_path = function(opts)
   return string.format(

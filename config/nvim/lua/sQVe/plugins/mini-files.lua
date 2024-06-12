@@ -3,13 +3,13 @@
 -- ╹ ╹╹╹ ╹╹   ╹  ╹┗━╸┗━╸┗━┛
 -- File tree.
 
-local M = {
-  'echasnovski/mini.files',
-}
-
 local autocmd = require('sQVe.utils.autocmd')
 local buffer = require('sQVe.utils.buffer')
 local map = require('sQVe.utils.map')
+
+local M = {
+  'echasnovski/mini.files',
+}
 
 M.opts = {
   mappings = {
@@ -33,7 +33,7 @@ M.config = function(_, opts)
 
   mini_files.setup(opts)
 
-  map('n', '<Backspace>', function()
+  map('n', 'Ä', function()
     if not mini_files.close() then
       mini_files.open(buffer.get_path(), false)
     end
