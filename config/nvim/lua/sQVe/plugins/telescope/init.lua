@@ -71,9 +71,9 @@ M.opts = function()
       dynamic_preview_title = true,
       layout_strategy = 'flex',
       layout_config = {
-        height = 0.9,
+        height = 0.8,
         prompt_position = 'top',
-        width = 0.9,
+        width = 0.8,
         flex = { flip_columns = 280 },
         vertical = { preview_height = 0.4 },
       },
