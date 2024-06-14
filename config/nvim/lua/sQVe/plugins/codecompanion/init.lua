@@ -36,7 +36,11 @@ M.opts = function()
         height = 15,
         relative = 'editor',
       },
-      chat = { layout = 'buffer' },
+      chat = {
+        window = {
+          layout = 'buffer',
+        },
+      },
     },
     tools = {
       ['code_runner'] = { enabled = false },
