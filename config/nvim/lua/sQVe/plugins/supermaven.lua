@@ -3,6 +3,8 @@
 -- ┗━┛┗━┛╹  ┗━╸╹┗╸╹ ╹╹ ╹┗┛ ┗━╸╹ ╹
 -- AI Copilot.
 
+local palette = require('sQVe.plugins.catppuccin.palette')
+
 local enabled_filetypes = {
   'css',
   'cucumber',
@@ -31,6 +33,11 @@ local M = {
 
 M.opts = {
   disable_keymaps = true,
+  color = {
+    cterm = 244,
+    suggestion_color = palette.colors.custom.peach,
+  },
+  log_level = 'off',
 }
 
 return M

@@ -23,9 +23,6 @@ return function(theme)
     Search = { fg = theme.base, bg = theme.yellow },
     Special = { fg = theme.subtext0 },
 
-    -- Copilot.
-    CopilotSuggestion = { fg = colors.custom.steel, italic = true },
-
     -- Flash.
     FlashLabel = { fg = colors.gruvbox.light0, bold = true },
     FlashCurrent = { fg = theme.maroon },
