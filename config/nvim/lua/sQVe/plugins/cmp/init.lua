@@ -99,8 +99,9 @@ M.config = function()
 
   cmp.setup.filetype('gitcommit', {
     sources = cmp.config.sources({
-      { { name = 'git' }, { name = 'emoji' } },
-      { { name = 'buffer', keyword_length = 2, option = buffer_options } },
+      { name = 'git' },
+      { name = 'emoji' },
+      { name = 'buffer', keyword_length = 2, option = buffer_options },
     }),
   })
 
@@ -114,9 +115,9 @@ M.config = function()
   cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
     sources = cmp.config.sources(
-      { { name = 'path' } },
-      { { name = 'cmdline', option = { ignore_cmds = { '!' } } } },
-      { { name = 'buffer', keyword_length = 2, option = buffer_options } }
+      { name = 'path' },
+      { name = 'cmdline', option = { ignore_cmds = { '!' } } },
+      { name = 'buffer', keyword_length = 2, option = buffer_options }
     ),
   })
 

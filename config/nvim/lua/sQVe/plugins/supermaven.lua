@@ -35,7 +35,7 @@ M.opts = {
   disable_keymaps = true,
   color = {
     cterm = 244,
-    suggestion_color = palette.colors.custom.peach,
+    suggestion_color = palette.colors.custom.steel,
   },
   log_level = 'off',
 }
