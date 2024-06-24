@@ -98,11 +98,11 @@ M.config = function()
   })
 
   cmp.setup.filetype('gitcommit', {
-    sources = cmp.config.sources({
+    sources = {
       { name = 'git' },
       { name = 'emoji' },
       { name = 'buffer', keyword_length = 2, option = buffer_options },
-    }),
+    },
   })
 
   cmp.setup.cmdline({ '/', '?' }, {
@@ -114,11 +114,11 @@ M.config = function()
 
   cmp.setup.cmdline(':', {
     mapping = cmp.mapping.preset.cmdline(),
-    sources = cmp.config.sources(
+    sources = {
       { name = 'path' },
       { name = 'cmdline', option = { ignore_cmds = { '!' } } },
-      { name = 'buffer', keyword_length = 2, option = buffer_options }
-    ),
+      { name = 'buffer', keyword_length = 2, option = buffer_options },
+    },
   })
 
   require('cmp_git').setup()
