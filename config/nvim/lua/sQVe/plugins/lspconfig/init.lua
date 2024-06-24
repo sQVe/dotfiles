@@ -115,16 +115,32 @@ M.config = function()
       },
     }),
     marksman = server_setup,
-    tsserver = utils.create_server_setup({
+    vtsls = utils.create_server_setup({
       on_attach = on_attach,
-      init_options = {
-        hostInfo = 'neovim',
-        maxTsServerMemory = 8192,
-        preferences = {
-          importModuleSpecifierEnding = 'minimal',
-          importModuleSpecifierPreference = 'shortest',
-          interactiveInlayHints = false,
-          quotePreference = 'single',
+      settings = {
+        javascript = {
+          format = { enable = false },
+          preferences = { quoteStyle = 'single' },
+          suggest = { completeFunctionCalls = true },
+          tsserver = { maxTsServerMemory = 8192 },
+        },
+        typescript = {
+          format = { enable = false },
+          preferences = {
+            importModuleSpecifier = 'shortest',
+            importModuleSpecifierEnding = 'minimal',
+            quoteStyle = 'single',
+          },
+          suggest = { completeFunctionCalls = true },
+          tsserver = { maxTsServerMemory = 8192 },
+        },
+        vtsls = {
+          autoUseWorkspaceTsdk = true,
+          experimental = {
+            completion = {
+              enableServerSideFuzzyMatch = true,
+            },
+          },
         },
       },
     }),

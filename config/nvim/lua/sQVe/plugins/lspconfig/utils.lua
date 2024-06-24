@@ -81,7 +81,7 @@ M.diagnostic_handler = function(_, result, ctx, ...)
     HINT = 4,
   }
 
-  if client and client.name == 'tsserver' then
+  if client and client.name == 'vtsls' then
     ignored_diagnostics = {
       { code = 7016, severity = severity.ERROR },
       { code = 80001, severity = severity.HINT },
@@ -141,10 +141,14 @@ M.map_diagnostic_keys = function(bufnr)
     })
   end, { buffer = bufnr, desc = 'View diagnostic (line)' })
   map('n', '[d', function()
-    vim.diagnostic.goto_next(shared_diagnostic_opts)
+    vim.diagnostic.jump(
+      vim.tbl_extend('force', shared_diagnostic_opts, { count = 1 })
+    )
   end, { buffer = bufnr, desc = 'Go to previous diagnostic' })
   map('n', ']d', function()
-    vim.diagnostic.goto_next(shared_diagnostic_opts)
+    vim.diagnostic.jump(
+      vim.tbl_extend('force', shared_diagnostic_opts, { count = -1 })
+    )
   end, { buffer = bufnr, desc = 'Go to next diagnostic' })
 end
 
@@ -162,20 +166,19 @@ M.map_lookup_keys = function(bufnr)
   )
   map('n', 'gD', function()
     local filetype = vim.bo[bufnr].filetype
-    local tsserver_filetypes = {
+    local vtsls_filetypes = {
       'javascript',
       'javascriptreact',
       'typescript',
       'typescriptreact',
     }
 
-    if vim.tbl_contains(tsserver_filetypes, filetype) then
+    if vim.tbl_contains(vtsls_filetypes, filetype) then
+      local params = vim.lsp.util.make_position_params()
       vim.lsp.buf_request(bufnr, 'workspace/executeCommand', {
-        command = '_typescript.goToSourceDefinition',
-        arguments = {
-          vim.uri_from_bufnr(bufnr),
-          vim.lsp.util.make_position_params().position,
-        },
+        command = 'typescript.goToSourceDefinition',
+        arguments = { params.textDocument.uri, params.position },
+        open = true,
       }, vim.lsp.handlers['textDocument/definition'])
       return
     end
