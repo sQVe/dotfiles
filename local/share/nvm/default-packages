@@ -1,5 +1,6 @@
 @cucumber/language-server
 @fsouza/prettierd
+@vtsls/language-server
 bash-language-server
 colorally
 corepack
@@ -12,7 +13,6 @@ prettier
 serve
 ts-node
 typescript
-typescript-language-server
 vscode-langservers-extracted
 yaml-language-server
 yarn

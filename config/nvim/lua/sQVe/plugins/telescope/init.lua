@@ -27,7 +27,7 @@ local M = {
       desc = 'Spell suggest',
     },
     {
-      '<Backspace>',
+      'å',
       function()
         require('sQVe.ui.command_palette').open_command_palette()
       end,
@@ -43,7 +43,7 @@ local M = {
       mode = { 'n', 'v' },
     },
     {
-      'å',
+      '<Backspace>',
       function()
         commands.live_grep.callback()
       end,

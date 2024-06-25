@@ -50,7 +50,6 @@ M.config = function()
   local lspconfig_util = require('lspconfig.util')
 
   local on_attach = function(_, bufnr)
-    utils.enable_code_lens(bufnr, { 'markdown' })
     utils.map_diagnostic_keys(bufnr)
     utils.map_lookup_keys(bufnr)
   end

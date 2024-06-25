@@ -114,18 +114,6 @@ M.diagnostic_handler = function(_, result, ctx, ...)
   return vim.lsp.diagnostic.on_publish_diagnostics(nil, result, ctx, ...)
 end
 
-function M.enable_code_lens(bufnr, allowed_filetypes)
-  local filetype = vim.api.nvim_get_option_value('filetype', { buf = bufnr })
-
-  if vim.tbl_contains(allowed_filetypes, filetype) then
-    autocmd({ 'BufEnter', 'CursorHold', 'InsertLeave' }, {
-      group = 'EnableCodeLens',
-      buffer = bufnr,
-      callback = vim.lsp.codelens.refresh,
-    })
-  end
-end
-
 M.map_diagnostic_keys = function(bufnr)
   local shared_diagnostic_opts = {
     float = false,
