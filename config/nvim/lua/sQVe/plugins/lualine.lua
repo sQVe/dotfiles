@@ -31,15 +31,23 @@ M.opts = function()
       theme = 'catppuccin',
     },
     sections = {
-      lualine_a = { 'mode' },
+      lualine_a = {},
       lualine_b = {},
       lualine_c = {
         { 'grapple', color = { fg = palette.colors.gruvbox.gray } },
       },
       lualine_x = {
-        { 'filetype', color = { fg = palette.colors.gruvbox.gray } },
+        {
+          'filename',
+          color = { fg = palette.colors.gruvbox.gray, gui = 'italic' },
+          file_status = false,
+          path = 1,
+        },
       },
-      lualine_y = { 'location' },
+      lualine_y = {
+        { 'filetype', color = { fg = palette.colors.gruvbox.gray } },
+        { 'location' },
+      },
       lualine_z = {},
     },
     tabline = {
