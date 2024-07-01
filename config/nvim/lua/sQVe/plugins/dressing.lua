@@ -42,10 +42,10 @@ M.opts = {
       layout_config = {
         preview_cutoff = false,
         width = function(_, max_columns, _)
-          return math.min(max_columns, 80)
+          return math.min(max_columns, 60)
         end,
         height = function(_, _, max_lines)
-          return math.min(max_lines, 25)
+          return math.min(max_lines, 20)
         end,
       },
     },

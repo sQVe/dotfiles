@@ -42,7 +42,7 @@
   <!-- Search Matching -->
   <style name="search-match"                foreground="light_gray" background="sea_green"/>
 
-  <!-- Bookmarks FIXME -->
+  <!-- Bookmarks -->
   <style name="bookmark"                    background="light_gray"/>
 
   <!-- Comments -->

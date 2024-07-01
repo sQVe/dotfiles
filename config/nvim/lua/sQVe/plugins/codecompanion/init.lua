@@ -25,78 +25,53 @@ local M = {
 
 M.opts = function()
   return {
+    actions = {
+      actions.chat(),
+      actions.condense_text(),
+      actions.debug_code_diagnostics(),
+      actions.enhance_text_readability(),
+      actions.explain_code(),
+      actions.generate_docstring(),
+      actions.generate_pull_request_description(),
+      actions.generate_unit_tests(),
+      actions.improve_code(),
+      actions.proofread_text(),
+      actions.rephrase_text(),
+      actions.write_commit_message(),
+    },
     adapters = {
       openai = adapters.openai(),
+    },
+    default_prompts = {
+      system = format_lines({
+        "You are an AI programming assistant. Follow the user's requirements precisely.  Keep answers short and impersonal.",
+        '',
+        'Approach your answers in the following way:',
+        '',
+        '1. Think step-by-step.',
+        '2. Describe your plan in detailed pseudocode.',
+        '3. Output the code in a single code block using Markdown.',
+        '4. Include the programming language name at the start of the code block.',
+        '5. Avoid wrapping the whole response in triple backticks.',
+        '',
+        'The active document is the source code the user is looking at right now. You can only give one reply for each conversation turn',
+      }),
     },
     display = {
       action_palette = {
         width = 80,
-        height = 15,
+        height = 10,
         relative = 'editor',
       },
       chat = {
         window = {
           layout = 'buffer',
+          opts = {
+            cursorcolumn = false,
+            cursorline = false,
+          },
         },
         intro_message = '',
-      },
-    },
-    actions = {
-      {
-        name = 'Chat with a LLM',
-        strategy = 'chat',
-        opts = { auto_submit = true },
-        prompts = {
-          n = function()
-            return require('codecompanion').chat()
-          end,
-          v = {
-            {
-              role = 'system',
-              content = function(context)
-                -- FIXME: Make this nicer.
-                return 'I want you to act as a senior '
-                  .. context.filetype
-                  .. ' developer. I will give you specific code examples and ask you questions. I want you to advise me with explanations and code examples.'
-              end,
-            },
-            {
-              role = 'user',
-              content = function(context)
-                -- FIXME: How do I output all messages sent to the LLM?
-                return 'What is 1 + 1?'
-              end,
-            },
-          },
-        },
-      },
-      {
-        name = 'Generate a commit message',
-        strategy = 'inline',
-        condition = function(context)
-          return context.filetype == 'gitcommit' and context.is_normal
-        end,
-        opts = { auto_submit = true },
-        prompts = {
-          {
-            role = 'system',
-            content = format_lines({
-              "You're an advisor for writing optimal git commit messages based on diffs.",
-              'Your response should only contain the git commit message, without needing any further editing.',
-              'Try to stay below 80 characters total.',
-            }),
-          },
-          {
-            role = 'user',
-            content = function()
-              local git_diff = vim.fn.system({ 'git', 'diff', '--staged' })
-
-              if not git_diff:match('^diff') then
-                error('No diff found in the staging area.')
-              end
-            end,
-          },
-        },
       },
     },
     use_default_actions = false,
