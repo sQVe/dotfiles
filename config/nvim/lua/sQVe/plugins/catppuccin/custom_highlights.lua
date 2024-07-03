@@ -24,9 +24,9 @@ return function(theme)
     Special = { fg = theme.subtext0 },
 
     -- Flash.
-    FlashLabel = { fg = colors.gruvbox.light0, bold = true },
-    FlashCurrent = { fg = theme.maroon },
-    FlashMatch = { fg = theme.yellow },
+    FlashLabel = { fg = theme.sky, bg = 'none', bold = true },
+    FlashCurrent = { fg = theme.subtext1, bg = 'none', },
+    FlashMatch = { fg = theme.subtext1, bg = 'none' },
 
     -- Headlines.
     Headline1 = { bg = theme.surface0, bold = true },

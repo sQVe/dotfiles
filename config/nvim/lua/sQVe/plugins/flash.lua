@@ -29,14 +29,8 @@ local M = {
 }
 
 M.opts = {
-  modes = {
-    search = { enabled = false },
-    treesitter = {
-      highlight = {
-        backdrop = true,
-      },
-    },
-  },
+  label = { after = false, before = true },
+  search = { mode = 'fuzzy' },
 }
 
 return M
