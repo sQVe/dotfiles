@@ -12,11 +12,11 @@ end
 
 M.selector = function(items, opts)
   local select_opts = {
-    prompt = 'Assistant',
-    kind = 'codecompanion.nvim',
     format_item = function(item)
       return item.name
     end,
+    kind = 'codecompanion.nvim',
+    prompt = 'Assistant',
   }
 
   vim.ui.select(items, select_opts, function(selected)
