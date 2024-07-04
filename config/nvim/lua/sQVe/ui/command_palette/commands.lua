@@ -205,14 +205,14 @@ M.git_status = {
 
 M.grep_text = {
   callback = function(opts)
-    require('telescope.builtin').grep_string({
+    require('telescope.builtin').grep_string(vim.tbl_extend('force', {
       prompt_title = string.format(
         'Grep %s `%s`',
         opts.is_visual_mode and 'selection' or 'word',
         opts.query
       ),
       search = opts.query,
-    })
+    }, opts.is_visual_mode and {} or { word_match = '-w' }))
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr)
