@@ -12,15 +12,11 @@ M.opts = {
   icons = {
     separator = '=',
     group = '> ',
+    mappings = false,
   },
-  key_labels = {
+  replace = {
     ['<leader>'] = '<Leader>',
     ['<space>'] = '<Space>',
-  },
-  operators = {
-    gc = 'Comment',
-    gq = 'Format',
-    gs = 'Surround',
   },
   plugins = {
     spelling = {
@@ -35,61 +31,75 @@ M.config = function(_, opts)
 
   wk.setup(opts)
 
-  -- Register general keys.
-  wk.register({
-    mode = { 'n', 'v' },
-    ["'"] = { 'Marks' },
-    ['"'] = { 'Registers' },
-    ['<C-q>'] = { 'Quickfix' },
-    ['<C-w>'] = { 'Window' },
-    ['@'] = { 'Registers' },
-    ['['] = { 'Previous' },
-    [']'] = { 'Next' },
-    ['`'] = { 'Marks' },
-    g = { o = 'Sort' },
+  -- Add general keys.
+  wk.add({
+    {
+      mode = { 'n', 'v' },
+      { "'", desc = 'Marks' },
+      { '"', desc = 'Registers' },
+      { '<C-q>', desc = 'Quickfix' },
+      { '<C-w>', desc = 'Window' },
+      { '@', desc = 'Registers' },
+      { '[', desc = 'Previous' },
+      { ']', desc = 'Next' },
+      { '`', desc = 'Marks' },
+      { 'go', desc = 'Sort' },
+      { 'gq', desc = 'Format' },
+    },
   })
 
-  local inner_textobjects = {
-    [' '] = 'Whitespace',
-    ['"'] = '"',
-    ["'"] = "'",
-    ['`'] = '`',
-    ['('] = '(',
-    [')'] = ') including white-space',
-    ['>'] = '> including white-space',
-    ['<lt>'] = '<',
-    [']'] = '] including white-space',
-    ['['] = '[',
-    ['}'] = '} including white-space',
-    ['{'] = '{',
-    ['?'] = 'User prompt',
-    _ = 'Underscore',
-    a = 'Argument',
-    b = '), ], }',
-    B = '], }',
-    c = 'Class',
-    f = 'Function',
-    i = 'Indentation',
-    o = 'Block, conditional, loop',
-    p = 'Paragraph',
-    q = 'Quote `, ", \'',
-    s = 'Sentence',
-    t = 'Tag',
-    w = 'word',
-    W = 'WORD',
+  local ai_objects = {
+    { "'", desc = "' string" },
+    { ' ', desc = 'whitespace' },
+    { '"', desc = '" string' },
+    { '(', desc = '() block' },
+    { ')', desc = '() block with ws' },
+    { '<', desc = '<> block' },
+    { '>', desc = '<> block with ws' },
+    { '?', desc = 'user prompt' },
+    { 'U', desc = 'use/call without dot' },
+    { '[', desc = '[] block' },
+    { ']', desc = '[] block with ws' },
+    { '_', desc = 'underscore' },
+    { '`', desc = '` string' },
+    { 'a', desc = 'argument' },
+    { 'b', desc = ')]} block' },
+    { 'd', desc = 'digit(s)' },
+    { 'e', desc = 'CamelCase / snake_case' },
+    { 'g', desc = 'entire file' },
+    { 'i', desc = 'indent' },
+    { 'o', desc = 'block, conditional, loop' },
+    { 'q', desc = 'quote `"\'' },
+    { 't', desc = 'tag' },
+    { '{', desc = '{} block' },
+    { '}', desc = '{} with ws' },
   }
-  local around_textobjects = vim.deepcopy(inner_textobjects)
 
-  for key, description in pairs(inner_textobjects) do
-    around_textobjects[key] = description:gsub(' including.*', '')
+  local ret = { mode = { 'o', 'x' } }
+  local mappings = vim.tbl_extend('force', {}, {
+    around = 'a',
+    inside = 'i',
+    around_next = 'an',
+    inside_next = 'in',
+    around_last = 'al',
+    inside_last = 'il',
+  }, opts.mappings or {})
+  mappings.goto_left = nil
+  mappings.goto_right = nil
+
+  for name, prefix in pairs(mappings) do
+    name = name:gsub('^around_', ''):gsub('^inside_', '')
+    ret[#ret + 1] = { prefix, group = name }
+    for _, obj in ipairs(ai_objects) do
+      local desc = obj.desc
+      if prefix:sub(1, 1) == 'i' then
+        desc = desc:gsub(' with ws', '')
+      end
+      ret[#ret + 1] = { prefix .. obj[1], desc = obj.desc }
+    end
   end
 
-  -- Register textobjects keys.
-  require('which-key').register({
-    mode = { 'o', 'x' },
-    i = inner_textobjects,
-    a = around_textobjects,
-  })
+  wk.add(ret, { notify = false })
 end
 
 return M
