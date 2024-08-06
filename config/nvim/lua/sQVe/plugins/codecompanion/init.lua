@@ -4,6 +4,7 @@
 -- Interact with LLMs.
 
 local format_lines = require('sQVe.utils.format_lines')
+local autocmd = require('sQVe.utils.autocmd')
 
 local actions = require('sQVe.plugins.codecompanion.actions')
 local adapters = require('sQVe.plugins.codecompanion.adapters')
@@ -42,9 +43,20 @@ M.opts = function()
     adapters = {
       openai = adapters.openai(),
     },
-    default_prompts = {
-      system = format_lines({
-        "You are an AI programming assistant. Follow the user's requirements precisely.  Keep answers short and impersonal.",
+    display = {
+      action_palette = { width = 80, height = 10, relative = 'editor' },
+      chat = {
+        intro_message = '',
+        show_settings = true,
+        window = {
+          layout = 'vertical',
+          opts = { cursorcolumn = false, cursorline = false },
+        },
+      },
+    },
+    opts = {
+      system_prompt = format_lines({
+        "You are an AI programming assistant. Follow the user's requirements precisely. Keep answers short and impersonal.",
         '',
         'Approach your answers in the following way:',
         '',
@@ -56,26 +68,14 @@ M.opts = function()
         '',
         'The active document is the source code the user is looking at right now. You can only give one reply for each conversation turn',
       }),
+      use_default_actions = false,
+      use_default_prompts = false,
     },
-    display = {
-      action_palette = {
-        width = 80,
-        height = 10,
-        relative = 'editor',
-      },
+    strategies = {
       chat = {
-        window = {
-          layout = 'buffer',
-          opts = {
-            cursorcolumn = false,
-            cursorline = false,
-          },
-        },
-        intro_message = '',
+        roles = { llm = 'Assistant', user = 'User' },
       },
     },
-    use_default_actions = false,
-    use_default_prompts = false,
   }
 end
 
@@ -83,6 +83,21 @@ M.config = function(_, opts)
   ui.override()
 
   require('codecompanion').setup(opts)
+
+  autocmd('WinClosed', {
+    group = 'CloseCodeCompanionChatWindow',
+    callback = function(args)
+      local bufnr = args.buf
+
+      if vim.bo[bufnr].filetype == 'codecompanion' then
+        local last_chat = require('codecompanion.strategies.chat').last_chat()
+
+        if last_chat ~= nil then
+          last_chat:close()
+        end
+      end
+    end,
+  })
 end
 
 return M

@@ -20,7 +20,7 @@ M.chat = function()
         {
           role = 'user',
           content = function(context)
-            local text = require('codecompanion.helpers.code').get_code(
+            local text = require('codecompanion.helpers.actions').get_code(
               context.start_line,
               context.end_line
             )
@@ -64,7 +64,7 @@ M.condense_text = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.code').get_code(
+          local text = require('codecompanion.helpers.actions').get_code(
             context.start_line,
             context.end_line
           )
@@ -144,7 +144,7 @@ M.debug_code_diagnostics = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.code').get_code(
+          local text = require('codecompanion.helpers.actions').get_code(
             context.start_line,
             context.end_line,
             { show_line_numbers = true }
@@ -186,7 +186,7 @@ M.enhance_text_readability = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.code').get_code(
+          local text = require('codecompanion.helpers.actions').get_code(
             context.start_line,
             context.end_line
           )
@@ -228,7 +228,7 @@ M.explain_code = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.code').get_code(
+          local text = require('codecompanion.helpers.actions').get_code(
             context.start_line,
             context.end_line
           )
@@ -269,7 +269,7 @@ M.generate_docstring = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.code').get_code(
+          local text = require('codecompanion.helpers.actions').get_code(
             context.start_line,
             context.end_line
           )
@@ -363,7 +363,7 @@ M.generate_unit_tests = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.code').get_code(
+          local text = require('codecompanion.helpers.actions').get_code(
             context.start_line,
             context.end_line
           )
@@ -404,7 +404,7 @@ M.improve_code = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.code').get_code(
+          local text = require('codecompanion.helpers.actions').get_code(
             context.start_line,
             context.end_line
           )
@@ -446,7 +446,7 @@ M.proofread_text = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.code').get_code(
+          local text = require('codecompanion.helpers.actions').get_code(
             context.start_line,
             context.end_line
           )
@@ -489,7 +489,7 @@ M.rephrase_text = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.code').get_code(
+          local text = require('codecompanion.helpers.actions').get_code(
             context.start_line,
             context.end_line
           )
