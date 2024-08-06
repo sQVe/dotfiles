@@ -1,3 +1,4 @@
+@ast-grep/cli
 @cucumber/language-server
 @fsouza/prettierd
 @vtsls/language-server

@@ -9,7 +9,11 @@ local M = {
 }
 
 M.opts = {
+  engines = {
+    astgrep = { path = 'ast-grep' },
+  },
   keymaps = {
+    abort = { n = '<C-c>' },
     close = { n = '<Leader>q' },
     gotoLocation = { n = '<CR>' },
     historyAdd = { n = '' },
@@ -20,6 +24,7 @@ M.opts = {
     replace = { n = '<C-CR>' },
     syncLine = { n = '-' },
     syncLocations = { n = '=' },
+    swapEngine = { n = '<C-s>' },
   },
 }
 
