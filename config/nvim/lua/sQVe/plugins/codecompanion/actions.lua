@@ -517,7 +517,8 @@ M.write_commit_message = function()
       return context.filetype == 'gitcommit' and context.is_normal
     end,
     name = 'Write a commit message',
-    strategy = 'inline',
+    opts = { auto_submit = true },
+    strategy = 'chat',
     prompts = {
       {
         role = 'system',
