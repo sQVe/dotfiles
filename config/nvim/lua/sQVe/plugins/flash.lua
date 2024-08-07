@@ -30,7 +30,6 @@ local M = {
 
 M.opts = {
   label = { after = false, before = true },
-  search = { mode = 'fuzzy' },
 }
 
 return M

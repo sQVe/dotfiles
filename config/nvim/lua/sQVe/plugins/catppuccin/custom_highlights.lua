@@ -24,17 +24,9 @@ return function(theme)
     Special = { fg = theme.subtext0 },
 
     -- Flash.
-    FlashLabel = { fg = theme.sky, bg = 'none', bold = true },
-    FlashCurrent = { fg = theme.subtext1, bg = 'none', },
-    FlashMatch = { fg = theme.subtext1, bg = 'none' },
-
-    -- Headlines.
-    Headline1 = { bg = theme.surface0, bold = true },
-    Headline2 = { bg = theme.surface0, bold = true },
-    Headline3 = { bg = theme.surface0, bold = true },
-    Headline4 = { bg = theme.surface0, bold = true },
-    Headline5 = { bg = theme.surface0, bold = true },
-    Headline6 = { bg = theme.surface0, bold = true },
+    FlashLabel = { fg = theme.yellow, bg = 'none', bold = true },
+    FlashCurrent = { fg = theme.subtext1, bg = 'none', bold = true },
+    FlashMatch = { fg = theme.subtext0, bg = 'none' },
 
     -- Illuminate.
     IlluminatedWordRead = { bg = theme.none, underline = true },
