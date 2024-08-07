@@ -8,6 +8,21 @@ local M = {
   ft = 'markdown',
 }
 
-M.opts = {}
+M.opts = {
+  preset = 'lazy',
+  checkbox = {
+    custom = {
+      skip = {
+        raw = '[-]',
+        rendered = '󱋭 ',
+        highlight = 'RenderMarkdownUnchecked',
+      },
+    },
+  },
+  code = {
+    left_pad = 2,
+    right_pad = 2,
+  },
+}
 
 return M

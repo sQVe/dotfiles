@@ -29,6 +29,7 @@ return {
       information = { 'italic' },
     },
   },
+  render_markdown = true,
   semantic_tokens = true,
   telescope = { enabled = true },
   treesitter = true,
