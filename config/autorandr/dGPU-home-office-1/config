@@ -1,8 +1,10 @@
 output DP-1
 off
+output DP-2
+off
 output HDMI-0
 off
-output DP-2
+output None-1-1
 off
 output DP-0
 mode 3440x1440
