@@ -188,6 +188,13 @@ M.find_files_in_subdirectory = {
   name = 'Find file from buffer path',
 }
 
+M.find_note = {
+  callback = function()
+    require('notebox.telescope').find_note()
+  end,
+  name = 'Find note',
+}
+
 M.git_status = {
   callback = function(opts)
     require('sQVe.plugins.telescope.pickers').git_status(
@@ -257,6 +264,13 @@ M.live_grep_in_subdirectory = {
       and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = 'Live grep from buffer path',
+}
+
+M.live_grep_note = {
+  callback = function()
+    require('notebox.telescope').live_grep_note()
+  end,
+  name = 'Live grep note',
 }
 
 M.markdown_preview = {
