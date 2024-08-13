@@ -25,8 +25,6 @@ require('lazy').setup('sQVe.plugins', {
     rtp = {
       disabled_plugins = {
         'gzip',
-        'matchit',
-        'matchparen',
         'netrwPlugin',
         'tarPlugin',
         'tohtml',
