@@ -19,6 +19,7 @@ M.custom_eslint_d_parser = function(output, bufnr)
 
   local ignored_codes = {}
   local ignored_messages = {
+    'Could not parse linter output due to: Expected value but found invalid token at character 1',
     'output: Error: No ESLint configuration found',
     'output: No ESLint found',
   }
