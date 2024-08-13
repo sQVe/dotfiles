@@ -23,6 +23,11 @@ M.opts = {
     left_pad = 2,
     right_pad = 2,
   },
+  overrides = {
+    buftype = {
+      nofile = { enabled = false },
+    },
+  },
 }
 
 return M

@@ -34,8 +34,13 @@ M.config = function(_, opts)
   mini_files.setup(opts)
 
   map('n', 'Ä', function()
+    local bufnr = buffer.get_bufnr()
+
     if not mini_files.close() then
-      mini_files.open(buffer.get_path(), false)
+      mini_files.open(
+        buffer.is_valid(bufnr) and buffer.get_path(bufnr) or nil,
+        false
+      )
     end
   end, { desc = 'Open file tree' })
 
