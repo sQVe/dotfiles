@@ -55,7 +55,7 @@ M.condense_text = function()
       {
         role = 'system',
         content = format_lines({
-          'Condense the text.',
+          'Your task is to condense the text.',
           'Strive for simple, clear language, avoiding complexity or ambiguity.',
           'Start your response with the condensed text in a code block.',
           'End your response with a concise list of the changes made.',
@@ -103,7 +103,7 @@ M.debug_code_diagnostics = function()
       {
         role = 'system',
         content = format_lines({
-          'Debug the code diagnostics.',
+          'Your task is to debug the code diagnostics.',
           'Explain the diagnostics in a structured way and provide code snippets to help fix the issues when possible.',
         }),
       },
@@ -179,7 +179,7 @@ M.enhance_text_readability = function()
       {
         role = 'system',
         content = format_lines({
-          'Enhance the readability of the text.',
+          'Your task is to enhance the readability of the text.',
           'Your response should contain the enhanced text, together with a structured explanation of the changes made.',
         }),
       },
@@ -220,7 +220,7 @@ M.explain_code = function()
       {
         role = 'system',
         content = format_lines({
-          'Explain the code.',
+          'Your task is to explain the code.',
           'Thoroughly explain the code I am looking at.',
           'The explanation should be clear, concise, and easy to understand.',
         }),
@@ -262,7 +262,7 @@ M.generate_docstring = function()
       {
         role = 'system',
         content = format_lines({
-          'Generate a docstring.',
+          'Your task is to generate a docstring.',
           'Only provide the docstring, without any other text.',
         }),
       },
@@ -310,7 +310,7 @@ M.generate_pull_request_description = function()
       {
         role = 'system',
         content = format_lines({
-          'Generate a very concise and structured pull request description based on the provided diffs. It must be easy to parse for reviewers.',
+          'Your task is to generate a very concise and structured pull request description based on the provided diffs. It must be easy to parse for reviewers.',
           'The description should always include:',
           '- A summary of the changes under a ### Overview heading.',
           '- A bulleted list of the main changes under a ### Key Changes heading.',
@@ -355,7 +355,7 @@ M.generate_unit_tests = function()
       {
         role = 'system',
         content = format_lines({
-          'Generate a unit tests.',
+          'Your task is to generate unit tests.',
           'Your response should contain the unit tests, testing each possible state of the unit.',
           'Use `vitest` as the test runner and `@testing-library` for any DOM-related tests.',
         }),
@@ -397,7 +397,7 @@ M.improve_code = function()
       {
         role = 'system',
         content = format_lines({
-          'Improve the code.',
+          'Your task is to improve the code.',
           'Your response should contain the improved code, together with a structured explanation of the changes made.',
         }),
       },
@@ -438,7 +438,7 @@ M.proofread_text = function()
       {
         role = 'system',
         content = format_lines({
-          'Proofread the text.',
+          'Your task is to proofread the text.',
           'Strive for simple, clear language, avoiding complexity or ambiguity. Do not focus on any code syntax issues.',
           'End your response with a concise list of the changes made.',
         }),
@@ -480,7 +480,7 @@ M.rephrase_text = function()
       {
         role = 'system',
         content = format_lines({
-          'Rephrase the text.',
+          'Your task is to rephrase the text.',
           'Strive for simple, clear language, avoiding complexity or ambiguity.',
           'Start your response with the rephrased text in a code block.',
           'End your response with a concise list of the changes made.',
@@ -523,7 +523,7 @@ M.write_commit_message = function()
       {
         role = 'system',
         content = format_lines({
-          'Generate a commit message.',
+          'Your task is to generate a commit message.',
           'Follow the conventional commits specification without a description.',
           'Keep the message under 80 characters. Output must be raw text without code blocks.',
         }),
