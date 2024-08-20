@@ -22,7 +22,7 @@ xss-lock -l -- lock &
 libinput-gestures-setup start &
 
 # Set background color.
-xsetroot -solid '#282828'
+xsetroot -solid '#222222'
 
 # Set screensaver timer.
 xset s 240 0

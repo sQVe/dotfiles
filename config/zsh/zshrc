@@ -158,7 +158,7 @@ export FZF_ALT_C_OPTS="--preview 'eza -T -L 1 --group-directories-first --color=
 export FZF_CTRL_T_COMMAND="command fd --hidden --follow --exclude '.git' --exclude '.steam' --exclude 'Steam'"
 export FZF_CTRL_T_OPTS="--preview 'bat --color=always {} 2> /dev/null || eza -T -L 1 --group-directories-first --color=always {}'"
 export FZF_DEFAULT_COMMAND="command fd --hidden --follow --exclude '.git' --exclude '.steam' --exclude 'Steam'"
-export FZF_DEFAULT_OPTS="--bind ctrl-a:toggle-all,ctrl-b:page-up,ctrl-d:half-page-down,ctrl-f:page-down,ctrl-u:half-page-up --color=bg+:#282828,spinner:#b16286,hl:#b16286 --color=fg:#ebdbb2,info:#458588,pointer:#98971a --color=marker:#98971a,hl+:#98971a --reverse --tiebreak=length,end --preview 'bat --color=always {} 2> /dev/null || eza -T -L 1 --group-directories-first --color=always {} 2> /dev/null || echo {}' --preview-window 'down:50%'"
+export FZF_DEFAULT_OPTS="--bind ctrl-a:toggle-all,ctrl-b:page-up,ctrl-d:half-page-down,ctrl-f:page-down,ctrl-u:half-page-up --color=bg+:#222222,spinner:#b16286,hl:#b16286 --color=fg:#ebdbb2,info:#458588,pointer:#98971a --color=marker:#98971a,hl+:#98971a --reverse --tiebreak=length,end --preview 'bat --color=always {} 2> /dev/null || eza -T -L 1 --group-directories-first --color=always {} 2> /dev/null || echo {}' --preview-window 'down:50%'"
 
 
 #  ┏━┓╻  ╻┏━┓┏━┓┏━╸┏━┓
@@ -212,7 +212,7 @@ alias bluetooth=bluetoothctl
 alias cheat='cht.sh'
 alias chrome=open-chrome
 alias fd="fd --hidden --follow --exclude .git --exclude '.steam' --exclude 'Steam'"
-alias feh='feh --scale-down --auto-zoom --image-bg "#282828"'
+alias feh='feh --scale-down --auto-zoom --image-bg "#222222"'
 alias fm=yazi
 alias format='npx prettier --write'
 alias gh='gh'

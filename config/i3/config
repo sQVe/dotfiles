@@ -11,7 +11,7 @@ set $alt Mod1
 set $mod Mod4
 
 set $font monospace 10
-set $color-bg #282828
+set $color-bg #222222
 set $color-bg-active #504945
 set $color-bg-focused #ebdbb2
 set $color-border-active #a89984

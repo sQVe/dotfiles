@@ -22,7 +22,7 @@ Xcursor.size:  24
 ! ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 *.cursor:     #a8a19f
 *.foreground: #ebdbb2
-*.background: #282828
+*.background: #222222
 *.color0:     #000000
 *.color1:     #cc241d
 *.color2:     #98971a

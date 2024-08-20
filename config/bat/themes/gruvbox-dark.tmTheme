@@ -18,7 +18,7 @@
         <key>settings</key>
         <dict>
           <key>background</key>
-          <string>#282828</string>
+          <string>#222222</string>
           <key>caret</key>
           <string>#a89984</string>
           <key>foreground</key>
@@ -54,7 +54,7 @@
           <key>findHighlight</key>
           <string>#d79921</string>
           <key>findHighlightForeground</key>
-          <string>#282828</string>
+          <string>#222222</string>
           <key>tagsOptions</key>
           <string>underline</string>
           <key>selectionBorder</key>
@@ -1298,7 +1298,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#282828</string>
+          <string>#222222</string>
           <key>background</key>
           <string>#fabd2f</string>
         </dict>
@@ -1311,7 +1311,7 @@
         <key>settings</key>
         <dict>
           <key>foreground</key>
-          <string>#282828</string>
+          <string>#222222</string>
           <key>background</key>
           <string>#fe8019</string>
         </dict>

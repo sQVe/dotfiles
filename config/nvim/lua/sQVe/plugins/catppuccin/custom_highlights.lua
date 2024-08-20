@@ -34,9 +34,9 @@ return function(theme)
     IlluminatedWordWrite = { bg = theme.none, underline = true },
 
     -- Input.
-    InputBorder = { fg = colors.custom.inset, bg = colors.custom.inset },
-    InputNormat = { fg = theme.text, bg = colors.custom.inset },
-    InputTitle = { fg = colors.custom.inset, bg = theme.peach, bold = true },
+    InputBorder = { fg = theme.crust, bg = theme.crust },
+    InputNormal = { fg = theme.text, bg = theme.crust },
+    InputTitle = { fg = theme.crust, bg = theme.peach, bold = true },
 
     -- LSP.
     LspCodeLens = { fg = theme.surface2, italic = true },
@@ -85,16 +85,9 @@ return function(theme)
     TelescopeSelectionCaret = { fg = theme.yellow, bg = 'NONE' },
     TelescopeMultiSelection = { fg = theme.pink, bg = 'NONE' },
     TelescopeMatching = { fg = theme.blue },
-    TelescopePromptNormal = { fg = theme.text, bg = colors.custom.inset },
-    TelescopePromptBorder = {
-      fg = colors.custom.inset,
-      bg = colors.custom.inset,
-    },
-    TelescopePromptTitle = {
-      fg = colors.custom.inset,
-      bg = theme.peach,
-      bold = true,
-    },
+    TelescopePromptNormal = { fg = theme.text, bg = theme.crust },
+    TelescopePromptBorder = { fg = theme.crust, bg = theme.crust },
+    TelescopePromptTitle = { fg = theme.crust, bg = theme.peach, bold = true },
     TelescopePreviewTitle = { fg = theme.overlay2, italic = true },
 
     -- Treesitter.
@@ -122,7 +115,7 @@ return function(theme)
     ['@variable.parameter'] = { fg = theme.peach },
 
     -- Treesitter context.
-    TreesitterContext = { bg = colors.custom.inset },
-    TreesitterContextLineNumber = { bg = colors.custom.inset },
+    TreesitterContext = { bg = theme.crust },
+    TreesitterContextLineNumber = { bg = theme.crust },
   }
 end
