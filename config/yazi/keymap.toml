@@ -11,8 +11,6 @@ keymap = [
 	{ on = [ "k" ], run = "arrow -1", desc = "Move cursor up" },
 	{ on = [ "j" ], run = "arrow 1",  desc = "Move cursor down" },
 
-	{ on = [ "K" ], run = "arrow -5", desc = "Move cursor up 5 lines" },
-	{ on = [ "J" ], run = "arrow 5",  desc = "Move cursor down 5 lines" },
 
 	{ on = [ "<S-Up>" ],   run = "arrow -5", desc = "Move cursor up 5 lines" },
 	{ on = [ "<S-Down>" ], run = "arrow 5",  desc = "Move cursor down 5 lines" },
@@ -27,16 +25,11 @@ keymap = [
 	{ on = [ "<PageUp>" ],     run = "arrow -100%", desc = "Move cursor up one page" },
 	{ on = [ "<PageDown>" ],   run = "arrow 100%",  desc = "Move cursor down one page" },
 
-	{ on = [ "h" ], run = [ "leave", "escape --visual --select" ], desc = "Go back to the parent directory" },
-	{ on = [ "l" ], run = [ "enter", "escape --visual --select" ], desc = "Enter the child directory" },
+	{ on = [ "h" ], run = "leave", desc = "Go back to the parent directory" },
+	{ on = [ "l" ], run = "enter", desc = "Enter the child directory" },
 
 	{ on = [ "H" ], run = "back",    desc = "Go back to the previous directory" },
 	{ on = [ "L" ], run = "forward", desc = "Go forward to the next directory" },
-
-	{ on = [ "<A-k>" ], run = "seek -5", desc = "Seek up 5 units in the preview" },
-	{ on = [ "<A-j>" ], run = "seek 5",  desc = "Seek down 5 units in the preview" },
-	{ on = [ "<A-PageUp>" ],   run = "seek -5", desc = "Seek up 5 units in the preview" },
-	{ on = [ "<A-PageDown>" ], run = "seek 5",  desc = "Seek down 5 units in the preview" },
 
 	{ on = [ "<Up>" ],    run = "arrow -1", desc = "Move cursor up" },
 	{ on = [ "<Down>" ],  run = "arrow 1",  desc = "Move cursor down" },
@@ -46,6 +39,10 @@ keymap = [
 	{ on = [ "g", "g" ], run = "arrow -99999999", desc = "Move cursor to the top" },
 	{ on = [ "G" ],      run = "arrow 99999999",  desc = "Move cursor to the bottom" },
 
+  # Preview
+	{ on = "K", run = "seek -5", desc = "Seek up 5 units in the preview" },
+	{ on = "J", run = "seek 5",  desc = "Seek down 5 units in the preview" },
+
 	# Selection
 	{ on = [ "<Space>" ], run = [ "select --state=none", "arrow 1" ], desc = "Toggle the current selection state" },
 	{ on = [ "v" ],       run = "visual_mode",                        desc = "Enter visual mode (selection mode)" },
@@ -54,33 +51,38 @@ keymap = [
 	{ on = [ "<C-r>" ],   run = "select_all --state=none",            desc = "Inverse selection of all files" },
 
 	# Operation
-	{ on = [ "o" ],         run = "open",                                                 desc = "Open the selected files" },
-	{ on = [ "O" ],         run = "open --interactive",                                   desc = "Open the selected files interactively" },
-	{ on = [ "<Enter>" ],   run = "open",                                                 desc = "Open the selected files" },
-	{ on = [ "<C-Enter>" ], run = "open --interactive",                                   desc = "Open the selected files interactively" },
-	{ on = [ "y" ],         run = [ "yank", "escape --visual --select" ],                 desc = "Copy the selected files" },
-	{ on = [ "x" ],         run = [ "yank --cut", "escape --visual --select" ],           desc = "Cut the selected files" },
-	{ on = [ "p" ],         run = "paste",                                                desc = "Paste the files" },
-	{ on = [ "P" ],         run = "paste --force",                                        desc = "Paste the files (overwrite if the destination exists)" },
-	{ on = [ "-" ],         run = "link",                                                 desc = "Symlink the absolute path of files" },
-	{ on = [ "_" ],         run = "link --relative",                                      desc = "Symlink the relative path of files" },
-	{ on = [ "d" ],         run = [ "remove", "escape --visual --select" ],               desc = "Move the files to the trash" },
-	{ on = [ "D" ],         run = [ "remove --permanently", "escape --visual --select" ], desc = "Permanently delete the files" },
-	{ on = [ "a" ],         run = "create",                                               desc = "Create a file or directory (ends with / for directories)" },
-	{ on = [ "r" ],         run = "rename --cursor=before_ext",                           desc = "Rename a file or directory" },
-	{ on = [ ";" ],         run = "shell --interactive",                                                desc = "Run a shell command" },
-	{ on = [ ":" ],         run = "shell --interactive --block",                                        desc = "Run a shell command (block the UI until the command finishes)" },
-	{ on = [ "." ],         run = "hidden toggle",                                        desc = "Toggle the visibility of hidden files" },
-	{ on = [ "s" ],         run = "search fd",                                            desc = "Search files by name using fd" },
-	{ on = [ "S" ],         run = "search rg",                                            desc = "Search files by content using ripgrep" },
-	{ on = [ "<C-s>" ],     run = "search none",                                          desc = "Cancel the ongoing search" },
-	{ on = [ "z" ],         run = "jump zoxide",                                          desc = "Jump to a directory using zoxide" },
-	{ on = [ "Z" ],         run = "jump fzf",                                             desc = "Jump to a directory, or reveal a file using fzf" },
+  { on = "o",         run = "open",                        desc = "Open selected files" },
+	{ on = "O",         run = "open --interactive",          desc = "Open selected files interactively" },
+	{ on = "<Enter>",   run = "open",                        desc = "Open selected files" },
+	{ on = "<S-Enter>", run = "open --interactive",          desc = "Open selected files interactively" },
+	{ on = "y",         run = "yank",                        desc = "Yank selected files (copy)" },
+	{ on = "x",         run = "yank --cut",                  desc = "Yank selected files (cut)" },
+	{ on = "p",         run = "paste",                       desc = "Paste yanked files" },
+	{ on = "P",         run = "paste --force",               desc = "Paste yanked files (overwrite if the destination exists)" },
+	{ on = "-",         run = "link",                        desc = "Symlink the absolute path of yanked files" },
+	{ on = "_",         run = "link --relative",             desc = "Symlink the relative path of yanked files" },
+	{ on = "<C-->",     run = "hardlink",                    desc = "Hardlink yanked files" },
+	{ on = "Y",         run = "unyank",                      desc = "Cancel the yank status" },
+	{ on = "X",         run = "unyank",                      desc = "Cancel the yank status" },
+	{ on = "d",         run = "remove",                      desc = "Trash selected files" },
+	{ on = "D",         run = "remove --permanently",        desc = "Permanently delete selected files" },
+	{ on = "a",         run = "create",                      desc = "Create a file (ends with / for directories)" },
+	{ on = "r",         run = "rename --cursor=before_ext",  desc = "Rename selected file(s)" },
+	{ on = ";",         run = "shell --interactive",         desc = "Run a shell command" },
+	{ on = ":",         run = "shell --block --interactive", desc = "Run a shell command (block until finishes)" },
+	{ on = ".",         run = "hidden toggle",               desc = "Toggle the visibility of hidden files" },
+	{ on = "s",         run = "search fd",                   desc = "Search files by name using fd" },
+	{ on = "S",         run = "search rg",                   desc = "Search files by content using ripgrep" },
+	{ on = "<C-s>",     run = "escape --search",             desc = "Cancel the ongoing search" },
+	{ on = "z",         run = "plugin zoxide",               desc = "Jump to a directory using zoxide" },
+	{ on = "Z",         run = "plugin fzf",                  desc = "Jump to a directory or reveal a file using fzf" },
 
-	# Linemode
+  # Linemode
 	{ on = [ "m", "s" ], run = "linemode size",        desc = "Set linemode to size" },
 	{ on = [ "m", "p" ], run = "linemode permissions", desc = "Set linemode to permissions" },
+	{ on = [ "m", "c" ], run = "linemode ctime",       desc = "Set linemode to ctime" },
 	{ on = [ "m", "m" ], run = "linemode mtime",       desc = "Set linemode to mtime" },
+	{ on = [ "m", "o" ], run = "linemode owner",       desc = "Set linemode to owner" },
 	{ on = [ "m", "n" ], run = "linemode none",        desc = "Set linemode to none" },
 
 	# Copy
@@ -98,19 +100,20 @@ keymap = [
 	{ on = [ "n" ], run = "find_arrow",              desc = "Go to next found file" },
 	{ on = [ "N" ], run = "find_arrow --previous",   desc = "Go to previous found file" },
 
-	# Sorting
-	{ on = [ ",", "m" ], run = "sort modified --dir-first",               desc = "Sort by modified time" },
-	{ on = [ ",", "M" ], run = "sort modified --reverse --dir-first",     desc = "Sort by modified time (reverse)" },
-	{ on = [ ",", "c" ], run = "sort created --dir-first",                desc = "Sort by created time" },
-	{ on = [ ",", "C" ], run = "sort created --reverse --dir-first",      desc = "Sort by created time (reverse)" },
-	{ on = [ ",", "e" ], run = "sort extension --dir-first",         	   desc = "Sort by extension" },
-	{ on = [ ",", "E" ], run = "sort extension --reverse --dir-first",    desc = "Sort by extension (reverse)" },
-	{ on = [ ",", "a" ], run = "sort alphabetical --dir-first",           desc = "Sort alphabetically" },
-	{ on = [ ",", "A" ], run = "sort alphabetical --reverse --dir-first", desc = "Sort alphabetically (reverse)" },
-	{ on = [ ",", "n" ], run = "sort natural --dir-first",                desc = "Sort naturally" },
-	{ on = [ ",", "N" ], run = "sort natural --reverse --dir-first",      desc = "Sort naturally (reverse)" },
-	{ on = [ ",", "s" ], run = "sort size --dir-first",                   desc = "Sort by size" },
-	{ on = [ ",", "S" ], run = "sort size --reverse --dir-first",         desc = "Sort by size (reverse)" },
+  # Sorting
+	{ on = [ ",", "m" ], run = [ "sort modified --reverse=no", "linemode mtime" ], desc = "Sort by modified time" },
+	{ on = [ ",", "M" ], run = [ "sort modified --reverse", "linemode mtime" ],    desc = "Sort by modified time (reverse)" },
+	{ on = [ ",", "c" ], run = [ "sort created --reverse=no", "linemode ctime" ],  desc = "Sort by created time" },
+	{ on = [ ",", "C" ], run = [ "sort created --reverse", "linemode ctime" ],     desc = "Sort by created time (reverse)" },
+	{ on = [ ",", "e" ], run = "sort extension --reverse=no",                      desc = "Sort by extension" },
+	{ on = [ ",", "E" ], run = "sort extension --reverse",                         desc = "Sort by extension (reverse)" },
+	{ on = [ ",", "a" ], run = "sort alphabetical --reverse=no",                   desc = "Sort alphabetically" },
+	{ on = [ ",", "A" ], run = "sort alphabetical --reverse",                      desc = "Sort alphabetically (reverse)" },
+	{ on = [ ",", "n" ], run = "sort natural --reverse=no",                        desc = "Sort naturally" },
+	{ on = [ ",", "N" ], run = "sort natural --reverse",                           desc = "Sort naturally (reverse)" },
+	{ on = [ ",", "s" ], run = [ "sort size --reverse=no", "linemode size" ],      desc = "Sort by size" },
+	{ on = [ ",", "S" ], run = [ "sort size --reverse", "linemode size" ],         desc = "Sort by size (reverse)" },
+	{ on = [ ",", "r" ], run = "sort random --reverse=no",                         desc = "Sort randomly" },
 
 	# Tabs
 	{ on = [ "t" ], run = "tab_create --current", desc = "Create a new tab using the current path" },
