@@ -14,9 +14,9 @@ local M = {
 M.opts = {
   mappings = {
     go_in = '',
-    go_in_plus = '<CR>',
+    go_in_plus = 'l',
     go_out = '',
-    go_out_plus = '<BS>',
+    go_out_plus = 'h',
     reset = '',
   },
   windows = {
@@ -50,12 +50,14 @@ M.config = function(_, opts)
     callback = function(args)
       local buf_id = args.data.buf_id
 
-      vim.keymap.set('n', '<Esc>', mini_files.close, { buffer = buf_id })
-      vim.keymap.set('n', '<S-Backspace>', function()
-        mini_files.open(nil, false)
+      map('n', '<CR>', function()
+        for _ = 1, vim.v.count1 do
+          mini_files.go_in({ close_on_file = true })
+        end
       end, { buffer = buf_id })
-      vim.keymap.set('n', '<Tab>', '', { buffer = buf_id })
-      vim.keymap.set('n', '<S-Tab>', '', { buffer = buf_id })
+      map('n', '<Esc>', mini_files.close, { buffer = buf_id })
+      map('n', '<Tab>', '', { buffer = buf_id })
+      map('n', '<S-Tab>', '', { buffer = buf_id })
     end,
   })
 end
