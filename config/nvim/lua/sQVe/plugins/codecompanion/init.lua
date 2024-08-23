@@ -49,7 +49,7 @@ M.opts = function()
         intro_message = '',
         show_settings = true,
         window = {
-          layout = 'vertical',
+          layout = 'buffer',
           opts = { cursorcolumn = false, cursorline = false },
         },
       },
