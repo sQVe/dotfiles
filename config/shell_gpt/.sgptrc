@@ -1,4 +1,4 @@
-CHAT_CACHE_PATH=/home/sqve/.pcache/shell-gpt
+CHAT_CACHE_PATH=/home/sqve/.cache/shell-gpt
 CACHE_PATH=/tmp/shell-gpt/cache
 CHAT_CACHE_LENGTH=100
 CACHE_LENGTH=100

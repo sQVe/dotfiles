@@ -257,7 +257,6 @@ rules = [
 	{ name = ".git/",       text = "󰊢 " },
 	{ name = ".gnupg/",     text = "󰢬 " },
 	{ name = ".passwords/", text = "󰉐 " },
-	{ name = ".pcache/",    text = "󰴋 " },
 	{ name = "code/",       text = "󰴉 " },
 	{ name = "download/",   text = "󰉍 " },
 	{ name = "home/",       text = "󱂵 " },
