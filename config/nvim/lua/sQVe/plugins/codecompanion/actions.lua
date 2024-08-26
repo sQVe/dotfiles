@@ -20,21 +20,11 @@ M.chat = function()
         {
           role = 'user',
           content = function(context)
-            local text = require('codecompanion.helpers.actions').get_code(
-              context.start_line,
-              context.end_line
-            )
-
             return format_lines(
               {
                 'I have the following text in `%s`:',
-                '```%s',
-                '%s',
-                '```',
               },
-              path.get_basename(buffer.get_path(context.bufnr)),
-              context.filetype,
-              text
+              path.get_basename(buffer.get_path(context.bufnr))
             )
           end,
         },
@@ -64,21 +54,11 @@ M.condense_text = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.actions').get_code(
-            context.start_line,
-            context.end_line
-          )
-
           return format_lines(
             {
               'I have the following text in `%s`:',
-              '```%s',
-              '%s',
-              '```',
             },
-            path.get_basename(buffer.get_path(context.bufnr)),
-            context.filetype,
-            text
+            path.get_basename(buffer.get_path(context.bufnr))
           )
         end,
       },
@@ -111,28 +91,28 @@ M.debug_code_diagnostics = function()
         role = 'user',
         content = function(context)
           local diagnostics =
-            require('codecompanion.helpers.lsp').get_diagnostics(
-              context.start_line,
-              context.end_line,
-              context.bufnr
-            )
+              require('codecompanion.helpers.lsp').get_diagnostics(
+                context.start_line,
+                context.end_line,
+                context.bufnr
+              )
 
           local concatenated_diagnostics = ''
           for index, diagnostic in ipairs(diagnostics) do
             concatenated_diagnostics = concatenated_diagnostics
-              .. format_lines(
-                {
-                  'Issue %s:',
-                  '- Line: %s',
-                  '- Message: %s',
-                  '- Severity: %s',
-                  '',
-                },
-                index,
-                diagnostic.line_number,
-                diagnostic.severity,
-                diagnostic.message
-              )
+                .. format_lines(
+                  {
+                    'Issue %s:',
+                    '- Line: %s',
+                    '- Message: %s',
+                    '- Severity: %s',
+                    '',
+                  },
+                  index,
+                  diagnostic.line_number,
+                  diagnostic.severity,
+                  diagnostic.message
+                )
           end
 
           return format_lines({
@@ -144,22 +124,11 @@ M.debug_code_diagnostics = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.actions').get_code(
-            context.start_line,
-            context.end_line,
-            { show_line_numbers = true }
-          )
-
           return format_lines(
             {
-              'I have the following code in `%s`:',
-              '```%s',
-              '%s',
-              '```',
+              'I have the following code in `%s`:'
             },
-            path.get_basename(buffer.get_path(context.bufnr)),
-            context.filetype,
-            text
+            path.get_basename(buffer.get_path(context.bufnr))
           )
         end,
       },
@@ -186,21 +155,11 @@ M.enhance_text_readability = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.actions').get_code(
-            context.start_line,
-            context.end_line
-          )
-
           return format_lines(
             {
               'I have the following text in `%s`:',
-              '```%s',
-              '%s',
-              '```',
             },
-            path.get_basename(buffer.get_path(context.bufnr)),
-            context.filetype,
-            text
+            path.get_basename(buffer.get_path(context.bufnr))
           )
         end,
       },
@@ -228,21 +187,11 @@ M.explain_code = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.actions').get_code(
-            context.start_line,
-            context.end_line
-          )
-
           return format_lines(
             {
               'I have the following code in `%s`:',
-              '```%s',
-              '%s',
-              '```',
             },
-            path.get_basename(buffer.get_path(context.bufnr)),
-            context.filetype,
-            text
+            path.get_basename(buffer.get_path(context.bufnr))
           )
         end,
       },
@@ -269,21 +218,11 @@ M.generate_docstring = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.actions').get_code(
-            context.start_line,
-            context.end_line
-          )
-
           return format_lines(
             {
               'I have the following code in `%s`:',
-              '```%s',
-              '%s',
-              '```',
             },
-            path.get_basename(buffer.get_path(context.bufnr)),
-            context.filetype,
-            text
+            path.get_basename(buffer.get_path(context.bufnr))
           )
         end,
       },
@@ -299,7 +238,7 @@ M.generate_pull_request_description = function()
       end
 
       local git_diff =
-        vim.fn.system({ 'git', 'diff', 'main' .. '..' .. 'HEAD' })
+          vim.fn.system({ 'git', 'diff', 'main' .. '..' .. 'HEAD' })
 
       return git_diff:match('^diff')
     end,
@@ -321,7 +260,7 @@ M.generate_pull_request_description = function()
         role = 'user',
         content = function()
           local git_diff =
-            vim.fn.system({ 'git', 'diff', 'main' .. '..' .. 'HEAD' })
+              vim.fn.system({ 'git', 'diff', 'main' .. '..' .. 'HEAD' })
 
           return format_lines({
             'I have made the following changes:',
@@ -346,7 +285,7 @@ M.generate_unit_tests = function()
   return {
     condition = function(context)
       return context.is_visual
-        and vim.tbl_contains(vitest_filetypes, context.filetype)
+          and vim.tbl_contains(vitest_filetypes, context.filetype)
     end,
     name = 'Generate unit test',
     opts = { auto_submit = true },
@@ -363,21 +302,11 @@ M.generate_unit_tests = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.actions').get_code(
-            context.start_line,
-            context.end_line
-          )
-
           return format_lines(
             {
               'I have the following code in `%s`:',
-              '```%s',
-              '%s',
-              '```',
             },
-            path.get_basename(buffer.get_path(context.bufnr)),
-            context.filetype,
-            text
+            path.get_basename(buffer.get_path(context.bufnr))
           )
         end,
       },
@@ -404,21 +333,11 @@ M.improve_code = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.actions').get_code(
-            context.start_line,
-            context.end_line
-          )
-
           return format_lines(
             {
               'I have the following code in `%s`:',
-              '```%s',
-              '%s',
-              '```',
             },
-            path.get_basename(buffer.get_path(context.bufnr)),
-            context.filetype,
-            text
+            path.get_basename(buffer.get_path(context.bufnr))
           )
         end,
       },
@@ -446,21 +365,11 @@ M.proofread_text = function()
       {
         role = 'user',
         content = function(context)
-          local text = require('codecompanion.helpers.actions').get_code(
-            context.start_line,
-            context.end_line
-          )
-
           return format_lines(
             {
               'I have the following text in `%s`:',
-              '```%s',
-              '%s',
-              '```',
             },
-            path.get_basename(buffer.get_path(context.bufnr)),
-            context.filetype,
-            text
+            path.get_basename(buffer.get_path(context.bufnr))
           )
         end,
       },
@@ -497,13 +406,8 @@ M.rephrase_text = function()
           return format_lines(
             {
               'I have the following text in `%s`:',
-              '```%s',
-              '%s',
-              '```',
             },
-            path.get_basename(buffer.get_path(context.bufnr)),
-            context.filetype,
-            text
+            path.get_basename(buffer.get_path(context.bufnr))
           )
         end,
       },
