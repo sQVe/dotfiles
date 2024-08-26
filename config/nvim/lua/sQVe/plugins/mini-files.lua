@@ -14,9 +14,9 @@ local M = {
 M.opts = {
   mappings = {
     go_in = '',
-    go_in_plus = 'l',
+    go_in_plus = '<Right>',
     go_out = '',
-    go_out_plus = 'h',
+    go_out_plus = '<Left>',
     reset = '',
   },
   windows = {
@@ -32,6 +32,18 @@ M.config = function(_, opts)
   local mini_files = require('mini.files')
 
   mini_files.setup(opts)
+
+  local go_in_plus = function()
+    for _ = 1, vim.v.count1 do
+      mini_files.go_in({ close_on_file = true })
+    end
+  end
+
+  local go_out_plus = function()
+    for _ = 1, vim.v.count1 do
+      mini_files.go_out()
+    end
+  end
 
   map('n', 'Ä', function()
     local bufnr = buffer.get_bufnr()
@@ -50,11 +62,9 @@ M.config = function(_, opts)
     callback = function(args)
       local buf_id = args.data.buf_id
 
-      map('n', '<CR>', function()
-        for _ = 1, vim.v.count1 do
-          mini_files.go_in({ close_on_file = true })
-        end
-      end, { buffer = buf_id })
+      map('n', '<CR>', go_in_plus, { buffer = buf_id })
+      map('n', '<Backspace>', go_out_plus, { buffer = buf_id })
+
       map('n', '<Esc>', mini_files.close, { buffer = buf_id })
       map('n', '<Tab>', '', { buffer = buf_id })
       map('n', '<S-Tab>', '', { buffer = buf_id })

@@ -48,8 +48,5 @@ keybinding:
   commits:
     renameCommitWithEditor: 'r'
     renameCommit: ''
-  universal:
-    nextTab: ')'
-    prevTab: '('
 notARepository: 'quit'
 promptToReturnFromSubprocess: false
