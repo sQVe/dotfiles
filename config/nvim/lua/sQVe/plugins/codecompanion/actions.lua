@@ -215,10 +215,6 @@ end
 M.generate_pull_request_description = function()
   return {
     condition = function(context)
-      if context.filetype ~= 'markdown' then
-        return false
-      end
-
       local git_diff =
         vim.fn.system({ 'git', 'diff', 'main' .. '..' .. 'HEAD' })
 
