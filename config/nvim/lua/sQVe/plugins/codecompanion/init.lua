@@ -41,7 +41,7 @@ M.opts = function()
       actions.write_commit_message(),
     },
     adapters = {
-      openai = adapters.openai(),
+      openai = adapters.openai,
     },
     display = {
       action_palette = { width = 80, height = 10, relative = 'editor' },
