@@ -10,10 +10,7 @@ local M = {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   event = 'BufReadPost',
-  dependencies = {
-    'RRethy/nvim-treesitter-textsubjects',
-    { 'nvim-treesitter/nvim-treesitter-context', opts = { mode = 'cursor' } },
-  },
+  dependencies = { 'RRethy/nvim-treesitter-textsubjects' },
 }
 
 M.opts = {
