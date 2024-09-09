@@ -18,9 +18,6 @@ local M = {
     'css',
     'scss',
 
-    -- cucumber_language_server
-    'cucumber',
-
     -- html
     'html',
 
@@ -67,33 +64,6 @@ M.config = function()
 
     bashls = server_setup,
     cssls = server_setup,
-    cucumber_language_server = utils.create_server_setup({
-      cmd = {
-        -- Use a specific Node.js version that is compatible with
-        -- cucumber-language-server.
-        vim.fn.expand('$NVM_DIR')
-          .. '/versions/node/v18.20.4/bin'
-          .. '/node',
-        vim.fn.expand('$NVM_DIR')
-          .. '/versions/node/v18.20.4/bin'
-          .. '/cucumber-language-server',
-        '--stdio',
-      },
-      on_attach = function(client, bufnr)
-        if client then
-          client.server_capabilities.semanticTokensProvider = nil
-        end
-
-        on_attach(client, bufnr)
-      end,
-      root_dir = lspconfig_util.root_pattern('package.json'),
-      settings = {
-        cucumber = {
-          features = { 'e2e/features/**/*.feature' },
-          glue = { 'e2e/steps/**/*.ts' },
-        },
-      },
-    }),
     html = server_setup,
     jsonls = utils.create_server_setup({
       on_attach = on_attach,
