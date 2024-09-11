@@ -14,6 +14,14 @@ local M = {
     -- bashls
     'sh',
 
+    -- ccls
+    'c',
+    'cpp',
+    'cuda',
+    'objc',
+    'objcpp',
+    'proto',
+
     -- cssls
     'css',
     'scss',
@@ -63,6 +71,7 @@ M.config = function()
     --   Neovim plugin development (neodev)
 
     bashls = server_setup,
+    ccls = server_setup,
     cssls = server_setup,
     html = server_setup,
     jsonls = utils.create_server_setup({
