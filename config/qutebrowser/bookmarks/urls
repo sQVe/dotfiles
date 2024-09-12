@@ -1,4 +1,5 @@
 http://browserl.ist Development / Web / Compatibility | Browserlist
+http://builder.swillkb.com Keeb | Plate & Case Builder - swillkb
 http://cheat.sh Development / Apps | Cheat.sh
 http://expressjs.com/en/api.html Development / JavaScript / Node.js | Express
 http://guide.bash.academy Development / Bash | Bash Academy
@@ -13,6 +14,7 @@ http://www.gnu.org/software/grep/manual/grep.html Linux / Apps | Grep Manual
 http://www.gnu.org/software/sed/manual/sed.html Linux / Apps | Sed Manual
 http://www.heropatterns.com Development / Web / Resources | Hero Patterns
 http://www.imdb.com Movies | IMDb
+http://www.keyboard-layout-editor.com Keeb | Keyboard Layout Editor
 http://www.lua.org/manual/5.4 Development / Lua | Reference Manual
 https://accessible-colors.com Development / Apps | Accessible Colors
 https://archive.archlinux.org Linux / Arch Linux | Archive
@@ -29,11 +31,14 @@ https://cheatsheetseries.owasp.org Development / Security | OWASP Cheat Sheet Se
 https://clig.dev Development / Information | Command Line Interface Guidelines
 https://codesandbox.io/dashboard/recent Development / Apps | Code Sandbox
 https://color.adobe.com Development / Colors | Color Wheel
+https://compare.splitkb.com Keeb | Compare Ergo keyboards
 https://compat-table.github.io/compat-table/es6 Development / Web / Compatibility | ECMAScript Compatibility Table
 https://crontab.guru Linux / Apps | Crontab Guru
 https://css-tricks.com/snippets Development / Information | CSS Tricks
 https://developer.mozilla.org/en-US/docs/Web Development / Information | MDN
 https://devhints.io Development / Information | Devhints
+https://eleshop.eu Electronics | Eleshop
+https://ergogen.cache.works Keeb | Ergogen
 https://explainshell.com Development / Apps | Explain Shell
 https://facebook.github.io/jest/docs/en/api.html Development / JavaScript / Testing | Jest
 https://fonts.google.com Development / Fonts | Google Fonts
@@ -45,17 +50,21 @@ https://i3wm.org/docs/userguide.html Linux / Apps | i3 Manual
 https://jmattthew.github.io/better-font-finder/better-font-finder.html Development / Fonts | Google Font Finder
 https://jsonlint.com Development / Apps | JSON Lint
 https://jwt.io Development / Apps | JWT
+https://kbd.news Keeb | Keyboard Builders' Digest
 https://leagueofcomicgeeks.com/comics Books & Comics | Comic Book Database
 https://mail.google.com/mail/u/0/#inbox Services | GMail
 https://mail.protonmail.com/u/0/inbox Services | ProtonMail
 https://man.archlinux.org Linux / Arch Linux | Manual pages
-https://mechgroupbuys.com Keeb | MechGroupBuys
 https://monkeytype.com Keeb | Monkeytype
 https://news.ycombinator.com News / Tech | Hacker News
 https://nextjs.org/docs Development / JavaScript | Next.js
 https://node.green/ Development / Web / Compatibility | Node Compatibility Table
 https://nodejs.org/api Development / JavaScript | Node.js
+https://pashutk.com/ergopad Keeb | Ergopad
 https://regex101.com Development / Apps | RegEx 101
+https://ryanis.cool/cosmos Keeb | Cosmos Keyboard Generator
+https://ryanis.cool/dactyl Keeb | Dactyl Generator
+https://scottokeebs.com Keeb | ScottoKeebs
 https://securityheaders.com Development / Web / Compatibility | Security Headers
 https://spec.whatwg.org/ Development / Specification | WHATWG
 https://start.duckduckgo.com Search engine | DuckDuckGo
@@ -69,6 +78,8 @@ https://www.allaboutcircuits.com Electronics | All About Electronics
 https://www.archlinux.org Linux / Arch Linux | Arch Linux
 https://www.astexplorer.net Development / Apps | AST Explorer
 https://www.browserstack.com Development / Web / Compatibility | BrowserStack
+https://www.crackedthecode.co/a-complete-guide-to-building-a-hand-wired-keyboard Keeb | Building a Hand-Wired Keyboard
+https://www.digikey.se/en Electronics | DigiKey Sweden
 https://www.digitalocean.com/community/tools/glob Development / Apps / Glob
 https://www.draw.io Development / Apps | Draw
 https://www.figma.com Development / Apps | Figma
@@ -84,6 +95,7 @@ https://www.netflix.com/se-en/browse Streaming | Netflix
 https://www.protondb.com Gaming | ProtonDB
 https://www.reddit.com Forum | Reddit
 https://www.rottentomatoes.com Movies | Rotten Tomatoes
+https://www.snapeda.com Electronics | SnapMagic Search | Free PCB Footprints and Schematic Symbols
 https://www.svt.se News / Newspaper | SVT Nyheter
 https://www.sydsvenskan.se News / Newspaper | Sydsvenskan
 https://www.theguardian.com/international News / Newspaper | The Guardian
@@ -91,8 +103,3 @@ https://www.twitch.tv Streaming | Twitch
 https://www.typescriptlang.org/docs/ Development / TypeScript | TypeScript Handbook
 https://www.w3.org/TR/?status=rec&version=latest Development / Specification | W3C
 https://www.youtube.com VOD | YouTube
-https://compare.splitkb.com Keeb | Compare Ergo keyboards
-https://kbd.news Keeb | Keyboard Builders' Digest
-https://ergogen.cache.works Keeb | Ergogen
-http://www.keyboard-layout-editor.com Keeb | Keyboard Layout Editor
-https://pashutk.com/ergopad Keeb | Ergopad
