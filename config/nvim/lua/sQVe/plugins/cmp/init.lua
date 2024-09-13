@@ -83,8 +83,8 @@ M.config = function()
       throttle = 30,
     },
     sources = cmp.config.sources({
-      { name = 'path' },
       { name = 'emoji' },
+      { name = 'path' },
     }, {
       { name = 'nvim_lsp' },
       { name = 'lazydev' },

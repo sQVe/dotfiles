@@ -26,6 +26,10 @@ local M = {
     'css',
     'scss',
 
+    -- css_variables
+    'css',
+    'scss',
+
     -- html
     'html',
 
@@ -36,13 +40,13 @@ local M = {
     -- lua_ls
     'lua',
 
-    -- markdown,
+    -- marksman,
     'markdown',
 
     -- yamlls
     'yaml',
 
-    -- javascript and typescript
+    -- vtsls
     'javascript',
     'javascriptreact',
     'typescript',
@@ -73,6 +77,28 @@ M.config = function()
     bashls = server_setup,
     ccls = server_setup,
     cssls = server_setup,
+    css_variables = utils.create_server_setup({
+      on_attach = on_attach,
+      settings = {
+        cssVariables = {
+          blacklistFolders = {
+            '**/.cache',
+            '**/.git',
+            '**/.next',
+            '**/dist',
+            '**/node_modules',
+            '**/tests',
+            '**/tmp',
+          },
+          lookupFiles = {
+            '**/*.css',
+            '**/*.scss',
+            'node_modules/@mantine/core/styles.css',
+            'packages/design-system/node_modules/@mantine/core/styles.css',
+          },
+        },
+      },
+    }),
     html = server_setup,
     jsonls = utils.create_server_setup({
       on_attach = on_attach,

@@ -4,6 +4,7 @@
 bash-language-server
 colorally
 corepack
+css-variables-language-server
 eslint_d
 json-server
 neovim
