@@ -28,8 +28,8 @@ M.change_cwd_buffer_path = {
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr)
-      and buffer.is_saved(opts.bufnr)
-      and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
+        and buffer.is_saved(opts.bufnr)
+        and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = function(opts)
     return utils.get_name_with_buffer_directory('Change cwd', opts)
@@ -156,8 +156,8 @@ M.file_history_buffer_path = {
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr)
-      and buffer.is_saved(opts.bufnr)
-      and git.is_inside_repo()
+        and buffer.is_saved(opts.bufnr)
+        and git.is_inside_repo()
   end,
   name = function(opts)
     return utils.get_name_with_buffer_path('Open file history', opts)
@@ -167,25 +167,25 @@ M.file_history_buffer_path = {
 M.find_files = {
   callback = function()
     require('sQVe.plugins.telescope.pickers').find_files({
-      prompt_title = 'Find file',
+      prompt_title = 'Find files',
     })
   end,
-  name = 'Find file',
+  name = 'Find files',
 }
 
 M.find_files_in_subdirectory = {
   callback = function(opts)
     require('sQVe.plugins.telescope.pickers').find_files({
       cwd = path.get_parent(buffer.get_path(opts.bufnr)),
-      prompt_title = utils.get_name_with_buffer_directory('Find file', opts),
+      prompt_title = utils.get_name_with_buffer_directory('Find files', opts),
     })
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr)
-      and buffer.is_saved(opts.bufnr)
-      and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
+        and buffer.is_saved(opts.bufnr)
+        and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
-  name = 'Find file from buffer path',
+  name = 'Find files from buffer path',
 }
 
 M.find_note = {
@@ -260,8 +260,8 @@ M.live_grep_in_subdirectory = {
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr)
-      and buffer.is_saved(opts.bufnr)
-      and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
+        and buffer.is_saved(opts.bufnr)
+        and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = 'Live grep from buffer path',
 }
@@ -344,7 +344,7 @@ M.review_diff_view = {
   end,
   condition = function()
     return git.is_inside_repo()
-      and not vim.tbl_contains({ 'main', 'master' }, git.get_branch_name())
+        and not vim.tbl_contains({ 'main', 'master' }, git.get_branch_name())
   end,
   name = 'Open diff view (PR review)',
 }
@@ -385,17 +385,17 @@ M.spawn_file_manager = {
 M.spawn_file_manager_in_subdirectory = {
   callback = function(opts)
     vim
-      .system({
-        'term',
-        'yazi',
-        buffer.get_path(opts.bufnr),
-      }, { detach = true })
-      :wait()
+        .system({
+          'term',
+          'yazi',
+          buffer.get_path(opts.bufnr),
+        }, { detach = true })
+        :wait()
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr) and buffer.is_saved(opts.bufnr)
   end,
-  name = 'Spawn file file manager from buffer path',
+  name = 'Spawn file manager from buffer path',
 }
 
 M.spawn_lazygit = {
@@ -408,13 +408,13 @@ M.spawn_lazygit = {
 M.spawn_lazygit_with_filter = {
   callback = function(opts)
     vim
-      .system({
-        'term',
-        'lazygit',
-        '--filter',
-        buffer.get_path(opts.bufnr),
-      }, { detach = true })
-      :wait()
+        .system({
+          'term',
+          'lazygit',
+          '--filter',
+          buffer.get_path(opts.bufnr),
+        }, { detach = true })
+        :wait()
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr) and buffer.is_saved(opts.bufnr)
@@ -432,16 +432,16 @@ M.spawn_terminal = {
 M.spawn_terminal_in_subdirectory = {
   callback = function(opts)
     vim
-      .system({
-        'term',
-        path.get_parent(buffer.get_path(opts.bufnr)),
-      }, { detach = true })
-      :wait()
+        .system({
+          'term',
+          path.get_parent(buffer.get_path(opts.bufnr)),
+        }, { detach = true })
+        :wait()
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr)
-      and buffer.is_saved(opts.bufnr)
-      and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
+        and buffer.is_saved(opts.bufnr)
+        and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = 'Spawn terminal from buffer path',
 }
@@ -449,7 +449,7 @@ M.spawn_terminal_in_subdirectory = {
 M.toggle_conceal_level = {
   callback = function(opts)
     vim.wo[opts.winnr].conceallevel = vim.wo[opts.winnr].conceallevel == 0 and 2
-      or 0
+        or 0
   end,
   name = function(opts)
     return string.format(

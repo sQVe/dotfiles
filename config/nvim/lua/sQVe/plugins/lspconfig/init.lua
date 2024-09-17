@@ -24,11 +24,9 @@ local M = {
 
     -- cssls
     'css',
-    'scss',
 
     -- css_variables
     'css',
-    'scss',
 
     -- html
     'html',
@@ -76,7 +74,17 @@ M.config = function()
 
     bashls = server_setup,
     ccls = server_setup,
-    cssls = server_setup,
+    cssls = utils.create_server_setup({
+      on_attach = on_attach,
+      settings = {
+        css = {
+          validate = true,
+          lint = {
+            unknownAtRules = 'ignore',
+          },
+        },
+      },
+    }),
     css_variables = utils.create_server_setup({
       on_attach = on_attach,
       settings = {
@@ -87,12 +95,10 @@ M.config = function()
             '**/.next',
             '**/dist',
             '**/node_modules',
-            '**/tests',
             '**/tmp',
           },
           lookupFiles = {
             '**/*.css',
-            '**/*.scss',
             'node_modules/@mantine/core/styles.css',
             'packages/design-system/node_modules/@mantine/core/styles.css',
           },
