@@ -22,10 +22,7 @@ local M = {
     'objcpp',
     'proto',
 
-    -- cssls
-    'css',
-
-    -- css_variables
+    -- cssls and css_variables
     'css',
 
     -- html

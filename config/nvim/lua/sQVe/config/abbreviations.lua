@@ -71,6 +71,8 @@ vim.cmd([[
   iabbrev udpates     updates
   iabbrev Udpating    Updating
   iabbrev udpating    updating
+  iabbrev widht       width
+  iabbrev Widht       Width
   iabbrev Widnow      Window
   iabbrev widnow      window
   iabbrev WidnoWing   Windowing

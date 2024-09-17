@@ -105,6 +105,12 @@ M.config = function()
     },
   })
 
+  cmp.setup.filetype('minifiles', {
+    sources = {
+      { name = 'buffer', keyword_length = 1, option = buffer_options },
+    },
+  })
+
   cmp.setup.cmdline({ '/', '?' }, {
     mapping = cmp.mapping.preset.cmdline(),
     sources = {
