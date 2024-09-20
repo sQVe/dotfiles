@@ -24,7 +24,6 @@ local M = {
 
     -- cssls and css_variables
     'css',
-    'scss',
 
     -- html
     'html',
@@ -76,10 +75,6 @@ M.config = function()
       on_attach = on_attach,
       settings = {
         css = {
-          validate = true,
-          lint = { unknownAtRules = 'ignore' },
-        },
-        scss = {
           validate = true,
           lint = { unknownAtRules = 'ignore' },
         },
