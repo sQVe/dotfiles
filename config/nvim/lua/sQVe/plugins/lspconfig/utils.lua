@@ -129,7 +129,7 @@ M.map_diagnostic_keys = function(bufnr)
     })
   end, { buffer = bufnr, desc = 'View diagnostic (line)' })
   map('n', '[d', function()
-    vim.diagnostic.goto_next(shared_diagnostic_opts)
+    vim.diagnostic.goto_prev(shared_diagnostic_opts)
 
     -- Move over to this when updating to Neovim 0.11.
     -- vim.diagnostic.jump(
@@ -137,7 +137,7 @@ M.map_diagnostic_keys = function(bufnr)
     -- )
   end, { buffer = bufnr, desc = 'Go to previous diagnostic' })
   map('n', ']d', function()
-    vim.diagnostic.goto_prev(shared_diagnostic_opts)
+    vim.diagnostic.goto_next(shared_diagnostic_opts)
 
     -- Move over to this when updating to Neovim 0.11.
     -- vim.diagnostic.jump(

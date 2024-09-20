@@ -24,6 +24,7 @@ local M = {
 
     -- cssls and css_variables
     'css',
+    'scss',
 
     -- html
     'html',
@@ -76,9 +77,11 @@ M.config = function()
       settings = {
         css = {
           validate = true,
-          lint = {
-            unknownAtRules = 'ignore',
-          },
+          lint = { unknownAtRules = 'ignore' },
+        },
+        scss = {
+          validate = true,
+          lint = { unknownAtRules = 'ignore' },
         },
       },
     }),
