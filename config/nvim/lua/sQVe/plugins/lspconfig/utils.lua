@@ -81,15 +81,17 @@ M.diagnostic_handler = function(_, result, ctx, ...)
     HINT = 4,
   }
 
-  if client and client.name == 'vtsls' then
-    ignored_diagnostics = {
-      { code = 7016, severity = severity.ERROR },
-      { code = 80001, severity = severity.HINT },
-    }
-  elseif client and client.name == 'yamlls' then
-    ignored_diagnostics = {
-      { code = 'mapKeyOrder' },
-    }
+  if client then
+    if client.name == 'vtsls' then
+      ignored_diagnostics = {
+        { code = 7016, severity = severity.ERROR },
+        { code = 80001, severity = severity.HINT },
+      }
+    elseif client.name == 'yamlls' then
+      ignored_diagnostics = {
+        { code = 'mapKeyOrder' },
+      }
+    end
   end
 
   result.diagnostics = vim.tbl_filter(function(diagnostic)
