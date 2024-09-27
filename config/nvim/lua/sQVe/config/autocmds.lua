@@ -50,26 +50,6 @@ autocmd('BufWritePost', {
   command = 'silent! call writefile(nvim_buf_get_lines(0, 0, -1, 1), "/tmp/PREV_COMMIT_EDITMSG")',
 })
 
--- Disable format expression on LSP attach.
-autocmd('LspAttach', {
-  group = 'DisableFormatExpressionOnLspAttach',
-  callback = function(args)
-    -- Use default formatexpr.
-    vim.bo[args.buf].formatexpr = nil
-  end,
-})
-
--- Spawn Neovim daemons script on exit.
-autocmd('ExitPre', {
-  group = 'SpawnNeovimDaemonsScriptOnExit',
-  callback = function()
-    vim.fn.jobstart(
-      vim.fn.expand('$SCRIPTS') .. '/nvim/stop-nvim-daemons.sh',
-      { detach = true }
-    )
-  end,
-})
-
 -- Equalize windows on resize.
 autocmd('VimResized', {
   group = 'EqualizeWindowsOnResize',

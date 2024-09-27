@@ -68,6 +68,9 @@ map(
 -- Consistent CR movement.
 map('', '<S-CR>', '-')
 
+-- Format without formatexpr.
+map('', 'gq', 'gw', { desc = 'Format' })
+
 -- Move to start and end of line.
 map('n', 'H', function()
   local _, _, col, _ = unpack(vim.fn.getpos('.'))
