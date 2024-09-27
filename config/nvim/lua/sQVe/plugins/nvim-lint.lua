@@ -6,18 +6,9 @@
 local autocmd = require('sQVe.utils.autocmd')
 local timer = require('sQVe.utils.timer')
 
-local linters = require('sQVe.plugins.nvim-lint.linters')
-local utils = require('sQVe.plugins.nvim-lint.utils')
-
 local M = {
   'mfussenegger/nvim-lint',
   ft = {
-    -- eslint_d.
-    'javascript',
-    'javascriptreact',
-    'typescript',
-    'typescriptreact',
-
     -- shellcheck.
     'sh',
   },
@@ -28,10 +19,17 @@ M.init = function()
 end
 
 M.config = function()
-  linters.override_linting_settings()
+  local lint = require('lint')
+
+  lint.linters_by_ft = {
+    sh = { 'shellcheck' },
+  }
+
   autocmd({ 'BufWritePost', 'BufReadPost', 'InsertLeave' }, {
     group = 'Lint',
-    callback = timer.debounce(200, utils.try_lint),
+    callback = timer.debounce(200, function()
+      require('lint').try_lint()
+    end),
   })
 end
 

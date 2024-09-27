@@ -1,12 +1,11 @@
 @ast-grep/cli
+@biomejs/biome
 @fsouza/prettierd
 @vtsls/language-server
 bash-language-server
 colorally
 corepack
 css-variables-language-server
-eslint_d
-json-server
 neovim
 npm
 pnpm

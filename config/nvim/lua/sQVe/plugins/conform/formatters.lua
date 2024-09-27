@@ -5,19 +5,18 @@
 local M = {}
 
 M.by_ft = {
-  css = { 'prettierd' },
-  graphql = { 'prettierd' },
+  css = { 'biome', 'prettierd' },
+  graphql = { 'biome', 'prettierd' },
   html = { 'prettierd' },
-  javascript = { 'prettierd', 'eslint_d' },
-  javascriptreact = { 'prettierd', 'eslint_d' },
-  json = { 'prettierd' },
-  json5 = { 'prettierd' },
-  jsonc = { 'prettierd' },
+  javascript = { 'biome-check', 'prettierd' },
+  javascriptreact = { 'biome-check', 'prettierd' },
+  json = { 'biome', 'prettierd' },
+  jsonc = { 'biome', 'prettierd' },
   lua = { 'stylua' },
   markdown = { 'prettierd', 'injected' },
   sh = { 'shfmt' },
-  typescript = { 'prettierd', 'eslint_d' },
-  typescriptreact = { 'prettierd', 'eslint_d' },
+  typescript = { 'biome-check', 'prettierd' },
+  typescriptreact = { 'biome-check', 'prettierd' },
   yaml = { 'prettierd' },
   ['_'] = { 'trim_newlines', 'trim_whitespace' },
 }
@@ -25,33 +24,23 @@ M.by_ft = {
 M.override_formatting_settings = function()
   local util = require('conform.util')
 
-  local eslint_d_formatter = require('conform.formatters.eslint_d')
   local prettierd_formatter = require('conform.formatters.prettierd')
   local shfmt_formatter = require('conform.formatters.shfmt')
   local stylua_formatter = require('conform.formatters.stylua')
 
-  stylua_formatter.require_cwd = true
   prettierd_formatter.require_cwd = true
-  eslint_d_formatter.require_cwd = true
-
-  eslint_d_formatter.cwd = util.root_file({
-    '.eslintrc.cjs',
-    '.eslintrc.js',
-    '.eslintrc.json',
-    '.eslintrc.yaml',
-    '.eslintrc.yml',
-  })
+  stylua_formatter.require_cwd = true
 
   prettierd_formatter.cwd = util.root_file({
     '.prettierrc',
-    '.prettierrc.json',
-    '.prettierrc.yml',
-    '.prettierrc.yaml',
-    '.prettierrc.js',
     '.prettierrc.cjs',
+    '.prettierrc.js',
+    '.prettierrc.json',
     '.prettierrc.toml',
-    'prettier.config.js',
+    '.prettierrc.yaml',
+    '.prettierrc.yml',
     'prettier.config.cjs',
+    'prettier.config.js',
   })
 
   shfmt_formatter.args =

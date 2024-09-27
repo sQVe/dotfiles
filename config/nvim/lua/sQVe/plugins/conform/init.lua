@@ -23,9 +23,6 @@ M.opts = {
 
 M.config = function(_, opts)
   local conform = require('conform')
-  local util = require('conform.util')
-
-  local formatters = require('sQVe.plugins.conform.formatters')
 
   formatters.override_formatting_settings()
   conform.setup(opts)

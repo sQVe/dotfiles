@@ -41,7 +41,7 @@ local M = {
     -- yamlls
     'yaml',
 
-    -- vtsls
+    -- biome and vtsls
     'javascript',
     'javascriptreact',
     'typescript',
@@ -70,6 +70,7 @@ M.config = function()
     --   Neovim plugin development (neodev)
 
     bashls = server_setup,
+    biome = server_setup,
     ccls = server_setup,
     cssls = utils.create_server_setup({
       on_attach = on_attach,
