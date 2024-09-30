@@ -54,6 +54,25 @@ M.condense_text = {
   },
 }
 
+M.inline_prompt = {
+  condition = function(context)
+    return context.is_visual
+  end,
+  opts = { user_prompt = true },
+  strategy = 'inline',
+  prompts = {
+    {
+      role = 'system',
+      content = function(context)
+        return format_lines({
+          'Act as a expert %s developer.',
+          "I will ask questions; return raw code only (no codeblocks, no explanations). If you can't, respond with nothing",
+        }, context.filetype)
+      end,
+    },
+  },
+}
+
 M.debug_code_diagnostics = {
   condition = function(context)
     if not context.is_visual then

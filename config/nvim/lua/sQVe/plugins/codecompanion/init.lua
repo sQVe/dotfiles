@@ -41,11 +41,9 @@ M.opts = {
     chat = {
       intro_message = '',
       show_settings = true,
-      window = {
-        layout = 'buffer',
-        opts = { cursorcolumn = false, cursorline = false },
-      },
+      start_in_insert_mode = true,
     },
+    diff = { provider = 'mini_diff' },
   },
   opts = {
     system_prompt = format_lines({
@@ -77,11 +75,13 @@ M.opts = {
     ['Generate pull request description'] = prompts.generate_pull_request_description,
     ['Generate unit tests'] = prompts.generate_unit_tests,
     ['Improve code'] = prompts.improve_code,
+    ['Inline prompt'] = prompts.inline_prompt,
     ['Proofread text'] = prompts.proofread_text,
     ['Rephrase text'] = prompts.rephrase_text,
     ['Write commit message'] = prompts.write_commit_message,
   },
   strategies = {
+    inline = { adapter = 'openai' },
     chat = {
       adapter = 'openai',
       roles = {
