@@ -4,8 +4,6 @@ output DP-1
 off
 output HDMI-0
 off
-output None-1-1
-off
 output DP-2
 mode 2560x1600
 pos 0x0
