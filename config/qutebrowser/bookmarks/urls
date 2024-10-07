@@ -17,6 +17,7 @@ http://www.imdb.com Movies | IMDb
 http://www.keyboard-layout-editor.com Keeb | Keyboard Layout Editor
 http://www.lua.org/manual/5.4 Development / Lua | Reference Manual
 https://accessible-colors.com Development / Apps | Accessible Colors
+https://account.snijlab.nl/en/dashboard Manufacturing | Snijlab
 https://archive.archlinux.org Linux / Arch Linux | Archive
 https://archlinuxarm.org Linux / Arch Linux | ARM
 https://asciinema.org Development / Apps | Asciinema
@@ -29,14 +30,17 @@ https://calendar.google.com/calendar/r Services | Calendar
 https://caniuse.com Development / Web / Compatibility | Can I Use
 https://cheatsheetseries.owasp.org Development / Security | OWASP Cheat Sheet Series
 https://clig.dev Development / Information | Command Line Interface Guidelines
+https://cnc.jlcpcb.com Manufacturing | JLCCNC
 https://codesandbox.io/dashboard/recent Development / Apps | Code Sandbox
 https://color.adobe.com Development / Colors | Color Wheel
 https://compare.splitkb.com Keeb | Compare Ergo keyboards
 https://compat-table.github.io/compat-table/es6 Development / Web / Compatibility | ECMAScript Compatibility Table
+https://craftcloud3d.com Manufacturing |  Craftcloud
 https://crontab.guru Linux / Apps | Crontab Guru
 https://css-tricks.com/snippets Development / Information | CSS Tricks
 https://developer.mozilla.org/en-US/docs/Web Development / Information | MDN
 https://devhints.io Development / Information | Devhints
+https://digikey.se/en Electronics | DigiKey
 https://eleshop.eu Electronics | Eleshop
 https://ergogen.cache.works Keeb | Ergogen
 https://explainshell.com Development / Apps | Explain Shell
@@ -47,6 +51,8 @@ https://gist.github.com/sQVe Development | GitHub Gist
 https://help.github.com Development | GitHub Help
 https://help.github.com/en/articles/keyboard-shortcuts Development | GitHub Keymap
 https://i3wm.org/docs/userguide.html Linux / Apps | i3 Manual
+https://jlc3dp.com Manufacturing | JLC3DP
+https://jlcpcb.com Manufacturing | JLCPCB
 https://jmattthew.github.io/better-font-finder/better-font-finder.html Development / Fonts | Google Font Finder
 https://jsonlint.com Development / Apps | JSON Lint
 https://jwt.io Development / Apps | JWT
@@ -74,12 +80,12 @@ https://ts-ast-viewer.com Development / Apps | TS AST Viewer
 https://web.whatsapp.com Services | WhatsApp
 https://wiki.archlinux.org Linux / Arch Linux | Wiki
 https://wordoid.com Development / Apps | Wordoid
+https://www.aliexpress.com Manufacturing | Aliexpress
 https://www.allaboutcircuits.com Electronics | All About Electronics
 https://www.archlinux.org Linux / Arch Linux | Arch Linux
 https://www.astexplorer.net Development / Apps | AST Explorer
 https://www.browserstack.com Development / Web / Compatibility | BrowserStack
 https://www.crackedthecode.co/a-complete-guide-to-building-a-hand-wired-keyboard Keeb | Building a Hand-Wired Keyboard
-https://www.digikey.se/en Electronics | DigiKey Sweden
 https://www.digitalocean.com/community/tools/glob Development / Apps / Glob
 https://www.draw.io Development / Apps | Draw
 https://www.figma.com Development / Apps | Figma
@@ -90,12 +96,13 @@ https://www.hackerrank.com Development | HackerRank
 https://www.ifixit.com/guide Electronics / iFixit
 https://www.jsonviewer.tools/editor Development / Apps | JSON Viewer
 https://www.justwatch.com/se Streaming | JustWatch
+https://www.lcsc.com Electronics | LCSC
 https://www.nerdfonts.com/cheat-sheet Development / Apps | Nerd Fonts
 https://www.netflix.com/se-en/browse Streaming | Netflix
 https://www.protondb.com Gaming | ProtonDB
 https://www.reddit.com Forum | Reddit
 https://www.rottentomatoes.com Movies | Rotten Tomatoes
-https://www.snapeda.com Electronics | SnapMagic Search | Free PCB Footprints and Schematic Symbols
+https://www.snapeda.com Electronics | SnapMagic Search
 https://www.svt.se News / Newspaper | SVT Nyheter
 https://www.sydsvenskan.se News / Newspaper | Sydsvenskan
 https://www.theguardian.com/international News / Newspaper | The Guardian
@@ -103,5 +110,3 @@ https://www.twitch.tv Streaming | Twitch
 https://www.typescriptlang.org/docs/ Development / TypeScript | TypeScript Handbook
 https://www.w3.org/TR/?status=rec&version=latest Development / Specification | W3C
 https://www.youtube.com VOD | YouTube
-https://jlcpcb.com/?from=VBJLCPCB&utm_source=bing&utm_medium=cpc&utm_campaign=422890460&utm_content&utm_term=e_jlcpcb&adgroupid=1345803553234414&msclkid=89ef0bc6770114e60e256d24ba3c6529 PCB Prototype & PCB Fabrication Manufacturer - JLCPCB
-https://jlc3dp.com/ Online 3D Printing Service | Custom 3D Printed Parts - JLC3DP
