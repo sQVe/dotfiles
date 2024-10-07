@@ -215,7 +215,13 @@ M.generate_docstring = {
 
 M.generate_pull_request_description = {
   condition = function(context)
-    local git_diff = vim.fn.system({ 'git', 'diff', 'main..HEAD' })
+    local git_diff = vim.fn.system({
+      'git',
+      'diff',
+      'main..HEAD',
+      '--',
+      ':!pnpm-lock.yaml',
+    })
 
     return git_diff:match('^diff')
   end,
@@ -235,8 +241,13 @@ M.generate_pull_request_description = {
     {
       role = 'user',
       content = function()
-        local git_diff =
-          vim.fn.system({ 'git', 'diff', 'main' .. '..' .. 'HEAD' })
+        local git_diff = vim.fn.system({
+          'git',
+          'diff',
+          'main..HEAD',
+          '--',
+          ':!pnpm-lock.yaml',
+        })
 
         return format_lines({
           'I have made the following changes:',
