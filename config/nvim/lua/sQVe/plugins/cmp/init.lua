@@ -7,7 +7,8 @@ local methods = require('sQVe.plugins.cmp.methods')
 local utils = require('sQVe.plugins.cmp.utils')
 
 local M = {
-  'hrsh7th/nvim-cmp',
+  'iguanacucumber/magazine.nvim',
+  name = 'nvim-cmp',
   event = { 'CmdlineEnter', 'InsertEnter' },
   dependencies = {
     'hrsh7th/cmp-buffer',
