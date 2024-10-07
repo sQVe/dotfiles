@@ -48,5 +48,12 @@ keybinding:
   commits:
     renameCommitWithEditor: 'r'
     renameCommit: ''
+  files:
+    openMergeTool: ''
+customCommands:
+  - key: 'M'
+    context: 'files'
+    command: 'term "nvim -c DiffviewOpen"'
+    description: 'Open merge tool'
 notARepository: 'quit'
 promptToReturnFromSubprocess: false
