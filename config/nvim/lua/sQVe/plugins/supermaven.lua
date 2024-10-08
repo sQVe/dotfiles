@@ -32,10 +32,10 @@ local M = {
 }
 
 M.opts = {
-  disable_keymaps = true,
-  color = {
-    cterm = 244,
-    suggestion_color = palette.colors.custom.steel,
+  color = { cterm = 244, suggestion_color = palette.colors.custom.steel },
+  keymaps = {
+    accept_suggestion = '<C-l>',
+    accept_word = '<C-j>',
   },
   log_level = 'off',
 }
