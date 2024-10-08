@@ -35,7 +35,6 @@ local default_commands = {
   commands.live_grep,
   commands.live_grep_in_subdirectory,
   commands.live_grep_note,
-  commands.markdown_preview,
   commands.marks,
   commands.previous_commit_message,
   commands.recent_files,

@@ -19,15 +19,6 @@ return {
   -- Set commentstring.
   { 'folke/ts-comments.nvim', config = true, event = 'VeryLazy' },
 
-  -- Markdown preview.
-  {
-    'iamcco/markdown-preview.nvim',
-    ft = 'markdown',
-    build = function()
-      vim.fn['mkdp#util#install']()
-    end,
-  },
-
   -- Unlist hidden buffers that are git ignored.
   {
     'sQVe/bufignore.nvim',
