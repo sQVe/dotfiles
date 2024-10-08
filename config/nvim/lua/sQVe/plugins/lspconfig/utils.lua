@@ -8,7 +8,7 @@ local map = require('sQVe.utils.map')
 local M = {}
 
 M.create_server_setup = function(opts)
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+  local capabilities = vim.lsp.protocol.make_client_capabilities()
 
   capabilities.workspace = {
     didChangeWatchedFiles = {
@@ -41,7 +41,7 @@ M.create_runtime_condition = function(config_names)
     end
 
     local config_path =
-        require('lspconfig').util.root_pattern(config_names)(params.bufname)
+      require('lspconfig').util.root_pattern(config_names)(params.bufname)
 
     local has_config = config_path ~= nil
     if has_config then
@@ -84,7 +84,7 @@ M.diagnostic_handler = function(_, result, ctx, ...)
   if client then
     if client.name == 'vtsls' then
       ignored_diagnostics = {
-        { code = 7016,  severity = severity.ERROR },
+        { code = 7016, severity = severity.ERROR },
         { code = 80001, severity = severity.HINT },
       }
     elseif client.name == 'yamlls' then
