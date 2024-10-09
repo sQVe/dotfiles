@@ -6,7 +6,6 @@
 local M = {
   'saghen/blink.cmp',
   version = 'v0.*',
-  event = { 'InsertEnter' },
 }
 
 M.opts = {
