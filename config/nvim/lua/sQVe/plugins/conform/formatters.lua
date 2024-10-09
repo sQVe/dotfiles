@@ -24,14 +24,18 @@ M.by_ft = {
 M.override_formatting_settings = function()
   local util = require('conform.util')
 
-  local prettierd_formatter = require('conform.formatters.prettierd')
-  local shfmt_formatter = require('conform.formatters.shfmt')
-  local stylua_formatter = require('conform.formatters.stylua')
+  local biome = require('conform.formatters.biome')
+  local biome_check = require('conform.formatters.biome-check')
+  local prettierd = require('conform.formatters.prettierd')
+  local shfmt = require('conform.formatters.shfmt')
+  local stylua = require('conform.formatters.stylua')
 
-  prettierd_formatter.require_cwd = true
-  stylua_formatter.require_cwd = true
+  biome.require_cwd = true
+  biome_check.require_cwd = true
+  prettierd.require_cwd = true
+  stylua.require_cwd = true
 
-  prettierd_formatter.cwd = util.root_file({
+  prettierd.cwd = util.root_file({
     '.prettierrc',
     '.prettierrc.cjs',
     '.prettierrc.js',
@@ -43,8 +47,7 @@ M.override_formatting_settings = function()
     'prettier.config.js',
   })
 
-  shfmt_formatter.args =
-    { '-filename', '$FILENAME', '-i', '2', '-bn', '-ci', '-sr' }
+  shfmt.args = { '-filename', '$FILENAME', '-i', '2', '-bn', '-ci', '-sr' }
 end
 
 return M
