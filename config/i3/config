@@ -38,7 +38,6 @@ set $menu-emoji --no-startup-id $SCRIPTS/menus/emoji.sh
 set $menu-notebox --no-startup-id $SCRIPTS/menus/notebox.sh
 set $menu-passwords --no-startup-id $SCRIPTS/menus/passwords.sh
 set $menu-playground --no-startup-id $SCRIPTS/menus/playground.sh
-set $menu-projects --no-startup-id $SCRIPTS/menus/projects.sh
 set $menu-run --no-startup-id $SCRIPTS/menus/run.sh
 set $menu-toggles --no-startup-id $SCRIPTS/menus/toggles.sh
 set $menu-state --no-startup-id $SCRIPTS/menus/state.sh
@@ -46,7 +45,6 @@ set $menu-windows --no-startup-id $SCRIPTS/menus/windows.sh
 set $music-next --no-startup-id playerctl next
 set $music-prev --no-startup-id playerctl previous
 set $music-toggle --no-startup-id playerctl play-pause
-set $qutebrowser --no-startup-id open-qutebrowser
 set $term --no-startup-id term
 set $term-detach --no-startup-id term --detach
 set $yazi --no-startup-id term --detach yazi
@@ -160,7 +158,6 @@ bindsym $mod+Shift+0 move container to workspace $workspace-0
 
 # Letter based bindings.
 bindsym $mod+a exec $menu-windows
-bindsym $mod+b exec $qutebrowser
 bindsym $mod+d exec $menu-apps
 bindsym $mod+e exec $menu-emoji
 bindsym $mod+f exec $yazi
@@ -183,7 +180,6 @@ bindsym $mod+v exec $vim
 bindsym $mod+w layout toggle tabbed split
 bindsym $mod+x exec $lock
 bindsym $mod+y sticky toggle
-bindsym $mod+z exec $menu-projects
 bindsym $mod+adiaeresis exec $menu-playground
 bindsym $mod+odiaeresis exec dunstctl close
 
