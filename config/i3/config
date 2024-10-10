@@ -49,8 +49,8 @@ set $music-toggle --no-startup-id playerctl play-pause
 set $qutebrowser --no-startup-id open-qutebrowser
 set $term --no-startup-id term
 set $term-detach --no-startup-id term --detach
-set $yazi --no-startup-id term yazi
-set $vim --no-startup-id term nvim
+set $yazi --no-startup-id term --detach yazi
+set $vim --no-startup-id term --detach nvim
 
 set $brightness-down --no-startup-id brightnessctl set +5%
 set $brightness-up --no-startup-id brightnessctl set 5%-
