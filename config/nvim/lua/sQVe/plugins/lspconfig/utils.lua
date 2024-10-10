@@ -10,12 +10,6 @@ local M = {}
 M.create_server_setup = function(opts)
   local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-  capabilities.workspace = {
-    didChangeWatchedFiles = {
-      dynamicRegistration = true,
-    },
-  }
-
   local common_setup = {
     capabilities = capabilities,
     root_dir = M.create_root_dir_handler(),
@@ -41,7 +35,7 @@ M.create_runtime_condition = function(config_names)
     end
 
     local config_path =
-      require('lspconfig').util.root_pattern(config_names)(params.bufname)
+        require('lspconfig').util.root_pattern(config_names)(params.bufname)
 
     local has_config = config_path ~= nil
     if has_config then
@@ -84,7 +78,7 @@ M.diagnostic_handler = function(_, result, ctx, ...)
   if client then
     if client.name == 'vtsls' then
       ignored_diagnostics = {
-        { code = 7016, severity = severity.ERROR },
+        { code = 7016,  severity = severity.ERROR },
         { code = 80001, severity = severity.HINT },
       }
     elseif client.name == 'yamlls' then
@@ -131,20 +125,14 @@ M.map_diagnostic_keys = function(bufnr)
     })
   end, { buffer = bufnr, desc = 'View diagnostic (line)' })
   map('n', '[d', function()
-    vim.diagnostic.goto_prev(shared_diagnostic_opts)
-
-    -- Move over to this when updating to Neovim 0.11.
-    -- vim.diagnostic.jump(
-    --   vim.tbl_extend('force', shared_diagnostic_opts, { count = 1 })
-    -- )
+    vim.diagnostic.jump(
+      vim.tbl_extend('force', shared_diagnostic_opts, { count = 1 })
+    )
   end, { buffer = bufnr, desc = 'Go to previous diagnostic' })
   map('n', ']d', function()
-    vim.diagnostic.goto_next(shared_diagnostic_opts)
-
-    -- Move over to this when updating to Neovim 0.11.
-    -- vim.diagnostic.jump(
-    --   vim.tbl_extend('force', shared_diagnostic_opts, { count = -1 })
-    -- )
+    vim.diagnostic.jump(
+      vim.tbl_extend('force', shared_diagnostic_opts, { count = -1 })
+    )
   end, { buffer = bufnr, desc = 'Go to next diagnostic' })
 end
 

@@ -51,7 +51,6 @@ local M = {
 
 M.config = function()
   local lspconfig = require('lspconfig')
-  local lspconfig_util = require('lspconfig.util')
 
   local on_attach = function(_, bufnr)
     utils.map_diagnostic_keys(bufnr)
