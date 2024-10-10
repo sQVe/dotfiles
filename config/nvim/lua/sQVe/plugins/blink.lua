@@ -49,15 +49,14 @@ M.opts = {
   },
   trigger = {
     completion = {
-      blocked_trigger_characters = {
-        ' ',
-        '\n ',
-        '\t',
-      },
-      key = {},
       show_on_insert_on_trigger_character = false,
     },
     signature_help = { enabled = true },
+  },
+  windows = {
+    autocomplete = {
+      preselect = false,
+    },
   },
 }
 
