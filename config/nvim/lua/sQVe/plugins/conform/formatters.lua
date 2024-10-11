@@ -5,18 +5,18 @@
 local M = {}
 
 M.by_ft = {
-  css = { 'biome', 'prettierd' },
-  graphql = { 'biome', 'prettierd' },
+  css = { 'prettierd' },
+  graphql = { 'prettierd' },
   html = { 'prettierd' },
-  javascript = { 'biome-check', 'prettierd' },
-  javascriptreact = { 'biome-check', 'prettierd' },
+  javascript = { 'biome-check', 'prettierd', stop_after_first = true },
+  javascriptreact = { 'biome-check', 'prettierd', stop_after_first = true },
   json = { 'biome', 'prettierd' },
   jsonc = { 'biome', 'prettierd' },
   lua = { 'stylua' },
   markdown = { 'prettierd', 'injected' },
   sh = { 'shfmt' },
-  typescript = { 'biome-check', 'prettierd' },
-  typescriptreact = { 'biome-check', 'prettierd' },
+  typescript = { 'biome-check', 'prettierd', stop_after_first = true },
+  typescriptreact = { 'biome-check', 'prettierd', stop_after_first = true },
   yaml = { 'prettierd' },
   ['_'] = { 'trim_newlines', 'trim_whitespace' },
 }
