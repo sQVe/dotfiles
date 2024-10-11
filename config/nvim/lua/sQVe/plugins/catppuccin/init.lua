@@ -19,6 +19,11 @@ M.opts = {
   color_overrides = { all = palette.gruvcat },
   custom_highlights = custom_highlights,
   default_integrations = false,
+  dim_inactive = {
+    enabled = true,
+    shade = 'dark',
+    percentage = 1.5,
+  },
   integrations = integrations,
   styles = styles,
 }

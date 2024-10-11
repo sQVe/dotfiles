@@ -55,3 +55,21 @@ autocmd('VimResized', {
   group = 'EqualizeWindowsOnResize',
   command = 'wincmd =',
 })
+
+-- Set active windows styling.
+autocmd('WinEnter', {
+  group = 'SetActiveWindowStyling',
+  callback = function()
+    vim.wo.colorcolumn = '80'
+    vim.wo.cursorline = true
+  end,
+})
+
+-- Set inactive windows styling.
+autocmd('WinLeave', {
+  group = 'SetInactiveWindowStyling',
+  callback = function()
+    vim.wo.colorcolumn = ''
+    vim.wo.cursorline = false
+  end,
+})

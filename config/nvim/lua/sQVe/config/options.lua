@@ -225,11 +225,11 @@ local timeout = {
 }
 
 local ui = {
-  -- Display a colored indicator at column 80.
-  colorcolumn = '80',
+  -- Color column is set via autocmd for active windows.
+  colorcolumn = '',
 
-  -- Highlight the line containing the cursor.
-  cursorline = true,
+  -- Cursor line is enabled via autocmd for active windows.
+  cursorline = false,
 
   -- Show absolute line numbers by default.
   number = true,
