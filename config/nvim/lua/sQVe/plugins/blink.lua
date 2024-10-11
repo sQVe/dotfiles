@@ -26,7 +26,7 @@ M.opts = {
         { 'blink.cmp.sources.path' },
         {
           'blink.cmp.sources.snippets',
-          keyword_length = 1,
+          keyword_length = 2,
           score_offset = -3,
           opts = {
             extended_filetypes = {
@@ -48,15 +48,11 @@ M.opts = {
     },
   },
   trigger = {
-    completion = {
-      show_on_insert_on_trigger_character = false,
-    },
+    completion = { show_on_insert_on_trigger_character = false },
     signature_help = { enabled = true },
   },
   windows = {
-    autocomplete = {
-      preselect = false,
-    },
+    autocomplete = { preselect = false },
   },
 }
 
