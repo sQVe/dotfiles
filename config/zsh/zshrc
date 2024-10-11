@@ -148,6 +148,13 @@ function zvm_after_lazy_keybindings() {
   bindkey -M vicmd 'j' history-substring-search-down
 }
 
+# Use system clipboard for zsh vi mode yank.
+function zvm_vi_yank() {
+  zvm_yank
+  printf %s "${CUTBUFFER}" | xsel -ib
+  zvm_exit_visual_mode
+}
+
 
 #  ┏━╸╻ ╻┏━┓┏━┓┏━┓╺┳╸┏━┓
 #  ┣╸ ┏╋┛┣━┛┃ ┃┣┳┛ ┃ ┗━┓
