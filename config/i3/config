@@ -31,6 +31,7 @@ set $workspace-8 "8:<b>8</b>"
 set $workspace-9 "9:<b>9</b>"
 set $workspace-0 "10:<b>0</b>"
 
+set $bluetooth --no-startup-id bluetooth-autoconnect
 set $lock --no-startup-id lock
 set $menu-apps --no-startup-id $SCRIPTS/menus/apps.sh
 set $menu-calculator --no-startup-id $SCRIPTS/menus/calculator.sh
@@ -158,6 +159,7 @@ bindsym $mod+Shift+0 move container to workspace $workspace-0
 
 # Letter based bindings.
 bindsym $mod+a exec $menu-windows
+bindsym $mod+b exec $bluetooth
 bindsym $mod+d exec $menu-apps
 bindsym $mod+e exec $menu-emoji
 bindsym $mod+f exec $yazi
