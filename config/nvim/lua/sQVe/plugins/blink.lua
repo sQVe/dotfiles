@@ -23,11 +23,11 @@ M.opts = {
     providers = {
       {
         { 'blink.cmp.sources.lsp' },
+        { 'blink.cmp.sources.buffer', keyword_length = 1 },
         { 'blink.cmp.sources.path' },
         {
           'blink.cmp.sources.snippets',
-          keyword_length = 2,
-          score_offset = -3,
+          score_offset = -4,
           opts = {
             extended_filetypes = {
               javascriptreact = { 'javascript' },
@@ -41,9 +41,6 @@ M.opts = {
             friendly_snippets = false,
           },
         },
-      },
-      {
-        { 'blink.cmp.sources.buffer', keyword_length = 2 },
       },
     },
   },
