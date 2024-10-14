@@ -5,7 +5,7 @@
 
 local M = {
   'saghen/blink.cmp',
-  version = 'v0.*',
+  build = 'cargo build --release',
 }
 
 M.opts = {
@@ -21,35 +21,41 @@ M.opts = {
   },
   sources = {
     providers = {
+      { 'blink.cmp.sources.lsp', name = 'LSP' },
       {
-        { 'blink.cmp.sources.lsp' },
-        { 'blink.cmp.sources.buffer', keyword_length = 1 },
-        { 'blink.cmp.sources.path' },
-        {
-          'blink.cmp.sources.snippets',
-          score_offset = -4,
-          opts = {
-            extended_filetypes = {
-              javascriptreact = { 'javascript' },
-              typescript = { 'javascript' },
-              typescriptreact = {
-                'javascript',
-                'javascriptreact',
-                'typescript',
-              },
+        'blink.cmp.sources.buffer',
+        name = 'Buffer',
+        fallback_for = { 'LSP' },
+      },
+      { 'blink.cmp.sources.path', name = 'Path', score_offset = 3 },
+      {
+        'blink.cmp.sources.snippets',
+        name = 'Snippets',
+        keyword_length = 1,
+        score_offset = -3,
+        opts = {
+          extended_filetypes = {
+            javascriptreact = { 'javascript' },
+            typescript = { 'javascript' },
+            typescriptreact = {
+              'javascript',
+              'javascriptreact',
+              'typescript',
             },
-            friendly_snippets = false,
           },
+          friendly_snippets = false,
         },
       },
     },
   },
   trigger = {
-    completion = { show_on_insert_on_trigger_character = false },
+    completion = {
+      show_on_insert_on_trigger_character = false,
+    },
     signature_help = { enabled = true },
   },
   windows = {
-    autocomplete = { preselect = false },
+    autocomplete = { selection = 'auto_insert' },
   },
 }
 
