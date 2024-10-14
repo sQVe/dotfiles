@@ -85,9 +85,15 @@ return function(theme)
     TelescopeSelectionCaret = { fg = theme.yellow, bg = 'NONE' },
     TelescopeMultiSelection = { fg = theme.pink, bg = 'NONE' },
     TelescopeMatching = { fg = theme.blue },
-    TelescopePromptNormal = { fg = theme.text, bg = theme.crust },
-    TelescopePromptBorder = { fg = theme.crust, bg = theme.crust },
-    TelescopePromptTitle = { fg = theme.crust, bg = theme.peach, bold = true },
+    TelescopePromptBorder = { fg = theme.subtext0, bg = theme.mantle },
+    TelescopePromptCounter = { fg = theme.overlay2 },
+    TelescopePromptPrefix = { fg = theme.mantle, bg = theme.mantle },
+    TelescopePromptNormal = { fg = theme.text, bg = theme.mantle },
+    TelescopePromptTitle = {
+      fg = theme.subtext0,
+      bg = theme.mantle,
+      bold = true,
+    },
     TelescopePreviewTitle = { fg = theme.overlay2, italic = true },
 
     -- Treesitter.
