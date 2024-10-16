@@ -13,11 +13,15 @@ M.opts = {
   keymap = {
     accept = '<CR>',
     hide = '<C-e>',
+    hide_documentation = { '<C-Space>', '<C-CR>' },
     scroll_documentation_down = '<C-d>',
     scroll_documentation_up = '<C-u>',
     select_next = { '<Down>', '<Tab>' },
     select_prev = { '<Up>', '<S-Tab>' },
     show = { '<C-Space>', '<C-CR>' },
+    show_documentation = { '<C-Space>', '<C-CR>' },
+    snippet_backward = '<C-k>',
+    snippet_forward = '<C-j>',
   },
   sources = {
     providers = {
@@ -55,6 +59,7 @@ M.opts = {
     signature_help = { enabled = true },
   },
   windows = {
+    documentation = { auto_show = true },
     autocomplete = { selection = 'auto_insert' },
   },
 }
