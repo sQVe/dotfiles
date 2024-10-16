@@ -171,7 +171,7 @@ bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+m exec $menu-state
 bindsym $mod+n exec $menu-notebox
-bindsym $mod+o floating toggle; resize set 1600 800; move position center
+bindsym $mod+o floating toggle; resize set 33 ppt 33 ppt; move position center
 bindsym $mod+p focus parent
 bindsym $mod+q kill
 bindsym $mod+r mode "resize"
@@ -189,7 +189,7 @@ bindsym $mod+Shift+b exec $music-toggle
 bindsym $mod+Shift+d exec $menu-run
 bindsym $mod+Shift+g gaps inner current minus 40
 bindsym $mod+Shift+h move left 180
-bindsym $mod+Shift+i floating toggle; resize set 1600 800; move position center move scratchpad
+bindsym $mod+Shift+i floating toggle; resize set 50 ppt 75 ppt; move position center move scratchpad
 bindsym $mod+Shift+j move down 180
 bindsym $mod+Shift+k move up 180
 bindsym $mod+Shift+l move right 180
