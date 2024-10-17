@@ -20,18 +20,6 @@
     "prefix": "eslint-disable-next-line",
     "body": "// eslint-disable-next-line ${0:rule}"
   },
-  "loopFor": {
-    "prefix": "for",
-    "body": "for (let ${1:idx} = 0, ${2:length} = ${3:iterable}.length; ${1:idx} < ${2:length}; ${1:idx}++) {\n\t$0\n}"
-  },
-  "loopForIn": {
-    "prefix": "forin",
-    "body": "for (const ${1:key} in ${2:source}) {\n\t$0\n}"
-  },
-  "loopForOf": {
-    "prefix": "forof",
-    "body": "for (const ${1:item} of ${2:source}) {\n\t$0\n}"
-  },
   "prettierIgnore": {
     "prefix": "prettier-ignore",
     "body": "// prettier-ignore"
