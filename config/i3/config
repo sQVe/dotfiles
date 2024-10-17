@@ -36,7 +36,6 @@ set $lock --no-startup-id lock
 set $menu-apps --no-startup-id $SCRIPTS/menus/apps.sh
 set $menu-calculator --no-startup-id $SCRIPTS/menus/calculator.sh
 set $menu-emoji --no-startup-id $SCRIPTS/menus/emoji.sh
-set $menu-notebox --no-startup-id $SCRIPTS/menus/notebox.sh
 set $menu-passwords --no-startup-id $SCRIPTS/menus/passwords.sh
 set $menu-playground --no-startup-id $SCRIPTS/menus/playground.sh
 set $menu-run --no-startup-id $SCRIPTS/menus/run.sh
@@ -170,7 +169,6 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+m exec $menu-state
-bindsym $mod+n exec $menu-notebox
 bindsym $mod+o floating toggle; resize set 33 ppt 33 ppt; move position center
 bindsym $mod+p focus parent
 bindsym $mod+q kill
