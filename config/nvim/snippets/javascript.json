@@ -1,13 +1,4 @@
 {
-  "docstring": { "prefix": "docstring", "body": "/**\n * $0\n */" },
-  "consoleLog": {
-    "prefix": "cl",
-    "body": "console.log($0);"
-  },
-  "consoleLogContext": {
-    "prefix": "clc",
-    "body": "console.log('$TM_FILENAME:$TM_LINE_NUMBER ==>', $0);"
-  },
   "eslintDisable": {
     "prefix": "eslint-disable",
     "body": "/* eslint-disable ${1:rule} */\n$0\n/* eslint-enable */"

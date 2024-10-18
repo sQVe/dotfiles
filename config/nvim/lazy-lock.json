@@ -1,7 +1,7 @@
 {
   "alpha-nvim": { "branch": "main", "commit": "bf3c8bb8c02ed3d9644cc5bbc48e2bdc39349cd7" },
   "blame.nvim": { "branch": "main", "commit": "59cf695685c1d8d603d99b246cc8d42421937c09" },
-  "blink.cmp": { "branch": "main", "commit": "32069be108dda4cf2b0a7316a0be366398187003" },
+  "blink.cmp": { "branch": "main", "commit": "cfaf9fc89a4b0ad36bba7a2605ae9b2f15efbf52" },
   "bufignore.nvim": { "branch": "main", "commit": "ada90dfbc7537261c372542c60e6f59f6aa446a0" },
   "catppuccin": { "branch": "main", "commit": "7be452ee067978cdc8b2c5f3411f0c71ffa612b9" },
   "codecompanion.nvim": { "branch": "main", "commit": "fc146070cc341b1503d61daf6746edb4d0d7e6aa" },
@@ -30,6 +30,7 @@
   "mini.surround": { "branch": "main", "commit": "48a9795c9d352c771e1ab5dedab6063c0a2df037" },
   "notebox.nvim": { "branch": "main", "commit": "7d6c5c9f97f075fe5ce7806b930ec55cee52b886" },
   "nui.nvim": { "branch": "main", "commit": "b58e2bfda5cea347c9d58b7f11cf3012c7b3953f" },
+  "nvim-chainsaw": { "branch": "main", "commit": "2af4925afab2591bccb4118475dabfee49744311" },
   "nvim-lint": { "branch": "master", "commit": "16b21a7d04d06661f92f273a0744fd81fb19e09e" },
   "nvim-lspconfig": { "branch": "master", "commit": "541f3a2781de481bb84883889e4d9f0904250a56" },
   "nvim-navic": { "branch": "master", "commit": "8649f694d3e76ee10c19255dece6411c29206a54" },

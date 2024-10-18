@@ -12,6 +12,7 @@ M.colors = {
     peach    = "#EF9F76",
     pink     = "#EEBEBE",
     steel    = "#7C7691",
+    fade     = "#3B3845",
   },
   gruvbox = {
     bright_aqua    = '#8EC07C',

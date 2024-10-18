@@ -23,6 +23,9 @@ return function(theme)
     Search = { fg = theme.base, bg = theme.yellow },
     Special = { fg = theme.subtext0 },
 
+    -- Chainsaw.
+    ChainsawLog = { bg = colors.custom.fade },
+
     -- Flash.
     FlashLabel = { fg = theme.yellow, bg = 'none', bold = true },
     FlashCurrent = { fg = theme.subtext1, bg = 'none', bold = true },
