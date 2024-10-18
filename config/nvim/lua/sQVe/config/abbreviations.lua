@@ -2,6 +2,16 @@
 -- ┣━┫┣┻┓┣┻┓┣┳┛┣╸ ┃┏┛┃┣━┫ ┃ ┃┃ ┃┃┗┫┗━┓
 -- ╹ ╹┗━┛┗━┛╹┗╸┗━╸┗┛ ╹╹ ╹ ╹ ╹┗━┛╹ ╹┗━┛
 
+-- Shorthands.
+vim.cmd([[
+  iabbrev lorem8 Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  iabbrev lorem16 Lorem ipsum dolor sit amet consectetur, adipiscing elit sociosqu inceptos felis nam, consequat vulputate nullam erat.
+  iabbrev lorem24 Lorem ipsum dolor sit amet consectetur adipiscing elit egestas, dapibus malesuada morbi gravida ad pulvinar nascetur inceptos, nisi imperdiet cras donec aenean fringilla interdum.
+  iabbrev lorem32 Lorem ipsum dolor sit amet consectetur adipiscing elit, blandit eget sociosqu ultrices eros neque nisl, arcu volutpat felis massa diam curabitur. Tempor montes nec donec pretium bibendum et, quam fermentum suspendisse convallis.
+  iabbrev lorem40 Lorem ipsum dolor sit amet consectetur adipiscing elit, condimentum ad mattis lacus commodo augue vulputate, iaculis id tellus nisi euismod etiam. Hendrerit taciti ligula maecenas ante quam cubilia, vitae inceptos varius laoreet montes posuere rhoncus, eros a hac velit tempor.
+  iabbrev lorem48 Lorem ipsum dolor sit amet consectetur adipiscing elit felis pharetra, quam sollicitudin scelerisque semper nascetur ornare magnis himenaeos, elementum imperdiet condimentum litora convallis ultricies fringilla a. Pulvinar mus venenatis egestas congue viverra hac interdum, ac varius enim augue potenti at accumsan sem, vulputate vehicula velit quis malesuada praesent.
+]])
+
 -- Syntax.
 vim.cmd([[
   iabbrev asycn     async
