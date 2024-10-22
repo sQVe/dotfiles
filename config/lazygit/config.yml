@@ -52,8 +52,12 @@ keybinding:
     openMergeTool: ''
 customCommands:
   - key: 'M'
-    context: 'files'
+    context: 'files, worktrees'
     command: 'term "nvim -c DiffviewOpen"'
     description: 'Open merge tool'
+  - key: 'f'
+    context: 'files, localBranches, remoteBranches, remotes, tags, worktrees'
+    command: 'git pull --ff-only --all --prune > /dev/null 2>&1 || true'
+    description: 'Fast-forward'
 notARepository: 'quit'
 promptToReturnFromSubprocess: false
