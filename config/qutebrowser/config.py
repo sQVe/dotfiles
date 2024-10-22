@@ -352,7 +352,7 @@ c.content.javascript.alert = True
 #   - none: Disable access to clipboard.
 #   - access: Allow reading from and writing to the clipboard.
 #   - access-paste: Allow accessing the clipboard and pasting clipboard content.
-c.content.javascript.clipboard = 'access'
+c.content.javascript.clipboard = 'access-paste'
 
 # Allow JavaScript to open new tabs without user interaction.
 # Type: Bool
