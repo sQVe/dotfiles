@@ -41,6 +41,9 @@ M.opts = {
     chat = {
       intro_message = '',
       show_settings = true,
+      window = {
+        layout = 'buffer',
+      },
     },
     diff = { provider = 'mini_diff' },
   },

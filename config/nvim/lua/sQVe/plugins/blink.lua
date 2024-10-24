@@ -25,16 +25,26 @@ M.opts = {
   },
   sources = {
     providers = {
-      { 'blink.cmp.sources.lsp', name = 'LSP' },
-      {
-        'blink.cmp.sources.buffer',
-        name = 'Buffer',
-        fallback_for = { 'LSP' },
+      lsp = {
+        name = 'LSP',
+        module = 'blink.cmp.sources.lsp',
       },
-      { 'blink.cmp.sources.path', name = 'Path', score_offset = 3 },
-      {
-        'blink.cmp.sources.snippets',
+      buffer = {
+        name = 'Buffer',
+        module = 'blink.cmp.sources.buffer',
+        fallback_for = { 'lsp' },
+      },
+      path = {
+        name = 'Path',
+        module = 'blink.cmp.sources.path',
+        score_offset = 3,
+        opts = {
+          show_hidden_files_by_default = true,
+        },
+      },
+      snippets = {
         name = 'Snippets',
+        module = 'blink.cmp.sources.snippets',
         keyword_length = 1,
         score_offset = -3,
         opts = {
