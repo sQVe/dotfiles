@@ -25,9 +25,6 @@ local M = {
 }
 
 M.opts = {
-  adapters = {
-    openai = adapters.openai,
-  },
   display = {
     action_palette = {
       width = 80,
@@ -83,9 +80,9 @@ M.opts = {
     ['Write commit message'] = prompts.write_commit_message,
   },
   strategies = {
-    inline = { adapter = 'openai' },
+    inline = { adapter = 'anthropic' },
     chat = {
-      adapter = 'openai',
+      adapter = 'anthropic',
       roles = {
         llm = 'Assistant',
         user = 'User',
