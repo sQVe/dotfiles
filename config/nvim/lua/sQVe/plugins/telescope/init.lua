@@ -77,7 +77,6 @@ M.opts = function()
         flex = { flip_columns = 280 },
         vertical = { preview_height = 0.4 },
       },
-      path_display = { 'filename_first' },
       mappings = {
         i = {
           ['<C-Down>'] = actions.cycle_history_next,

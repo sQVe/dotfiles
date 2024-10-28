@@ -362,7 +362,7 @@ M.search_history = {
 M.smart_open = {
   callback = function()
     require('telescope').extensions.smart_open.smart_open({
-      filename_first = true,
+      filename_first = false,
       cwd_only = true,
     })
   end,

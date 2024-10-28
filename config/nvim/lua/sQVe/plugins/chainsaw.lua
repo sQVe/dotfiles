@@ -30,6 +30,22 @@ local M = {
       mode = { 'v' },
       desc = 'Message debug log',
     },
+    {
+      '<C-g><C-p>',
+      function()
+        local line = vim.fn.getline('.')
+        local is_whitespace_only = line:match('^%s*$')
+
+        if is_whitespace_only then
+          vim.cmd('norm k')
+          vim.cmd('norm! "_dd')
+        end
+
+        require('chainsaw').messageLog()
+      end,
+      mode = { 'i' },
+      desc = 'Message debug log',
+    },
   },
 }
 
