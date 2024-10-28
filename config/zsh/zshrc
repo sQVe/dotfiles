@@ -190,8 +190,6 @@ alias grep='grep --color=auto -d skip'
 alias mkdir='mkdir -pv'
 alias more=less
 alias q=exit
-alias s='sudo -v && sudo '
-alias se='sudoedit '
 alias sudo='sudo -v && sudo '
 alias sudoedit='sudoedit '
 
