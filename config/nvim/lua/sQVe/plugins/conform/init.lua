@@ -27,10 +27,6 @@ M.config = function(_, opts)
   formatters.override_formatting_settings()
   conform.setup(opts)
 
-  map({ 'n', 'v' }, '<Leader><Leader>', function()
-    conform.format({ async = true, lsp_fallback = true })
-  end, { desc = 'Format' })
-
   autocmd('BufWritePre', {
     group = 'FormatOnSave',
     pattern = '*',

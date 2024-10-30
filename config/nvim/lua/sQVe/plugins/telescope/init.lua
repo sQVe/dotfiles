@@ -51,6 +51,14 @@ local M = {
       mode = { 'n', 'v' },
     },
     {
+      '<Leader><Leader>',
+      function()
+        commands.buffers.callback()
+      end,
+      desc = 'Buffers',
+      mode = { 'n', 'v' },
+    },
+    {
       'M',
       function()
         commands.marks.callback()
