@@ -11,17 +11,18 @@ local M = {
 M.opts = {
   highlight = { use_nvim_cmp_as_default = true },
   keymap = {
-    accept = '<CR>',
-    hide = '<C-e>',
-    hide_documentation = { '<C-Space>', '<C-CR>' },
-    scroll_documentation_down = '<C-d>',
-    scroll_documentation_up = '<C-u>',
-    select_next = { '<Down>', '<Tab>' },
-    select_prev = { '<Up>', '<S-Tab>' },
-    show = { '<C-Space>', '<C-CR>' },
-    show_documentation = { '<C-Space>', '<C-CR>' },
-    snippet_backward = '<C-k>',
-    snippet_forward = '<C-j>',
+    ['<C-Space>'] = { 'hide_documentation', 'show', 'show_documentation' },
+    ['<C-CR>'] = { 'hide_documentation', 'show', 'show_documentation' },
+    ['<C-e>'] = { 'hide' },
+    ['<CR>'] = { 'accept', 'fallback' },
+    ['<Tab>'] = { 'select_next' },
+    ['<S-Tab>'] = { 'select_prev' },
+    ['<Down>'] = { 'select_next' },
+    ['<Up>'] = { 'select_prev' },
+    ['<C-u>'] = { 'scroll_documentation_up' },
+    ['<C-d>'] = { 'scroll_documentation_down' },
+    ['<C-j>'] = { 'snippet_forward' },
+    ['<C-k>'] = { 'snippet_backward' },
   },
   sources = {
     providers = {
@@ -63,9 +64,6 @@ M.opts = {
     },
   },
   trigger = {
-    completion = {
-      show_on_insert_on_trigger_character = false,
-    },
     signature_help = { enabled = true },
   },
   windows = {
