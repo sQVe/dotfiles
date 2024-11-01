@@ -7,11 +7,11 @@ local format_lines = require('sQVe.utils.format_lines')
 local autocmd = require('sQVe.utils.autocmd')
 
 local prompts = require('sQVe.plugins.codecompanion.prompts')
-local adapters = require('sQVe.plugins.codecompanion.adapters')
 local ui = require('sQVe.plugins.codecompanion.ui')
 
 local M = {
   'olimorris/codecompanion.nvim',
+  cmd = { 'CodeCompanionChat' },
   keys = {
     {
       'Å',

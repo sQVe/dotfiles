@@ -30,6 +30,7 @@ It is essential to know a thing first
 
   dashboard.section.header.val = vim.split(logo, '\n')
   dashboard.section.buttons.val = {
+    dashboard.button('c', '🤖  Chat', '<Cmd>CodeCompanionChat<CR>'),
     dashboard.button(
       'å',
       '🗃️  Command palette',
@@ -57,7 +58,6 @@ It is essential to know a thing first
       '<Cmd>lua require("persistence").load({ last = true })<CR>'
     ),
     dashboard.button('l', '💤  Lazy', '<Cmd>Lazy<CR>'),
-    dashboard.button('c', '🚪  Close', '<Cmd>Alpha<CR>'),
     dashboard.button('q', '🥺  Quit', '<Cmd>qa<CR>'),
   }
 
