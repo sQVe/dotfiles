@@ -6,6 +6,7 @@
 local M = {
   'saghen/blink.cmp',
   build = 'cargo build --release',
+  event = 'InsertEnter',
 }
 
 M.opts = {
@@ -25,10 +26,18 @@ M.opts = {
     ['<C-k>'] = { 'snippet_backward', 'fallback' },
   },
   sources = {
+    completion = {
+      enabled_providers = { 'lazydev', 'lsp', 'buffer', 'path', 'snippets' },
+    },
     providers = {
+      lazydev = {
+        name = 'LazyDev',
+        module = 'lazydev.integrations.blink',
+      },
       lsp = {
         name = 'LSP',
         module = 'blink.cmp.sources.lsp',
+        fallback_for = { 'lazydev' },
       },
       buffer = {
         name = 'Buffer',
