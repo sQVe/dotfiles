@@ -37,7 +37,7 @@ set $lock --no-startup-id lock
 set $menu-apps --no-startup-id $SCRIPTS/menus/apps.sh
 set $menu-emoji --no-startup-id $SCRIPTS/menus/emoji.sh
 set $menu-passwords --no-startup-id $SCRIPTS/menus/passwords.sh
-set $menu-playground --no-startup-id $SCRIPTS/menus/playground.sh
+set $playground --no-startup-id $SCRIPTS/playground.sh
 set $menu-run --no-startup-id $SCRIPTS/menus/run.sh
 set $menu-state --no-startup-id $SCRIPTS/menus/state.sh
 set $menu-toggles --no-startup-id $SCRIPTS/menus/toggles.sh
@@ -124,10 +124,15 @@ no_focus [window_role="pop-up"]
 
 # Application specific window settings.
 for_window [class="Slack"] focus
+for_window [class="bc"] floating enable
+for_window [class="bc"] resize set 800 600
+for_window [class="bc"] move position center
 for_window [class="kitty"] focus
 for_window [class="mpv"] focus
+for_window [class="playground"] floating enable
+for_window [class="playground"] resize set 1200 800
+for_window [class="playground"] move position center
 for_window [class="qutebrowser"] focus
-for_window [class="bc"] floating enable
 
 
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
@@ -170,6 +175,7 @@ bindsym $mod+j focus down
 bindsym $mod+k focus up
 bindsym $mod+l focus right
 bindsym $mod+m exec $menu-state
+bindsym $mod+n exec $playground
 bindsym $mod+o floating toggle; resize set 33 ppt 33 ppt; move position center
 bindsym $mod+p focus parent
 bindsym $mod+q kill
@@ -181,7 +187,6 @@ bindsym $mod+v exec $vim
 bindsym $mod+w layout toggle tabbed split
 bindsym $mod+x exec $lock
 bindsym $mod+y sticky toggle
-bindsym $mod+adiaeresis exec $menu-playground
 bindsym $mod+odiaeresis exec dunstctl close
 
 bindsym $mod+Shift+b exec $music-toggle
