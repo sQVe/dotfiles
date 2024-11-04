@@ -213,6 +213,7 @@ alias shutdown='state shutdown'
 alias suspend='state suspend'
 
 # Apps.
+alias bc='bc --mathlib --quiet'
 alias bluetooth=bluetoothctl
 alias cheat='cht.sh'
 alias chrome=open-chrome
