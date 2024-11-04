@@ -32,23 +32,23 @@ set $workspace-9 "9:<b>9</b>"
 set $workspace-0 "10:<b>0</b>"
 
 set $bluetooth --no-startup-id bluetooth-autoconnect
+set $calculator --no-startup-id term --class bc --detach bc
 set $lock --no-startup-id lock
 set $menu-apps --no-startup-id $SCRIPTS/menus/apps.sh
-set $menu-calculator --no-startup-id $SCRIPTS/menus/calculator.sh
 set $menu-emoji --no-startup-id $SCRIPTS/menus/emoji.sh
 set $menu-passwords --no-startup-id $SCRIPTS/menus/passwords.sh
 set $menu-playground --no-startup-id $SCRIPTS/menus/playground.sh
 set $menu-run --no-startup-id $SCRIPTS/menus/run.sh
-set $menu-toggles --no-startup-id $SCRIPTS/menus/toggles.sh
 set $menu-state --no-startup-id $SCRIPTS/menus/state.sh
+set $menu-toggles --no-startup-id $SCRIPTS/menus/toggles.sh
 set $menu-windows --no-startup-id $SCRIPTS/menus/windows.sh
 set $music-next --no-startup-id playerctl next
 set $music-prev --no-startup-id playerctl previous
 set $music-toggle --no-startup-id playerctl play-pause
 set $term --no-startup-id term
 set $term-detach --no-startup-id term --detach
-set $yazi --no-startup-id term --detach yazi
-set $vim --no-startup-id term --detach nvim
+set $vim --no-startup-id term --class neovim --detach nvim
+set $yazi --no-startup-id term --class yazi --detach yazi
 
 set $brightness-down --no-startup-id brightnessctl set +5%
 set $brightness-up --no-startup-id brightnessctl set 5%-
@@ -127,6 +127,7 @@ for_window [class="Slack"] focus
 for_window [class="kitty"] focus
 for_window [class="mpv"] focus
 for_window [class="qutebrowser"] focus
+for_window [class="bc"] floating enable
 
 
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
@@ -212,7 +213,7 @@ bindsym $mod+Ctrl+l workspace next_on_output
 bindsym $mod+Ctrl+h workspace prev_on_output
 
 # Symbol based bindings.
-bindsym $mod+plus exec $menu-calculator
+bindsym $mod+plus exec $calculator
 
 # Direction based bindings.
 bindsym $mod+Down focus down
