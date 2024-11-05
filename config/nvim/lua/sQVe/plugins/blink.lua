@@ -10,7 +10,6 @@ local M = {
 }
 
 M.opts = {
-  highlight = { use_nvim_cmp_as_default = true },
   keymap = {
     ['<C-Space>'] = { 'hide_documentation', 'show', 'show_documentation' },
     ['<C-CR>'] = { 'hide_documentation', 'show', 'show_documentation' },

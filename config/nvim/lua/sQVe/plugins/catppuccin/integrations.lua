@@ -4,7 +4,8 @@
 
 return {
   alpha = true,
-  cmp = true,
+  blink_cmp = true,
+  cmp = false,
   fidget = true,
   flash = true,
   gitsigns = true,
