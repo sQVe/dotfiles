@@ -288,8 +288,6 @@ mode "resize" {
   bindsym Right resize shrink width 180
   bindsym Up resize grow height 180
 
-  bindsym BackSpace mode "default"
-  bindsym Delete mode "default"
   bindsym Escape mode "default"
   bindsym Return mode "default"
   bindsym space mode "default"
@@ -300,14 +298,17 @@ mode "resize" {
 # ¤¤¤¤  Autostart  ¤¤¤¤
 # ¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤¤
 
-# Enable autotiling.
-exec --no-startup-id autotiling-rs
-
 # Start polkit agent.
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
-# Render random wallpaper.
-exec --no-startup-id random-wallpaper
+# Delayed easyeffects start.
+exec --no-startup-id "sh -c 'sleep 4; exec easyeffects --gapplication-service'"
+
+# Enable autotiling.
+exec --no-startup-id autotiling-rs
+
+# Enable centering cursor in focused window.
+exec --no-startup-id "sh -c 'sleep 4; exec $SCRIPTS/i3/center-cursor-focused.sh'"
 
 # Auto setup connected monitors.
 exec --no-startup-id "sh -c 'sleep 1; autorandr --change'"
@@ -315,7 +316,7 @@ exec --no-startup-id "sh -c 'sleep 1; autorandr --change'"
 # Delayed redshift start.
 exec --no-startup-id "sh -c 'sleep 4; exec $SCRIPTS/toggles/redshift.sh'"
 
-# Delayed easyeffects start.
-exec --no-startup-id "sh -c 'sleep 4; exec easyeffects --gapplication-service'"
+# Render random wallpaper.
+exec --no-startup-id random-wallpaper
 
 # vim: ft=i3config
