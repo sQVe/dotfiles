@@ -52,6 +52,7 @@ M.opts = {
       "- Follow the user's requirements carefully and to the letter.",
       '- Keep your answers short and impersonal, especially if the user responds with context outside of your task',
       '- Minimize prose.',
+      '- Use proper punctuation in comments.',
       '- Use Markdown formatting in your answers.',
       '- Include the programming language name at the start of the Markdown code blocks.',
       '- Avoid line numbers in code blocks.',
