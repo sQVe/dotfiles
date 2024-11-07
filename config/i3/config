@@ -78,6 +78,7 @@ default_border pixel 2
 default_floating_border pixel 2
 default_orientation horizontal
 hide_edge_borders smart
+popup_during_fullscreen all
 
 # Window types           Border                Background            Text       Indicator         Child border
 client.focused           $color-window-active  $color-window-active  $color-bg  $color-indicator  $color-border-active
