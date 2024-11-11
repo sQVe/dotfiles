@@ -5,11 +5,15 @@
 
 local M = {
   'MeanderingProgrammer/render-markdown.nvim',
-  ft = 'markdown',
+  ft = { 'Avante', 'markdown' },
 }
 
 M.opts = {
   preset = 'lazy',
+  file_types = {
+    'Avante',
+    'markdown',
+  },
   checkbox = {
     custom = {
       skip = {
