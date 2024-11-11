@@ -3,6 +3,8 @@
 --  ╹ ┗━╸┗━╸┗━╸┗━┛┗━╸┗━┛╹  ┗━╸
 -- Fuzzy finder.
 
+local selection = require('sQVe.utils.selection')
+
 local commands = require('sQVe.ui.command_palette.commands')
 
 local M = {
@@ -27,7 +29,7 @@ local M = {
       desc = 'Spell suggest',
     },
     {
-      'å',
+      '<Backspace>',
       function()
         require('sQVe.ui.command_palette').open_command_palette()
       end,
@@ -43,11 +45,29 @@ local M = {
       mode = { 'n', 'v' },
     },
     {
-      '<Backspace>',
+      'å',
       function()
         commands.live_grep.callback()
       end,
       desc = 'Live grep',
+      mode = { 'n', 'v' },
+    },
+    {
+      'Å',
+      function()
+        local visual_mode = selection.get_visual_mode()
+
+        local opts = {
+          is_visual_mode = selection.is_visual_mode(),
+          query = visual_mode == 'char' and selection.get_region_text(
+            selection.get_current_region(),
+            visual_mode
+          )[1] or vim.fn.expand('<cword>'),
+        }
+
+        commands.grep_text.callback(opts)
+      end,
+      desc = 'Grep text',
       mode = { 'n', 'v' },
     },
     {

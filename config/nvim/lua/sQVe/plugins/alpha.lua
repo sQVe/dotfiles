@@ -30,23 +30,22 @@ It is essential to know a thing first
 
   dashboard.section.header.val = vim.split(logo, '\n')
   dashboard.section.buttons.val = {
-    dashboard.button('c', '🤖  Chat', '<Cmd>CodeCompanionChat<CR>'),
-    dashboard.button(
-      'å',
-      '🗃️  Command palette',
-      '<Cmd>lua require("sQVe.ui.command_palette").open_command_palette()<CR>'
-    ),
     dashboard.button(
       'ä',
       '📝  Smart open',
       '<Cmd>lua require("sQVe.ui.command_palette.commands").smart_open.callback()<CR>'
     ),
     dashboard.button(
-      '<Backspace>',
+      'å',
       '🔎  Live grep',
       '<Cmd>lua require("sQVe.ui.command_palette.commands").live_grep.callback()<CR>'
     ),
     dashboard.button('e', '💎  New file', '<Cmd>enew<CR>'),
+    dashboard.button(
+      '<Backspace>',
+      '🗃️  Command palette',
+      '<Cmd>lua require("sQVe.ui.command_palette").open_command_palette()<CR>'
+    ),
     dashboard.button(
       's',
       '💾  Load directory session',
