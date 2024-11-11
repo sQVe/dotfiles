@@ -75,8 +75,16 @@ M.opts = {
     signature_help = { enabled = true },
   },
   windows = {
+    autocomplete = {
+      draw = {
+        columns = {
+          { 'label', 'label_description', gap = 1 },
+          { 'kind_icon' },
+        },
+      },
+      selection = 'auto_insert',
+    },
     documentation = { auto_show = true },
-    autocomplete = { selection = 'auto_insert' },
   },
 }
 
