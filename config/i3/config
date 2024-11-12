@@ -178,7 +178,7 @@ bindsym $mod+l focus right
 bindsym $mod+m exec $menu-state
 bindsym $mod+n exec $playground
 bindsym $mod+o floating toggle; resize set 33 ppt 33 ppt; move position center
-bindsym $mod+p focus parent
+bindsym $mod+p focus mode_toggle
 bindsym $mod+q kill
 bindsym $mod+r mode "resize"
 bindsym $mod+s split toggle
@@ -200,7 +200,6 @@ bindsym $mod+Shift+k move up 180
 bindsym $mod+Shift+l move right 180
 bindsym $mod+Shift+n exec $music-next
 bindsym $mod+Shift+o focus mode_toggle
-bindsym $mod+Shift+p focus child
 bindsym $mod+Shift+s layout toggle splitv splith
 bindsym $mod+Shift+v exec $music-prev
 bindsym $mod+Shift+odiaeresis exec dunstctl close-all
