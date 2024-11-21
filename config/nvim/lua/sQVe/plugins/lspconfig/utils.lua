@@ -163,13 +163,12 @@ M.map_lookup_keys = function(bufnr)
       vim.lsp.buf_request(bufnr, 'workspace/executeCommand', {
         command = 'typescript.goToSourceDefinition',
         arguments = { params.textDocument.uri, params.position },
-        open = true,
-      }, vim.lsp.handlers['textDocument/definition'])
+      })
       return
     end
 
     vim.lsp.buf.declaration()
-  end, { buffer = bufnr, desc = 'Go to declaration' })
+  end, { buffer = bufnr, desc = 'Go to source definition' })
   map('n', 'gI', function()
     builtin.lsp_implementations({ reuse_win = true })
   end, { buffer = bufnr, desc = 'Go to implementation' })

@@ -230,7 +230,7 @@ alias spotify=open-spotify
 alias steam=open-steam
 alias v=nvim
 alias vim=nvim
-alias vimn='nvim -u NONE'
+alias vn='nvim -u NONE'
 alias xsel='xsel -b'
 
 # Dunst.
