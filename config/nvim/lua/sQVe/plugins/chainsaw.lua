@@ -50,7 +50,10 @@ local M = {
 }
 
 M.opts = {
-  logHighlightGroup = 'ChainsawLog',
+  visuals = {
+    lineHlgroup = 'ChainsawLog',
+    sign = '',
+  },
   logStatements = {
     variableLog = {
       nvim_lua = 'print("%s %s: " .. vim.inspect(%s))',
