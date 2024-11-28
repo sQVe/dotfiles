@@ -28,6 +28,11 @@ M.opts = {
     completion = {
       enabled_providers = { 'lazydev', 'lsp', 'buffer', 'path', 'snippets' },
     },
+    list = { selection = 'auto_insert' },
+    menu = {
+      columns = { { 'label', 'label_description', gap = 1 }, { 'kind_icon' } },
+      documentation = { auto_show = true },
+    },
     providers = {
       lazydev = {
         name = 'LazyDev',
@@ -73,18 +78,6 @@ M.opts = {
   },
   trigger = {
     signature_help = { enabled = true },
-  },
-  windows = {
-    autocomplete = {
-      draw = {
-        columns = {
-          { 'label', 'label_description', gap = 1 },
-          { 'kind_icon' },
-        },
-      },
-      selection = 'auto_insert',
-    },
-    documentation = { auto_show = true },
   },
 }
 
