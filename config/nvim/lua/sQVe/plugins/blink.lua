@@ -10,6 +10,13 @@ local M = {
 }
 
 M.opts = {
+  completion = {
+    list = { selection = 'auto_insert' },
+    menu = {
+      columns = { { 'label', 'label_description', gap = 1 }, { 'kind_icon' } },
+      documentation = { auto_show = true },
+    },
+  },
   keymap = {
     ['<C-Space>'] = { 'hide_documentation', 'show', 'show_documentation' },
     ['<C-CR>'] = { 'hide_documentation', 'show', 'show_documentation' },
@@ -24,14 +31,10 @@ M.opts = {
     ['<C-j>'] = { 'snippet_forward', 'fallback' },
     ['<C-k>'] = { 'snippet_backward', 'fallback' },
   },
+  signature = { enabled = true },
   sources = {
     completion = {
       enabled_providers = { 'lazydev', 'lsp', 'buffer', 'path', 'snippets' },
-    },
-    list = { selection = 'auto_insert' },
-    menu = {
-      columns = { { 'label', 'label_description', gap = 1 }, { 'kind_icon' } },
-      documentation = { auto_show = true },
     },
     providers = {
       lazydev = {
@@ -75,9 +78,6 @@ M.opts = {
         },
       },
     },
-  },
-  trigger = {
-    signature_help = { enabled = true },
   },
 }
 
