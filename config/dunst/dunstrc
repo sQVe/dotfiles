@@ -19,13 +19,11 @@
 
     ### Geometry ###
 
-    # dynamic width from 0 to 300
-    # width = (0, 300)
-    # constant width of 300
+    # Dynamic width from 0 to 600.
     width = (0, 600)
 
-    # The maximum height of a single notification, excluding the frame.
-    height = 300
+    # Dynamic height from 0 to 300.
+    height = (0, 300)
 
     # Position the notification in the top right corner
     origin = top-right
