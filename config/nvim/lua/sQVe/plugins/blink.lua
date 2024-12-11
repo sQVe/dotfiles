@@ -33,9 +33,7 @@ M.opts = {
   },
   signature = { enabled = true },
   sources = {
-    completion = {
-      enabled_providers = { 'lazydev', 'lsp', 'buffer', 'path', 'snippets' },
-    },
+    default = { 'lazydev', 'lsp', 'buffer', 'path', 'snippets' },
     providers = {
       lazydev = {
         name = 'LazyDev',
@@ -44,12 +42,12 @@ M.opts = {
       lsp = {
         name = 'LSP',
         module = 'blink.cmp.sources.lsp',
-        fallback_for = { 'lazydev' },
+        fallbacks = { 'lazydev' },
       },
       buffer = {
         name = 'Buffer',
         module = 'blink.cmp.sources.buffer',
-        fallback_for = { 'lsp' },
+        fallbacks = { 'lsp' },
       },
       path = {
         name = 'Path',
