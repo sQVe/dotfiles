@@ -7,9 +7,7 @@ local map = require('sQVe.utils.map')
 local M = {}
 
 M.create_server_setup = function(opts)
-  local default_capabilities = vim.lsp.protocol.make_client_capabilities()
-  local capabilities =
-    require('blink.cmp').get_lsp_capabilities(default_capabilities)
+  local capabilities = require('blink.cmp').get_lsp_capabilities()
 
   local common_setup = {
     capabilities = capabilities,

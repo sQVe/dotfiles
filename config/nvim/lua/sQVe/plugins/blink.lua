@@ -13,9 +13,11 @@ M.opts = {
   completion = {
     list = { selection = 'auto_insert' },
     menu = {
-      columns = { { 'label', 'label_description', gap = 1 }, { 'kind_icon' } },
-      documentation = { auto_show = true },
+      draw = {
+        columns = { { 'label', 'label_description', gap = 1 }, { 'kind_icon' } },
+      },
     },
+    documentation = { auto_show = true },
   },
   keymap = {
     ['<C-Space>'] = { 'hide_documentation', 'show', 'show_documentation' },
@@ -33,21 +35,41 @@ M.opts = {
   },
   signature = { enabled = true },
   sources = {
-    default = { 'lazydev', 'lsp', 'buffer', 'path', 'snippets' },
+    default = function()
+      local node = vim.treesitter.get_node()
+      local enabled_providers = { 'lsp', 'buffer', 'path', 'snippets' }
+
+      if
+        node
+        and vim.tbl_contains({
+          'comment',
+          'line_comment',
+          'block_comment',
+        }, node:type())
+      then
+        return { 'buffer', 'path' }
+      end
+
+      if vim.bo.filetype == 'lua' then
+        table.insert(enabled_providers, 1, 'luasnip')
+      end
+
+      return enabled_providers
+    end,
+
     providers = {
       lazydev = {
         name = 'LazyDev',
         module = 'lazydev.integrations.blink',
+        fallbacks = { 'lsp' },
       },
       lsp = {
         name = 'LSP',
         module = 'blink.cmp.sources.lsp',
-        fallbacks = { 'lazydev' },
       },
       buffer = {
         name = 'Buffer',
         module = 'blink.cmp.sources.buffer',
-        fallbacks = { 'lsp' },
       },
       path = {
         name = 'Path',
@@ -60,7 +82,7 @@ M.opts = {
       snippets = {
         name = 'Snippets',
         module = 'blink.cmp.sources.snippets',
-        keyword_length = 1,
+        min_keyword_length = 1,
         score_offset = -3,
         opts = {
           extended_filetypes = {
