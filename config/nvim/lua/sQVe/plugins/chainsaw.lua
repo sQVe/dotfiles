@@ -52,7 +52,7 @@ local M = {
 M.opts = {
   visuals = {
     lineHlgroup = 'ChainsawLog',
-    sign = '',
+    icon = '',
   },
   logStatements = {
     variableLog = {
