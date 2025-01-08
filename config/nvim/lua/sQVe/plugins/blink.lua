@@ -99,18 +99,7 @@ M.opts = function()
           module = 'blink.cmp.sources.snippets',
           min_keyword_length = 1,
           score_offset = -3,
-          opts = {
-            extended_filetypes = {
-              javascriptreact = { 'javascript' },
-              typescript = { 'javascript' },
-              typescriptreact = {
-                'javascript',
-                'javascriptreact',
-                'typescript',
-              },
-            },
-            friendly_snippets = false,
-          },
+          opts = { friendly_snippets = false },
         },
       },
     },
