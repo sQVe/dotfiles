@@ -69,10 +69,6 @@ M.opts = function()
           return { 'buffer', 'path' }
         end
 
-        if vim.bo.filetype == 'lua' then
-          table.insert(enabled_providers, 1, 'luasnip')
-        end
-
         return enabled_providers
       end,
 
