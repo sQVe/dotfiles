@@ -10,9 +10,6 @@ return {
   { 'onsails/lspkind-nvim', lazy = true }, -- LSP kind icons.
   { 'tpope/vim-repeat', event = 'VeryLazy' }, -- Repeat support for plugins.
 
-  -- Auto close pairs.
-  { 'echasnovski/mini.pairs', config = true, event = 'VeryLazy' },
-
   -- Simple session management.
   { 'folke/persistence.nvim', config = true, event = 'BufRead' },
 
