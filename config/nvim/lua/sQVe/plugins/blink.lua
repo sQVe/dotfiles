@@ -7,7 +7,6 @@ local M = {
   'saghen/blink.cmp',
   build = 'cargo build --release',
   event = 'InsertEnter',
-  dependencies = { 'xzbdmw/colorful-menu.nvim' },
 }
 
 M.opts = function()
@@ -18,10 +17,6 @@ M.opts = function()
         draw = {
           columns = { { 'label', gap = 1 }, { 'kind_icon' } },
           components = {
-            label = {
-              text = require('colorful-menu').blink_components_text,
-              highlight = require('colorful-menu').blink_components_highlight,
-            },
             kind_icon = {
               ellipsis = false,
               highlight = function(ctx)
