@@ -34,14 +34,15 @@ local M = {
       '<C-g><C-p>',
       function()
         local line = vim.fn.getline('.')
-        local is_whitespace_only = line:match('^%s*$')
+        local is_whitespace_only = line:match('^%s*$') ~= nil
+
+        require('chainsaw').messageLog()
 
         if is_whitespace_only then
+          print('Deleting line')
           vim.cmd('norm k')
           vim.cmd('norm! "_dd')
         end
-
-        require('chainsaw').messageLog()
       end,
       mode = { 'i' },
       desc = 'Message debug log',
