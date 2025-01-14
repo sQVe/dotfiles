@@ -1,6 +1,6 @@
 {
   "alpha-nvim": { "branch": "main", "commit": "de72250e054e5e691b9736ee30db72c65d560771" },
-  "avante.nvim": { "branch": "main", "commit": "bd8afce3b0cac6e3d5e1a409692975199be38b81" },
+  "avante.nvim": { "branch": "main", "commit": "143519abaee85008e7518f7c48fcea6f49f7eadc" },
   "blame.nvim": { "branch": "main", "commit": "39bb4cda9e658d053a43919b10ca52c0a4d738e1" },
   "blink.cmp": { "branch": "main", "commit": "a5402a1ae0ef71a3d47e5f82e35cefe7299ba508" },
   "bufignore.nvim": { "branch": "main", "commit": "ada90dfbc7537261c372542c60e6f59f6aa446a0" },
