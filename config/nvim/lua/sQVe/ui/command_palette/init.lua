@@ -28,13 +28,13 @@ local default_commands = {
   commands.file_history_buffer_path,
   commands.find_files,
   commands.find_files_in_subdirectory,
-  commands.find_note,
+  commands.git_browse,
   commands.git_status,
+  commands.grep,
+  commands.grep_in_subdirectory,
   commands.grep_text,
   commands.help_tags,
-  commands.live_grep,
-  commands.live_grep_in_subdirectory,
-  commands.live_grep_note,
+  commands.lines,
   commands.marks,
   commands.previous_commit_message,
   commands.recent_files,
@@ -43,7 +43,6 @@ local default_commands = {
   commands.review_diff_view,
   commands.search_and_replace,
   commands.search_history,
-  commands.smart_open,
   commands.spawn_file_manager,
   commands.spawn_file_manager_in_subdirectory,
   commands.spawn_lazygit,
@@ -57,7 +56,6 @@ local default_commands = {
   commands.toggle_relative_numbers,
   commands.toggle_spell,
   commands.toggle_wrap,
-  commands.workspace_symbols,
 }
 
 M.open_command_palette = function(additional_commands)

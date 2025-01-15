@@ -15,16 +15,6 @@ local M = {
       end,
       desc = 'Flash search',
     },
-    {
-      'S',
-      mode = { 'n', 'x' },
-      function()
-        require('flash').jump({
-          continue = true,
-        })
-      end,
-      desc = 'Continue flash search',
-    },
   },
 }
 

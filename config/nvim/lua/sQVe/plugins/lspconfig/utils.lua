@@ -125,28 +125,28 @@ M.map_diagnostic_keys = function(bufnr)
   end, { buffer = bufnr, desc = 'View diagnostic (line)' })
   map('n', '[d', function()
     vim.diagnostic.jump(
-      vim.tbl_extend('force', shared_diagnostic_opts, { count = 1 })
+      vim.tbl_extend('force', shared_diagnostic_opts, { count = -1 })
     )
   end, { buffer = bufnr, desc = 'Go to previous diagnostic' })
   map('n', ']d', function()
     vim.diagnostic.jump(
-      vim.tbl_extend('force', shared_diagnostic_opts, { count = -1 })
+      vim.tbl_extend('force', shared_diagnostic_opts, { count = 1 })
     )
   end, { buffer = bufnr, desc = 'Go to next diagnostic' })
 end
 
 M.map_lookup_keys = function(bufnr)
-  local builtin = require('telescope.builtin')
-
   map({ 'n', 'v' }, 'ga', function()
     vim.lsp.buf.code_action()
   end, { buffer = bufnr, desc = 'Apply code action' })
+
   map(
     'n',
     'gd',
-    builtin.lsp_definitions,
+    Snacks.picker.lsp_definitions,
     { buffer = bufnr, desc = 'Go to definition' }
   )
+
   map('n', 'gD', function()
     local filetype = vim.bo[bufnr].filetype
     local vtsls_filetypes = {
@@ -167,24 +167,29 @@ M.map_lookup_keys = function(bufnr)
 
     vim.lsp.buf.declaration()
   end, { buffer = bufnr, desc = 'Go to source definition' })
+
   map('n', 'gI', function()
-    builtin.lsp_implementations({ reuse_win = true })
+    Snacks.picker.lsp_implementations({ reuse_win = true })
   end, { buffer = bufnr, desc = 'Go to implementation' })
+
   map(
     'n',
     'gr',
-    builtin.lsp_references,
+    Snacks.picker.lsp_references,
     { buffer = bufnr, desc = 'Go to reference' }
   )
+
   map('n', 'gR', function()
     vim.lsp.buf.rename()
   end, { buffer = bufnr, desc = 'Rename symbol' })
+
   map(
     'n',
     'gy',
-    builtin.lsp_type_definitions,
+    Snacks.picker.lsp_type_definitions,
     { buffer = bufnr, desc = 'Go to type definition' }
   )
+
   map(
     'n',
     'K',

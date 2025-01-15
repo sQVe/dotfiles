@@ -12,10 +12,7 @@ local M = {}
 
 M.buffers = {
   callback = function()
-    require('telescope.builtin').buffers({
-      prompt_title = 'Go to buffer',
-      sort_mru = true,
-    })
+    Snacks.picker.buffers()
   end,
   name = 'Go to buffer',
 }
@@ -62,9 +59,7 @@ M.code_action = {
 
 M.command_history = {
   callback = function()
-    require('telescope.builtin').command_history({
-      prompt_title = 'Command history',
-    })
+    Snacks.picker.command_history()
   end,
   name = 'Command history',
 }
@@ -102,9 +97,7 @@ M.create_new_note = {
 
 M.diagnostics = {
   callback = function()
-    require('telescope.builtin').diagnostics({
-      prompt_title = 'Go to diagnostic',
-    })
+    Snacks.picker.diagnostics()
   end,
   name = 'Go to diagnostic',
 }
@@ -121,9 +114,7 @@ M.diff_view = {
 
 M.document_symbols = {
   callback = function()
-    require('telescope.builtin').lsp_document_symbols({
-      prompt_title = 'Go to document symbol',
-    })
+    Snacks.picker.lsp_symbols()
   end,
   condition = function(opts)
     local lspconfig = require('sQVe.plugins.lspconfig')
@@ -166,8 +157,10 @@ M.file_history_buffer_path = {
 
 M.find_files = {
   callback = function()
-    require('sQVe.plugins.telescope.pickers').find_files({
-      prompt_title = 'Find files',
+    Snacks.picker.files({
+      hidden = true,
+      ignored = false,
+      follow = true,
     })
   end,
   name = 'Find files',
@@ -175,9 +168,8 @@ M.find_files = {
 
 M.find_files_in_subdirectory = {
   callback = function(opts)
-    require('sQVe.plugins.telescope.pickers').find_files({
+    Snacks.picker.files({
       cwd = path.get_parent(buffer.get_path(opts.bufnr)),
-      prompt_title = utils.get_name_with_buffer_directory('Find files', opts),
     })
   end,
   condition = function(opts)
@@ -190,21 +182,9 @@ M.find_files_in_subdirectory = {
   end,
 }
 
-M.find_note = {
-  callback = function()
-    require('notebox.telescope').find_note()
-  end,
-  name = 'Find note',
-}
-
 M.git_status = {
   callback = function(opts)
-    require('sQVe.plugins.telescope.pickers').git_status(
-      vim.tbl_extend('force', opts, {
-        prompt_title = 'Git status',
-        use_git_root = true,
-      })
-    )
+    Snacks.picker.git_status()
   end,
   condition = function()
     return git.is_inside_repo() and git.has_changed_files()
@@ -212,16 +192,19 @@ M.git_status = {
   name = 'Git status',
 }
 
+M.git_browse = {
+  callback = function()
+    Snacks.gitbrowse.open()
+  end,
+  condition = function()
+    return git.is_inside_repo()
+  end,
+  name = 'Open buffer in browser',
+}
+
 M.grep_text = {
-  callback = function(opts)
-    require('telescope.builtin').grep_string(vim.tbl_extend('force', {
-      prompt_title = string.format(
-        'Grep %s `%s`',
-        opts.is_visual_mode and 'selection' or 'word',
-        opts.query
-      ),
-      search = opts.query,
-    }, opts.is_visual_mode and {} or { word_match = '-w' }))
+  callback = function()
+    Snacks.picker.grep_word({ live = true })
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr)
@@ -237,27 +220,22 @@ M.grep_text = {
 
 M.help_tags = {
   callback = function()
-    require('telescope.builtin').help_tags({
-      prompt_title = 'Go to help tag',
-    })
+    Snacks.picker.help()
   end,
   name = 'Go to help tag',
 }
 
-M.live_grep = {
+M.grep = {
   callback = function()
-    require('telescope.builtin').live_grep({
-      prompt_title = 'Live grep',
-    })
+    Snacks.picker.grep()
   end,
-  name = 'Live grep',
+  name = 'Grep',
 }
 
-M.live_grep_in_subdirectory = {
+M.grep_in_subdirectory = {
   callback = function(opts)
-    require('telescope.builtin').live_grep({
+    Snacks.picker.grep({
       cwd = path.get_parent(buffer.get_path(opts.bufnr)),
-      prompt_title = utils.get_name_with_buffer_directory('Live grep', opts),
     })
   end,
   condition = function(opts)
@@ -266,22 +244,20 @@ M.live_grep_in_subdirectory = {
       and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = function(opts)
-    return utils.get_name_with_buffer_directory('Live grep', opts)
+    return utils.get_name_with_buffer_directory('Grep', opts)
   end,
 }
 
-M.live_grep_note = {
+M.lines = {
   callback = function()
-    require('notebox.telescope').live_grep_note()
+    Snacks.picker.lines()
   end,
-  name = 'Live grep note',
+  name = 'Go to line',
 }
 
 M.marks = {
   callback = function()
-    require('telescope.builtin').marks({
-      prompt_title = 'Go to mark',
-    })
+    Snacks.picker.marks()
   end,
   name = 'Go to mark',
 }
@@ -300,11 +276,7 @@ M.previous_commit_message = {
 
 M.recent_files = {
   callback = function()
-    require('telescope.builtin').oldfiles({
-      cwd_only = true,
-      prompt_title = 'Recent files',
-      sort_lastused = true,
-    })
+    Snacks.picker.recent()
   end,
   name = 'Recent files',
 }
@@ -325,9 +297,7 @@ M.rename_symbol = {
 
 M.resume = {
   callback = function()
-    require('telescope.builtin').pickers({
-      prompt_title = 'Resume previous pickers',
-    })
+    Snacks.picker.resume()
   end,
   name = 'Resume previous pickers',
 }
@@ -352,21 +322,9 @@ M.search_and_replace = {
 
 M.search_history = {
   callback = function()
-    require('telescope.builtin').search_history({
-      prompt_title = 'Search history',
-    })
+    Snacks.picker.search_history()
   end,
   name = 'Search history',
-}
-
-M.smart_open = {
-  callback = function()
-    require('telescope').extensions.smart_open.smart_open({
-      filename_first = false,
-      cwd_only = true,
-    })
-  end,
-  name = 'Smart open',
 }
 
 M.spawn_file_manager = {
@@ -538,20 +496,6 @@ M.toggle_wrap = {
       vim.wo[opts.winnr].wrap and 'Disable' or 'Enable'
     )
   end,
-}
-
-M.workspace_symbols = {
-  callback = function()
-    require('telescope.builtin').lsp_workspace_symbols({
-      prompt_title = 'Go to workspace symbol',
-    })
-  end,
-  condition = function(opts)
-    local lspconfig = require('sQVe.plugins.lspconfig')
-
-    return vim.tbl_contains(lspconfig.ft, vim.bo[opts.bufnr].filetype)
-  end,
-  name = 'Go to workspace symbol',
 }
 
 return M

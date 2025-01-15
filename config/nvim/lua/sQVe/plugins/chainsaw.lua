@@ -57,10 +57,10 @@ M.opts = {
   },
   logStatements = {
     variableLog = {
-      nvim_lua = 'print("%s %s: " .. vim.inspect(%s))',
+      nvim_lua = 'print("{{marker}} {{var}}: " .. vim.inspect({{var}}))',
     },
     messageLog = {
-      lua = 'print("%s ")',
+      lua = 'print("{{marker}} ")',
     },
   },
   marker = '💩',

@@ -79,25 +79,11 @@ return function(theme)
     -- Smart open.
     Directory = { fg = theme.overlay2 },
 
-    -- Telescope.
-    TelescopeNormal = { fg = theme.purple, bg = theme.mantle },
-    TelescopeBorder = { fg = theme.mantle, bg = theme.mantle },
-    TelescopeTitle = { fg = theme.mantle, bg = theme.mantle },
-    TelescopeResultsNormal = { fg = theme.text, bg = theme.mantle },
-    TelescopeSelection = { fg = theme.text, bg = theme.surface0 },
-    TelescopeSelectionCaret = { fg = theme.yellow, bg = 'NONE' },
-    TelescopeMultiSelection = { fg = theme.pink, bg = 'NONE' },
-    TelescopeMatching = { fg = theme.blue },
-    TelescopePromptBorder = { fg = theme.subtext0, bg = theme.mantle },
-    TelescopePromptCounter = { fg = theme.overlay2 },
-    TelescopePromptPrefix = { fg = theme.mantle, bg = theme.mantle },
-    TelescopePromptNormal = { fg = theme.text, bg = theme.mantle },
-    TelescopePromptTitle = {
-      fg = theme.subtext0,
-      bg = theme.mantle,
-      bold = true,
-    },
-    TelescopePreviewTitle = { fg = theme.overlay2, italic = true },
+    -- Snacks.
+    SnacksIndent = { fg = theme.surface0 },
+    SnacksIndentScope = { fg = theme.surface1 },
+    SnacksDashboardHeader = { fg = theme.surface1 },
+    SnacksDashboardDesc = { fg = theme.overlay1 },
 
     -- Treesitter.
     ['@function.macro.luadoc'] = { link = 'Macro' },
@@ -122,9 +108,5 @@ return function(theme)
     ['@text.todo.unchecked'] = { fg = theme.red },
     ['@text.todo.unchecked.text'] = { fg = theme.text },
     ['@variable.parameter'] = { fg = theme.peach },
-
-    -- Treesitter context.
-    TreesitterContext = { bg = theme.crust },
-    TreesitterContextLineNumber = { bg = theme.crust },
   }
 end

@@ -59,8 +59,8 @@ M.config = function(_, opts)
   autocmd('User', {
     group = 'MiniFilesBufferCreate',
     pattern = 'MiniFilesBufferCreate',
-    callback = function(args)
-      local buf_id = args.data.buf_id
+    callback = function(event)
+      local buf_id = event.data.buf_id
 
       map('n', '<CR>', go_in_plus, { buffer = buf_id })
       map('n', '<Backspace>', go_out_plus, { buffer = buf_id })
@@ -68,6 +68,13 @@ M.config = function(_, opts)
       map('n', '<Esc>', mini_files.close, { buffer = buf_id })
       map('n', '<Tab>', '', { buffer = buf_id })
       map('n', '<S-Tab>', '', { buffer = buf_id })
+    end,
+  })
+
+  autocmd('User', {
+    pattern = 'MiniFilesActionRename',
+    callback = function(event)
+      Snacks.rename.on_rename_file(event.data.from, event.data.to)
     end,
   })
 end
