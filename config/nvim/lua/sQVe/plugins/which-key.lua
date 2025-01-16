@@ -39,7 +39,6 @@ M.config = function(_, opts)
       { '"', desc = 'Registers' },
       { '<C-q>', desc = 'Quickfix' },
       { '<C-w>', desc = 'Window' },
-      { '<Leader>a', desc = 'Avante' },
       { '@', desc = 'Registers' },
       { '[', desc = 'Previous' },
       { ']', desc = 'Next' },

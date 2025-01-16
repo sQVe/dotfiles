@@ -25,9 +25,9 @@ local M = {
     {
       'ä',
       function()
-        commands.find_files.callback()
+        commands.smart_find.callback()
       end,
-      desc = 'Find files',
+      desc = 'Smart find',
       mode = { 'n', 'v' },
     },
     {
@@ -36,15 +36,15 @@ local M = {
         commands.grep.callback()
       end,
       desc = 'Grep',
-      mode = { 'n', 'v' },
+      mode = { 'n' },
     },
     {
-      'Å',
+      'å',
       function()
         commands.grep_text.callback()
       end,
-      desc = 'Grep text',
-      mode = { 'n', 'v' },
+      desc = 'Grep',
+      mode = { 'v' },
     },
     {
       '<Leader><Leader>',

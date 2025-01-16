@@ -202,6 +202,20 @@ M.git_browse = {
   name = 'Open buffer in browser',
 }
 
+M.help_tags = {
+  callback = function()
+    Snacks.picker.help()
+  end,
+  name = 'Go to help tag',
+}
+
+M.grep = {
+  callback = function()
+    Snacks.picker.grep()
+  end,
+  name = 'Grep',
+}
+
 M.grep_text = {
   callback = function()
     Snacks.picker.grep_word({ live = true })
@@ -218,21 +232,14 @@ M.grep_text = {
   end,
 }
 
-M.help_tags = {
+M.grep_buffers = {
   callback = function()
-    Snacks.picker.help()
+    Snacks.picker.grep_buffers()
   end,
-  name = 'Go to help tag',
+  name = 'Grep in open buffers',
 }
 
-M.grep = {
-  callback = function()
-    Snacks.picker.grep()
-  end,
-  name = 'Grep',
-}
-
-M.grep_in_subdirectory = {
+M.grep_subdirectory = {
   callback = function(opts)
     Snacks.picker.grep({
       cwd = path.get_parent(buffer.get_path(opts.bufnr)),
@@ -325,6 +332,13 @@ M.search_history = {
     Snacks.picker.search_history()
   end,
   name = 'Search history',
+}
+
+M.smart_find = {
+  callback = function()
+    Snacks.picker.smart()
+  end,
+  name = 'Smart find',
 }
 
 M.spawn_file_manager = {

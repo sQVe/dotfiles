@@ -9,8 +9,8 @@ return {
       {
         icon = '📓',
         key = 'ä',
-        desc = 'Find files',
-        action = ':lua require("sQVe.ui.command_palette.commands").find_files.callback()',
+        desc = 'Smart find',
+        action = ':lua require("sQVe.ui.command_palette.commands").smart_find.callback()',
       },
       {
         icon = '🔍',
