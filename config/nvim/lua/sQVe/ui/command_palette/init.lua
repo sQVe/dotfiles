@@ -51,6 +51,7 @@ local default_commands = {
   commands.spawn_lazygit_with_filter,
   commands.spawn_terminal,
   commands.spawn_terminal_in_subdirectory,
+  commands.spelling,
   commands.toggle_conceal_level,
   commands.toggle_format_on_save,
   commands.toggle_git_blame,

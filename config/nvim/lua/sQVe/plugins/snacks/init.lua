@@ -23,6 +23,14 @@ local M = {
       mode = { 'n', 'v' },
     },
     {
+      'z=',
+      function()
+        commands.spelling.callback()
+      end,
+      desc = 'Show spelling suggestions',
+      mode = { 'n', 'v' },
+    },
+    {
       'ä',
       function()
         commands.smart_find.callback()

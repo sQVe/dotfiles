@@ -412,6 +412,13 @@ M.spawn_terminal_in_subdirectory = {
   name = 'Spawn terminal from buffer path',
 }
 
+M.spelling = {
+  callback = function(opts)
+    Snacks.picker.spelling()
+  end,
+  name = 'Show spelling suggestions',
+}
+
 M.toggle_conceal_level = {
   callback = function(opts)
     vim.wo[opts.winnr].conceallevel = vim.wo[opts.winnr].conceallevel == 0 and 2
