@@ -38,6 +38,7 @@ local default_commands = {
   commands.lines,
   commands.marks,
   commands.previous_commit_message,
+  commands.projects,
   commands.recent_files,
   commands.rename_symbol,
   commands.resume,
@@ -59,6 +60,8 @@ local default_commands = {
   commands.toggle_relative_numbers,
   commands.toggle_spell,
   commands.toggle_wrap,
+  commands.undo,
+  commands.workspace_symbols,
 }
 
 M.open_command_palette = function(additional_commands)

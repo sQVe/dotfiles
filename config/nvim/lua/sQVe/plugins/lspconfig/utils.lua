@@ -147,26 +147,12 @@ M.map_lookup_keys = function(bufnr)
     { buffer = bufnr, desc = 'Go to definition' }
   )
 
-  map('n', 'gD', function()
-    local filetype = vim.bo[bufnr].filetype
-    local vtsls_filetypes = {
-      'javascript',
-      'javascriptreact',
-      'typescript',
-      'typescriptreact',
-    }
-
-    if vim.tbl_contains(vtsls_filetypes, filetype) then
-      local params = vim.lsp.util.make_position_params()
-      vim.lsp.buf_request(bufnr, 'workspace/executeCommand', {
-        command = 'typescript.goToSourceDefinition',
-        arguments = { params.textDocument.uri, params.position },
-      })
-      return
-    end
-
-    vim.lsp.buf.declaration()
-  end, { buffer = bufnr, desc = 'Go to source definition' })
+  map(
+    'n',
+    'gD',
+    Snacks.picker.lsp_declarations(),
+    { buffer = bufnr, desc = 'Go to declaration' }
+  )
 
   map('n', 'gI', function()
     Snacks.picker.lsp_implementations({ reuse_win = true })

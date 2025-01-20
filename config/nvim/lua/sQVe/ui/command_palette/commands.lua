@@ -281,6 +281,13 @@ M.previous_commit_message = {
   name = 'Show previous commit message',
 }
 
+M.projects = {
+  callback = function()
+    Snacks.picker.projects()
+  end,
+  name = 'Load project',
+}
+
 M.recent_files = {
   callback = function()
     Snacks.picker.recent()
@@ -517,6 +524,25 @@ M.toggle_wrap = {
       vim.wo[opts.winnr].wrap and 'Disable' or 'Enable'
     )
   end,
+}
+
+M.undo = {
+  callback = function(opts)
+    Snacks.picker.undo()
+  end,
+  name = 'Undo',
+}
+
+M.workspace_symbols = {
+  callback = function()
+    Snacks.picker.lsp_workspace_symbols()
+  end,
+  condition = function(opts)
+    local lspconfig = require('sQVe.plugins.lspconfig')
+
+    return vim.tbl_contains(lspconfig.ft, vim.bo[opts.bufnr].filetype)
+  end,
+  name = 'Go to workspace symbol',
 }
 
 return M

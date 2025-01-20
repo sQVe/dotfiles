@@ -32,6 +32,12 @@ return {
       },
       {
         icon = '📎',
+        key = 'p',
+        desc = 'Load project',
+        action = ':lua require("sQVe.ui.command_palette.commands").projects.callback()',
+      },
+      {
+        icon = '📎',
         key = 's',
         desc = 'Restore session',
         section = 'session',
