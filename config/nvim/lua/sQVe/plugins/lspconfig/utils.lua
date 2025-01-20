@@ -52,15 +52,17 @@ M.create_root_dir_handler = function(opts)
   opts = opts or { prioritizeManifest = false }
 
   return function(filename)
-    local manifest
-
-    manifest = util.find_package_json_ancestor(filename)
+    local manifest = vim.fs.dirname(
+      vim.fs.find('package.json', { path = filename, upward = true })[1]
+    )
 
     if opts.prioritizeManifest and manifest then
       return manifest
     end
 
-    return util.find_git_ancestor(filename) or manifest
+    return vim.fs.dirname(
+      vim.fs.find('.git', { path = filename, upward = true })[1]
+    ) or manifest
   end
 end
 
@@ -150,7 +152,7 @@ M.map_lookup_keys = function(bufnr)
   map(
     'n',
     'gD',
-    Snacks.picker.lsp_declarations(),
+    Snacks.picker.lsp_declarations,
     { buffer = bufnr, desc = 'Go to declaration' }
   )
 
