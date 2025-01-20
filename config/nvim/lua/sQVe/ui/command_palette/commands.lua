@@ -29,7 +29,10 @@ M.change_cwd_buffer_path = {
       and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = function(opts)
-    return utils.get_name_with_buffer_directory('Change cwd', opts)
+    return utils.get_name_with_buffer_directory(
+      'Set cwd to buffer directory',
+      opts
+    )
   end,
 }
 
@@ -41,7 +44,7 @@ M.change_cwd_git_root_path = {
     return opts.git_root ~= '' and opts.git_root ~= path.get_cwd()
   end,
   name = function(opts)
-    return utils.get_name_with_git_root_path('Change cwd', opts)
+    return utils.get_name_with_git_root_path('Set cwd to git root', opts)
   end,
 }
 
@@ -138,7 +141,7 @@ M.file_history = {
   condition = function()
     return git.is_inside_repo()
   end,
-  name = 'Open file history',
+  name = 'File history',
 }
 
 M.file_history_buffer_path = {
@@ -183,7 +186,7 @@ M.find_files_in_subdirectory = {
 }
 
 M.git_status = {
-  callback = function(opts)
+  callback = function()
     Snacks.picker.git_status()
   end,
   condition = function()
@@ -420,7 +423,7 @@ M.spawn_terminal_in_subdirectory = {
 }
 
 M.spelling = {
-  callback = function(opts)
+  callback = function()
     Snacks.picker.spelling()
   end,
   name = 'Show spelling suggestions',
@@ -527,7 +530,7 @@ M.toggle_wrap = {
 }
 
 M.undo = {
-  callback = function(opts)
+  callback = function()
     Snacks.picker.undo()
   end,
   name = 'Undo',

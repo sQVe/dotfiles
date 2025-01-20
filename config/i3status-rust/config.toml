@@ -30,6 +30,13 @@ idle_bg = ""
 idle_fg = "#8ec07c"
 
 [[block]]
+block = "memory"
+interval = 5
+format = "$mem_used"
+warning_mem = 70
+critical_mem = 90
+
+[[block]]
 block = "cpu"
 interval = 1
 format = "$max_frequency $utilization $barchart "
