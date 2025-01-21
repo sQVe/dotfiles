@@ -128,9 +128,6 @@ M.opts = {
     auto_set_keymaps = false,
   },
   hints = { enabled = false },
-  mappings = {
-    submit = { insert = '<C-CR>' },
-  },
   windows = {
     width = 40,
     input = { height = 10 },
