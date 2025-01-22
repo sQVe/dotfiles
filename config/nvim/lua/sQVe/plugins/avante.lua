@@ -41,7 +41,7 @@ local M = {
         })
       end,
       desc = 'Condense',
-      mode = { 'n', 'v' },
+      mode = { 'v' },
     },
     {
       'Åd',
@@ -56,7 +56,7 @@ local M = {
         })
       end,
       desc = 'Docstring',
-      mode = { 'n', 'v' },
+      mode = { 'v' },
     },
     {
       'Åx',
@@ -71,7 +71,7 @@ local M = {
         })
       end,
       desc = 'Explain',
-      mode = { 'n', 'v' },
+      mode = { 'v' },
     },
     {
       'Åo',
@@ -87,7 +87,7 @@ local M = {
         })
       end,
       desc = 'Optimize',
-      mode = { 'n', 'v' },
+      mode = { 'v' },
     },
     {
       'Åp',
