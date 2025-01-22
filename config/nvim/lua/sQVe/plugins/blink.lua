@@ -47,6 +47,7 @@ M.opts = function()
       ['<C-j>'] = { 'snippet_forward', 'fallback' },
       ['<C-k>'] = { 'snippet_backward', 'fallback' },
     },
+    signature = { enabled = true },
     sources = {
       default = function()
         local node = vim.treesitter.get_node()
