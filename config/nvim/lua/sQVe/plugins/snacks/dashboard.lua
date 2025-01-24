@@ -7,16 +7,22 @@ return {
   preset = {
     keys = {
       {
-        icon = '📓',
+        icon = '🗒️',
         key = 'ä',
-        desc = 'Smart find',
-        action = ':lua require("sQVe.ui.command_palette.commands").smart_find.callback()',
+        desc = 'Find files',
+        action = ':lua require("sQVe.ui.command_palette.commands").find_files.callback()',
       },
       {
         icon = '🔍',
         key = 'å',
         desc = 'Grep',
         action = ':lua require("sQVe.ui.command_palette.commands").grep.callback()',
+      },
+      {
+        icon = '🎒',
+        key = 'Å',
+        desc = 'Recent files',
+        action = ':lua require("sQVe.ui.command_palette.commands").recent_files.callback()',
       },
       {
         icon = '✏️',

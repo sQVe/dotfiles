@@ -4,6 +4,8 @@
 
 local buffer = require('sQVe.utils.buffer')
 local git = require('sQVe.utils.git')
+local ignored_directory_filter =
+  require('sQVe.plugins.snacks.utils').ignored_directory_filter
 local path = require('sQVe.utils.path')
 local utils = require('sQVe.ui.command_palette.utils')
 local var = require('sQVe.utils.var')
@@ -173,6 +175,9 @@ M.find_files_in_subdirectory = {
   callback = function(opts)
     Snacks.picker.files({
       cwd = path.get_parent(buffer.get_path(opts.bufnr)),
+      follow = true,
+      hidden = true,
+      ignored = false,
     })
   end,
   condition = function(opts)
@@ -258,6 +263,13 @@ M.grep_subdirectory = {
   end,
 }
 
+M.icons = {
+  callback = function()
+    Snacks.picker.icons()
+  end,
+  name = 'Get icon',
+}
+
 M.lines = {
   callback = function()
     Snacks.picker.lines()
@@ -293,7 +305,12 @@ M.projects = {
 
 M.recent_files = {
   callback = function()
-    Snacks.picker.recent()
+    Snacks.picker.recent({
+      filter = {
+        cwd = true,
+        filter = ignored_directory_filter,
+      },
+    })
   end,
   name = 'Recent files',
 }
@@ -342,13 +359,6 @@ M.search_history = {
     Snacks.picker.search_history()
   end,
   name = 'Search history',
-}
-
-M.smart_find = {
-  callback = function()
-    Snacks.picker.smart()
-  end,
-  name = 'Smart find',
 }
 
 M.spawn_file_manager = {
