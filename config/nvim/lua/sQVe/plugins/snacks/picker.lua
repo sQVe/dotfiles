@@ -47,11 +47,15 @@ return {
         'files',
       },
       sort = function(a, b)
-        if
-          vim.startswith(a._path, buf_dir)
-          ~= vim.startswith(b._path, buf_dir)
-        then
-          return vim.startswith(a._path, buf_dir)
+        if a.source_id ~= b.source_id then
+          return a.source_id < b.source_id
+        end
+
+        local a_in_bufdir = vim.startswith(a._path, buf_dir)
+        local b_in_bufdir = vim.startswith(b._path, buf_dir)
+
+        if a_in_bufdir ~= b_in_bufdir then
+          return a_in_bufdir
         end
 
         return Snacks.picker.sort.default()(a, b)

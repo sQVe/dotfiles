@@ -13,7 +13,7 @@ local M = {
   version = false,
   keys = {
     {
-      '<Leader><Leader>a',
+      '<Leader>aa',
       function()
         require('avante.api').ask()
       end,
@@ -21,7 +21,7 @@ local M = {
       mode = { 'n', 'v' },
     },
     {
-      '<Leader><Leader>e',
+      '<Leader>ae',
       function()
         require('avante.api').edit()
       end,
@@ -29,7 +29,7 @@ local M = {
       mode = { 'v' },
     },
     {
-      '<Leader><Leader>c',
+      '<Leader>ac',
       function()
         require('avante.api').ask({
           question = format_lines({
@@ -44,7 +44,7 @@ local M = {
       mode = { 'v' },
     },
     {
-      '<Leader><Leader>d',
+      '<Leader>ad',
       function()
         require('avante.api').ask({
           question = format_lines({
@@ -59,7 +59,7 @@ local M = {
       mode = { 'v' },
     },
     {
-      '<Leader><Leader>x',
+      '<Leader>ax',
       function()
         require('avante.api').ask({
           question = format_lines({
@@ -74,7 +74,7 @@ local M = {
       mode = { 'v' },
     },
     {
-      '<Leader><Leader>o',
+      '<Leader>ao',
       function()
         require('avante.api').ask({
           question = format_lines({
@@ -90,7 +90,7 @@ local M = {
       mode = { 'v' },
     },
     {
-      '<Leader><Leader>p',
+      '<Leader>ap',
       function()
         require('avante.api').ask({
           question = format_lines({
@@ -106,7 +106,7 @@ local M = {
       mode = { 'v' },
     },
     {
-      '<Leader><Leader>r',
+      '<Leader>ar',
       function()
         require('avante.api').ask({
           question = format_lines({

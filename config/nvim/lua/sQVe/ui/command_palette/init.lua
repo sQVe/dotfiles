@@ -15,6 +15,7 @@ local default_commands = {
   commands.buffers,
   commands.change_cwd_buffer_path,
   commands.change_cwd_git_root_path,
+  commands.close_hidden_buffers,
   commands.code_action,
   commands.command_history,
   commands.commit_message_from_branch_name,

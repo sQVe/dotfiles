@@ -15,6 +15,14 @@ return {
     mode = { 'n', 'v' },
   },
   {
+    '<Leader><Leader>',
+    function()
+      commands.buffers.callback()
+    end,
+    desc = 'Go to buffer',
+    mode = { 'n', 'v' },
+  },
+  {
     'z=',
     function()
       commands.spelling.callback()

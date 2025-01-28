@@ -50,6 +50,18 @@ M.change_cwd_git_root_path = {
   end,
 }
 
+M.close_hidden_buffers = {
+  callback = function()
+    Snacks.bufdelete.delete(function(bufnr)
+      local visible_buffers =
+        vim.tbl_map(vim.api.nvim_win_get_buf, vim.api.nvim_list_wins())
+
+      return not vim.tbl_contains(visible_buffers, bufnr)
+    end)
+  end,
+  name = 'Close hidden buffers',
+}
+
 M.code_action = {
   callback = function()
     vim.lsp.buf.code_action()
