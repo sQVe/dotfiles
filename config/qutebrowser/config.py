@@ -322,7 +322,7 @@ config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}) AppleWebKit/{w
 # between 5.12 and 5.14 (inclusive), changing the value exposed to
 # JavaScript requires a restart.
 # Type: FormatString
-config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:90.0) Gecko/20100101 Firefox/90.0', 'https://accounts.google.com/*')
+config.set('content.headers.user_agent', 'Mozilla/5.0 ({os_info}; rv:133.0) Gecko/20100101 Firefox/133.0', 'https://accounts.google.com/*')
 
 # Enable hyperlink auditing (`<a ping>`).
 # Type: Bool
@@ -346,12 +346,14 @@ c.content.javascript.alert = True
 
 # Allow JavaScript to read from or write to the clipboard. With
 # QtWebEngine, writing the clipboard as response to a user interaction
-# is always allowed.
-# Type: String
+# is always allowed. On Qt < 6.8, the `ask` setting is equivalent to
+# `none` and permission needs to be granted manually via this setting.
+# Type: JSClipboardPermission
 # Valid values:
 #   - none: Disable access to clipboard.
 #   - access: Allow reading from and writing to the clipboard.
 #   - access-paste: Allow accessing the clipboard and pasting clipboard content.
+#   - ask: Prompt when requested (grants 'access-paste' permission).
 c.content.javascript.clipboard = 'access-paste'
 
 # Allow JavaScript to open new tabs without user interaction.
@@ -811,6 +813,14 @@ c.scrolling.smooth = False
 #   - vi-VN: Vietnamese (Viet Nam)
 c.spellcheck.languages = ['en-US', 'sv-SE']
 
+# When to show the statusbar.
+# Type: String
+# Valid values:
+#   - always: Always show the statusbar.
+#   - never: Always hide the statusbar.
+#   - in-mode: Show the statusbar when in modes other than normal mode.
+c.statusbar.show = 'in-mode'
+
 # Padding (in pixels) for the statusbar.
 # Type: Padding
 c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 0, 'right': 0}
@@ -821,6 +831,21 @@ c.statusbar.padding = {'top': 1, 'bottom': 1, 'left': 0, 'right': 0}
 #   - top
 #   - bottom
 c.statusbar.position = 'bottom'
+
+# List of widgets displayed in the statusbar.
+# Type: List of StatusbarWidget
+# Valid values:
+#   - url: Current page URL.
+#   - scroll: Percentage of the current page position like `10%`.
+#   - scroll_raw: Raw percentage of the current page position like `10`.
+#   - history: Display an arrow when possible to go back/forward in history.
+#   - search_match: A match count when searching, e.g. `Match [2/10]`.
+#   - tabs: Current active tab, e.g. `2`.
+#   - keypress: Display pressed keys when composing a vi command.
+#   - progress: Progress bar for the current page loading.
+#   - text:foo: Display the static text after the colon, `foo` in the example.
+#   - clock: Display current time. The format can be changed by adding a format string via `clock:...`. For supported format strings, see https://docs.python.org/3/library/datetime.html#strftime-and-strptime-format-codes[the Python datetime documentation].
+c.statusbar.widgets = ['keypress', 'search_match', 'url', 'scroll', 'history', 'tabs', 'progress']
 
 # Open new tabs (middleclick/ctrl+click) in the background.
 # Type: Bool
@@ -862,7 +887,7 @@ c.tabs.last_close = 'ignore'
 
 # Switch between tabs using the mouse wheel.
 # Type: Bool
-c.tabs.mousewheel_switching = True
+c.tabs.mousewheel_switching = False
 
 # Position of new tabs opened from another tab. See
 # `tabs.new_position.stacking` for controlling stacking behavior.
@@ -912,7 +937,7 @@ c.tabs.select_on_remove = 'next'
 #   - never: Always hide the tab bar.
 #   - multiple: Hide the tab bar if only one tab is open.
 #   - switching: Show the tab bar when switching tabs.
-c.tabs.show = 'always'
+c.tabs.show = 'multiple'
 
 # Duration (in milliseconds) to show the tab bar before hiding it when
 # tabs.show is set to 'switching'.
@@ -930,6 +955,22 @@ c.tabs.tabs_are_windows = False
 #   - right
 #   - center
 c.tabs.title.alignment = 'left'
+
+# Format to use for the tab title. The following placeholders are
+# defined:  * `{perc}`: Percentage as a string like `[10%]`. *
+# `{perc_raw}`: Raw percentage, e.g. `10`. * `{current_title}`: Title of
+# the current web page. * `{title_sep}`: The string `" - "` if a title
+# is set, empty otherwise. * `{index}`: Index of this tab. *
+# `{aligned_index}`: Index of this tab padded with spaces to have the
+# same   width. * `{relative_index}`: Index of this tab relative to the
+# current tab. * `{id}`: Internal tab ID of this tab. * `{scroll_pos}`:
+# Page scroll position. * `{host}`: Host of the current web page. *
+# `{backend}`: Either `webkit` or `webengine` * `{private}`: Indicates
+# when private mode is enabled. * `{current_url}`: URL of the current
+# web page. * `{protocol}`: Protocol (http/https/...) of the current web
+# page. * `{audio}`: Indicator for audio/mute status.
+# Type: FormatString
+c.tabs.title.format = '{current_title}'
 
 # Format to use for the tab title for pinned tabs. The same placeholders
 # like for `tabs.title.format` are defined.
@@ -1012,9 +1053,14 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 # Type: List of FuzzyUrl, or FuzzyUrl
 c.url.start_pages = 'https://devdocs.io'
 
-# URL parameters to strip with `:yank url`.
+# URL parameters to strip when yanking a URL.
 # Type: List of String
 c.url.yank_ignored_parameters = ['ref', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content']
+
+# Hide the window decoration.  This setting requires a restart on
+# Wayland.
+# Type: Bool
+c.window.hide_decoration = False
 
 # Default zoom level.
 # Type: Perc
@@ -1474,28 +1520,28 @@ c.fonts.web.size.default_fixed = 14
 config.bind('<', 'tab-move -')
 config.bind('<Ctrl+e>', 'edit-text')
 config.bind('>', 'tab-move +')
-config.bind('B', 'set-cmd-text -s :bookmark-load -t')
+config.bind('B', 'cmd-set-text -s :bookmark-load -t')
 config.bind('J', 'tab-prev')
 config.bind('K', 'tab-next')
-config.bind('Q', 'set-cmd-text -s :quickmark-load -t')
+config.bind('Q', 'cmd-set-text -s :quickmark-load -t')
 config.bind('W', 'open -w')
-config.bind('b', 'set-cmd-text -s :bookmark-load')
+config.bind('b', 'cmd-set-text -s :bookmark-load')
 config.bind('e', 'edit-text')
 config.unbind('m')
 config.bind('mb', 'bookmark-add -t')
 config.bind('mq', 'quickmark-save')
-config.bind('q', 'set-cmd-text -s :quickmark-load')
-config.bind('wb', 'set-cmd-text -s :bookmark-load -w')
-config.bind('wq', 'set-cmd-text -s :quickmark-load -w')
+config.bind('q', 'cmd-set-text -s :quickmark-load')
+config.bind('wb', 'cmd-set-text -s :bookmark-load -w')
+config.bind('wq', 'cmd-set-text -s :quickmark-load -w')
 config.bind('ww', 'open -w')
 config.bind('zD', 'hint links spawn -d ~/scripts/qutebrowser/download.sh "{hint-url}"')
 config.bind('zO', 'hint links spawn -d ~/scripts/qutebrowser/open.sh "{hint-url}"')
 config.bind('zd', 'spawn -d ~/scripts/qutebrowser/download.sh "{url}"')
 config.bind('zo', 'spawn -d ~/scripts/qutebrowser/open.sh "{url}"')
-config.bind('Ä', 'set-cmd-text -s :open -t')
-config.bind('Ö', 'set-cmd-text :')
-config.bind('ä', 'set-cmd-text -s :open')
-config.bind('ö', 'set-cmd-text :')
+config.bind('Ä', 'cmd-set-text -s :open -t')
+config.bind('Ö', 'cmd-set-text :')
+config.bind('ä', 'cmd-set-text -s :open')
+config.bind('ö', 'cmd-set-text :')
 
 # Bindings for command mode
 config.bind('<Ctrl+j>', 'completion-item-focus --history next', mode='command')
