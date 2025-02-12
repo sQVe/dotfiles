@@ -5,7 +5,7 @@ gui:
   portraitMode: 'never'
   scrollHeight: 8
   showBottomLine: false
-  showFileTree: true
+  showFileTree: false
   showRandomTip: false
   skipDiscardChangeWarning: true
   skipRewordInEditorWarning: true
