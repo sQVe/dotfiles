@@ -32,62 +32,64 @@ vim.cmd([[
 -- English words.
 vim.cmd([[
   iabbrev Adn         And
-  iabbrev adn         and
-  iabbrev componenets components
   iabbrev Componenets Components
   iabbrev Execture    Execute
-  iabbrev execture    execute
   iabbrev Exectures   Executes
-  iabbrev exectures   executes
   iabbrev Nubmer      Number
-  iabbrev nubmer      number
   iabbrev Nubmers     Numbers
-  iabbrev nubmers     numbers
   iabbrev Reponse     Response
-  iabbrev reponse     response
   iabbrev Reponses    Responses
-  iabbrev reponses    responses
   iabbrev Resovle     Resolve
-  iabbrev resovle     resolve
   iabbrev Resovled    Resolved
-  iabbrev resovled    resolved
   iabbrev Resovles    Resolves
-  iabbrev resovles    resolves
   iabbrev Resovling   Resolving
-  iabbrev resovling   resolving
   iabbrev Serach      Search
-  iabbrev serach      search
   iabbrev Serached    Searched
-  iabbrev serached    searched
   iabbrev Seraches    Searches
-  iabbrev seraches    searches
   iabbrev Seraching   Searching
-  iabbrev seraching   searching
   iabbrev Shuold      Should
-  iabbrev shuold      should
   iabbrev Soruce      Source
-  iabbrev soruce      source
   iabbrev Soruces     Sources
-  iabbrev soruces     sources
   iabbrev Sorucing    Sourcing
-  iabbrev sorucing    sourcing
-  iabbrev udner       under
   iabbrev Udner       Under
   iabbrev Udpate      Update
-  iabbrev udpate      update
   iabbrev Udpated     Updated
-  iabbrev udpated     updated
   iabbrev Udpates     Updates
-  iabbrev udpates     updates
   iabbrev Udpating    Updating
-  iabbrev udpating    updating
-  iabbrev widht       width
+  iabbrev Vliad       Valid
   iabbrev Widht       Width
-  iabbrev Widnow      Window
-  iabbrev widnow      window
   iabbrev WidnoWing   Windowing
-  iabbrev widnowing   windowing
+  iabbrev Widnow      Window
   iabbrev Widnows     Windows
+  iabbrev adn         and
+  iabbrev componenets components
+  iabbrev execture    execute
+  iabbrev exectures   executes
+  iabbrev nubmer      number
+  iabbrev nubmers     numbers
+  iabbrev reponse     response
+  iabbrev reponses    responses
+  iabbrev resovle     resolve
+  iabbrev resovled    resolved
+  iabbrev resovles    resolves
+  iabbrev resovling   resolving
+  iabbrev serach      search
+  iabbrev serached    searched
+  iabbrev seraches    searches
+  iabbrev seraching   searching
+  iabbrev shuold      should
+  iabbrev soruce      source
+  iabbrev soruces     sources
+  iabbrev sorucing    sourcing
+  iabbrev udner       under
+  iabbrev udpate      update
+  iabbrev udpated     updated
+  iabbrev udpates     updates
+  iabbrev udpating    updating
+  iabbrev vliad       valid
+  iabbrev widht       width
+  iabbrev widnow      window
+  iabbrev widnowing   windowing
   iabbrev widnows     windows
 ]])
 
