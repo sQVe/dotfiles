@@ -1,0 +1,74 @@
+# Main model:
+
+## Use claude-3-5-sonnet model for the main chat
+sonnet: true
+
+# Model settings:
+
+## Timeout in seconds for API calls
+timeout: 20
+
+# Output settings:
+
+## Use colors suitable for a dark terminal background
+# dark-mode: true
+
+## Set the color for user input
+user-input-color: #000000
+
+## Set the color for tool output
+# tool-output-color:
+
+## Set the color for tool error messages
+tool-error-color: #fb4934
+
+## Set the color for tool warning messages
+tool-warning-color: #fabd2f
+
+## Set the color for assistant output
+assistant-output-color: #83a598
+
+## Set the color for the completion menu
+# completion-menu-color:
+
+## Set the background color for the completion menu
+# completion-menu-bg-color:
+
+## Set the color for the current item in the completion menu
+# completion-menu-current-color:
+
+## Set the background color for the current item in the completion menu
+# completion-menu-current-bg-color:
+
+## Set the markdown code theme
+code-theme: monokai
+
+## Show diffs when committing changes
+show-diffs: true
+
+# Git settings:
+
+## Enable/disable auto commit of LLM changes
+auto-commits: false
+
+## Attribute aider code changes in the git author name
+attribute-author: false
+
+## Attribute aider commits in the git committer name
+attribute-committer: false
+
+## Specify a custom prompt for generating commit messages
+commit-prompt: 'Provide a concise commit message, without a body or footer, that follows the conventional commits specification. The text should all be lowercase, unless it refers to code, files, or directories.'
+
+## Enable/disable watching files for ai coding comments
+watch-files: true
+
+# Analytics:
+
+## Enable/disable analytics for current session
+analytics: false
+
+# Upgrading:
+
+## Check for new aider versions on launch
+check-update: true
