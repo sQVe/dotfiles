@@ -15,7 +15,7 @@ export SSH_AGENT_PID=""
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 
 # Set default node version.
-export PATH="$PATH:$BIN_HOME:$GOPATH_BIN:$($SCRIPTS/default-node-version.sh)"
+export PATH="$BIN_HOME:$($SCRIPTS/default-node-version.sh):$PATH"
 
 # Terminal options.
 export AUTOPAIR_INHIBIT_INIT=1
