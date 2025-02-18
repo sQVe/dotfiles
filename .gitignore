@@ -1,1 +1,4 @@
 stylua.toml
+
+!.aider.conf.yml
+.aider*

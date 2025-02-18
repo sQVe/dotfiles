@@ -10,35 +10,26 @@ timeout: 20
 
 # Output settings:
 
-## Use colors suitable for a dark terminal background
-# dark-mode: true
-
 ## Set the color for user input
-user-input-color: #000000
+user-input-color: '#d3869b'
 
 ## Set the color for tool output
-# tool-output-color:
+tool-output-color: '#928374'
 
 ## Set the color for tool error messages
-tool-error-color: #fb4934
+tool-error-color: '#fb4934'
 
 ## Set the color for tool warning messages
-tool-warning-color: #fabd2f
+tool-warning-color: '#fabd2f'
 
 ## Set the color for assistant output
-assistant-output-color: #83a598
+assistant-output-color: '#ebdbb2'
 
 ## Set the color for the completion menu
-# completion-menu-color:
+completion-menu-color: '#ebdbb2'
 
 ## Set the background color for the completion menu
-# completion-menu-bg-color:
-
-## Set the color for the current item in the completion menu
-# completion-menu-current-color:
-
-## Set the background color for the current item in the completion menu
-# completion-menu-current-bg-color:
+completion-menu-bg-color: '#3c3836'
 
 ## Set the markdown code theme
 code-theme: monokai
