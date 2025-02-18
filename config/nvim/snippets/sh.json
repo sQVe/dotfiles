@@ -1,5 +1,4 @@
 {
-  "shebang": { "prefix": "#!", "body": "#!/usr/bin/env bash" },
   "shellCheckDisable": {
     "prefix": "shellcheck-disable",
     "body": "# shellcheck disable=${0:rule}"
