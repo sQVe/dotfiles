@@ -1,4 +1,4 @@
 stylua.toml
 
-!.aider.conf.yml
 .aider*
+!.aider.conf.yml
