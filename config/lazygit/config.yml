@@ -41,7 +41,7 @@ git:
   paging:
     colorArg: always
     pager: delta --dark --paging=never
-  skipHookPrefix: draft
+  skipHookPrefix: 'draft: '
 keybinding:
   branches:
     viewGitFlowOptions: ''
@@ -51,13 +51,17 @@ keybinding:
   files:
     openMergeTool: ''
 customCommands:
-  - key: 'M'
-    context: 'files, worktrees'
-    command: 'term "nvim -c DiffviewOpen"'
-    description: 'Open merge tool'
   - key: 'f'
     context: 'files, localBranches, remoteBranches, remotes, tags, worktrees'
     command: 'git pull --ff-only --all --prune > /dev/null 2>&1 || true'
     description: 'Fast-forward'
+  - key: 'M'
+    context: 'files, worktrees'
+    command: 'term "nvim -c DiffviewOpen"'
+    description: 'Open merge tool'
+  - key: "W"
+    command: git commit --no-verify
+    context: "global"
+    subprocess: true
 notARepository: 'quit'
 promptToReturnFromSubprocess: false
