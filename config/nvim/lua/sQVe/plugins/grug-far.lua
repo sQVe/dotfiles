@@ -11,7 +11,12 @@ local M = {
 M.opts = {
   engines = {
     astgrep = { path = 'ast-grep' },
+    ripgrep = {
+      path = 'rg',
+      extraArgs = '--pcre2',
+    },
   },
+  helpLine = { enabled = false },
   keymaps = {
     abort = { n = '<C-c>' },
     close = { n = '<Leader>q' },

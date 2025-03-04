@@ -5,7 +5,7 @@
 local buffer = require('sQVe.utils.buffer')
 local git = require('sQVe.utils.git')
 local ignored_directory_filter =
-  require('sQVe.plugins.snacks.utils').ignored_directory_filter
+    require('sQVe.plugins.snacks.utils').ignored_directory_filter
 local path = require('sQVe.utils.path')
 local utils = require('sQVe.ui.command_palette.utils')
 local var = require('sQVe.utils.var')
@@ -27,8 +27,8 @@ M.change_cwd_buffer_path = {
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr)
-      and buffer.is_saved(opts.bufnr)
-      and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
+        and buffer.is_saved(opts.bufnr)
+        and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = function(opts)
     return utils.get_name_with_buffer_directory(
@@ -54,7 +54,7 @@ M.close_hidden_buffers = {
   callback = function()
     Snacks.bufdelete.delete(function(bufnr)
       local visible_buffers =
-        vim.tbl_map(vim.api.nvim_win_get_buf, vim.api.nvim_list_wins())
+          vim.tbl_map(vim.api.nvim_win_get_buf, vim.api.nvim_list_wins())
 
       return not vim.tbl_contains(visible_buffers, bufnr)
     end)
@@ -164,8 +164,8 @@ M.file_history_buffer_path = {
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr)
-      and buffer.is_saved(opts.bufnr)
-      and git.is_inside_repo()
+        and buffer.is_saved(opts.bufnr)
+        and git.is_inside_repo()
   end,
   name = function(opts)
     return utils.get_name_with_buffer_path('Open file history', opts)
@@ -194,8 +194,8 @@ M.find_files_in_subdirectory = {
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr)
-      and buffer.is_saved(opts.bufnr)
-      and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
+        and buffer.is_saved(opts.bufnr)
+        and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = function(opts)
     return utils.get_name_with_buffer_directory('Find files', opts)
@@ -231,7 +231,10 @@ M.help_tags = {
 
 M.grep = {
   callback = function()
-    Snacks.picker.grep()
+    Snacks.picker.grep({
+      follow = true,
+      args = { '--pcre2' }
+    })
   end,
   name = 'Grep',
 }
@@ -267,8 +270,8 @@ M.grep_subdirectory = {
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr)
-      and buffer.is_saved(opts.bufnr)
-      and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
+        and buffer.is_saved(opts.bufnr)
+        and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = function(opts)
     return utils.get_name_with_buffer_directory('Grep', opts)
@@ -354,7 +357,7 @@ M.review_diff_view = {
   end,
   condition = function()
     return git.is_inside_repo()
-      and not vim.tbl_contains({ 'main', 'master' }, git.get_branch_name())
+        and not vim.tbl_contains({ 'main', 'master' }, git.get_branch_name())
   end,
   name = 'Open diff view (PR review)',
 }
@@ -383,12 +386,12 @@ M.spawn_file_manager = {
 M.spawn_file_manager_in_subdirectory = {
   callback = function(opts)
     vim
-      .system({
-        'term',
-        'yazi',
-        buffer.get_path(opts.bufnr),
-      }, { detach = true })
-      :wait()
+        .system({
+          'term',
+          'yazi',
+          buffer.get_path(opts.bufnr),
+        }, { detach = true })
+        :wait()
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr) and buffer.is_saved(opts.bufnr)
@@ -406,13 +409,13 @@ M.spawn_lazygit = {
 M.spawn_lazygit_with_filter = {
   callback = function(opts)
     vim
-      .system({
-        'term',
-        'lazygit',
-        '--filter',
-        buffer.get_path(opts.bufnr),
-      }, { detach = true })
-      :wait()
+        .system({
+          'term',
+          'lazygit',
+          '--filter',
+          buffer.get_path(opts.bufnr),
+        }, { detach = true })
+        :wait()
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr) and buffer.is_saved(opts.bufnr)
@@ -430,16 +433,16 @@ M.spawn_terminal = {
 M.spawn_terminal_in_subdirectory = {
   callback = function(opts)
     vim
-      .system({
-        'term',
-        path.get_parent(buffer.get_path(opts.bufnr)),
-      }, { detach = true })
-      :wait()
+        .system({
+          'term',
+          path.get_parent(buffer.get_path(opts.bufnr)),
+        }, { detach = true })
+        :wait()
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr)
-      and buffer.is_saved(opts.bufnr)
-      and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
+        and buffer.is_saved(opts.bufnr)
+        and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = 'Spawn terminal from buffer path',
 }
@@ -454,7 +457,7 @@ M.spelling = {
 M.toggle_conceal_level = {
   callback = function(opts)
     vim.wo[opts.winnr].conceallevel = vim.wo[opts.winnr].conceallevel == 0 and 2
-      or 0
+        or 0
   end,
   name = function(opts)
     return string.format(
