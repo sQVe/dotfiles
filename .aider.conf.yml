@@ -3,12 +3,8 @@
 ## Default chat mode.
 chat-mode: ask
 
-# Main model:
-
-## Use claude-3-5-sonnet model for the main chat.
-sonnet: true
-
-# Model settings:
+## Main model:
+model: sonnet
 
 ## Timeout in seconds for API calls.
 timeout: 20
