@@ -19,6 +19,7 @@
   hunk-header-decoration-style = magenta ul
 
 [diff]
+  algorithm = histogram
   colorMoved = default
 
 [init]
