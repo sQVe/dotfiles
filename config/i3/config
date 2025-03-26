@@ -259,7 +259,7 @@ bindsym XF86MonBrightnessUp exec $brightness-up
 bindsym XF86PowerOff exec $menu-state
 
 # Misc bindings.
-bindsym $mod+BackSpace workspace back_and_forth
+bindsym $mod+BackSpace workspace next_on_output
 bindsym $mod+Escape workspace prev_on_output
 
 bindsym $mod+Return exec $term
@@ -267,6 +267,7 @@ bindsym $mod+Tab workspace next_on_output
 bindsym $mod+section workspace prev_on_output
 bindsym $mod+space fullscreen toggle
 
+bindsym $mod+Shift+BackSpace workspace prev_on_output
 bindsym $mod+Shift+Return exec $term-detach
 
 bindsym Print exec flameshot gui
