@@ -12,6 +12,9 @@ map(
   { desc = 'Escape and clear search highlights' }
 )
 
+-- Map jj to ESC.
+map('i', 'jj', '<Esc>')
+
 -- Open command with right pinky.
 map('', 'ö', ':', { desc = 'Open command-line', silent = false })
 map('', 'Ö', ':', { desc = 'Open command-line', silent = false })
