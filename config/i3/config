@@ -259,7 +259,6 @@ bindsym $mod+Tab workspace next_on_output
 bindsym $mod+section workspace prev_on_output
 bindsym $mod+space fullscreen toggle
 
-bindsym $mod+Shift+BackSpace workspace prev_on_output
 bindsym $mod+Shift+Return exec $term-detach
 
 bindsym Print exec flameshot gui

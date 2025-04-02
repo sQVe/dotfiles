@@ -120,10 +120,11 @@ function zvm_after_init() {
   bindkey '^[^?' backward-kill-word
   bindkey '^[^H' backward-kill-word
 
-  bindkey '^N' history-substring-search-down
-  bindkey '^P' history-substring-search-up
+  bindkey '^N' menu-complete
+  bindkey '^P' reverse-menu-complete
   bindkey '^J' history-substring-search-down
   bindkey '^K' history-substring-search-up
+
   bindkey '^[[A' history-substring-search-up
   bindkey '^[[B' history-substring-search-down
 
