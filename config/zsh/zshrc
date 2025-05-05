@@ -140,8 +140,7 @@ function zvm_after_init() {
   fi
 
   # Menu selection bindings.
-  bindkey -M menuselect '^[' undo
-
+  bindkey -M menuselect '^[' send-break
 }
 
 # Load normal and visual bindings after lazy load of vi-mode.
