@@ -50,6 +50,9 @@
   autosquash = true
   updateRefs = true
 
+[fetch]
+	prune = true
+
 [status]
   showUntrackedFiles = all
 
