@@ -29,14 +29,6 @@ autocmd('FileType', {
   end,
 })
 
--- Highlight yanked text.
-autocmd('TextYankPost', {
-  group = 'HighlightYankedText',
-  callback = function()
-    vim.highlight.on_yank({ higroup = 'IncSearch', timeout = 200 })
-  end,
-})
-
 -- Reload buffer on enter or focus.
 autocmd({ 'BufEnter', 'FocusGained' }, {
   group = 'ReloadBufferOnEnterOrFocus',

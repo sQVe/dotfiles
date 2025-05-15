@@ -63,6 +63,7 @@ local default_commands = {
   commands.toggle_wrap,
   commands.undo,
   commands.workspace_symbols,
+  commands.yank_ring,
 }
 
 M.open_command_palette = function(additional_commands)
