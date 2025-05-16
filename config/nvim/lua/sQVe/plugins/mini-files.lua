@@ -56,6 +56,22 @@ M.config = function(_, opts)
     end
   end, { desc = 'Open file tree' })
 
+  local map_split = function(buf_id, lhs, direction)
+    local rhs = function()
+      local cur_target = MiniFiles.get_explorer_state().target_window
+      local new_target = vim.api.nvim_win_call(cur_target, function()
+        vim.cmd(direction .. ' split')
+        return vim.api.nvim_get_current_win()
+      end)
+
+      MiniFiles.set_target_window(new_target)
+      go_in_plus()
+    end
+
+    local desc = 'Split ' .. direction
+    vim.keymap.set('n', lhs, rhs, { buffer = buf_id, desc = desc })
+  end
+
   autocmd('User', {
     group = 'MiniFilesBufferCreate',
     pattern = 'MiniFilesBufferCreate',
@@ -75,6 +91,16 @@ M.config = function(_, opts)
     pattern = 'MiniFilesActionRename',
     callback = function(event)
       Snacks.rename.on_rename_file(event.data.from, event.data.to)
+    end,
+  })
+
+  autocmd('User', {
+    pattern = 'MiniFilesBufferCreate',
+    callback = function(args)
+      local buf_id = args.data.buf_id
+
+      map_split(buf_id, '<C-s>', 'belowright horizontal')
+      map_split(buf_id, '<C-v>', 'belowright vertical')
     end,
   })
 end
