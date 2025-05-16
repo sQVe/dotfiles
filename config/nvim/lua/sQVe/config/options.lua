@@ -103,7 +103,7 @@ local misc = {
 
   -- Enhance diff alignment with second stage diff on each hunk.
   diffopt = vim.opt.diffopt
-    + { 'algorithm:histogram', 'indent-heuristic', 'linematch:60' },
+    + { 'algorithm:histogram', 'indent-heuristic', 'iwhiteall', 'linematch:60' },
 
   -- Permit sourcing local vimrc files in project root directories.
   exrc = true,
