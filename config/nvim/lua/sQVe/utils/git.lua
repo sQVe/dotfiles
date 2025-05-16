@@ -15,6 +15,27 @@ M.get_branch_name = function()
     :wait().stdout)
 end
 
+M.get_merge_base = function()
+  local default_branch = vim
+    .trim(vim
+      .system({
+        'git',
+        'symbolic-ref',
+        'refs/remotes/origin/HEAD',
+      }, { text = true })
+      :wait().stdout)
+    :gsub('refs/remotes/origin/', '')
+
+  return vim.trim(vim
+    .system({
+      'git',
+      'merge-base',
+      'HEAD',
+      default_branch,
+    }, { text = true })
+    :wait().stdout)
+end
+
 M.get_root = function()
   return vim.trim(vim
     .system({
