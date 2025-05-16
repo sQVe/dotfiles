@@ -3,6 +3,10 @@
 -- ╺┻┛╹╹  ╹  ┗┛ ╹┗━╸┗┻┛
 -- Unified diff and merge view.
 
+local close_diffview = function()
+  vim.cmd('tabclose')
+end
+
 local M = {
   'sindrets/diffview.nvim',
   cmd = {
@@ -40,15 +44,15 @@ M.opts = function()
           { 'n', '[x',         actions.prev_conflict,                 { desc = 'Merge-tool: jump to the previous conflict' } },
           { 'n', ']x',         actions.next_conflict,                 { desc = 'Merge-tool: jump to the next conflict' } },
           { 'n', 'gf',         actions.goto_file_tab,                 { desc = 'Open the file in a new tabpage' } },
-          { 'n', '<leader>Go', actions.conflict_choose('ours'),       { desc = 'Choose the OURS version of a conflict' } },
-          { 'n', '<leader>Gt', actions.conflict_choose('theirs'),     { desc = 'Choose the THEIRS version of a conflict' } },
-          { 'n', '<leader>Gb', actions.conflict_choose('base'),       { desc = 'Choose the BASE version of a conflict' } },
-          { 'n', '<leader>Ga', actions.conflict_choose('all'),        { desc = 'Choose all the versions of a conflict' } },
-          { 'n', '<leader>Gd', actions.conflict_choose('none'),       { desc = 'Delete the conflict region' } },
-          { 'n', '<leader>GO', actions.conflict_choose_all('ours'),   { desc = 'Choose the OURS version of a conflict for the whole file' } },
-          { 'n', '<leader>GT', actions.conflict_choose_all('theirs'), { desc = 'Choose the THEIRS version of a conflict for the whole file' } },
-          { 'n', '<leader>GB', actions.conflict_choose_all('base'),   { desc = 'Choose the BASE version of a conflict for the whole file' } },
-          unpack(actions.compat.fold_cmds),
+          { 'n', '<Leader>go', actions.conflict_choose('ours'),       { desc = 'Choose the OURS version of a conflict' } },
+          { 'n', '<Leader>gt', actions.conflict_choose('theirs'),     { desc = 'Choose the THEIRS version of a conflict' } },
+          { 'n', '<Leader>gb', actions.conflict_choose('base'),       { desc = 'Choose the BASE version of a conflict' } },
+          { 'n', '<Leader>ga', actions.conflict_choose('all'),        { desc = 'Choose all the versions of a conflict' } },
+          { 'n', '<Leader>gd', actions.conflict_choose('none'),       { desc = 'Delete the conflict region' } },
+          { 'n', '<Leader>gO', actions.conflict_choose_all('ours'),   { desc = 'Choose the OURS version of a conflict for the whole file' } },
+          { 'n', '<Leader>gT', actions.conflict_choose_all('theirs'), { desc = 'Choose the THEIRS version of a conflict for the whole file' } },
+          { 'n', '<Leader>gB', actions.conflict_choose_all('base'),   { desc = 'Choose the BASE version of a conflict for the whole file' } },
+          { 'n', 'q',          close_diffview,                        { desc = 'Exit diffview' } },
       },
       diff2 = {
           { 'n', '?', actions.help { 'view', 'diff2' }, { desc = 'Open the help panel' } },
@@ -84,6 +88,7 @@ M.opts = function()
           { 'n', '<leader>GB', actions.conflict_choose_all('base'),   { desc = 'Choose the BASE version of a conflict for the whole file' } },
           { 'n', '<leader>GA', actions.conflict_choose_all('all'),    { desc = 'Choose all the versions of a conflict for the whole file' } },
           { 'n', '<leader>GD', actions.conflict_choose_all('none'),   { desc = 'Delete the conflict region for the whole file' } },
+          { 'n', 'q',          close_diffview,                        { desc = 'Exit diffview' } },
       },
       file_history_panel = {
           { 'n', '!',         actions.options,                    { desc = 'Open the option panel' } },
@@ -105,6 +110,7 @@ M.opts = function()
           { 'n', ']F',        actions.select_last_entry,          { desc = 'Open the diff for the last file' } },
           { 'n', 'gf',        actions.goto_file_tab,              { desc = 'Open the file in a new tabpage' } },
           { 'n', '?',         actions.help('file_history_panel'), { desc = 'Open the help panel' } },
+          { 'n', 'q',         close_diffview,                     { desc = 'Exit diffview' } },
       },
       option_panel = {
           { 'n', '<tab>', actions.select_entry,         { desc = 'Change the current option' } },
