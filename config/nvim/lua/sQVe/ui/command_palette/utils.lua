@@ -15,6 +15,30 @@ local get_name_with_path = function(opts)
   )
 end
 
+M.get_short_path = function(path_str)
+  local parts = {}
+
+  for part in string.gmatch(path_str, "[^/]+") do
+    table.insert(parts, part)
+  end
+
+  -- If path has 4 or fewer parts, return it as is.
+  if #parts <= 4 then
+    return path_str
+  end
+
+  -- Keep first two and last two parts (last directory + filename)
+  local shortened = {
+    parts[1],
+    parts[2],
+    "..",
+    parts[#parts - 1],
+    parts[#parts]
+  }
+
+  return table.concat(shortened, "/")
+end
+
 M.get_name_with_buffer_directory = function(name, opts)
   return get_name_with_path({
     name = name,
