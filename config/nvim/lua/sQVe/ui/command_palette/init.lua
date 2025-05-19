@@ -12,6 +12,7 @@ local commands = require('sQVe.ui.command_palette.commands')
 local M = {}
 
 local default_commands = {
+  commands.blame,
   commands.buffers,
   commands.change_cwd_buffer_path,
   commands.change_cwd_git_root_path,
@@ -39,6 +40,7 @@ local default_commands = {
   commands.icons,
   commands.lines,
   commands.marks,
+  commands.merge_base,
   commands.previous_commit_message,
   commands.projects,
   commands.recent_files,
@@ -56,7 +58,6 @@ local default_commands = {
   commands.spelling,
   commands.toggle_conceal_level,
   commands.toggle_format_on_save,
-  commands.toggle_git_blame,
   commands.toggle_inline_diff,
   commands.toggle_relative_numbers,
   commands.toggle_spell,

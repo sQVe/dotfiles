@@ -12,6 +12,17 @@ local var = require('sQVe.utils.var')
 
 local M = {}
 
+M.blame = {
+  callback = function(opts)
+    local gitsigns = require('gitsigns')
+    gitsigns.blame()
+  end,
+  condition = function()
+    return git.is_inside_repo()
+  end,
+  name = 'Blame',
+}
+
 M.buffers = {
   callback = function()
     Snacks.picker.buffers()
@@ -31,9 +42,8 @@ M.change_cwd_buffer_path = {
       and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = function(opts)
-    return utils.get_name_with_buffer_directory(
-      'Set cwd to buffer directory',
-      opts
+    return utils.get_short_path(
+      utils.get_name_with_buffer_directory('Set cwd to buffer directory', opts)
     )
   end,
 }
@@ -46,7 +56,9 @@ M.change_cwd_git_root_path = {
     return opts.git_root ~= '' and opts.git_root ~= path.get_cwd()
   end,
   name = function(opts)
-    return utils.get_name_with_git_root_path('Set cwd to git root', opts)
+    return utils.get_short_path(
+      utils.get_name_with_git_root_path('Set cwd to git root', opts)
+    )
   end,
 }
 
@@ -168,7 +180,9 @@ M.file_history_buffer_path = {
       and git.is_inside_repo()
   end,
   name = function(opts)
-    return utils.get_name_with_buffer_path('Open file history', opts)
+    return utils.get_short_path(
+      utils.get_name_with_buffer_path('Open file history', opts)
+    )
   end,
 }
 
@@ -198,7 +212,9 @@ M.find_files_in_subdirectory = {
       and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = function(opts)
-    return utils.get_name_with_buffer_directory('Find files', opts)
+    return utils.get_short_path(
+      utils.get_name_with_buffer_directory('Find files', opts)
+    )
   end,
 }
 
@@ -216,8 +232,10 @@ M.git_browse = {
   callback = function()
     Snacks.gitbrowse.open()
   end,
-  condition = function()
+  condition = function(opts)
     return git.is_inside_repo()
+      and buffer.is_valid(opts.bufnr)
+      and buffer.is_saved(opts.bufnr)
   end,
   name = 'Open buffer in browser',
 }
@@ -274,7 +292,9 @@ M.grep_subdirectory = {
       and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
   name = function(opts)
-    return utils.get_name_with_buffer_directory('Grep', opts)
+    return utils.get_short_path(
+      utils.get_name_with_buffer_directory('Grep', opts)
+    )
   end,
 }
 
@@ -290,6 +310,22 @@ M.lines = {
     Snacks.picker.lines()
   end,
   name = 'Go to line',
+}
+
+M.merge_base = {
+  callback = function()
+    local gitsigns = package.loaded.gitsigns
+
+    gitsigns.show(git.get_merge_base())
+  end,
+  condition = function()
+    return git.is_inside_repo()
+  end,
+  name = function(opts)
+    return utils.get_short_path(
+      utils.get_name_with_buffer_directory('Show merge base version', opts)
+    )
+  end,
 }
 
 M.marks = {
@@ -396,12 +432,19 @@ M.spawn_file_manager_in_subdirectory = {
   condition = function(opts)
     return buffer.is_valid(opts.bufnr) and buffer.is_saved(opts.bufnr)
   end,
-  name = 'Spawn file manager from buffer path',
+  name = function(opts)
+    return utils.get_short_path(
+      utils.get_name_with_buffer_directory('Spawn file manager', opts)
+    )
+  end,
 }
 
 M.spawn_lazygit = {
   callback = function()
     vim.system({ 'term', 'lazygit' }, { detach = true }):wait()
+  end,
+  condition = function()
+    return git.is_inside_repo()
   end,
   name = 'Spawn lazygit',
 }
@@ -418,9 +461,15 @@ M.spawn_lazygit_with_filter = {
       :wait()
   end,
   condition = function(opts)
-    return buffer.is_valid(opts.bufnr) and buffer.is_saved(opts.bufnr)
+    return git.is_inside_repo()
+      and buffer.is_valid(opts.bufnr)
+      and buffer.is_saved(opts.bufnr)
   end,
-  name = 'Spawn lazygit from buffer filter',
+  name = function(opts)
+    return utils.get_short_path(
+      utils.get_name_with_buffer_directory('Spawn lazygit', opts)
+    )
+  end,
 }
 
 M.spawn_terminal = {
@@ -444,7 +493,11 @@ M.spawn_terminal_in_subdirectory = {
       and buffer.is_saved(opts.bufnr)
       and path.get_parent(buffer.get_path(opts.bufnr)) ~= path.get_cwd()
   end,
-  name = 'Spawn terminal from buffer path',
+  name = function(opts)
+    return utils.get_short_path(
+      utils.get_name_with_buffer_directory('Spawn terminal', opts)
+    )
+  end,
 }
 
 M.spelling = {
@@ -480,22 +533,6 @@ M.toggle_format_on_save = {
     return string.format(
       '%s format on save',
       var.get_global('format_on_save') and 'Disable' or 'Enable'
-    )
-  end,
-}
-
-M.toggle_git_blame = {
-  callback = function(opts)
-    vim.cmd('BlameToggle')
-    var.toggle_buffer(opts.bufnr, 'git_blame')
-  end,
-  condition = function()
-    return git.is_inside_repo()
-  end,
-  name = function(opts)
-    return string.format(
-      '%s git blame window',
-      var.get_buffer(opts.bufnr, 'git_blame') and 'Hide' or 'Show'
     )
   end,
 }

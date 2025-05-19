@@ -61,14 +61,6 @@ M.opts = {
       gitsigns.nav_hunk('prev')
     end)
 
-    -- FIXME: This should be in commands palette.
-    map('n', 'gha', function()
-      gitsigns.show(git.get_merge_base())
-    end, { desc = 'Show file from merge base' })
-    map('n', 'ghb', function()
-      gitsigns.blame()
-    end, { desc = 'Preview hunk' })
-
     map('v', 'ghs', function()
       gitsigns.stage_hunk({ vim.fn.line('.'), vim.fn.line('v') })
     end, { desc = 'Stage/unstage hunk' })
