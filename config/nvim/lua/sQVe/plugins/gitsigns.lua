@@ -34,11 +34,12 @@ M.opts = {
     topdelete = { text = signs.dashed },
     changedelete = { text = signs.dashed },
   },
-  on_attach = function(bufnr)
-    local git = require('sQVe.utils.git')
+  on_attach = function()
     local gitsigns = package.loaded.gitsigns
 
-    map('n', 'ghd', gitsigns.stage_hunk, { desc = 'Stage/unstage hunk' })
+    map('n', 'ghd', function()
+      vim.cmd('DiffviewOpen')
+    end, { desc = 'Open file diff' })
     map('n', 'ghs', gitsigns.stage_hunk, { desc = 'Stage/unstage hunk' })
     map(
       'n',

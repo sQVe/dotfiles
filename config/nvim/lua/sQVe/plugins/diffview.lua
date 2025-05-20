@@ -21,6 +21,7 @@ M.opts = function()
     default_args = {
       DiffviewOpen = { '--imply-local' },
     },
+    enhanced_diff_hl = true,
     file_panel = {
       listing_style = 'list',
       win_config = {
