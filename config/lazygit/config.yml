@@ -63,6 +63,6 @@ customCommands:
   - key: "W"
     command: git commit --no-verify
     context: "global"
-    subprocess: true
+    output: terminal
 notARepository: 'quit'
 promptToReturnFromSubprocess: false
