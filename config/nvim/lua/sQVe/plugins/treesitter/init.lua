@@ -8,6 +8,7 @@ local languages = require('sQVe.plugins.treesitter.languages')
 local M = {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
+  branch = 'master',
   event = 'BufReadPost',
   dependencies = { 'RRethy/nvim-treesitter-textsubjects' },
 }
