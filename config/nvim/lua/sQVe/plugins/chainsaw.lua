@@ -67,4 +67,4 @@ M.opts = {
 }
 
 -- Disable chainsaw temporarily since it's broken with new treesitter.
-return {}
+return M
