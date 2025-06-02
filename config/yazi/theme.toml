@@ -1,6 +1,6 @@
 # vim:fileencoding=utf-8
 
-[manager]
+[mgr]
 cwd = { fg = "#928374" }
 
 # Hovered
