@@ -15,6 +15,7 @@ M.by_ft = {
   lua = { 'stylua' },
   markdown = { 'prettierd', 'injected' },
   sh = { 'shfmt' },
+  sql = { 'pg_format' },
   typescript = { 'biome-check', 'prettierd', stop_after_first = true },
   typescriptreact = { 'biome-check', 'prettierd', stop_after_first = true },
   yaml = { 'prettierd' },
