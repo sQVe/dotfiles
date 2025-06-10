@@ -67,6 +67,10 @@ M.opts = function()
         return enabled_providers
       end,
 
+      per_filetype = {
+        minifiles = {},
+      },
+
       providers = {
         lazydev = {
           name = 'LazyDev',
