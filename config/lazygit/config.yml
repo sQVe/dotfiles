@@ -1,8 +1,10 @@
 gui:
   commandLogSize: 16
-  filterMode: 'fuzzy'
+  commitHashLength: 7
+  expandFocusedSidePanel: true
+  filterMode: fuzzy
   nerdFontsVersion: '3'
-  portraitMode: 'never'
+  portraitMode: never
   scrollHeight: 8
   showBottomLine: false
   showFileTree: false
@@ -41,7 +43,8 @@ git:
   overrideGpg: true
   paging:
     colorArg: always
-    pager: delta --dark --paging=never
+    pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  parseEmoji: true
   skipHookPrefix: 'draft: '
 keybinding:
   branches:
@@ -66,3 +69,4 @@ customCommands:
     output: terminal
 notARepository: 'quit'
 promptToReturnFromSubprocess: false
+quitOnTopLevelReturn: true
