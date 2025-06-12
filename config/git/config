@@ -9,6 +9,8 @@
 [delta]
   features = line-numbers decorations
   syntax-theme = gruvbox-dark
+  tabs = 2
+  true-color = always
   whitespace-error-style = 22 reverse
   zero-style = syntax
 

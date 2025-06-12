@@ -11,6 +11,7 @@ gui:
   showRandomTip: false
   skipDiscardChangeWarning: true
   skipRewordInEditorWarning: true
+  tabWidth: 2
   timeFormat: '2006-01-02 15:04'
   authorColors:
     '*': green
@@ -43,7 +44,7 @@ git:
   overrideGpg: true
   paging:
     colorArg: always
-    pager: delta --dark --paging=never --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+    pager: delta --dark --paging=never --tabs 2 --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
   parseEmoji: true
   skipHookPrefix: 'draft: '
 keybinding:
