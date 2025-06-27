@@ -1,6 +1,6 @@
 {
   "blame.nvim": { "branch": "main", "commit": "b87b8c820e4cec06fbbd2f946b7b35c45906ee0c" },
-  "blink.cmp": { "branch": "main", "commit": "3513b27d1565d09927ccb8c81731ee06dab6c1c7" },
+  "blink.cmp": { "branch": "main", "commit": "dad68b32bc8b91f04b2efd14abc57dd650c51e7e" },
   "bufignore.nvim": { "branch": "main", "commit": "ada90dfbc7537261c372542c60e6f59f6aa446a0" },
   "catppuccin": { "branch": "main", "commit": "fa42eb5e26819ef58884257d5ae95dd0552b9a66" },
   "conform.nvim": { "branch": "master", "commit": "8132ec733eed3bf415b97b76797ca41b59f51d7d" },
