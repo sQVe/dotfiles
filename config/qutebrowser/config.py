@@ -1438,7 +1438,7 @@ c.fonts.default_family = ['monospace']
 # either a float value with a "pt" suffix, or an integer value with a
 # "px" suffix.
 # Type: String
-c.fonts.default_size = '14px'
+c.fonts.default_size = '12px'
 
 # Font used in the completion widget.
 # Type: Font

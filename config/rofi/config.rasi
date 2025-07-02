@@ -1,5 +1,5 @@
 configuration {
-  font: "monospace 12";
+  font: "monospace 10";
   kb-accept-entry: "Control+m,Return,KP_Enter";
   kb-remove-to-eol: "";
   kb-remove-to-sol: "";
