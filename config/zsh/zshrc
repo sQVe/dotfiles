@@ -222,7 +222,6 @@ alias shutdown='state shutdown'
 alias suspend='state suspend'
 
 # Apps.
-alias aider="${SCRIPTS}/safe-aider.sh"
 alias bc='bc --mathlib --quiet'
 alias bluetooth=bluetoothctl
 alias cheat='cht.sh'
