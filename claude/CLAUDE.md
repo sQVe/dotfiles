@@ -3,6 +3,14 @@
 
 - Always write titles in sentence case.
 
+# Recommended tools
+
+- `exa`: A modern replacement for `ls`.
+- `fd`: A command-line tool for finding files and directories.
+- `jq`: A command-line tool for processing JSON data.
+- `pnpm`: A package manager for Node.js projects.
+- `rg`: A command-line tool for searching and replacing text in files.
+
 # Git workflow guidelines
 
 ## Pull request guidelines
@@ -12,13 +20,12 @@
 - Use the following structure for the body:
   - `### <Name of PR>`
     - Use a clear and concise title for the PR, without using conventional commits.
-  - ##### Summary
+  - #### Summary
     - A brief summary of the PR and its purpose (no longer than 200 words). Use sentences rather than lists.
-  - ##### Key changes
+  - #### Key changes
     - A list of the key changes made. Focus on the most important changes rather than listing everything.
-  - ##### Test plan
+  - #### Test plan
     - A list of manual tests to perform to verify the PR functionality.
-- Do not add yourself as a co-author.
 
 ## Commit guidelines
 
@@ -26,7 +33,6 @@
 - Use imperative mood (e.g., "Add feature" not "Added feature").
 - Limit the first line to 72 characters or less.
 - Add concise descriptions only when necessary.
-- Do not add yourself as a co-author.
 
 ### Examples
 
@@ -42,16 +48,16 @@ refactor: simplify user validation logic
 
 # Code style guidelines
 
+- Comments should end with a period.
 - Follow consistent indentation (spaces or tabs, but not mixed).
-- Use meaningful variable and function names.
 - Keep functions small and focused on a single responsibility.
 - Remove unused imports and variables.
 - Use consistent naming conventions throughout the codebase.
+- Use meaningful variable and function names.
 
 # Testing guidelines
 
-- Write unit tests for new functionality.
 - Ensure all tests pass before submitting PRs.
 - Include integration tests for complex features.
-- Test edge cases and error conditions.
-- Maintain good test coverage without obsessing over percentages.
+- Prefer running CI tests.
+- Write unit tests for new functionality.
