@@ -49,6 +49,7 @@ local default_commands = {
   commands.review_diff_view,
   commands.search_and_replace,
   commands.search_history,
+  commands.spawn_claude,
   commands.spawn_file_manager,
   commands.spawn_file_manager_in_subdirectory,
   commands.spawn_lazygit,

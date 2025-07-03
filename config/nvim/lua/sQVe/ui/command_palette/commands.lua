@@ -500,6 +500,20 @@ M.spawn_terminal_in_subdirectory = {
   end,
 }
 
+M.spawn_claude = {
+  callback = function()
+    vim.system({ 'term', 'command claude' }, { detach = true }):wait()
+  end,
+  condition = function()
+    return git.is_inside_repo()
+  end,
+  name = function(opts)
+    return utils.get_short_path(
+      utils.get_name_with_buffer_directory('Spawn claude', opts)
+    )
+  end,
+}
+
 M.spelling = {
   callback = function()
     Snacks.picker.spelling()
