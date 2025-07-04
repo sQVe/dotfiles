@@ -11,6 +11,23 @@
 - `pnpm`: A package manager for Node.js projects.
 - `rg`: A command-line tool for searching and replacing text in files.
 
+# Code style guidelines
+
+- Try not to use the `any` type.
+- Comments should end with a period.
+- Follow consistent indentation (spaces or tabs, but not mixed).
+- Keep functions small and focused on a single responsibility.
+- Remove unused imports and variables.
+- Use consistent naming conventions throughout the codebase.
+- Use meaningful variable and function names.
+
+# Testing guidelines
+
+- Always prefer running tests with `test:ci`.
+- Ensure all tests pass before submitting PRs.
+- Include integration tests for complex features.
+- Write unit tests for new functionality.
+
 # Git workflow guidelines
 
 ## Pull request guidelines
@@ -20,8 +37,7 @@
 - Use the following structure for the body:
   - `### <Name of PR>`
     - Use a clear and concise title for the PR, without using conventional commits.
-  - #### Summary
-    - A brief summary of the PR and its purpose (no longer than 200 words). Use sentences rather than lists.
+  - A brief summary of the PR and its purpose (no longer than 200 words). Use sentences rather than lists.
   - #### Key changes
     - A list of the key changes made. Focus on the most important changes rather than listing everything.
   - #### Test plan
@@ -45,19 +61,3 @@ fix: resolve memory leak in data processing
 
 refactor: simplify user validation logic
 ```
-
-# Code style guidelines
-
-- Comments should end with a period.
-- Follow consistent indentation (spaces or tabs, but not mixed).
-- Keep functions small and focused on a single responsibility.
-- Remove unused imports and variables.
-- Use consistent naming conventions throughout the codebase.
-- Use meaningful variable and function names.
-
-# Testing guidelines
-
-- Ensure all tests pass before submitting PRs.
-- Include integration tests for complex features.
-- Prefer running CI tests.
-- Write unit tests for new functionality.

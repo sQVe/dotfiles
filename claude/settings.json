@@ -1,6 +1,10 @@
 {
   "cleanupPeriodDays": 7,
-  "env": {},
+  "env": {
+    "DISABLE_ERROR_REPORTING": "1",
+    "DISABLE_NON_ESSNTIAL_MODEL_CALLS": "1",
+    "DISABLE_TELEMETRY": "1"
+  },
   "includeCoAuthoredBy": false,
   "permissions": {
     "allow": [
@@ -32,7 +36,8 @@
       "Bash(npm:*)",
       "Bash(pnpm *)",
       "Bash(rg:*)",
-      "Bash(touch:*)"
+      "Bash(touch:*)",
+      "Edit"
     ],
     "deny": []
   }
