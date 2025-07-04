@@ -41,7 +41,7 @@
   - #### Key changes
     - A list of the key changes made. Focus on the most important changes rather than listing everything.
   - #### Test plan
-    - A list of manual tests to perform to verify the PR functionality.
+    - A checklist of manual tests to perform to verify the PR functionality.
 
 ## Commit guidelines
 
