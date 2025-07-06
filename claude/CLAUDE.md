@@ -1,40 +1,92 @@
 
-# General writing guidelines
+# AI assistant guidelines
 
-- Always write titles in sentence case.
+## When to use sequential thinking
+- Complex problems requiring multiple steps
+- Planning and design tasks
+- Analysis that might need course correction
+- Breaking down large tasks into smaller components
+- Maintaining context across multiple steps
 
-# Recommended tools
+## When to use context7
+- Current documentation for libraries/frameworks
+- API references and examples
+- Up-to-date package information
+- Library-specific best practices
 
-- `exa`: A modern replacement for `ls`.
-- `fd`: A command-line tool for finding files and directories.
-- `jq`: A command-line tool for processing JSON data.
-- `pnpm`: A package manager for Node.js projects.
-- `rg`: A command-line tool for searching and replacing text in files.
+## Problem-solving approach
+- Start by understanding the codebase structure
+- Use search tools extensively to gather context
+- Plan tasks using TodoWrite when appropriate
+- Implement solutions incrementally
+- Always verify with tests when available
 
 # Code style guidelines
 
-- Try not to use the `any` type.
+## Type safety
+- Do not use the `any` type.
   - ✅ `string | number` or specific interface types
   - ❌ `any`
+
+## Comments
 - All code comments should end with a period.
   - ✅ `// Calculate the total sum.`
   - ✅ `/* This function handles user authentication. */`
   - ❌ `// Calculate the total sum`
   - Exception: Single-word labels like `// TODO` or `// FIXME`
-- Follow consistent indentation (spaces or tabs, but not mixed).
-- Keep functions small and focused on a single responsibility.
-- Remove unused imports and variables.
-- Use consistent naming conventions throughout the codebase.
-- Use meaningful variable and function names.
+
+## Import organization
+- Group imports: external libraries first, then internal modules
+- Use absolute imports for clarity when possible
+- Sort imports alphabetically within groups
+- ✅
+  ```typescript
+  import { useState } from 'react';
+  import { format } from 'date-fns';
+
+  import { userService } from '@/services/user';
+  import { formatDate } from '@/utils/date';
+  ```
+
+## Error handling
+- Prefer explicit error handling over silent failures
+- Use Result types or explicit error objects where appropriate
+- Include meaningful error messages
+- ✅ `throw new Error('User not found with ID: ' + userId)`
+- ❌ `throw new Error('Error')`
+
+## Async patterns
+- Prefer async/await over Promise chains for readability
+- Use Promise.all for concurrent operations
+- Handle errors at appropriate levels
+- ✅ `const result = await fetchUser(id);`
+- ❌ `fetchUser(id).then(result => ...)`
+
+## Naming conventions
+- Use meaningful variable and function names
+- Keep functions pure and avoid side effects when possible
+- Use consistent naming conventions throughout the codebase
+- File naming: use kebab-case for files and directories
+- Include file type in name where appropriate (e.g., `user.service.ts`, `user.types.ts`)
+
+# Recommended tools
+
+- `bat`: A modern replacement for `cat` with syntax highlighting
+- `delta`: Git diff viewer with better formatting
+- `exa`: A modern replacement for `ls`
+- `fd`: A command-line tool for finding files and directories
+- `fzf`: Fuzzy finder for files and commands
+- `jq`: A command-line tool for processing JSON data
+- `pnpm`: A package manager for Node.js projects
+- `rg`: A command-line tool for searching and replacing text in files
 
 # Testing guidelines
 
-- Always prefer running tests with `test:ci`.
+- Run tests with `test:ci`.
   - ✅ `pnpm test:ci` or `npm run test:ci`
   - ❌ `pnpm test` or `npm test`
-- Ensure all tests pass before submitting PRs.
-- Include integration tests for complex features.
 - Write unit tests for new functionality.
+- Include integration tests for complex features.
 
 # Git workflow guidelines
 
@@ -73,3 +125,7 @@ fix: resolve memory leak in data processing
 
 refactor: simplify user validation logic
 ```
+
+# General writing guidelines
+
+- Always write titles in sentence case.
