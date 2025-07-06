@@ -115,7 +115,15 @@ M.config = function()
       settings = {
         Lua = {
           telemetry = { enable = false },
-          workspace = { checkThirdParty = false },
+          workspace = {
+            checkThirdParty = false,
+            library = {
+              '${3rd}/busted/library',
+            },
+          },
+          diagnostics = {
+            globals = { 'vim' },
+          },
         },
       },
     }),
