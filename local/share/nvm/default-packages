@@ -10,6 +10,7 @@ css-variables-language-server
 mcp-remote
 neovim
 npm
+playwright
 pnpm
 prettier
 serve

@@ -26,14 +26,13 @@ M.opts = {
     right_pad = 2,
     sign = false,
   },
-  quote = {
-    repeat_linebreak = true,
-  },
+  heading = { sign = false },
   overrides = {
     buftype = {
       nofile = { enabled = false },
     },
   },
+  quote = { repeat_linebreak = true },
 }
 
 return M

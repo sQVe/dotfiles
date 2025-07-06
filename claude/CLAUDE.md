@@ -14,7 +14,13 @@
 # Code style guidelines
 
 - Try not to use the `any` type.
-- Comments should end with a period.
+  - ✅ `string | number` or specific interface types
+  - ❌ `any`
+- All code comments should end with a period.
+  - ✅ `// Calculate the total sum.`
+  - ✅ `/* This function handles user authentication. */`
+  - ❌ `// Calculate the total sum`
+  - Exception: Single-word labels like `// TODO` or `// FIXME`
 - Follow consistent indentation (spaces or tabs, but not mixed).
 - Keep functions small and focused on a single responsibility.
 - Remove unused imports and variables.
@@ -24,6 +30,8 @@
 # Testing guidelines
 
 - Always prefer running tests with `test:ci`.
+  - ✅ `pnpm test:ci` or `npm run test:ci`
+  - ❌ `pnpm test` or `npm test`
 - Ensure all tests pass before submitting PRs.
 - Include integration tests for complex features.
 - Write unit tests for new functionality.
@@ -46,7 +54,11 @@
 ## Commit guidelines
 
 - Follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) guidelines.
-- Use imperative mood (e.g., "Add feature" not "Added feature").
+- Use imperative mood.
+  - ✅ `feat: add user authentication`
+  - ✅ `fix: resolve memory leak`
+  - ❌ `feat: added user authentication`
+  - ❌ `fix: resolved memory leak`
 - Limit the first line to 72 characters or less.
 - Add concise descriptions only when necessary.
 

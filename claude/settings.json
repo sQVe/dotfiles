@@ -2,7 +2,7 @@
   "cleanupPeriodDays": 7,
   "env": {
     "DISABLE_ERROR_REPORTING": "1",
-    "DISABLE_NON_ESSNTIAL_MODEL_CALLS": "1",
+    "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
     "DISABLE_TELEMETRY": "1"
   },
   "includeCoAuthoredBy": false,
