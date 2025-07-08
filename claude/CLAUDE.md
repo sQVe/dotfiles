@@ -1,25 +1,54 @@
 
 # AI assistant guidelines
 
-## When to use sequential thinking
-- Complex problems requiring multiple steps
-- Planning and design tasks
-- Analysis that might need course correction
-- Breaking down large tasks into smaller components
-- Maintaining context across multiple steps
-
-## When to use context7
-- Current documentation for libraries/frameworks
-- API references and examples
-- Up-to-date package information
-- Library-specific best practices
-
 ## Problem-solving approach
 - Start by understanding the codebase structure
 - Use search tools extensively to gather context
 - Plan tasks using TodoWrite when appropriate
 - Implement solutions incrementally
 - Always verify with tests when available
+
+## Tool usage guidelines
+
+### When to use sequential thinking
+- Complex problems requiring multiple steps
+- Planning and design tasks
+- Analysis that might need course correction
+- Breaking down large tasks into smaller components
+- Maintaining context across multiple steps
+
+### When to use context7
+- Current documentation for libraries/frameworks
+- API references and examples
+- Up-to-date package information
+- Library-specific best practices
+
+### MCP server configuration
+
+#### Available MCP servers
+- `mcp__playwright__*`: Browser automation and testing
+- `mcp__linear__*`: Linear issue tracking integration
+- `mcp__context7__*`: Library documentation lookup
+- `mcp__fetch__*`: Web content fetching
+- `mcp__sequential-thinking__*`: Complex problem solving
+- `mcp__sentry__*`: Error monitoring and issue tracking
+
+#### Usage guidelines
+- Use playwright for web testing and automation tasks
+- Use linear for issue tracking and project management
+- Use context7 for up-to-date library documentation
+- Use sentry for error monitoring and debugging production issues
+- Prefer MCP fetch over WebFetch when available
+
+## Recommended tools
+- `bat`: A modern replacement for `cat` with syntax highlighting
+- `delta`: Git diff viewer with better formatting
+- `exa`: A modern replacement for `ls`
+- `fd`: A command-line tool for finding files and directories
+- `fzf`: Fuzzy finder for files and commands
+- `jq`: A command-line tool for processing JSON data
+- `pnpm`: A package manager for Node.js projects
+- `rg`: A command-line tool for searching and replacing text in files
 
 # Code style guidelines
 
@@ -69,29 +98,39 @@
 - File naming: use kebab-case for files and directories
 - Include file type in name where appropriate (e.g., `user.service.ts`, `user.types.ts`)
 
-# Recommended tools
+# Development workflow
 
-- `bat`: A modern replacement for `cat` with syntax highlighting
-- `delta`: Git diff viewer with better formatting
-- `exa`: A modern replacement for `ls`
-- `fd`: A command-line tool for finding files and directories
-- `fzf`: Fuzzy finder for files and commands
-- `jq`: A command-line tool for processing JSON data
-- `pnpm`: A package manager for Node.js projects
-- `rg`: A command-line tool for searching and replacing text in files
-
-# Testing guidelines
-
+## Testing guidelines
 - Run tests with `test:ci`.
   - ✅ `pnpm test:ci` or `npm run test:ci`
   - ❌ `pnpm test` or `npm test`
 - Write unit tests for new functionality.
 - Include integration tests for complex features.
 
-# Git workflow guidelines
+## Git workflow guidelines
 
-## Pull request guidelines
+### Commit guidelines
+- Follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) guidelines.
+- Use imperative mood.
+  - ✅ `feat: add user authentication`
+  - ✅ `fix: resolve memory leak`
+  - ❌ `feat: added user authentication`
+  - ❌ `fix: resolved memory leak`
+- Limit the first line to 72 characters or less.
+- Add concise descriptions only when necessary.
 
+#### Examples
+```
+feat: add user authentication system
+
+chore: update dependencies to latest versions
+
+fix: resolve memory leak in data processing
+
+refactor: simplify user validation logic
+```
+
+### Pull request guidelines
 - Follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) guidelines for PR titles.
 - Use past tense when writing descriptions.
 - Use the following structure for the body:
@@ -103,29 +142,5 @@
   - #### Test plan
     - A checklist of manual tests to perform to verify the PR functionality.
 
-## Commit guidelines
-
-- Follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) guidelines.
-- Use imperative mood.
-  - ✅ `feat: add user authentication`
-  - ✅ `fix: resolve memory leak`
-  - ❌ `feat: added user authentication`
-  - ❌ `fix: resolved memory leak`
-- Limit the first line to 72 characters or less.
-- Add concise descriptions only when necessary.
-
-### Examples
-
-```
-feat: add user authentication system
-
-chore: update dependencies to latest versions
-
-fix: resolve memory leak in data processing
-
-refactor: simplify user validation logic
-```
-
-# General writing guidelines
-
+## General writing guidelines
 - Always write titles in sentence case.

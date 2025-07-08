@@ -27,11 +27,12 @@
       "Bash(rg:*)",
       "Bash(touch:*)",
       "Edit",
-      "mcp__context7__*",
-      "mcp__fetch__*",
-      "mcp__linear__*",
-      "mcp__playwright__*",
-      "mcp__sequential-thinking__*"
+      "mcp__fetch",
+      "mcp__linear",
+      "mcp__playwright",
+      "mcp__sentry",
+      "mcp__sequential-thinking",
+      "mcp__context7"
     ],
     "deny": []
   }
