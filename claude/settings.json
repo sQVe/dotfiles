@@ -34,6 +34,7 @@
       "mcp__sequential-thinking",
       "mcp__context7"
     ],
-    "deny": []
+    "deny": [],
+    "defaultMode": "plan"
   }
 }

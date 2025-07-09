@@ -20,4 +20,11 @@ return {
     config = true,
     event = { 'BufRead', 'BufWrite' },
   },
+
+  -- Sort by line and delimiter.
+  {
+    'sQVe/sort.nvim',
+    config = true,
+    dev = true,
+  },
 }
