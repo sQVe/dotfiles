@@ -1,146 +1,85 @@
 
-# AI assistant guidelines
+# AI assistant development guidelines
 
-## Problem-solving approach
-- Start by understanding the codebase structure
-- Use search tools extensively to gather context
-- Plan tasks using TodoWrite when appropriate
-- Implement solutions incrementally
-- Always verify with tests when available
+Universal development guidelines for AI assistant interactions across all projects.
 
-## Tool usage guidelines
+## 🚨 **CRITICAL REQUIREMENTS**
 
-### When to use sequential thinking
-- Complex problems requiring multiple steps
-- Planning and design tasks
-- Analysis that might need course correction
-- Breaking down large tasks into smaller components
-- Maintaining context across multiple steps
+### Development workflow
+- **Always run validation**: Run linting, type checking, and tests after ALL code changes.
+- **Use TodoWrite tool**: Plan complex tasks and track progress systematically.
+- **Understand first**: Analyze codebase structure before making changes.
+- **Verify implementation**: Test functionality after changes, follow existing patterns.
 
-### When to use context7
-- Current documentation for libraries/frameworks
-- API references and examples
-- Up-to-date package information
-- Library-specific best practices
+### Code quality standards
+- **Type safety**: No `any` type, use specific types and interfaces.
+- **Error handling**: Explicit errors with meaningful messages, no silent failures.
+- **Comments**: End with period (except TODO/FIXME), only when necessary.
+- **Testing**: Write unit tests for new functionality, integration tests for complex features.
 
-### MCP server configuration
+### Git workflow
+- **Commits**: Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) format.
+- **Format**: `type: description` (feat, fix, chore, docs, refactor, test).
+- **Style**: Use imperative mood, limit first line to 72 characters.
+- **PRs**: Conventional title, past tense descriptions, include summary/key changes/test plan.
 
-#### Available MCP servers
-- `mcp__playwright__*`: Browser automation and testing
-- `mcp__linear__*`: Linear issue tracking integration
-- `mcp__context7__*`: Library documentation lookup
-- `mcp__fetch__*`: Web content fetching
-- `mcp__sequential-thinking__*`: Complex problem solving
-- `mcp__sentry__*`: Error monitoring and issue tracking
+---
 
-#### Usage guidelines
-- Use playwright for web testing and automation tasks
-- Use linear for issue tracking and project management
-- Use context7 for up-to-date library documentation
-- Use sentry for error monitoring and debugging production issues
-- Prefer MCP fetch over WebFetch when available
+## 📋 **PROBLEM-SOLVING APPROACH**
 
-## Recommended tools
-- `bat`: A modern replacement for `cat` with syntax highlighting
-- `delta`: Git diff viewer with better formatting
-- `exa`: A modern replacement for `ls`
-- `fd`: A command-line tool for finding files and directories
-- `fzf`: Fuzzy finder for files and commands
-- `jq`: A command-line tool for processing JSON data
-- `pnpm`: A package manager for Node.js projects
-- `rg`: A command-line tool for searching and replacing text in files
+### Analysis methodology
+- **Search extensively**: Use available search tools to understand codebase structure.
+- **Plan systematically**: Use TodoWrite for complex multi-step tasks.
+- **Implement incrementally**: Make small, testable changes and verify each step.
+- **Follow conventions**: Mimic existing code style, use established libraries and patterns.
 
-# Code style guidelines
+### Research strategy
+- **Context7**: For current library docs, API references, best practices.
+- **Sequential thinking**: For complex multi-step problems, planning, analysis.
+- **MCP servers**: playwright (testing), linear (issues), context7 (docs), fetch (web), sentry (errors).
 
-## Type safety
-- Do not use the `any` type.
-  - ✅ `string | number` or specific interface types
-  - ❌ `any`
+---
 
-## Comments
-- All code comments should end with a period.
-  - ✅ `// Calculate the total sum.`
-  - ✅ `/* This function handles user authentication. */`
-  - ❌ `// Calculate the total sum`
-  - Exception: Single-word labels like `// TODO` or `// FIXME`
+## 🔧 **TECHNICAL GUIDELINES**
 
-## Import organization
-- Group imports: external libraries first, then internal modules
-- Use absolute imports for clarity when possible
-- Sort imports alphabetically within groups
-- ✅
-  ```typescript
-  import { useState } from 'react';
-  import { format } from 'date-fns';
+### Tool usage
+- **Recommended CLI tools**: bat, delta, exa, fd, fzf, jq, pnpm, rg.
+- **Search tools**: Use extensively both in parallel and sequentially.
+- **Testing commands**: Use `test:ci` command (`pnpm test:ci` or `npm run test:ci`).
 
-  import { userService } from '@/services/user';
-  import { formatDate } from '@/utils/date';
-  ```
+### Code organization
+- **Imports**: External libraries first, then internal; sort alphabetically.
+- **Naming**: Meaningful names, pure functions, kebab-case files.
+- **Structure**: Co-located types and tests when possible.
 
-## Error handling
-- Prefer explicit error handling over silent failures
-- Use Result types or explicit error objects where appropriate
-- Include meaningful error messages
-- ✅ `throw new Error('User not found with ID: ' + userId)`
-- ❌ `throw new Error('Error')`
+---
 
-## Async patterns
-- Prefer async/await over Promise chains for readability
-- Use Promise.all for concurrent operations
-- Handle errors at appropriate levels
-- ✅ `const result = await fetchUser(id);`
-- ❌ `fetchUser(id).then(result => ...)`
+## 📝 **CODE STYLE REQUIREMENTS**
 
-## Naming conventions
-- Use meaningful variable and function names
-- Keep functions pure and avoid side effects when possible
-- Use consistent naming conventions throughout the codebase
-- File naming: use kebab-case for files and directories
-- Include file type in name where appropriate (e.g., `user.service.ts`, `user.types.ts`)
+### TypeScript standards
+- **Functions**: Use proper typing, avoid function overloads unless necessary.
+- **Async operations**: Use async/await over Promise chains.
+- **Destructuring**: In function signatures, NOT function body.
+  - ✅ `function example({ name, age = 18 }: Options) { ... }`
+  - ❌ `function example(options: Options) { const { name, age = 18 } = options; ... }`
 
-# Development workflow
+### Documentation standards
+- **Headers**: All markdown headers use sentence case.
+- **Lists**: All markdown list items must end with period.
+- **Comments**: Must end with period, be concise and meaningful.
 
-## Testing guidelines
-- Run tests with `test:ci`.
-  - ✅ `pnpm test:ci` or `npm run test:ci`
-  - ❌ `pnpm test` or `npm test`
-- Write unit tests for new functionality.
-- Include integration tests for complex features.
+---
 
-## Git workflow guidelines
+## 🎯 **DEVELOPMENT WORKFLOW**
 
-### Commit guidelines
-- Follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) guidelines.
-- Use imperative mood.
-  - ✅ `feat: add user authentication`
-  - ✅ `fix: resolve memory leak`
-  - ❌ `feat: added user authentication`
-  - ❌ `fix: resolved memory leak`
-- Limit the first line to 72 characters or less.
-- Add concise descriptions only when necessary.
+### Testing requirements
+- **Unit tests**: For new functionality and core logic.
+- **Integration tests**: For complex features and external dependencies.
+- **Validation**: Always run linting, type checking, and tests before completion.
 
-#### Examples
-```
-feat: add user authentication system
-
-chore: update dependencies to latest versions
-
-fix: resolve memory leak in data processing
-
-refactor: simplify user validation logic
-```
-
-### Pull request guidelines
-- Follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) guidelines for PR titles.
-- Use past tense when writing descriptions.
-- Use the following structure for the body:
-  - `### <Name of PR>`
-    - Use a clear and concise title for the PR, without using conventional commits.
-  - A brief summary of the PR and its purpose (no longer than 200 words). Use sentences rather than lists.
-  - #### Key changes
-    - A list of the key changes made. Focus on the most important changes rather than listing everything.
-  - #### Test plan
-    - A checklist of manual tests to perform to verify the PR functionality.
-
-## General writing guidelines
-- Always write titles in sentence case.
+### Implementation process
+1. **Analyze**: Understand existing codebase and requirements.
+2. **Plan**: Use TodoWrite for complex tasks.
+3. **Implement**: Make incremental changes following existing patterns.
+4. **Validate**: Run tests and verification commands.
+5. **Review**: Ensure code follows guidelines and conventions.
