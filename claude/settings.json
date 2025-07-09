@@ -23,6 +23,7 @@
       "Bash(mkdir:*)",
       "Bash(mv:*)",
       "Bash(npm:*)",
+      "Bash(nvim:*)",
       "Bash(pnpm:*)",
       "Bash(rg:*)",
       "Bash(touch:*)",

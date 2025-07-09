@@ -61,7 +61,7 @@ M.config = function()
     on_attach = on_attach,
   })
 
-  vim.lsp.set_log_level('OFF')
+  vim.lsp.log.set_level('OFF')
   vim.lsp.handlers['textDocument/publishDiagnostics'] = utils.diagnostic_handler
 
   local servers = {
@@ -169,10 +169,6 @@ M.config = function()
   }
 
   for server, config in pairs(servers) do
-    if config.flags == nil then
-      config.flags = { debounce_text_changes = 100 }
-    end
-
     -- Initiate and setup LSP servers.
     lspconfig[server].setup(config)
   end
