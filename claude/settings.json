@@ -27,14 +27,15 @@
       "Bash(nvim:*)",
       "Bash(pnpm:*)",
       "Bash(rg:*)",
+      "Bash(shellcheck:*)",
       "Bash(touch:*)",
       "Edit",
+      "mcp__context7",
       "mcp__fetch",
       "mcp__linear",
       "mcp__playwright",
       "mcp__sentry",
-      "mcp__sequential-thinking",
-      "mcp__context7"
+      "mcp__sequential-thinking"
     ],
     "deny": [],
     "defaultMode": "plan"
