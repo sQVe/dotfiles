@@ -1,6 +1,7 @@
 baz https://bazaardb.gg
 bin https://github.com/sQVe/bin
 cal https://calendar.google.com/calendar/r
+claude https://claude.ai/new
 codesandbox https://codesandbox.io/dashboard/recent
 ddg https://start.duckduckgo.com
 devdocs https://devdocs.io
@@ -12,6 +13,7 @@ excalidraw https://excalidraw.com/
 g https://www.google.com
 gh https://github.com
 gist https://gist.github.com/sQVe
+grove https://github.com/sQVe/grove
 issues https://github.com/issues
 linear https://linear.app
 locg https://leagueofcomicgeeks.com/comics
@@ -27,6 +29,6 @@ regex https://regex101.com
 review https://github.com/pulls/review-requested
 scripts https://github.com/sQVe/scripts
 secret https://github.com/sQVe/secret
+sort https://github.com/sQVe/sort.nvim
 wiki https://en.wikipedia.org
 yt https://www.youtube.com
-claude https://claude.ai/new
