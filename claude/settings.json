@@ -1,6 +1,8 @@
 {
   "cleanupPeriodDays": 7,
   "env": {
+    "BASH_DEFAULT_TIMEOUT_MS": "30000",
+    "BASH_MAX_TIMEOUT_MS": "120000",
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
     "DISABLE_TELEMETRY": "1"
@@ -25,9 +27,11 @@
       "Bash(mv:*)",
       "Bash(npm:*)",
       "Bash(nvim:*)",
+      "Bash(biome:*)",
       "Bash(pnpm:*)",
       "Bash(rg:*)",
       "Bash(shellcheck:*)",
+      "Bash(shfmt:*)",
       "Bash(touch:*)",
       "Edit",
       "mcp__context7",
