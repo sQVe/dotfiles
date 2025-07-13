@@ -25,6 +25,12 @@ local M = {
     -- cssls and css_variables
     'css',
 
+    -- gopls
+    'go',
+    'gomod',
+    'gowork',
+    'gotmpl',
+
     -- html
     'html',
 
@@ -97,6 +103,25 @@ M.config = function()
             'node_modules/@mantine/core/styles.css',
             'packages/design-system/node_modules/@mantine/core/styles.css',
           },
+        },
+      },
+    }),
+    gopls = utils.create_server_setup({
+      on_attach = on_attach,
+      settings = {
+        gopls = {
+          analyses = {
+            fillstruct = true,
+            nilness = true,
+            unusedparams = true,
+            unusedwrite = true,
+            useany = true,
+          },
+          completeUnimported = true,
+          directoryFilters = { '-.git', '-node_modules' },
+          gofumpt = true,
+          staticcheck = true,
+          usePlaceholders = true,
         },
       },
     }),

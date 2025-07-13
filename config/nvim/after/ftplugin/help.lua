@@ -7,7 +7,7 @@ local autocmd = require('sQVe.utils.autocmd')
 
 -- Ensure that help windows are split vertically.
 autocmd({ 'BufWinEnter' }, {
-  group = 'EnableSpellCheckingForNotes',
+  group = 'HelpWindowLayout',
   callback = function()
     if vim.bo.filetype == 'help' then
       local window_width = vim.fn.winwidth(0)

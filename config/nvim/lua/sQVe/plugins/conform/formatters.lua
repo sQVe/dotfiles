@@ -6,6 +6,7 @@ local M = {}
 
 M.by_ft = {
   css = { 'prettierd' },
+  go = { 'goimports', 'gofumpt' },
   graphql = { 'prettierd' },
   html = { 'prettierd' },
   javascript = { 'biome-check', 'prettierd', stop_after_first = true },
