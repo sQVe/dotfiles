@@ -19,7 +19,7 @@ require('lazy').setup('sQVe.plugins', {
     notify = false,
   },
   dev = {
-    path = '~/code',
+    path = '~/code/personal',
   },
   performance = {
     rtp = {

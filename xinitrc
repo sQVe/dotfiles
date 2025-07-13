@@ -34,8 +34,8 @@ xset -dpms
 xcompmgr -c -l 0 -t 0 -r 0 -o 0 &
 
 # Clear playground boxes.
-if [[ -d  "${CODE}/playground" ]]; then
-  git -C "${CODE}/playground" checkout -- src
+if [[ -d  "${CODE}/personal/playground" ]]; then
+  git -C "${CODE}/personal/playground" checkout -- src
 fi
 
 # Run the scripts in xinitrc.d.
