@@ -120,7 +120,6 @@ M.config = function()
           completeUnimported = true,
           directoryFilters = { '-.git', '-node_modules' },
           gofumpt = true,
-          staticcheck = true,
           usePlaceholders = true,
         },
       },
