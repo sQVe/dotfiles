@@ -1,6 +1,6 @@
 # Documentation workflow
 
-*Creating and maintaining clear, useful documentation*
+_Creating and maintaining clear, useful documentation_
 
 ### When to document
 

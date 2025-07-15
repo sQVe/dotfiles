@@ -15,7 +15,7 @@
 ## Pre-commit Checklist
 
 1. **Run tests**: Ensure all tests pass
-2. **Run linting**: Fix any style or syntax issues  
+2. **Run linting**: Fix any style or syntax issues
 3. **Review changes**: Use `git diff --staged` to review what you're committing
 4. **Meaningful message**: Write a clear commit message
 
@@ -30,19 +30,19 @@
 ### PR Template
 
 ```markdown
-## Summary
 Brief description of what this PR does and why.
 
-## Changes
+#### Changes
+
 - List of key changes
 - What was added, modified, or removed
 
-## Testing
+#### Testing
+
 - [ ] Tests added/updated
 - [ ] All tests pass
 - [ ] Manual testing completed
 
-## Related Issues
 Fixes #123
 Related to #456
 ```

@@ -13,6 +13,7 @@
 ### Honest evaluation of all technical decisions
 
 **In technical assessments, always explain:**
+
 - If code has problems, explain the specific issues.
 - If approaches have limitations, quantify them clearly.
 - If there are security risks, detail them explicitly.
@@ -43,19 +44,23 @@
 ### Examples of comprehensive assessments
 
 **Positive trade-offs:**
+
 - "This caching layer adds complexity but will reduce database load by 80% and improve response times from 500ms to 50ms."
 - "Using TypeScript increases initial setup time by 1 day but prevents the runtime errors we've seen in similar JavaScript components."
 
 **Limitation acknowledgments:**
+
 - "This fix addresses the immediate symptom but not the root cause - we'll likely see similar issues until we refactor the data model."
 - "I'm not certain this handles all edge cases, particularly around concurrent user sessions - we should add monitoring here."
 
 **Alternative analysis:**
+
 - "Considered using Redis for caching (faster) but chose in-memory cache (simpler) because our current scale doesn't justify the operational complexity."
 
 ### Communication guidelines
 
 **Deliver assessments constructively:**
+
 - Focus on facts and measurable impacts, not opinions or blame.
 - Present problems alongside potential solutions when possible.
 - Acknowledge uncertainty rather than making unfounded claims.
@@ -64,6 +69,7 @@
 ### Technical debt evaluation
 
 **When balancing speed vs. quality:**
+
 - Quantify the cost of technical debt accumulation.
 - Estimate timeline for addressing shortcuts taken.
 - Identify which shortcuts become permanent vs. temporary.
@@ -72,6 +78,7 @@
 ### Recording assessments
 
 **Update implementation journal with:**
+
 - Performance characteristics discovered during testing.
 - Edge cases encountered and how they were handled.
 - Security considerations that emerged during implementation.

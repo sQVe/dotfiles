@@ -52,6 +52,7 @@
 - Test performance under different network conditions
 
 **When to use E2E and performance testing:**
+
 - Critical user workflows (login, checkout, data entry)
 - After significant frontend changes
 - Before major releases or deployments

@@ -1,6 +1,6 @@
 # Completion workflow
 
-*Before completion: Validation and quality*
+_Before completion: Validation and quality_
 
 ### Required validation commands
 
@@ -9,6 +9,7 @@
 Check for testing commands, linters, formatters, and type checkers in project files (package.json, Makefile, README, etc.).
 
 **Validation requirements:**
+
 - **All code quality checks must pass** - linting, formatting, type checking.
 - **All tests must pass** - no skipping or ignoring failures.
 - **Manual testing of key user paths** - verify the primary use cases and critical features work as expected.

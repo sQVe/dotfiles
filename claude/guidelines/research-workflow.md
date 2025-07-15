@@ -1,6 +1,6 @@
 # Research workflow
 
-*Before coding: Research and understanding*
+_Before coding: Research and understanding_
 
 ### Previous work consultation
 
@@ -46,26 +46,31 @@
 **Ask questions early and often during requirements gathering to avoid assumptions:**
 
 **Feature implementation:**
+
 - "What exact user experience are you envisioning?"
 - "Should this be configurable? What are sensible defaults?"
 - "How should this integrate with existing features?"
 - "Have we implemented similar patterns before? What worked/didn't work?"
 
 **Error handling:**
+
 - "What should happen when this operation fails?"
 - "Should failed operations be retried automatically? How many times?"
 - "What logging would help debug issues in production?"
 
 **Performance:**
+
 - "Are there specific performance constraints or SLAs?"
 - "What's the acceptable response time range?"
 
 **Security:**
+
 - "What are the security implications of this change?"
 - "Does this handle user data? What protection is needed?"
 - "What data should never be logged or exposed?"
 
 **Maintenance:**
+
 - "What testing strategy will verify this works correctly?"
 - "What documentation needs to be created or updated?"
 - "How will this be monitored and debugged in production?"
@@ -80,6 +85,7 @@
 - Look for relevant patterns and decisions from past work
 
 **Analyze existing patterns:**
+
 - Similar implementations and their approaches
 - Naming conventions and coding styles
 - Library choices and architectural decisions
@@ -97,6 +103,7 @@
 - Identify root causes with AI-powered analysis
 
 **When to investigate:**
+
 - Users report unexpected behavior or errors
 - Monitoring alerts indicate performance degradation
 - New deployments show increased error rates

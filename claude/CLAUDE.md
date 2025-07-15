@@ -16,7 +16,7 @@ This establishes how we work together on code - through questions, dialogue, and
 
 ## Workflow Guidelines
 
-*These guidelines follow the recommended development sequence from initial research through completion.*
+_These guidelines follow the recommended development sequence from initial research through completion._
 
 1. **@guidelines/research-workflow.md** - Pre-coding research process: memory consultation, documentation search, and codebase analysis.
 
