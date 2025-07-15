@@ -1,85 +1,39 @@
+# Universal Development Guidelines
 
-# AI assistant development guidelines
+This establishes how we work together on code - through questions, dialogue, and iterative problem-solving. Instead of making assumptions, we build understanding together by exploring options and discussing trade-offs. The result is better code that we both understand and can confidently maintain.
 
-Universal development guidelines for AI assistant interactions across all projects.
+## Core Guidelines
 
-## 🚨 **CRITICAL REQUIREMENTS**
+**@guidelines/critical-requirements.md** - Non-negotiable foundation requirements: research first, quality standards, communication practices, and code clarity
 
-### Development workflow
-- **Always run validation**: Run linting, type checking, and tests after ALL code changes.
-- **Use TodoWrite tool**: Plan complex tasks and track progress systematically.
-- **Understand first**: Analyze codebase structure before making changes.
-- **Verify implementation**: Test functionality after changes, follow existing patterns.
+**@guidelines/security-standards.md** - Comprehensive security requirements: data protection, input validation, authentication, and secure development practices
 
-### Code quality standards
-- **Type safety**: No `any` type, use specific types and interfaces.
-- **Error handling**: Explicit errors with meaningful messages, no silent failures.
-- **Comments**: End with period (except TODO/FIXME), only when necessary.
-- **Testing**: Write unit tests for new functionality, integration tests for complex features.
+**@guidelines/technical-assessment.md** - Framework for honest technical evaluations, trade-off analysis, and decision documentation
 
-### Git workflow
-- **Commits**: Follow [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) format.
-- **Format**: `type: description` (feat, fix, chore, docs, refactor, test).
-- **Style**: Use imperative mood, limit first line to 72 characters.
-- **PRs**: Conventional title, past tense descriptions, include summary/key changes/test plan.
+**@guidelines/code-quality.md** - Coding standards and practices: principles, organization, documentation, error handling, and performance
 
----
+## Workflow Guidelines
 
-## 📋 **PROBLEM-SOLVING APPROACH**
+**@guidelines/research-workflow.md** - Pre-coding research process: memory consultation, documentation search, and codebase analysis
 
-### Analysis methodology
-- **Search extensively**: Use available search tools to understand codebase structure.
-- **Plan systematically**: Use TodoWrite for complex multi-step tasks.
-- **Implement incrementally**: Make small, testable changes and verify each step.
-- **Follow conventions**: Mimic existing code style, use established libraries and patterns.
+**@guidelines/planning-workflow.md** - Problem-solving analysis and planning methodology using systematic approaches
 
-### Research strategy
-- **Context7**: For current library docs, API references, best practices.
-- **Sequential thinking**: For complex multi-step problems, planning, analysis.
-- **MCP servers**: playwright (testing), linear (issues), context7 (docs), fetch (web), sentry (errors).
+**@guidelines/implementation-workflow.md** - Implementation tracking, task management, and progress documentation
 
----
+**@guidelines/testing-workflow.md** - Testing practices and workflow: TDD approach, test types, and coverage expectations
 
-## 🔧 **TECHNICAL GUIDELINES**
+**@guidelines/git-workflow.md** - Git practices: branching strategy, commit standards, and PR process
 
-### Tool usage
-- **Recommended CLI tools**: bat, delta, exa, fd, fzf, jq, pnpm, rg.
-- **Search tools**: Use extensively both in parallel and sequentially.
-- **Testing commands**: Use `test:ci` command (`pnpm test:ci` or `npm run test:ci`).
+**@guidelines/completion-workflow.md** - Validation requirements and completion checklist before marking tasks done
 
-### Code organization
-- **Imports**: External libraries first, then internal; sort alphabetically.
-- **Naming**: Meaningful names, pure functions, kebab-case files.
-- **Structure**: Co-located types and tests when possible.
+## Quick Reference: Development Workflow
 
----
+```
+1. Research → 2. Planning → 3. Implementation → 4. Testing → 5. Git → 6. Completion
+     ↓              ↓              ↓             ↓         ↓          ↓
+  Check docs    Use sequential   TodoWrite     TDD cycle  Commits   Validation
+  Analyze code   thinking tool   tracking      coverage   & PRs     checklist
+  Ask questions  Document plans  Progress log  All tests  Review    Memory update
+```
 
-## 📝 **CODE STYLE REQUIREMENTS**
-
-### TypeScript standards
-- **Functions**: Use proper typing, avoid function overloads unless necessary.
-- **Async operations**: Use async/await over Promise chains.
-- **Destructuring**: In function signatures, NOT function body.
-  - ✅ `function example({ name, age = 18 }: Options) { ... }`
-  - ❌ `function example(options: Options) { const { name, age = 18 } = options; ... }`
-
-### Documentation standards
-- **Headers**: All markdown headers use sentence case.
-- **Lists**: All markdown list items must end with period.
-- **Comments**: Must end with period, be concise and meaningful.
-
----
-
-## 🎯 **DEVELOPMENT WORKFLOW**
-
-### Testing requirements
-- **Unit tests**: For new functionality and core logic.
-- **Integration tests**: For complex features and external dependencies.
-- **Validation**: Always run linting, type checking, and tests before completion.
-
-### Implementation process
-1. **Analyze**: Understand existing codebase and requirements.
-2. **Plan**: Use TodoWrite for complex tasks.
-3. **Implement**: Make incremental changes following existing patterns.
-4. **Validate**: Run tests and verification commands.
-5. **Review**: Ensure code follows guidelines and conventions.
+*Core Guidelines (critical-requirements, security-standards, technical-assessment, code-quality) apply throughout all workflow stages.*

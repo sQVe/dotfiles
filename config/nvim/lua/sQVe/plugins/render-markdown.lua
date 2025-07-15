@@ -26,7 +26,7 @@ M.opts = {
     right_pad = 2,
     sign = false,
   },
-  heading = { sign = false },
+  heading = { icons = false, sign = false },
   overrides = {
     buftype = {
       nofile = { enabled = false },
