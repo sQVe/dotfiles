@@ -11,21 +11,27 @@ Create a pull request following these steps:
    - Understand the complete scope of changes.
 
 3. **Create PR**: Use proper format and structure.
-   - Title: Conventional format (feat/fix/chore: description).
+   - Title: Conventional commit format (feat/fix/chore: description).
    - Body: Use this template structure (max 5 items in Summary):
-     ```
-     Brief summary of what this PR accomplishes, maximum 3 sentences.
 
-     #### Summary
-     - First key change made
-     - Second key change made
-     - Third key change made
+     ```markdown
+     Brief description of what this PR does and why.
 
-     #### Test plan
-     - [ ] Specific verification step
-     - [ ] Run test suite
+     #### Changes
+
+     - List of key changes
+     - What was added, modified, or removed
+
+     #### Testing
+
+     - [ ] Tests added/updated
+     - [ ] All tests pass
      - [ ] Manual testing completed
+
+     Fixes #123
+     Related to #456
      ```
+
    - Use past tense descriptions throughout
    - Create using `gh pr create` command with HEREDOC for body formatting
 

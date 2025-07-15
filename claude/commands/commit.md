@@ -13,7 +13,6 @@ Commit the changes following these steps:
    - Types: feat, fix, chore, docs, refactor, test
    - Use imperative mood, limit first line to 72 characters
    - Create multiple logical commits when necessary
-   - Format: `type: description` following CLAUDE.md standards
 
 4. **Get approval**: Always wait for my approval before creating a commit.
 
