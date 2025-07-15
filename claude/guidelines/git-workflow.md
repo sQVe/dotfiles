@@ -15,11 +15,9 @@
 ## Pre-commit Checklist
 
 1. **Run tests**: Ensure all tests pass
-2. **Run linting**: Fix any style or syntax issues
+2. **Run linting**: Fix any style or syntax issues  
 3. **Review changes**: Use `git diff --staged` to review what you're committing
 4. **Meaningful message**: Write a clear commit message
-
-**For comprehensive validation before PRs:** Follow @guidelines/completion-workflow.md checklist to ensure quality and completeness.
 
 ## Pull Request Process
 

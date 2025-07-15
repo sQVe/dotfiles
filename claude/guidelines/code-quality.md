@@ -66,10 +66,9 @@
 - **Performance impact** - Consider if changes could affect system performance.
 - **Documentation updates** - Ensure relevant documentation is updated.
 
-### Quality gates
+### Quality principles
 
-- **All tests pass** - Never merge code with failing tests.
-- **Code coverage maintained** - New code should be adequately tested.
-- **Linting passes** - Follow agreed-upon style guidelines.
-- **Security scans clean** - Check for known vulnerabilities.
-- **Performance regression checks** - Ensure changes don't significantly slow the system.
+- **Test coverage** - New code should be adequately tested
+- **Style consistency** - Follow agreed-upon style guidelines
+- **Security awareness** - Check for known vulnerabilities
+- **Performance consciousness** - Avoid changes that significantly slow the system

@@ -6,7 +6,7 @@
 
 **Run the project's validation commands before completion.**
 
-For testing commands, follow @guidelines/testing-workflow.md guidance. Additionally check for linters, formatters, and type checkers in project files.
+Check for testing commands, linters, formatters, and type checkers in project files (package.json, Makefile, README, etc.).
 
 **Validation requirements:**
 - **All code quality checks must pass** - linting, formatting, type checking.
@@ -24,21 +24,4 @@ For testing commands, follow @guidelines/testing-workflow.md guidance. Additiona
 - [ ] **Documentation updated** - if public APIs or behavior changed.
 - [ ] **Security reviewed** - no sensitive data exposed or logged.
 - [ ] **Performance acceptable** - no obvious bottlenecks introduced.
-- [ ] **Implementation memory updated** - journal completed, patterns documented.
-
-### Memory system completion
-
-**Before completing complex implementations:**
-
-- **Finalize implementation journal** - Complete all sections with lessons learned.
-- **Extract reusable patterns** - Document architectural decisions, code patterns, and implementation approaches that could apply to similar features in this project.
-- **Update project patterns** - Add new architectural decisions to `.claude/memory/patterns/`.
-- **Document gotchas** - Add troubleshooting guidance to `.claude/memory/issues/`.
-
-**Memory directory structure:**
-```
-.claude/memory/
-├── features/    # Feature implementation journals
-├── patterns/    # Reusable architectural patterns
-└── issues/      # Common issues and solutions
-```
+- [ ] **Implementation notes updated** - key decisions and lessons documented.

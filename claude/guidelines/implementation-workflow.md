@@ -2,58 +2,47 @@
 
 *During implementation: Tracking and communication*
 
-### TodoWrite usage for complex tasks
+### Task tracking for complex work
 
 **Essential for multi-step work** - track progress with specific task items, clear status updates, and completion checkmarks.
 
-```bash
-# Use TodoWrite to plan and track complex features
-TodoWrite
-```
-
-**When to use TodoWrite:**
-- Features requiring 3+ distinct steps.
-- Non-trivial implementations with multiple components.
-- Debugging complex issues with multiple potential causes.
-- Refactoring that affects multiple files or systems.
+**When to use task tracking:**
+- Features requiring 3+ distinct steps
+- Non-trivial implementations with multiple components
+- Debugging complex issues with multiple potential causes
+- Refactoring that affects multiple files or systems
 
 **How to structure tasks:**
-- Break down into specific, actionable items.
-- Mark tasks as in_progress before starting work.
-- Complete tasks immediately after finishing - don't batch.
-- Add follow-up tasks as you discover them.
-- Create implementation journal for complex features during planning.
+- Break down into specific, actionable items
+- Mark tasks as in_progress before starting work
+- Complete tasks immediately after finishing - don't batch
+- Add follow-up tasks as you discover them
 
-### Implementation memory creation
+### Implementation notes
 
-**For complex implementations, create implementation journals:**
+**For complex implementations, consider keeping simple notes:**
 
-```markdown
-# Feature: [Feature Name]
-**Started:** YYYY-MM-DD | **Status:** In Progress | **Issue:** #123
+- **Context:** Why this was needed and key requirements
+- **Key decisions:** Important choices made and rationale
+- **Lessons learned:** Unexpected issues and discoveries
+- **Testing approach:** How you verified the implementation works
 
-## Context and requirements
-- Why this was needed
-- Key constraints and requirements
-- Success criteria
+**Testing integration:** Test as you build, not after completion.
 
-## Journey log
-### YYYY-MM-DD HH:MM - Phase Name
-- Decisions made
-- Attempts tried
-- Results and discoveries
+### Project coordination
 
-## Key decisions
-- **Decision Type:** Choice made and rationale
-- **Alternatives Considered:** What was rejected and why
+**Use Linear MCP for development workflow:**
 
-## Gotchas and lessons
-- Unexpected issues encountered
-- Performance characteristics discovered
-- Security considerations that emerged
-```
+- Create and track development tasks and features
+- Link code changes to specific issues or requirements
+- Manage bug reports and feature requests
+- Coordinate work across team members
+- Track progress on larger initiatives
 
-**Store implementation journals in:** `.claude/memory/features/[feature-name]-YYYY-MM.md`
-
-**Testing integration:** Follow @guidelines/testing-workflow.md for TDD practices and test organization throughout implementation. Test as you build, not after completion.
+**When to use Linear:**
+- Starting new features or major changes
+- Reporting and tracking bugs found during development
+- Coordinating work that affects multiple people
+- Planning and organizing complex projects
+- Documenting requirements and acceptance criteria
 
