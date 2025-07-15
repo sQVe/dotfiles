@@ -16,14 +16,9 @@
 - **Clear interfaces** - Public APIs should be intuitive and well-defined.
 - **Separation of concerns** - Business logic, data access, and presentation should be distinct.
 
-### Documentation and comments
+### Documentation
 
-- **Code comments explain why, not what** - Code should be self-documenting for what it does. Guidelines and documentation should be concise and actionable.
-- **Document architectural decisions** - Explain why you chose one technical approach over alternatives in code comments or implementation notes.
-- **Keep project documentation current** - Outdated READMEs, API docs, and setup instructions are worse than no documentation.
-- **End comments with periods** - All comments should be complete sentences ending with proper punctuation.
-- **README for context** - Explain how to set up, run, and contribute to the project.
-- **API documentation** - Public interfaces need clear usage examples.
+- **Follow documentation standards** - See `@guidelines/documentation-workflow.md` for comprehensive documentation guidance.
 
 ### Error handling
 

@@ -21,7 +21,7 @@ Check for testing commands, linters, formatters, and type checkers in project fi
 - [ ] **Code validates** - lint, typecheck, and tests all pass.
 - [ ] **Functionality verified** - manually tested core use cases.
 - [ ] **Error cases handled** - tested failure scenarios.
-- [ ] **Documentation updated** - if public APIs or behavior changed.
+- [ ] **Documentation updated** - follow `@guidelines/documentation-workflow.md` if public APIs or behavior changed.
 - [ ] **Security reviewed** - no sensitive data exposed or logged.
 - [ ] **Performance acceptable** - no obvious bottlenecks introduced.
 - [ ] **Implementation notes updated** - key decisions and lessons documented.

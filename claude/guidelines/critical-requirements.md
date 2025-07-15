@@ -16,7 +16,7 @@
 
 - **Track complex tasks systematically**: Break down complex features into manageable pieces.
 - **Provide honest technical assessment**: See `@guidelines/technical-assessment.md` for comprehensive evaluation practices.
-- **Preserve technical context**: Keep rationale for decisions, performance notes, and lessons learned.
+- **Preserve technical context**: See `@guidelines/documentation-workflow.md` for guidance on documenting decisions and lessons learned.
 
 ### Code clarity
 

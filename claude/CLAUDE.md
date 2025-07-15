@@ -12,6 +12,8 @@ This establishes how we work together on code - through questions, dialogue, and
 
 **@guidelines/code-quality.md** - Coding standards and practices: principles, organization, documentation, error handling, and performance.
 
+**@guidelines/documentation-workflow.md** - Documentation creation and maintenance: when to document, writing principles, organization, and tools.
+
 ## Workflow Guidelines
 
 *These guidelines follow the recommended development sequence from initial research through completion.*
