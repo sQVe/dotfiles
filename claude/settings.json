@@ -68,6 +68,7 @@
       "TodoRead()",
       "TodoWrite(**)",
       "WebFetch(domain:docs.anthropic.com)",
+      "WebFetch(domain:gist.github.com)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebSearch(**)",

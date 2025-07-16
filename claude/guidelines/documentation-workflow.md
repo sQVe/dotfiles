@@ -29,6 +29,7 @@ _Creating and maintaining clear, useful documentation_
 
 - **Use clear, simple language** - Avoid jargon when simpler words work
 - **Be consistent with formatting** - Use the same heading styles, code block formatting, and list structures throughout
+- **Use sentence casing for headers** - Capitalize only the first word and proper nouns in headings
 - **End code comments with a period** - All code comments should be complete sentences ending with proper punctuation
 - **Use proper punctuation in lists** - End list items with periods when they are complete sentences or phrases
 

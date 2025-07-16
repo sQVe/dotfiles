@@ -12,6 +12,8 @@ Commit the changes following these steps:
 3. **Create commits**: Use Conventional Commits format (`type: description`).
    - Types: feat, fix, chore, docs, refactor, test
    - Use imperative mood, limit first line to 72 characters
+   - **Be concise**: Focus on why, not what files changed
+   - **No file listings**: Avoid enumerating changed files
    - Create multiple logical commits when necessary
 
 4. **Get approval**: Always wait for my approval before creating a commit.

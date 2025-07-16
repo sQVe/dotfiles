@@ -10,7 +10,34 @@
 
 - Follow [Conventional Commits](https://www.conventionalcommits.org/) specification
 - **Atomic commits**: One logical change per commit
+- **Concise messages**: Focus on **why**, not **what** - let the diff show file changes
+- **72-character limit**: Keep first line under 72 characters
+- **No file listings**: Avoid listing changed files in commit messages
 - **Reference issues when applicable**: Link to tickets, PRs, or documentation when the commit relates to tracked work
+
+### Commit Message Guidelines
+
+**Good examples:**
+```
+feat: add user authentication
+fix: resolve memory leak in background sync
+refactor: simplify error handling logic
+```
+
+**Avoid verbose descriptions:**
+```
+❌ feat: add comprehensive user authentication system
+
+- Add UserAuth.js with login/logout functionality  
+- Update config/auth.js with JWT token handling
+- Create auth/middleware.js for route protection
+- Add tests in test/auth.spec.js for coverage
+```
+
+**Instead, write:**
+```
+✅ feat: add user authentication with JWT tokens
+```
 
 ## Pre-commit Checklist
 
