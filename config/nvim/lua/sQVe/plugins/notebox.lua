@@ -10,8 +10,8 @@ local M = {
 
 M.opts = {
   subdirectories = {
-    dailies = '5-dailies',
-    new_notes = '0-inbox',
+    dailies = 'daily',
+    new_notes = 'active',
     templates = 'templates',
   },
 }

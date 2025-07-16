@@ -28,7 +28,7 @@ refactor: simplify error handling logic
 ```
 ❌ feat: add comprehensive user authentication system
 
-- Add UserAuth.js with login/logout functionality  
+- Add UserAuth.js with login/logout functionality
 - Update config/auth.js with JWT token handling
 - Create auth/middleware.js for route protection
 - Add tests in test/auth.spec.js for coverage

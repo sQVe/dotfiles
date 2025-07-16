@@ -39,6 +39,7 @@
       "Bash(git show:*)",
       "Bash(git stash:*)",
       "Bash(git status:*)",
+      "Bash(git worktree:*)",
       "Bash(go:*)",
       "Bash(grep:*)",
       "Bash(head:*)",

@@ -31,6 +31,18 @@ _During implementation: Tracking and communication_
 
 **Testing integration:** Test as you build, not after completion.
 
+### Tool usage and command chaining
+
+**Use single commands by default** to reduce permission friction.
+
+**Chain only for independent read operations** like `git status` + `git diff`.
+
+**Avoid chaining for:**
+- Setup/configuration commands
+- Error-prone operations  
+- Operations with side effects
+- Dependent sequences
+
 ### Project coordination
 
 **Use Linear MCP for development workflow:**
