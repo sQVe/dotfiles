@@ -64,9 +64,12 @@ Brief description of what this PR does and why.
 - List of key changes
 - What was added, modified, or removed
 
-#### Testing
+#### Test plan
 
-- [ ] Tests added/updated
+Describe how to test this PR - what specific scenarios should be verified, which commands to run, and what the expected behavior is.
+
+- [ ] Unit tests added/updated
+- [ ] Integration tests added/updated  
 - [ ] All tests pass
 - [ ] Manual testing completed
 
