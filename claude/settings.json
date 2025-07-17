@@ -1,7 +1,7 @@
 {
   "cleanupPeriodDays": 7,
   "env": {
-    "BASH_DEFAULT_TIMEOUT_MS": "30000",
+    "BASH_DEFAULT_TIMEOUT_MS": "120000",
     "BASH_MAX_TIMEOUT_MS": "120000",
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
@@ -45,6 +45,7 @@
       "Bash(head:*)",
       "Bash(jq:*)",
       "Bash(ls:*)",
+      "Bash(mage:*)",
       "Bash(make:*)",
       "Bash(mkdir:*)",
       "Bash(mv:*)",

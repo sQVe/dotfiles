@@ -58,12 +58,10 @@ source "${ZIM_HOME}/init.zsh"
 # Load Powerlevel10k configuration.
  source ~/.config/zsh/p10k.config.zsh
 
-# Zoxide.
-eval "$(zoxide init zsh)"
-
 # Completion.
 source "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh"
 source /usr/share/fzf/completion.zsh
+eval "$(zoxide init zsh)"
 
 
 #  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓
