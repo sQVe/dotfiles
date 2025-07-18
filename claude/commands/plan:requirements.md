@@ -31,6 +31,7 @@
        - Identify performance constraints, SLAs, and acceptable response times
        - Understand security implications and data protection requirements
        - Plan testing strategy and validation approaches
+
   </execution>
 
   <validation>
@@ -62,5 +63,6 @@
     # - Quality: Error handling for payment failures? Performance under load?
     # - Result: Detailed requirements covering all aspects of checkout redesign
     ```
+
   </examples>
 </instructions>

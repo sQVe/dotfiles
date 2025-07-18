@@ -28,6 +28,7 @@
        - Collect code samples and implementation examples
        - Find integration patterns with common frameworks
        - Identify testing approaches and validation strategies
+
   </execution>
 
   <validation>
@@ -58,5 +59,6 @@
     # - Examples: useMemo, useCallback, React.lazy implementations
     # - Testing: performance testing strategies and tools
     ```
+
   </examples>
 </instructions>

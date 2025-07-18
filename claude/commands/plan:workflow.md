@@ -30,6 +30,7 @@
        - Provide workflow sequence examples for the detected scenario
        - Include brief explanations of why each command fits the current context
        - Show common command combinations and their typical flow patterns
+
   </execution>
 
   <validation>
@@ -64,9 +65,10 @@
     # Current context: Feature branch with uncommitted changes
     # Suggested workflow:
     # 1. /validate:code changes - Verify code quality before commit
-    # 2. /validate:tests changes - Ensure tests pass for modifications  
+    # 2. /validate:tests changes - Ensure tests pass for modifications
     # 3. /finalize:commit - Create atomic commits with clear messages
     # Next: /finalize:pr when feature complete
     ```
+
   </examples>
 </instructions>

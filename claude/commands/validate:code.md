@@ -28,6 +28,7 @@
        - Run static analysis tools to identify potential code issues
        - Check for syntax errors, compilation warnings, and structural problems
        - Validate that code builds/compiles successfully if applicable
+
   </execution>
 
   <validation>
@@ -49,6 +50,7 @@
 
     **Prerequisites:** Run after making code changes but before committing
     **Next steps:** Continue with test validation or proceed to commit if all checks pass
+
   </workflow>
 
   <examples>
@@ -76,5 +78,6 @@
     # ✅ Build: Compilation successful
     # ⚠️  Static analysis: 2 potential issues detected (review recommended)
     ```
+
   </examples>
 </instructions>

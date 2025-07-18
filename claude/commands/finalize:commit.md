@@ -24,6 +24,7 @@
     3. **Create commits**
        - Create one commit per logical change
        - Review git history for clean progression
+
   </execution>
 
   <validation>
@@ -43,6 +44,7 @@
     **Next steps:** After committing, consider:
     - `/finalize:pr` - Create pull request for code review
     - `/finalize:memory` - Document implementation decisions and context
+
   </workflow>
 
   <examples>
@@ -66,5 +68,6 @@
     ❌ "fix bug"
     ❌ "add password stuff"
     ```
+
   </examples>
 </instructions>

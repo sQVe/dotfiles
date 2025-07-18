@@ -33,6 +33,7 @@
        - Recommend specific optimization strategies with expected performance gains
        - Estimate implementation effort and potential risks for each optimization
        - Create actionable optimization plan with measurable success criteria
+
   </execution>
 
   <validation>
@@ -65,5 +66,6 @@
     # - Optimization recommendations: indexing, query rewriting, caching strategies
     # - Implementation plan with expected query time improvements
     ```
+
   </examples>
 </instructions>

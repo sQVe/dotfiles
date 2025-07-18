@@ -33,6 +33,7 @@
        - Reference CLAUDE.md sections and researched style guide principles
        - Provide actionable fix suggestions with examples from style guides
        - Categorize violations by guideline source (CLAUDE.md, language style guides, project-specific)
+
   </execution>
 
   <validation>
@@ -80,5 +81,6 @@
     # 📖 Violates: @guidelines/code-quality.md - "No clever tricks, clear obvious code only"
     # ✅ Fix: Break into multiple clear steps with descriptive variable names
     ```
+
   </examples>
 </instructions>

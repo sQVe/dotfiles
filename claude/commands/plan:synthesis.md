@@ -31,6 +31,7 @@
        - Identify potential risks and mitigation strategies
        - Prepare reference list of useful documentation and examples
        - Define success criteria and validation approaches
+
   </execution>
 
   <validation>
@@ -52,6 +53,7 @@
     - `/implement:*` - Begin implementation using the synthesized plan
     - `/plan:workflow` - Create detailed workflow if complex implementation
     - `/finalize:memory` - Document key decisions for future reference
+
   </workflow>
 
   <examples>
@@ -73,5 +75,6 @@
     # - Plan: Step-by-step implementation with security considerations
     # - Result: Detailed roadmap with chosen approach and justification
     ```
+
   </examples>
 </instructions>

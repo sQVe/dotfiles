@@ -34,6 +34,7 @@
        - Capture detailed logs and environmental factors for debugging
        - Update issue tracker with comprehensive reproduction results
        - Provide clear confirmation and suggest next steps for resolution
+
   </execution>
 
   <validation>
@@ -55,6 +56,7 @@
     **If reproduction fails:**
     - `/research:codebase` - Analyze existing patterns to understand expected behavior
     - `/research:external` - Research documentation for proper usage patterns
+
   </workflow>
 
   <examples>
@@ -77,5 +79,6 @@
     # - Document exact thresholds and error conditions
     # - Provide detailed reproduction report with debugging insights
     ```
+
   </examples>
 </instructions>

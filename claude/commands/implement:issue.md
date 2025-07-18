@@ -30,6 +30,7 @@
        - Verify the original issue is resolved through testing
        - Run tests to ensure no regressions introduced
        - Confirm the solution works in the reported conditions
+
   </execution>
 
   <validation>
@@ -52,6 +53,7 @@
     - `/validate:tests` - Ensure tests cover the fix and prevent regression
     - `/validate:functionality` - Manually verify the fix works in realistic scenarios
     - `/finalize:commit` - Create focused commit with clear message
+
   </workflow>
 
   <examples>
@@ -74,5 +76,6 @@
     # - Implement: Fix parameter encoding in authentication middleware
     # - Validate: Test with various special characters, verify no regressions
     ```
+
   </examples>
 </instructions>

@@ -26,6 +26,7 @@
        - Read and summarize CLAUDE.md, README, and other key documentation
        - Extract project guidelines, conventions, and development practices
        - Identify important setup instructions or project-specific patterns
+
   </execution>
 
   <validation>
@@ -53,5 +54,6 @@
     # - Technology stack (React, TypeScript, etc.)
     # - Current branch state and any ongoing work
     ```
+
   </examples>
 </instructions>

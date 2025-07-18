@@ -30,6 +30,7 @@
        - Provide concrete code examples or implementation patterns where applicable
        - Include effort estimates and expected benefits for each recommendation
        - Reference relevant CLAUDE.md guidelines and best practices
+
   </execution>
 
   <validation>
@@ -66,5 +67,6 @@
     # LOW IMPACT (1h effort): Add JSDoc comments → improves developer experience
     # Code example: Extract error handler function with standardized logging pattern
     ```
+
   </examples>
 </instructions>

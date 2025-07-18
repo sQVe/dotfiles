@@ -31,6 +31,7 @@
        - Analyze performance optimization techniques already implemented
        - Review documentation patterns and comment conventions
        - Identify code quality standards and linting configurations
+
   </execution>
 
   <validation>
@@ -62,5 +63,6 @@
     # - Examine testing: integration tests, mocking patterns
     # - Document: established patterns for new endpoint implementation
     ```
+
   </examples>
 </instructions>

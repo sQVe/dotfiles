@@ -27,6 +27,7 @@
        - Use `gh pr create` with structured formatting
        - Push branch to remote if needed
        - Verify successful creation and provide PR URL
+
   </execution>
 
   <validation>
@@ -46,6 +47,7 @@
     **Related commands:**
     - `/validate:quality` - Additional code quality analysis
     - `/finalize:memory` - Document decisions for future reference
+
   </workflow>
 
   <examples>
@@ -80,5 +82,6 @@
     EOF
     )"
     ```
+
   </examples>
 </instructions>
