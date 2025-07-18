@@ -18,6 +18,11 @@
 
 ### Documentation
 
+- **Self-describing code first** - Write code that explains itself through clear naming, logical structure, and obvious flow.
+- **Comments only when valuable** - Don't add comments for the sake of having comments. Only comment when the code cannot be made self-explanatory.
+- **Explain "why" not "what"** - Comments should explain reasoning, business logic, or non-obvious decisions, not describe what the code does.
+- **Comment complex logic** - When algorithms, business rules, or edge cases are inherently complex, explain the reasoning behind the approach.
+- **Avoid redundant comments** - Don't comment obvious code like `i++; // increment i` or `return user; // return the user`.
 - **Follow documentation standards** - See `@guidelines/documentation-workflow.md` for comprehensive documentation guidance.
 
 ### Error handling

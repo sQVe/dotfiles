@@ -1,1 +1,1 @@
-EXCLUDES='README stylua.toml'
+EXCLUDES='README stylua.toml claude/commands/*'
