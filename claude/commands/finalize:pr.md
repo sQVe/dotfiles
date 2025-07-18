@@ -37,6 +37,17 @@
     - [ ] Pull request created successfully with proper formatting
   </validation>
 
+  <workflow>
+    **Prerequisites:** Ensure code quality before creating PR:
+    - `/validate:code` - Run automated quality checks
+    - `/validate:tests` - Verify test coverage and passing tests
+    - `/finalize:commit` - Create clean, atomic commits
+
+    **Related commands:**
+    - `/validate:quality` - Additional code quality analysis
+    - `/finalize:memory` - Document decisions for future reference
+  </workflow>
+
   <examples>
     ```bash
     # Standard PR creation

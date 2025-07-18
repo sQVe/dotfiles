@@ -34,6 +34,17 @@
     - [ ] Git history shows clean, understandable progression
   </validation>
 
+  <workflow>
+    **Prerequisites:** Consider running validation commands before committing:
+    - `/validate:code` - Automated linting, formatting, and type checking
+    - `/validate:tests` - Test suite execution and coverage analysis
+    - `/validate:functionality` - Manual user workflow verification
+
+    **Next steps:** After committing, consider:
+    - `/finalize:pr` - Create pull request for code review
+    - `/finalize:memory` - Document implementation decisions and context
+  </workflow>
+
   <examples>
     ```bash
     # Basic workflow

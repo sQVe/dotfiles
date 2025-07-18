@@ -39,6 +39,18 @@
     - [ ] Code builds/compiles without errors if applicable
   </validation>
 
+  <workflow>
+    **Part of quality workflow:**
+    1. `/validate:code` - Automated linting, formatting, type checking (current)
+    2. `/validate:tests` - Test execution and coverage analysis
+    3. `/validate:functionality` - Manual user workflow verification
+    4. `/validate:style` - Manual guideline compliance check
+    5. `/finalize:commit` - Create clean commits after validation
+
+    **Prerequisites:** Run after making code changes but before committing
+    **Next steps:** Continue with test validation or proceed to commit if all checks pass
+  </workflow>
+
   <examples>
     ```bash
     # Run automated tools on specific directory

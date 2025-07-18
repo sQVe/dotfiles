@@ -42,6 +42,18 @@
     - [ ] Success criteria and validation approaches defined
   </validation>
 
+  <workflow>
+    **Prerequisites for synthesis:**
+    - `/research:external` - Gather documentation and best practices
+    - `/research:codebase` - Understand existing patterns and conventions
+    - `/plan:requirements` - Define clear requirements and constraints
+
+    **Next steps after synthesis:**
+    - `/implement:*` - Begin implementation using the synthesized plan
+    - `/plan:workflow` - Create detailed workflow if complex implementation
+    - `/finalize:memory` - Document key decisions for future reference
+  </workflow>
+
   <examples>
     ```bash
     # Synthesize authentication implementation plan

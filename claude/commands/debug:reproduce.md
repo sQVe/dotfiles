@@ -46,6 +46,17 @@
     - [ ] Comprehensive results documented with actionable next steps
   </validation>
 
+  <workflow>
+    **Next steps after successful reproduction:**
+    - `/debug:analyze` - Perform systematic root cause analysis
+    - `/debug:performance` - If performance-related, analyze bottlenecks
+    - `/implement:issue` - Implement solution for confirmed reproducible issues
+
+    **If reproduction fails:**
+    - `/research:codebase` - Analyze existing patterns to understand expected behavior
+    - `/research:external` - Research documentation for proper usage patterns
+  </workflow>
+
   <examples>
     ```bash
     # Reproduce specific GitHub issue

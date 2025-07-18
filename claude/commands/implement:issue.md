@@ -41,6 +41,19 @@
     - [ ] Fix works in conditions similar to the reported issue
   </validation>
 
+  <workflow>
+    **Prerequisites for issue implementation:**
+    - `/debug:reproduce` - Confirm issue reproduction before implementation
+    - `/debug:analyze` - Understand root cause through systematic analysis
+    - `/research:codebase` - Study existing patterns for consistent implementation
+
+    **After implementation:**
+    - `/validate:code` - Run automated quality checks on changes
+    - `/validate:tests` - Ensure tests cover the fix and prevent regression
+    - `/validate:functionality` - Manually verify the fix works in realistic scenarios
+    - `/finalize:commit` - Create focused commit with clear message
+  </workflow>
+
   <examples>
     ```bash
     # Implement solution for GitHub issue
