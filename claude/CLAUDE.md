@@ -84,11 +84,30 @@ This establishes how we work together on code - through questions, dialogue, and
 
 Use specialized commands for specific development phases:
 
-- **Research**: `/research:codebase`, `/research:external`, `/research:prime`
+- **Research**: `/research:codebase`, `/research:external`, `/research:prime`, `/research:dependencies`
 - **Planning**: `/plan:init`, `/plan:requirements`, `/plan:workflow`, `/plan:synthesis`
-- **Implementation**: `/implement:issue`, `/implement:refactor`, `/implement:resolve`
-- **Validation**: `/validate:code`, `/validate:tests`, `/validate:quality`, `/validate:style`
+- **Implementation**: `/implement:resolve`, `/implement:refactor`, `/implement:feature`, `/implement:integration`, `/implement:optimization`
+- **Validation**: `/validate:code`, `/validate:tests`, `/validate:style`, `/validate:functionality`, `/validate:security`, `/validate:performance`, `/validate:docs`
+- **Security**: `/security:scan`, `/security:audit`, `/security:threat-model`, `/security:compliance`
 - **Debugging**: `/debug:analyze`, `/debug:reproduce`, `/debug:performance`, `/debug:production`
+- **Deploy**: `/deploy:staging`, `/deploy:production`, `/deploy:rollback`, `/deploy:canary`
+- **Monitor**: `/monitor:metrics`, `/monitor:alerts`, `/monitor:health`, `/monitor:logs`
+- **Document**: `/document:api`, `/document:architecture`, `/document:decisions`, `/document:runbook`
+- **Collaborate**: `/collaborate:review`, `/collaborate:knowledge`, `/collaborate:onboard`, `/collaborate:mentor`
 - **Finalization**: `/finalize:commit`, `/finalize:pr`, `/finalize:memory`
+
+### Workflow Shortcuts
+
+For common development patterns:
+
+- **Quick Operations**: `/quick:fix`, `/quick:feature`, `/quick:review`, `/quick:ship`
+- **Workflow Chains**: `/workflow:bugfix`, `/workflow:feature`, `/workflow:hotfix`
+- **Learning**: `/learn:technology`, `/learn:patterns`, `/learn:postmortem`, `/learn:benchmark`
+
+### Meta Commands
+
+For command system management:
+
+- **System**: `/meta:explain [command]`, `/meta:suggest`, `/meta:customize`
 
 Each command provides structured workflows for its specific development phase. Use commands instead of manually following detailed procedures.
