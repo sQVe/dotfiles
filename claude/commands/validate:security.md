@@ -1,14 +1,14 @@
-# Validate security implementation and identify vulnerabilities
+# Validate security and identify vulnerabilities
 
 <instructions>
   <context>
-    Validate security implementation for $ARGUMENTS by conducting security analysis, vulnerability scanning, and compliance checking to ensure robust security posture.
+    Validate security for $ARGUMENTS through analysis, vulnerability scanning, and compliance checking.
   </context>
 
   <requirements>
     - Access to codebase and security scanning tools
-    - Understanding of security best practices and common vulnerabilities
-    - Knowledge of compliance requirements and security standards
+    - Understanding of security best practices and vulnerabilities
+    - Knowledge of compliance requirements and standards
   </requirements>
 
   <execution>
@@ -31,23 +31,21 @@
        - Review API security and rate limiting
        - Test error handling for information disclosure
 
-    4. **Compliance and best practices**
+    4. **Compliance and documentation**
        - Validate against security standards and compliance requirements
        - Check encryption implementation and key management
        - Review logging and monitoring for security events
        - Analyze access controls and privilege escalation risks
-       - Validate secure coding practices and patterns
        - Document security findings and remediation steps
   </execution>
 
   <validation>
-    - [ ] Code scanned for security vulnerabilities and anti-patterns
+    - [ ] Code scanned for vulnerabilities and anti-patterns
     - [ ] Input validation and sanitization verified
-    - [ ] Authentication and authorization mechanisms validated
+    - [ ] Authentication and authorization validated
     - [ ] Common vulnerabilities (OWASP Top 10) tested
     - [ ] API security and rate limiting verified
-    - [ ] Encryption and key management reviewed
-    - [ ] Security findings documented with remediation steps
+    - [ ] Security findings documented with remediation
   </validation>
 
   <workflow>

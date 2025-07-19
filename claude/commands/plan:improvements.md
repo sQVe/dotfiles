@@ -1,49 +1,46 @@
-# Transform quality findings into prioritized improvement recommendations
+# Create prioritized improvement recommendations
 
 <instructions>
   <context>
-    Transform findings from validation analysis or code review into prioritized, actionable improvement recommendations for $ARGUMENTS with specific implementation guidance.
+    Transform findings from validation analysis into prioritized, actionable improvement recommendations for $ARGUMENTS with specific implementation guidance.
   </context>
 
   <requirements>
     - Understanding of code quality, security, and performance standards
     - Access to validation results or ability to analyze target scope
     - Knowledge of project architecture and improvement patterns
-    - Ability to prioritize recommendations by impact versus effort
   </requirements>
 
   <execution>
     1. **Ultrathink: Improvement analysis strategy**
-       - Use sequential thinking to analyze $ARGUMENTS improvement scope and plan comprehensive assessment approach
+       - Use sequential thinking to analyze $ARGUMENTS improvement scope and plan assessment approach
        - Break down improvement areas: code quality, security, performance, maintainability, architecture, technical debt
-       - Consider improvement methodologies: impact analysis, effort estimation, prioritization frameworks, implementation planning
-       - Plan systematic improvement identification sequence focusing on highest value and feasibility
+       - Consider improvement methodologies: impact analysis, effort estimation, prioritization frameworks
+       - Plan improvement identification sequence focusing on highest value and feasibility
 
-    2. **Scope identification and analysis gathering**
+    2. **Gather scope and analysis**
        - Gather findings from recent validation commands or perform fresh analysis
        - Review existing code quality, security, and performance characteristics
 
-    3. **Improvement identification and prioritization**
+    3. **Identify and prioritize improvements**
        - Identify specific enhancement opportunities across security, performance, maintainability
        - Analyze technical debt and refactoring opportunities with measurable benefits
-       - Prioritize recommendations by impact versus implementation effort required
+       - Prioritize recommendations by impact versus implementation effort
        - Consider long-term maintainability and scalability implications
 
-    4. **Actionable recommendation formatting**
+    4. **Format actionable recommendations**
        - Create specific, implementable suggestions with clear rationale and examples
        - Provide concrete code examples or implementation patterns where applicable
        - Include effort estimates and expected benefits for each recommendation
-       - Reference relevant CLAUDE.md guidelines and best practices
   </execution>
 
   <validation>
-    - [ ] Scope correctly identified and appropriate code analyzed
-    - [ ] Improvement opportunities identified across quality, security, performance domains
-    - [ ] Recommendations prioritized by clear impact versus effort analysis
-    - [ ] Each suggestion includes specific implementation guidance and rationale
+    - [ ] Scope identified and appropriate code analyzed
+    - [ ] Improvement opportunities identified across quality, security, performance
+    - [ ] Recommendations prioritized by impact versus effort analysis
+    - [ ] Each suggestion includes specific implementation guidance
     - [ ] Concrete code examples or patterns provided where applicable
-    - [ ] Benefits and effort estimates included for decision-making
-    - [ ] Long-term maintainability and scalability considerations addressed
+    - [ ] Benefits and effort estimates included
   </validation>
 
   <workflow>

@@ -2,11 +2,11 @@
 
 <instructions>
   <context>
-    Create atomic commits with conventional format and meaningful messages to maintain clean git history. Use concise descriptions only when necessary, focusing on why rather than what.
+    Create atomic commits with conventional format and meaningful messages to maintain clean git history. Focus on why rather than what.
   </context>
 
   <requirements>
-    - Git repository with staged or unstaged changes
+    - Git repository with changes to commit
     - Knowledge of conventional commits format
   </requirements>
 
@@ -27,11 +27,11 @@
   </execution>
 
   <validation>
-    - [ ] Changes reviewed and understood through git diff analysis
+    - [ ] Changes reviewed and understood through git diff
     - [ ] Commit messages follow Conventional Commits specification
     - [ ] Each commit represents one logical, atomic change
-    - [ ] Commit messages focus on why, not what (descriptions only when necessary)
-    - [ ] Git history shows clean, understandable progression
+    - [ ] Commit messages focus on why, not what
+    - [ ] Git history shows clean progression
   </validation>
 
   <workflow>

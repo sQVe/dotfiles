@@ -2,7 +2,7 @@
 
 <instructions>
   <context>
-    Analyze project structure, recent development history, and documentation to provide comprehensive codebase context before starting work.
+    Analyze project structure, recent development history, and documentation to provide codebase context before starting work.
   </context>
 
   <requirements>
@@ -30,10 +30,10 @@
 
   <validation>
     - [ ] Project structure analyzed and key components identified
-    - [ ] Recent development history reviewed and understood
+    - [ ] Recent development history reviewed
     - [ ] Project documentation read and summarized
     - [ ] Technology stack and architectural patterns identified
-    - [ ] Current codebase state and context clearly communicated
+    - [ ] Current codebase state and context communicated
   </validation>
 
   <workflow>

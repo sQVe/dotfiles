@@ -1,16 +1,16 @@
-# Validate user experience, functionality, and accessibility compliance
+# Validate functionality and accessibility compliance
 
 <instructions>
   <context>
-    Manually verify functionality and accessibility for $ARGUMENTS through user workflow testing to ensure features work correctly and are accessible in real-world scenarios.
+    Verify functionality and accessibility for $ARGUMENTS through user workflow testing to ensure features work correctly and are accessible.
   </context>
 
   <requirements>
     - Functional development environment with running application
     - Clear specification of features or workflows to validate
     - Access to test data and realistic usage scenarios
-    - Understanding of expected user experience, accessibility, and edge cases
-    - Access to accessibility testing tools and assistive technologies
+    - Understanding of expected user experience and accessibility
+    - Access to accessibility testing tools
   </requirements>
 
   <execution>
@@ -19,48 +19,47 @@
        - Plan testing areas: user workflows, accessibility compliance, edge cases, error scenarios
        - Determine optimal testing sequence for thorough validation
 
-    2. **Validate scope and plan comprehensive testing**
+    2. **Plan testing scope**
        - Identify primary user workflows for the specified functionality
-       - Plan test scenarios covering normal usage patterns and accessibility requirements
+       - Plan test scenarios covering normal usage and accessibility
 
-    3. **Execute user workflow and accessibility testing**
-       - Test modified features through normal user workflows and interactions
-       - Verify core functionality works as expected in realistic scenarios
-       - Test comprehensive accessibility compliance (WCAG 2.1 AA guidelines)
-       - Validate ARIA labels, semantic HTML structure, and landmarks
+    3. **Execute workflow and accessibility testing**
+       - Test modified features through normal user workflows
+       - Verify core functionality works as expected
+       - Test accessibility compliance (WCAG 2.1 AA guidelines)
+       - Validate ARIA labels, semantic HTML, and landmarks
        - Test keyboard navigation, focus management, and screen reader compatibility
        - Check color contrast ratios and visual accessibility
-       - Validate responsive design across devices and screen sizes
-       - Test user interface changes and ensure proper behavior
-       - Validate data persistence and state management across sessions
+       - Validate responsive design across devices
+       - Test user interface changes and behavior
+       - Validate data persistence and state management
 
-    4. **Edge case, error scenario, and accessibility validation**
-       - Test boundary conditions and edge cases for specified functionality
+    4. **Edge cases and error scenarios**
+       - Test boundary conditions and edge cases
        - Verify error handling and graceful failure scenarios
        - Test invalid input handling and validation messages
-       - Validate assistive technology compatibility (screen readers, voice control)
+       - Validate assistive technology compatibility
        - Test mobile accessibility and touch interactions
-       - Check content readability and cognitive accessibility considerations
-       - Confirm system remains stable and accessible under unusual conditions
+       - Check content readability and cognitive accessibility
+       - Confirm system stability under unusual conditions
   </execution>
 
   <validation>
-    - [ ] Scope argument provided and comprehensive testing plan created
-    - [ ] Primary user workflows tested and functioning correctly
-    - [ ] Core functionality verified through realistic usage scenarios
+    - [ ] Testing plan created for specified scope
+    - [ ] Primary user workflows tested and functioning
+    - [ ] Core functionality verified through realistic scenarios
     - [ ] WCAG 2.1 AA accessibility compliance validated
     - [ ] ARIA labels, semantic HTML, and landmarks verified
-    - [ ] Keyboard navigation, focus management, and screen reader compatibility tested
+    - [ ] Keyboard navigation and screen reader compatibility tested
     - [ ] Color contrast and visual accessibility checked
-    - [ ] Responsive design tested across multiple device sizes
+    - [ ] Responsive design tested across device sizes
     - [ ] User interface changes behave as expected
     - [ ] Data persistence and state management validated
     - [ ] Edge cases and boundary conditions tested
-    - [ ] Error handling scenarios verified and accessible
+    - [ ] Error handling scenarios verified
     - [ ] Assistive technology compatibility confirmed
     - [ ] Mobile accessibility and touch interactions validated
-    - [ ] Content readability and cognitive accessibility reviewed
-    - [ ] System stability and accessibility confirmed under unusual conditions
+    - [ ] System stability confirmed under unusual conditions
   </validation>
 
   <workflow>

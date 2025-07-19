@@ -2,7 +2,7 @@
 
 <instructions>
   <context>
-    Assess security compliance for $ARGUMENTS against relevant standards, regulations, and industry best practices to ensure regulatory adherence and risk management.
+    Assess security compliance for $ARGUMENTS against relevant standards, regulations, and industry best practices to ensure regulatory adherence.
   </context>
 
   <requirements>
@@ -13,18 +13,18 @@
 
   <execution>
     1. **Ultrathink: Compliance assessment strategy and framework analysis**
-       - Use sequential thinking to analyze $ARGUMENTS compliance scope and plan comprehensive assessment approach
-       - Break down compliance areas: regulatory requirements, gap analysis, control assessment, documentation review, remediation planning
-       - Consider compliance methodologies: framework mapping, control testing, evidence collection, risk assessment, continuous monitoring
-       - Plan systematic compliance evaluation sequence ensuring thorough coverage and regulatory alignment
+       - Use sequential thinking to analyze $ARGUMENTS compliance scope and plan assessment approach
+       - Break down compliance areas: regulatory requirements, gap analysis, control assessment, documentation review
+       - Consider compliance methodologies: framework mapping, control testing, evidence collection, risk assessment
+       - Plan compliance evaluation sequence ensuring thorough coverage and regulatory alignment
 
-    2. **Compliance framework identification**
+    2. **Identify compliance framework**
        - Identify applicable compliance frameworks and regulations
        - Map business requirements to compliance standards
        - Review industry-specific compliance requirements
        - Document compliance scope and assessment criteria
 
-    3. **Compliance gap analysis**
+    3. **Conduct compliance gap analysis**
        - Assess current implementation against compliance requirements
        - Identify gaps in security controls and documentation
        - Review data handling and privacy protection measures
@@ -32,12 +32,11 @@
        - Examine incident response and breach notification procedures
        - Evaluate vendor and third-party compliance requirements
 
-    4. **Remediation planning and documentation**
+    4. **Plan remediation and document**
        - Prioritize compliance gaps based on risk and regulatory impact
        - Create remediation plans with timelines and responsibilities
        - Design compliance monitoring and continuous assessment processes
        - Prepare compliance documentation and evidence collection
-       - Plan compliance training and awareness programs
        - Create compliance assessment report with recommendations
   </execution>
 
@@ -48,7 +47,7 @@
     - [ ] Data handling and privacy protection measures reviewed
     - [ ] Remediation plans created with timelines
     - [ ] Compliance monitoring processes designed
-    - [ ] Comprehensive compliance report generated
+    - [ ] Compliance report generated
   </validation>
 
   <workflow>

@@ -1,48 +1,45 @@
-# Validate performance benchmarks and optimization effectiveness
+# Validate performance and optimization effectiveness
 
 <instructions>
   <context>
-    Validate performance characteristics and optimization effectiveness for $ARGUMENTS through comprehensive benchmarking, profiling, and load testing.
+    Validate performance and optimization effectiveness for $ARGUMENTS through benchmarking, profiling, and load testing.
   </context>
 
   <requirements>
     - Access to performance testing tools and monitoring systems
-    - Understanding of performance metrics and benchmarking methodologies
+    - Understanding of performance metrics and benchmarking
     - Ability to simulate realistic load and usage patterns
   </requirements>
 
   <execution>
-    1. **Performance measurement and profiling**
+    1. **Measure and profile**
        - Establish performance baselines and target metrics
        - Profile CPU, memory, and I/O usage patterns
        - Measure response times and throughput under load
-       - Analyze database query performance and optimization
+       - Analyze database query performance
 
-    2. **Load testing and stress testing**
+    2. **Load and stress testing**
        - Design realistic load testing scenarios
        - Execute stress tests to identify breaking points
        - Test performance under concurrent user loads
        - Validate auto-scaling and resource allocation
-       - Measure performance degradation patterns
        - Test recovery and stability after load spikes
 
-    3. **Optimization validation and monitoring**
+    3. **Validate and monitor**
        - Validate effectiveness of implemented optimizations
-       - Compare performance metrics before and after changes
+       - Compare metrics before and after changes
        - Test performance across different environments
        - Verify performance SLA compliance
-       - Set up continuous performance monitoring
        - Document performance characteristics and recommendations
   </execution>
 
   <validation>
-    - [ ] Performance baselines established and measured
+    - [ ] Performance baselines established
     - [ ] CPU, memory, and I/O usage profiled
-    - [ ] Load testing scenarios executed successfully
+    - [ ] Load testing scenarios executed
     - [ ] Performance under concurrent loads validated
-    - [ ] Optimization effectiveness measured and documented
+    - [ ] Optimization effectiveness measured
     - [ ] Performance SLA compliance verified
-    - [ ] Continuous monitoring and alerting configured
   </validation>
 
   <workflow>

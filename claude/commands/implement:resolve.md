@@ -9,30 +9,29 @@
     - Clear problem description, symptoms, or GitHub/Linear issue identifier
     - Access to relevant codebase areas and issue tracking systems
     - Development environment for making code changes
-    - Debugging tools to investigate and reproduce the problem
     - Testing capabilities to verify the solution
   </requirements>
 
   <execution>
     1. **Ultrathink: Problem resolution strategy**
-       - Use sequential thinking to analyze $ARGUMENTS problem scope and plan comprehensive resolution approach
+       - Use sequential thinking to analyze $ARGUMENTS problem scope and plan resolution approach
        - Break down resolution process: problem understanding, root cause analysis, solution design, implementation, testing
        - Consider problem types: bug fixes, feature issues, integration problems, performance concerns
-       - Plan systematic resolution sequence prioritizing understanding, targeted fixes, and thorough validation
+       - Plan resolution sequence prioritizing understanding, targeted fixes, and thorough validation
 
-    2. **Validate and understand the problem**
+    2. **Understand the problem**
        - If $ARGUMENTS looks like an issue ID (starts with # or contains LIN-), fetch issue details from GitHub/Linear
        - Analyze the problem description or issue details
        - Reproduce the problem using provided steps or investigation
        - Investigate the codebase to understand the root cause
 
-    3. **Design and implement targeted solution**
+    3. **Design and implement solution**
        - Identify root cause through debugging and code analysis
        - Design targeted changes that address the underlying problem
        - Make focused code changes following project patterns
        - Include appropriate error handling and documentation
 
-    4. **Verify the solution thoroughly**
+    4. **Verify the solution**
        - Verify the original problem is resolved through testing
        - Test that the fix works in the reported conditions
        - Ensure no regressions introduced in existing functionality
@@ -40,12 +39,11 @@
   </execution>
 
   <validation>
-    - [ ] Problem description or issue details understood and investigated
-    - [ ] Issue reproduced and root cause identified through analysis
+    - [ ] Problem description understood and investigated
+    - [ ] Issue reproduced and root cause identified
     - [ ] Solution addresses the underlying problem, not just symptoms
     - [ ] Code changes are focused and follow project patterns
     - [ ] Original problem is resolved through testing
-    - [ ] Fix works in conditions similar to the reported issue
     - [ ] No regressions introduced in existing functionality
   </validation>
 

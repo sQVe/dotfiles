@@ -1,52 +1,48 @@
-# Identify and analyze performance bottlenecks systematically
+# Identify and analyze performance bottlenecks
 
 <instructions>
   <context>
-    Analyze performance bottlenecks and optimization opportunities for $ARGUMENTS using profiling tools and systematic performance analysis.
+    Analyze performance bottlenecks and optimization opportunities for $ARGUMENTS using profiling tools and performance analysis.
   </context>
 
   <requirements>
     - Performance issue description or component to analyze
     - Access to profiling tools and performance monitoring
-    - Development environment with performance measurement capabilities
     - Understanding of application architecture and critical paths
   </requirements>
 
   <execution>
     1. **Ultrathink: Performance analysis strategy**
-       - Use sequential thinking to analyze $ARGUMENTS performance scope and identify systematic investigation approach
+       - Use sequential thinking to analyze $ARGUMENTS performance scope and identify investigation approach
        - Break down performance domains: frontend/backend, CPU/memory/I/O, user-facing/system metrics
-       - Consider performance measurement angles: baseline metrics, profiling tools, load conditions, optimization opportunities
-       - Plan comprehensive performance analysis sequence prioritizing highest-impact areas first
+       - Consider measurement angles: baseline metrics, profiling tools, load conditions, optimization opportunities
+       - Plan performance analysis sequence prioritizing highest-impact areas
 
-    2. **Performance issue analysis and baseline measurement**
-       - Establish baseline performance metrics for $ARGUMENTS
+    2. **Establish baseline and identify critical paths**
+       - Measure baseline performance metrics for $ARGUMENTS
        - Identify critical performance paths and user-facing workflows
        - Gather current performance data and user-reported symptoms
 
-    3. **Systematic profiling and bottleneck identification**
+    3. **Profile and identify bottlenecks**
        - Use profiling tools to identify CPU, memory, and I/O bottlenecks
        - Analyze database query performance and execution plans
-       - Profile network requests, API calls, and external service dependencies
+       - Profile network requests, API calls, and external dependencies
        - Identify algorithmic inefficiencies and resource usage patterns
-       - Measure performance across different load conditions and data sizes
+       - Measure performance across different load conditions
 
-    4. **Optimization recommendations and impact analysis**
+    4. **Recommend optimizations with impact analysis**
        - Prioritize bottlenecks by performance impact and implementation effort
-       - Research current performance optimization techniques for identified issues
-       - Recommend specific optimization strategies with expected performance gains
-       - Estimate implementation effort and potential risks for each optimization
+       - Research optimization techniques for identified issues
+       - Recommend specific strategies with expected performance gains
        - Create actionable optimization plan with measurable success criteria
   </execution>
 
   <validation>
-    - [ ] Performance issue scope clearly defined with baseline measurements
-    - [ ] Critical performance paths and workflows identified
-    - [ ] Systematic profiling completed using appropriate tools
-    - [ ] Specific bottlenecks identified with supporting performance data
-    - [ ] Optimization opportunities prioritized by impact versus effort
-    - [ ] Actionable recommendations provided with expected performance gains
-    - [ ] Implementation plan created with measurable success criteria
+    - [ ] Performance baseline established and critical paths identified
+    - [ ] Profiling completed using appropriate tools
+    - [ ] Specific bottlenecks identified with supporting data
+    - [ ] Optimization opportunities prioritized by impact vs effort
+    - [ ] Actionable recommendations provided with expected gains
   </validation>
 
   <workflow>

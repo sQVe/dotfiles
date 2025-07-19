@@ -1,4 +1,4 @@
-# Create structured memory documentation of current work session
+# Create structured memory documentation
 
 <instructions>
   <context>
@@ -8,36 +8,33 @@
   <requirements>
     - Access to recent project activity, commits, and changes
     - Understanding of current project context and goals
-    - Ability to analyze recent decisions and implementation patterns
     - Knowledge of project architecture and technical choices
   </requirements>
 
   <execution>
-    1. **Scope identification and context gathering**
+    1. **Gather scope and context**
        - Gather recent activity, commits, decisions, and changes for specified scope
        - Analyze current project state and implementation context
 
-    2. **Structured analysis and documentation**
+    2. **Analyze and document**
        - Document key decisions made and their rationale
        - Capture implementation patterns, conventions, and lessons learned
-       - Analyze current architecture choices and technical decisions
        - Identify blockers, challenges faced, and solutions implemented
 
-    3. **Memory formatting and file creation**
-       - Append structured entry to MEMORY.md in project root with timestamp header
-       - Use standard format: ## [Scope] - [Date] [Time], followed by structured sections
+    3. **Format and create memory entry**
+       - Append structured entry to MEMORY.md in project root with timestamp
+       - Use format: ## [Scope] - [Date] [Time], followed by structured sections
        - Include sections: Context, Key Decisions, Implementation Patterns, Lessons Learned, Next Steps
-       - Format for searchability with clear headings and consistent structure
   </execution>
 
   <validation>
-    - [ ] Entry appended to MEMORY.md with proper timestamp header format
-    - [ ] All required sections included: Context, Key Decisions, Implementation Patterns, Lessons Learned, Next Steps
-    - [ ] Key decisions captured with rationale and implementation context
-    - [ ] Implementation patterns, conventions, and lessons learned recorded
-    - [ ] Current project state and architecture accurately reflected
-    - [ ] Challenges, blockers, and solutions documented for future reference
-    - [ ] Next steps formatted as actionable items for continuing work
+    - [ ] Entry appended to MEMORY.md with proper timestamp header
+    - [ ] All required sections included with structured content
+    - [ ] Key decisions captured with rationale
+    - [ ] Implementation patterns and lessons learned recorded
+    - [ ] Current project state accurately reflected
+    - [ ] Challenges and solutions documented
+    - [ ] Next steps formatted as actionable items
   </validation>
 
   <workflow>

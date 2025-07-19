@@ -1,47 +1,45 @@
-# Initialize new work with proper setup and context gathering
+# Initialize new work with proper setup
 
 <instructions>
   <context>
-    Initialize and set up new work scenarios for $ARGUMENTS including contributor onboarding, project creation, and feature preparation with comprehensive context gathering.
+    Initialize and set up new work scenarios for $ARGUMENTS including contributor onboarding, project creation, and feature preparation.
   </context>
 
   <requirements>
     - Clear initialization goal or scenario to set up
     - Access to project documentation and development environment
     - Understanding of team workflows and development practices
-    - Ability to create project structure and documentation
   </requirements>
 
   <execution>
-    1. **Initialization scope analysis and preparation**
+    1. **Analyze scope and prepare**
        - Analyze the initialization requirements for $ARGUMENTS
        - Identify necessary tools, dependencies, and environment setup needs
        - Gather relevant documentation, guidelines, and project context
        - Assess existing project structure and development workflow patterns
 
-    2. **Setup planning and environment configuration**
-       - Create comprehensive setup checklist for the specified initialization type
+    2. **Plan setup and environment**
+       - Create setup checklist for the specified initialization type
        - Plan development environment configuration and tool installation
        - Identify required access, permissions, and account setup needs
        - Design onboarding documentation and context-sharing strategy
-       - Plan integration with existing team workflows and communication channels
+       - Plan integration with existing team workflows
 
-    3. **Implementation guidance and workflow establishment**
+    3. **Provide implementation guidance**
        - Provide step-by-step initialization instructions with clear milestones
        - Create initial project structure or workspace organization
        - Establish development workflow and next-step recommendations
        - Document setup decisions and provide troubleshooting guidance
-       - Connect initialization to appropriate follow-up commands for continued work
   </execution>
 
   <validation>
-    - [ ] Initialization scope clearly defined and requirements analyzed
-    - [ ] Comprehensive setup checklist created for specified scenario
-    - [ ] Development environment configuration planned and documented
+    - [ ] Initialization scope defined and requirements analyzed
+    - [ ] Setup checklist created for specified scenario
+    - [ ] Development environment configuration planned
     - [ ] Required access, tools, and dependencies identified
-    - [ ] Step-by-step initialization instructions provided with clear milestones
-    - [ ] Integration with existing workflows and team practices established
-    - [ ] Follow-up workflow recommendations provided for continued development
+    - [ ] Step-by-step initialization instructions provided
+    - [ ] Integration with existing workflows established
+    - [ ] Follow-up workflow recommendations provided
   </validation>
 
   <workflow>

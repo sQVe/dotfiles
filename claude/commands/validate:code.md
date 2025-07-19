@@ -2,35 +2,34 @@
 
 <instructions>
   <context>
-    Execute automated code quality tools including linting, formatting, type checking, and static analysis on $ARGUMENTS with auto-fixing capabilities.
+    Execute automated code quality tools including linting, formatting, type checking, and static analysis on $ARGUMENTS with auto-fixing.
   </context>
 
   <requirements>
     - Project linting/formatting tools configured (biome, eslint, golangci-lint, etc.)
     - Type checking tools available (TypeScript, mypy, etc.)
     - Static analysis tools installed and configured
-    - Target scope specification (specific files, "all", or "changes")
   </requirements>
 
   <execution>
-    1. **Scope identification and automated formatting**
+    1. **Format and lint with auto-fix**
        - Run formatting tools (prettier, black, gofmt, etc.) with auto-fix enabled
        - Execute all configured linting tools with auto-fix capabilities enabled
 
-    2. **Type safety and dependency verification**
+    2. **Verify types and dependencies**
        - Run type checking tools on the complete project (not scope-limited for consistency)
        - Verify import statements and dependency usage are correct
        - Check for any type-related warnings or inconsistencies
 
-    3. **Static analysis and compilation checks**
+    3. **Run static analysis and compilation**
        - Run static analysis tools to identify potential code issues
        - Check for syntax errors, compilation warnings, and structural problems
        - Validate that code builds/compiles successfully if applicable
   </execution>
 
   <validation>
-    - [ ] Automated formatting applied successfully to specified scope
-    - [ ] All linting tools executed with auto-fixes applied where possible
+    - [ ] Automated formatting applied successfully
+    - [ ] All linting tools executed with auto-fixes applied
     - [ ] Type checking completes successfully with no type errors
     - [ ] Static analysis tools report no critical issues
     - [ ] Import statements and dependencies are valid

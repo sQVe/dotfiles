@@ -1,54 +1,53 @@
-# Reproduce and confirm reported issues systematically
+# Reproduce and confirm reported issues
 
 <instructions>
   <context>
-    Systematically reproduce reported issues for $ARGUMENTS to confirm their existence, understand scope, and gather detailed debugging information.
+    Reproduce reported issues for $ARGUMENTS to confirm their existence, understand scope, and gather debugging information.
   </context>
 
   <requirements>
     - Issue description, ID, or reproduction steps to validate
     - Development environment that can match issue conditions
     - Access to relevant debugging tools and logs
-    - Ability to document and update issue status
   </requirements>
 
   <execution>
-    1. **Issue analysis and environment preparation**
+    1. **Analyze issue and prepare environment**
        - Fetch issue details for $ARGUMENTS or analyze the described problem
        - Understand expected vs reported actual behavior
        - Prepare development environment to match issue conditions
-       - Review any provided error messages, logs, or screenshots
+       - Review provided error messages, logs, or screenshots
 
-    2. **Systematic reproduction and testing**
-       - Follow reproduction steps exactly as provided or described
-       - Document each step performed and its outcome systematically
+    2. **Reproduce and test systematically**
+       - Follow reproduction steps exactly as provided
+       - Document each step performed and its outcome
        - Capture error messages, stack traces, and debugging information
-       - Test variations and different environmental conditions if initial attempt fails
-       - Verify issue occurs across different browsers, devices, or configurations as applicable
+       - Test variations and different environmental conditions if needed
+       - Verify issue occurs across different browsers, devices, or configurations
 
-    3. **Documentation and issue update**
+    3. **Document results and update issue**
        - Record whether issue reproduces consistently, intermittently, or not at all
-       - Document exact conditions under which issue occurs or fails to occur
+       - Document exact conditions under which issue occurs
        - Capture detailed logs and environmental factors for debugging
-       - Update issue tracker with comprehensive reproduction results
-       - Provide clear confirmation and suggest next steps for resolution
+       - Update issue tracker with reproduction results
+       - Provide clear confirmation and suggest next steps
   </execution>
 
   <validation>
-    - [ ] Issue details or description thoroughly analyzed and understood
-    - [ ] Development environment prepared to match reported conditions
-    - [ ] Reproduction steps followed systematically with documented outcomes
-    - [ ] Environmental factors and variations tested appropriately
-    - [ ] Clear determination made about reproducibility with supporting evidence
-    - [ ] Detailed logs, error messages, and debugging information captured
-    - [ ] Comprehensive results documented with actionable next steps
+    - [ ] Issue details analyzed and understood
+    - [ ] Development environment prepared to match conditions
+    - [ ] Reproduction steps followed with documented outcomes
+    - [ ] Environmental factors and variations tested
+    - [ ] Clear determination made about reproducibility
+    - [ ] Logs, error messages, and debugging information captured
+    - [ ] Results documented with actionable next steps
   </validation>
 
   <workflow>
     **Next steps after successful reproduction:**
-    - `/debug:analyze` - Perform systematic root cause analysis
+    - `/debug:analyze` - Perform root cause analysis
     - `/debug:performance` - If performance-related, analyze bottlenecks
-    - `/implement:issue` - Implement solution for confirmed reproducible issues
+    - `/implement:resolve` - Implement solution for confirmed reproducible issues
 
     **If reproduction fails:**
     - `/research:codebase` - Analyze existing patterns to understand expected behavior

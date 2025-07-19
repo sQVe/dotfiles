@@ -1,52 +1,49 @@
-# Investigate production errors and performance issues using Sentry
+# Investigate production issues using Sentry
 
 <instructions>
   <context>
-    Investigate production issues for $ARGUMENTS using Sentry MCP to analyze error patterns, user impact, and system behavior in live environments.
+    Investigate production issues for $ARGUMENTS using Sentry MCP to analyze error patterns, user impact, and system behavior.
   </context>
 
   <requirements>
     - Production issue description or error pattern to investigate
     - Access to Sentry MCP for production error analysis
     - Understanding of system architecture and deployment environments
-    - Access to monitoring dashboards and performance metrics
   </requirements>
 
   <execution>
     1. **Ultrathink: Production issue investigation strategy**
-       - Use sequential thinking to analyze $ARGUMENTS production context and plan systematic investigation approach
+       - Use sequential thinking to analyze $ARGUMENTS production context and plan investigation approach
        - Break down investigation areas: error patterns, user impact, timing correlation, system health
-       - Consider investigation tools: Sentry analysis, deployment correlation, dependency tracking, user impact assessment
-       - Plan prioritized investigation sequence focusing on business impact and root cause identification
+       - Consider investigation tools: Sentry analysis, deployment correlation, dependency tracking
+       - Plan investigation sequence focusing on business impact and root cause identification
 
-    2. **Production error discovery and impact analysis**
+    2. **Discover errors and analyze impact**
        - Use Sentry MCP to find and analyze production errors related to $ARGUMENTS
        - Identify error frequency trends, patterns, and affected user segments
-       - Assess business impact and urgency based on error scope and affected functionality
+       - Assess business impact and urgency based on error scope
 
-    3. **Error pattern and root cause investigation**
-       - Analyze detailed stack traces and execution context for debugging
+    3. **Investigate error patterns and root causes**
+       - Analyze stack traces and execution context for debugging
        - Use Sentry's AI-powered analysis to identify potential root causes
        - Group related errors to understand common underlying issues
        - Investigate correlation with recent deployments or configuration changes
        - Examine dependency failures and external service impacts
 
-    4. **Reporting and actionable recommendations**
+    4. **Report findings and recommend actions**
        - Document findings with specific error rates, user impact, and timelines
-       - Provide clear root cause analysis with supporting evidence from Sentry data
+       - Provide clear root cause analysis with supporting evidence
        - Recommend immediate mitigation strategies and long-term fixes
        - Suggest monitoring improvements to detect similar issues earlier
-       - Create action items for preventing recurrence of similar problems
   </execution>
 
   <validation>
-    - [ ] Production error patterns analyzed using Sentry MCP for specified issue
-    - [ ] User impact and scope clearly quantified with specific metrics
-    - [ ] Root cause analysis completed with supporting evidence from Sentry
-    - [ ] Correlation with deployments and configuration changes investigated
-    - [ ] Business impact assessment completed with urgency evaluation
-    - [ ] Clear findings documented with specific error rates and timelines
-    - [ ] Immediate mitigation strategies recommended with implementation guidance
+    - [ ] Production error patterns analyzed using Sentry MCP
+    - [ ] User impact quantified with specific metrics
+    - [ ] Root cause analysis completed with supporting evidence
+    - [ ] Correlation with deployments investigated
+    - [ ] Findings documented with error rates and timelines
+    - [ ] Mitigation strategies recommended
   </validation>
 
   <workflow>

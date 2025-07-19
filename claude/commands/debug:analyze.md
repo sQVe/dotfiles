@@ -1,53 +1,47 @@
-# Systematically analyze and debug complex technical problems
+# Debug complex problems with systematic analysis
 
 <instructions>
   <context>
-    Systematically investigate and diagnose complex technical problems for $ARGUMENTS through methodical hypothesis testing and root cause analysis.
+    Debug complex technical problems for $ARGUMENTS through methodical hypothesis testing and root cause analysis.
   </context>
 
   <requirements>
-    - Problem description or symptoms to investigate
-    - Access to logs, error traces, and diagnostic information
-    - Development environment with debugging tools configured
-    - Understanding of system architecture and component interactions
+    - Problem description with symptoms to investigate
+    - Access to logs, debugging tools, and system architecture knowledge
   </requirements>
 
   <execution>
     1. **Ultrathink: Strategic debugging analysis**
        - Use sequential thinking to analyze $ARGUMENTS scope, potential root causes, and debugging approaches
-       - Break down the problem systematically: symptoms → possible causes → investigation strategies
-       - Consider multiple debugging angles: code analysis, environment factors, timing patterns, recent changes
-       - Plan the most effective debugging sequence based on available information and likelihood of causes
+       - Break down the problem: symptoms → possible causes → investigation strategies
+       - Consider debugging angles: code analysis, environment factors, timing patterns, recent changes
+       - Plan effective debugging sequence based on available information and likelihood
 
-    2. **Problem analysis and information gathering**
-       - Collect all available error messages, stack traces, and log entries for $ARGUMENTS
-       - Gather reproduction steps and environmental conditions
+    2. **Gather diagnostic information**
+       - Collect error messages, stack traces, and log entries
+       - Document reproduction steps and environmental conditions
        - Review recent changes, deployments, or configuration modifications
-       - Document symptoms, impact scope, and timing patterns
+       - Map symptoms, impact scope, and timing patterns
 
-    3. **Systematic hypothesis formation and testing**
-       - Identify affected components, services, or code paths
-       - Generate multiple potential root cause hypotheses based on evidence
-       - Prioritize hypotheses by likelihood and available diagnostic information
-       - Design specific tests to validate or refute each hypothesis systematically
-       - Use debugging tools, breakpoints, and logging to trace execution paths
+    3. **Form and test hypotheses**
+       - Identify affected components and code paths
+       - Generate and prioritize hypotheses based on evidence
+       - Design specific tests to validate or refute each hypothesis
+       - Use debugging tools, breakpoints, and logging to trace execution
 
-    4. **Root cause identification and solution development**
-       - Identify the underlying cause through evidence-based investigation
-       - Verify the root cause by reproducing the issue and confirming the fix
-       - Design and implement a targeted solution that addresses the root cause
-       - Test the solution thoroughly to ensure it resolves the problem
-       - Document the debugging process, findings, and resolution steps
+    4. **Identify root cause and implement solution**
+       - Verify the underlying cause through evidence-based investigation
+       - Design and implement targeted solution addressing the root cause
+       - Test solution thoroughly to ensure it resolves the problem
+       - Document debugging process, findings, and resolution steps
   </execution>
 
   <validation>
-    - [ ] Problem description analyzed and symptoms documented
-    - [ ] All available diagnostic information collected and reviewed
-    - [ ] Multiple hypotheses generated and systematically tested
-    - [ ] Root cause identified and verified through evidence
-    - [ ] Solution addresses the underlying cause, not just symptoms
-    - [ ] Fix tested thoroughly and confirmed to resolve the issue
-    - [ ] Debugging process and findings comprehensively documented
+    - [ ] Problem and symptoms documented
+    - [ ] Diagnostic information collected
+    - [ ] Hypotheses tested systematically
+    - [ ] Root cause identified and verified
+    - [ ] Solution implemented and tested
   </validation>
 
   <workflow>

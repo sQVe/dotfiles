@@ -1,43 +1,38 @@
-# Run test suite and analyze coverage for code changes
+# Execute test validation with coverage analysis
 
 <instructions>
   <context>
-    Execute comprehensive test validation with coverage analysis for $ARGUMENTS scope to ensure code changes meet quality standards.
+    Execute tests with coverage analysis for $ARGUMENTS to ensure code quality standards.
   </context>
 
   <requirements>
-    - Project testing framework configured and functional
-    - Test coverage tools available and configured
-    - Clear scope specification for test execution strategy
-    - Access to relevant test files and modified code areas
+    - Testing framework and coverage tools configured
+    - Clear scope specification for test execution
   </requirements>
 
   <execution>
-    1. **Scope identification and test execution**
-       - Execute tests for specified scope with appropriate test runner
+    1. **Execute tests for scope**
+       - Run tests for specified scope with appropriate test runner
        - Ensure all tests pass with no failures or skipped tests
 
-    2. **Coverage analysis and assessment**
-       - Generate test coverage reports for the specified scope
-       - Assess coverage percentage for new or changed code areas
-       - Identify any missing test cases for edge conditions and boundary cases
+    2. **Analyze coverage and gaps**
+       - Generate coverage reports for the specified scope
+       - Assess coverage percentage for new or changed code
+       - Identify missing test cases for edge conditions
        - Verify integration tests cover cross-component interactions
 
-    3. **Gap identification and recommendations**
+    3. **Document recommendations**
        - Document areas with insufficient test coverage
-       - Identify missing test scenarios for critical functionality
-       - Recommend specific test cases for uncovered edge conditions
+       - Recommend specific test cases for uncovered scenarios
        - Flag any brittle or flaky tests that need attention
   </execution>
 
   <validation>
-    - [ ] Scope argument provided and validated
-    - [ ] All executed tests pass without failures or skips
-    - [ ] Test coverage meets project standards for specified scope
-    - [ ] Coverage gaps identified and documented
-    - [ ] Missing test scenarios clearly identified
-    - [ ] Integration test coverage verified for cross-component interactions
-    - [ ] Specific recommendations provided for coverage improvements
+    - [ ] All tests pass without failures or skips
+    - [ ] Coverage meets project standards for scope
+    - [ ] Coverage gaps documented with recommendations
+    - [ ] Integration test coverage verified
+    - [ ] Flaky tests identified and flagged
   </validation>
 
   <workflow>

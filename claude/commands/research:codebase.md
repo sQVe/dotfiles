@@ -2,13 +2,13 @@
 
 <instructions>
   <context>
-    Analyze existing codebase patterns, implementations, and system architecture related to $ARGUMENTS to understand established conventions, architectural decisions, and overall system design.
+    Analyze existing codebase patterns, implementations, and system architecture related to $ARGUMENTS to understand established conventions and system design.
   </context>
 
   <requirements>
     - Access to codebase for pattern and architectural analysis
     - Understanding of the feature, area, or architectural aspect to research
-    - Ability to search and examine code across the project and understand system structure
+    - Ability to search and examine code across the project
   </requirements>
 
   <execution>
@@ -17,14 +17,14 @@
        - Plan investigation areas: patterns, architecture, implementation details, quality assessment
        - Determine optimal research sequence for comprehensive understanding
 
-    2. **System structure and pattern analysis**
+    2. **Analyze system structure and patterns**
        - Map overall system structure and component organization for $ARGUMENTS
        - Find similar implementations across the codebase
        - Analyze existing patterns for naming conventions and coding styles
        - Examine architectural decisions and design patterns used
        - Study component organization and file structure approaches
 
-    3. **Architectural and design pattern identification**
+    3. **Identify architectural and design patterns**
        - Identify architectural layers and their responsibilities
        - Analyze module boundaries and interface definitions
        - Document service interactions and communication patterns
@@ -32,14 +32,13 @@
        - Review error handling and resilience patterns
        - Analyze integration patterns and external dependencies
 
-    4. **Implementation consistency and quality review**
+    4. **Review implementation consistency and quality**
        - Check recent development activity and changes in related areas
        - Review current project state and any ongoing work that might conflict
        - Identify library choices and framework usage in similar features
        - Study testing patterns and coverage approaches used in similar code
        - Analyze performance optimization techniques already implemented
        - Review documentation patterns and comment conventions
-       - Identify code quality standards and linting configurations
   </execution>
 
   <validation>
@@ -47,12 +46,10 @@
     - [ ] Similar implementations identified and analyzed
     - [ ] Naming conventions and coding styles documented
     - [ ] Architectural layers and responsibilities identified
-    - [ ] Design patterns and architectural patterns documented
-    - [ ] Key architectural decisions and rationale understood
+    - [ ] Design patterns and architectural decisions documented
     - [ ] Integration patterns and external dependencies analyzed
     - [ ] Testing approaches and quality standards identified
     - [ ] Recent changes and ongoing work reviewed
-    - [ ] Library choices and framework patterns documented
   </validation>
 
   <workflow>

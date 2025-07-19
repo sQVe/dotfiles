@@ -1,8 +1,8 @@
-# Perform comprehensive security scanning and vulnerability detection
+# Perform security scanning and vulnerability detection
 
 <instructions>
   <context>
-    Perform comprehensive security scanning for $ARGUMENTS to identify vulnerabilities, security anti-patterns, and potential attack vectors across the codebase and infrastructure.
+    Perform security scanning for $ARGUMENTS to identify vulnerabilities, security anti-patterns, and potential attack vectors across the codebase.
   </context>
 
   <requirements>
@@ -12,13 +12,13 @@
   </requirements>
 
   <execution>
-    1. **Static code security analysis**
+    1. **Analyze static code security**
        - Scan source code for security vulnerabilities and anti-patterns
        - Analyze input validation and output encoding practices
        - Check for hardcoded secrets, credentials, and sensitive data
        - Identify insecure cryptographic implementations
 
-    2. **Dependency and infrastructure scanning**
+    2. **Scan dependencies and infrastructure**
        - Scan dependencies for known security vulnerabilities
        - Check for outdated packages with security patches
        - Analyze container images and infrastructure configurations
@@ -26,7 +26,7 @@
        - Scan for exposed services and insecure network configurations
        - Check SSL/TLS configurations and certificate validity
 
-    3. **Vulnerability assessment and prioritization**
+    3. **Assess and prioritize vulnerabilities**
        - Categorize vulnerabilities by severity and exploitability
        - Assess potential impact and attack vectors
        - Prioritize findings based on risk assessment

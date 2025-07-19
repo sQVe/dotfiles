@@ -1,47 +1,44 @@
-# Validate manual style compliance against project guidelines
+# Validate manual style compliance against guidelines
 
 <instructions>
   <context>
-    Research current style standards then manually validate $ARGUMENTS against project-specific guidelines and coding conventions that automated tools cannot check.
+    Research style standards then validate $ARGUMENTS against project guidelines and conventions that automated tools cannot check.
   </context>
 
   <requirements>
-    - Access to CLAUDE.md guidelines and project documentation (CONTRIBUTING.md, README.md)
-    - Target code files or scope specification (specific files, "all", or "changes")
-    - Ability to research current style guides for detected programming languages
-    - Git access for "changes" scope to analyze modified files
+    - Access to CLAUDE.md guidelines and project documentation
+    - Target scope specification (files, "all", or "changes")
+    - Ability to research style guides for programming languages
   </requirements>
 
   <execution>
-    1. **Standards research and scope identification**
-       - Research current style guides and manual conventions for detected programming languages
-       - Load CLAUDE.md guidelines: comment standards, naming patterns, code clarity principles
-       - Reference project-specific style documents (CONTRIBUTING.md, style guides)
-       - Identify manual guideline categories not covered by automated tools
+    1. **Research standards and scope**
+       - Research style guides for detected programming languages
+       - Load CLAUDE.md guidelines: comment standards, naming patterns, code clarity
+       - Reference project-specific style documents
+       - Identify manual guidelines not covered by automated tools
 
-    2. **Manual guideline compliance analysis**
-       - Check CLAUDE.md compliance: comment periods, redundant comment detection, clever code patterns
-       - Validate naming conventions and code organization principles from guidelines
-       - Assess code clarity and maintainability against readability standards
-       - Review documentation patterns and inline comment quality
-       - Analyze adherence to project-specific manual conventions
+    2. **Analyze compliance**
+       - Check CLAUDE.md compliance: comment periods, redundant comments, clever code
+       - Validate naming conventions and code organization principles
+       - Assess code clarity and maintainability against standards
+       - Review documentation patterns and comment quality
 
-    3. **Detailed violation reporting with guideline citations**
-       - Generate line-by-line feedback citing specific manual guidelines and standards
-       - Reference CLAUDE.md sections and researched style guide principles
-       - Provide actionable fix suggestions with examples from style guides
-       - Categorize violations by guideline source (CLAUDE.md, language style guides, project-specific)
+    3. **Report violations with citations**
+       - Generate line-by-line feedback citing specific guidelines
+       - Reference CLAUDE.md sections and style guide principles
+       - Provide actionable fixes with examples
+       - Categorize violations by source (CLAUDE.md, style guides, project-specific)
   </execution>
 
   <validation>
-    - [ ] Current style guides researched for detected programming languages
-    - [ ] Scope correctly identified and appropriate files analyzed
-    - [ ] CLAUDE.md manual guidelines applied (comment standards, naming, code clarity)
-    - [ ] Project-specific manual conventions validated against documentation
-    - [ ] Manual style violations identified that automated tools cannot detect
-    - [ ] Violations reported with line numbers, guideline citations, and actionable fixes
-    - [ ] Multiple guideline sources clearly cited (CLAUDE.md, style guides, project docs)
-    - [ ] Manual style compliance summary provided with specific guideline references
+    - [ ] Style guides researched for programming languages
+    - [ ] CLAUDE.md guidelines applied (comments, naming, clarity)
+    - [ ] Project-specific conventions validated
+    - [ ] Manual violations identified that tools cannot detect
+    - [ ] Violations reported with citations and fixes
+    - [ ] Multiple guideline sources referenced
+    - [ ] Style compliance summary provided
   </validation>
 
   <workflow>

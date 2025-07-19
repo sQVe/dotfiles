@@ -1,8 +1,8 @@
-# Create comprehensive threat model and risk assessment
+# Create threat model and risk assessment
 
 <instructions>
   <context>
-    Create comprehensive threat model for $ARGUMENTS to identify potential threats, attack vectors, and security risks, with corresponding mitigation strategies.
+    Create threat model for $ARGUMENTS to identify potential threats, attack vectors, and security risks, with corresponding mitigation strategies.
   </context>
 
   <requirements>
@@ -13,18 +13,18 @@
 
   <execution>
     1. **Ultrathink: Threat modeling strategy and methodology selection**
-       - Use sequential thinking to analyze $ARGUMENTS threat modeling scope and plan comprehensive risk assessment approach
+       - Use sequential thinking to analyze $ARGUMENTS threat modeling scope and plan risk assessment approach
        - Break down threat modeling elements: system decomposition, threat identification, risk assessment, mitigation planning
        - Consider threat modeling methodologies: STRIDE, PASTA, OCTAVE, attack trees, data flow diagrams
-       - Plan systematic threat modeling sequence ensuring comprehensive coverage and actionable security improvements
+       - Plan threat modeling sequence ensuring comprehensive coverage and actionable security improvements
 
-    2. **System decomposition and analysis**
+    2. **Decompose and analyze system**
        - Decompose system into components and data flows
        - Identify assets, entry points, and trust boundaries
        - Map user roles, permissions, and access patterns
        - Document system dependencies and external interfaces
 
-    3. **Threat identification and analysis**
+    3. **Identify and analyze threats**
        - Apply threat modeling methodology (STRIDE recommended)
        - Identify potential threats for each system component
        - Analyze attack vectors and exploitation scenarios
@@ -32,7 +32,7 @@
        - Evaluate impact and likelihood of identified threats
        - Document threat scenarios with attack trees
 
-    4. **Risk assessment and mitigation planning**
+    4. **Assess risk and plan mitigation**
        - Calculate risk scores based on impact and likelihood
        - Prioritize threats based on risk assessment
        - Identify existing security controls and their effectiveness
@@ -48,7 +48,7 @@
     - [ ] Attack vectors and exploitation scenarios documented
     - [ ] Risk scores calculated and threats prioritized
     - [ ] Mitigation strategies designed for high-priority threats
-    - [ ] Comprehensive threat model documentation created
+    - [ ] Threat model documentation created
   </validation>
 
   <workflow>

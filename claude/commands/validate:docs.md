@@ -2,30 +2,29 @@
 
 <instructions>
   <context>
-    Research current documentation standards then comprehensively validate $ARGUMENTS for grammar, style consistency, clarity, and adherence to documentation best practices.
+    Research documentation standards then validate $ARGUMENTS for grammar, style consistency, clarity, and adherence to documentation best practices.
   </context>
 
   <requirements>
     - Target documentation files or scope specification (specific files, "all", or "changes")
     - Access to project documentation guidelines and style guides
     - Understanding of current documentation standards and best practices
-    - Ability to identify grammar, spelling, and style inconsistencies
   </requirements>
 
   <execution>
-    1. **Standards research and scope identification**
+    1. **Research standards and identify scope**
        - Research current documentation best practices and style guides for project type
        - Load project-specific documentation guidelines from CLAUDE.md and style guides
        - Identify documentation standards: markdown conventions, tone, structure patterns
 
-    2. **Grammar and style validation**
+    2. **Validate grammar and style**
        - Check spelling, grammar, and punctuation across all specified documents
        - Validate markdown syntax and formatting consistency
        - Ensure consistent tone, voice, and writing style throughout documents
        - Verify proper heading hierarchy and structural organization
        - Check for consistent terminology usage and technical accuracy
 
-    3. **Content structure and accessibility analysis**
+    3. **Analyze content structure and accessibility**
        - Validate document structure follows logical information hierarchy
        - Check for clear section organization with appropriate headings
        - Ensure proper use of lists, code blocks, and formatting elements
@@ -35,16 +34,16 @@
   </execution>
 
   <validation>
-    - [ ] Current documentation standards researched for project context
-    - [ ] Scope correctly identified and appropriate files analyzed
-    - [ ] Grammar, spelling, and punctuation validated across all documents
+    - [ ] Documentation standards researched for project context
+    - [ ] Scope identified and appropriate files analyzed
+    - [ ] Grammar, spelling, and punctuation validated
     - [ ] Markdown syntax and formatting consistency verified
-    - [ ] Writing style and tone consistency maintained throughout
-    - [ ] Document structure and heading hierarchy properly organized
-    - [ ] Technical terminology used consistently and accurately
-    - [ ] Links validated and functional across all documents
-    - [ ] Code examples properly formatted and syntactically correct
-    - [ ] Readability assessed for target audience accessibility
+    - [ ] Writing style and tone consistency maintained
+    - [ ] Document structure and heading hierarchy organized
+    - [ ] Technical terminology used consistently
+    - [ ] Links validated and functional
+    - [ ] Code examples properly formatted
+    - [ ] Readability assessed for target audience
     - [ ] Project-specific documentation guidelines applied
   </validation>
 

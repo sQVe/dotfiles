@@ -2,7 +2,7 @@
 
 <instructions>
   <context>
-    Systematically gather and clarify requirements for $ARGUMENTS through targeted questions and analysis to ensure complete understanding before implementation.
+    Gather and clarify requirements for $ARGUMENTS through targeted questions and analysis to ensure complete understanding before implementation.
   </context>
 
   <requirements>
@@ -12,21 +12,21 @@
   </requirements>
 
   <execution>
-    1. **Validate and gather user experience requirements**
-       - Ask clarifying questions about exact user experience expectations
+    1. **Gather user experience requirements**
+       - Ask clarifying questions about user experience expectations
        - Determine core functionality vs nice-to-have features
        - Understand user workflows and interaction patterns
        - Identify accessibility and usability requirements
 
-    2. **Technical and integration requirements**
+    2. **Define technical and integration requirements**
        - Determine configuration needs and sensible default values
        - Understand integration requirements with existing features
        - Identify data storage and persistence needs
        - Clarify API and external service dependencies
 
-    3. **Quality and operational requirements**
+    3. **Specify quality and operational requirements**
        - Clarify error handling expectations and failure scenarios
-       - Identify performance constraints, SLAs, and acceptable response times
+       - Identify performance constraints and acceptable response times
        - Understand security implications and data protection requirements
        - Plan testing strategy and validation approaches
   </execution>

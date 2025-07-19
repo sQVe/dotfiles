@@ -2,7 +2,7 @@
 
 <instructions>
   <context>
-    Implement performance optimizations for $ARGUMENTS based on profiling data and performance analysis to improve system efficiency and user experience.
+    Implement performance optimizations for $ARGUMENTS based on profiling data to improve system efficiency and user experience.
   </context>
 
   <requirements>
@@ -13,18 +13,18 @@
 
   <execution>
     1. **Ultrathink: Optimization strategy and approach**
-       - Use sequential thinking to analyze $ARGUMENTS optimization scope and plan systematic performance improvement approach
+       - Use sequential thinking to analyze $ARGUMENTS optimization scope and plan performance improvement approach
        - Break down optimization areas: algorithms, data structures, caching, database, network, frontend performance
-       - Consider optimization techniques: profiling analysis, bottleneck identification, impact measurement, implementation priorities
-       - Plan optimization sequence balancing performance gains, implementation effort, and risk assessment
+       - Consider optimization techniques: profiling analysis, bottleneck identification, impact measurement
+       - Plan optimization sequence balancing performance gains, implementation effort, and risk
 
-    2. **Performance analysis and profiling**
+    2. **Analyze performance and profile**
        - Profile current performance and identify bottlenecks
        - Analyze resource usage patterns and constraints
        - Measure baseline performance metrics and user experience
        - Identify optimization opportunities and potential impact
 
-    3. **Implementation of optimizations**
+    3. **Implement optimizations**
        - Implement targeted optimizations based on profiling data
        - Optimize database queries, indexes, and data access patterns
        - Improve algorithm efficiency and data structure usage
@@ -32,13 +32,12 @@
        - Optimize network requests and reduce payload sizes
        - Implement lazy loading and code splitting techniques
 
-    4. **Validation and monitoring**
+    4. **Validate and monitor**
        - Measure performance improvements against baseline
        - Validate that optimizations don't introduce regressions
        - Test performance under different load conditions
        - Add performance monitoring and alerting
        - Document optimization techniques and rationale
-       - Create performance benchmarks for future reference
   </execution>
 
   <validation>
@@ -48,8 +47,7 @@
     - [ ] Caching strategies and lazy loading implemented
     - [ ] Performance improvements measured and validated
     - [ ] No regressions introduced in functionality
-    - [ ] Performance monitoring and alerting added
-    - [ ] Optimization techniques documented
+    - [ ] Performance monitoring added and optimization techniques documented
   </validation>
 
   <workflow>

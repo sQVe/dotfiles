@@ -2,7 +2,7 @@
 
 <instructions>
   <context>
-    Synthesize research findings and requirements for $ARGUMENTS into actionable implementation guidance with clear decisions and trade-offs.
+    Synthesize research findings and requirements for $ARGUMENTS into actionable implementation guidance with clear decisions.
   </context>
 
   <requirements>
@@ -13,24 +13,24 @@
 
   <execution>
     1. **Ultrathink: Synthesis and decision-making strategy**
-       - Use sequential thinking to analyze $ARGUMENTS synthesis scope and plan comprehensive consolidation approach
+       - Use sequential thinking to analyze $ARGUMENTS synthesis scope and plan consolidation approach
        - Break down synthesis areas: research findings, technical decisions, implementation approaches, trade-off analysis
-       - Consider synthesis methodologies: information consolidation, decision frameworks, roadmap planning, risk assessment
-       - Plan systematic synthesis sequence ensuring thorough analysis and informed decision-making
+       - Consider synthesis methodologies: information consolidation, decision frameworks, roadmap planning
+       - Plan synthesis sequence ensuring thorough analysis and informed decision-making
 
-    2. **Validate and consolidate findings**
+    2. **Consolidate findings**
        - Review and consolidate research from external documentation
        - Integrate codebase pattern analysis and existing conventions
        - Combine requirement gathering results and constraints
        - Identify any gaps or conflicting information
 
-    3. **Decision and trade-off analysis**
+    3. **Analyze decisions and trade-offs**
        - Evaluate different implementation approaches and their trade-offs
        - Make specific technical decisions based on research findings
        - Document rationale for chosen approaches over alternatives
        - Consider long-term maintainability and scalability implications
 
-    4. **Implementation roadmap creation**
+    4. **Create implementation roadmap**
        - Create step-by-step implementation guidance
        - Identify potential risks and mitigation strategies
        - Prepare reference list of useful documentation and examples
@@ -38,7 +38,7 @@
   </execution>
 
   <validation>
-    - [ ] All research findings reviewed and consolidated
+    - [ ] Research findings reviewed and consolidated
     - [ ] Technical decisions made with clear rationale
     - [ ] Trade-offs between approaches documented
     - [ ] Implementation roadmap with specific steps created

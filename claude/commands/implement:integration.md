@@ -2,7 +2,7 @@
 
 <instructions>
   <context>
-    Implement integration with external systems, APIs, or services for $ARGUMENTS ensuring reliable communication, proper error handling, and maintainable code.
+    Implement integration with external systems, APIs, or services for $ARGUMENTS ensuring reliable communication and proper error handling.
   </context>
 
   <requirements>
@@ -13,26 +13,26 @@
 
   <execution>
     1. **Ultrathink: Integration architecture and strategy**
-       - Use sequential thinking to analyze $ARGUMENTS integration scope and design comprehensive implementation approach
+       - Use sequential thinking to analyze $ARGUMENTS integration scope and design implementation approach
        - Break down integration components: authentication, data flow, error handling, monitoring, testing
        - Consider integration patterns: API clients, webhooks, data transformation, rate limiting, security
        - Plan implementation sequence prioritizing security, reliability, and maintainability
 
-    2. **Integration analysis and planning**
+    2. **Analyze and plan integration**
        - Analyze API documentation and integration requirements
        - Plan authentication strategy and credential management
        - Design data mapping and transformation logic
        - Identify rate limiting and quota considerations
 
-    3. **Secure implementation**
+    3. **Implement with security**
        - Implement authentication and credential management
        - Create API client with proper error handling and retries
        - Add request/response validation and data sanitization
        - Implement rate limiting and circuit breaker patterns
-       - Add comprehensive logging for debugging and monitoring
+       - Add logging for debugging and monitoring
        - Handle different response formats and error scenarios
 
-    4. **Testing and reliability**
+    4. **Test and ensure reliability**
        - Create integration tests with mocked responses
        - Test authentication flows and token refresh
        - Validate error handling and fallback mechanisms
@@ -47,8 +47,7 @@
     - [ ] API client with error handling and retries created
     - [ ] Rate limiting and circuit breaker patterns added
     - [ ] Request/response validation and sanitization implemented
-    - [ ] Comprehensive integration tests created
-    - [ ] Error scenarios and fallbacks tested
+    - [ ] Integration tests created and error scenarios tested
     - [ ] Integration documented with setup instructions
   </validation>
 

@@ -2,7 +2,7 @@
 
 <instructions>
   <context>
-    Analyze project dependencies, their health, security status, and impact on $ARGUMENTS to understand dependency landscape and identify potential issues.
+    Analyze project dependencies, their health, security status, and impact on $ARGUMENTS to understand dependency landscape and identify issues.
   </context>
 
   <requirements>
@@ -12,20 +12,20 @@
   </requirements>
 
   <execution>
-    1. **Dependency discovery and mapping**
+    1. **Discover and map dependencies**
        - Locate and parse package files across the project
        - Map direct dependencies and their versions
        - Identify transitive dependencies and dependency trees
        - Document dependency sources and package managers used
 
-    2. **Health and security analysis**
+    2. **Analyze health and security**
        - Check for outdated dependencies and available updates
        - Identify deprecated packages and maintenance status
        - Scan for known security vulnerabilities and advisories
        - Analyze dependency size and bundle impact
        - Review license compatibility and compliance issues
 
-    3. **Dependency relationships and conflicts**
+    3. **Examine relationships and conflicts**
        - Examine version conflicts and peer dependency issues
        - Identify duplicate dependencies and potential optimizations
        - Analyze dependency update impact and breaking changes

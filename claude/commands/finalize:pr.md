@@ -1,15 +1,14 @@
-# Create pull request with clear description and test plan
+# Create pull request with clear description
 
 <instructions>
   <context>
-    Create a well-structured pull request with clear description and proper formatting to facilitate effective code review.
+    Create a well-structured pull request with clear description and proper formatting to facilitate code review.
   </context>
 
   <requirements>
     - Branch with completed work
     - Git repository with remote access configured
     - GitHub CLI (gh) installed and authenticated
-    - Base branch accessible for comparison
   </requirements>
 
   <execution>
@@ -33,8 +32,8 @@
     - [ ] Changes analyzed and scope understood
     - [ ] PR title follows conventional commits format
     - [ ] PR description is clear and well-structured
-    - [ ] Related issues and testing approach included
-    - [ ] Pull request created successfully with proper formatting
+    - [ ] Testing approach and related issues included
+    - [ ] Pull request created successfully
   </validation>
 
   <workflow>
@@ -44,7 +43,6 @@
     - `/finalize:commit` - Create clean, atomic commits
 
     **Related commands:**
-    - `/validate:quality` - Additional code quality analysis
     - `/finalize:memory` - Document decisions for future reference
   </workflow>
 
