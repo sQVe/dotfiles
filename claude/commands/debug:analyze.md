@@ -54,7 +54,7 @@
 
     **Prerequisites:** Reproducible issue or clear symptoms
     **Next steps:** Implementation of solution based on analysis findings
-    **Complements:** `/debug:performance` for performance issues, `/debug:production` for production-specific problems
+    **Complements:** `/debug:performance` for performance issues, `/debug:production` for production-specific problems, `/debug:logs` for log analysis
   </workflow>
 
   <examples>

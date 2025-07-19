@@ -52,7 +52,8 @@
 
   <workflow>
     **Refactoring workflow:**
-    - `/validate:tests` - Ensure comprehensive test coverage before refactoring
+    - `/plan:refactor` - Plan comprehensive refactoring strategy
+    - `/implement:tests` - Ensure comprehensive test coverage before refactoring
     - `/implement:refactor` - Execute incremental refactoring with validation (current)
     - `/validate:code` - Automated quality checks after each refactoring step
     - `/validate:tests` - Verify behavior preservation throughout
