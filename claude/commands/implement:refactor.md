@@ -13,7 +13,12 @@
   </requirements>
 
   <execution>
-    1. **Analyze current state and plan improvements**
+    1. **Quick analysis: Refactoring scope and incremental approach**
+       - Analyze $ARGUMENTS refactoring target and identify safe incremental improvement strategy
+       - Plan refactoring areas: code structure, maintainability, complexity reduction, behavior preservation
+       - Determine optimal refactoring sequence for safe and effective improvements
+
+    2. **Analyze current state and plan improvements**
        - Verify $ARGUMENTS is provided (code to refactor required)
        - If no argument provided, show error: "Please specify what to refactor (e.g., 'UserAuth.js', 'authentication module')"
        - Thoroughly analyze existing code structure and implementation patterns
@@ -21,14 +26,14 @@
        - Identify specific improvement opportunities: code smells, complexity, duplication
        - Plan incremental refactoring steps that preserve behavior
 
-    2. **Execute incremental refactoring with validation**
+    3. **Execute incremental refactoring with validation**
        - Make small, focused changes that can be easily tested and reviewed
        - Ensure each step preserves existing functionality completely
        - Run tests after each incremental change to verify behavior preservation
        - Use git commits to create safe rollback points for each refactoring step
        - Apply established refactoring patterns: extract method, eliminate duplication, improve naming
 
-    3. **Validate improvements and behavior preservation**
+    4. **Validate improvements and behavior preservation**
        - Execute complete test suite to ensure no functionality changes
        - Perform manual testing of critical user workflows if applicable
        - Verify that code is more readable and maintainable than before
@@ -46,6 +51,20 @@
     - [ ] Future modifications will be easier to implement
     - [ ] All changes are reversible through git history
   </validation>
+
+  <workflow>
+    **Refactoring workflow:**
+    - `/validate:tests` - Ensure comprehensive test coverage before refactoring
+    - `/implement:refactor` - Execute incremental refactoring with validation (current)
+    - `/validate:code` - Automated quality checks after each refactoring step
+    - `/validate:tests` - Verify behavior preservation throughout
+    - `/validate:functionality` - Manual verification of preserved behavior
+    - `/finalize:commit` - Create atomic commits for each refactoring step
+
+    **Prerequisites:** Comprehensive test coverage, clear refactoring goals
+    **Next steps:** Validation workflow to ensure no regressions
+    **Best practices:** Small incremental changes, frequent validation
+  </workflow>
 
   <examples>
     ```bash
