@@ -18,8 +18,6 @@
        - Determine optimal research sequence for comprehensive understanding
 
     2. **Documentation and standards research**
-       - Verify $ARGUMENTS is provided (technology/framework/pattern to research required)
-       - If no argument provided, show error: "Please specify what to research (e.g., 'JWT authentication', 'React performance', 'error handling patterns')"
        - Use Ref MCP to search for official documentation and API references for $ARGUMENTS
        - Find comprehensive guides and getting-started resources
        - Locate API documentation and usage examples

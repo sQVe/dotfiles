@@ -19,8 +19,6 @@
        - Plan systematic threat modeling sequence ensuring comprehensive coverage and actionable security improvements
 
     2. **System decomposition and analysis**
-       - Verify $ARGUMENTS is provided (system or feature to model required)
-       - If no argument provided, show error: "Please specify system to threat model (e.g., 'user authentication system')"
        - Decompose system into components and data flows
        - Identify assets, entry points, and trust boundaries
        - Map user roles, permissions, and access patterns

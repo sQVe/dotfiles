@@ -13,8 +13,6 @@
 
   <execution>
     1. **Context analysis**
-       - Verify $ARGUMENTS is provided (current situation or goal description)
-       - If no argument provided, show error: "Please describe your current situation or goal (e.g., 'starting new feature' or 'fixing production issue')"
        - Analyze current project state and git status
        - Identify ongoing work and pending tasks
        - Assess code quality and testing status

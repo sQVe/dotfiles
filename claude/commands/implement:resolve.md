@@ -21,8 +21,6 @@
        - Plan systematic resolution sequence prioritizing understanding, targeted fixes, and thorough validation
 
     2. **Validate and understand the problem**
-       - Verify $ARGUMENTS is provided (problem description or issue ID required)
-       - If no argument provided, show error: "Please specify problem to resolve (e.g., 'login button not working', '#123', 'LIN-456')"
        - If $ARGUMENTS looks like an issue ID (starts with # or contains LIN-), fetch issue details from GitHub/Linear
        - Analyze the problem description or issue details
        - Reproduce the problem using provided steps or investigation

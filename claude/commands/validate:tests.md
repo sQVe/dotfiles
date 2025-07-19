@@ -14,8 +14,6 @@
 
   <execution>
     1. **Scope identification and test execution**
-       - Verify $ARGUMENTS is provided (scope required: "changes", "all", "unit", or "integration")
-       - If no scope provided, show error: "Please specify test scope (e.g., 'changes', 'all', 'unit', 'integration')"
        - Execute tests for specified scope with appropriate test runner
        - Ensure all tests pass with no failures or skipped tests
 

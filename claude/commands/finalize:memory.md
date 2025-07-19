@@ -14,8 +14,6 @@
 
   <execution>
     1. **Scope identification and context gathering**
-       - Verify $ARGUMENTS is provided (scope required: "session", "project", or specific feature)
-       - If no scope provided, show error: "Please specify what to document (e.g., 'session', 'project', 'feature authentication')"
        - Gather recent activity, commits, decisions, and changes for specified scope
        - Analyze current project state and implementation context
 

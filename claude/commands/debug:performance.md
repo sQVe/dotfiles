@@ -20,8 +20,6 @@
        - Plan comprehensive performance analysis sequence prioritizing highest-impact areas first
 
     2. **Performance issue analysis and baseline measurement**
-       - Verify $ARGUMENTS is provided (performance issue or component to analyze required)
-       - If no argument provided, show error: "Please specify what to analyze (e.g., 'API response times', 'page load performance', 'database queries')"
        - Establish baseline performance metrics for $ARGUMENTS
        - Identify critical performance paths and user-facing workflows
        - Gather current performance data and user-reported symptoms

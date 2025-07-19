@@ -13,8 +13,6 @@
 
   <execution>
     1. **Dependency discovery and mapping**
-       - Verify $ARGUMENTS is provided (dependency name/pattern or "all" for full analysis)
-       - If no argument provided, show error: "Please specify dependencies to analyze (e.g., 'react ecosystem' or 'all')"
        - Locate and parse package files across the project
        - Map direct dependencies and their versions
        - Identify transitive dependencies and dependency trees

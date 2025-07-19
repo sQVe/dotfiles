@@ -19,8 +19,6 @@
        - Plan implementation sequence prioritizing security, reliability, and maintainability
 
     2. **Integration analysis and planning**
-       - Verify $ARGUMENTS is provided (integration target and requirements required)
-       - If no argument provided, show error: "Please specify integration to implement (e.g., 'Slack API for notifications')"
        - Analyze API documentation and integration requirements
        - Plan authentication strategy and credential management
        - Design data mapping and transformation logic

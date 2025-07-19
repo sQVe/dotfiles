@@ -13,8 +13,6 @@
 
   <execution>
     1. **Static code security analysis**
-       - Verify $ARGUMENTS is provided (scan scope or specific area required)
-       - If no argument provided, show error: "Please specify security scan scope (e.g., 'entire codebase' or 'authentication module')"
        - Scan source code for security vulnerabilities and anti-patterns
        - Analyze input validation and output encoding practices
        - Check for hardcoded secrets, credentials, and sensitive data

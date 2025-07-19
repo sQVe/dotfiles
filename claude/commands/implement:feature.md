@@ -18,8 +18,6 @@
        - Determine optimal implementation sequence for reliable feature delivery
 
     2. **Feature planning and design**
-       - Verify $ARGUMENTS is provided (feature description and requirements required)
-       - If no argument provided, show error: "Please specify feature to implement (e.g., 'user profile management')"
        - Analyze feature requirements and acceptance criteria
        - Design feature architecture and component structure
        - Plan API endpoints, data models, and user interface changes

@@ -20,8 +20,6 @@
        - Determine optimal testing sequence for thorough validation
 
     2. **Validate scope and plan comprehensive testing**
-       - Verify $ARGUMENTS is provided (specific features/workflows to test required)
-       - If no scope provided, show error: "Please specify what to validate (e.g., 'user authentication', 'payment flow', 'registration form accessibility')"
        - Identify primary user workflows for the specified functionality
        - Plan test scenarios covering normal usage patterns and accessibility requirements
 

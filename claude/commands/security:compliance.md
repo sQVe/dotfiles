@@ -19,8 +19,6 @@
        - Plan systematic compliance evaluation sequence ensuring thorough coverage and regulatory alignment
 
     2. **Compliance framework identification**
-       - Verify $ARGUMENTS is provided (compliance standard or system area required)
-       - If no argument provided, show error: "Please specify compliance scope (e.g., 'GDPR compliance' or 'SOC 2 Type II')"
        - Identify applicable compliance frameworks and regulations
        - Map business requirements to compliance standards
        - Review industry-specific compliance requirements

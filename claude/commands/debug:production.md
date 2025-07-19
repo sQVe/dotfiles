@@ -20,8 +20,6 @@
        - Plan prioritized investigation sequence focusing on business impact and root cause identification
 
     2. **Production error discovery and impact analysis**
-       - Verify $ARGUMENTS is provided (production issue to investigate required)
-       - If no argument provided, show error: "Please specify what to investigate (e.g., 'user login failures', 'payment processing errors')"
        - Use Sentry MCP to find and analyze production errors related to $ARGUMENTS
        - Identify error frequency trends, patterns, and affected user segments
        - Assess business impact and urgency based on error scope and affected functionality

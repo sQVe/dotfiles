@@ -18,8 +18,6 @@
        - Determine optimal research sequence for comprehensive understanding
 
     2. **System structure and pattern analysis**
-       - Verify $ARGUMENTS is provided (pattern/area/architecture to analyze required)
-       - If no argument provided, show error: "Please specify what to analyze (e.g., 'authentication patterns', 'data flow architecture')"
        - Map overall system structure and component organization for $ARGUMENTS
        - Find similar implementations across the codebase
        - Analyze existing patterns for naming conventions and coding styles

@@ -19,8 +19,6 @@
        - Plan systematic synthesis sequence ensuring thorough analysis and informed decision-making
 
     2. **Validate and consolidate findings**
-       - Verify $ARGUMENTS is provided (topic to synthesize required)
-       - If no argument provided, show error: "Please specify what to synthesize (e.g., 'payment integration plan')"
        - Review and consolidate research from external documentation
        - Integrate codebase pattern analysis and existing conventions
        - Combine requirement gathering results and constraints

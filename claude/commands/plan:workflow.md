@@ -20,8 +20,6 @@
        - Plan systematic workflow development sequence ensuring realistic timelines and efficient execution
 
     2. **Workflow scope and milestone planning**
-       - Verify $ARGUMENTS is provided (feature or implementation scope required)
-       - If no argument provided, show error: "Please specify feature for workflow planning (e.g., 'payment integration', 'user dashboard redesign')"
        - Break down synthesized implementation plan into discrete, manageable tasks
        - Define clear milestones with deliverables and validation criteria
        - Identify task dependencies and critical path for implementation

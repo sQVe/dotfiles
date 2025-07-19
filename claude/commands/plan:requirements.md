@@ -13,8 +13,6 @@
 
   <execution>
     1. **Validate and gather user experience requirements**
-       - Verify $ARGUMENTS is provided (feature/problem to analyze required)
-       - If no argument provided, show error: "Please specify what to analyze (e.g., 'user authentication', 'checkout flow')"
        - Ask clarifying questions about exact user experience expectations
        - Determine core functionality vs nice-to-have features
        - Understand user workflows and interaction patterns

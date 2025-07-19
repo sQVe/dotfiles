@@ -14,8 +14,6 @@
 
   <execution>
     1. **Initialization scope analysis and preparation**
-       - Verify $ARGUMENTS is provided (initialization type required)
-       - If no argument provided, show error: "Please specify what to initialize (e.g., 'new contributor', 'project setup', 'feature development')"
        - Analyze the initialization requirements for $ARGUMENTS
        - Identify necessary tools, dependencies, and environment setup needs
        - Gather relevant documentation, guidelines, and project context

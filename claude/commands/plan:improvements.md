@@ -20,8 +20,6 @@
        - Plan systematic improvement identification sequence focusing on highest value and feasibility
 
     2. **Scope identification and analysis gathering**
-       - Verify $ARGUMENTS is provided (scope required: files, components, or "all")
-       - If no scope provided, show error: "Please specify what to analyze for improvements (e.g., 'Button.tsx', 'all')"
        - Gather findings from recent validation commands or perform fresh analysis
        - Review existing code quality, security, and performance characteristics
 

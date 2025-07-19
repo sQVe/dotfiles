@@ -19,8 +19,6 @@
        - Plan optimization sequence balancing performance gains, implementation effort, and risk assessment
 
     2. **Performance analysis and profiling**
-       - Verify $ARGUMENTS is provided (optimization target and goals required)
-       - If no argument provided, show error: "Please specify optimization target (e.g., 'database query performance')"
        - Profile current performance and identify bottlenecks
        - Analyze resource usage patterns and constraints
        - Measure baseline performance metrics and user experience

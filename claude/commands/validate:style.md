@@ -14,8 +14,6 @@
 
   <execution>
     1. **Standards research and scope identification**
-       - Verify $ARGUMENTS is provided (scope required: files, "all", or "changes")
-       - If no scope provided, show error: "Please specify what to validate (e.g., 'Button.tsx', 'all', 'changes')"
        - Research current style guides and manual conventions for detected programming languages
        - Load CLAUDE.md guidelines: comment standards, naming patterns, code clarity principles
        - Reference project-specific style documents (CONTRIBUTING.md, style guides)

@@ -19,8 +19,6 @@
        - Plan systematic audit sequence ensuring thorough coverage and risk-based prioritization
 
     2. **Security architecture review**
-       - Verify $ARGUMENTS is provided (audit scope or system area required)
-       - If no argument provided, show error: "Please specify security audit scope (e.g., 'web application security' or 'API security')"
        - Review system architecture and security design
        - Analyze authentication and authorization mechanisms
        - Examine data flow and trust boundaries

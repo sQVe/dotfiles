@@ -14,8 +14,6 @@
 
   <execution>
     1. **Standards research and scope identification**
-       - Verify $ARGUMENTS is provided (scope required: files, "all", or "changes")
-       - If no scope provided, show error: "Please specify what to validate (e.g., 'README.md', 'all', 'changes')"
        - Research current documentation best practices and style guides for project type
        - Load project-specific documentation guidelines from CLAUDE.md and style guides
        - Identify documentation standards: markdown conventions, tone, structure patterns

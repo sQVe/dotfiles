@@ -20,8 +20,6 @@
        - Plan the most effective debugging sequence based on available information and likelihood of causes
 
     2. **Problem analysis and information gathering**
-       - Verify $ARGUMENTS is provided (problem description required)
-       - If no argument provided, show error: "Please specify what to debug (e.g., 'database timeout errors', 'intermittent login failures')"
        - Collect all available error messages, stack traces, and log entries for $ARGUMENTS
        - Gather reproduction steps and environmental conditions
        - Review recent changes, deployments, or configuration modifications

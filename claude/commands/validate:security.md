@@ -18,8 +18,6 @@
        - Determine optimal security validation sequence for thorough assessment
 
     2. **Security analysis and scanning**
-       - Verify $ARGUMENTS is provided (security area or component to validate required)
-       - If no argument provided, show error: "Please specify security area to validate (e.g., 'authentication system')"
        - Scan code for security vulnerabilities and anti-patterns
        - Analyze input validation and sanitization implementations
        - Review authentication and authorization mechanisms

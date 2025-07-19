@@ -14,8 +14,6 @@
 
   <execution>
     1. **Issue analysis and environment preparation**
-       - Verify $ARGUMENTS is provided (issue to reproduce required)
-       - If no argument provided, show error: "Please specify what to reproduce (e.g., '#789', 'LIN-123', 'file upload failures')"
        - Fetch issue details for $ARGUMENTS or analyze the described problem
        - Understand expected vs reported actual behavior
        - Prepare development environment to match issue conditions

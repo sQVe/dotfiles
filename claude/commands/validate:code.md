@@ -14,8 +14,6 @@
 
   <execution>
     1. **Scope identification and automated formatting**
-       - Verify $ARGUMENTS is provided (scope required: files, "all", or "changes")
-       - If no scope provided, show error: "Please specify what to validate (e.g., 'src/', 'all', 'changes')"
        - Run formatting tools (prettier, black, gofmt, etc.) with auto-fix enabled
        - Execute all configured linting tools with auto-fix capabilities enabled
 

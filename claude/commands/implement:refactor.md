@@ -19,8 +19,6 @@
        - Determine optimal refactoring sequence for safe and effective improvements
 
     2. **Analyze current state and plan improvements**
-       - Verify $ARGUMENTS is provided (code to refactor required)
-       - If no argument provided, show error: "Please specify what to refactor (e.g., 'UserAuth.js', 'authentication module')"
        - Thoroughly analyze existing code structure and implementation patterns
        - Document current behavior and functionality comprehensively
        - Identify specific improvement opportunities: code smells, complexity, duplication

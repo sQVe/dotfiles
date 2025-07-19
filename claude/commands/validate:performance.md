@@ -13,8 +13,6 @@
 
   <execution>
     1. **Performance measurement and profiling**
-       - Verify $ARGUMENTS is provided (performance area or component to validate required)
-       - If no argument provided, show error: "Please specify performance area to validate (e.g., 'API response times')"
        - Establish performance baselines and target metrics
        - Profile CPU, memory, and I/O usage patterns
        - Measure response times and throughput under load
