@@ -13,7 +13,13 @@
   </requirements>
 
   <execution>
-    1. **Problem analysis and information gathering**
+    1. **Ultrathink: Strategic debugging analysis**
+       - Use sequential thinking to analyze $ARGUMENTS scope, potential root causes, and debugging approaches
+       - Break down the problem systematically: symptoms → possible causes → investigation strategies
+       - Consider multiple debugging angles: code analysis, environment factors, timing patterns, recent changes
+       - Plan the most effective debugging sequence based on available information and likelihood of causes
+
+    2. **Problem analysis and information gathering**
        - Verify $ARGUMENTS is provided (problem description required)
        - If no argument provided, show error: "Please specify what to debug (e.g., 'database timeout errors', 'intermittent login failures')"
        - Collect all available error messages, stack traces, and log entries for $ARGUMENTS
@@ -21,14 +27,14 @@
        - Review recent changes, deployments, or configuration modifications
        - Document symptoms, impact scope, and timing patterns
 
-    2. **Systematic hypothesis formation and testing**
+    3. **Systematic hypothesis formation and testing**
        - Identify affected components, services, or code paths
        - Generate multiple potential root cause hypotheses based on evidence
        - Prioritize hypotheses by likelihood and available diagnostic information
        - Design specific tests to validate or refute each hypothesis systematically
        - Use debugging tools, breakpoints, and logging to trace execution paths
 
-    3. **Root cause identification and solution development**
+    4. **Root cause identification and solution development**
        - Identify the underlying cause through evidence-based investigation
        - Verify the root cause by reproducing the issue and confirming the fix
        - Design and implement a targeted solution that addresses the root cause
@@ -45,6 +51,19 @@
     - [ ] Fix tested thoroughly and confirmed to resolve the issue
     - [ ] Debugging process and findings comprehensively documented
   </validation>
+
+  <workflow>
+    **Debugging workflow:**
+    - `/debug:reproduce` - Confirm issue reproduction (recommended first)
+    - `/debug:analyze` - Systematic root cause analysis (current)
+    - `/research:codebase` - Understand related code patterns if needed
+    - `/implement:resolve` - Implement targeted solution based on analysis
+    - `/validate:tests` - Ensure fix works and prevent regression
+
+    **Prerequisites:** Reproducible issue or clear symptoms
+    **Next steps:** Implementation of solution based on analysis findings
+    **Complements:** `/debug:performance` for performance issues, `/debug:production` for production-specific problems
+  </workflow>
 
   <examples>
     ```bash

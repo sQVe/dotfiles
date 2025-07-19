@@ -13,21 +13,27 @@
   </requirements>
 
   <execution>
-    1. **Production error discovery and impact analysis**
+    1. **Ultrathink: Production issue investigation strategy**
+       - Use sequential thinking to analyze $ARGUMENTS production context and plan systematic investigation approach
+       - Break down investigation areas: error patterns, user impact, timing correlation, system health
+       - Consider investigation tools: Sentry analysis, deployment correlation, dependency tracking, user impact assessment
+       - Plan prioritized investigation sequence focusing on business impact and root cause identification
+
+    2. **Production error discovery and impact analysis**
        - Verify $ARGUMENTS is provided (production issue to investigate required)
        - If no argument provided, show error: "Please specify what to investigate (e.g., 'user login failures', 'payment processing errors')"
        - Use Sentry MCP to find and analyze production errors related to $ARGUMENTS
        - Identify error frequency trends, patterns, and affected user segments
        - Assess business impact and urgency based on error scope and affected functionality
 
-    2. **Error pattern and root cause investigation**
+    3. **Error pattern and root cause investigation**
        - Analyze detailed stack traces and execution context for debugging
        - Use Sentry's AI-powered analysis to identify potential root causes
        - Group related errors to understand common underlying issues
        - Investigate correlation with recent deployments or configuration changes
        - Examine dependency failures and external service impacts
 
-    3. **Reporting and actionable recommendations**
+    4. **Reporting and actionable recommendations**
        - Document findings with specific error rates, user impact, and timelines
        - Provide clear root cause analysis with supporting evidence from Sentry data
        - Recommend immediate mitigation strategies and long-term fixes
@@ -44,6 +50,17 @@
     - [ ] Clear findings documented with specific error rates and timelines
     - [ ] Immediate mitigation strategies recommended with implementation guidance
   </validation>
+
+  <workflow>
+    **Production debugging workflow:**
+    - `/debug:production` - Investigate production issues using Sentry (current)
+    - `/debug:analyze` - Deep analysis if root cause needs further investigation
+    - `/implement:resolve` - Implement immediate fixes for critical issues
+
+    **Prerequisites:** Production errors or performance degradation observed
+    **Next steps:** Immediate mitigation or emergency response based on findings
+    **Best for:** Production-specific issues, deployment-related problems, user impact analysis
+  </workflow>
 
   <examples>
     ```bash

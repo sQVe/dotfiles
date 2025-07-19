@@ -1,72 +1,94 @@
-# Analyze project context and suggest appropriate next commands
+# Create detailed implementation workflow for complex features
 
 <instructions>
   <context>
-    Analyze current project context and suggest appropriate next commands for $ARGUMENTS development phase with clear rationale and workflow guidance.
+    Create step-by-step implementation workflow for $ARGUMENTS based on synthesized research and requirements to guide complex feature development with clear milestones and validation points.
   </context>
 
   <requirements>
-    - Git repository access for status and branch analysis
-    - Understanding of available command categories and their purposes
-    - Ability to detect development phase and project state
-    - Knowledge of common development workflow patterns
+    - Completed synthesis with technical decisions and implementation plan
+    - Understanding of project complexity and development patterns
+    - Clear feature scope and implementation requirements
+    - Access to team collaboration and project management tools
   </requirements>
 
   <execution>
-    1. **Context analysis and phase detection**
-       - Check $ARGUMENTS for specific workflow context ("feature", "bugfix", "review", or auto-detect)
-       - Analyze git status: uncommitted changes, current branch, recent commits
-       - Examine recent file modifications and project activity patterns
-       - Identify current development phase: starting, coding, testing, reviewing, finishing
+    1. **Ultrathink: Workflow planning and execution strategy**
+       - Use sequential thinking to analyze $ARGUMENTS implementation scope and plan comprehensive workflow strategy
+       - Break down workflow elements: task breakdown, dependency mapping, milestone planning, team coordination, risk management
+       - Consider workflow methodologies: agile planning, critical path analysis, parallel development, quality gates, progress tracking
+       - Plan systematic workflow development sequence ensuring realistic timelines and efficient execution
 
-    2. **Workflow pattern recognition**
-       - Match detected context to common development scenarios
-       - Consider project state: new repo, active development, code review, production issues
-       - Identify logical next steps based on established workflow patterns
-       - Reference available commands that fit the current situation
+    2. **Workflow scope and milestone planning**
+       - Verify $ARGUMENTS is provided (feature or implementation scope required)
+       - If no argument provided, show error: "Please specify feature for workflow planning (e.g., 'payment integration', 'user dashboard redesign')"
+       - Break down synthesized implementation plan into discrete, manageable tasks
+       - Define clear milestones with deliverables and validation criteria
+       - Identify task dependencies and critical path for implementation
+       - Plan parallel development opportunities and team coordination points
 
-    3. **Command recommendation and guidance**
-       - Suggest 1-3 most appropriate next commands with clear rationale
-       - Provide workflow sequence examples for the detected scenario
-       - Include brief explanations of why each command fits the current context
-       - Show common command combinations and their typical flow patterns
+    3. **Detailed task specification and sequencing**
+       - Create specific, actionable tasks with clear acceptance criteria
+       - Sequence tasks to minimize blocking dependencies and maximize parallel work
+       - Define validation checkpoints and quality gates for each milestone
+       - Specify required tools, environments, and resources for each task
+       - Plan code review points and collaboration touchpoints
+       - Identify risk mitigation strategies and contingency plans
+
+    4. **Workflow documentation and team coordination**
+       - Document complete workflow with task ownership and timelines
+       - Create workflow visualization with dependencies and critical path
+       - Plan communication cadence and progress tracking mechanisms
+       - Define escalation paths and decision-making processes
+       - Prepare workflow for team review and refinement
+       - Connect workflow to appropriate command sequences for execution
   </execution>
 
   <validation>
-    - [ ] Current development phase accurately detected from project context
-    - [ ] Workflow pattern correctly matched to available commands
-    - [ ] 1-3 specific command recommendations provided with clear rationale
-    - [ ] Each suggestion includes explanation of why it fits current context
-    - [ ] Common workflow sequences shown for detected scenario
-    - [ ] Guidance helps user understand logical next steps without overwhelming choice
-    - [ ] Recommendations follow established development workflow best practices
+    - [ ] Feature scope clearly defined and implementation plan reviewed
+    - [ ] Complex implementation broken down into manageable, discrete tasks
+    - [ ] Clear milestones with deliverables and validation criteria defined
+    - [ ] Task dependencies and critical path identified
+    - [ ] Parallel development opportunities and team coordination planned
+    - [ ] Specific acceptance criteria and quality gates specified
+    - [ ] Risk mitigation strategies and contingency plans included
+    - [ ] Complete workflow documentation with visualization created
+    - [ ] Team coordination and communication processes defined
   </validation>
+
+  <workflow>
+    **Prerequisites for workflow planning:**
+    - `/plan:synthesis` - Technical decisions and implementation approach finalized
+    - `/research:*` - All necessary research completed and consolidated
+    - `/plan:requirements` - Clear requirements and constraints defined
+
+    **After workflow creation:**
+    - Team review and workflow refinement
+    - Begin implementation using defined task sequence
+    - `/implement:*` commands guided by workflow task specifications
+    - Progress tracking and milestone validation
+  </workflow>
 
   <examples>
     ```bash
-    # Auto-detect current workflow context
-    /plan:workflow
+    # Create workflow for complex feature implementation
+    /plan:workflow "payment processing integration"
 
-    # Process: analyze git status → detect phase → match patterns → suggest commands
-    # Result: Contextual command suggestions based on current project state
+    # Process: analyze synthesis → break into tasks → sequence → document → coordinate
+    # Result: Detailed implementation workflow with milestones and team coordination
     ```
 
     ```bash
-    # Specify workflow context for targeted guidance
-    /plan:workflow feature
+    # Example: E-commerce checkout workflow
+    /plan:workflow "checkout flow redesign"
 
-    # Process: feature development context → identify appropriate commands → provide sequence
-    # Result: Feature development workflow with logical command progression
-    ```
-
-    ```bash
-    # Example output for active development
-    # Current context: Feature branch with uncommitted changes
-    # Suggested workflow:
-    # 1. /validate:code changes - Verify code quality before commit
-    # 2. /validate:tests changes - Ensure tests pass for modifications
-    # 3. /finalize:commit - Create atomic commits with clear messages
-    # Next: /finalize:pr when feature complete
+    # Process includes:
+    # - Milestone 1: Backend API design and implementation (3 tasks)
+    # - Milestone 2: Frontend component development (5 tasks, parallel)
+    # - Milestone 3: Integration and testing (4 tasks, sequential)
+    # - Milestone 4: Performance optimization and deployment (2 tasks)
+    # - Risk mitigation: Payment gateway fallback, user experience testing
+    # - Team coordination: Daily standups, code review checkpoints
     ```
 
   </examples>

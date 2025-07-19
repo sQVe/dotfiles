@@ -12,7 +12,13 @@
   </requirements>
 
   <execution>
-    1. **Validate and consolidate findings**
+    1. **Ultrathink: Synthesis and decision-making strategy**
+       - Use sequential thinking to analyze $ARGUMENTS synthesis scope and plan comprehensive consolidation approach
+       - Break down synthesis areas: research findings, technical decisions, implementation approaches, trade-off analysis
+       - Consider synthesis methodologies: information consolidation, decision frameworks, roadmap planning, risk assessment
+       - Plan systematic synthesis sequence ensuring thorough analysis and informed decision-making
+
+    2. **Validate and consolidate findings**
        - Verify $ARGUMENTS is provided (topic to synthesize required)
        - If no argument provided, show error: "Please specify what to synthesize (e.g., 'payment integration plan')"
        - Review and consolidate research from external documentation
@@ -20,13 +26,13 @@
        - Combine requirement gathering results and constraints
        - Identify any gaps or conflicting information
 
-    2. **Decision and trade-off analysis**
+    3. **Decision and trade-off analysis**
        - Evaluate different implementation approaches and their trade-offs
        - Make specific technical decisions based on research findings
        - Document rationale for chosen approaches over alternatives
        - Consider long-term maintainability and scalability implications
 
-    3. **Implementation roadmap creation**
+    4. **Implementation roadmap creation**
        - Create step-by-step implementation guidance
        - Identify potential risks and mitigation strategies
        - Prepare reference list of useful documentation and examples
@@ -52,7 +58,6 @@
     - `/implement:*` - Begin implementation using the synthesized plan
     - `/plan:workflow` - Create detailed workflow if complex implementation
     - `/finalize:memory` - Document key decisions for future reference
-
   </workflow>
 
   <examples>

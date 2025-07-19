@@ -1,45 +1,69 @@
-# Resolve ad-hoc problems from natural language descriptions
+# Resolve problems from descriptions or tracked issues
 
 <instructions>
   <context>
-    Implement a solution for the described problem $ARGUMENTS by analyzing the issue and making focused code changes.
+    Implement a solution for the described problem or tracked issue $ARGUMENTS by analyzing the issue and making focused code changes.
   </context>
 
   <requirements>
-    - Clear problem description or symptoms
-    - Access to relevant codebase areas
+    - Clear problem description, symptoms, or GitHub/Linear issue identifier
+    - Access to relevant codebase areas and issue tracking systems
     - Development environment for making code changes
-    - Debugging tools to investigate the problem
+    - Debugging tools to investigate and reproduce the problem
     - Testing capabilities to verify the solution
   </requirements>
 
   <execution>
-    1. **Validate and understand the problem**
-       - Verify $ARGUMENTS is provided (problem description required)
-       - If no argument provided, show error: "Please specify problem to resolve (e.g., 'login button not working on mobile')"
-       - Analyze the problem description $ARGUMENTS
-       - Investigate the codebase to understand the issue
-       - Reproduce the problem if possible through debugging
+    1. **Ultrathink: Problem resolution strategy**
+       - Use sequential thinking to analyze $ARGUMENTS problem scope and plan comprehensive resolution approach
+       - Break down resolution process: problem understanding, root cause analysis, solution design, implementation, testing
+       - Consider problem types: bug fixes, feature issues, integration problems, performance concerns
+       - Plan systematic resolution sequence prioritizing understanding, targeted fixes, and thorough validation
 
-    2. **Design and implement solution**
-       - Design targeted changes that address the problem
+    2. **Validate and understand the problem**
+       - Verify $ARGUMENTS is provided (problem description or issue ID required)
+       - If no argument provided, show error: "Please specify problem to resolve (e.g., 'login button not working', '#123', 'LIN-456')"
+       - If $ARGUMENTS looks like an issue ID (starts with # or contains LIN-), fetch issue details from GitHub/Linear
+       - Analyze the problem description or issue details
+       - Reproduce the problem using provided steps or investigation
+       - Investigate the codebase to understand the root cause
+
+    3. **Design and implement targeted solution**
+       - Identify root cause through debugging and code analysis
+       - Design targeted changes that address the underlying problem
        - Make focused code changes following project patterns
        - Include appropriate error handling and documentation
 
-    3. **Verify the solution**
-       - Test that the problem is resolved
-       - Ensure no regressions introduced
-       - Validate the fix works as expected
+    4. **Verify the solution thoroughly**
+       - Verify the original problem is resolved through testing
+       - Test that the fix works in the reported conditions
+       - Ensure no regressions introduced in existing functionality
+       - Confirm the solution works in realistic scenarios
   </execution>
 
   <validation>
-    - [ ] Problem description understood and investigated
-    - [ ] Root cause identified through analysis
-    - [ ] Solution addresses the underlying problem
+    - [ ] Problem description or issue details understood and investigated
+    - [ ] Issue reproduced and root cause identified through analysis
+    - [ ] Solution addresses the underlying problem, not just symptoms
     - [ ] Code changes are focused and follow project patterns
-    - [ ] Problem is resolved through testing
+    - [ ] Original problem is resolved through testing
+    - [ ] Fix works in conditions similar to the reported issue
     - [ ] No regressions introduced in existing functionality
   </validation>
+
+  <workflow>
+    **Problem resolution workflow:**
+    - `/debug:reproduce` - Reproduce the issue first (recommended)
+    - `/debug:analyze` - Understand root cause through systematic analysis
+    - `/research:codebase` - Study existing patterns for consistent implementation
+    - `/implement:resolve` - Implement targeted solution (current)
+    - `/validate:code` - Run automated quality checks on changes
+    - `/validate:tests` - Ensure tests cover the fix and prevent regression
+    - `/validate:functionality` - Manually verify the fix works in realistic scenarios
+
+    **Prerequisites:** Clear problem understanding (issue ID or description)
+    **Next steps:** Validation workflow, then `/finalize:commit`
+  </workflow>
 
   <examples>
     ```bash
@@ -48,6 +72,22 @@
 
     # Process: understand problem → investigate code → implement solution → verify fix
     # Result: Targeted code changes that resolve the described issue
+    ```
+
+    ```bash
+    # Resolve GitHub issue
+    /implement:resolve "#923"
+
+    # Process: fetch issue details → reproduce problem → implement solution → validate fix
+    # Result: Targeted code changes that resolve the tracked issue
+    ```
+
+    ```bash
+    # Resolve Linear issue
+    /implement:resolve "LIN-456"
+
+    # Process: fetch Linear issue → analyze problem → implement solution → verify fix
+    # Result: Focused implementation that addresses the tracked issue
     ```
 
     ```bash
