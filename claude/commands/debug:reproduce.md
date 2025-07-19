@@ -34,7 +34,6 @@
        - Capture detailed logs and environmental factors for debugging
        - Update issue tracker with comprehensive reproduction results
        - Provide clear confirmation and suggest next steps for resolution
-
   </execution>
 
   <validation>

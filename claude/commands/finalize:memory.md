@@ -30,7 +30,6 @@
        - Use standard format: ## [Scope] - [Date] [Time], followed by structured sections
        - Include sections: Context, Key Decisions, Implementation Patterns, Lessons Learned, Next Steps
        - Format for searchability with clear headings and consistent structure
-
   </execution>
 
   <validation>

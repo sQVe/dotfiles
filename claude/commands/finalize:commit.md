@@ -24,7 +24,6 @@
     3. **Create commits**
        - Create one commit per logical change
        - Review git history for clean progression
-
   </execution>
 
   <validation>

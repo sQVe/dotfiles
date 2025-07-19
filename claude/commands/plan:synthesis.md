@@ -31,7 +31,6 @@
        - Identify potential risks and mitigation strategies
        - Prepare reference list of useful documentation and examples
        - Define success criteria and validation approaches
-
   </execution>
 
   <validation>

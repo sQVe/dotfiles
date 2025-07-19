@@ -30,7 +30,6 @@
        - Provide workflow sequence examples for the detected scenario
        - Include brief explanations of why each command fits the current context
        - Show common command combinations and their typical flow patterns
-
   </execution>
 
   <validation>

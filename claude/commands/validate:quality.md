@@ -31,7 +31,6 @@
        - Review resource usage patterns against current best practices
        - Assess logging, monitoring, and debugging capabilities with current observability standards
        - Identify performance bottlenecks using latest optimization patterns
-
   </execution>
 
   <validation>

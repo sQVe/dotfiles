@@ -30,7 +30,6 @@
        - Test that the problem is resolved
        - Ensure no regressions introduced
        - Validate the fix works as expected
-
   </execution>
 
   <validation>

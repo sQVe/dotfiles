@@ -34,7 +34,6 @@
        - Verify that code is more readable and maintainable than before
        - Confirm that future changes will be easier to implement
        - Validate that technical debt has been reduced without introducing new issues
-
   </execution>
 
   <validation>

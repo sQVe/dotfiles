@@ -34,7 +34,6 @@
        - Verify links are functional and point to correct destinations
        - Assess readability and accessibility for different audience levels
        - Check for consistent formatting of code examples and technical terms
-
   </execution>
 
   <validation>

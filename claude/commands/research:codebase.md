@@ -31,7 +31,6 @@
        - Analyze performance optimization techniques already implemented
        - Review documentation patterns and comment conventions
        - Identify code quality standards and linting configurations
-
   </execution>
 
   <validation>
