@@ -43,7 +43,6 @@
     **Next steps:** After committing, consider:
     - `/finalize:pr` - Create pull request for code review
     - `/finalize:memory` - Document implementation decisions and context
-
   </workflow>
 
   <examples>

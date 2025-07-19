@@ -42,6 +42,19 @@
     - [ ] Specific recommendations provided for coverage improvements
   </validation>
 
+  <workflow>
+    **Part of validation workflow:**
+    1. `/validate:code` - Automated linting, formatting, type checking
+    2. `/validate:tests` - Test execution and coverage analysis (current)
+    3. `/validate:functionality` - Manual user workflow verification
+    4. `/validate:security` - Security validation if needed
+    5. `/finalize:commit` - Create clean commits after validation
+
+    **Prerequisites:** Code changes made, tests written
+    **Next steps:** Address test failures and coverage gaps, continue validation
+    **Best practices:** Run after each significant code change
+  </workflow>
+
   <examples>
     ```bash
     # Test only modified areas

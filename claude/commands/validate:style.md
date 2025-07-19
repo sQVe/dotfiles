@@ -46,6 +46,19 @@
     - [ ] Manual style compliance summary provided with specific guideline references
   </validation>
 
+  <workflow>
+    **Part of validation workflow:**
+    1. `/validate:code` - Automated linting, formatting, type checking
+    2. `/validate:tests` - Test execution and coverage analysis
+    3. `/validate:functionality` - Manual user workflow verification
+    4. `/validate:style` - Manual guideline compliance check (current)
+    5. `/finalize:commit` - Create clean commits after validation
+
+    **Prerequisites:** Code changes made, automated validation completed
+    **Next steps:** Address style violations, proceed to commit
+    **Complements:** `/validate:code` for automated style checks that tools can catch
+  </workflow>
+
   <examples>
     ```bash
     # Validate manual style guidelines for specific component

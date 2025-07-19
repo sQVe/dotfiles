@@ -55,7 +55,6 @@
     **If reproduction fails:**
     - `/research:codebase` - Analyze existing patterns to understand expected behavior
     - `/research:external` - Research documentation for proper usage patterns
-
   </workflow>
 
   <examples>

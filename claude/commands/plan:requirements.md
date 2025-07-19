@@ -43,6 +43,20 @@
     - [ ] Testing and validation strategy outlined
   </validation>
 
+  <workflow>
+    **Part of planning workflow:**
+    - `/plan:init` - Initialize project or feature setup (optional)
+    - `/plan:requirements` - Gather and clarify requirements (current)
+    - `/research:codebase` - Understand existing patterns and constraints
+    - `/research:external` - Research best practices and documentation
+    - `/plan:synthesis` - Synthesize findings into implementation plan
+    - `/plan:workflow` - Create detailed workflow for complex features
+
+    **Prerequisites:** Clear feature or problem description
+    **Next steps:** Research phase to gather technical information
+    **Critical for:** Avoiding scope creep and ensuring complete understanding
+  </workflow>
+
   <examples>
     ```bash
     # Gather requirements for new feature

@@ -36,6 +36,18 @@
     - [ ] Current codebase state and context clearly communicated
   </validation>
 
+  <workflow>
+    **Project onboarding workflow:**
+    - `/research:prime` - Get comprehensive project overview (current)
+    - `/research:codebase` - Deep dive into specific areas of interest
+    - `/research:dependencies` - Understand dependency landscape
+    - `/plan:requirements` - Begin feature or issue work
+
+    **Prerequisites:** Access to project repository and documentation
+    **Next steps:** Focused research on specific areas or begin planning
+    **Best timing:** New project onboarding, returning to inactive project
+  </workflow>
+
   <examples>
     ```bash
     # Standard project context gathering

@@ -46,6 +46,19 @@
     - [ ] Follow-up workflow recommendations provided for continued development
   </validation>
 
+  <workflow>
+    **Initialization workflow:**
+    - `/plan:init` - Set up new work scenario with comprehensive planning (current)
+    - `/research:dependencies` - Analyze required tools and dependencies if needed
+    - `/research:prime` - Gather project context for contributor onboarding
+    - `/plan:requirements` - Define specific requirements for the initialized work
+    - Begin implementation with appropriate commands based on initialization type
+
+    **Prerequisites:** Clear initialization goal or scenario defined
+    **Next steps:** Follow initialization plan with specific implementation commands
+    **Best timing:** Beginning of new projects, contributor onboarding, major feature starts
+  </workflow>
+
   <examples>
     ```bash
     # Initialize new contributor onboarding

@@ -46,7 +46,6 @@
     **Related commands:**
     - `/validate:quality` - Additional code quality analysis
     - `/finalize:memory` - Document decisions for future reference
-
   </workflow>
 
   <examples>

@@ -49,7 +49,6 @@
 
     **Prerequisites:** Run after making code changes but before committing
     **Next steps:** Continue with test validation or proceed to commit if all checks pass
-
   </workflow>
 
   <examples>

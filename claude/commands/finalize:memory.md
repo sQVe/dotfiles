@@ -42,6 +42,18 @@
     - [ ] Next steps formatted as actionable items for continuing work
   </validation>
 
+  <workflow>
+    **Memory documentation workflow:**
+    - Complete work session or reach natural stopping point
+    - `/finalize:memory` - Document session context and decisions (current)
+    - Use memory documentation to resume work efficiently
+    - Reference MEMORY.md when returning to project after time away
+
+    **Prerequisites:** Completed work session with decisions and implementations
+    **Next steps:** Resume work using documented context
+    **Best timing:** End of work sessions, major implementation milestones, before switching projects
+  </workflow>
+
   <examples>
     ```bash
     # Document current work session state and decisions
