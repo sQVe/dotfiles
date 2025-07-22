@@ -7,7 +7,7 @@
 
   <requirements>
     - Git repository with commit history
-    - Project documentation files (README, CLAUDE.md, etc.)
+    - Project documentation files (README.md, CLAUDE.md, MEMORY.md, etc.)
     - Access to file system for structure analysis
   </requirements>
 

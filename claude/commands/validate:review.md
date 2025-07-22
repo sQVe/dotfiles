@@ -15,6 +15,7 @@
   <execution>
     1. **Quick analysis: Review scope and comprehensive strategy**
        - Analyze $ARGUMENTS changes scope and identify thorough review strategy
+       - Assess proportionality of review scope to project size and risk level
        - Plan review areas: code quality, architecture, performance, bug prevention, best practices
        - Determine optimal review sequence for comprehensive assessment
 
@@ -29,11 +30,13 @@
        - Identify refactoring opportunities for simplification
        - Suggest architectural improvements and pattern applications
        - Recommend performance optimizations where beneficial
+       - Consider complexity vs. benefit ratio - avoid suggesting changes that add disproportionate complexity
        - Propose bug prevention and robustness improvements
        - Document best practice violations and corrections
 
     4. **Final recommendations**
-       - Prioritize improvements by impact and effort
+       - Prioritize improvements by impact and effort, avoiding overkill solutions
+       - Consider maintenance burden and long-term complexity of suggested changes
        - Provide actionable recommendations with rationale
        - Suggest commit readiness or required changes
        - Document key insights for future development
@@ -47,6 +50,7 @@
     - [ ] Bug prevention opportunities identified
     - [ ] Best practice violations documented with fixes
     - [ ] Refactoring opportunities assessed and prioritized
+    - [ ] Recommendations are proportionate to scope and avoid unnecessary complexity
     - [ ] Actionable improvement recommendations provided
   </validation>
 
@@ -107,6 +111,9 @@
     # 1. HIGH: Add input validation to prevent security issues
     # 2. MEDIUM: Refactor validateUser() to reduce complexity
     # 3. LOW: Consider caching optimization for better performance
+    # 
+    # Note: Avoided suggesting comprehensive security audit of all external files
+    # (would be overkill for this component's scope and risk level)
     ```
 
   </examples>

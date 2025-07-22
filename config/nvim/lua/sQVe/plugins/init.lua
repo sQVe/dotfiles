@@ -27,4 +27,10 @@ return {
     config = true,
     dev = true,
   },
+
+  {
+    'sQVe/monava.nvim',
+    config = true,
+    dev = true,
+  },
 }

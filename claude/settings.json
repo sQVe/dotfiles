@@ -70,6 +70,7 @@
       "Task(**)",
       "TodoRead()",
       "TodoWrite(**)",
+      "WebFetch(domain:api.github.com)",
       "WebFetch(domain:docs.anthropic.com)",
       "WebFetch(domain:gist.github.com)",
       "WebFetch(domain:github.com)",
