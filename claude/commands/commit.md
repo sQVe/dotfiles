@@ -12,7 +12,11 @@ You are helping create clean, atomic git commits with meaningful messages. Follo
 
 1. **Prepare changes** by reviewing current state and grouping related modifications into logical units
 
-2. **Create conventional commits** with appropriate staging and meaningful messages explaining why
+2. **Create conventional commits** using the guidelines from `claude/templates/commit-template.md`:
+   - Use conventional commit format: `type: description`
+   - Focus on "why" rather than "what" in commit messages
+   - Ensure each commit represents one logical, atomic change
+   - Stage appropriate files for each commit
 
 3. **Verify commit history** ensuring clean progression and no uncommitted changes
 
