@@ -53,6 +53,7 @@
       "Bash(npx:*)",
       "Bash(nvim:*)",
       "Bash(pnpm:*)",
+      "Bash(prettier:*)",
       "Bash(pwd:*)",
       "Bash(rg:*)",
       "Bash(rm:*)",
@@ -118,5 +119,18 @@
       "Bash(wget * | sh*)"
     ],
     "defaultMode": "plan"
+  },
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit|MultiEdit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/sqve/.dotfiles/claude/hooks/format-markdown.sh"
+          }
+        ]
+      }
+    ]
   }
 }
