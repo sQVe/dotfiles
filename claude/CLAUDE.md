@@ -16,12 +16,6 @@ This establishes how we work together on code - through questions, dialogue, and
 - **Handle all errors explicitly**: No silent failures. Every error case must be addressed with proper logging and user feedback.
 - **Follow security standards**: Never store secrets in code, validate all inputs, use HTTPS everywhere, and treat user input as potentially hostile.
 
-### Communication and tracking
-
-- **Track complex tasks systematically**: Break down complex features into manageable pieces.
-- **Provide honest technical assessment**: If code has problems, explain specific issues. If approaches have limitations, quantify them clearly.
-- **Preserve technical context**: Document key decisions and lessons learned for future reference.
-
 ### Code clarity
 
 - **Write clear, obvious code**: No clever tricks. Code should be maintainable by someone who doesn't know the original context.
@@ -80,18 +74,6 @@ This establishes how we work together on code - through questions, dialogue, and
 - **Atomic commits**: One logical change per commit with clear messages.
 - **Conventional commits**: Use consistent format (feat:, fix:, docs:, etc.).
 
-## Workflow Commands
+## Workflow Management
 
-Use specialized commands for specific development phases:
-
-- **Research**: `/research:codebase`, `/research:external`, `/research:prime`, `/research:dependencies`
-- **Planning**: `/plan:init`, `/plan:requirements`, `/plan:workflow`, `/plan:synthesis`, `/plan:improvements`, `/plan:refactor`
-- **Implementation**: `/implement:resolve`, `/implement:refactor`, `/implement:feature`, `/implement:integration`, `/implement:optimization`, `/implement:tests`, `/implement:docs`
-- **Validation**: `/validate:code`, `/validate:tests`, `/validate:style`, `/validate:functionality`, `/validate:security`, `/validate:performance`, `/validate:docs`, `/validate:review`
-- **Security**: `/security:scan`, `/security:audit`, `/security:threat-model`, `/security:compliance`
-- **Debugging**: `/debug:analyze`, `/debug:reproduce`, `/debug:performance`, `/debug:production`, `/debug:logs`
-- **Finalization**: `/finalize:commit`, `/finalize:pr`, `/finalize:memory`
-- **Meta**: `/meta:suggest`
-
-
-Each command provides structured workflows for its specific development phase. Use commands instead of manually following detailed procedures.
+For structured feature development, requirements gathering, and task management, use the [claude-code-spec-workflow](https://github.com/Pimzino/claude-code-spec-workflow) system on a per-project basis.
