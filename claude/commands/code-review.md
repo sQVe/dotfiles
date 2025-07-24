@@ -35,6 +35,7 @@ You are helping conduct a thorough code review. Follow these steps:
 ### **Testing & Documentation:**
 - Test coverage and quality of test cases
 - Missing or outdated inline documentation
+- Comments only when code cannot be made self-explanatory
 - Comments explain "why" not "what" and end with periods
 - Edge case and error scenario coverage
 
