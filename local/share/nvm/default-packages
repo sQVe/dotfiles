@@ -2,6 +2,7 @@
 @ast-grep/cli
 @biomejs/biome
 @fsouza/prettierd
+@pimzino/claude-code-spec-workflow
 @vtsls/language-server
 bash-language-server
 ccusage
