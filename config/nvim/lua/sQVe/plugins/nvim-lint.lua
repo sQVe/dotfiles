@@ -14,6 +14,12 @@ local M = {
 
     -- shellcheck.
     'sh',
+
+    -- eslint.
+    'javascript',
+    'javascriptreact',
+    'typescript',
+    'typescriptreact',
   },
 }
 
@@ -26,7 +32,11 @@ M.config = function()
 
   lint.linters_by_ft = {
     go = { 'golangcilint' },
+    javascript = { 'eslint' },
+    javascriptreact = { 'eslint' },
     sh = { 'shellcheck' },
+    typescript = { 'eslint' },
+    typescriptreact = { 'eslint' },
   }
 
   autocmd({ 'BufWritePost', 'BufReadPost', 'InsertLeave' }, {
