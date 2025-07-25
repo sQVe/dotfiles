@@ -47,6 +47,11 @@ local M = {
     -- yamlls
     'yaml',
 
+    -- gdscript
+    'gd',
+    'gdscript',
+    'gdscript3',
+
     -- biome and vtsls
     'javascript',
     'javascriptreact',
@@ -111,6 +116,7 @@ M.config = function()
         },
       },
     }),
+    gdscript = server_setup,
     gopls = utils.create_server_setup({
       on_attach = on_attach,
       settings = {
