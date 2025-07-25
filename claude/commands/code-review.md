@@ -3,12 +3,14 @@
 Perform comprehensive code review analyzing quality, architecture, performance, and improvement opportunities.
 
 ## Usage
+
 ```
 /code-review <code-changes-or-component>
 ```
 
 ## Instructions
-You are helping conduct a thorough code review. Follow these steps:
+
+You are helping conduct a thorough code review. **Adhere to the guidelines specified below in your review.** Follow these steps:
 
 1. **Analyze the provided code/changes** for scope, quality, architecture, and potential issues
 
@@ -19,6 +21,7 @@ You are helping conduct a thorough code review. Follow these steps:
 ## Guidelines
 
 ### **Review Focus Areas:**
+
 - Code clarity and unnecessary complexity
 - Code smells, anti-patterns, and potential bugs
 - Separation of concerns and component coupling
@@ -26,6 +29,7 @@ You are helping conduct a thorough code review. Follow these steps:
 - Premature optimization and excessive abstraction layers
 
 ### **Security & Quality:**
+
 - Security vulnerabilities and input validation issues
 - Performance bottlenecks and optimization opportunities
 - Race conditions and edge cases
@@ -33,6 +37,7 @@ You are helping conduct a thorough code review. Follow these steps:
 - System scalability impact
 
 ### **Testing & Documentation:**
+
 - Test coverage and quality of test cases
 - Missing or outdated inline documentation
 - Comments only when code cannot be made self-explanatory
@@ -40,6 +45,7 @@ You are helping conduct a thorough code review. Follow these steps:
 - Edge case and error scenario coverage
 
 ## Examples
+
 ```bash
 # Review all modified files
 /code-review "changes"

@@ -3,12 +3,14 @@
 Execute automated code quality tools and validate manual style compliance against project guidelines.
 
 ## Usage
+
 ```
 /code-quality <code-target>
 ```
 
 ## Instructions
-You are helping validate code quality through automated tools and manual review. Follow these steps:
+
+You are helping validate code quality through automated tools and manual review. **Adhere to the guidelines specified below in your validation.** Follow these steps:
 
 1. **Execute automated validation** using formatting, linting, type checking, and build verification
 
@@ -19,6 +21,7 @@ You are helping validate code quality through automated tools and manual review.
 ## Guidelines
 
 ### **Code Standards:**
+
 - Comments end with periods
 - Use descriptive names that explain purpose
 - Prefer pure functions over stateful code
@@ -28,11 +31,13 @@ You are helping validate code quality through automated tools and manual review.
 - Explicit error handling - no silent failures
 
 ### **Technical Requirements:**
+
 - All linting and type checking must pass
 - Consistent formatting per project standards
 - No console.log or debug statements in production
 
 ## Examples
+
 ```bash
 # Validate specific directory
 /code-quality src/components/
