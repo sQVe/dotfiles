@@ -186,6 +186,17 @@ M.file_history_buffer_path = {
   end,
 }
 
+M.find_all_files = {
+  callback = function()
+    Snacks.picker.files({
+      hidden = true,
+      ignored = true,
+      follow = true,
+    })
+  end,
+  name = 'Find all files (including ignored)',
+}
+
 M.find_files = {
   callback = function()
     Snacks.picker.files({

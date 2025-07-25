@@ -28,6 +28,7 @@ local default_commands = {
   commands.file_explorer,
   commands.file_history,
   commands.file_history_buffer_path,
+  commands.find_all_files,
   commands.find_files,
   commands.find_files_in_subdirectory,
   commands.git_browse,
