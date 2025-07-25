@@ -75,7 +75,12 @@ M.config = function()
     --   Neovim plugin development (neodev)
 
     bashls = server_setup,
-    biome = server_setup,
+    biome = utils.create_server_setup({
+      on_attach = on_attach,
+      root_dir = utils.create_root_dir_handler({
+        rootFiles = { 'biome.json', 'biome.jsonc' },
+      }),
+    }),
     ccls = server_setup,
     cssls = utils.create_server_setup({
       on_attach = on_attach,
