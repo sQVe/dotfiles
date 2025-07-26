@@ -16,19 +16,24 @@ You are helping create a structured threat model for defensive security purposes
    - Load and review the global CLAUDE.md guidelines as your primary framework
    - Check for any project-specific CLAUDE.md that might override or extend the global guidelines
 
-2. **Decompose system architecture and assets**
+2. **Strategic threat modeling analysis**
+   - Use ultrathink analysis to map system architecture and identify trust boundaries, guiding all subsequent steps
+   - Focus on high-value attack targets: authentication, sensitive data, privileged operations
+   - Apply STRIDE methodology systematically to uncover realistic threat scenarios
+
+3. **Decompose system architecture and assets**
    - Map system components, services, and infrastructure elements
    - Identify data flows, communication channels, and integration points
    - Define trust boundaries between internal and external systems
    - Catalog critical assets: data, processes, and system components
 
-3. **Identify entry points and attack surface**
+4. **Identify entry points and attack surface**
    - Document user interfaces, APIs, and network services
    - Map authentication mechanisms and access control points
    - Identify external dependencies and third-party integrations
    - Analyze data storage locations and transmission paths
 
-4. **Apply STRIDE threat analysis**
+5. **Apply STRIDE threat analysis**
    - **Spoofing**: Identity bypass, credential theft, impersonation
    - **Tampering**: Data integrity compromise, unauthorized modifications, code injection
    - **Repudiation**: Audit trail gaps, non-repudiation controls, logging weaknesses
@@ -36,19 +41,19 @@ You are helping create a structured threat model for defensive security purposes
    - **Denial of Service**: Availability disruption, resource exhaustion, system overload
    - **Elevation of Privilege**: Access escalation, authorization bypass, privilege abuse
 
-5. **Assess risk and impact levels**
+6. **Assess risk and impact levels**
    - Evaluate threat likelihood based on attack complexity and attacker motivation
    - Assess potential impact on confidentiality, integrity, and availability
    - Calculate risk scores using likelihood and impact matrices
    - Prioritize threats based on business impact and exploitability
 
-6. **Design comprehensive mitigation strategies**
+7. **Design comprehensive mitigation strategies**
    - **Preventive controls**: Input validation, authentication, authorization, encryption
    - **Detective controls**: Monitoring, logging, intrusion detection, anomaly detection
    - **Corrective controls**: Incident response, automated remediation, failover
    - **Compensating controls**: Additional safeguards when primary controls insufficient
 
-7. **Generate comprehensive threat model report**
+8. **Generate comprehensive threat model report**
    - Organize findings by severity: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`
    - Include threat scenarios: Attack vectors and exploitation methods
    - Document system diagrams: Architecture maps with trust boundaries and data flows

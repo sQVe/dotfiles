@@ -16,7 +16,12 @@ You are helping create clean, atomic git commits with meaningful messages.
    - Review current git state
    - Group related modifications into logical units
 
-2. **Create commits**
+2. **Strategic commit analysis**
+   - Use ultrathink analysis to group related changes into atomic, logical units, guiding all subsequent steps
+   - Identify the business motivation and technical rationale behind each change
+   - Structure commit messages to communicate both what changed and why it matters
+
+3. **Create commits**
    - Use conventional commit format
    - Commit description should capture both "what" and "why"
    - Commit body should be used for complex changes or non-obvious reasons
@@ -24,12 +29,12 @@ You are helping create clean, atomic git commits with meaningful messages.
    - Stage appropriate files for each commit
    - Use [commit template](../templates/commit-template.md) for commit format.
 
-3. **Approval Process**
+4. **Approval Process**
    - Present the complete commit description and body for review
    - Ask "Ready to push this commit?" and wait for explicit confirmation
    - Make revisions based on feedback before proceeding
 
-4. **Verify commit history**
+5. **Verify commit history**
    - Ensure clean progression and no uncommitted changes
 
 ## Examples

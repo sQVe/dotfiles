@@ -16,29 +16,34 @@ You are helping investigate a technical problem through systematic analysis and 
    - Load and review the global CLAUDE.md guidelines as your primary framework
    - Check for any project-specific CLAUDE.md that might override or extend the global guidelines
 
-2. **Define investigation scope and context**
+2. **Strategic investigation analysis**
+   - Use ultrathink analysis to form testable hypotheses about root causes, guiding all subsequent steps
+   - Map symptom patterns to system components and recent changes
+   - Prioritize investigation paths by likelihood and evidence availability
+
+3. **Define investigation scope and context**
    - Understand the reported issue symptoms and impact
    - Identify affected systems, users, and timeframes
    - Gather initial context about recent changes, deployments, or configuration updates
 
-3. **Collect evidence and diagnostic data**
+4. **Collect evidence and diagnostic data**
    - **System logs**: Review application, error, and system logs for relevant timeframes
    - **Monitoring data**: Analyze metrics, performance data, health check results
    - **Environment analysis**: Check config files, environment variables, system state
    - **User reports**: Gather symptoms, reproduction steps, user impact details
 
-4. **Analyze patterns and correlations**
+5. **Analyze patterns and correlations**
    - **Timeline reconstruction**: Map events chronologically to identify triggers
    - **Pattern identification**: Look for recurring errors, anomalies, behavioral changes
    - **Correlation analysis**: Connect symptoms across system components
    - **Hypothesis formation**: Develop testable theories about root causes
 
-5. **Test hypotheses and validate findings**
+6. **Test hypotheses and validate findings**
    - **Reproduce issues**: Attempt to recreate the problem in controlled environments
    - **Isolate variables**: Test individual components to narrow down the root cause
    - **Verify fixes**: Test potential solutions against the identified root cause
 
-6. **Generate comprehensive investigation report**
+7. **Generate comprehensive investigation report**
    - Organize findings by severity: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`
    - Include evidence summary: Key logs, metrics, diagnostic data supporting conclusions
    - Document root cause: Specific technical explanation of what caused the issue

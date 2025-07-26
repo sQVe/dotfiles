@@ -16,32 +16,37 @@ You are helping conduct a thorough security assessment for defensive purposes on
    - Load and review the global CLAUDE.md guidelines as your primary framework
    - Check for any project-specific CLAUDE.md that might override or extend the global guidelines
 
-2. **Define security audit scope and baseline**
+2. **Strategic security audit analysis**
+   - Use ultrathink analysis to map attack surface and identify high-risk components, guiding all subsequent steps
+   - Prioritize assessment areas by threat exposure: public endpoints, privileged access, sensitive data
+   - Focus on exploitable vulnerabilities that could lead to actual security breaches
+
+3. **Define security audit scope and baseline**
    - Identify systems, applications, and components to assess
    - Understand current security controls and architecture
    - Gather existing security documentation and previous audit reports
    - Establish security requirements and compliance standards
 
-3. **Execute automated security scanning**
+4. **Execute automated security scanning**
    - **Static analysis (SAST)**: Scan source code for vulnerabilities and coding flaws
    - **Dependency scanning**: Check for known vulnerabilities in third-party libraries
    - **Configuration analysis**: Review security configs, environment variables, deployment settings
    - **Infrastructure scanning**: Assess network security, server configs, cloud security posture
 
-4. **Perform manual security analysis**
+5. **Perform manual security analysis**
    - **Authentication and authorization**: Review access controls, session management, privilege escalation
    - **Input validation**: Analyze data sanitization, injection prevention, output encoding
    - **Cryptographic implementation**: Assess encryption usage, key management, secure protocols
    - **API security**: Evaluate endpoint security, rate limiting, authentication, data exposure
 
-5. **Assess OWASP Top 10 vulnerabilities**
+6. **Assess OWASP Top 10 vulnerabilities**
    - **Injection flaws**: SQL, NoSQL, OS command, LDAP injection
    - **Broken authentication**: Session management, credential storage, MFA
    - **Sensitive data exposure**: Encryption, secure transmission, data classification
    - **Security misconfiguration**: Default configs, unnecessary features, error handling
    - **Cross-site scripting (XSS)**: Input sanitization, output encoding, CSP
 
-6. **Generate comprehensive security report**
+7. **Generate comprehensive security report**
    - Organize findings by severity: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`
    - Include vulnerability details: Locations, attack vectors, potential impact
    - Document security gaps: Missing controls, config weaknesses, architectural flaws
