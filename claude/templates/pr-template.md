@@ -8,11 +8,13 @@ Use this template when creating pull requests to ensure consistent, clear docume
 [Brief description of what this PR accomplishes]
 
 #### Changes
+
 - [Describe key changes made]
 - [Include technical implementation details]
 - [Highlight any architectural or design decisions]
 
 #### Test plan
+
 - [ ] [Describe manual testing steps]
 - [ ] [Include specific scenarios to verify]
 - [ ] [Add steps for edge cases or error conditions]
@@ -30,11 +32,13 @@ Related to #[issue-number]
 Added JWT-based authentication system for secure user access.
 
 #### Changes
+
 - Implemented JWT token generation and validation
 - Added login/logout endpoints with session management
 - Created authentication middleware for protected routes
 
 #### Test plan
+
 - [ ] Navigate to /login and verify login form renders correctly
 - [ ] Test login with valid credentials - should redirect to dashboard
 - [ ] Test login with invalid credentials - should show error message
@@ -48,7 +52,6 @@ Related to #456
 
 ## Guidelines
 
-- **Title**: Use conventional commit format (feat:, fix:, docs:, etc.)
 - **Changes**: Focus on "what" was implemented with technical details
 - **Test plan**: Provide actionable testing steps with checkboxes
 - **Issues**: Link related issues with "Fixes #" or "Related to #"
