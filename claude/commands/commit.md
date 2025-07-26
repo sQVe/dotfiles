@@ -33,6 +33,7 @@ You are helping create clean, atomic git commits with meaningful messages.
    - Present the complete commit description and body for review
    - Ask "Ready to push this commit?" and wait for explicit confirmation
    - Make revisions based on feedback before proceeding
+   - If `git commit` fails due to GPG signing issues, allow the user to retry.
 
 5. **Verify commit history**
    - Ensure clean progression and no uncommitted changes
