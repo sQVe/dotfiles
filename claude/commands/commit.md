@@ -23,8 +23,8 @@ You are helping create clean, atomic git commits with meaningful messages.
 
 3. **Create commits**
    - Use conventional commit format
-   - Commit description should capture both "what" and "why"
-   - Keep commit bodies brief and relevant. Only include when the change requires additional explanation beyond the commit title.
+   - Commit messages should explain why, not what changed
+   - Avoid commit bodies unless absolutely necessary for complex changes or non-obvious reasoning
    - Commits should be atomic and represent one logical change
    - Stage appropriate files for each commit
    - Use [commit template](../templates/commit-template.md) for commit format.
