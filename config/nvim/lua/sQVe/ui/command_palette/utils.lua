@@ -18,7 +18,7 @@ end
 M.get_short_path = function(path_str)
   local parts = {}
 
-  for part in string.gmatch(path_str, "[^/]+") do
+  for part in string.gmatch(path_str, '[^/]+') do
     table.insert(parts, part)
   end
 
@@ -31,12 +31,12 @@ M.get_short_path = function(path_str)
   local shortened = {
     parts[1],
     parts[2],
-    "..",
+    '..',
     parts[#parts - 1],
-    parts[#parts]
+    parts[#parts],
   }
 
-  return table.concat(shortened, "/")
+  return table.concat(shortened, '/')
 end
 
 M.get_name_with_buffer_directory = function(name, opts)
