@@ -37,9 +37,11 @@ You are helping improve code style and adhere to project guidelines.
    - **Self-describing code**: Ensure code structure and flow are obvious through naming and organization
 
 6. **Manual comment validation**
-   - **Verify comment purpose**: Ensure each comment explains "why" (reasoning, business logic) rather than "what" (code mechanics)
-   - **Check comment formatting**: Validate that comments end with proper punctuation (., ?, or !)
-   - **Remove redundant comments**: Delete comments that don't add value beyond what clear code naming provides
+   - Find all comments within code target.
+   - Ensure comments, one by one, follow the guidelines below:
+     - **Verify comment purpose**: Ensure each comment explains "why" (reasoning, business logic) rather than "what" (code mechanics)
+     - **Check comment formatting**: Validate that comments end with proper punctuation (., ?, or !)
+     - **Remove redundant comments**: Delete comments that don't add value beyond what clear code naming provides
 
 7. **Generate comprehensive report**
    - Mark manual violations as `CRITICAL` regardless of automated validation status

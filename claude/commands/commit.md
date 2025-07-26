@@ -27,13 +27,13 @@ You are helping create clean, atomic git commits with meaningful messages.
    - Avoid commit bodies unless absolutely necessary for complex changes or non-obvious reasoning
    - Commits should be atomic and represent one logical change
    - Stage appropriate files for each commit
-   - Use [commit template](../templates/commit-template.md) for commit format.
+   - Use [commit template](../templates/commit-template.md) for commit format
 
 4. **Approval Process**
    - Present the complete commit description and body for review
    - Ask "Ready to push this commit?" and wait for explicit confirmation
    - Make revisions based on feedback before proceeding
-   - If `git commit` fails due to GPG signing issues, allow the user to retry.
+   - If `git commit` fails due to GPG signing issues, allow the user to retry
 
 5. **Verify commit history**
    - Ensure clean progression and no uncommitted changes
