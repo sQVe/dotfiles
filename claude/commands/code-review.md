@@ -10,39 +10,37 @@ Perform comprehensive code review analyzing quality, architecture, performance, 
 
 ## Instructions
 
-You are helping conduct a thorough code review. **Adhere to the guidelines specified below in your review.** Follow these steps:
+You are helping conduct a thorough code review.
 
-1. **Analyze the provided code/changes** for scope, quality, architecture, and potential issues
+1. **Read CLAUDE.md**
+   - Load and review the global CLAUDE.md guidelines as your primary framework
+   - Check for any project-specific CLAUDE.md that might override or extend the global guidelines
 
-2. **Conduct comprehensive review** covering quality, architecture, performance, security, and testing
+2. **Analyze the provided code/changes**
+   - Determine scope, affected components, and potential impact
+   - Identify the type of changes (new features, bug fixes, refactoring)
+   - Understand the business context and requirements
 
-3. **Provide prioritized actionable recommendations** with specific suggestions and clear rationale
+3. **Review code quality and architecture**
+   - **Code clarity**: Flag unnecessary complexity and code smells
+   - **Separation of concerns**: Check component coupling and responsibilities
+   - **Single responsibility**: Verify each function, class, or module does one thing well
+   - **Appropriate abstractions**: Avoid over-engineering and premature optimization
+   - **Simplicity first**: Identify non-essential complexity that can be removed
+   - **Anti-patterns**: Identify potential bugs and design issues
 
-## Guidelines
+4. **Review performance and security**
+   - **Performance bottlenecks**: Identify optimization opportunities
+   - **Race conditions**: Look for concurrency and edge case issues
+   - **Resource management**: Verify proper cleanup and memory handling
+   - **Security vulnerabilities**: Check input validation and authentication issues
+   - **Error handling**: Verify explicit error handling with no silent failures
 
-### **Review Focus Areas:**
-
-- Code clarity and unnecessary complexity
-- Code smells, anti-patterns, and potential bugs
-- Separation of concerns and component coupling
-- Appropriate abstractions - avoid over-engineering
-- Premature optimization and excessive abstraction layers
-
-### **Security & Quality:**
-
-- Security vulnerabilities and input validation issues
-- Performance bottlenecks and optimization opportunities
-- Race conditions and edge cases
-- Resource management and cleanup
-- System scalability impact
-
-### **Testing & Documentation:**
-
-- Test coverage and quality of test cases
-- Missing or outdated inline documentation
-- Comments only when code cannot be made self-explanatory
-- Comments explain "why" not "what" and end with periods
-- Edge case and error scenario coverage
+5. **Generate comprehensive report**
+   - Organize findings by severity: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`
+   - Include specific locations: Provide file paths and line numbers for each issue
+   - Add remediation guidance: Suggest specific fixes and improvements with clear rationale
+   - Prioritize recommendations: List most important changes first
 
 ## Examples
 

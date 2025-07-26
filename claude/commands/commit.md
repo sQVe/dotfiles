@@ -3,24 +3,37 @@
 Create atomic git commits with conventional format and meaningful messages that focus on why rather than what.
 
 ## Usage
+
 ```
 /commit [commit-message]
 ```
 
 ## Instructions
-You are helping create clean, atomic git commits with meaningful messages. Follow these steps:
 
-1. **Prepare changes** by reviewing current state and grouping related modifications into logical units
+You are helping create clean, atomic git commits with meaningful messages.
 
-2. **Create conventional commits** using the guidelines from `claude/templates/commit-template.md`:
-   - Use conventional commit format: `type: description`
-   - Focus on "why" rather than "what" in commit messages
-   - Ensure each commit represents one logical, atomic change
+1. **Prepare changes**
+   - Review current git state
+   - Group related modifications into logical units
+
+2. **Create commits**
+   - Use conventional commit format
+   - Commit description should capture both "what" and "why"
+   - Commit body should be used for complex changes or non-obvious reasons
+   - Commits should be atomic and represent one logical change
    - Stage appropriate files for each commit
+   - Use [commit template](../templates/commit-template.md) for commit format.
 
-3. **Verify commit history** ensuring clean progression and no uncommitted changes
+3. **Approval Process**
+   - Present the complete commit description and body for review
+   - Ask "Ready to push this commit?" and wait for explicit confirmation
+   - Make revisions based on feedback before proceeding
+
+4. **Verify commit history**
+   - Ensure clean progression and no uncommitted changes
 
 ## Examples
+
 ```bash
 # Create commits for current changes
 /commit

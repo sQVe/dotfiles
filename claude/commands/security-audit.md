@@ -1,6 +1,6 @@
 # Security Audit Command
 
-Perform comprehensive security assessment combining automated scanning and manual audit techniques.
+Perform comprehensive security assessment of existing systems combining automated scanning and manual audit techniques to identify actual vulnerabilities.
 
 ## Usage
 
@@ -10,60 +10,56 @@ Perform comprehensive security assessment combining automated scanning and manua
 
 ## Instructions
 
-You are helping conduct a thorough security assessment. **Adhere to the guidelines specified below in your assessment.** Follow these steps:
+You are helping conduct a thorough security assessment for defensive purposes only.
 
-1. **Assess security architecture and scope** including authentication, data handling, attack surfaces, and current controls
+1. **Read CLAUDE.md**
+   - Load and review the global CLAUDE.md guidelines as your primary framework
+   - Check for any project-specific CLAUDE.md that might override or extend the global guidelines
 
-2. **Perform comprehensive security analysis** through automated scanning, manual testing, static analysis, and vulnerability assessment
+2. **Define security audit scope and baseline**
+   - Identify systems, applications, and components to assess
+   - Understand current security controls and architecture
+   - Gather existing security documentation and previous audit reports
+   - Establish security requirements and compliance standards
 
-3. **Generate detailed security report** with categorized findings, remediation recommendations, and prioritized action plan
+3. **Execute automated security scanning**
+   - **Static analysis (SAST)**: Scan source code for vulnerabilities and coding flaws
+   - **Dependency scanning**: Check for known vulnerabilities in third-party libraries
+   - **Configuration analysis**: Review security configs, environment variables, deployment settings
+   - **Infrastructure scanning**: Assess network security, server configs, cloud security posture
 
-## Guidelines
+4. **Perform manual security analysis**
+   - **Authentication and authorization**: Review access controls, session management, privilege escalation
+   - **Input validation**: Analyze data sanitization, injection prevention, output encoding
+   - **Cryptographic implementation**: Assess encryption usage, key management, secure protocols
+   - **API security**: Evaluate endpoint security, rate limiting, authentication, data exposure
 
-### **Assessment Coverage:**
+5. **Assess OWASP Top 10 vulnerabilities**
+   - **Injection flaws**: SQL, NoSQL, OS command, LDAP injection
+   - **Broken authentication**: Session management, credential storage, MFA
+   - **Sensitive data exposure**: Encryption, secure transmission, data classification
+   - **Security misconfiguration**: Default configs, unnecessary features, error handling
+   - **Cross-site scripting (XSS)**: Input sanitization, output encoding, CSP
 
-- Injection vulnerabilities (SQL, NoSQL, OS, LDAP)
-- Authentication, authorization, and session management
-- Input validation, output encoding, and data exposure
-- Cryptographic implementations and key management
-- API security, rate limiting, and access controls
-- Infrastructure security and vulnerable dependencies
-
-### **Testing Methods:**
-
-- Static analysis (SAST), dynamic testing (DAST), manual penetration testing
-- Dependency scanning and configuration review
-- OWASP Top 10 validation and attack vector testing
-
-### **Risk Classification:**
-
-- **Critical:** Remote code execution, data breach, authentication bypass
-- **High:** Privilege escalation, sensitive data access, denial of service
-- **Medium:** Information disclosure, input validation, session hijacking
-- **Low:** Missing security headers, weak cryptography, verbose errors
-
-## Prerequisites
-
-- Access to codebase and security testing tools
-- Understanding of security frameworks and common vulnerabilities
-- Knowledge of OWASP Top 10 and security best practices
+6. **Generate comprehensive security report**
+   - Organize findings by severity: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`
+   - Include vulnerability details: Locations, attack vectors, potential impact
+   - Document security gaps: Missing controls, config weaknesses, architectural flaws
+   - Provide remediation guidance: Specific fixes, security controls, implementation recommendations
+   - Add compliance assessment: Alignment with security standards and regulatory requirements
 
 ## Examples
 
 ```bash
-# Assess entire application security
+# Assess entire application security posture
 /security-audit "web application security posture"
 
-# Focus on authentication system
+# Audit implemented authentication system
 /security-audit "user authentication and session management"
 
-# Assess API security
+# Validate API security implementation
 /security-audit "REST API endpoints and data access"
 
-# Evaluate payment system security
-/security-audit "payment processing security"
+# Preceded by threat modeling during design phase
+# /threat-model "new payment API architecture"
 ```
-
-## Next Steps
-
-After assessment, use `/compliance-check` for regulatory compliance or `/threat-model` for architectural threat modeling.
