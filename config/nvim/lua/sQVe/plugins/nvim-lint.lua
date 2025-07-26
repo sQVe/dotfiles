@@ -9,17 +9,20 @@ local timer = require('sQVe.utils.timer')
 local M = {
   'mfussenegger/nvim-lint',
   ft = {
-    -- golangci-lint.
-    'go',
-
-    -- shellcheck.
-    'sh',
-
     -- eslint.
     'javascript',
     'javascriptreact',
     'typescript',
     'typescriptreact',
+
+    -- gdlint.
+    'gdscript',
+
+    -- golangci-lint.
+    'go',
+
+    -- shellcheck.
+    'sh',
   },
 }
 
@@ -31,6 +34,7 @@ M.config = function()
   local lint = require('lint')
 
   lint.linters_by_ft = {
+    gdscript = { 'gdlint' },
     go = { 'golangcilint' },
     javascript = { 'eslint' },
     javascriptreact = { 'eslint' },

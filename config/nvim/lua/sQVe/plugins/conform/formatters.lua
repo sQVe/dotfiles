@@ -6,6 +6,7 @@ local M = {}
 
 M.by_ft = {
   css = { 'prettierd' },
+  gdscript = { 'gdformat' },
   go = { 'goimports', 'gofumpt' },
   graphql = { 'prettierd' },
   html = { 'prettierd' },
