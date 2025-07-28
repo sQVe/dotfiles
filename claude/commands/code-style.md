@@ -39,9 +39,9 @@ You are helping improve code style and adhere to project guidelines.
 6. **Manual comment validation**
    - Find all comments within code target.
    - Ensure comments, one by one, follow the guidelines below:
+     - **Remove redundant comments**: Delete comments that don't add value
      - **Verify comment purpose**: Ensure each comment explains "why" (reasoning, business logic) rather than "what" (code mechanics)
      - **Check comment formatting**: Validate that comments end with proper punctuation (., ?, or !)
-     - **Remove redundant comments**: Delete comments that don't add value beyond what clear code naming provides
 
 7. **Generate comprehensive report**
    - Mark manual violations as `CRITICAL` regardless of automated validation status
