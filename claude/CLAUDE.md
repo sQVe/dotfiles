@@ -17,6 +17,17 @@ _Non-negotiables that override everything else_
 - **Handle all errors explicitly** - No silent failures, proper logging required
 - **Make incremental changes** - Small, focused, testable commits
 
+## Testing principles
+
+_Comprehensive testing is mandatory for all code_
+
+- **Test-first mentality** - Write tests before or alongside implementation, never as an afterthought
+- **Test pyramid adherence** - Majority unit tests, moderate integration tests, minimal E2E tests
+- **Coverage with purpose** - Aim for high coverage through meaningful tests, not just numbers
+- **Test quality standards** - Clear naming, isolated tests, proper assertions, no test interdependencies
+- **Error path testing** - Explicitly test failure scenarios, edge cases, and error handling paths
+- **Test maintenance** - Keep tests simple, fast, and maintainable; refactor tests with code changes
+
 ## Comment guidelines
 
 **Core philosophy:**
