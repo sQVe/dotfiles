@@ -57,6 +57,7 @@
       "Bash(pwd:*)",
       "Bash(rg:*)",
       "Bash(rm:*)",
+      "Bash(sed:*)",
       "Bash(shellcheck:*)",
       "Bash(shfmt:*)",
       "Bash(tail:*)",
