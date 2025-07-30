@@ -17,7 +17,7 @@ You are helping create clean, atomic git commits with meaningful messages.
    - Group related modifications into logical units
 
 2. **Strategic commit analysis**
-   - Use ultrathink analysis to group related changes into atomic, logical units, guiding all subsequent steps
+   - Group related changes into atomic, logical units, guiding all subsequent steps
    - Identify the business motivation and technical rationale behind each change
    - Structure commit messages to communicate both what changed and why it matters
 

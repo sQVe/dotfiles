@@ -17,7 +17,7 @@ You are helping improve code style and adhere to project guidelines.
    - Check for any project-specific CLAUDE.md that might override or extend the global guidelines
 
 2. **Strategic code style analysis**
-   - Use ultrathink analysis to balance automated tool fixes with maintainability patterns, guiding all subsequent steps
+   - Balance automated tool fixes with maintainability patterns, guiding all subsequent steps
    - Identify style violations that reduce code clarity or create maintenance burden
    - Prioritize fixes that improve team productivity: naming conventions, comment quality, complexity reduction
 
@@ -36,7 +36,7 @@ You are helping improve code style and adhere to project guidelines.
    - **Descriptive naming**: Verify functions and variables explain their purpose without needing comments
    - **Self-describing code**: Ensure code structure and flow are obvious through naming and organization
 
-7. **Generate comprehensive report**
+6. **Generate comprehensive report**
    - Mark manual violations as `CRITICAL` regardless of automated validation status
    - Organize findings by severity: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`
    - Include specific locations: Provide file paths and line numbers for each issue

@@ -23,18 +23,14 @@ You are helping validate comment quality and adherence to project guidelines.
      - Documentation comments: `/** */`, `///`, `#####`
    - Create a comprehensive list with file paths and line numbers for each comment found
 
-3. **Strategic comment analysis**
-   - Use ultrathink analysis to identify comments that add genuine value vs those that create noise
-   - Focus on improving code maintainability through purposeful commenting practices
-
-4. **Individual comment evaluation**
+3. **Individual comment evaluation**
    - For each comment discovered, evaluate against these criteria:
      - **Value assessment**: Does it explain "why" (reasoning/business logic) rather than "what" (code mechanics)?
      - **Redundancy check**: Is the comment stating something already obvious from the code?
      - **Formatting validation**: Does it end with proper punctuation (., ?, or !)?
      - **Relevance verification**: Is the comment still accurate and up-to-date?
 
-5. **Comment categorization**
+4. **Comment categorization**
    - **GOOD**: Comments that add genuine value
      - Business logic explanations
      - Complex algorithm reasoning
@@ -53,7 +49,7 @@ You are helping validate comment quality and adherence to project guidelines.
      - Out-of-date information
      - Unclear or ambiguous phrasing
 
-6. **Generate detailed report**
+5. **Generate detailed report**
    - **Summary statistics**: Total comments found, breakdown by category
    - **File-by-file analysis**: Organize findings by source file
    - **Specific locations**: Provide exact file paths and line numbers
@@ -79,12 +75,3 @@ You are helping validate comment quality and adherence to project guidelines.
 /comments .
 ```
 
-## Sample Evaluation Process
-
-For each comment found:
-
-1. **Context**: What code does this comment relate to?
-2. **Purpose**: What is the comment trying to communicate?
-3. **Value**: Does it help a developer understand something non-obvious?
-4. **Quality**: Is it well-written and properly formatted?
-5. **Action**: Keep, remove, or improve with specific recommendation
