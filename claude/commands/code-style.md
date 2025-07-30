@@ -36,13 +36,6 @@ You are helping improve code style and adhere to project guidelines.
    - **Descriptive naming**: Verify functions and variables explain their purpose without needing comments
    - **Self-describing code**: Ensure code structure and flow are obvious through naming and organization
 
-6. **Manual comment validation**
-   - Find all comments within code target.
-   - Ensure comments, one by one, follow the guidelines below:
-     - **Remove redundant comments**: Delete comments that don't add value
-     - **Verify comment purpose**: Ensure each comment explains "why" (reasoning, business logic) rather than "what" (code mechanics)
-     - **Check comment formatting**: Validate that comments end with proper punctuation (., ?, or !)
-
 7. **Generate comprehensive report**
    - Mark manual violations as `CRITICAL` regardless of automated validation status
    - Organize findings by severity: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`
