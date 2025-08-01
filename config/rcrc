@@ -1,1 +1,1 @@
-EXCLUDES='README stylua.toml'
+EXCLUDES='README selene.toml stylua.toml vim.toml'
