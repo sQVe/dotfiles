@@ -8,7 +8,6 @@
     "DISABLE_TELEMETRY": "1"
   },
   "includeCoAuthoredBy": false,
-  "model": "sonnet",
   "permissions": {
     "allow": [
       "Bash(bat:*)",
@@ -80,9 +79,9 @@
       "WebSearch(**)",
       "Write(**)",
       "false",
+      "mcp__context7",
       "mcp__linear",
       "mcp__playwright",
-      "mcp__ref",
       "mcp__sentry",
       "mcp__sequential-thinking",
       "true"
@@ -121,6 +120,7 @@
     ],
     "defaultMode": "plan"
   },
+  "model": "sonnet",
   "hooks": {
     "PostToolUse": [
       {
@@ -133,5 +133,8 @@
         ]
       }
     ]
+  },
+  "feedbackSurveyState": {
+    "lastShownTime": 1753947901379
   }
 }
