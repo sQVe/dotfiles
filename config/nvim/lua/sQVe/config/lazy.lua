@@ -19,7 +19,17 @@ require('lazy').setup('sQVe.plugins', {
     notify = false,
   },
   dev = {
-    path = '~/code/personal',
+    path = function(plugin)
+      local root
+
+      if plugin.url:lower():match('github.com/sqve/') then
+        root = '~/code/personal'
+      else
+        root = '~/code/forks'
+      end
+
+      return root .. '/' .. plugin.name
+    end,
   },
   performance = {
     rtp = {

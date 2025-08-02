@@ -21,6 +21,9 @@ local M = {
     -- golangci-lint.
     'go',
 
+    -- selene,
+    'lua',
+
     -- shellcheck.
     'sh',
   },
@@ -38,6 +41,7 @@ M.config = function()
     go = { 'golangcilint' },
     javascript = { 'eslint' },
     javascriptreact = { 'eslint' },
+    lua = { 'selene' },
     sh = { 'shellcheck' },
     typescript = { 'eslint' },
     typescriptreact = { 'eslint' },

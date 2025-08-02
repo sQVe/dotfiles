@@ -9,6 +9,7 @@ ccusage
 colorally
 corepack
 css-variables-language-server
+mcp-chrome-bridge
 mcp-remote
 neovim
 npm
