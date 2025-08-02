@@ -6,6 +6,7 @@ Essential principles for all development work. Use `@claude/commands/` for speci
 
 _Non-negotiables that override everything else_
 
+- **Use Serena** - Use Serena when possible
 - **Research first** - Find current best practices and patterns
 - **Minimize comments** - Write self-documenting code; only comment for complex business logic or non-obvious decisions
 - **Ask clarifying questions** - Never assume requirements or edge cases
