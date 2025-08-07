@@ -4,7 +4,6 @@
 -- Formatter.
 
 local autocmd = require('sQVe.utils.autocmd')
-local map = require('sQVe.utils.map')
 
 local formatters = require('sQVe.plugins.conform.formatters')
 
