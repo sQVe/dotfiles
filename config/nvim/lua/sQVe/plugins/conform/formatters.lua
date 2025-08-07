@@ -5,22 +5,22 @@
 local M = {}
 
 M.by_ft = {
-  css = { 'prettierd' },
+  css = { 'prettier' },
   gdscript = { 'gdformat' },
   go = { 'goimports', 'gofumpt' },
-  graphql = { 'prettierd' },
-  html = { 'prettierd' },
-  javascript = { 'biome-check', 'prettierd', stop_after_first = true },
-  javascriptreact = { 'biome-check', 'prettierd', stop_after_first = true },
-  json = { 'biome', 'prettierd' },
-  jsonc = { 'biome', 'prettierd' },
+  graphql = { 'prettier' },
+  html = { 'prettier' },
+  javascript = { 'biome-check', 'prettier', stop_after_first = true },
+  javascriptreact = { 'biome-check', 'prettier', stop_after_first = true },
+  json = { 'biome', 'prettier' },
+  jsonc = { 'biome', 'prettier' },
   lua = { 'stylua' },
-  markdown = { 'prettierd', 'injected' },
+  markdown = { 'prettier', 'injected' },
   sh = { 'shfmt' },
   sql = { 'pg_format' },
-  typescript = { 'biome-check', 'prettierd', stop_after_first = true },
-  typescriptreact = { 'biome-check', 'prettierd', stop_after_first = true },
-  yaml = { 'prettierd' },
+  typescript = { 'biome-check', 'prettier', stop_after_first = true },
+  typescriptreact = { 'biome-check', 'prettier', stop_after_first = true },
+  yaml = { 'prettier' },
   ['_'] = { 'trim_newlines', 'trim_whitespace' },
 }
 
@@ -29,16 +29,16 @@ M.override_formatting_settings = function()
 
   local biome = require('conform.formatters.biome')
   local biome_check = require('conform.formatters.biome-check')
-  local prettierd = require('conform.formatters.prettierd')
+  local prettier = require('conform.formatters.prettier')
   local shfmt = require('conform.formatters.shfmt')
   local stylua = require('conform.formatters.stylua')
 
   biome.require_cwd = true
   biome_check.require_cwd = true
-  prettierd.require_cwd = true
+  prettier.require_cwd = true
   stylua.require_cwd = true
 
-  prettierd.cwd = util.root_file({
+  prettier.cwd = util.root_file({
     '.prettierrc',
     '.prettierrc.cjs',
     '.prettierrc.js',
