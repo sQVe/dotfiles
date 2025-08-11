@@ -69,7 +69,6 @@
       "LS(**)",
       "MultiEdit(**)",
       "Read(**)",
-      "Task(**)",
       "TodoRead()",
       "TodoWrite(**)",
       "WebFetch(domain:api.github.com)",
@@ -86,6 +85,7 @@
       "mcp__sentry",
       "mcp__sequential-thinking",
       "mcp__serena",
+      "mcp__spec-workflow",
       "mcp__zen",
       "true"
     ],

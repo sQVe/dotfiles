@@ -181,7 +181,7 @@ M.file_history_buffer_path = {
   end,
   name = function(opts)
     return utils.get_short_path(
-      utils.get_name_with_buffer_path('Open file history', opts)
+      utils.get_name_with_buffer_path('File history', opts)
     )
   end,
 }

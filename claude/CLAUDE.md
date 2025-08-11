@@ -6,7 +6,6 @@ Essential principles for all development work. Use `@claude/commands/` for speci
 
 _Non-negotiables that override everything else_
 
-- **Use Serena** - Use Serena when possible
 - **Research first** - Find current best practices and patterns
 - **Minimize comments** - Write self-documenting code; only comment for complex business logic or non-obvious decisions
 - **Ask clarifying questions** - Never assume requirements or edge cases
@@ -18,16 +17,41 @@ _Non-negotiables that override everything else_
 - **Handle all errors explicitly** - No silent failures, proper logging required
 - **Make incremental changes** - Small, focused, testable commits
 
-## Testing principles
+## Code style guidelines
 
-_Comprehensive testing is mandatory for all code_
+### TypeScript
 
-- **Test-first mentality** - Write tests before or alongside implementation, never as an afterthought
-- **Test pyramid adherence** - Majority unit tests, moderate integration tests, minimal E2E tests
-- **Coverage with purpose** - Aim for high coverage through meaningful tests, not just numbers
-- **Test quality standards** - Clear naming, isolated tests, proper assertions, no test interdependencies
-- **Error path testing** - Explicitly test failure scenarios, edge cases, and error handling paths
-- **Test maintenance** - Keep tests simple, fast, and maintainable; refactor tests with code changes
+**Basic Patterns:**
+
+- Prefer `??` over `||` for null checks
+- Prefer arrow functions over `function` declarations
+- Use explicit checks rather than using truthiness (`if (x)`) or falsiness (`if (!x)`)
+- Use optional chaining `?.` when possible
+
+**Type Safety & Declarations:**
+
+- Prefer `const` over `let` when values don't change
+- Use `unknown` instead of `any` for better type safety
+- Prefer type unions (`string | number`) over `any`
+- Use `as const` for immutable object/array literals
+- Prefer `interface` for object shapes, `type` for unions/primitives
+
+**Modern TypeScript Patterns:**
+
+- Use template literal types for string validation
+- Prefer `Record<K, V>` over `{ [key: string]: V }`
+- Use `satisfies` operator for better inference while maintaining type checking
+- Prefer destructuring with type annotations: `const { name }: { name: string } = obj`
+
+**Error Handling:**
+
+- Use discriminated unions for result types instead of throwing
+- Prefer `Result<T, E>` or `Option<T>` patterns for explicit error handling
+
+**Import/Export:**
+
+- Prefer named imports over default imports for better refactoring
+- Use `import type` for type-only imports
 
 ## Comment guidelines
 
