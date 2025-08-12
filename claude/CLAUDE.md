@@ -23,6 +23,7 @@ _Non-negotiables that override everything else_
 
 **Basic Patterns:**
 
+- Never ever use a `!` non-null assertion operator.
 - Prefer `??` over `||` for null checks
 - Prefer arrow functions over `function` declarations
 - Use explicit checks rather than using truthiness (`if (x)`) or falsiness (`if (!x)`)

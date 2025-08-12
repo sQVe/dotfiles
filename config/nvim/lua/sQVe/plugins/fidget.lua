@@ -11,7 +11,6 @@ local M = {
 M.opts = {
   notification = {
     override_vim_notify = true,
-    window = { winblend = 0 },
   },
   progress = {
     ignore_done_already = true,
