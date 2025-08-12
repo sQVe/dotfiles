@@ -123,7 +123,7 @@
     ],
     "defaultMode": "plan"
   },
-  "model": "sonnet",
+  "model": "opusplan",
   "hooks": {
     "PostToolUse": [
       {
