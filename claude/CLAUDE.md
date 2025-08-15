@@ -32,6 +32,16 @@ Non-negotiables that override everything else:
 - **Ask real questions** - "Should I add abstraction?" No. "Does this work?" That's the question
 - **Comments are for wimps** - Code should be obvious. If you need comments, your code sucks
 
+## Writing Style
+
+For documentation, commits, PRs, and all written communication:
+
+- **Concise and direct** - Cut the fluff. Say what you mean
+- **Relaxed language** - Write like a human, not a marketing bot
+- **Ban sales speak** - Words like "intelligently", "seamlessly", "effortlessly" are forbidden
+- **Active voice** - "Fixed the bug" not "The bug was fixed"
+- **Simple words** - "Use" not "utilize", "help" not "facilitate"
+
 ## Code Conventions
 
 ### Global Rules
