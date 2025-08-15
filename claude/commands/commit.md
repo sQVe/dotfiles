@@ -22,16 +22,16 @@ You are helping create clean, atomic git commits with meaningful messages.
    - Structure commit messages to communicate both what changed and why it matters
 
 3. **Create commits**
+   - Use [commit template](../templates/commit-template.md) for commit format
    - Use conventional commit format
    - Commit messages should explain why, not what changed
    - Avoid commit bodies unless absolutely necessary for complex changes or non-obvious reasoning
    - Commits should be atomic and represent one logical change
    - Stage appropriate files for each commit
-   - Use [commit template](../templates/commit-template.md) for commit format
 
 4. **Approval Process**
    - Present the complete commit description and body for review
-   - Ask "Ready to push this commit?" and wait for explicit confirmation
+   - Ask "Ready to create this commit?" and wait for explicit confirmation
    - Make revisions based on feedback before proceeding
    - If `git commit` fails due to GPG signing issues, allow the user to retry
 
