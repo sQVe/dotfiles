@@ -635,6 +635,48 @@ M.workspace_symbols = {
   name = 'Go to workspace symbol',
 }
 
+M.copy_filename = {
+  callback = function(opts)
+    local bufnr = opts.bufnr or 0
+    local file_path = buffer.get_path(bufnr)
+
+    if file_path == '' then
+      vim.notify('Buffer has no file path', vim.log.levels.WARN)
+      return
+    end
+
+    vim.fn.setreg('+', file_path)
+    vim.notify('Copied: ' .. file_path)
+  end,
+  name = 'Copy filename',
+}
+
+M.copy_filename_with_line = {
+  callback = function(opts)
+    local bufnr = opts.bufnr or 0
+    local file_path = buffer.get_path(bufnr)
+
+    if file_path == '' then
+      vim.notify('Buffer has no file path', vim.log.levels.WARN)
+      return
+    end
+
+    local result
+    if opts.is_visual_mode then
+      local region = require('sQVe.utils.selection').get_current_region()
+      result =
+        string.format('%s:%d-%d', file_path, region.from.line, region.to.line)
+    else
+      local line = vim.api.nvim_win_get_cursor(0)[1]
+      result = string.format('%s:%d', file_path, line)
+    end
+
+    vim.fn.setreg('+', result)
+    vim.notify('Copied: ' .. result)
+  end,
+  name = 'Copy filename with line number',
+}
+
 M.yank_ring = {
   callback = function()
     Snacks.picker.yanky()

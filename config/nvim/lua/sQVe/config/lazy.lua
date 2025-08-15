@@ -28,6 +28,10 @@ require('lazy').setup('sQVe.plugins', {
         root = '~/code/forks'
       end
 
+      if plugin.name == 'fff.nvim' then
+        return root .. '/' .. plugin.name .. '/allow-layout-customization'
+      end
+
       return root .. '/' .. plugin.name
     end,
   },

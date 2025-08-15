@@ -124,19 +124,6 @@
     "defaultMode": "plan"
   },
   "model": "opusplan",
-  "hooks": {
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit|MultiEdit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/home/sqve/.dotfiles/claude/hooks/format-markdown.sh"
-          }
-        ]
-      }
-    ]
-  },
   "feedbackSurveyState": {
     "lastShownTime": 1754085535302
   }

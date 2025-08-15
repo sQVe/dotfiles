@@ -20,6 +20,8 @@ local default_commands = {
   commands.code_action,
   commands.command_history,
   commands.commit_message_from_branch_name,
+  commands.copy_filename,
+  commands.copy_filename_with_line,
   commands.create_new_daily_note,
   commands.create_new_note,
   commands.diagnostics,

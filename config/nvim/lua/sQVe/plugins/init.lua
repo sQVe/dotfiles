@@ -28,11 +28,11 @@ return {
     dev = true,
   },
 
-  {
-    'sQVe/monava.nvim',
-    config = true,
-    dev = true,
-  },
+  -- {
+  --   'sQVe/monava.nvim',
+  --   config = true,
+  --   dev = true,
+  -- },
 
   {
     'dmtrKovalenko/fff.nvim',
@@ -41,13 +41,21 @@ return {
     opts = {
       layout = {
         prompt_position = 'top',
+        preview_position = 'bottom',
+      },
+      preview = {
+        enabled = true,
+      },
+      icons = {
+        enabled = false,
       },
     },
+
     keys = {
       {
         '<leader>ff', -- try it if you didn't it is a banger keybinding for a picker
         function()
-          require('fff').toggle()
+          require('fff').find_files()
         end,
         desc = 'Toggle FFF',
       },

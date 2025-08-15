@@ -22,12 +22,12 @@ You are helping create a comprehensive pull request. Follow these steps:
    - Structure description to minimize reviewer cognitive load and review time
 
 3. **Create PR description**
+   - Use [PR template](../templates/pr-template.md) for PR format.
    - Use conventional commit format for title (feat:, fix:, docs:, etc.)
    - Structure description with: Summary, Changes, Test Plan
    - Summarize key technical changes in Changes section with 3-5 focused bullet points maximum
    - Add actionable test plan with checkboxes for reviewers
    - Link related issues with "Fixes #" or "Related to #"
-   - Use [PR template](../templates/pr-template.md) for PR format.
 
 4. **Approval Process**
    - Present the complete PR title and description for review
