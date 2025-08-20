@@ -126,5 +126,17 @@
   "model": "opusplan",
   "feedbackSurveyState": {
     "lastShownTime": 1754085535302
+  },
+  "hooks": {
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/sqve/.claude/hooks/linus.sh"
+          }
+        ]
+      }
+    ]
   }
 }
