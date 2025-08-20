@@ -9,7 +9,7 @@ M.is_visual_mode = function()
 end
 
 M.get_current_region = function()
-  local from_mark, to_mark = '.', 'v'
+  local from_mark, to_mark = "'<", "'>"
 
   local function make_position(mark)
     local position = vim.fn.getpos(mark) or {}

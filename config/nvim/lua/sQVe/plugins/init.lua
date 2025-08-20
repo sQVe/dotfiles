@@ -41,14 +41,10 @@ return {
     opts = {
       layout = {
         prompt_position = 'top',
-        preview_position = 'bottom',
+        preview_position = 'right',
       },
-      preview = {
-        enabled = true,
-      },
-      icons = {
-        enabled = false,
-      },
+      preview = { enabled = true },
+      icons = { enabled = false },
     },
 
     keys = {
@@ -57,7 +53,7 @@ return {
         function()
           require('fff').find_files()
         end,
-        desc = 'Toggle FFF',
+        desc = 'FFFiles',
       },
     },
   },
