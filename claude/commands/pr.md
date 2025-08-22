@@ -33,6 +33,7 @@ You are helping create a comprehensive pull request. Follow these steps:
    - Present the complete PR title and description for review
    - Ask "Ready to create this PR?" and wait for explicit confirmation
    - Make revisions based on feedback before proceeding
+   - Always add `--web` flag to the command to allow reviewer to find the PR in the browser
 
 5. **Add references and reviewers**
    - Link relevant issues and PRs
