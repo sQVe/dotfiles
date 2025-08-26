@@ -1,7 +1,6 @@
 @anthropic-ai/claude-code
 @ast-grep/cli
 @biomejs/biome
-@fsouza/prettierd
 @vtsls/language-server
 bash-language-server
 ccusage
