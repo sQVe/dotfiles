@@ -7,7 +7,6 @@ cat << 'EOF' || exit 1
 - YAGNI - that feature you think you'll need? You won't
 - TDD - write tests before writing code
 - Over-engineering = incompetence
-- NEVER create files unless absolutely necessary
 - ALWAYS prefer editing existing files over creating new ones
 - One job, do it right - functions that do seventeen things deserve deletion
 - Fail fast, fail loud - silent failures are for cowards
