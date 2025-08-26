@@ -664,8 +664,11 @@ M.copy_filename_with_line = {
     local result
     if opts.is_visual_mode then
       local region = require('sQVe.utils.selection').get_current_region()
-      result =
-        string.format('%s:L%d-L%d', file_path, region.from.line, region.to.line)
+      if region.from.line == region.to.line then
+        result = string.format('%s:%d', file_path, region.from.line)
+      else
+        result = string.format('%s:%d-%d', file_path, region.from.line, region.to.line)
+      end
     else
       local line = vim.api.nvim_win_get_cursor(0)[1]
       result = string.format('%s:%d', file_path, line)
