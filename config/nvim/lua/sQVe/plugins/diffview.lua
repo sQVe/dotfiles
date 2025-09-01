@@ -23,13 +23,12 @@ M.opts = function()
     },
     enhanced_diff_hl = true,
     file_panel = {
-      listing_style = 'list',
-      win_config = {
-        width = 40,
-      },
+      listing_style = 'tree',
+      win_config = { width = 40 },
     },
     show_help_hints = false,
     view = {
+      default = {},
       merge_tool = {
         layout = 'diff3_mixed',
       },

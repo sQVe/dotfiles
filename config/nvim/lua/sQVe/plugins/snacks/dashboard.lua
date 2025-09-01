@@ -25,6 +25,12 @@ return {
         action = ':lua require("sQVe.ui.command_palette.commands").recent_files.callback()',
       },
       {
+        icon = '🔀',
+        key = 'd',
+        desc = 'Diff view',
+        action = ':lua require("sQVe.ui.command_palette.commands").diff_view.callback()',
+      },
+      {
         icon = '✏️',
         key = 'e',
         desc = 'New buffer',
