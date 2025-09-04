@@ -14,6 +14,7 @@ local M = {
     'DiffviewOpen',
   },
 }
+
 M.opts = function()
   local actions = require('diffview.actions')
 

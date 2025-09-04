@@ -31,11 +31,6 @@ return function(theme)
     FlashCurrent = { fg = theme.subtext1, bg = 'none', bold = true },
     FlashMatch = { fg = theme.subtext0, bg = 'none' },
 
-    -- Illuminate.
-    IlluminatedWordRead = { bg = theme.none, underline = true },
-    IlluminatedWordText = { bg = theme.none, underline = true },
-    IlluminatedWordWrite = { bg = theme.none, underline = true },
-
     -- Input.
     InputBorder = { fg = theme.crust, bg = theme.crust },
     InputNormal = { fg = theme.text, bg = theme.crust },
@@ -43,11 +38,6 @@ return function(theme)
 
     -- LSP.
     LspCodeLens = { fg = theme.surface2, italic = true },
-
-    -- Mini diff.
-    MiniDiffSignAdd = { fg = theme.green },
-    MiniDiffSignChange = { fg = theme.yellow },
-    MiniDiffSignDelete = { fg = theme.red },
 
     -- Mini hipatterns.
     MiniHipatternsDone = {
@@ -76,8 +66,16 @@ return function(theme)
       bold = true,
     },
 
-    -- Smart open.
-    Directory = { fg = theme.overlay2 },
+    -- Oil.
+    OilDir = { fg = theme.blue, bold = true },
+    OilHidden = { fg = theme.overlay2, italic = true },
+    OilDirHidden = {
+      fg = theme.overlay2,
+      bold = true,
+      italic = true,
+    },
+    OilOrphanLink = { fg = theme.red },
+    OilOrphanLinkHidden = { fg = theme.red, italic = true },
 
     -- Snacks.
     SnacksIndent = { fg = theme.surface0 },

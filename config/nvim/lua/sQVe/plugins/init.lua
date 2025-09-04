@@ -34,27 +34,27 @@ return {
   --   dev = true,
   -- },
 
-  {
-    'dmtrKovalenko/fff.nvim',
-    build = 'cargo build --release',
-    dev = true,
-    opts = {
-      layout = {
-        prompt_position = 'top',
-        preview_position = 'right',
-      },
-      preview = { enabled = true },
-      icons = { enabled = false },
-    },
-
-    keys = {
-      {
-        '<leader>ff', -- try it if you didn't it is a banger keybinding for a picker
-        function()
-          require('fff').find_files()
-        end,
-        desc = 'FFFiles',
-      },
-    },
-  },
+  -- {
+  --   'dmtrKovalenko/fff.nvim',
+  --   build = 'cargo build --release',
+  --   dev = true,
+  --   opts = {
+  --     layout = {
+  --       prompt_position = 'top',
+  --       preview_position = 'right',
+  --     },
+  --     preview = { enabled = true },
+  --     icons = { enabled = false },
+  --   },
+  --
+  --   keys = {
+  --     {
+  --       '<leader>ff', -- try it if you didn't it is a banger keybinding for a picker
+  --       function()
+  --         require('fff').find_files()
+  --       end,
+  --       desc = 'FFFiles',
+  --     },
+  --   },
+  -- },
 }
