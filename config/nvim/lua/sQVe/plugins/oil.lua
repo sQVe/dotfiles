@@ -57,57 +57,94 @@ local M = {
   },
 }
 
----@module 'oil'
----@type oil.SetupOpts
-M.opts = {
-  delete_to_trash = true,
-  float = {
-    max_width = 0.8,
-    max_height = 0.8,
-  },
-  keymaps = {
-    ['<Backspace>'] = { 'actions.parent', mode = 'n' },
-    ['<C-c>'] = { 'actions.close', mode = 'n' },
-    ['<Esc>'] = { 'actions.close', mode = 'n' },
-    ['<C-t>'] = { 'actions.select', opts = { tab = true } },
-    ['<C-w>p'] = 'actions.preview',
-    ['<C-w><C-p>'] = 'actions.preview',
-    ['<C-w>s'] = { 'actions.select', opts = { horizontal = true } },
-    ['<C-w><C-s>'] = { 'actions.select', opts = { horizontal = true } },
-    ['<C-w>v'] = { 'actions.select', opts = { vertical = true } },
-    ['<C-w><C-v>'] = { 'actions.select', opts = { vertical = true } },
-    ['<CR>'] = 'actions.select',
-    ['g-'] = { 'actions.open_cwd', mode = 'n' },
-    ['g.'] = { 'actions.toggle_hidden', mode = 'n' },
-    ['g?'] = { 'actions.show_help', mode = 'n' },
-    ['g\\'] = { 'actions.toggle_trash', mode = 'n' },
-    ['gs'] = { 'actions.change_sort', mode = 'n' },
-    ['gx'] = 'actions.open_external',
-  },
-  use_default_keymaps = false,
-  view_options = {
-    show_hidden = true,
-    is_hidden_file = function(name, bufnr)
-      local dir = require('oil').get_current_dir(bufnr)
-      local is_dotfile = vim.startswith(name, '.') and name ~= '..'
+M.opts = function()
+  local oil = require('oil')
 
-      if not dir then
-        return is_dotfile
-      end
+  ---@module 'oil'
+  ---@type oil.SetupOpts
+  return {
+    delete_to_trash = true,
+    float = {
+      max_width = 0.8,
+      max_height = 0.8,
+    },
+    keymaps = {
+      ['<Backspace>'] = { 'actions.parent', mode = 'n' },
+      ['<C-c>'] = { 'actions.close', mode = 'n' },
+      ['<C-t>'] = { 'actions.select', opts = { tab = true }, mode = 'n' },
+      ['<C-q>'] = {
+        'actions.send_to_qflist',
+        opts = {
+          only_matching_search = true,
+        },
+        mode = 'n',
+      },
+      ['<C-w>p'] = { 'actions.preview', mode = 'n' },
+      ['<C-w><C-p>'] = { 'actions.preview', mode = 'n' },
+      ['<C-w>s'] = {
+        'actions.select',
+        opts = { horizontal = true },
+        mode = 'n',
+      },
+      ['<C-w><C-s>'] = {
+        'actions.select',
+        opts = { horizontal = true },
+        mode = 'n',
+      },
+      ['<C-w>v'] = { 'actions.select', opts = { vertical = true }, mode = 'n' },
+      ['<C-w><C-v>'] = {
+        'actions.select',
+        opts = { vertical = true },
+        mode = 'n',
+      },
+      ['<CR>'] = { 'actions.select', mode = 'n' },
+      ['='] = {
+        function()
+          oil.save()
+        end,
+        desc = 'Save all changes',
+        mode = 'n',
+      },
+      ['-'] = {
+        function()
+          oil.discard_all_changes()
+        end,
+        desc = 'Discard all changes',
+        mode = 'n',
+      },
+      ['g.'] = { 'actions.toggle_hidden', mode = 'n' },
+      ['g?'] = { 'actions.show_help', mode = 'n' },
+      ['g\\'] = { 'actions.toggle_trash', mode = 'n' },
+      ['g~'] = { 'actions.open_cwd', mode = 'n' },
+      ['gs'] = { 'actions.change_sort', mode = 'n' },
+      ['gx'] = { 'actions.open_external', mode = 'n' },
+      ['gy'] = { 'actions.yank_entry', mode = 'n' },
+    },
+    use_default_keymaps = false,
+    view_options = {
+      show_hidden = true,
+      is_hidden_file = function(name, bufnr)
+        local dir = require('oil').get_current_dir(bufnr)
+        local is_dotfile = vim.startswith(name, '.') and name ~= '..'
 
-      if not git_cache[dir] then
-        git_cache[dir] = get_git_status(dir)
-      end
+        if not dir then
+          return is_dotfile
+        end
 
-      if is_dotfile then
-        return not git_cache[dir].tracked[name]
-      else
-        return git_cache[dir].ignored[name]
-      end
-    end,
-  },
-  watch_for_changes = true,
-}
+        if not git_cache[dir] then
+          git_cache[dir] = get_git_status(dir)
+        end
+
+        if is_dotfile then
+          return not git_cache[dir].tracked[name]
+        else
+          return git_cache[dir].ignored[name]
+        end
+      end,
+    },
+    watch_for_changes = true,
+  }
+end
 
 M.config = function(_, opts)
   require('oil').setup(opts)
