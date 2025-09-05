@@ -79,13 +79,13 @@ return {
     mode = { 'n' },
   },
   {
-    '<Leader>q',
+    'ZZ',
     function()
       Snacks.bufdelete.delete()
     end,
   },
   {
-    '<Leader>Q',
+    'ZX',
     function()
       Snacks.bufdelete.other()
     end,
