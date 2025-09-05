@@ -7,7 +7,7 @@ gui:
   portraitMode: never
   scrollHeight: 8
   showBottomLine: false
-  showFileTree: false
+  showFileTree: true
   showRandomTip: false
   skipDiscardChangeWarning: true
   skipRewordInEditorWarning: true
@@ -64,9 +64,9 @@ customCommands:
     context: 'files, worktrees'
     command: 'term "nvim -c DiffviewOpen"'
     description: 'Open merge tool'
-  - key: "W"
+  - key: 'W'
     command: git commit --no-verify
-    context: "global"
+    context: 'global'
     output: terminal
 notARepository: 'quit'
 promptToReturnFromSubprocess: false
