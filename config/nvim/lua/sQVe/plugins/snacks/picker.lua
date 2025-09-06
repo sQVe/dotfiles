@@ -8,12 +8,11 @@ local buffer = require('sQVe.utils.buffer')
 local path = require('sQVe.utils.path')
 
 local BIG_FILE_THRESHOLD = 1 * 1024 * 1024 -- 1 MiB.
+local MIN_PREFIX_LENGTH = 4
 
 local buf_dir = ''
 local current_buf_path = ''
 local current_base = ''
-
-local MIN_PREFIX_LENGTH = 4
 
 local update_buf_dir = function()
   local bufnr = buffer.get_bufnr()
