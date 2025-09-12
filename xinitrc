@@ -15,6 +15,9 @@ xrdb "${XDG_CONFIG_HOME}/Xresources"
 # Start xiccd colord daemon.
 xiccd &
 
+# Start systembus-notify daemon.
+systembus-notify &
+
 # XSS Lock - handle lid close, suspend etc.
 xss-lock -l -- lock &
 
