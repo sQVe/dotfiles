@@ -7,10 +7,11 @@ local autocmd = require('sQVe.utils.autocmd')
 local timer = require('sQVe.utils.timer')
 
 local function has_config_files(config_files)
-  local util = require('lspconfig').util
   local filename = vim.api.nvim_buf_get_name(0)
 
-  return util.root_pattern(unpack(config_files))(filename) ~= nil
+  return vim.fs.dirname(
+    vim.fs.find(config_files, { path = filename, upward = true })[1]
+  ) ~= nil
 end
 
 local function should_lint_filetype(filetype)

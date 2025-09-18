@@ -61,152 +61,196 @@ local M = {
 }
 
 M.config = function()
-  local lspconfig = require('lspconfig')
-
   local on_attach = function(_, bufnr)
     utils.map_diagnostic_keys(bufnr)
     utils.map_lookup_keys(bufnr)
   end
 
-  local server_setup = utils.create_server_setup({
-    on_attach = on_attach,
-  })
+  local capabilities = require('blink.cmp').get_lsp_capabilities()
 
   vim.lsp.log.set_level('OFF')
   vim.lsp.handlers['textDocument/publishDiagnostics'] = utils.diagnostic_handler
 
-  local servers = {
-    -- Servers already handled by plugin setup:
-    --   Neovim plugin development (neodev)
+  vim.lsp.config('bashls', {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  })
 
-    bashls = server_setup,
-    biome = utils.create_server_setup({
-      on_attach = on_attach,
-      root_dir = utils.create_root_dir_handler({
-        rootFiles = { 'biome.json', 'biome.jsonc' },
-      }),
-    }),
-    ccls = server_setup,
-    cssls = utils.create_server_setup({
-      on_attach = on_attach,
-      settings = {
-        css = {
-          validate = true,
-          lint = { unknownAtRules = 'ignore' },
-        },
-      },
-    }),
-    css_variables = utils.create_server_setup({
-      on_attach = on_attach,
-      settings = {
-        cssVariables = {
-          blacklistFolders = {
-            '**/.cache',
-            '**/.git',
-            '**/.next',
-            '**/dist',
-            '**/node_modules',
-            '**/tmp',
-          },
-          lookupFiles = {
-            '**/*.css',
-            'node_modules/@mantine/core/styles.css',
-            'packages/design-system/node_modules/@mantine/core/styles.css',
-          },
-        },
-      },
-    }),
-    gdscript = server_setup,
-    gopls = utils.create_server_setup({
-      on_attach = on_attach,
-      settings = {
-        gopls = {
-          analyses = {
-            fillstruct = true,
-            nilness = true,
-            unusedparams = true,
-            unusedwrite = true,
-            useany = true,
-          },
-          completeUnimported = true,
-          directoryFilters = { '-.git', '-node_modules' },
-          gofumpt = true,
-          usePlaceholders = true,
-        },
-      },
-    }),
-    html = server_setup,
-    jsonls = utils.create_server_setup({
-      on_attach = on_attach,
-      settings = {
-        json = {
-          schemas = require('schemastore').json.schemas(),
-          validate = { enable = true },
-        },
-      },
-    }),
-    lua_ls = utils.create_server_setup({
-      on_attach = on_attach,
-      settings = {
-        Lua = {
-          telemetry = { enable = false },
-          workspace = {
-            checkThirdParty = false,
-            library = {
-              '${3rd}/busted/library',
-            },
-          },
-          diagnostics = {
-            globals = { 'vim' },
-          },
-        },
-      },
-    }),
-    marksman = server_setup,
-    vtsls = utils.create_server_setup({
-      on_attach = on_attach,
-      settings = {
-        javascript = {
-          format = { enable = false },
-          preferences = { quoteStyle = 'single' },
-          suggest = { completeFunctionCalls = true },
-          tsserver = { maxTsServerMemory = 8192 },
-        },
-        typescript = {
-          format = { enable = false },
-          preferences = {
-            importModuleSpecifier = 'shortest',
-            importModuleSpecifierEnding = 'minimal',
-            quoteStyle = 'single',
-          },
-          suggest = { completeFunctionCalls = true },
-          tsserver = { maxTsServerMemory = 8192 },
-        },
-        vtsls = {
-          autoUseWorkspaceTsdk = true,
-          experimental = {
-            completion = {
-              enableServerSideFuzzyMatch = true,
-            },
-          },
-        },
-      },
-    }),
-    yamlls = utils.create_server_setup({
-      on_attach = on_attach,
-      settings = {
-        yaml = {
-          schemaStore = { enable = false, url = '' },
-          schemas = require('schemastore').yaml.schemas(),
-        },
-      },
-    }),
-  }
+  vim.lsp.config('biome', {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    root_dir = function(bufnr, on_dir)
+      local filename = vim.api.nvim_buf_get_name(bufnr)
+      local root = vim.fs.dirname(
+        vim.fs.find(
+          { 'biome.json', 'biome.jsonc' },
+          { path = filename, upward = true }
+        )[1]
+      )
+      on_dir(root)
+    end,
+  })
 
-  for server, config in pairs(servers) do
-    -- Initiate and setup LSP servers.
-    lspconfig[server].setup(config)
-  end
+  vim.lsp.config('ccls', {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  })
+
+  vim.lsp.config('cssls', {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      css = {
+        validate = true,
+        lint = { unknownAtRules = 'ignore' },
+      },
+    },
+  })
+
+  vim.lsp.config('css_variables', {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      cssVariables = {
+        blacklistFolders = {
+          '**/.cache',
+          '**/.git',
+          '**/.next',
+          '**/dist',
+          '**/node_modules',
+          '**/tmp',
+        },
+        lookupFiles = {
+          '**/*.css',
+          'node_modules/@mantine/core/styles.css',
+          'packages/design-system/node_modules/@mantine/core/styles.css',
+        },
+      },
+    },
+  })
+
+  vim.lsp.config('gdscript', {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  })
+
+  vim.lsp.config('gopls', {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      gopls = {
+        analyses = {
+          fillstruct = true,
+          nilness = true,
+          unusedparams = true,
+          unusedwrite = true,
+          useany = true,
+        },
+        completeUnimported = true,
+        directoryFilters = { '-.git', '-node_modules' },
+        gofumpt = true,
+        usePlaceholders = true,
+      },
+    },
+  })
+
+  vim.lsp.config('html', {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  })
+
+  vim.lsp.config('jsonls', {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      json = {
+        schemas = require('schemastore').json.schemas(),
+        validate = { enable = true },
+      },
+    },
+  })
+
+  vim.lsp.config('lua_ls', {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      Lua = {
+        telemetry = { enable = false },
+        workspace = {
+          checkThirdParty = false,
+          library = {
+            '${3rd}/busted/library',
+          },
+        },
+        diagnostics = {
+          globals = { 'vim' },
+        },
+      },
+    },
+  })
+
+  vim.lsp.config('marksman', {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  })
+
+  vim.lsp.config('vtsls', {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      javascript = {
+        format = { enable = false },
+        preferences = { quoteStyle = 'single' },
+        suggest = { completeFunctionCalls = true },
+        tsserver = { maxTsServerMemory = 8192 },
+      },
+      typescript = {
+        format = { enable = false },
+        preferences = {
+          importModuleSpecifier = 'shortest',
+          importModuleSpecifierEnding = 'minimal',
+          quoteStyle = 'single',
+        },
+        suggest = { completeFunctionCalls = true },
+        tsserver = { maxTsServerMemory = 8192 },
+      },
+      vtsls = {
+        autoUseWorkspaceTsdk = true,
+        experimental = {
+          completion = {
+            enableServerSideFuzzyMatch = true,
+          },
+        },
+      },
+    },
+  })
+
+  vim.lsp.config('yamlls', {
+    on_attach = on_attach,
+    capabilities = capabilities,
+    settings = {
+      yaml = {
+        schemaStore = { enable = false, url = '' },
+        schemas = require('schemastore').yaml.schemas(),
+      },
+    },
+  })
+
+  vim.lsp.enable({
+    'bashls',
+    'biome',
+    'ccls',
+    'cssls',
+    'css_variables',
+    'gdscript',
+    'gopls',
+    'html',
+    'jsonls',
+    'lua_ls',
+    'marksman',
+    'vtsls',
+    'yamlls',
+  })
 
   -- Configure diagnostics.
   vim.diagnostic.config({

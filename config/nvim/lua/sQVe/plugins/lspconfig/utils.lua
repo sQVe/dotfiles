@@ -6,46 +6,6 @@ local map = require('sQVe.utils.map')
 
 local M = {}
 
-M.create_server_setup = function(opts)
-  local capabilities = require('blink.cmp').get_lsp_capabilities()
-
-  local common_setup = {
-    capabilities = capabilities,
-    root_dir = M.create_root_dir_handler(),
-  }
-
-  return vim.tbl_extend('force', common_setup, opts or {})
-end
-
-M.create_root_dir_handler = function(opts)
-  local util = require('lspconfig').util
-
-  opts = opts or { prioritizeManifest = false }
-
-  return function(filename)
-    if opts.rootFiles then
-      local root_dir = util.root_pattern(unpack(opts.rootFiles))(filename)
-
-      if not root_dir then
-        return nil
-      end
-
-      return root_dir
-    end
-
-    local manifest = vim.fs.dirname(
-      vim.fs.find('package.json', { path = filename, upward = true })[1]
-    )
-
-    if opts.prioritizeManifest and manifest then
-      return manifest
-    end
-
-    return vim.fs.dirname(
-      vim.fs.find('.git', { path = filename, upward = true })[1]
-    ) or manifest
-  end
-end
 
 M.diagnostic_handler = function(_, result, ctx, ...)
   local client = vim.lsp.get_client_by_id(ctx.client_id)
