@@ -26,13 +26,13 @@ local update_buf_dir = function()
     if buf_path and buf_path ~= '' then
       current_buf_path = buf_path
       current_base =
-        vim.fn.fnamemodify(current_buf_path, ':t:r'):gsub('%.module$', '')
+          vim.fn.fnamemodify(current_buf_path, ':t:r'):gsub('%.module$', '')
       local parent_dir = path.get_parent(buf_path)
 
       if
-        parent_dir
-        and parent_dir ~= ''
-        and vim.fn.isdirectory(parent_dir) == 1
+          parent_dir
+          and parent_dir ~= ''
+          and vim.fn.isdirectory(parent_dir) == 1
       then
         buf_dir = parent_dir
       end
@@ -57,7 +57,10 @@ end
 
 return {
   formatters = {
-    file = { truncate = 60 },
+    file = {
+      filename_first = true,
+      truncate = 120
+    },
   },
   previews = {
     file = {
@@ -87,7 +90,7 @@ return {
         end
 
         local has_current_buf_context = current_buf_path
-          and current_buf_path ~= ''
+            and current_buf_path ~= ''
         local a_is_current_buf = a._path == current_buf_path
         local b_is_current_buf = b._path == current_buf_path
 
@@ -105,9 +108,9 @@ return {
           local b_prefix_len = #common_prefix(current_base, b._base)
 
           local a_prefix_match = a_prefix_len >= MIN_PREFIX_LENGTH
-            and not a_is_current_buf
+              and not a_is_current_buf
           local b_prefix_match = b_prefix_len >= MIN_PREFIX_LENGTH
-            and not b_is_current_buf
+              and not b_is_current_buf
 
           if a_prefix_match ~= b_prefix_match then
             return a_prefix_match
