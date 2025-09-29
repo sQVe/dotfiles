@@ -33,7 +33,7 @@ return {
   {
     'ä',
     function()
-      Snacks.picker.buf_files()
+      commands.find_files.callback()
     end,
     desc = 'Find files',
     mode = { 'n', 'v' },
