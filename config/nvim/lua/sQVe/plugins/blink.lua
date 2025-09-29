@@ -5,6 +5,9 @@
 
 local M = {
   'saghen/blink.cmp',
+  dependencies = {
+    'fang2hou/blink-copilot',
+  },
   build = 'cargo build --release',
   event = 'InsertEnter',
 }
@@ -20,10 +23,16 @@ M.opts = function()
             kind_icon = {
               ellipsis = false,
               highlight = function(ctx)
+                if ctx.kind == 'Copilot' then
+                  return 'Comment'
+                end
                 local _, hl, _ = require('mini.icons').get('lsp', ctx.kind)
                 return hl
               end,
               text = function(ctx)
+                if ctx.kind == 'Copilot' then
+                  return '󱙺 '
+                end
                 local icon, _, _ = require('mini.icons').get('lsp', ctx.kind)
                 return icon
               end,
@@ -51,7 +60,8 @@ M.opts = function()
     sources = {
       default = function()
         local node = vim.treesitter.get_node()
-        local enabled_providers = { 'lsp', 'buffer', 'path', 'snippets' }
+        local enabled_providers =
+          { 'lsp', 'copilot', 'buffer', 'path', 'snippets' }
 
         if
           node
@@ -80,6 +90,17 @@ M.opts = function()
         lsp = {
           name = 'LSP',
           module = 'blink.cmp.sources.lsp',
+        },
+        copilot = {
+          name = 'copilot',
+          module = 'blink-copilot',
+          score_offset = 100,
+          async = true,
+          opts = {
+            max_completions = 2,
+            max_attempts = 4,
+            kind_icon = 'H',
+          },
         },
         buffer = {
           name = 'Buffer',

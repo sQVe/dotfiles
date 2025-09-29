@@ -96,6 +96,8 @@ M.config = function()
     capabilities = capabilities,
   })
 
+  vim.lsp.config('copilot', {})
+
   vim.lsp.config('cssls', {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -240,8 +242,9 @@ M.config = function()
     'bashls',
     'biome',
     'ccls',
-    'cssls',
+    'copilot',
     'css_variables',
+    'cssls',
     'gdscript',
     'gopls',
     'html',
