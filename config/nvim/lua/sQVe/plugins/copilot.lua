@@ -4,43 +4,16 @@
 -- AI Copilot.
 
 local M = {
-  'zbirenbaum/copilot.lua',
-  cmd = 'Copilot',
-  event = 'InsertEnter',
+  'github/copilot.vim',
 }
 
-M.opts = {
-  panel = { enabled = false },
-  suggestion = {
-    auto_trigger = true,
-    keymap = {
-      accept = false,
-      accept_word = false,
-      accept_line = false,
-      next = false,
-      prev = false,
-    },
-  },
-}
-
-M.config = function(_, opts)
-  local map = require('sQVe.utils.map')
-
-  require('copilot').setup(opts)
-
-  local suggestion = require('copilot.suggestion')
-
-  map('i', '<C-l>', function()
-    if suggestion.is_visible() then
-      suggestion.accept()
-    end
-  end, { desc = 'Accept Copilot suggestion' })
-
-  map('i', '<C-j>', function()
-    if suggestion.is_visible() then
-      suggestion.accept_word()
-    end
-  end, { desc = 'Accept Copilot word' })
+M.config = function()
+  vim.g.copilot_no_tab_map = true
+  vim.keymap.set('i', '<C-l>', 'copilot#Accept("\\<CR>")', {
+    expr = true,
+    replace_keycodes = false,
+  })
+  vim.keymap.set('i', '<C-j>', '<Plug>(copilot-accept-word)')
 end
 
 return M

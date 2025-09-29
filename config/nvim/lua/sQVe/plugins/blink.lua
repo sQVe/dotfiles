@@ -5,9 +5,6 @@
 
 local M = {
   'saghen/blink.cmp',
-  dependencies = {
-    'fang2hou/blink-copilot',
-  },
   build = 'cargo build --release',
   event = 'InsertEnter',
 }
@@ -15,6 +12,7 @@ local M = {
 M.opts = function()
   return {
     completion = {
+      documentation = { auto_show = true },
       list = { selection = { auto_insert = true, preselect = false } },
       menu = {
         draw = {
@@ -40,12 +38,11 @@ M.opts = function()
           },
         },
       },
-      documentation = { auto_show = true },
     },
     keymap = {
       ['<C-Space>'] = { 'hide_documentation', 'show', 'show_documentation' },
       ['<C-CR>'] = { 'hide_documentation', 'show', 'show_documentation' },
-      ['<C-e>'] = { 'hide', 'fallback' },
+      ['<C-e>'] = { 'cancel', 'fallback' },
       ['<CR>'] = { 'accept', 'fallback' },
       ['<Tab>'] = { 'select_next', 'fallback' },
       ['<S-Tab>'] = { 'select_prev', 'fallback' },
@@ -60,8 +57,7 @@ M.opts = function()
     sources = {
       default = function()
         local node = vim.treesitter.get_node()
-        local enabled_providers =
-          { 'lsp', 'copilot', 'buffer', 'path', 'snippets' }
+        local enabled_providers = { 'lsp', 'buffer', 'path', 'snippets' }
 
         if
           node
@@ -90,17 +86,6 @@ M.opts = function()
         lsp = {
           name = 'LSP',
           module = 'blink.cmp.sources.lsp',
-        },
-        copilot = {
-          name = 'copilot',
-          module = 'blink-copilot',
-          score_offset = 100,
-          async = true,
-          opts = {
-            max_completions = 2,
-            max_attempts = 4,
-            kind_icon = 'H',
-          },
         },
         buffer = {
           name = 'Buffer',
