@@ -114,10 +114,7 @@
     ],
     "defaultMode": "plan"
   },
-  "model": "opusplan",
-  "feedbackSurveyState": {
-    "lastShownTime": 1754085535302
-  },
+  "model": "sonnet",
   "hooks": {
     "UserPromptSubmit": [
       {
@@ -129,5 +126,9 @@
         ]
       }
     ]
+  },
+  "alwaysThinkingEnabled": true,
+  "feedbackSurveyState": {
+    "lastShownTime": 1754085535302
   }
 }

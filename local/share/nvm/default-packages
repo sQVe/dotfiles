@@ -4,7 +4,6 @@
 @github/copilot-language-server
 @vtsls/language-server
 bash-language-server
-ccusage
 colorally
 corepack
 css-variables-language-server

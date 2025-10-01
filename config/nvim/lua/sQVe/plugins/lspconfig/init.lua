@@ -3,6 +3,7 @@
 -- ┗━╸┗━┛╹  ┗━╸┗━┛╹ ╹╹  ╹┗━┛
 -- Setup Language Server Protocol servers.
 
+local map = require('sQVe.utils.map')
 local utils = require('sQVe.plugins.lspconfig.utils')
 
 local M = {
@@ -57,6 +58,17 @@ local M = {
     'javascriptreact',
     'typescript',
     'typescriptreact',
+
+    -- other filetypes where copilot might be useful
+    'dockerfile',
+    'gitcommit',
+    'gitignore',
+    'graphql',
+    'make',
+    'sql',
+    'toml',
+    'vim',
+    'xml',
   },
 }
 
@@ -64,12 +76,17 @@ M.config = function()
   local on_attach = function(_, bufnr)
     utils.map_diagnostic_keys(bufnr)
     utils.map_lookup_keys(bufnr)
+
+    map('i', '<C-l>', function()
+      vim.lsp.inline_completion.get()
+    end, { expr = true, buffer = bufnr })
   end
 
   local capabilities = require('blink.cmp').get_lsp_capabilities()
 
-  vim.lsp.log.set_level('OFF')
+  vim.lsp.inline_completion.enable()
   vim.lsp.handlers['textDocument/publishDiagnostics'] = utils.diagnostic_handler
+  vim.lsp.log.set_level('OFF')
 
   vim.lsp.config('bashls', {
     on_attach = on_attach,
