@@ -215,12 +215,12 @@ alias suspend='state suspend'
 # Apps.
 alias bc='bc --mathlib --quiet'
 alias bluetooth=bluetoothctl
-alias chrome=open-chrome
 alias fd="fd --hidden --follow --exclude .git --exclude '.steam' --exclude 'Steam'"
 alias feh='feh --scale-down --auto-zoom --image-bg "#222222"'
 alias fm=yazi
 alias format='npx prettier --write'
 alias gh='gh'
+alias helium=open-helium
 alias icat="kitten icat"
 alias lg=lazygit
 alias qutebrowser=open-qutebrowser

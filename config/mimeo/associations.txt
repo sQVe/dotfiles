@@ -1,7 +1,4 @@
-open-qutebrowser %U
-  ^https?:\/\/files\.slack\.com\/.+?\.(gif|jpe?g|png)
-
-open-chrome --new-window %U
+open-helium --new-window %U
   ^https?:\/\/(.*\.)?amazonaws\.com
   ^https?:\/\/(.*\.)?coda\.io
   ^https?:\/\/(.*\.)?figma\.com
