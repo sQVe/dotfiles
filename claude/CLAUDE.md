@@ -46,7 +46,6 @@ For documentation, commits, PRs, and all written communication:
 
 ### Global Rules
 
-- NEVER create files unless absolutely necessary for the goal
 - ALWAYS prefer editing existing files over creating new ones
 - NEVER proactively create documentation files unless explicitly requested
 

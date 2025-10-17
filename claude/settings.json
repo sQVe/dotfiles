@@ -115,18 +115,6 @@
     "defaultMode": "plan"
   },
   "model": "sonnet",
-  "hooks": {
-    "UserPromptSubmit": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "/home/sqve/.claude/hooks/linus.sh"
-          }
-        ]
-      }
-    ]
-  },
   "alwaysThinkingEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754085535302
