@@ -88,6 +88,13 @@ M.config = function()
   vim.lsp.handlers['textDocument/publishDiagnostics'] = utils.diagnostic_handler
   vim.lsp.log.set_level('OFF')
 
+  -- Delete LSP keybindings.
+  local defaults = { 'grn', 'gra', 'grr', 'gri', 'grt', 'gO' }
+  for _, key in ipairs(defaults) do
+    vim.keymap.del('n', key)
+  end
+  vim.keymap.del('i', '<C-S>')
+
   vim.lsp.config('bashls', {
     on_attach = on_attach,
     capabilities = capabilities,

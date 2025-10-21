@@ -6,7 +6,6 @@ local map = require('sQVe.utils.map')
 
 local M = {}
 
-
 M.diagnostic_handler = function(_, result, ctx, ...)
   local client = vim.lsp.get_client_by_id(ctx.client_id)
   local ignored_diagnostics = {}
