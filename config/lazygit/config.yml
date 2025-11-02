@@ -42,9 +42,9 @@ git:
   log:
     showGraph: 'always'
   overrideGpg: true
-  paging:
-    colorArg: always
-    pager: delta --dark --paging=never --tabs 2 --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+  pagers:
+    - colorArg: always
+      pager: delta --dark --paging=never --tabs 2 --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
   parseEmoji: true
   skipHookPrefix: 'draft: '
 keybinding:
@@ -54,7 +54,7 @@ keybinding:
     renameCommitWithEditor: 'r'
     renameCommit: ''
   files:
-    openMergeTool: ''
+    openMergeOptions: ''
 customCommands:
   - key: 'f'
     context: 'files, localBranches, remoteBranches, remotes, tags, worktrees'
