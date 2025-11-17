@@ -21,9 +21,6 @@ systembus-notify &
 # XSS Lock - handle lid close, suspend etc.
 xss-lock -l -- lock &
 
-# Start gesture handling.
-libinput-gestures-setup start &
-
 # Set background color.
 xsetroot -solid '#222222'
 

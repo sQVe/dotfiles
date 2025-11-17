@@ -295,7 +295,7 @@ mode "resize" {
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 
 # Delayed easyeffects start.
-exec --no-startup-id "sh -c 'sleep 4; exec easyeffects --gapplication-service'"
+exec --no-startup-id "sh -c 'sleep 4; exec easyeffects --hide-window --service-mode'"
 
 # Enable autotiling.
 exec --no-startup-id autotiling-rs
