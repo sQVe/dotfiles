@@ -115,6 +115,10 @@
     "defaultMode": "plan"
   },
   "model": "sonnet",
+  "enabledPlugins": {
+    "superpowers@superpowers-marketplace": true,
+    "elements-of-style@superpowers-marketplace": true
+  },
   "alwaysThinkingEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754085535302
