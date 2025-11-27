@@ -114,10 +114,11 @@
     ],
     "defaultMode": "plan"
   },
-  "model": "sonnet",
+  "model": "opus",
   "enabledPlugins": {
     "superpowers@superpowers-marketplace": true,
-    "elements-of-style@superpowers-marketplace": true
+    "elements-of-style@superpowers-marketplace": true,
+    "double-shot-latte@superpowers-marketplace": true
   },
   "alwaysThinkingEnabled": true,
   "feedbackSurveyState": {
