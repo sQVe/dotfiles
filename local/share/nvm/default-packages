@@ -2,6 +2,7 @@
 @ast-grep/cli
 @biomejs/biome
 @github/copilot-language-server
+@openai/codex
 @vtsls/language-server
 bash-language-server
 colorally
