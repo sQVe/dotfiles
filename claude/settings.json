@@ -118,7 +118,8 @@
   "enabledPlugins": {
     "superpowers@superpowers-marketplace": true,
     "elements-of-style@superpowers-marketplace": true,
-    "double-shot-latte@superpowers-marketplace": true
+    "double-shot-latte@superpowers-marketplace": true,
+    "code-review@claude-code-plugins": true
   },
   "alwaysThinkingEnabled": true,
   "feedbackSurveyState": {
