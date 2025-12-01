@@ -1,4 +1,4 @@
-open-helium --new-window %U
+open-chrome --new-window %U
   ^https?:\/\/(.*\.)?amazonaws\.com
   ^https?:\/\/(.*\.)?coda\.io
   ^https?:\/\/(.*\.)?figma\.com
