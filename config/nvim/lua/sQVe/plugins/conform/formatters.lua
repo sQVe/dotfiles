@@ -18,6 +18,7 @@ M.by_ft = {
   markdown = { 'prettier', 'injected' },
   sh = { 'shfmt' },
   sql = { 'pg_format' },
+  toml = { 'taplo' },
   typescript = { 'biome-check', 'prettier', stop_after_first = true },
   typescriptreact = { 'biome-check', 'prettier', stop_after_first = true },
   yaml = { 'prettier' },
