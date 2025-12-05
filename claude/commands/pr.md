@@ -22,7 +22,7 @@ You are helping create a comprehensive pull request. Follow these steps:
    - Structure description to minimize reviewer cognitive load and review time
 
 3. **Create PR description**
-   - Use [PR template](../templates/pr-template.md) for PR format.
+   - Use [PR template](/home/sqve/.dotfiles/claude/templates/pr-template.md) for PR format.
    - Use conventional commit format for title (feat:, fix:, docs:, etc.)
    - Structure description with: Summary, Changes, Test Plan
    - Summarize key technical changes in Changes section with 3-5 focused bullet points maximum
