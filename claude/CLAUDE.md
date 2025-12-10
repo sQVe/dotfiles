@@ -47,7 +47,8 @@ Think: "What would Linus say?" Usually: "This is crap. Do it the obvious way."
 - **`??` over `||`** - Avoids falsy bugs
 - **Arrow functions** - Over `function` declarations
 - **Explicit null checks** - `if (value !== null)` over `if (value)`
-- **`unknown` over `any`** - Handle types explicitly
+- **Do not use `any`** - Avoid weak typing
+- **Rely on type inference** - No need for explicit types unless necessary
 - **Interfaces for objects** - Types for everything else
 - **`satisfies`** - Inference without type lies
 - **Named imports** - Default imports break refactoring
