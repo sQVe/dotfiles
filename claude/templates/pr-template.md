@@ -22,6 +22,8 @@ Use this template when creating pull requests to ensure consistent, clear docume
 
 [Optional: Add any additional context, screenshots, or notes]
 
+---
+
 Fixes #[issue-number]
 Related to #[issue-number]
 ```
