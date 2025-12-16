@@ -200,9 +200,9 @@ M.find_all_files = {
 M.find_files = {
   callback = function()
     Snacks.picker.files({
+      follow = true,
       hidden = true,
       ignored = false,
-      follow = true,
     })
   end,
   name = 'Find files',
@@ -262,6 +262,8 @@ M.grep = {
   callback = function()
     Snacks.picker.grep({
       follow = true,
+      hidden = true,
+      ignored = false,
       args = { '--pcre2' },
     })
   end,
@@ -667,7 +669,8 @@ M.copy_filename_with_line = {
       if region.from.line == region.to.line then
         result = string.format('%s:%d', file_path, region.from.line)
       else
-        result = string.format('%s:%d-%d', file_path, region.from.line, region.to.line)
+        result =
+          string.format('%s:%d-%d', file_path, region.from.line, region.to.line)
       end
     else
       local line = vim.api.nvim_win_get_cursor(0)[1]
