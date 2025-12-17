@@ -78,13 +78,9 @@
       "WebFetch(domain:raw.githubusercontent.com)",
       "WebSearch",
       "Write(**)",
-      "mcp__chrome",
       "mcp__context7",
-      "mcp__github",
       "mcp__linear",
-      "mcp__sentry",
-      "mcp__sequential-thinking",
-      "mcp__zen"
+      "mcp__sentry"
     ],
     "deny": [
       "Bash(bash -i >& /dev/tcp/*)",
