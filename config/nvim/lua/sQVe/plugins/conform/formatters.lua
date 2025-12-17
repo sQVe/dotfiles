@@ -21,6 +21,7 @@ M.by_ft = {
   toml = { 'taplo' },
   typescript = { 'biome-check', 'prettier', stop_after_first = true },
   typescriptreact = { 'biome-check', 'prettier', stop_after_first = true },
+  typst = { 'typstyle' },
   yaml = { 'prettier' },
   ['_'] = { 'trim_newlines', 'trim_whitespace' },
 }

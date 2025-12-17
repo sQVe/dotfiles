@@ -59,6 +59,9 @@ local M = {
     'typescript',
     'typescriptreact',
 
+    -- Typst.
+    'typst',
+
     -- other filetypes where copilot might be useful
     'dockerfile',
     'gitcommit',
@@ -222,6 +225,11 @@ M.config = function()
     capabilities = capabilities,
   })
 
+  vim.lsp.config('tinymist', {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  })
+
   vim.lsp.config('vtsls', {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -277,6 +285,7 @@ M.config = function()
     'jsonls',
     'lua_ls',
     'marksman',
+    'tinymist',
     'vtsls',
     'yamlls',
   })
