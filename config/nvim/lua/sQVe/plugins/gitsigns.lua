@@ -38,7 +38,7 @@ M.opts = {
     local gitsigns = package.loaded.gitsigns
 
     map('n', 'ghd', function()
-      vim.cmd('DiffviewOpen')
+      vim.cmd('CodeDiff')
     end, { desc = 'Open file diff' })
     map('n', 'ghs', gitsigns.stage_hunk, { desc = 'Stage/unstage hunk' })
     map(

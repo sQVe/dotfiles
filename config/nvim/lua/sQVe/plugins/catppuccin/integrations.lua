@@ -5,7 +5,6 @@
 return {
   alpha = true,
   blink_cmp = true,
-  diffview = true,
   fidget = true,
   flash = true,
   gitsigns = true,

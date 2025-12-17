@@ -133,7 +133,7 @@ M.diagnostics = {
 
 M.diff_view = {
   callback = function()
-    vim.cmd('DiffviewOpen')
+    vim.cmd('CodeDiff')
   end,
   condition = function()
     return git.is_inside_repo()
@@ -158,32 +158,6 @@ M.file_explorer = {
     require('mini.files').open(buffer.get_path(), false)
   end,
   name = 'File explorer',
-}
-
-M.file_history = {
-  callback = function()
-    vim.cmd('DiffviewFileHistory')
-  end,
-  condition = function()
-    return git.is_inside_repo()
-  end,
-  name = 'File history',
-}
-
-M.file_history_buffer_path = {
-  callback = function()
-    vim.cmd('DiffviewFileHistory %')
-  end,
-  condition = function(opts)
-    return buffer.is_valid(opts.bufnr)
-      and buffer.is_saved(opts.bufnr)
-      and git.is_inside_repo()
-  end,
-  name = function(opts)
-    return utils.get_short_path(
-      utils.get_name_with_buffer_path('File history', opts)
-    )
-  end,
 }
 
 M.find_all_files = {
@@ -402,7 +376,7 @@ M.resume = {
 
 M.review_diff_view = {
   callback = function()
-    vim.cmd('DiffviewOpen origin/HEAD...HEAD')
+    vim.cmd('CodeDiff origin/HEAD HEAD')
   end,
   condition = function()
     return git.is_inside_repo()
