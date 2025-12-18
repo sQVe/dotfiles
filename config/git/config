@@ -1,3 +1,13 @@
+[advice]
+  statusHints = false
+
+[branch]
+  sort = -committerdate
+
+[blame]
+  date = relative
+  coloring = highlightRecent
+
 [commit]
   gpgSign = true
   verbose = true
@@ -16,13 +26,16 @@
 
 [delta "decorations"]
   commit-decoration-style = bold yellow box ul
-  file-style = bold yellow box
   file-decoration-style = none
+  file-style = bold yellow box
   hunk-header-decoration-style = magenta ul
 
 [diff]
   algorithm = histogram
   colorMoved = default
+
+[fetch]
+  prune = true
 
 [init]
   defaultBranch = main
@@ -41,7 +54,8 @@
   cmd = nvim \"$MERGED\"
 
 [pull]
-  rebase = merges
+  ff = only
+  rebase = true
 
 [push]
   autoSetupRemote = true
@@ -52,11 +66,14 @@
   autosquash = true
   updateRefs = true
 
-[fetch]
-	prune = true
+[rerere]
+  enabled = true
 
 [status]
   showUntrackedFiles = all
+
+[tag]
+  gpgsign = true
 
 [user]
   email = oskargrunning@gmail.com
