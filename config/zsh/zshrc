@@ -61,8 +61,8 @@ source "${ZIM_HOME}/init.zsh"
 # Completion.
 source "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh"
 source /usr/share/fzf/completion.zsh
+source <(graphite completion | sed 's/gt/graphite/g')
 eval "$(zoxide init zsh)"
-
 
 #  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓
 #  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
@@ -220,6 +220,7 @@ alias feh='feh --scale-down --auto-zoom --image-bg "#222222"'
 alias fm=yazi
 alias format='npx prettier --write'
 alias gh='gh'
+alias ge='graphite'
 alias helium=open-helium
 alias icat="kitten icat"
 alias lg=lazygit
