@@ -65,3 +65,19 @@ autocmd('WinLeave', {
     vim.wo.cursorline = false
   end,
 })
+
+-- Remove kitty padding on enter.
+autocmd('VimEnter', {
+  group = 'RemoveKittyPaddingOnEnter',
+  callback = function()
+    vim.fn.system('kitten @ set-spacing padding=0')
+  end,
+})
+
+-- Restore kitty padding on leave.
+autocmd('VimLeavePre', {
+  group = 'RestoreKittyPaddingOnLeave',
+  callback = function()
+    vim.fn.system('kitten @ set-spacing padding-top=4 padding-right=8 padding-bottom=4 padding-left=8')
+  end,
+})
