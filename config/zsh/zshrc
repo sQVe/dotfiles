@@ -3,10 +3,11 @@
 #  ┗━┛┗━╸ ╹  ╹ ╹╹ ╹┗━┛┗━┛
 
 if [[ "$TERM" = 'linux' ]]; then
-  # Replicate colors definied in .Xresources for virtual console.
-  color_definitions=$(sed -nr 's/\*\.color([0-9]+).*#([0-9a-fA-F]{6})/\1 \2/p' $XDG_CONFIG_HOME/Xresources)
-
-  awk '$1 < 16 {printf "\\e]P%X%s", $1, $2}' <<<"$color_definitions"
+  # Set virtual console colors (Gruvbox palette).
+  printf '%b' '\e]P0000000\e]P1cc241d\e]P298971a\e]P3d79921' \
+              '\e]P4458588\e]P5b16286\e]P6689d6a\e]P7a89984' \
+              '\e]P8928374\e]P9fb4934\e]PAb8bb26\e]PBfabd2f' \
+              '\e]PC83a598\e]PDd3869b\e]PE8ec07c\e]PFebdbb2'
   clear
 fi
 
@@ -193,7 +194,7 @@ alias sudo='sudo -v && sudo '
 alias sudoedit='sudoedit '
 
 # Globals.
-alias -g CP='| xsel -ib'
+alias -g CP='| wl-copy'
 alias -g F='| fzf'
 alias -g V='| nvim'
 
@@ -205,7 +206,6 @@ alias ls='eza'
 alias lt='eza -la -T'
 
 # State.
-alias i3exit='state exit'
 alias poweroff='state poweroff'
 alias reboot='state reboot'
 alias shutdown='state shutdown'
@@ -229,8 +229,3 @@ alias steam=open-steam
 alias v=nvim
 alias vim=nvim
 alias vn='nvim -u NONE'
-alias xsel='xsel -b'
-
-# Dunst.
-alias dunst-pause='dunstctl set-paused true'
-alias dunst-resume='dunstctl set-paused false'

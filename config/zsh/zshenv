@@ -66,4 +66,3 @@ export MOB_VOICE_COMMAND="mpv /usr/share/sounds/freedesktop/stereo/alarm-clock-e
 
 # Misc options.
 export GTK_THEME=Adwaita:dark
-export WINIT_X11_SCALE_FACTOR=1
