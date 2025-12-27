@@ -1,3 +1,19 @@
+environment {
+  ELECTRON_OZONE_PLATFORM_HINT "auto"
+  GDK_BACKEND "wayland,x11,*"
+  QT_AUTO_SCREEN_SCALE_FACTOR "1"
+  QT_QPA_PLATFORM "wayland;xcb"
+  QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
+  SDL_VIDEODRIVER "wayland"
+}
+
+prefer-no-csd
+screenshot-path "~/download/%Y-%m-%d-%H-%M-%S.png"
+
+hotkey-overlay {
+  skip-at-startup
+}
+
 cursor {
     xcursor-theme "Bibata-Modern-Ice"
     xcursor-size 24
@@ -6,6 +22,8 @@ cursor {
 }
 
 input {
+  disable-power-key-handling
+
   keyboard {
     repeat-delay 200
     repeat-rate 25
@@ -18,24 +36,25 @@ input {
   touchpad {
     accel-profile "adaptive"
     accel-speed 0.2
-    click-method "clickfinger"
+    click-method "button-areas"
     drag false
     dwt
     scroll-method "two-finger"
     tap
   }
+
   warp-mouse-to-focus
-  focus-follows-mouse
+  focus-follows-mouse max-scroll-amount="25%"
 }
 
-output "eDP-1" {
-  mode "2560x1600@165.004"
-  scale 1.2
-  transform "normal"
+gestures {
+  hot-corners { off; }
 }
+
 
 layout {
-  gaps 16
+  background-color "transparent"
+  gaps 8
   center-focused-column "never"
   preset-column-widths {
     proportion 0.33333
@@ -46,8 +65,8 @@ layout {
     proportion 0.5
   }
   focus-ring {
-    width 2
-    active-color "#7fc8ff"
+    width 2.5
+    active-color "#d3869b"
     inactive-color "#505050"
   }
   border {
@@ -63,33 +82,23 @@ layout {
   }
 }
 
-spawn-at-startup "waybar"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
-
-spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "Bibata-Modern-Ice"
-spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "24"
-
-hotkey-overlay {
-  skip-at-startup
-}
-
-prefer-no-csd
-
-screenshot-path "~/pictures/%Y-%m-%d %H-%M-%S.png"
-
 animations {
   on
-  slowdown 0.4
+  slowdown 0.6
 }
 
 overview {
-  backdrop-color "#1a1b26"
   workspace-shadow {
-    softness 60
+    softness 40
     spread 20
     offset x=0 y=10
     color "#0007"
   }
+}
+
+layer-rule {
+  match namespace="^noctalia-overview*"
+  place-within-backdrop true
 }
 
 window-rule {
@@ -97,35 +106,77 @@ window-rule {
   clip-to-geometry true
 }
 
+window-rule {
+  match app-id=r#"(?i)^pinentry"#
+  open-floating true
+}
+
+// window-rule {
+//   match app-id="org.qutebrowser.qutebrowser"
+//   open-maximized true
+// }
+
+// Startup
+spawn-at-startup "gnome-keyring-daemon" "--start" "--components=pkcs11,secrets"
+spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "kanshi"
+spawn-at-startup "sh" "-c" "sleep 4 && easyeffects --gapplication-service"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
+spawn-at-startup "swayidle" "-w" \
+    "timeout" "300" "niri msg action power-off-monitors" \
+    "resume" "niri msg action power-on-monitors" \
+    "timeout" "600" "qs msg -c noctalia-shell lockScreen lock" \
+    "before-sleep" "qs msg -c noctalia-shell lockScreen lock"
+
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "Bibata-Modern-Ice"
+spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "24"
+
 binds {
   // Programs
-  Mod+D { spawn "fuzzel"; }
-  Mod+Return { spawn "kitty"; }
-  Mod+X { spawn "swaylock"; }
+  Mod+D repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/apps.sh"; }
+  Mod+Shift+D repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/run.sh"; }
+  Mod+Return { spawn "term"; }
+  Mod+X repeat=false { spawn "qs" "msg" "-c" "noctalia-shell" "lockScreen" "lock"; }
 
-  // Focus
+  // Focus: Windows
   Mod+H { focus-column-left; }
   Mod+J { focus-window-or-workspace-down; }
   Mod+K { focus-window-or-workspace-up; }
   Mod+L { focus-column-right; }
+
   Mod+Left { focus-column-left; }
   Mod+Down { focus-window-or-workspace-down; }
   Mod+Up { focus-window-or-workspace-up; }
   Mod+Right { focus-column-right; }
 
-  // Move
+  // Focus: Monitors
+  Mod+Ctrl+H { focus-monitor-left; }
+  Mod+Ctrl+J { focus-monitor-down; }
+  Mod+Ctrl+K { focus-monitor-up; }
+  Mod+Ctrl+L { focus-monitor-right; }
+
+  Mod+Ctrl+Left { focus-monitor-left; }
+  Mod+Ctrl+Down { focus-monitor-down; }
+  Mod+Ctrl+Up { focus-monitor-up; }
+  Mod+Ctrl+Right { focus-monitor-right; }
+
+  // Move: Windows
   Mod+Shift+H { move-column-left; }
   Mod+Shift+J { move-window-down-or-to-workspace-down; }
   Mod+Shift+K { move-window-up-or-to-workspace-up; }
   Mod+Shift+L { move-column-right; }
+
   Mod+Shift+Left { move-column-left; }
   Mod+Shift+Down { move-window-down-or-to-workspace-down; }
   Mod+Shift+Up { move-window-up-or-to-workspace-up; }
   Mod+Shift+Right { move-column-right; }
+
+  // Move: To Monitors
   Mod+Shift+Ctrl+H { move-column-to-monitor-left; }
   Mod+Shift+Ctrl+J { move-column-to-monitor-down; }
   Mod+Shift+Ctrl+K { move-column-to-monitor-up; }
   Mod+Shift+Ctrl+L { move-column-to-monitor-right; }
+
   Mod+Shift+Ctrl+Left { move-column-to-monitor-left; }
   Mod+Shift+Ctrl+Down { move-column-to-monitor-down; }
   Mod+Shift+Ctrl+Up { move-column-to-monitor-up; }
@@ -142,6 +193,7 @@ binds {
   Mod+8 { focus-workspace 8; }
   Mod+9 { focus-workspace 9; }
   Mod+BackSpace { focus-workspace-previous; }
+
   Mod+Shift+1 { move-column-to-workspace 1; }
   Mod+Shift+2 { move-column-to-workspace 2; }
   Mod+Shift+3 { move-column-to-workspace 3; }
@@ -152,22 +204,25 @@ binds {
   Mod+Shift+8 { move-column-to-workspace 8; }
   Mod+Shift+9 { move-column-to-workspace 9; }
 
+  Mod+Shift+N { move-workspace-down; }
+  Mod+Shift+P { move-workspace-up; }
+
   // Windows
-  Mod+F { fullscreen-window; }
-  Mod+Q { close-window; }
-  Mod+T { toggle-window-floating; }
-  Mod+Shift+T { switch-focus-between-floating-and-tiling; }
-  Mod+Tab { toggle-overview; }
-  Mod+Shift+Tab { toggle-overview; }
+  Mod+Space repeat=false { fullscreen-window; }
+  Mod+Q repeat=false { close-window; }
+  Mod+T repeat=false { toggle-window-floating; }
+  Mod+Shift+T repeat=false { switch-focus-between-floating-and-tiling; }
+  Mod+Tab repeat=false { toggle-overview; }
+  Mod+Shift+Tab repeat=false { toggle-overview; }
 
   // Columns
-  Mod+C { center-column; }
+  Mod+C repeat=false { center-column; }
   Mod+Comma { consume-or-expel-window-left; }
-  Mod+M { maximize-column; }
+  Mod+F repeat=false { maximize-column; }
   Mod+Period { consume-or-expel-window-right; }
   Mod+R { switch-preset-column-width; }
-  Mod+W { toggle-column-tabbed-display; }
-  Mod+Shift+M { expand-column-to-available-width; }
+  Mod+W repeat=false { toggle-column-tabbed-display; }
+  Mod+Shift+M repeat=false { expand-column-to-available-width; }
 
   // Sizing
   Mod+Minus { set-column-width "-10%"; }
@@ -176,14 +231,14 @@ binds {
   Mod+Shift+Plus { set-window-height "+10%"; }
 
   // Hardware
-  XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
-  XF86AudioMicMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle"; }
-  XF86AudioMute allow-when-locked=true { spawn-sh "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle"; }
-  XF86AudioNext allow-when-locked=true { spawn-sh "playerctl next"; }
-  XF86AudioPlay allow-when-locked=true { spawn-sh "playerctl play-pause"; }
-  XF86AudioPrev allow-when-locked=true { spawn-sh "playerctl previous"; }
-  XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
-  XF86AudioStop allow-when-locked=true { spawn-sh "playerctl stop"; }
-  XF86MonBrightnessDown allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "10%-"; }
-  XF86MonBrightnessUp allow-when-locked=true { spawn "brightnessctl" "--class=backlight" "set" "+10%"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "qs" "msg" "-c" "noctalia-shell" "volume" "decrease"; }
+  XF86AudioMicMute allow-when-locked=true repeat=false { spawn "qs" "msg" "-c" "noctalia-shell" "volume" "muteInput"; }
+  XF86AudioMute allow-when-locked=true repeat=false { spawn "qs" "msg" "-c" "noctalia-shell" "volume" "muteOutput"; }
+  XF86AudioNext allow-when-locked=true { spawn "qs" "msg" "-c" "noctalia-shell" "media" "next"; }
+  XF86AudioPlay allow-when-locked=true repeat=false { spawn "qs" "msg" "-c" "noctalia-shell" "media" "playPause"; }
+  XF86AudioPrev allow-when-locked=true { spawn "qs" "msg" "-c" "noctalia-shell" "media" "previous"; }
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "qs" "msg" "-c" "noctalia-shell" "volume" "increase"; }
+  XF86AudioStop allow-when-locked=true repeat=false { spawn "qs" "msg" "-c" "noctalia-shell" "media" "stop"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "qs" "msg" "-c" "noctalia-shell" "brightness" "decrease"; }
+  XF86MonBrightnessUp allow-when-locked=true { spawn "qs" "msg" "-c" "noctalia-shell" "brightness" "increase"; }
 }
