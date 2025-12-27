@@ -50,6 +50,6 @@ command('Ddg', function(input)
   local safe_query = string.gsub(query, '%s', ' ')
 
   vim
-    .system({ 'open-qutebrowser', root_url .. safe_query }, { detach = true })
+    .system({ 'qutebrowser', root_url .. safe_query }, { detach = true })
     :wait()
 end, { nargs = '?' })

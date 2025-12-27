@@ -4,6 +4,9 @@
 # Follow symlinks.
 --follow
 
+# Suppress reading failure errors.
+--no-messages
+
 # Ignore .git directories
 --glob=!.git
 

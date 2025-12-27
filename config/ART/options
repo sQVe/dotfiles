@@ -1,7 +1,7 @@
 [General]
 TabbedEditor=false
 StartupDirectory=last
-StartupPath=/home/sqve/download/photo-dump
+StartupPath=/home/sqve/pictures
 DateFormat=%Y-%m-%d
 AdjusterMinDelay=100
 AdjusterMaxDelay=200
@@ -9,7 +9,7 @@ MultiUser=true
 Language=English (US)
 LanguageAutoDetect=true
 Theme=Default
-Version=1.20.2
+Version=1.25.12
 DarkFramesPath=
 FlatFieldsPath=
 Verbose=0
@@ -50,9 +50,10 @@ OverlayedFileNames=false
 FilmStripOverlayedFileNames=false
 ShowFileNames=false
 FilmStripShowFileNames=false
+HighlightSelected=false
 InternalThumbIfUntouched=true
 MaxRecentFolders=15
-RecentFolders=/home/sqve/download/photo-dump;/home/sqve/download;/home/sqve;/mnt/shishigami/media/photos;/mnt;/home/sqve/pictures;/mnt/shishigami/media/photos/keepers;/home/sqve/download/import;
+RecentFolders=/home/sqve/pictures;/home/sqve/download/photo-dump;/home/sqve/download;/home/sqve;/mnt/shishigami/media/photos;/mnt;/mnt/shishigami/media/photos/keepers;/home/sqve/download/import;
 ThumbnailRatingMode=xmp
 
 [Clipping Indication]
@@ -71,7 +72,10 @@ ThumbUpdateThreadLimit=0
 ThumbDelayUpdate=false
 ThumbLazyCaching=true
 ThumbCacheProcessed=false
+CTLScriptsFastPreview=true
 WBPreviewMode=2
+RAWImageIOCacheSize=10
+PreviewResamplingQuality=1
 
 [Inspector]
 Mode=0
@@ -213,23 +217,7 @@ Intent=1
 MonitorBPC=true
 WhiteBalanceSpotSize=32
 ClutsDirectory=/home/sqve/.config/ART/HaldCLUT
-
-[ICC Profile Creator]
-PimariesPreset=sRGB
-RedPrimaryX=0.64000000000000001
-RedPrimaryY=0.33000000000000002
-GreenPrimaryX=0.29999999999999999
-GreenPrimaryY=0.59999999999999998
-BluePrimaryX=0.14999999999999999
-BluePrimaryY=0.059999999999999998
-GammaPreset=Custom
-Gamma=2.3999999999999999
-Slope=12.92
-ProfileVersion=v4
-Illuminant=DEF
-Description=
-Copyright=Copyright RawTherapee 2023, CC0
-AppendParamsToDesc=false
+OSMonitorProfile=sRGB
 
 [Sounds]
 Enable=false
@@ -253,9 +241,9 @@ LastToneCurvesDir=/home/sqve/.config/ART/profiles
 LastProfilingReferenceDir=/home/sqve/.config/ART/profiles
 LastLensProfileDir=
 LastICCProfCreatorDir=/home/sqve/.config/ART/profiles
-LastCopyMovePath=
 LastSessionAddDir=
 LastSessionLoadSaveDir=
+LastRenamingLoadSaveDir=
 GimpPluginShowInfoDialog=true
 
 [Lensfun]
@@ -284,6 +272,7 @@ ClippedHighlights=
 ClippedShadows=
 
 [Renaming]
+Basedir=.
 Pattern=%f.%e
 Sidecars=
 NameNormalization=0
@@ -291,6 +280,7 @@ ExtNormalization=0
 AllowWhitespace=false
 OnExisting=0
 ProgressiveNumber=1
+Remember=1
 
 [ExifFilterSettings]
 Remember=false
@@ -302,11 +292,13 @@ FilterISO=false
 FilterExpComp=false
 FilterCamera=false
 FilterLens=false
+FilterOrientation=false
 FilterFiletype=false
 FilterDate=false
 Filetypes=
 Cameras=
 Lenses=
+Orientations=
 Expcomp=
 FNumberFrom=100
 FNumberTo=0
