@@ -1,4 +1,4 @@
-open-chrome --new-window %U
+google-chrome-stable --new-window %U
   ^https?:\/\/(.*\.)?amazonaws\.com
   ^https?:\/\/(.*\.)?coda\.io
   ^https?:\/\/(.*\.)?figma\.com
@@ -21,8 +21,8 @@ mpv %U
 streamlink %U
   ^https?:\/\/(www\.)?twitch\.tv\/.*
 
-feh %U
+imv %U
   ^https?:\/\/.+?\.(jpe?g|png)
 
-open-qutebrowser %F
+qutebrowser %F
   ^www\..+?\.\w+
