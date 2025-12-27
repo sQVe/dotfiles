@@ -60,6 +60,13 @@ layout {
     proportion 0.33333
     proportion 0.5
     proportion 0.66667
+    proportion 1.0
+  }
+  preset-window-heights {
+    proportion 0.33333
+    proportion 0.5
+    proportion 0.66667
+    proportion 1.0
   }
   default-column-width {
     proportion 0.5
@@ -111,12 +118,14 @@ window-rule {
   open-floating true
 }
 
-// window-rule {
-//   match app-id="org.qutebrowser.qutebrowser"
-//   open-maximized true
-// }
+window-rule {
+  match app-id="mpv"
+  open-floating true
+  default-floating-position x=8 y=8 relative-to="bottom-right"
+}
 
 // Startup
+spawn-at-startup "niri-float-sticky"
 spawn-at-startup "gnome-keyring-daemon" "--start" "--components=pkcs11,secrets"
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "kanshi"
@@ -134,7 +143,10 @@ spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "
 binds {
   // Programs
   Mod+D repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/apps.sh"; }
+  Mod+E repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/emoji.sh"; }
+  Mod+M repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/state.sh"; }
   Mod+Shift+D repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/run.sh"; }
+  Mod+U repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/passwords.sh"; }
   Mod+Return { spawn "term"; }
   Mod+X repeat=false { spawn "qs" "msg" "-c" "noctalia-shell" "lockScreen" "lock"; }
 
@@ -220,15 +232,16 @@ binds {
   Mod+Comma { consume-or-expel-window-left; }
   Mod+F repeat=false { maximize-column; }
   Mod+Period { consume-or-expel-window-right; }
-  Mod+R { switch-preset-column-width; }
   Mod+W repeat=false { toggle-column-tabbed-display; }
-  Mod+Shift+M repeat=false { expand-column-to-available-width; }
 
   // Sizing
   Mod+Minus { set-column-width "-10%"; }
   Mod+Plus { set-column-width "+10%"; }
   Mod+Shift+Minus { set-window-height "-10%"; }
   Mod+Shift+Plus { set-window-height "+10%"; }
+
+  Mod+S { switch-preset-column-width; }
+  Mod+Shift+S { switch-preset-window-height; }
 
   // Hardware
   XF86AudioLowerVolume allow-when-locked=true { spawn "qs" "msg" "-c" "noctalia-shell" "volume" "decrease"; }
