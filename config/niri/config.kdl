@@ -133,20 +133,19 @@ window-rule {
 }
 
 // Startup
-spawn-at-startup "niri-float-sticky"
-spawn-at-startup "gnome-keyring-daemon" "--start" "--components=pkcs11,secrets"
+spawn-at-startup "sh" "-c" "$SCRIPTS/niri/init.sh"
+
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
+spawn-at-startup "gnome-keyring-daemon" "--start" "--components=pkcs11,secrets"
 spawn-at-startup "kanshi"
+spawn-at-startup "niri-float-sticky"
 spawn-at-startup "sh" "-c" "sleep 4 && easyeffects --gapplication-service"
-spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 spawn-at-startup "swayidle" "-w" \
     "timeout" "300" "niri msg action power-off-monitors" \
     "resume" "niri msg action power-on-monitors" \
     "timeout" "600" "qs msg -c noctalia-shell lockScreen lock" \
     "before-sleep" "qs msg -c noctalia-shell lockScreen lock"
-
-spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-theme" "Bibata-Modern-Ice"
-spawn-at-startup "gsettings" "set" "org.gnome.desktop.interface" "cursor-size" "24"
+spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
 binds {
   // Programs
