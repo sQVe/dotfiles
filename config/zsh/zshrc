@@ -206,6 +206,7 @@ alias ls='eza'
 alias lt='eza -la -T'
 
 # State.
+alias ns=niri-session
 alias poweroff='state poweroff'
 alias reboot='state reboot'
 alias shutdown='state shutdown'
