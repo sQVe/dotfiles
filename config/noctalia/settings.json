@@ -302,14 +302,14 @@
     },
     "notifications": {
         "backgroundOpacity": 0.8,
-        "criticalUrgencyDuration": 10,
+        "criticalUrgencyDuration": 6,
         "enableKeyboardLayoutToast": false,
         "enabled": true,
         "location": "top_right",
         "lowUrgencyDuration": 2,
         "monitors": [
         ],
-        "normalUrgencyDuration": 4,
+        "normalUrgencyDuration": 2,
         "overlayLayer": true,
         "respectExpireTimeout": false,
         "sounds": {
