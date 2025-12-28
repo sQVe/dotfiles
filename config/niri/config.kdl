@@ -3,6 +3,7 @@ environment {
   GDK_BACKEND "wayland,x11,*"
   QT_AUTO_SCREEN_SCALE_FACTOR "1"
   QT_QPA_PLATFORM "wayland;xcb"
+  // QT_SCALE_FACTOR "1.1"
   QT_WAYLAND_DISABLE_WINDOWDECORATION "1"
   SDL_VIDEODRIVER "wayland"
 }
@@ -124,6 +125,13 @@ window-rule {
   default-floating-position x=8 y=8 relative-to="bottom-right"
 }
 
+window-rule {
+  match app-id="bc"
+  open-floating true
+  default-column-width { fixed 800; }
+  default-window-height { fixed 600; }
+}
+
 // Startup
 spawn-at-startup "niri-float-sticky"
 spawn-at-startup "gnome-keyring-daemon" "--start" "--components=pkcs11,secrets"
@@ -148,7 +156,13 @@ binds {
   Mod+Shift+D repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/run.sh"; }
   Mod+U repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/passwords.sh"; }
   Mod+Return { spawn "term"; }
+  Mod+Shift+Return { spawn "term" "--detach"; }
+  Mod+Equal repeat=false { spawn "term" "--class" "bc" "--detach" "bc"; }
   Mod+X repeat=false { spawn "qs" "msg" "-c" "noctalia-shell" "lockScreen" "lock"; }
+
+  // Notifications
+  Mod+Odiaeresis repeat=false { spawn "qs" "msg" "-c" "noctalia-shell" "notifications" "dismissOldest"; }
+  Mod+Shift+Odiaeresis repeat=false { spawn "qs" "msg" "-c" "noctalia-shell" "notifications" "clear"; }
 
   // Focus: Windows
   Mod+H { focus-column-left; }
@@ -242,6 +256,10 @@ binds {
 
   Mod+S { switch-preset-column-width; }
   Mod+Shift+S { switch-preset-window-height; }
+
+  // Screenshots
+  Print repeat=false { screenshot-screen; }
+  Shift+Print repeat=false { screenshot; }
 
   // Hardware
   XF86AudioLowerVolume allow-when-locked=true { spawn "qs" "msg" "-c" "noctalia-shell" "volume" "decrease"; }
