@@ -298,3 +298,21 @@ vim.g.mapleader = ' '
 
 -- Fix markdown indentation.
 vim.g.markdown_recommended_style = 0
+
+-- Suppress wl-paste error when clipboard is empty (triggered by yanky init).
+vim.g.clipboard = {
+  name = 'wl-clipboard-silent',
+  copy = {
+    ['+'] = { 'wl-copy', '--type', 'text/plain' },
+    ['*'] = { 'wl-copy', '--primary', '--type', 'text/plain' },
+  },
+  paste = {
+    ['+'] = { 'sh', '-c', 'wl-paste --no-newline 2>/dev/null || true' },
+    ['*'] = {
+      'sh',
+      '-c',
+      'wl-paste --no-newline --primary 2>/dev/null || true',
+    },
+  },
+  cache_enabled = true,
+}
