@@ -1,3 +1,3 @@
 profile laptop {
-    output eDP-1 enable mode 2560x1600@165.004 scale 1.2
+    output eDP-1 enable mode 2560x1600@165.004 scale 1.3
 }

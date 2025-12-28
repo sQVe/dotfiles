@@ -121,7 +121,7 @@ c.qt.force_platform = None
 # alternative to this, it's possible to set font sizes and the
 # `zoom.default` setting.
 # Type: Bool
-c.qt.highdpi = False
+c.qt.highdpi = True
 
 # Time interval (in milliseconds) between auto-saves of
 # config/cookies/etc.
@@ -1438,7 +1438,7 @@ c.fonts.default_family = ['monospace']
 # either a float value with a "pt" suffix, or an integer value with a
 # "px" suffix.
 # Type: String
-c.fonts.default_size = '12px'
+c.fonts.default_size = '14px'
 
 # Font used in the completion widget.
 # Type: Font
