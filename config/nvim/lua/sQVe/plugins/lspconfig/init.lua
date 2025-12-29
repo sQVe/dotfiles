@@ -53,7 +53,7 @@ local M = {
     'gdscript',
     'gdscript3',
 
-    -- biome and vtsls
+    -- biome and tsgo
     'javascript',
     'javascriptreact',
     'typescript',
@@ -230,35 +230,12 @@ M.config = function()
     capabilities = capabilities,
   })
 
-  vim.lsp.config('vtsls', {
+  vim.lsp.config('tsgo', {
+    cmd = { 'tsgo', '--lsp', '-stdio' },
+    filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+    root_markers = { 'tsconfig.json', 'jsconfig.json', 'package.json' },
     on_attach = on_attach,
     capabilities = capabilities,
-    settings = {
-      javascript = {
-        format = { enable = false },
-        preferences = { quoteStyle = 'single' },
-        suggest = { completeFunctionCalls = true },
-        tsserver = { maxTsServerMemory = 8192 },
-      },
-      typescript = {
-        format = { enable = false },
-        preferences = {
-          importModuleSpecifier = 'shortest',
-          importModuleSpecifierEnding = 'minimal',
-          quoteStyle = 'single',
-        },
-        suggest = { completeFunctionCalls = true },
-        tsserver = { maxTsServerMemory = 8192 },
-      },
-      vtsls = {
-        autoUseWorkspaceTsdk = true,
-        experimental = {
-          completion = {
-            enableServerSideFuzzyMatch = true,
-          },
-        },
-      },
-    },
   })
 
   vim.lsp.config('yamlls', {
@@ -286,7 +263,7 @@ M.config = function()
     'lua_ls',
     'marksman',
     'tinymist',
-    'vtsls',
+    'tsgo',
     'yamlls',
   })
 

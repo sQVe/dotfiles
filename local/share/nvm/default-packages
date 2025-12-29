@@ -3,7 +3,7 @@
 @biomejs/biome
 @github/copilot-language-server
 @openai/codex
-@vtsls/language-server
+@typescript/native-preview
 bash-language-server
 colorally
 corepack
