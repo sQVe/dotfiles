@@ -26,11 +26,12 @@ input {
   disable-power-key-handling
 
   keyboard {
-    repeat-delay 200
+    repeat-delay 500
     repeat-rate 25
     xkb {
       layout "se"
-      options "caps:backspace"
+      variant "nodeadkeys"
+      options "caps:backspace,terminate:ctrl_alt_bksp"
     }
     numlock
   }
@@ -42,6 +43,10 @@ input {
     dwt
     scroll-method "two-finger"
     tap
+  }
+  mouse {
+    accel-profile "flat"
+    accel-speed 0.2
   }
 
   warp-mouse-to-focus
@@ -109,6 +114,12 @@ layer-rule {
   place-within-backdrop true
 }
 
+output "Dell Inc. DELL S3422DWG 8BB3TH3" {
+  layout {
+    default-column-width { proportion 0.33333; }
+  }
+}
+
 window-rule {
   geometry-corner-radius 8
   clip-to-geometry true
@@ -123,13 +134,6 @@ window-rule {
   match app-id="mpv"
   open-floating true
   default-floating-position x=8 y=8 relative-to="bottom-right"
-}
-
-window-rule {
-  match app-id="bc"
-  open-floating true
-  default-column-width { fixed 800; }
-  default-window-height { fixed 600; }
 }
 
 // Startup
@@ -156,7 +160,6 @@ binds {
   Mod+U repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/passwords.sh"; }
   Mod+Return { spawn "term"; }
   Mod+Shift+Return { spawn "term" "--detach"; }
-  Mod+Equal repeat=false { spawn "term" "--class" "bc" "--detach" "bc"; }
   Mod+X repeat=false { spawn "qs" "msg" "-c" "noctalia-shell" "lockScreen" "lock"; }
 
   // Notifications
