@@ -10,7 +10,6 @@ local M = {
   build = ':TSUpdate',
   branch = 'master',
   event = 'BufReadPost',
-  dependencies = { 'RRethy/nvim-treesitter-textsubjects' },
 }
 
 M.opts = {
