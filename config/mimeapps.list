@@ -1,4 +1,4 @@
-[Added Associations]
+[Default Applications]
 application/javascript=term-nvim.desktop;
 application/json=term-nvim.desktop;
 application/pdf=org.pwmt.zathura.desktop;
@@ -44,8 +44,8 @@ image/jpg=imv.desktop;
 image/jpx=imv.desktop;
 image/pjpeg=imv.desktop;
 image/png=imv.desktop;
-image/svg+xml=qutebrowser.desktop;
-image/svg+xml-compressed=qutebrowser.desktop;
+image/svg+xml=org.qutebrowser.qutebrowser.desktop;
+image/svg+xml-compressed=org.qutebrowser.qutebrowser.desktop;
 image/tiff=imv.desktop;
 image/webp=imv.desktop;
 image/x-bmp=imv.desktop;
@@ -107,7 +107,7 @@ text/x-sql=term-nvim.desktop;
 text/x-tcl=term-nvim.desktop;
 text/x-tex=term-nvim.desktop;
 text/xml=term-nvim.desktop;
-video/mp2t=term-nvim.desktop;
+video/mp2t=mpv.desktop;
 video/mp4=mpv.desktop;
 video/mpeg=mpv.desktop;
 video/msvideo=mpv.desktop;
@@ -129,7 +129,6 @@ video/x-ms-wvxvideo=mpv.desktop;
 video/x-msvideo=mpv.desktop;
 video/x-ogm+ogg=mpv.desktop;
 video/x-theora=mpv.desktop;
-x-scheme-handler/http=qutebrowser.desktop;
-x-scheme-handler/https=qutebrowser.desktop;
-[Default Applications]
+x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop;
+x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop;
 x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop;
