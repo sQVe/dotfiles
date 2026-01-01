@@ -3,10 +3,6 @@
 [mgr]
 cwd = { fg = "#928374" }
 
-# Hovered
-hovered         = { bg = "#504945" }
-preview_hovered = { bg = "#32302f" }
-
 # Find
 find_keyword  = { fg = "#222222", bg = "#fabd2f" }
 find_position = { fg = "#d3869b", bg = "reset" }
@@ -16,11 +12,6 @@ marker_selected = { fg = "#fabd2f", bg = "#fabd2f" }
 marker_copied   = { fg = "#b8bd2f", bg = "#b8bd2f" }
 marker_cut      = { fg = "#fb4934", bg = "#fb4934" }
 
-# Tab
-tab_active   = { fg = "#222222", bg = "#83a598" }
-tab_inactive = { fg = "#ebdbb2", bg = "#3c3836" }
-tab_width    = 1
-
 # Border
 border_symbol = "│"
 border_style  = { fg = "#3c3836" }
@@ -28,9 +19,17 @@ border_style  = { fg = "#3c3836" }
 # Highlighting
 syntect_theme = "~/.config/bat/themes/gruvbox-dark.tmTheme"
 
+[indicator]
+current = { bg = "#504945" }
+preview = { bg = "#32302f" }
+
+[tabs]
+active   = { fg = "#222222", bg = "#83a598" }
+inactive = { fg = "#ebdbb2", bg = "#3c3836" }
+
 [status]
-separator_open  = ""
-separator_close = ""
+separator_open  = ""
+separator_close = ""
 separator_style = { fg = "#665c54", bg = "#665c54" }
 
 # Mode
@@ -50,12 +49,7 @@ permissions_w = { fg = "#d3869b" }
 permissions_x = { fg = "#fabd2f" }
 permissions_s = { fg = "#b8bd2f" }
 
-border   = { fg = "#83a598" }
-title    = {}
-value    = {}
-selected = { reversed = true }
-
-[select]
+[pick]
 border   = { fg = "#83a598" }
 active   = { fg = "#d3869b" }
 inactive = {}
@@ -71,9 +65,9 @@ border   = { fg = "#83a598" }
 active   = { fg = "#d3869b" }
 inactive = {}
 
-icon_file    = " "
-icon_folder  = " "
-icon_command = " "
+icon_file    = " "
+icon_folder  = " "
+icon_command = " "
 
 [tasks]
 border  = { fg = "#83a598" }
@@ -86,7 +80,7 @@ mask            = { bg = "#3c3836" }
 cand            = { fg = "#8ec07c" }
 rest            = { fg = "#504945" }
 desc            = { fg = "#d3869b" }
-separator       = "  "
+separator       = "  "
 separator_style = { fg = "#504945" }
 
 [help]
@@ -115,159 +109,11 @@ rules = [
 	{ mime = "application/x-rar",           fg = "#d3869b" },
 
 	# Dots
-	{ name = ".*", fg = "#928374" },
-	{ name = ".*/", fg = "#928374" },
-	{ name = "node_modules/", fg = "#928374" },
+	{ url = "*/.*", fg = "#928374" },
+	{ url = "*/node_modules/", fg = "#928374" },
 
-  # Fallback
-	{ name = "*", fg = "#ebdbb2" },
-	{ name = "*/", fg = "#83a598" }
+	# Fallback
+	{ url = "*/", fg = "#83a598" },
+	{ url = "*", fg = "#ebdbb2" },
 ]
 
-[icon]
-rules = [
-	# Programming
-	{ name = "*.c",     text = " " },
-	{ name = "*.cpp",   text = " " },
-	{ name = "*.css",   text = " " },
-	{ name = "*.fish",  text = " " },
-	{ name = "*.go",    text = " " },
-	{ name = "*.h",     text = " " },
-	{ name = "*.hpp",   text = " " },
-	{ name = "*.html",  text = " " },
-	{ name = "*.java",  text = " " },
-	{ name = "*.js",    text = " " },
-	{ name = "*.jsx",   text = " " },
-	{ name = "*.lua",   text = " " },
-	{ name = "*.nix",   text = " " },
-	{ name = "*.php",   text = " " },
-	{ name = "*.py",    text = " " },
-	{ name = "*.rb",    text = " " },
-	{ name = "*.rs",    text = " " },
-	{ name = "*.scss",  text = " " },
-	{ name = "*.sh",    text = " " },
-	{ name = "*.swift", text = " " },
-	{ name = "*.ts",    text = " " },
-	{ name = "*.tsx",   text = " " },
-	{ name = "*.vim",   text = " " },
-	{ name = "*.vue",   text = "󰡄 " },
-
-	# Text
-	{ name = "*.conf", text = " " },
-	{ name = "*.ini",  text = " " },
-	{ name = "*.json", text = " " },
-	{ name = "*.md",   text = " " },
-	{ name = "*.toml", text = " " },
-	{ name = "*.txt",  text = " " },
-	{ name = "*.yaml", text = " " },
-	{ name = "*.yml",  text = " " },
-
-	# Archives
-	{ name = "*.7z",  text = " " },
-	{ name = "*.bz2", text = " " },
-	{ name = "*.gz",  text = " " },
-	{ name = "*.rar", text = " " },
-	{ name = "*.tar", text = " " },
-	{ name = "*.xz",  text = " " },
-	{ name = "*.zip", text = " " },
-
-	# Images
-	{ name = "*.HEIC", text = " " },
-	{ name = "*.avif", text = " " },
-	{ name = "*.bmp",  text = " " },
-	{ name = "*.gif",  text = " " },
-	{ name = "*.ico",  text = " " },
-	{ name = "*.jpeg", text = " " },
-	{ name = "*.jpg",  text = " " },
-	{ name = "*.png",  text = " " },
-	{ name = "*.svg",  text = "󰜡 " },
-	{ name = "*.webp", text = " " },
-
-	# Movies
-	{ name = "*.avi",  text = " " },
-	{ name = "*.mkv",  text = " " },
-	{ name = "*.mov",  text = " " },
-	{ name = "*.mp4",  text = " " },
-	{ name = "*.webm", text = " " },
-
-	# Audio
-	{ name = "*.aac",  text = " " },
-	{ name = "*.flac", text = " " },
-	{ name = "*.m4a",  text = " " },
-	{ name = "*.mp3",  text = " " },
-	{ name = "*.ogg",  text = " " },
-	{ name = "*.wav",  text = " " },
-
-	# Documents
-	{ name = "*.csv",  text = " " },
-	{ name = "*.doc",  text = " " },
-	{ name = "*.doct", text = " " },
-	{ name = "*.docx", text = " " },
-	{ name = "*.dot",  text = " " },
-	{ name = "*.ods",  text = " " },
-	{ name = "*.ots",  text = " " },
-	{ name = "*.pdf",  text = " " },
-	{ name = "*.pom",  text = " " },
-	{ name = "*.pot",  text = " " },
-	{ name = "*.potx", text = " " },
-	{ name = "*.ppm",  text = " " },
-	{ name = "*.ppmx", text = " " },
-	{ name = "*.pps",  text = " " },
-	{ name = "*.ppsx", text = " " },
-	{ name = "*.ppt",  text = " " },
-	{ name = "*.pptx", text = " " },
-	{ name = "*.xlc",  text = " " },
-	{ name = "*.xlm",  text = " " },
-	{ name = "*.xls",  text = " " },
-	{ name = "*.xlsm", text = " " },
-	{ name = "*.xlsx", text = " " },
-	{ name = "*.xlt",  text = " " },
-
-	# Lockfiles
-	{ name = "*.lock", text = " " },
-
-	# Misc
-	{ name = "*.bin", text = " " },
-	{ name = "*.exe", text = " " },
-	{ name = "*.pkg", text = " " },
-
-	# Dotfiles
-	{ name = ".DS_Store",      text = " " },
-	{ name = ".bashprofile",   text = " " },
-	{ name = ".bashrc",        text = " " },
-	{ name = ".gitattributes", text = " " },
-	{ name = ".gitignore",     text = " " },
-	{ name = ".gitmodules",    text = " " },
-	{ name = ".vimrc",         text = " " },
-	{ name = ".zprofile",      text = " " },
-	{ name = ".zshenv",        text = " " },
-	{ name = ".zshrc",         text = " " },
-
-	# Named files
-	{ name = "COPYING",       text = "󰿃 " },
-	{ name = "Containerfile", text = "󰡨 " },
-	{ name = "Dockerfile",    text = "󰡨 " },
-	{ name = "LICENSE",       text = "󰿃 " },
-	{ name = "README",       text = " " },
-
-	# Directories
-	{ name = ".cache/",     text = "󰴋 " },
-	{ name = ".config/",    text = "󱁿 " },
-	{ name = ".dotfiles/",  text = "󱁿 " },
-	{ name = ".git/",       text = "󰊢 " },
-	{ name = ".gnupg/",     text = "󰢬 " },
-	{ name = ".passwords/", text = "󰉐 " },
-	{ name = "code/",       text = "󰴉 " },
-	{ name = "download/",   text = "󰉍 " },
-	{ name = "home/",       text = "󱂵 " },
-	{ name = "notebox/",    text = "󰠮 " },
-	{ name = "pictures/",   text = "󰉏 " },
-	{ name = "scripts/",    text = "󰯁 " },
-	{ name = "sqve/",       text = "󰉌 " },
-	{ name = "src/",        text = "󰴉 " },
-	{ name = "work/",       text = "󰴉 " },
-
-	# Default
-	{ name = "*",  text = "󰈔 " },
-	{ name = "*/", text = "󰉋 " },
-]
