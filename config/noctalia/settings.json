@@ -25,6 +25,7 @@
         "volumeStep": 5
     },
     "bar": {
+        "backgroundOpacity": 0.93,
         "capsuleOpacity": 1,
         "density": "default",
         "exclusive": true,
@@ -37,7 +38,7 @@
         "position": "top",
         "showCapsule": false,
         "showOutline": false,
-        "transparent": false,
+        "useSeparateOpacity": false,
         "widgets": {
             "center": [
                 {
@@ -60,15 +61,18 @@
                     "colorizeIcons": false,
                     "enableScrollWheel": true,
                     "followFocusedScreen": false,
+                    "groupedBorderOpacity": 1,
                     "hideUnoccupied": false,
                     "id": "Workspace",
                     "labelMode": "index",
                     "showApplications": false,
-                    "showLabelsOnlyWhenOccupied": true
+                    "showLabelsOnlyWhenOccupied": true,
+                    "unfocusedIconsOpacity": 1
                 }
             ],
             "right": [
                 {
+                    "compactMode": false,
                     "diskPath": "/",
                     "id": "SystemMonitor",
                     "showCpuTemp": true,
@@ -78,6 +82,7 @@
                     "showMemoryAsPercent": true,
                     "showMemoryUsage": true,
                     "showNetworkStats": false,
+                    "useMonospaceFont": true,
                     "usePrimaryColor": false
                 },
                 {
@@ -110,13 +115,12 @@
                     "id": "Brightness"
                 },
                 {
-                    "deviceNativePath": "",
                     "displayMode": "onhover",
                     "hideIfNotDetected": true,
                     "id": "Battery",
                     "showNoctaliaPerformance": false,
                     "showPowerProfiles": false,
-                    "warningThreshold": 30
+                    "warningThreshold": 20
                 },
                 {
                     "id": "Spacer",
@@ -127,6 +131,7 @@
                     "formatHorizontal": "HH:mm:ss",
                     "formatVertical": "",
                     "id": "Clock",
+                    "tooltipFormat": "HH:mm ddd, MMM dd",
                     "useCustomFont": true,
                     "usePrimaryColor": false
                 }
@@ -312,6 +317,11 @@
         "normalUrgencyDuration": 2,
         "overlayLayer": true,
         "respectExpireTimeout": false,
+        "saveToHistory": {
+            "critical": true,
+            "low": true,
+            "normal": true
+        },
         "sounds": {
             "criticalSoundFile": "",
             "enabled": false,
@@ -341,6 +351,7 @@
         "audioCodec": "opus",
         "audioSource": "default_output",
         "colorRange": "limited",
+        "copyToClipboard": false,
         "directory": "/home/sqve/download",
         "frameRate": 60,
         "quality": "very_high",
@@ -391,15 +402,17 @@
                 "enabled": false
             }
         ],
-        "showHeader": true
+        "showHeader": true,
+        "showNumberLabels": true
     },
-    "settingsVersion": 32,
+    "settingsVersion": 35,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
         "cpuPollingInterval": 3000,
         "cpuWarningThreshold": 80,
         "criticalColor": "",
         "diskCriticalThreshold": 90,
+        "diskPath": "/",
         "diskPollingInterval": 3000,
         "diskWarningThreshold": 80,
         "enableDgpuMonitoring": false,
@@ -464,9 +477,18 @@
         "fillMode": "crop",
         "hideWallpaperFilenames": false,
         "monitorDirectories": [
-            { "name": "eDP-1", "directory": "/home/sqve/pictures/art/simon-stålenhag/SWEDISH_MACHINES" },
-            { "name": "DP-1", "directory": "/home/sqve/pictures/art/simon-stålenhag/SWEDISH_MACHINES" },
-            { "name": "HDMI-A-1", "directory": "/home/sqve/pictures/art/simon-stålenhag/SWEDISH_MACHINES" }
+            {
+                "directory": "/home/sqve/pictures/art/simon-stålenhag/SWEDISH_MACHINES",
+                "name": "eDP-1"
+            },
+            {
+                "directory": "/home/sqve/pictures/art/simon-stålenhag/SWEDISH_MACHINES",
+                "name": "DP-1"
+            },
+            {
+                "directory": "/home/sqve/pictures/art/simon-stålenhag/SWEDISH_MACHINES",
+                "name": "HDMI-A-1"
+            }
         ],
         "overviewEnabled": true,
         "panelPosition": "follow_bar",
@@ -478,6 +500,7 @@
         "transitionEdgeSmoothness": 0.05,
         "transitionType": "fade",
         "useWallhaven": false,
+        "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
         "wallhavenPurity": "100",
@@ -486,6 +509,7 @@
         "wallhavenResolutionHeight": "",
         "wallhavenResolutionMode": "atleast",
         "wallhavenResolutionWidth": "",
-        "wallhavenSorting": "relevance"
+        "wallhavenSorting": "relevance",
+        "wallpaperChangeMode": "random"
     }
 }
