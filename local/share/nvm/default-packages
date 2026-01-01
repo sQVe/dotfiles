@@ -8,7 +8,6 @@ bash-language-server
 colorally
 corepack
 css-variables-language-server
-mcp-chrome-bridge
 neovim
 npm
 playwright
