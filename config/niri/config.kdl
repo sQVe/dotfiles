@@ -157,8 +157,10 @@ binds {
   Mod+Shift+D repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/run.sh"; }
   Mod+U repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/passwords.sh"; }
   Mod+Return { spawn "term"; }
-  Mod+Shift+Return { spawn "term" "--detach"; }
+  Mod+Shift+Return { spawn "sh" "-c" "$SCRIPTS/niri/kitty-cwd.sh term"; }
   Mod+X repeat=false { spawn "qs" "msg" "-c" "noctalia-shell" "lockScreen" "lock"; }
+  Mod+Y repeat=false { spawn "term" "yazi"; }
+  Mod+Shift+Y repeat=false { spawn "sh" "-c" "$SCRIPTS/niri/kitty-cwd.sh term yazi"; }
 
   // Notifications
   Mod+Odiaeresis repeat=false { spawn "qs" "msg" "-c" "noctalia-shell" "notifications" "dismissOldest"; }
