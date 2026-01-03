@@ -1,1 +1,53 @@
 set selection-clipboard clipboard
+
+# Gruvbox Dark theme
+set default-bg "#222222"
+set default-fg "#fbf1c7"
+
+set statusbar-bg "#3c3836"
+set statusbar-fg "#ebdbb2"
+
+set inputbar-bg "#3c3836"
+set inputbar-fg "#fbf1c7"
+
+set completion-bg "#3c3836"
+set completion-fg "#ebdbb2"
+set completion-group-bg "#282828"
+set completion-group-fg "#928374"
+set completion-highlight-bg "#fabd2f"
+set completion-highlight-fg "#222222"
+
+set notification-bg "#3c3836"
+set notification-fg "#fbf1c7"
+set notification-error-bg "#fb4934"
+set notification-error-fg "#222222"
+set notification-warning-bg "#fe8019"
+set notification-warning-fg "#222222"
+
+set index-bg "#222222"
+set index-fg "#ebdbb2"
+set index-active-bg "#fabd2f"
+set index-active-fg "#222222"
+
+set highlight-color "#fabd2f"
+set highlight-active-color "#fe8019"
+
+# Disable instant quit
+unmap q
+
+# Command mode (Swedish keyboard)
+map ö focus_inputbar ":"
+
+# Navigation
+map H goto top
+map L goto bottom
+map <Tab> navigate next
+map <S-Tab> navigate previous
+
+# Half-page scroll
+map <C-d> scroll half-down
+map <C-u> scroll half-up
+
+# Jump history
+map <C-o> jumplist backward
+map <C-p> jumplist forward
