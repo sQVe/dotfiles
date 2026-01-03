@@ -32,7 +32,8 @@ Think: "What would Linus say?" Usually: "This is crap. Do it the obvious way."
 - **Human** - Not marketing copy
 - **Active voice** - "Fixed the bug" not "The bug was fixed"
 - **Simple words** - "Use" not "utilize"
-- **Ban**: "intelligently", "seamlessly", "effortlessly"
+- **APA sentence case** - For titles and headings
+- **Ban** - "intelligently", "seamlessly", "effortlessly"
 
 ## Code Conventions
 
@@ -47,10 +48,10 @@ Think: "What would Linus say?" Usually: "This is crap. Do it the obvious way."
 - **`??` over `||`** - Avoids falsy bugs
 - **Arrow functions** - Over `function` declarations
 - **Explicit null checks** - `if (value !== null)` over `if (value)`
-- **Do not use `any`** - Avoid weak typing
-- **Rely on type inference** - No need for explicit types unless necessary
+- **`unknown` over `any`** - When type is truly unknown
+- **Infer types** - Annotate only public APIs and ambiguous cases
 - **Interfaces for objects** - Types for everything else
-- **`satisfies`** - Inference without type lies
+- **`satisfies`** - Validates type without widening
 - **Named imports** - Default imports break refactoring
 - **`import type`** - Separate types from runtime
 - **Breathable code** - Blank lines to group related statements
