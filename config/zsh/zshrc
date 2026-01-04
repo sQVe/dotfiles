@@ -62,6 +62,8 @@ source "${ZIM_HOME}/init.zsh"
 # Completion.
 source "$XDG_CONFIG_HOME/tabtab/zsh/pnpm.zsh"
 source /usr/share/fzf/completion.zsh
+eval "$(grove completion zsh)"
+eval "$(grove switch shell-init)"
 eval "$(zoxide init zsh)"
 
 #  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓
