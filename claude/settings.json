@@ -74,6 +74,7 @@
       "Bash(tree:*)",
       "Bash(tsc:*)",
       "Bash(turbo:*)",
+      "Bash(typst:*)",
       "Bash(uniq:*)",
       "Bash(vitest:*)",
       "Bash(wc:*)",
