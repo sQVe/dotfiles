@@ -24,13 +24,8 @@ set notification-error-fg "#222222"
 set notification-warning-bg "#fe8019"
 set notification-warning-fg "#222222"
 
-set index-bg "#222222"
-set index-fg "#ebdbb2"
-set index-active-bg "#fabd2f"
-set index-active-fg "#222222"
-
-set highlight-color "#fabd2f"
-set highlight-active-color "#fe8019"
+set highlight-color "rgba(250,189,47,0.5)"
+set highlight-active-color "rgba(254,128,25,0.5)"
 
 # Disable instant quit
 unmap q
