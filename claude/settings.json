@@ -92,6 +92,7 @@
       "Read(~/.dotfiles/**)",
       "Read(~/.claude/**)",
       "Read(~/code/**)",
+      "Read(~/download/**)",
       "Read(~/notebox/**)",
       "Read(~/scripts/**)",
       "Skill",
