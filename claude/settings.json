@@ -108,45 +108,13 @@
       "mcp__linear",
       "mcp__sentry"
     ],
-    "deny": [
-      "Bash(bash -i >& /dev/tcp/*)",
-      "Bash(base64 -d | bash:*)",
-      "Bash(base64 -d | sh:*)",
-      "Bash(blkdiscard /dev/*)",
-      "Bash(cat ~/.aws/credentials:*)",
-      "Bash(cat ~/.ssh/id_:*)",
-      "Bash(cat /etc/shadow:*)",
-      "Bash(chmod -R 777 /*)",
-      "Bash(crontab:*)",
-      "Bash(curl http://169.254.169.254/*)",
-      "Bash(dd if=/dev/zero of=/dev/*)",
-      "Bash(fdisk:*)",
-      "Bash(find / -delete:*)",
-      "Bash(find / -exec rm:*)",
-      "Bash(find / -type f -delete:*)",
-      "Bash(iptables -F:*)",
-      "Bash(iptables -P:*)",
-      "Bash(kill -9 -1:*)",
-      "Bash(mkfs:*)",
-      "Bash(nc -c:*)",
-      "Bash(nc -e:*)",
-      "Bash(ncat:*)",
-      "Bash(rm -rf /)",
-      "Bash(rm -rf /*)",
-      "Bash(rm -rf /boot/*)",
-      "Bash(rm -rf /etc/*)",
-      "Bash(rm -rf /home/*)",
-      "Bash(rm -rf /var/*)",
-      "Bash(rm -rf --no-preserve-root /*)",
-      "Bash(shred /dev/*)",
-      "Bash(socat:*)",
-      "Bash(truncate -s 0 /etc/passwd:*)",
-      "Bash(truncate -s 0 /etc/shadow:*)",
-      "Bash(wipefs -a /dev/*)"
-    ],
     "defaultMode": "plan"
   },
   "model": "opus",
+  "statusLine": {
+    "type": "command",
+    "command": "/home/sqve/scripts/claude/statusline.sh"
+  },
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
     "double-shot-latte@superpowers-marketplace": true,
@@ -154,20 +122,17 @@
     "explanatory-output-style@claude-code-plugins": true,
     "feature-dev@claude-code-plugins": true,
     "frontend-design@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
     "learning-output-style@claude-code-plugins": true,
+    "lua-lsp@claude-plugins-official": true,
+    "ralph-wiggum@claude-plugins-official": true,
+    "safety-net@cc-marketplace": true,
     "security-guidance@claude-code-plugins": true,
     "superpowers@superpowers-marketplace": true,
-    "typescript-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "ralph-wiggum@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754085535302
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "/home/sqve/scripts/claude/statusline.sh"
   }
 }

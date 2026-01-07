@@ -1,0 +1,361 @@
+{
+  "version": 1,
+  "rules": [
+    {
+      "name": "block-iptables-flush",
+      "command": "iptables",
+      "block_args": ["-F"],
+      "reason": "Flushing firewall rules is dangerous. Review rules manually."
+    },
+    {
+      "name": "block-iptables-policy",
+      "command": "iptables",
+      "block_args": ["-P"],
+      "reason": "Changing firewall policy is dangerous. Review manually."
+    },
+    {
+      "name": "block-nc-shell",
+      "command": "nc",
+      "block_args": ["-c", "-e"],
+      "reason": "Reverse shell flags blocked for security."
+    },
+    {
+      "name": "block-ncat-shell",
+      "command": "ncat",
+      "block_args": ["-c", "-e", "--lua-exec", "--sh-exec"],
+      "reason": "Reverse shell flags blocked for security."
+    },
+    {
+      "name": "block-kill-all",
+      "command": "kill",
+      "block_args": ["-1"],
+      "reason": "Killing all processes is dangerous."
+    },
+    {
+      "name": "block-wipefs",
+      "command": "wipefs",
+      "block_args": ["--all", "-a"],
+      "reason": "Wiping filesystem signatures is destructive."
+    },
+    {
+      "name": "block-cat-shadow",
+      "command": "cat",
+      "block_args": ["/etc/shadow"],
+      "reason": "Reading /etc/shadow exposes password hashes."
+    },
+    {
+      "name": "block-cat-aws-creds",
+      "command": "cat",
+      "block_args": ["/home/sqve/.aws/credentials", "~/.aws/credentials"],
+      "reason": "Reading AWS credentials exposes access keys."
+    },
+    {
+      "name": "block-cat-ssh-keys",
+      "command": "cat",
+      "block_args": [
+        "/home/sqve/.ssh/id_dsa",
+        "/home/sqve/.ssh/id_ecdsa",
+        "/home/sqve/.ssh/id_ed25519",
+        "/home/sqve/.ssh/id_rsa",
+        "~/.ssh/id_dsa",
+        "~/.ssh/id_ecdsa",
+        "~/.ssh/id_ed25519",
+        "~/.ssh/id_rsa"
+      ],
+      "reason": "Reading SSH private keys exposes credentials."
+    },
+    {
+      "name": "block-curl-aws-metadata",
+      "command": "curl",
+      "block_args": [
+        "http://169.254.169.254",
+        "http://169.254.169.254/",
+        "http://169.254.169.254/latest",
+        "http://169.254.169.254/latest/",
+        "http://169.254.169.254/latest/meta-data",
+        "http://169.254.169.254/latest/meta-data/"
+      ],
+      "reason": "AWS metadata endpoint exposes instance credentials."
+    },
+    {
+      "name": "block-chmod-777",
+      "command": "chmod",
+      "block_args": ["777"],
+      "reason": "777 permissions are insecure. Use 755 or 644."
+    },
+    {
+      "name": "block-crontab",
+      "command": "crontab",
+      "block_args": ["-e", "-i", "-l", "-r"],
+      "reason": "Crontab manipulation blocked. Run manually if needed."
+    },
+    {
+      "name": "block-truncate-system",
+      "command": "truncate",
+      "block_args": ["/etc/group", "/etc/passwd", "/etc/shadow"],
+      "reason": "Truncating system files destroys the system."
+    },
+    {
+      "name": "block-socat-exec",
+      "command": "socat",
+      "block_args": ["EXEC:", "SYSTEM:", "TCP-LISTEN:", "exec:", "system:", "tcp-listen:"],
+      "reason": "Socat exec/listen patterns can create backdoors."
+    },
+    {
+      "name": "block-blkdiscard",
+      "command": "blkdiscard",
+      "block_args": [
+        "/dev/mmcblk0",
+        "/dev/mmcblk1",
+        "/dev/nvme0n1",
+        "/dev/nvme1n1",
+        "/dev/nvme2n1",
+        "/dev/sda",
+        "/dev/sdb",
+        "/dev/sdc",
+        "/dev/sdd",
+        "/dev/vda",
+        "/dev/vdb",
+        "/dev/xvda",
+        "/dev/xvdb"
+      ],
+      "reason": "Discarding block devices destroys all data."
+    },
+    {
+      "name": "block-shred-devices",
+      "command": "shred",
+      "block_args": [
+        "/dev/mmcblk0",
+        "/dev/mmcblk1",
+        "/dev/nvme0n1",
+        "/dev/nvme1n1",
+        "/dev/nvme2n1",
+        "/dev/sda",
+        "/dev/sdb",
+        "/dev/sdc",
+        "/dev/sdd",
+        "/dev/vda",
+        "/dev/vdb",
+        "/dev/xvda",
+        "/dev/xvdb"
+      ],
+      "reason": "Shredding block devices destroys all data."
+    },
+    {
+      "name": "block-fdisk",
+      "command": "fdisk",
+      "block_args": [
+        "/dev/mmcblk0",
+        "/dev/mmcblk1",
+        "/dev/nvme0n1",
+        "/dev/nvme1n1",
+        "/dev/nvme2n1",
+        "/dev/sda",
+        "/dev/sdb",
+        "/dev/sdc",
+        "/dev/sdd",
+        "/dev/vda",
+        "/dev/vdb",
+        "/dev/xvda",
+        "/dev/xvdb"
+      ],
+      "reason": "Modifying partition tables is destructive."
+    },
+    {
+      "name": "block-dd-to-device",
+      "command": "dd",
+      "block_args": [
+        "of=/dev/mmcblk0",
+        "of=/dev/mmcblk1",
+        "of=/dev/nvme0n1",
+        "of=/dev/nvme1n1",
+        "of=/dev/nvme2n1",
+        "of=/dev/sda",
+        "of=/dev/sdb",
+        "of=/dev/sdc",
+        "of=/dev/sdd",
+        "of=/dev/vda",
+        "of=/dev/vdb",
+        "of=/dev/xvda",
+        "of=/dev/xvdb"
+      ],
+      "reason": "Writing directly to block devices destroys all data."
+    },
+    {
+      "name": "block-docker-privileged",
+      "command": "docker",
+      "block_args": [
+        "--cap-add=ALL",
+        "--cap-add=SYS_ADMIN",
+        "--cap-add=SYS_PTRACE",
+        "--ipc=host",
+        "--network=host",
+        "--pid=host",
+        "--privileged",
+        "--security-opt=apparmor:unconfined",
+        "--security-opt=seccomp:unconfined",
+        "--uts=host"
+      ],
+      "reason": "Privileged container flags allow host escape. Run manually if needed."
+    },
+    {
+      "name": "block-podman-privileged",
+      "command": "podman",
+      "block_args": [
+        "--cap-add=ALL",
+        "--cap-add=SYS_ADMIN",
+        "--cap-add=SYS_PTRACE",
+        "--ipc=host",
+        "--network=host",
+        "--pid=host",
+        "--privileged",
+        "--uts=host"
+      ],
+      "reason": "Privileged container flags allow host escape. Run manually if needed."
+    },
+    {
+      "name": "block-systemctl-destructive",
+      "command": "systemctl",
+      "block_args": ["daemon-reload", "disable", "mask", "stop", "unmask"],
+      "reason": "Service manipulation blocked. Run manually if needed."
+    },
+    {
+      "name": "block-wget-exfil",
+      "command": "wget",
+      "block_args": ["--body-file", "--post-data", "--post-file"],
+      "reason": "Data exfiltration via wget blocked."
+    },
+    {
+      "name": "block-curl-exfil",
+      "command": "curl",
+      "block_args": ["-T", "-d@", "--data-binary", "--upload-file"],
+      "reason": "Data exfiltration via curl blocked."
+    },
+    {
+      "name": "block-grep-secrets",
+      "command": "grep",
+      "block_args": [
+        "/etc/shadow",
+        "/home/sqve/.aws/credentials",
+        "/home/sqve/.ssh/id_dsa",
+        "/home/sqve/.ssh/id_ecdsa",
+        "/home/sqve/.ssh/id_ed25519",
+        "/home/sqve/.ssh/id_rsa",
+        "~/.aws/credentials",
+        "~/.ssh/id_dsa",
+        "~/.ssh/id_ecdsa",
+        "~/.ssh/id_ed25519",
+        "~/.ssh/id_rsa"
+      ],
+      "reason": "Reading secrets via grep blocked."
+    },
+    {
+      "name": "block-head-secrets",
+      "command": "head",
+      "block_args": [
+        "/etc/shadow",
+        "/home/sqve/.aws/credentials",
+        "/home/sqve/.ssh/id_dsa",
+        "/home/sqve/.ssh/id_ecdsa",
+        "/home/sqve/.ssh/id_ed25519",
+        "/home/sqve/.ssh/id_rsa",
+        "~/.aws/credentials",
+        "~/.ssh/id_dsa",
+        "~/.ssh/id_ecdsa",
+        "~/.ssh/id_ed25519",
+        "~/.ssh/id_rsa"
+      ],
+      "reason": "Reading secrets via head blocked."
+    },
+    {
+      "name": "block-tail-secrets",
+      "command": "tail",
+      "block_args": [
+        "/etc/shadow",
+        "/home/sqve/.aws/credentials",
+        "/home/sqve/.ssh/id_dsa",
+        "/home/sqve/.ssh/id_ecdsa",
+        "/home/sqve/.ssh/id_ed25519",
+        "/home/sqve/.ssh/id_rsa",
+        "~/.aws/credentials",
+        "~/.ssh/id_dsa",
+        "~/.ssh/id_ecdsa",
+        "~/.ssh/id_ed25519",
+        "~/.ssh/id_rsa"
+      ],
+      "reason": "Reading secrets via tail blocked."
+    },
+    {
+      "name": "block-less-secrets",
+      "command": "less",
+      "block_args": [
+        "/etc/shadow",
+        "/home/sqve/.aws/credentials",
+        "/home/sqve/.ssh/id_dsa",
+        "/home/sqve/.ssh/id_ecdsa",
+        "/home/sqve/.ssh/id_ed25519",
+        "/home/sqve/.ssh/id_rsa",
+        "~/.aws/credentials",
+        "~/.ssh/id_dsa",
+        "~/.ssh/id_ecdsa",
+        "~/.ssh/id_ed25519",
+        "~/.ssh/id_rsa"
+      ],
+      "reason": "Reading secrets via less blocked."
+    },
+    {
+      "name": "block-base64-secrets",
+      "command": "base64",
+      "block_args": [
+        "/etc/shadow",
+        "/home/sqve/.aws/credentials",
+        "/home/sqve/.ssh/id_dsa",
+        "/home/sqve/.ssh/id_ecdsa",
+        "/home/sqve/.ssh/id_ed25519",
+        "/home/sqve/.ssh/id_rsa",
+        "~/.aws/credentials",
+        "~/.ssh/id_dsa",
+        "~/.ssh/id_ecdsa",
+        "~/.ssh/id_ed25519",
+        "~/.ssh/id_rsa"
+      ],
+      "reason": "Encoding secrets via base64 blocked."
+    },
+    {
+      "name": "block-xxd-secrets",
+      "command": "xxd",
+      "block_args": [
+        "/etc/shadow",
+        "/home/sqve/.aws/credentials",
+        "/home/sqve/.ssh/id_dsa",
+        "/home/sqve/.ssh/id_ecdsa",
+        "/home/sqve/.ssh/id_ed25519",
+        "/home/sqve/.ssh/id_rsa",
+        "~/.aws/credentials",
+        "~/.ssh/id_dsa",
+        "~/.ssh/id_ecdsa",
+        "~/.ssh/id_ed25519",
+        "~/.ssh/id_rsa"
+      ],
+      "reason": "Hex-dumping secrets via xxd blocked."
+    },
+    {
+      "name": "block-hexdump-secrets",
+      "command": "hexdump",
+      "block_args": [
+        "/etc/shadow",
+        "/home/sqve/.aws/credentials",
+        "/home/sqve/.ssh/id_dsa",
+        "/home/sqve/.ssh/id_ecdsa",
+        "/home/sqve/.ssh/id_ed25519",
+        "/home/sqve/.ssh/id_rsa",
+        "~/.aws/credentials",
+        "~/.ssh/id_dsa",
+        "~/.ssh/id_ecdsa",
+        "~/.ssh/id_ed25519",
+        "~/.ssh/id_rsa"
+      ],
+      "reason": "Hex-dumping secrets via hexdump blocked."
+    }
+  ]
+}
