@@ -134,6 +134,7 @@ window-rule {
 
 window-rule {
   match app-id=r#"^chrome-"#
+  exclude app-id=r#"^chrome-cad\.onshape\.com"#
   open-floating true
 }
 
