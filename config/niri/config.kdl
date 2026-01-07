@@ -146,10 +146,9 @@ spawn-at-startup "kanshi"
 spawn-at-startup "niri-float-sticky"
 spawn-at-startup "sh" "-c" "sleep 4 && easyeffects --gapplication-service"
 spawn-at-startup "swayidle" "-w" \
-    "timeout" "300" "niri msg action power-off-monitors" \
-    "resume" "niri msg action power-on-monitors" \
-    "timeout" "600" "qs msg -c noctalia-shell lockScreen lock" \
-    "before-sleep" "qs msg -c noctalia-shell lockScreen lock"
+    "before-sleep" "qs msg -c noctalia-shell lockScreen lock" \
+    "timeout" "300" "qs msg -c noctalia-shell lockScreen lock" \
+    "resume" "niri msg action power-on-monitors"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
 binds {
