@@ -7,3 +7,8 @@ profile home-office {
     output "Dell Inc. DELL S3422DWG *" enable mode 3440x1440@143.975 scale 1 position 0,1440
     output "Lenovo Group Limited P24h-10 *" enable mode 2560x1440@59.951 scale 1 position 440,0
 }
+
+profile work-office {
+    output "BOE *" disable
+    output "LG Electronics 38GN950 *" enable mode 3840x1600@143.998 scale 1
+}
