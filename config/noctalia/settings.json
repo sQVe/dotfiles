@@ -292,7 +292,7 @@
         "enabled": true,
         "performanceModeDisabled": "",
         "performanceModeEnabled": "",
-        "screenLock": "/home/sqve/.bin/lock-hooks.sh lock",
+        "screenLock": "/home/sqve/scripts/noctalia/lock-hooks.sh lock",
         "screenUnlock": "/home/sqve/.bin/lock-hooks.sh unlock",
         "wallpaperChange": ""
     },
