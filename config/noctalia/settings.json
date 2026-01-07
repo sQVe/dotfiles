@@ -95,21 +95,12 @@
                     "width": 10
                 },
                 {
-                    "blacklist": [
-                        "nm-applet",
-                        "tuxedo-control-center*"
-                    ],
-                    "colorizeIcons": false,
-                    "drawerEnabled": true,
-                    "hidePassive": true,
-                    "id": "Tray",
-                    "pinned": [
-                    ]
+                    "displayMode": "onhover",
+                    "id": "WiFi"
                 },
                 {
-                    "hideWhenZero": false,
-                    "id": "NotificationHistory",
-                    "showUnreadBadge": true
+                    "displayMode": "onhover",
+                    "id": "Bluetooth"
                 },
                 {
                     "displayMode": "onhover",
@@ -129,6 +120,18 @@
                     "warningThreshold": 20
                 },
                 {
+                    "blacklist": [
+                        "nm-applet",
+                        "tuxedo-control-center*"
+                    ],
+                    "colorizeIcons": false,
+                    "drawerEnabled": true,
+                    "hidePassive": true,
+                    "id": "Tray",
+                    "pinned": [
+                    ]
+                },
+                {
                     "id": "Spacer",
                     "width": 10
                 },
@@ -140,6 +143,11 @@
                     "tooltipFormat": "HH:mm ddd, MMM dd",
                     "useCustomFont": true,
                     "usePrimaryColor": false
+                },
+                {
+                    "hideWhenZero": false,
+                    "id": "NotificationHistory",
+                    "showUnreadBadge": true
                 }
             ]
         }
