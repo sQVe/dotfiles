@@ -45,7 +45,6 @@ input {
     accel-speed 0.2
   }
 
-  warp-mouse-to-focus
   focus-follows-mouse max-scroll-amount="25%"
 }
 
@@ -105,12 +104,33 @@ overview {
   }
 }
 
+recent-windows {
+  open-delay-ms 0
+
+  highlight {
+    active-color "#d3869b"
+    corner-radius 8
+    padding 16
+  }
+
+  binds {
+    Mod+Tab { next-window scope="output"; }
+    Mod+Shift+Tab { previous-window scope="output"; }
+  }
+}
+
 layer-rule {
   match namespace="^noctalia-overview*"
   place-within-backdrop true
 }
 
 output "Dell Inc. DELL S3422DWG 8BB3TH3" {
+  layout {
+    default-column-width { proportion 0.33333; }
+  }
+}
+
+output "LG Electronics 38GN950 206NTEP67796" {
   layout {
     default-column-width { proportion 0.33333; }
   }
@@ -155,12 +175,12 @@ spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 binds {
   // Programs
   Mod+D repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/apps.sh"; }
-  Mod+E repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/emoji.sh"; }
-  Mod+M repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/state.sh"; }
   Mod+Shift+D repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/run.sh"; }
-  Mod+U repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/passwords.sh"; }
+  Mod+E repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/emoji.sh"; }
   Mod+Return { spawn "term"; }
   Mod+Shift+Return { spawn "sh" "-c" "$SCRIPTS/niri/kitty-cwd.sh term"; }
+  Mod+Shift+Q repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/state.sh"; }
+  Mod+U repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/passwords.sh"; }
   Mod+X repeat=false { spawn "qs" "msg" "-c" "noctalia-shell" "lockScreen" "lock"; }
   Mod+Y repeat=false { spawn "term" "yazi"; }
   Mod+Shift+Y repeat=false { spawn "sh" "-c" "$SCRIPTS/niri/kitty-cwd.sh term yazi"; }
@@ -239,29 +259,28 @@ binds {
   Mod+Shift+P { move-workspace-up; }
 
   // Windows
-  Mod+Space repeat=false { fullscreen-window; }
-  Mod+Shift+Space repeat=false { toggle-windowed-fullscreen; }
+  Mod+O repeat=false { toggle-window-floating; }
+  Mod+Shift+O repeat=false { switch-focus-between-floating-and-tiling; }
   Mod+Q repeat=false { close-window; }
-  Mod+T repeat=false { toggle-window-floating; }
-  Mod+Shift+T repeat=false { switch-focus-between-floating-and-tiling; }
-  Mod+Tab repeat=false { toggle-overview; }
-  Mod+Shift+Tab repeat=false { toggle-overview; }
+  Mod+S repeat=false { toggle-overview; }
+  Mod+Z repeat=false { fullscreen-window; }
+  Mod+Shift+Z repeat=false { toggle-windowed-fullscreen; }
 
   // Columns
   Mod+C repeat=false { center-column; }
   Mod+Comma { consume-or-expel-window-left; }
-  Mod+F repeat=false { maximize-column; }
+  Mod+M repeat=false { maximize-column; }
   Mod+Period { consume-or-expel-window-right; }
   Mod+W repeat=false { toggle-column-tabbed-display; }
 
   // Sizing
-  Mod+Minus { set-column-width "-10%"; }
-  Mod+Plus { set-column-width "+10%"; }
-  Mod+Shift+Minus { set-window-height "-10%"; }
-  Mod+Shift+Plus { set-window-height "+10%"; }
+  Mod+Minus { set-column-width "-5%"; }
+  Mod+Plus { set-column-width "+5%"; }
+  Mod+Shift+Minus { set-window-height "-5%"; }
+  Mod+Shift+Plus { set-window-height "+5%"; }
 
-  Mod+S { switch-preset-column-width; }
-  Mod+Shift+S { switch-preset-window-height; }
+  Mod+F { switch-preset-column-width; }
+  Mod+Shift+F { switch-preset-window-height; }
 
   // Screenshots
   Print repeat=false { screenshot-screen; }
