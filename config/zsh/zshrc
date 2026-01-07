@@ -217,6 +217,7 @@ alias suspend='state suspend'
 # Apps.
 alias bc='bc --mathlib --quiet'
 alias bluetooth=bluetoothctl
+alias claude="claude --allow-dangerously-skip-permissions"
 alias fd="fd --hidden --follow --exclude .git --exclude '.steam' --exclude 'Steam'"
 alias fm=yazi
 alias format='npx prettier --write'
