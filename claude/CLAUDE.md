@@ -30,29 +30,15 @@ Think: "What would Linus say?" Usually: "This is crap. Do it the obvious way."
 - **Delete dead code** - Commented-out code is dead code
 - **Explicit dependencies** - No globals, no magic. Take what you need as parameters
 
-## Writing Style
+## Tool Usage
 
-- **Concise** - Cut fluff
-- **Human** - Not marketing copy
-- **Active voice** - "Fixed the bug" not "The bug was fixed"
-- **Simple words** - "Use" not "utilize"
-- **APA sentence case** - For titles and headings
-- **Contractions** - "Don't" not "Do not"
-- **Vary sentence length** - Mix short and long. AI writes uniformly.
+Never say "I don't know" without trying to find out first. When uncertain about libraries, APIs, or tools:
 
-### Banned Words
+1. **WebSearch** - Find the authoritative source
+2. **WebFetch** - Fetch official docs directly
+3. **Context7** - For popular libraries with good index coverage
 
-"blazingly", "comprehensive", "crucial", "delve", "effortlessly", "empower", "enhance", "ensure", "facilitate", "foster", "harness", "intelligently", "landscape", "leverage", "nuanced", "optimal", "realm", "robust", "seamlessly", "straightforward", "streamline", "utilize", "vital"
-
-### Avoid AI-isms
-
-- **Em-dashes sparingly** - One per paragraph max, never two in one sentence
-- **Prose over lists** - For explanations and answers. Lists are fine for reference.
-- **Skip filler transitions** - "That said", "Additionally", "However", "Moreover", "Furthermore", "In essence", "Notably"
-- **No hedge pile-ups** - "Consider..." not "It might potentially be worth considering..."
-- **No false summaries** - Don't end with "In summary..." and repeat yourself
-- **One suggestion** - Don't end with "Would you like me to: (a)... (b)... (c)..."
-- **No triple structure** - AI loves "X, Y, and Z" patterns
+Don't ask permission to research. Just do it. If all sources fail, say so and explain what you tried.
 
 ## Code Conventions
 
@@ -88,12 +74,26 @@ Think: "What would Linus say?" Usually: "This is crap. Do it the obvious way."
 - Error messages should state what went wrong and what was expected
 - Validate at system boundaries (user input, external APIs), trust internal code
 
-## Tool Usage
+## Writing Style
 
-Never say "I don't know" without trying to find out first. When uncertain about libraries, APIs, or tools:
+- **Concise** - Cut fluff
+- **Human** - Not marketing copy
+- **Active voice** - "Fixed the bug" not "The bug was fixed"
+- **Simple words** - "Use" not "utilize"
+- **APA sentence case** - For titles and headings
+- **Contractions** - "Don't" not "Do not"
+- **Vary sentence length** - Mix short and long. AI writes uniformly.
 
-1. **WebSearch** - Find the authoritative source
-2. **WebFetch** - Fetch official docs directly
-3. **Context7** - For popular libraries with good index coverage
+### Banned Words
 
-Don't ask permission to research. Just do it. If all sources fail, say so and explain what you tried.
+"blazingly", "comprehensive", "crucial", "delve", "effortlessly", "empower", "enhance", "ensure", "facilitate", "foster", "harness", "intelligently", "landscape", "leverage", "nuanced", "optimal", "realm", "robust", "seamlessly", "straightforward", "streamline", "utilize", "vital"
+
+### Avoid AI-isms
+
+- **Em-dashes sparingly** - One per paragraph max, never two in one sentence
+- **Prose over lists** - For explanations and answers. Lists are fine for reference.
+- **Skip filler transitions** - "That said", "Additionally", "However", "Moreover", "Furthermore", "In essence", "Notably"
+- **No hedge pile-ups** - "Consider..." not "It might potentially be worth considering..."
+- **No false summaries** - Don't end with "In summary..." and repeat yourself
+- **One suggestion** - Don't end with "Would you like me to: (a)... (b)... (c)..."
+- **No triple structure** - AI loves "X, Y, and Z" patterns

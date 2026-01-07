@@ -16,12 +16,17 @@ You are helping create a comprehensive pull request. Follow these steps:
    - Verify that all changes are committed and pushed to the remote branch
    - Check that branch is up-to-date with target branch (main/master)
 
-2. **Strategic PR analysis**
+2. **Check contribution requirements**
+   - Look for CONTRIBUTING.md, CHANGELOG.md, or .changeset/ directory
+   - Check if project requires changeset, release notes, or similar artifacts
+   - Add required files before creating PR if missing
+
+3. **Strategic PR analysis**
    - Use ultrathink analysis to craft clear narrative connecting business value to technical changes, guiding all subsequent steps
    - Identify what reviewers need to understand: context, risks, testing approach
    - Structure description to minimize reviewer cognitive load and review time
 
-3. **Create PR description**
+4. **Create PR description**
    - Use [PR template](/home/sqve/.dotfiles/claude/templates/pr-template.md) for PR format.
    - Use conventional commit format for title (feat:, fix:, docs:, etc.)
    - Structure description with: Summary, Changes, Test Plan
@@ -29,14 +34,14 @@ You are helping create a comprehensive pull request. Follow these steps:
    - Add actionable test plan with checkboxes for reviewers
    - Link related issues with "Fixes #" or "Related to #"
 
-4. **Approval Process**
+5. **Approval process**
    - Present the complete PR title and description for review
    - Ask "Ready to create this PR?" and wait for explicit confirmation
    - Make revisions based on feedback before proceeding
    - Always add `--draft` flag to the command to allow reviewer to see the PR
      before it is finalized in the browser.
 
-5. **Add references and reviewers**
+6. **Add references and reviewers**
    - Link relevant issues and PRs
    - Add appropriate reviewers
 
