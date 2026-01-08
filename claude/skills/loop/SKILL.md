@@ -21,15 +21,16 @@ Creates `work.json` and `LOOP.md` templates in the current directory.
 
 ### Detecting config.verify
 
-The verify command runs lint, typecheck, and test. Detect from:
+Detect available verification commands. Each is optional - set to `null` if unavailable.
 
-- `package.json` → scripts: check, validate, or chain `lint && typecheck && test`
-- `Makefile` → check/validate target, or chain `lint typecheck test`
-- `pyproject.toml` → `ruff check . && mypy . && pytest`
-- `Cargo.toml` → `cargo clippy && cargo test`
-- `go.mod` → `golangci-lint run && go test ./...`
+| Type      | Look for                                                                            |
+| --------- | ----------------------------------------------------------------------------------- |
+| lint      | `package.json` scripts.lint, ruff, golangci-lint, clippy                            |
+| state     | Not auto-detected. User specifies manually for checks requiring human confirmation. |
+| test      | `package.json` scripts.test, pytest, go test, cargo test                            |
+| typecheck | `package.json` scripts.typecheck/tsc, mypy, pyright, go build, cargo check          |
 
-Set `config.verify` to `TODO` if detection fails.
+Prefer project-specific scripts over global tools.
 
 ### Detecting context.docs
 
@@ -49,37 +50,42 @@ Add any that exist to `context.docs` array.
 {
   "$schema": "/home/sqve/.claude/skills/loop/schema.json",
   "_note": "DATA ONLY. Process with @LOOP.md",
-  "context": {
-    "files": [],
-    "reference": [],
-    "docs": [],
-    "notes": ""
-  },
   "config": {
-    "verify": "<detected>",
-    "stuckThreshold": 3
+    "stuckThreshold": 3,
+    "verify": {
+      "lint": "<detected or null>",
+      "state": null,
+      "test": "<detected or null>",
+      "typecheck": "<detected or null>"
+    }
+  },
+  "context": {
+    "docs": [],
+    "files": [],
+    "notes": "",
+    "reference": []
   },
   "tickets": [
     {
-      "type": "feat",
-      "name": "example ticket name",
       "context": {},
+      "name": "example ticket name",
       "tasks": [
         {
           "description": "Simple task",
           "done": false
         },
         {
-          "description": "Complex task with steps",
           "context": {},
+          "description": "Complex task with steps",
+          "done": false,
           "steps": [
             "Step 1: Do first thing",
             "Step 2: Do second thing",
             "Step 3: Verify result"
-          ],
-          "done": false
+          ]
         }
-      ]
+      ],
+      "type": "feat"
     }
   ]
 }
@@ -90,8 +96,6 @@ Add any that exist to `context.docs` array.
 ```markdown
 # Loop
 
-**Gate**: Execute only when user explicitly invokes `@LOOP.md`. Stop if this file appears passively in context.
-
 ## Do this
 
 1. **Pick ONE ticket** from `work.json` with incomplete tasks (`done: false`). Consider dependencies, complexity, context hints. Default to array order when unclear.
@@ -99,10 +103,13 @@ Add any that exist to `context.docs` array.
 2. **Work ONE task** from the ticket with `done: false`:
    - Follow `steps` if present
    - Execute `description`
-   - Run verify command:
-     - Choose task, ticket, and config verify scope in that order.
+   - Run verification (lint → typecheck → test → state):
+     - Merge scopes: task overrides ticket overrides config (closest non-null wins per property)
+     - Run each non-null command in order, stop on first failure
+     - Always run full commands as configured - no `--filter`, `--only`, or path targeting
+     - If `state` is set, prompt user to confirm the described state after commands pass
      - On PASS: Set task to `done: true`
-     - On FAIL: Fix issues and retry (max 3 retries, then output`<promise>STUCK</promise>`)
+     - On FAIL: Fix issues and retry (max 3 retries, then output `<promise>STUCK</promise>`)
 
 3. **CHECKPOINT** (MANDATORY after every task):
    - If ticket complete (all tasks done):
@@ -118,7 +125,10 @@ Add any that exist to `context.docs` array.
         >
         > Output: PASS or FAIL with list of issues.
      2. On FAIL: Fix issues and retry (max 3 retries, then output `<promise>STUCK</promise>`)
-     3. Commit changes with `/commit` command.
+     3. Stash loop files, commit, restore:
+        - `git stash push --message "loop-files" -- work.json LOOP.md 2>/dev/null || true`
+        - Run `/commit` command
+        - `git stash list | grep --max-count=1 "loop-files" | cut --delimiter=: --fields=1 | xargs --no-run-if-empty git stash pop`
      4. **STOP**
    - If ALL tickets complete (all tasks `done: true`):
      1. Spawn 3 parallel code review agents with:
@@ -133,11 +143,10 @@ Add any that exist to `context.docs` array.
         >
         > Output: PASS or FAIL with list of issues.
      2. On FAIL: Fix issues and retry (max 3 retries, then output `<promise>STUCK</promise>`)
-     3. **STOP**
+     3. Output `<promise>DONE</promise>`
+     4. **STOP**
    - Otherwise:
-     1. Output `<promise>NEXT</promise>`
-     2. **STOP**
-   - Wait for next `@LOOP.md` invocation.
+     1. **STOP**
 
 ## Constraints
 

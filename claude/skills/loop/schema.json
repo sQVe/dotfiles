@@ -7,27 +7,25 @@
     "$schema": {
       "type": "string"
     },
-    "context": {
-      "$ref": "#/$defs/context",
-      "description": "Project-wide guidance"
-    },
     "config": {
       "type": "object",
       "description": "Execution configuration",
       "properties": {
-        "verify": {
-          "type": "string",
-          "description": "Command to verify task completion (e.g., lint, typecheck, test)"
-        },
         "stuckThreshold": {
           "type": "integer",
           "default": 3,
           "description": "Failures before marking stuck"
+        },
+        "verify": {
+          "$ref": "#/$defs/verify",
+          "description": "Default verification commands and state checks"
         }
       },
-      "required": [
-        "verify"
-      ]
+      "required": ["verify"]
+    },
+    "context": {
+      "$ref": "#/$defs/context",
+      "description": "Project-wide guidance"
     },
     "tickets": {
       "type": "array",
@@ -37,29 +35,12 @@
       }
     }
   },
-  "required": [
-    "config",
-    "tickets"
-  ],
+  "required": ["config", "tickets"],
   "$defs": {
     "context": {
       "type": "object",
       "description": "Guidance for execution",
       "properties": {
-        "files": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Paths to work in"
-        },
-        "reference": {
-          "type": "array",
-          "items": {
-            "type": "string"
-          },
-          "description": "Files to match patterns from"
-        },
         "docs": {
           "type": "array",
           "items": {
@@ -67,61 +48,42 @@
           },
           "description": "Files to read for guidelines (CLAUDE.md, CONTRIBUTING.md, etc.)"
         },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Paths to work in"
+        },
         "notes": {
           "type": "string",
           "description": "Free-form guidance"
+        },
+        "reference": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Files to match patterns from"
         }
       },
       "additionalProperties": true
     },
-    "ticket": {
-      "type": "object",
-      "properties": {
-        "type": {
-          "type": "string",
-          "enum": [
-            "feat",
-            "fix",
-            "test",
-            "refactor",
-            "chore",
-            "docs",
-            "style",
-            "perf"
-          ],
-          "description": "Commit type"
-        },
-        "name": {
-          "type": "string",
-          "description": "Commit message / ticket name"
-        },
-        "context": {
-          "$ref": "#/$defs/context",
-          "description": "Ticket-specific guidance"
-        },
-        "tasks": {
-          "type": "array",
-          "items": {
-            "$ref": "#/$defs/task"
-          }
-        },
-        "verify": {
-          "type": "string",
-          "description": "Ticket-specific verify command (overrides config verify)"
-        }
-      },
-      "required": [
-        "type",
-        "name",
-        "tasks"
-      ]
-    },
     "task": {
       "type": "object",
       "properties": {
+        "context": {
+          "$ref": "#/$defs/context",
+          "description": "Task-specific guidance"
+        },
         "description": {
           "type": "string",
           "description": "What to accomplish"
+        },
+        "done": {
+          "type": "boolean",
+          "default": false,
+          "description": "Completion status"
         },
         "steps": {
           "type": "array",
@@ -130,24 +92,63 @@
           },
           "description": "Ordered sub-steps for complex tasks"
         },
-        "context": {
-          "$ref": "#/$defs/context",
-          "description": "Task-specific guidance"
-        },
-        "done": {
-          "type": "boolean",
-          "default": false,
-          "description": "Completion status"
-        },
         "verify": {
-          "type": "string",
-          "description": "Task-specific verify command (overrides ticket/config verify)"
+          "$ref": "#/$defs/verify",
+          "description": "Task-specific verification (merges with ticket/config verify)"
         }
       },
-      "required": [
-        "description",
-        "done"
-      ]
+      "required": ["description", "done"]
+    },
+    "ticket": {
+      "type": "object",
+      "properties": {
+        "context": {
+          "$ref": "#/$defs/context",
+          "description": "Ticket-specific guidance"
+        },
+        "name": {
+          "type": "string",
+          "description": "Commit message / ticket name"
+        },
+        "tasks": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/task"
+          }
+        },
+        "type": {
+          "type": "string",
+          "enum": ["chore", "docs", "feat", "fix", "perf", "refactor", "style", "test"],
+          "description": "Commit type"
+        },
+        "verify": {
+          "$ref": "#/$defs/verify",
+          "description": "Ticket-specific verification (merges with config verify)"
+        }
+      },
+      "required": ["name", "tasks", "type"]
+    },
+    "verify": {
+      "type": "object",
+      "description": "Verification commands and state checks",
+      "properties": {
+        "lint": {
+          "type": ["string", "null"],
+          "description": "Lint command"
+        },
+        "state": {
+          "type": ["string", "null"],
+          "description": "State to confirm manually"
+        },
+        "test": {
+          "type": ["string", "null"],
+          "description": "Test command"
+        },
+        "typecheck": {
+          "type": ["string", "null"],
+          "description": "Type check command"
+        }
+      }
     }
   }
 }
