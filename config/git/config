@@ -44,14 +44,14 @@
   diffFilter = delta --color-only
 
 [merge]
-  tool = "nvim"
+	tool = codediff
 
 [mergetool]
   keepBackup = false
   prompt = false
 
-[mergetool "nvim"]
-  cmd = nvim \"$MERGED\"
+[mergetool "codediff"]
+	cmd = nvim \"$MERGED\" -c \"CodeDiff merge \\\"$MERGED\\\"\"
 
 [pull]
   ff = only
