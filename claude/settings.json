@@ -4,6 +4,7 @@
   "env": {
     "BASH_DEFAULT_TIMEOUT_MS": "120000",
     "BASH_MAX_TIMEOUT_MS": "120000",
+    "DISABLE_AUTOUPDATER": "1",
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
     "DISABLE_TELEMETRY": "1"
@@ -129,6 +130,7 @@
     "safety-net@cc-marketplace": true,
     "security-guidance@claude-code-plugins": true,
     "superpowers@superpowers-marketplace": true,
+    "ralph-wiggum@claude-code-plugins": true,
     "typescript-lsp@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
