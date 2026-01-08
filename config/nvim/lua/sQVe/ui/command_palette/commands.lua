@@ -292,6 +292,33 @@ M.icons = {
   name = 'Get icon',
 }
 
+M.input_file_paths = {
+  callback = function()
+    Snacks.picker.files({
+      follow = true,
+      hidden = true,
+      ignored = false,
+      multiple = true,
+      confirm = function(picker, item)
+        picker:close()
+        local selected = picker:selected()
+
+        -- If nothing explicitly selected, use the current item
+        if #selected == 0 and item then
+          selected = { item }
+        end
+
+        local paths = vim.tbl_map(function(i)
+          return vim.fn.fnamemodify(i.file, ':.')
+        end, selected)
+
+        vim.api.nvim_put(paths, 'l', true, true)
+      end,
+    })
+  end,
+  name = 'Input file paths',
+}
+
 M.lines = {
   callback = function()
     Snacks.picker.lines()

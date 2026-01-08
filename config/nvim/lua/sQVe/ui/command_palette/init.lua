@@ -41,6 +41,7 @@ local default_commands = {
   commands.grep_text,
   commands.help_tags,
   commands.icons,
+  commands.input_file_paths,
   commands.lines,
   commands.marks,
   commands.merge_base,
