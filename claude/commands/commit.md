@@ -1,6 +1,6 @@
 # Commit Command
 
-Create atomic git commits with conventional format and meaningful messages that focus on why rather than what.
+Create atomic git commits with conventional format and meaningful messages.
 
 ## Usage
 
@@ -10,27 +10,24 @@ Create atomic git commits with conventional format and meaningful messages that 
 
 ## Instructions
 
-You are helping create clean, atomic git commits with meaningful messages.
-
 1. **Prepare changes**
-   - Review current git state
-   - Group related modifications into logical units
+   - Review current git state with `git status` and `git diff`
+   - Group related modifications into atomic units
 
-2. **Strategic commit analysis**
-   - Group related changes into atomic, logical units, guiding all subsequent steps
-   - Identify the business motivation and technical rationale behind each change
-   - Structure commit messages to communicate both what changed and why it matters
+2. **Create commits**
+   - Use [commit template](/home/sqve/.dotfiles/claude/templates/commit-template.md) for format
+   - Use conventional commit format (feat:, fix:, docs:, etc.)
+   - Messages explain why, not what
+   - Skip commit bodies unless reasoning is non-obvious
+   - Stage only files relevant to each commit
 
-3. **Create commits**
-   - Use [commit template](../templates/commit-template.md) for commit format
-   - Use conventional commit format
-   - Commit messages should explain why, not what changed
-   - Avoid commit bodies unless absolutely necessary for complex changes or non-obvious reasoning
-   - Commits should be atomic and represent one logical change
-   - Stage appropriate files for each commit
+3. **Confirm before committing**
+   - Show staged files and proposed commit message
+   - Ask "Create this commit?" and wait for confirmation
 
 4. **Verify commit history**
-   - Ensure clean progression and no uncommitted changes
+   - Run `git log --oneline -5` to confirm clean progression
+   - Check `git status` shows no uncommitted changes
 
 ## Examples
 
@@ -39,5 +36,5 @@ You are helping create clean, atomic git commits with meaningful messages.
 /commit
 
 # Create commit with specific message
-/commit "fix: resolve timeout issue preventing large file uploads"
+/commit "fix: resolve timeout issue in file uploads"
 ```

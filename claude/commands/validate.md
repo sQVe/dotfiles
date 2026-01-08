@@ -1,6 +1,6 @@
 # Validate Command
 
-Execute automated validation checks including testing and builds.
+Run validation checks: tests, builds, and linting.
 
 ## Usage
 
@@ -10,44 +10,35 @@ Execute automated validation checks including testing and builds.
 
 ## Instructions
 
-You are helping validate code through automated checks and testing pipelines.
+1. **Identify available tools**
+   - Check package.json, Makefile, or build files for commands
+   - Find configured linting, formatting, and type-checking tools
 
-1. **Read CLAUDE.md**
-   - Load and review the global CLAUDE.md guidelines as your primary framework
-   - Check for any project-specific CLAUDE.md that might override or extend the global guidelines
+2. **Execute testing**
+   - Run unit tests and collect coverage
+   - Execute integration and E2E tests if available
+   - Run performance benchmarks if configured
 
-2. **Identify available automated tools**
-   - Discover test scripts, build commands, and CI/CD configurations
-   - Check package.json, Makefile, or other build files for available commands
-   - Identify linting, formatting, and type-checking tools already configured
+3. **Run build checks**
+   - Execute full build to catch compilation errors
+   - Check for dependency conflicts and security issues
+   - Verify build output size
 
-3. **Execute automated testing**
-   - **Unit tests**: Run all unit tests and collect coverage data
-   - **Integration tests**: Execute integration test suites
-   - **End-to-end tests**: Run E2E tests if available
-   - **Performance tests**: Execute automated performance benchmarks
-
-4. **Run build and compilation checks**
-   - **Build process**: Execute full build to catch compilation errors
-   - **Dependency validation**: Check for dependency conflicts and security issues
-   - **Bundle analysis**: Verify build output size and optimization
-
-5. **Generate automated validation report**
+4. **Generate report**
    - Organize findings by severity: `CRITICAL`, `HIGH`, `MEDIUM`, `LOW`
-   - Include tool output summaries: Test results, coverage percentages, build status
-   - List failing checks: Provide specific command outputs and error messages
-   - Add automation guidance: Suggest missing automated checks or CI improvements
-   - Provide quick fixes: Include commands to resolve common automated check failures
+   - Include test results, coverage, and build status
+   - List failing checks with error messages
+   - Suggest fixes for common failures
 
 ## Examples
 
 ```bash
-# Validate all automated checks for changed files
+# Validate changed files only
 /validate "changes"
 
-# Run complete automated validation suite
+# Run complete validation
 /validate "all"
 
-# Focus on testing automation only
+# Run tests only
 /validate "tests"
 ```

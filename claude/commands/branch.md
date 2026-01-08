@@ -10,8 +10,6 @@ Generate and create a git branch name from session context, Linear tickets, and 
 
 ## Instructions
 
-You are helping create a meaningful branch name based on context.
-
 1. **Gather context**
    - Review the current conversation to understand the task being worked on
    - Check git status and diff for insight into what's changing

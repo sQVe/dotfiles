@@ -1,4 +1,4 @@
-# Switch worktree
+# Switch Command
 
 Switch to a Grove worktree and change working directory.
 
@@ -10,36 +10,27 @@ Switch to a Grove worktree and change working directory.
 
 ## Instructions
 
-### With argument
+1. **Switch with argument**
+   - If `$ARGUMENTS` is provided, run `cd "$(grove switch $ARGUMENTS)"`
+   - If successful, confirm with `pwd`
+   - If it fails, continue to interactive flow
 
-If `$ARGUMENTS` is provided, attempt to switch:
+2. **Interactive selection**
+   - List available worktrees with `grove list`
+   - Use AskUserQuestion to ask which worktree to switch to
+   - Match user's response (case-insensitive partial match)
+   - Run `cd "$(grove switch <matched-worktree>)"`
+   - Confirm with `pwd`
 
-```bash
-cd "$(grove switch $ARGUMENTS)"
-```
+3. **Handle failures**
+   - If no match found, show the list again and ask for clarification
 
-If successful, confirm with `pwd`.
-
-If it fails, continue to the interactive flow below.
-
-### Interactive flow (no argument or switch failed)
-
-1. List available worktrees:
-
-```bash
-grove list
-```
-
-2. Use AskUserQuestion to ask the user which worktree they want to switch to. Show the list in the question.
-
-3. Match the user's response against the worktree list. Find the worktree whose name contains the user's input (case-insensitive partial match).
-
-4. Switch to the matched worktree:
+## Examples
 
 ```bash
-cd "$(grove switch <matched-worktree>)"
+# Switch interactively
+/switch
+
+# Switch to specific worktree
+/switch feature-auth
 ```
-
-5. Confirm with `pwd`.
-
-If no match found, tell the user and show the list again.

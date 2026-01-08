@@ -57,3 +57,27 @@ Related to #456
 - **Changes**: Focus on "what" was implemented with technical details
 - **Test plan**: Provide actionable testing steps with checkboxes
 - **Issues**: Link related issues with "Fixes #" or "Related to #"
+
+### Test plan format
+
+Test items are auto-executed when possible. Use these patterns for automation:
+
+**Automatable items** (will be executed and checked off):
+
+- Commands: "Run `npm test`", "Execute `make build`"
+- URLs: "Navigate to `/dashboard`", "Verify `/api/health` returns 200"
+- Build checks: "Verify build passes", "Check for type errors"
+
+**Manual items** (left unchecked for reviewers):
+
+- Subjective: "Verify UI looks correct"
+- Complex flows: "Complete full checkout flow"
+- External: "Confirm email is received"
+
+**Never include** (not actionable before PR):
+
+- CI status: "CI passes", "All checks green"
+- Review gates: "Approved by reviewer", "Code review complete"
+- Merge status: "No merge conflicts", "Branch up to date"
+
+These happen automatically after PR creation. Don't clutter the test plan with them.

@@ -1,6 +1,6 @@
 # PR Command
 
-Create a well-structured pull request with clear description and proper formatting to facilitate effective code review.
+Create a pull request with clear description and test plan.
 
 ## Usage
 
@@ -10,36 +10,39 @@ Create a well-structured pull request with clear description and proper formatti
 
 ## Instructions
 
-You are helping create a comprehensive pull request. Follow these steps:
-
 1. **Prepare branch**
-   - Verify that all changes are committed and pushed to the remote branch
-   - Check that branch is up-to-date with target branch (main/master)
+   - Verify all changes are committed and pushed
+   - Check branch is up-to-date with target branch (main/master)
 
 2. **Check contribution requirements**
    - Look for CONTRIBUTING.md, CHANGELOG.md, or .changeset/ directory
-   - Check if project requires changeset, release notes, or similar artifacts
-   - Add required files before creating PR if missing
+   - Add required artifacts (changeset, release notes) if missing
 
-3. **Strategic PR analysis**
-   - Use ultrathink analysis to craft clear narrative connecting business value to technical changes, guiding all subsequent steps
-   - Identify what reviewers need to understand: context, risks, testing approach
-   - Structure description to minimize reviewer cognitive load and review time
-
-4. **Create PR description**
-   - Use [PR template](/home/sqve/.dotfiles/claude/templates/pr-template.md) for PR format.
+3. **Create PR description**
+   - Use [PR template](/home/sqve/.dotfiles/claude/templates/pr-template.md) for format
    - Use conventional commit format for title (feat:, fix:, docs:, etc.)
-   - Structure description with: Summary, Changes, Test Plan
-   - Summarize key technical changes in Changes section with 3-5 focused bullet points maximum
-   - Add actionable test plan with checkboxes for reviewers
+   - Structure description with: Summary, Changes, Test plan
+   - Summarize key technical changes with 3-5 bullet points
+   - Add actionable test plan with checkboxes (things verifiable before PR creation)
+   - Never include CI status, review gates, or merge status in test plan
    - Link related issues with "Fixes #" or "Related to #"
 
+4. **Execute test plan**
+   - Parse test plan checkboxes from the description
+   - Identify automatable items:
+     - Command items: backticked commands like `npm test`, `make build`
+     - URL items: paths like `/dashboard`, endpoints to verify
+   - Execute automatable items:
+     - Run commands via bash and check exit codes
+     - Use browser automation for URL verification when applicable
+   - Update checkboxes: `[x]` for passed, `[ ]` for failed or manual
+   - Report results before proceeding
+
 5. **Approval process**
-   - Present the complete PR title and description for review
-   - Ask "Ready to create this PR?" and wait for explicit confirmation
-   - Make revisions based on feedback before proceeding
-   - Always add `--draft` flag to the command to allow reviewer to see the PR
-     before it is finalized in the browser.
+   - Present complete PR title and description
+   - Ask "Ready to create this PR?" and wait for confirmation
+   - Make revisions based on feedback
+   - Use `--draft` so reviewers can preview before finalizing
 
 6. **Add references and reviewers**
    - Link relevant issues and PRs
