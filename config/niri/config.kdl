@@ -27,7 +27,7 @@ input {
     xkb {
       layout "se"
       variant "nodeadkeys"
-      options "caps:backspace,terminate:ctrl_alt_bksp"
+      options "caps:backspace"
     }
     numlock
   }
@@ -42,7 +42,7 @@ input {
   }
   mouse {
     accel-profile "flat"
-    accel-speed 0.2
+    accel-speed 0.6
   }
 
   focus-follows-mouse max-scroll-amount="25%"
