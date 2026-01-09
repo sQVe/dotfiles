@@ -5,7 +5,7 @@ Create atomic git commits with conventional format and meaningful messages.
 ## Usage
 
 ```
-/commit [commit-message]
+/commit [--no-confirm] [commit-message]
 ```
 
 ## Instructions
@@ -21,7 +21,7 @@ Create atomic git commits with conventional format and meaningful messages.
    - Skip commit bodies unless reasoning is non-obvious
    - Stage only files relevant to each commit
 
-3. **Confirm before committing**
+3. **Confirm before committing** (skip if `--no-confirm`)
    - Show staged files and proposed commit message
    - Ask "Create this commit?" and wait for confirmation
 

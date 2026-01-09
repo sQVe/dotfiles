@@ -5,7 +5,7 @@ Create a pull request with clear description and test plan.
 ## Usage
 
 ```
-/pr [pr-title]
+/pr [--no-confirm] [pr-title]
 ```
 
 ## Instructions
@@ -38,7 +38,7 @@ Create a pull request with clear description and test plan.
    - Update checkboxes: `[x]` for passed, `[ ]` for failed or manual
    - Report results before proceeding
 
-5. **Approval process**
+5. **Approval process** (skip if `--no-confirm`)
    - Present complete PR title and description
    - Ask "Ready to create this PR?" and wait for confirmation
    - Make revisions based on feedback
