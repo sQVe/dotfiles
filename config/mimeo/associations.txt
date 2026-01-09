@@ -7,6 +7,7 @@ google-chrome-stable --new-window %U
   ^https?:\/\/(.*\.)?posthog\.com
   ^https?:\/\/(.*\.)?sentry\.io
   ^https?:\/\/(.*\.)?slack\.com
+  ^https?:\/\/(.*\.)?vanta\.com
   ^https?:\/\/(docs|drive|jamboard|meet)\.google\.com
   ^https?:\/\/dev.azure.com
   ^https?:\/\/localhost
