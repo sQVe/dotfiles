@@ -127,8 +127,8 @@
     "safety-net@cc-marketplace": true,
     "security-guidance@claude-code-plugins": true,
     "superpowers@superpowers-marketplace": true,
-    "ralph-wiggum@claude-code-plugins": true,
-    "typescript-lsp@claude-plugins-official": true
+    "typescript-lsp@claude-plugins-official": true,
+    "ralph-loop@claude-plugins-official": true
   },
   "alwaysThinkingEnabled": true,
   "feedbackSurveyState": {
