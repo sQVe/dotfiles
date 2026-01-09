@@ -14,45 +14,72 @@
         "stuckThreshold": {
           "type": "integer",
           "default": 3,
+          "minimum": 1,
           "description": "Failures before marking stuck"
         },
         "verify": {
           "$ref": "#/$defs/verify",
-          "description": "Default verification commands and state checks"
+          "description": "Default verification commands (inherited by all tickets/tasks)"
         }
       },
-      "required": ["verify"]
+      "required": ["verify"],
+      "additionalProperties": false
     },
-    "context": {
-      "$ref": "#/$defs/context",
-      "description": "Project-wide guidance"
+    "guidance": {
+      "$ref": "#/$defs/guidance",
+      "description": "Project-wide guidance (docs, files, notes)"
+    },
+    "prs": {
+      "type": "array",
+      "description": "Optional PR groupings - run /pr after last ticket in group completes",
+      "items": {
+        "$ref": "#/$defs/pr"
+      }
     },
     "tickets": {
       "type": "array",
       "description": "List of tickets to complete",
       "items": {
         "$ref": "#/$defs/ticket"
-      }
+      },
+      "minItems": 1
     }
   },
   "required": ["config", "tickets"],
+  "additionalProperties": false,
   "$defs": {
-    "context": {
+    "pr": {
       "type": "object",
-      "description": "Guidance for execution",
+      "description": "PR grouping - creates a PR when all tickets in the group are complete",
+      "properties": {
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "description": "PR title (e.g., 'feat: add validation')"
+        },
+        "tickets": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1,
+          "uniqueItems": true,
+          "description": "Ticket names to include in this PR (must match ticket.name values)"
+        }
+      },
+      "required": ["title", "tickets"],
+      "additionalProperties": false
+    },
+    "guidance": {
+      "type": "object",
+      "description": "Informational context for execution (NOT verification)",
       "properties": {
         "docs": {
           "type": "array",
-          "items": {
-            "type": "string"
-          },
+          "items": { "type": "string" },
           "description": "Files to read for guidelines (CLAUDE.md, CONTRIBUTING.md, etc.)"
         },
         "files": {
           "type": "array",
-          "items": {
-            "type": "string"
-          },
+          "items": { "type": "string" },
           "description": "Paths to work in"
         },
         "notes": {
@@ -61,23 +88,18 @@
         },
         "reference": {
           "type": "array",
-          "items": {
-            "type": "string"
-          },
+          "items": { "type": "string" },
           "description": "Files to match patterns from"
         }
       },
-      "additionalProperties": true
+      "additionalProperties": false
     },
     "task": {
       "type": "object",
       "properties": {
-        "context": {
-          "$ref": "#/$defs/context",
-          "description": "Task-specific guidance"
-        },
         "description": {
           "type": "string",
+          "minLength": 1,
           "description": "What to accomplish"
         },
         "done": {
@@ -87,34 +109,30 @@
         },
         "steps": {
           "type": "array",
-          "items": {
-            "type": "string"
-          },
+          "items": { "type": "string", "minLength": 1 },
+          "minItems": 1,
           "description": "Ordered sub-steps for complex tasks"
         },
         "verify": {
           "$ref": "#/$defs/verify",
-          "description": "Task-specific verification (merges with ticket/config verify)"
+          "description": "Task-specific verification (overrides ticket/config)"
         }
       },
-      "required": ["description", "done"]
+      "required": ["description", "done"],
+      "additionalProperties": false
     },
     "ticket": {
       "type": "object",
       "properties": {
-        "context": {
-          "$ref": "#/$defs/context",
-          "description": "Ticket-specific guidance"
-        },
         "name": {
           "type": "string",
+          "minLength": 1,
           "description": "Commit message / ticket name"
         },
         "tasks": {
           "type": "array",
-          "items": {
-            "$ref": "#/$defs/task"
-          }
+          "items": { "$ref": "#/$defs/task" },
+          "minItems": 1
         },
         "type": {
           "type": "string",
@@ -123,32 +141,35 @@
         },
         "verify": {
           "$ref": "#/$defs/verify",
-          "description": "Ticket-specific verification (merges with config verify)"
+          "description": "Ticket-specific verification (overrides config, inherited by tasks)"
         }
       },
-      "required": ["name", "tasks", "type"]
+      "required": ["name", "tasks", "type"],
+      "additionalProperties": false
     },
     "verify": {
       "type": "object",
-      "description": "Verification commands and state checks",
+      "description": "Verification commands and manual steps. Merge priority: task > ticket > config (closest non-null wins per property)",
       "properties": {
         "lint": {
           "type": ["string", "null"],
-          "description": "Lint command"
+          "description": "Lint command (null to disable)"
         },
-        "state": {
-          "type": ["string", "null"],
-          "description": "State to confirm manually"
+        "manual": {
+          "type": ["array", "null"],
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Manual verification steps - user confirms completion after automated checks pass"
         },
         "test": {
           "type": ["string", "null"],
-          "description": "Test command"
+          "description": "Test command (null to disable)"
         },
         "typecheck": {
           "type": ["string", "null"],
-          "description": "Type check command"
+          "description": "Type check command (null to disable)"
         }
-      }
+      },
+      "additionalProperties": false
     }
   }
 }
