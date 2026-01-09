@@ -31,10 +31,14 @@
     },
     "prs": {
       "type": "array",
-      "description": "Optional PR groupings - run /pr after last ticket in group completes",
+      "description": "Optional PR groups (run /pr after last ticket in group completes)",
       "items": {
         "$ref": "#/$defs/pr"
       }
+    },
+    "services": {
+      "$ref": "#/$defs/services",
+      "description": "Background services available for verification (dev server, etc.)"
     },
     "tickets": {
       "type": "array",
@@ -48,14 +52,48 @@
   "required": ["config", "tickets"],
   "additionalProperties": false,
   "$defs": {
+    "services": {
+      "type": "object",
+      "description": "Named background services. Lifecycle managed by agent.",
+      "additionalProperties": {
+        "oneOf": [
+          {
+            "type": "string",
+            "minLength": 1,
+            "description": "Shell command (shorthand for { command: ... })"
+          },
+          {
+            "type": "object",
+            "required": ["command"],
+            "properties": {
+              "command": {
+                "type": "string",
+                "minLength": 1,
+                "description": "Shell command to start the service"
+              },
+              "cwd": {
+                "type": "string",
+                "description": "Working directory relative to worktree root"
+              }
+            },
+            "additionalProperties": false
+          }
+        ]
+      }
+    },
     "pr": {
       "type": "object",
-      "description": "PR grouping - creates a PR when all tickets in the group are complete",
+      "description": "PR group (creates PR when all tickets in group complete)",
       "properties": {
         "title": {
           "type": "string",
           "minLength": 1,
           "description": "PR title (e.g., 'feat: add validation')"
+        },
+        "branch": {
+          "type": "string",
+          "minLength": 1,
+          "description": "Git branch for this PR group"
         },
         "tickets": {
           "type": "array",
@@ -65,7 +103,7 @@
           "description": "Ticket names to include in this PR (must match ticket.name values)"
         }
       },
-      "required": ["title", "tickets"],
+      "required": ["title", "branch", "tickets"],
       "additionalProperties": false
     },
     "guidance": {
@@ -136,7 +174,16 @@
         },
         "type": {
           "type": "string",
-          "enum": ["chore", "docs", "feat", "fix", "perf", "refactor", "style", "test"],
+          "enum": [
+            "chore",
+            "docs",
+            "feat",
+            "fix",
+            "perf",
+            "refactor",
+            "style",
+            "test"
+          ],
           "description": "Commit type"
         },
         "verify": {
@@ -149,16 +196,11 @@
     },
     "verify": {
       "type": "object",
-      "description": "Verification commands and manual steps. Merge priority: task > ticket > config (closest non-null wins per property)",
+      "description": "Verification commands. Merge priority: task > ticket > config (closest non-null wins per property)",
       "properties": {
         "lint": {
           "type": ["string", "null"],
           "description": "Lint command (null to disable)"
-        },
-        "manual": {
-          "type": ["array", "null"],
-          "items": { "type": "string", "minLength": 1 },
-          "description": "Manual verification steps - user confirms completion after automated checks pass"
         },
         "test": {
           "type": ["string", "null"],
@@ -167,6 +209,30 @@
         "typecheck": {
           "type": ["string", "null"],
           "description": "Type check command (null to disable)"
+        },
+        "build": {
+          "type": ["string", "null"],
+          "description": "Build command (null to disable)"
+        },
+        "browser": {
+          "type": ["array", "null"],
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Browser checks via MCP tools (format: action → expected)"
+        },
+        "terminal": {
+          "type": ["array", "null"],
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Terminal checks (format: command → expected output)"
+        },
+        "human": {
+          "type": ["array", "null"],
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Human-only checks (subjective, cannot be automated)"
+        },
+        "services": {
+          "type": ["array", "null"],
+          "items": { "type": "string", "minLength": 1 },
+          "description": "Services to start before browser/terminal checks (names from top-level services)"
         }
       },
       "additionalProperties": false
