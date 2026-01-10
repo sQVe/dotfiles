@@ -1,18 +1,18 @@
 # Scaffold loop-machine files
 
-Creates `_loop/` directory with `WORKFLOW.md`, `loop.log`, and `work.json5`.
+Creates `WORKFLOW.md`, `loop.log`, and `work.json5` in the current directory.
 
 ## Execute
 
-1. Check for existing directory:
+1. Check for existing files:
    ```bash
-   ls -d _loop 2> /dev/null
+   ls WORKFLOW.md loop.log work.json5 2> /dev/null
    ```
-2. If `_loop/` exists, warn and abort
+2. If any file exists, warn and abort
 3. Read templates from `~/.claude/templates/loop-machine/`
 4. Detect `config.verify` from project files
 5. Detect `guidance.docs` (guideline files)
-6. Create `_loop/` directory with all three files
+6. Create all three files in current directory
 7. Output customization instructions
 
 ## Detecting config.verify

@@ -111,7 +111,7 @@ fi
 ### Commit with stash
 
 ```bash
-git stash push --message "loop-files" -- _loop/ 2> /dev/null || true
+git stash push --message "loop-files" -- WORKFLOW.md loop.log work.json5 2> /dev/null || true
 /commit --no-confirm
 git stash list | grep --max-count=1 "loop-files" | cut --delimiter=: --fields=1 | xargs --no-run-if-empty git stash pop
 ```

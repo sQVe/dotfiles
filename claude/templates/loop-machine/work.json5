@@ -1,5 +1,5 @@
 {
-  // Process with @_loop/WORKFLOW.md. See schema.json for field details.
+  // Process with @WORKFLOW.md. See schema.json for field details.
   $schema: '/home/sqve/.claude/templates/loop-machine/schema.json',
   config: {
     stuckThreshold: 3,
