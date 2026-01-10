@@ -1,12 +1,12 @@
 # Scaffold loop-machine files
 
-Creates `WORKFLOW.md`, `loop.log`, and `work.json5` in the current directory.
+Creates `PROTOCOL.md`, `loop.log`, and `work.json5` in the current directory.
 
 ## Execute
 
 1. Check for existing files:
    ```bash
-   ls WORKFLOW.md loop.log work.json5 2> /dev/null
+   ls PROTOCOL.md loop.log work.json5 2> /dev/null
    ```
 2. If any file exists, warn and abort
 3. Read templates from `~/.claude/templates/loop-machine/`

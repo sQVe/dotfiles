@@ -44,6 +44,8 @@ BRANCH_SETUP → PICK_TICKET → WORK_TASK → CHECKPOINT
 
 ### WORK_TASK
 
+**Context:** Read `guidance.docs`, follow `guidance.rules` from work.json5.
+
 1. Pick ONE task with `done: false`
 2. Follow `steps` if present, else execute `description`
 3. Run verification (see: Verification Cascade)
@@ -111,7 +113,7 @@ fi
 ### Commit with stash
 
 ```bash
-git stash push --message "loop-files" -- WORKFLOW.md loop.log work.json5 2> /dev/null || true
+git stash push --message "loop-files" -- PROTOCOL.md loop.log work.json5 2> /dev/null || true
 /commit --no-confirm
 git stash list | grep --max-count=1 "loop-files" | cut --delimiter=: --fields=1 | xargs --no-run-if-empty git stash pop
 ```
