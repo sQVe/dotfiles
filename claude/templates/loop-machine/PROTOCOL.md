@@ -105,10 +105,11 @@ fi
 ### Verification cascade
 
 1. Merge priority: task > ticket > config (closest non-null wins per property)
-2. Run in order: lint → typecheck → build → test → human
+2. Run in order: lint → typecheck → build → test → [start services] → terminal → browser → human
 3. Stop on first failure
 4. No `--filter`, `--only`, or path targeting
-5. If `human` set: present steps, await user confirmation
+5. Start services listed in `verify.services` before terminal/browser checks
+6. If `human` set: present steps, await user confirmation
 
 ### Commit with stash
 
@@ -159,13 +160,13 @@ Agent watches stdout for startup patterns, parses dynamic port for browser check
 
 ### Ticket review prompt
 
-> Review code changes for the completed ticket against `work.json5`.
+> Review changes for the completed ticket against `work.json5`.
 >
 > Criteria:
 >
-> 1. Tasks match changes (each task has corresponding code)
-> 2. No bugs introduced
-> 3. Follows established patterns
+> 1. Tasks match changes (each task has corresponding changes)
+> 2. No errors introduced
+> 3. Follows established patterns and `guidance.rules`
 > 4. No over-engineering
 > 5. No scope creep (nothing beyond what tasks specified)
 >
@@ -179,8 +180,8 @@ Agent watches stdout for startup patterns, parses dynamic port for browser check
 >
 > 1. Cross-ticket integration (changes work together)
 > 2. No regressions (later tickets didn't break earlier work)
-> 3. Consistent patterns across all tickets
-> 4. No duplicate or conflicting code between tickets
+> 3. Consistent patterns and tone across all tickets per `guidance.rules`
+> 4. No duplicate or conflicting content between tickets
 > 5. Complete solution (nothing missing from requirements)
 >
 > Output: PASS or FAIL with list of issues.
