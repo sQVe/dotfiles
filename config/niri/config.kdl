@@ -45,7 +45,7 @@ input {
     accel-speed 0.6
   }
 
-  focus-follows-mouse max-scroll-amount="25%"
+  focus-follows-mouse max-scroll-amount="0%"
 }
 
 gestures {
