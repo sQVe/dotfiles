@@ -1,11 +1,16 @@
 {
-  "sources": [
-    {
-      "enabled": true,
-      "name": "Official Noctalia Plugins",
-      "url": "https://github.com/noctalia-dev/noctalia-plugins"
-    }
-  ],
-  "states": {},
-  "version": 1
+    "sources": [
+        {
+            "enabled": true,
+            "name": "Official Noctalia Plugins",
+            "url": "https://github.com/noctalia-dev/noctalia-plugins"
+        }
+    ],
+    "states": {
+        "screen-recorder": {
+            "enabled": false,
+            "sourceUrl": "https://github.com/noctalia-dev/noctalia-plugins"
+        }
+    },
+    "version": 1
 }

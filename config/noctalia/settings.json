@@ -1,12 +1,14 @@
 {
     "appLauncher": {
+        "autoPasteClipboard": false,
+        "clipboardWrapText": true,
         "customLaunchPrefix": "",
         "customLaunchPrefixEnabled": false,
         "enableClipPreview": false,
         "enableClipboardHistory": false,
         "iconMode": "tabler",
         "ignoreMouseInput": false,
-        "pinnedExecs": [
+        "pinnedApps": [
         ],
         "position": "center",
         "screenshotAnnotationTool": "",
@@ -19,7 +21,6 @@
     },
     "audio": {
         "cavaFrameRate": 30,
-        "externalMixer": "pavucontrol",
         "mprisBlacklist": [
         ],
         "preferredPlayer": "mpv",
@@ -45,10 +46,15 @@
         "widgets": {
             "center": [
                 {
+                    "compactMode": false,
+                    "compactShowAlbumArt": true,
+                    "compactShowVisualizer": false,
                     "hideMode": "hidden",
                     "hideWhenIdle": false,
                     "id": "MediaMini",
                     "maxWidth": 400,
+                    "panelShowAlbumArt": true,
+                    "panelShowVisualizer": true,
                     "scrollingMode": "never",
                     "showAlbumArt": true,
                     "showArtistFirst": true,
@@ -155,8 +161,8 @@
                     "wheelUpdateText": false
                 },
                 {
-                    "displayMode": "onhover",
-                    "id": "WiFi"
+                    "id": "Spacer",
+                    "width": 10
                 },
                 {
                     "displayMode": "onhover",
@@ -164,7 +170,12 @@
                 },
                 {
                     "displayMode": "onhover",
-                    "id": "Volume"
+                    "id": "Network"
+                },
+                {
+                    "displayMode": "onhover",
+                    "id": "Volume",
+                    "middleClickCommand": "pwvucontrol || pavucontrol"
                 },
                 {
                     "displayMode": "onhover",
@@ -239,7 +250,6 @@
     },
     "colorSchemes": {
         "darkMode": true,
-        "generateTemplatesForPredefined": false,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "matugenSchemeType": "scheme-fruit-salad",
@@ -283,9 +293,6 @@
                 },
                 {
                     "id": "Bluetooth"
-                },
-                {
-                    "id": "ScreenRecorder"
                 }
             ],
             "right": [
@@ -322,6 +329,7 @@
         "pinnedApps": [
         ],
         "pinnedStatic": false,
+        "position": "bottom",
         "size": 1.54
     },
     "general": {
@@ -343,6 +351,7 @@
         "shadowDirection": "bottom_right",
         "shadowOffsetX": 2,
         "shadowOffsetY": 3,
+        "showChangelogOnStartup": true,
         "showHibernateOnLockScreen": false,
         "showScreenCorners": false,
         "showSessionButtonsOnLockScreen": false
@@ -359,6 +368,8 @@
     "location": {
         "analogClockInCalendar": false,
         "firstDayOfWeek": 1,
+        "hideWeatherCityName": false,
+        "hideWeatherTimezone": false,
         "name": "Uppsala",
         "showCalendarEvents": true,
         "showCalendarWeather": true,
@@ -427,18 +438,6 @@
         ],
         "overlayLayer": true
     },
-    "screenRecorder": {
-        "audioCodec": "opus",
-        "audioSource": "default_output",
-        "colorRange": "limited",
-        "copyToClipboard": false,
-        "directory": "/home/sqve/download",
-        "frameRate": 60,
-        "quality": "very_high",
-        "showCursor": true,
-        "videoCodec": "h264",
-        "videoSource": "portal"
-    },
     "sessionMenu": {
         "countdownDuration": 10000,
         "enableCountdown": false,
@@ -486,7 +485,7 @@
         "showHeader": true,
         "showNumberLabels": true
     },
-    "settingsVersion": 37,
+    "settingsVersion": 39,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
         "cpuPollingInterval": 3000,
@@ -536,18 +535,23 @@
         "walker": false,
         "wezterm": false,
         "yazi": true,
-        "zed": false
+        "zed": false,
+        "zenBrowser": false
     },
     "ui": {
+        "bluetoothDetailsViewMode": "grid",
+        "bluetoothHideUnnamedDevices": false,
         "boxBorderEnabled": false,
         "fontDefault": "Roboto",
         "fontDefaultScale": 0.9,
         "fontFixed": "Maple Mono",
         "fontFixedScale": 0.9,
+        "networkPanelView": "wifi",
         "panelBackgroundOpacity": 1,
         "panelsAttachedToBar": true,
         "settingsPanelMode": "attached",
-        "tooltipsEnabled": true
+        "tooltipsEnabled": true,
+        "wifiDetailsViewMode": "grid"
     },
     "wallpaper": {
         "directory": "/home/sqve/pictures/art/simon-stålenhag/SWEDISH_MACHINES",
