@@ -62,7 +62,7 @@ customCommands:
     description: 'Fast-forward'
   - key: 'M'
     context: 'files, worktrees'
-    command: 'term "nvim -c DiffviewOpen"'
+    command: 'term "nvim -c CodeDiff"'
     description: 'Open merge tool'
   - key: 'W'
     command: git commit --no-verify
