@@ -1,59 +1,86 @@
-# PR Command
+---
+name: pr
+description: Create a pull request with description and test plan
+argument-hint: '[--no-confirm] [pr-title]'
+allowed-tools:
+  - Bash
+  - Read
+  - Glob
+  - Grep
+---
 
-Create a pull request with clear description and test plan.
+<objective>
+Create a pull request with clear description and actionable test plan.
 
-## Usage
+Executes automatable test plan items before PR creation.
+</objective>
 
-```
-/pr [--no-confirm] [pr-title]
-```
+<arguments>
+- **--no-confirm** (optional): Skip confirmation prompt
+- **pr-title** (optional): Explicit PR title to use
+</arguments>
 
-## Instructions
+<context_injection>
+@/home/sqve/.dotfiles/claude/templates/pr-template.md
+</context_injection>
 
+<process>
 1. **Prepare branch**
-   - Verify all changes are committed and pushed
-   - Check branch is up-to-date with target branch (main/master)
+   - Verify all changes committed and pushed
+   - Check branch is up-to-date with target (main/master)
 
 2. **Check contribution requirements**
-   - Look for CONTRIBUTING.md, CHANGELOG.md, or .changeset/ directory
-   - Add required artifacts (changeset, release notes) if missing
+   - Look for CONTRIBUTING.md, CHANGELOG.md, .changeset/
+   - Add required artifacts if missing
 
 3. **Create PR description**
-   - Use [PR template](/home/sqve/.dotfiles/claude/templates/pr-template.md) for format
-   - Use conventional commit format for title (feat:, fix:, docs:, etc.)
-   - Structure description with: Summary, Changes, Test plan
-   - Summarize key technical changes with 3-5 bullet points
-   - Add actionable test plan with checkboxes (things verifiable before PR creation)
-   - Never include CI status, review gates, or merge status in test plan
+   - Use conventional commit format for title
+   - Structure per `<pr_structure>`
    - Link related issues with "Fixes #" or "Related to #"
 
 4. **Execute test plan**
-   - Parse test plan checkboxes from the description
+   - Parse test plan checkboxes
    - Identify automatable items:
-     - Command items: backticked commands like `npm test`, `make build`
-     - URL items: paths like `/dashboard`, endpoints to verify
-   - Execute automatable items:
-     - Run commands via bash and check exit codes
-     - Use browser automation for URL verification when applicable
-   - Update checkboxes: `[x]` for passed, `[ ]` for failed or manual
+     - Commands: backticked like `npm test`
+     - URLs: paths like `/dashboard`
+   - Execute and update checkboxes: `[x]` passed, `[ ]` failed/manual
    - Report results before proceeding
 
-5. **Approval process** (skip if `--no-confirm`)
+5. **Confirm** (skip if `--no-confirm`)
    - Present complete PR title and description
-   - Ask "Ready to create this PR?" and wait for confirmation
-   - Make revisions based on feedback
-   - Use `--draft` so reviewers can preview before finalizing
+   - Ask "Ready to create this PR?"
+   - Use `--draft` for reviewer preview
 
-6. **Add references and reviewers**
+6. **Add references**
    - Link relevant issues and PRs
    - Add appropriate reviewers
+     </process>
 
-## Examples
+<pr_structure>
 
-```bash
-# Create PR for current branch
-/pr
+## Summary
 
-# Create PR with specific title
-/pr "feat: add user authentication system"
-```
+1-2 sentences on what and why.
+
+## Changes
+
+- 3-5 bullet points of key technical changes
+
+## Test plan
+
+- [ ] Automatable checks (commands, URLs)
+- [ ] Manual verification items
+
+**Never include:** CI status, review gates, merge status
+</pr_structure>
+
+<success_criteria>
+
+- [ ] Branch prepared and pushed
+- [ ] Contribution requirements met
+- [ ] PR description follows structure
+- [ ] Automatable test plan items executed
+- [ ] User confirmed (unless --no-confirm)
+- [ ] PR created with references
+
+</success_criteria>
