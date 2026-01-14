@@ -27,7 +27,7 @@ Load these reference documents (if they exist):
 - `.claude/CLAUDE.md` or `CLAUDE.md` (project rules)
 - `README.md` (project conventions)
 - `CONTRIBUTING.md` (contribution guidelines)
-  </context_injection>
+</context_injection>
 
 <process>
 1. **Determine scope**
@@ -46,11 +46,12 @@ Load these reference documents (if they exist):
 
 5. **Compile findings**
    - Merge results from both agents
-   - Deduplicate: same file + line + same rule = single finding
+   - Deduplicate by: file + line + rule identifier (e.g., "CLAUDE.md#typescript/nullish-coalescing")
+   - Keep the clearest description when merging duplicates
    - Note source document for each rule
 
 6. **Generate report** using `<report_format>`
-   </process>
+</process>
 
 <subagent_prompt>
 <check_context>
@@ -71,7 +72,7 @@ Check for violations of rules defined in the reference documents:
 - Code style rules (TypeScript conventions, patterns)
 - Principles (minimal changes, single responsibility)
 - Writing rules (concise, active voice, formatting)
-  </check_focus>
+</check_focus>
 
 <output_format>
 Return violations as JSON array:

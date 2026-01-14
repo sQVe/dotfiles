@@ -44,12 +44,13 @@ Dispatches 3 parallel subagents with identical prompts. Each reviews independent
 
 5. **Compile findings**
    - Merge results from all agents
-   - Deduplicate: same file + line + similar description = single finding
+   - Deduplicate by: file + line + issue category (e.g., "null-check", "bounds", "sql-injection")
+   - Keep the clearest description when merging duplicates
    - Note consensus (found by N agents)
    - Sort: Critical → Warning → Info
 
 6. **Generate report** using `<report_format>`
-   </process>
+</process>
 
 <subagent_prompt>
 <review_context>
@@ -85,8 +86,8 @@ Severity guide:
 - **critical**: Bugs, security issues, data loss risks
 - **warning**: Logic gaps, edge cases, maintainability issues
 - **info**: Improvements, suggestions, style (non-CLAUDE.md)
-  </output_format>
-  </subagent_prompt>
+</output_format>
+</subagent_prompt>
 
 <report_format>
 

@@ -42,7 +42,7 @@ Groups related changes into atomic units. Messages explain why, not what.
    - Create commit
    - Run `git log --oneline -5` to confirm
    - Check `git status` shows clean state
-     </process>
+</process>
 
 <commit_format>
 

@@ -36,7 +36,7 @@ If branch name provided as argument, use it directly. Otherwise, infer from cont
    - Ask "Create this branch?" and wait for confirmation
    - Run `git checkout -b <branch-name>`
    - Verify with `git branch --show-current`
-     </process>
+</process>
 
 <naming_rules>
 **With Linear ticket (preferred):**
@@ -52,7 +52,7 @@ If branch name provided as argument, use it directly. Otherwise, infer from cont
 - Types: `feat`, `fix`, `chore`, `docs`, `refactor`, `test`
 - Use kebab-case
 - Keep under 50 characters
-  </naming_rules>
+</naming_rules>
 
 <output_format>
 Found Linear ticket LIN-156

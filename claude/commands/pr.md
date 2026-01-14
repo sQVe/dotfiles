@@ -54,7 +54,7 @@ Executes automatable test plan items before PR creation.
 6. **Add references**
    - Link relevant issues and PRs
    - Add appropriate reviewers
-     </process>
+</process>
 
 <pr_structure>
 
