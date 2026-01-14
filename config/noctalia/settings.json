@@ -72,7 +72,7 @@
                     "followFocusedScreen": false,
                     "groupedBorderOpacity": 1,
                     "hideUnoccupied": false,
-                    "iconScale": 0.8,
+                    "iconScale": 0.87,
                     "id": "Workspace",
                     "labelMode": "index",
                     "showApplications": false,
@@ -237,10 +237,6 @@
             {
                 "enabled": false,
                 "id": "calendar-month-card"
-            },
-            {
-                "enabled": true,
-                "id": "timer-card"
             },
             {
                 "enabled": false,
@@ -488,24 +484,24 @@
     "settingsVersion": 39,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
-        "cpuPollingInterval": 3000,
+        "cpuPollingInterval": 2000,
         "cpuWarningThreshold": 80,
         "criticalColor": "",
         "diskCriticalThreshold": 90,
-        "diskPollingInterval": 3000,
+        "diskPollingInterval": 2000,
         "diskWarningThreshold": 80,
         "enableDgpuMonitoring": false,
         "externalMonitor": "resources || missioncenter || jdsystemmonitor || corestats || system-monitoring-center || gnome-system-monitor || plasma-systemmonitor || mate-system-monitor || ukui-system-monitor || deepin-system-monitor || pantheon-system-monitor",
         "gpuCriticalThreshold": 90,
         "gpuPollingInterval": 3000,
         "gpuWarningThreshold": 80,
-        "loadAvgPollingInterval": 3000,
+        "loadAvgPollingInterval": 2000,
         "memCriticalThreshold": 90,
-        "memPollingInterval": 3000,
+        "memPollingInterval": 2000,
         "memWarningThreshold": 80,
-        "networkPollingInterval": 3000,
+        "networkPollingInterval": 2000,
         "tempCriticalThreshold": 90,
-        "tempPollingInterval": 3000,
+        "tempPollingInterval": 2000,
         "tempWarningThreshold": 80,
         "useCustomColors": false,
         "warningColor": ""
