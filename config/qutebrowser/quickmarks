@@ -12,6 +12,7 @@ drive https://drive.google.com/drive/my-drive
 g https://www.google.com
 gh https://github.com
 gist https://gist.github.com/sQVe
+greptile https://app.greptile.com/
 grove https://github.com/sQVe/grove
 linear https://linear.app
 locg https://leagueofcomicgeeks.com/comics
@@ -19,16 +20,17 @@ mail https://mail.google.com/mail/u/0/#inbox
 mdn https://developer.mozilla.org/en-US/docs/Web
 mega https://mega.nz
 nba https://www.nba.com
+netflix https://www.netflix.com/browse
 notebox https://github.com/sQVe/notebox
 platform https://github.com/hups-co/platform
 playground https://github.com/sQVe/playground
+prime https://www.primevideo.com
 reddit https://www.reddit.com
 regex https://regex101.com
 scripts https://github.com/sQVe/scripts
 secret https://github.com/sQVe/secret
 sort https://github.com/sQVe/sort.nvim
 wiki https://en.wikipedia.org
-netflix https://www.netflix.com/browse
-prime https://www.primevideo.com
 wnba https://www.wnba.com
 yt https://www.youtube.com
+kamaji https://github.com/sQVe/kamaji
