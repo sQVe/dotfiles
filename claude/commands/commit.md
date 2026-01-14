@@ -10,7 +10,7 @@ allowed-tools:
 <objective>
 Create atomic git commits with conventional format and meaningful messages.
 
-Groups related changes into atomic units. Messages explain why, not what.
+Group related changes into atomic units. Explain why, not what.
 </objective>
 
 <arguments>

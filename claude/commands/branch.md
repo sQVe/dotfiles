@@ -11,7 +11,7 @@ allowed-tools:
 <objective>
 Generate and create a git branch name from session context, Linear tickets, and current changes.
 
-If branch name provided as argument, use it directly. Otherwise, infer from context.
+If a branch name is provided as an argument, use it directly. Otherwise, infer from context.
 </objective>
 
 <arguments>

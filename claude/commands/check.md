@@ -11,9 +11,9 @@ allowed-tools:
 ---
 
 <objective>
-Check code against CLAUDE.md rules and project conventions. Focuses on style compliance, not substantive issues.
+Check code against CLAUDE.md rules and project conventions. Checks style compliance, not logic or bugs.
 
-Dispatches 2 parallel subagents with identical prompts. Each checks independently, violations are deduplicated and compiled.
+Dispatches 2 parallel subagents with identical prompts. Each checks independently; violations are deduplicated and compiled.
 </objective>
 
 <arguments>

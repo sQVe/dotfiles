@@ -12,7 +12,7 @@ allowed-tools:
 <objective>
 Identify non-obvious code in PR changes and post explanatory comments as a GitHub review.
 
-Walks through each annotation candidate interactively. Batches accepted comments into a single review submission.
+The walkthrough presents each candidate interactively, then batches accepted comments into a single review.
 </objective>
 
 <arguments>
@@ -32,9 +32,9 @@ Walks through each annotation candidate interactively. Batches accepted comments
 
 3.  **Phase 1: Find candidates** (subagent)
     - Launch one code-review subagent with the diff
-    - Agent casts wide net — flags anything matching `<detection_criteria>`
+    - Agent flags generously — anything matching `<detection_criteria>`
     - Returns list: file path, line range, code snippet, draft explanation
-    - Err toward inclusion; filtering happens next
+    - Err toward inclusion—filtering happens next
 
 4.  **Phase 2: Filter candidates** (subagent)
     - Launch one filtering subagent with Phase 1 output
@@ -104,7 +104,7 @@ Rate each candidate 1-5. Only 4+ proceed to walkthrough.
 Reviewer would definitely ask "why?" without explanation. Non-obvious architectural decision, surprising trade-off, or counterintuitive approach.
 
 **4 — Valuable**
-Reviewer would likely pause and wonder. Complex logic that benefits from context, or decision that isn't self-evident from the code.
+Reviewer would likely pause and wonder. Complex logic benefits from context, or decision isn't self-evident from the code.
 
 **3 — Nice-to-have**
 Might help some reviewers. Code is understandable but explanation adds minor clarity.
@@ -125,7 +125,7 @@ Self-explanatory code. Standard patterns. Would clutter the review.
 <tone>
 Use the `elements-of-style:writing-clearly-and-concisely` skill.
 
-Write like a 30-second code review conversation.
+Write as you would in a 30-second code review.
 
 **Do:**
 - "Uses bitwise AND here because status packs multiple flags"

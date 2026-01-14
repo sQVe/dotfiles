@@ -13,7 +13,7 @@ allowed-tools:
 <objective>
 Review code or writing for substantive issues: bugs, logic errors, edge cases, security issues, clarity problems.
 
-Dispatches 3 parallel subagents with identical prompts. Each reviews independently, findings are deduplicated and compiled.
+Dispatches 3 parallel subagents with identical prompts. Each reviews independently; findings are deduplicated and compiled.
 </objective>
 
 <arguments>
@@ -45,7 +45,7 @@ Dispatches 3 parallel subagents with identical prompts. Each reviews independent
 5. **Compile findings**
    - Merge results from all agents
    - Deduplicate by: file + line + issue category (e.g., "null-check", "bounds", "sql-injection")
-   - Keep the clearest description when merging duplicates
+   - When merging duplicates, keep the clearest description
    - Note consensus (found by N agents)
    - Sort: Critical → Warning → Info
 

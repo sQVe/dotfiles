@@ -12,7 +12,7 @@ allowed-tools:
 <objective>
 Create a pull request with clear description and actionable test plan.
 
-Executes automatable test plan items before PR creation.
+Runs automatable test plan items before creating the PR.
 </objective>
 
 <arguments>
@@ -77,7 +77,7 @@ Executes automatable test plan items before PR creation.
 <tone>
 Use the `elements-of-style:writing-clearly-and-concisely` skill.
 
-Write like explaining to a colleague who knows the domain but not this code.
+Write as if explaining to a colleague who knows the domain but not this code.
 
 **Do:**
 - "Switches to JWT for stateless sessions"
