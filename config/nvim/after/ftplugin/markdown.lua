@@ -3,8 +3,8 @@
 -- ╹ ╹╹ ╹╹┗╸╹ ╹╺┻┛┗━┛┗┻┛╹ ╹
 -- Markdown specific settings.
 
--- Enable conceal.
-vim.opt_local.conceallevel = 2
+-- Disable conceal.
+vim.opt_local.conceallevel = 0
 
 -- Enable spellchecking.
 vim.opt_local.spell = true
