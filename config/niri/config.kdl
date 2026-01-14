@@ -33,7 +33,7 @@ input {
   }
   touchpad {
     accel-profile "adaptive"
-    accel-speed 0.2
+    accel-speed 0
     click-method "button-areas"
     drag false
     dwt
