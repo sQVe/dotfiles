@@ -74,6 +74,23 @@ Executes automatable test plan items before PR creation.
 **Never include:** CI status, review gates, merge status
 </pr_structure>
 
+<tone>
+Use the `elements-of-style:writing-clearly-and-concisely` skill.
+
+Write like explaining to a colleague who knows the domain but not this code.
+
+**Do:**
+- "Switches to JWT for stateless sessions"
+- "Fixes race condition in checkout by locking cart state"
+
+**Don't:**
+- Stiff: "This PR implements a refactored authentication layer"
+- Casual: "Hey! Threw together some auth stuff"
+- Padding: "As you can see, I've made some changes that..."
+
+No exclamation marks. No emojis. Lead with the change, not preamble.
+</tone>
+
 <success_criteria>
 
 - [ ] Branch prepared and pushed
