@@ -185,8 +185,8 @@ alias rm='rm -I --preserve-root'
 
 # Goodies & Misc.
 alias cmd=command
-alias df='df -h'
-alias du='du -ch'
+alias df='duf'
+alias du='dust'
 alias ga='git-alias-lookup $XDG_DATA_HOME/zim/modules/git'
 alias grep='grep --color=auto -d skip'
 alias mkdir='mkdir -pv'
