@@ -3,7 +3,7 @@
 <critical_rules>
 Minimum viable change. Solve only what's asked.
 Edit existing files. New files only when necessary.
-Comments explain WHY. Unclear WHAT means rewrite the code.
+Comments explain WHY. Unclear WHAT means rewrite the code. Remove redundant comments.
 Research before "I don't know" — WebSearch, WebFetch, Context7.
 Infer types. Annotate only when TypeScript gets it wrong.
 
