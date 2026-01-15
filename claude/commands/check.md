@@ -36,6 +36,11 @@ Load these reference documents (if they exist):
    - `staged`: `git diff --staged`
    - Path: specified file(s)
 
+   **Verify complete coverage:**
+   - Run `git diff --name-only [flags]` to list all affected files
+   - Confirm the diff content includes every listed file
+   - Report file count: "Checking N files"
+
 2. **Load reference documents** per `<context_injection>`
 
 3. **Build subagent prompt** using `<subagent_prompt>` template
@@ -94,24 +99,24 @@ Only flag clear violations. Do not flag subjective interpretations.
 </subagent_prompt>
 
 <report_format>
-
 ## Check: Project Rules Compliance
 
 ### Violations
+1. `file:line` — **[rule]** (source) description
+2. `file:line` — **[rule]** (source) description
+3. `file:line` — **[rule]** (source) description
 
-- `file:line` — **[rule]** (source: document) description
+**Summary:** X files, Y violations
 
-### Summary
+**Recommendation:** Fix 1, 3. Consider 2.
 
-X files checked, Y violations found
-
-If no violations:
-✓ All checks passed (X files)
+If no violations: ✓ All checks passed (X files)
 </report_format>
 
 <success_criteria>
 
 - [ ] Scope determined correctly
+- [ ] All changed files included (verified via --name-only)
 - [ ] Reference documents loaded
 - [ ] 2 subagents dispatched in parallel
 - [ ] Violations deduplicated and compiled

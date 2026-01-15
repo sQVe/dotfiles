@@ -28,6 +28,11 @@ Dispatches 3 parallel subagents with identical prompts. Each reviews independent
    - `staged`: `git diff --staged`
    - Path: specified file(s)
 
+   **Verify complete coverage:**
+   - Run `git diff --name-only [flags]` to list all affected files
+   - Confirm the diff content includes every listed file
+   - Report file count: "Reviewing N files"
+
 2. **Detect review type**
    - Argument provided → use it
    - `.ts`, `.js`, `.py`, `.go`, etc. → code
@@ -50,7 +55,7 @@ Dispatches 3 parallel subagents with identical prompts. Each reviews independent
    - Sort: Critical → Warning → Info
 
 6. **Generate report** using `<report_format>`
-</process>
+   </process>
 
 <subagent_prompt>
 <review_context>
@@ -86,33 +91,31 @@ Severity guide:
 - **critical**: Bugs, security issues, data loss risks
 - **warning**: Logic gaps, edge cases, maintainability issues
 - **info**: Improvements, suggestions, style (non-CLAUDE.md)
-</output_format>
-</subagent_prompt>
+  </output_format>
+  </subagent_prompt>
 
 <report_format>
-
 ## Review: [type] - [scope]
 
-### Critical (must fix)
+### Critical
+1. `file:line` — Description [found by N]
 
-- `file:line` — Description [found by N agents]
+### Warning
+2. `file:line` — Description [found by N]
+3. `file:line` — Description [found by N]
 
-### Warning (should fix)
+### Info
+4. `file:line` — Suggestion [found by N]
 
-- `file:line` — Description
+**Summary:** X critical, Y warnings, Z info across N files
 
-### Info (consider)
-
-- `file:line` — Suggestion
-
-### Summary
-
-X critical, Y warnings, Z info items across N files
+**Recommendation:** Fix 1-2. Consider 3. Skip 4.
 </report_format>
 
 <success_criteria>
 
 - [ ] Scope determined correctly
+- [ ] All changed files included (verified via --name-only)
 - [ ] Review type detected or used from argument
 - [ ] 3 subagents dispatched in parallel
 - [ ] Findings deduplicated and compiled
