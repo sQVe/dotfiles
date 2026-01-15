@@ -20,17 +20,11 @@ M.init = function()
 end
 
 local git_root_name = function()
-  local git_dir = vim.fn.systemlist('git rev-parse --git-common-dir')[1]
-  if vim.v.shell_error ~= 0 or git_dir == nil then
+  local root = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
+  if vim.v.shell_error ~= 0 or root == nil then
     return ''
   end
-  -- For worktrees, git-common-dir returns absolute path to .git
-  -- For regular repos, it returns relative ".git"
-  if git_dir == '.git' then
-    local root = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
-    return vim.fn.fnamemodify(root, ':t')
-  end
-  return vim.fn.fnamemodify(git_dir, ':h:t')
+  return vim.fn.fnamemodify(root, ':t')
 end
 
 M.opts = function()
