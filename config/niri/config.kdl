@@ -255,8 +255,18 @@ binds {
   Mod+Shift+8 { move-column-to-workspace 8; }
   Mod+Shift+9 { move-column-to-workspace 9; }
 
-  Mod+Shift+N { move-workspace-down; }
-  Mod+Shift+P { move-workspace-up; }
+  Mod+Ctrl+1 { move-workspace-to-index 1; }
+  Mod+Ctrl+2 { move-workspace-to-index 2; }
+  Mod+Ctrl+3 { move-workspace-to-index 3; }
+  Mod+Ctrl+4 { move-workspace-to-index 4; }
+  Mod+Ctrl+5 { move-workspace-to-index 5; }
+  Mod+Ctrl+6 { move-workspace-to-index 6; }
+  Mod+Ctrl+7 { move-workspace-to-index 7; }
+  Mod+Ctrl+8 { move-workspace-to-index 8; }
+  Mod+Ctrl+9 { move-workspace-to-index 9; }
+
+  Mod+Ctrl+N { move-workspace-down; }
+  Mod+Ctrl+P { move-workspace-up; }
 
   // Windows
   Mod+O repeat=false { toggle-window-floating; }
