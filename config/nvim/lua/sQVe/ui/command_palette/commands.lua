@@ -246,7 +246,7 @@ M.grep = {
 
 M.grep_text = {
   callback = function()
-    Snacks.picker.grep_word()
+    Snacks.picker.grep_word({ regex = false, args = {}, live = true })
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr)
