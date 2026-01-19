@@ -88,6 +88,16 @@ layout {
     offset x=0 y=5
     color "#0007"
   }
+  tab-indicator {
+    position "left"
+    width 4
+    length total-proportion=0.8
+    gap 8
+    gaps-between-tabs 8
+    corner-radius 4
+    active-color "#ea6962"
+    place-within-column
+  }
 }
 
 animations {
