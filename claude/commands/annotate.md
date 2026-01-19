@@ -34,12 +34,19 @@ The walkthrough presents each candidate interactively, then batches accepted com
 3.  **Phase 1: Find candidates** (subagent)
     - Launch one code-review subagent with the diff
     - Agent flags generously — anything matching `<detection_criteria>`
-    - Returns list: file path, line range, code snippet, draft explanation
+    - Returns JSON:
+      ```json
+      {"candidates": [{"path": "file.ts", "start_line": 38, "end_line": 42, "snippet": "code...", "draft": "explanation"}]}
+      ```
     - Err toward inclusion—filtering happens next
 
 4.  **Phase 2: Filter candidates** (subagent)
     - Launch one filtering subagent with Phase 1 output
     - Agent scores each candidate 1-5 per `<scoring_criteria>`
+    - Returns JSON:
+      ```json
+      {"scored": [{"path": "file.ts", "start_line": 38, "end_line": 42, "snippet": "code...", "draft": "explanation", "score": 4, "reasoning": "why"}]}
+      ```
     - Only candidates scoring 4+ proceed to walkthrough
     - Discarded candidates logged with reasoning (visible if user asks)
 
@@ -47,19 +54,19 @@ The walkthrough presents each candidate interactively, then batches accepted com
     - For each filtered candidate:
       - Display per `<walkthrough_format>`
       - Show draft explanation (or "[needs manual write]" if undraftable)
-      - Present options: **Accept** / **Edit** / **Skip**
-      - If Accept: add to collection as-is
-      - If Edit: prompt for revised text, then add
-      - If Skip: discard
+      - Use `AskUserQuestion` with options:
+        - **Accept** — add to collection as-is
+        - **Edit** — revise the explanation, then add
+        - **Skip** — discard this candidate
     - Continue until all candidates processed
 
 6.  **Confirm submission**
     - Show summary: N comments across M files
     - List each: `file:line — first 50 chars...`
-    - Ask with options:
-      - **Submit**: post with `event=COMMENT`
-      - **Keep pending**: post with `event=PENDING`
-      - **Cancel**: discard all
+    - Use `AskUserQuestion` with options:
+      - **Submit** — post review immediately
+      - **Keep pending** — post as pending review
+      - **Cancel** — discard all comments
 
 7.  **Post review**
     - Build comments JSON per `<comment_format>`
@@ -165,6 +172,17 @@ Multi-line range:
 }
 ```
 
+File-level (no line field):
+
+```json
+{
+  "path": "src/utils/parser.ts",
+  "body": "Explanation about the file as a whole..."
+}
+```
+
+Deleted lines use `"side": "LEFT"` to comment on the removed code.
+
 </comment_format>
 
 <api_call>
@@ -198,17 +216,11 @@ rm /tmp/review-payload.json
 
 Draft: Uses bitwise AND to check ACTIVE flag and OR to
 accumulate permissions. Avoids multiple iterations.
-
-[A]ccept  [E]dit  [S]kip
 ```
 
-If undraftable:
+Use `AskUserQuestion` with options: Accept, Edit, Skip
 
-```
-Draft: [needs manual write]
-
-[E]dit  [S]kip
-```
+If undraftable, show `Draft: [needs manual write]` and use `AskUserQuestion` with options: Edit, Skip
 
 </walkthrough_format>
 

@@ -19,12 +19,13 @@ Dispatches 3 parallel subagents with identical prompts. Each reviews independent
 
 <arguments>
 - **type** (optional): `code` or `writing`. Auto-detects from file extensions if omitted.
-- **scope** (optional): `unstaged`, `staged`, or file path. Defaults to all branch changes vs master.
+- **scope** (optional): `unstaged`, `staged`, or file path. Defaults to branch changes (vs main branch) plus uncommitted changes.
 </arguments>
 
 <process>
 1. **Determine scope**
-   - No scope: `git diff master...HEAD` plus uncommitted changes
+   - Detect main branch: `git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@'` (fallback: `main`, then `master`)
+   - No scope: `git diff $(git merge-base HEAD $MAIN_BRANCH)..HEAD` plus uncommitted changes
    - `unstaged`: `git diff` (working tree only)
    - `staged`: `git diff --staged`
    - Path: specified file(s)
@@ -50,13 +51,19 @@ Dispatches 3 parallel subagents with identical prompts. Each reviews independent
 
 5. **Compile findings**
    - Merge results from all agents
-   - Deduplicate by: file + line + issue category (e.g., "null-check", "bounds", "sql-injection")
-   - When merging duplicates, keep the clearest description
+   - Deduplicate by: file + line range overlap
+   - When findings overlap, merge descriptions and keep highest severity
    - Note consensus (found by N agents)
    - Sort: Critical → Warning → Info
 
 6. **Generate report** using `<report_format>`
-   </process>
+
+7. **Confirm action** (if issues found)
+   - Use `AskUserQuestion` with options:
+     - **Fix all** — apply all recommended fixes
+     - **Fix selected** — choose which issues to fix
+     - **Skip** — leave issues unfixed
+</process>
 
 <subagent_prompt>
 <review_context>
@@ -121,5 +128,6 @@ Severity guide:
 - [ ] 3 subagents dispatched in parallel
 - [ ] Findings deduplicated and compiled
 - [ ] Report generated with severity categories
+- [ ] User chose action for issues (if any)
 
 </success_criteria>

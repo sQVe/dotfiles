@@ -18,7 +18,7 @@ Dispatches 2 parallel subagents with identical prompts. Each checks independentl
 </objective>
 
 <arguments>
-- **scope** (optional): `unstaged`, `staged`, or file path. Defaults to all branch changes vs master.
+- **scope** (optional): `unstaged`, `staged`, or file path. Defaults to all branch changes (vs main branch) plus staged and unstaged changes.
 </arguments>
 
 <context_injection>
@@ -32,7 +32,15 @@ Load these reference documents (if they exist):
 
 <process>
 1. **Determine scope**
-   - No scope: `git diff master...HEAD` plus uncommitted changes
+   - Detect main branch: `git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@'` (fallback: `main`, then `master`)
+   - No scope: Branch changes plus uncommitted
+     ```bash
+     # Branch changes (committed since diverging from main)
+     git diff $(git merge-base HEAD $MAIN_BRANCH)..HEAD
+     # Uncommitted changes (staged + unstaged)
+     git diff
+     # Combined: concatenate outputs
+     ```
    - `unstaged`: `git diff` (working tree only)
    - `staged`: `git diff --staged`
    - Path: specified file(s)
@@ -48,15 +56,26 @@ Load these reference documents (if they exist):
 
 4. **Dispatch 2 subagents in parallel**
    - Use Task tool with 2 parallel invocations
+   - Configuration: `subagent_type: general-purpose`, `model: sonnet`
    - Each gets identical prompt with all reference docs
+   - Construct placeholders:
+     - `$SCOPE_DESCRIPTION`: e.g., "staged changes" or "branch changes vs main"
+     - `$LOADED_REFERENCE_DOCS`: concatenate contents of loaded reference files
+     - `$DIFF_OR_FILE_CONTENT`: the diff output or file content from step 1
 
 5. **Compile findings**
    - Merge results from both agents
-   - Deduplicate by: file + line + rule identifier (e.g., "CLAUDE.md#typescript/nullish-coalescing")
-   - Keep the clearest description when merging duplicates
+   - Deduplicate by: file + line + rule source (CLAUDE.md section name)
+   - When source matches, keep the more specific description
    - Note source document for each rule
 
 6. **Generate report** using `<report_format>`
+
+7. **Confirm action** (if violations found)
+   - Use `AskUserQuestion` with options:
+     - **Fix all** — apply all recommended fixes
+     - **Fix selected** — choose which violations to fix
+     - **Skip** — leave violations unfixed
 </process>
 
 <subagent_prompt>
@@ -122,5 +141,6 @@ If no violations: ✓ All checks passed (X files)
 - [ ] 2 subagents dispatched in parallel
 - [ ] Violations deduplicated and compiled
 - [ ] Report generated with rule sources
+- [ ] User chose action for violations (if any)
 
 </success_criteria>

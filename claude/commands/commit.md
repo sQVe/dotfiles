@@ -30,13 +30,16 @@ Group related changes into atomic units. Explain why, not what.
    - Each commit should represent one logical change
 
 2. **Generate commit message**
-   - Use conventional commit format per `<commit_format>`
+   - Use conventional commit format per injected template
    - Messages explain WHY, not what
    - Skip body unless reasoning is non-obvious
 
 3. **Confirm** (skip if `--no-confirm`)
    - Show staged files and proposed message
-   - Ask "Create this commit?" and wait for confirmation
+   - Use `AskUserQuestion` with options:
+     - **Commit** — create the commit
+     - **Edit** — revise the message
+     - **Cancel** — abort
 
 4. **Create and verify**
    - Stage only files relevant to each commit
@@ -44,20 +47,6 @@ Group related changes into atomic units. Explain why, not what.
    - Run `git log --oneline -5` to confirm
    - Check `git status` shows clean state
 </process>
-
-<commit_format>
-
-```
-<type>(<scope>): <subject>
-
-[optional body]
-```
-
-**Types:** feat, fix, docs, style, refactor, test, chore, perf
-**Scope:** Component or area affected (optional)
-**Subject:** Imperative mood, no period, under 50 chars
-**Body:** Only if WHY isn't obvious from subject
-</commit_format>
 
 <success_criteria>
 

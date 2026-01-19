@@ -34,7 +34,10 @@ If a branch name is provided as an argument, use it directly. Otherwise, infer f
 
 4. **Confirm and create**
    - Present suggested branch name with rationale
-   - Ask "Create this branch?" and wait for confirmation
+   - Use `AskUserQuestion` with options:
+     - **Create** — create and checkout the branch
+     - **Edit** — provide a different name
+     - **Cancel** — abort
    - Run `git checkout -b <branch-name>`
    - Verify with `git branch --show-current`
 </process>
