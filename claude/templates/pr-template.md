@@ -14,11 +14,10 @@ Use this template when creating pull requests to ensure consistent, clear docume
 - [Highlight any architectural or design decisions]
 
 #### Test plan
+<!-- Consider: happy path, edge cases, integration points, regression risks -->
 
-- [ ] [Describe manual testing steps]
-- [ ] [Include specific scenarios to verify]
-- [ ] [Add steps for edge cases or error conditions]
-- [ ] [Verify existing functionality still works]
+- [ ] [Specific test item]
+- [ ] [Specific test item]
 
 [Optional: Add any additional context, screenshots, or notes]
 
@@ -41,12 +40,12 @@ Added JWT-based authentication system for secure user access.
 
 #### Test plan
 
-- [ ] Navigate to /login and verify login form renders correctly
+- [ ] Navigate to /login and verify login form renders
 - [ ] Test login with valid credentials - should redirect to dashboard
 - [ ] Test login with invalid credentials - should show error message
+- [ ] Verify `/api/auth/login` returns JWT on success
 - [ ] Verify protected routes redirect to login when not authenticated
-- [ ] Test logout functionality clears session and redirects to login
-- [ ] Check that JWT tokens expire after configured time
+- [ ] Test logout clears session and redirects to login
 
 Fixes #123
 Related to #456
@@ -55,7 +54,7 @@ Related to #456
 ## Guidelines
 
 - **Changes**: Focus on "what" was implemented with technical details
-- **Test plan**: Provide actionable testing steps with checkboxes
+- **Test plan**: Specific, actionable items (see coverage prompt in template)
 - **Issues**: Link related issues with "Fixes #" or "Related to #"
 
 ### Test plan format

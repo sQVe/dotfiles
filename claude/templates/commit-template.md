@@ -5,25 +5,31 @@ Use this template to create atomic git commits with conventional format and mean
 ## Format
 
 ```
-<type>: <description>
+<type>(<scope>): <subject>
+
+[optional body]
 ```
 
-**Note**: Most commits should be just this single line. A body is rarely needed if your description captures the "why".
+**Type:** feat, fix, docs, style, refactor, test, chore, perf
+
+**Scope:** Optional. Use when scoped to a specific component (e.g., `auth`, `api`, `nvim`).
+
+**Subject:** Imperative mood, no period, under 50 chars. Body only if WHY isn't obvious.
 
 ## Examples
 
-**Typical commit (no body needed):**
+**Typical commits (no body needed):**
 
 ```
 feat: add password reset to reduce user lockout support tickets
-fix: resolve upload timeout preventing large file processing
-refactor: extract validation logic for better maintainability
+fix(auth): resolve upload timeout preventing large file processing
+refactor(api): extract validation logic for better maintainability
 ```
 
 **Complex change requiring explanation:**
 
 ```
-perf: implement connection pooling for database queries
+perf(db): implement connection pooling for database queries
 
 Previous approach created new connections per request causing
 memory leaks under high load. Connection pooling reduces memory
