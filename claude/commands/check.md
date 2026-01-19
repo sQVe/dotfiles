@@ -2,6 +2,7 @@
 name: check
 description: Check code against project rules and conventions
 argument-hint: '[scope]'
+model: claude-opus-4-5-20251101
 allowed-tools:
   - Read
   - Bash

@@ -2,6 +2,7 @@
 name: branch
 description: Generate and create a git branch name from session context
 argument-hint: '[branch-name]'
+model: claude-haiku-4-5-20251001
 allowed-tools:
   - Bash
   - Read
