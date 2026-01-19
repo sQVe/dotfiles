@@ -220,6 +220,7 @@
                 },
                 {
                     "hideWhenZero": false,
+                    "hideWhenZeroUnread": false,
                     "id": "NotificationHistory",
                     "showUnreadBadge": true
                 }
@@ -363,7 +364,7 @@
         "performanceModeEnabled": "",
         "screenLock": "/home/sqve/scripts/noctalia/lock-hooks.sh lock",
         "screenUnlock": "/home/sqve/scripts/noctalia/lock-hooks.sh unlock",
-        "session": "",
+        "session": "/home/sqve/scripts/zsh/backup-history.sh",
         "wallpaperChange": ""
     },
     "location": {
@@ -385,7 +386,7 @@
         "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 10000,
         "bluetoothRssiPollingEnabled": false,
-        "wifiDetailsViewMode": "grid",
+        "wifiDetailsViewMode": "list",
         "wifiEnabled": true
     },
     "nightLight": {
@@ -401,6 +402,7 @@
         "backgroundOpacity": 0.75,
         "criticalUrgencyDuration": 6,
         "enableKeyboardLayoutToast": false,
+        "enableMediaToast": false,
         "enabled": true,
         "location": "top_right",
         "lowUrgencyDuration": 2,
@@ -486,7 +488,7 @@
         "showHeader": true,
         "showNumberLabels": true
     },
-    "settingsVersion": 40,
+    "settingsVersion": 41,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
         "cpuPollingInterval": 2000,
