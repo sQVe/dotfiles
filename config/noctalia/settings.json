@@ -34,6 +34,7 @@
         "density": "compact",
         "exclusive": true,
         "floating": false,
+        "hideOnOverview": false,
         "marginHorizontal": 0,
         "marginVertical": 0,
         "monitors": [
@@ -106,6 +107,7 @@
                     "hideMode": "alwaysExpanded",
                     "icon": "shield-off",
                     "id": "CustomButton",
+                    "ipcIdentifier": "",
                     "leftClickExec": "/home/sqve/scripts/noctalia/keep-creds.sh toggle",
                     "leftClickUpdateText": true,
                     "maxTextLength": {
@@ -136,6 +138,7 @@
                     "hideMode": "alwaysExpanded",
                     "icon": "eye-off",
                     "id": "CustomButton",
+                    "ipcIdentifier": "",
                     "leftClickExec": "/home/sqve/scripts/noctalia/keep-awake.sh toggle",
                     "leftClickUpdateText": true,
                     "maxTextLength": {
@@ -350,7 +353,8 @@
         "showChangelogOnStartup": true,
         "showHibernateOnLockScreen": false,
         "showScreenCorners": false,
-        "showSessionButtonsOnLockScreen": false
+        "showSessionButtonsOnLockScreen": false,
+        "telemetryEnabled": false
     },
     "hooks": {
         "darkModeChange": "",
@@ -359,6 +363,7 @@
         "performanceModeEnabled": "",
         "screenLock": "/home/sqve/scripts/noctalia/lock-hooks.sh lock",
         "screenUnlock": "/home/sqve/scripts/noctalia/lock-hooks.sh unlock",
+        "session": "",
         "wallpaperChange": ""
     },
     "location": {
@@ -481,7 +486,7 @@
         "showHeader": true,
         "showNumberLabels": true
     },
-    "settingsVersion": 39,
+    "settingsVersion": 40,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
         "cpuPollingInterval": 2000,
@@ -507,32 +512,29 @@
         "warningColor": ""
     },
     "templates": {
-        "alacritty": false,
-        "cava": false,
-        "code": false,
-        "discord": false,
-        "emacs": false,
-        "enableUserTemplates": false,
-        "foot": false,
-        "fuzzel": false,
-        "ghostty": false,
-        "gtk": true,
-        "helix": false,
-        "hyprland": false,
-        "kcolorscheme": true,
-        "kitty": false,
-        "mango": false,
-        "niri": true,
-        "pywalfox": false,
-        "qt": true,
-        "spicetify": false,
-        "telegram": false,
-        "vicinae": false,
-        "walker": false,
-        "wezterm": false,
-        "yazi": true,
-        "zed": false,
-        "zenBrowser": false
+        "activeTemplates": [
+            {
+                "enabled": true,
+                "id": "gtk"
+            },
+            {
+                "enabled": true,
+                "id": "qt"
+            },
+            {
+                "enabled": true,
+                "id": "kcolorscheme"
+            },
+            {
+                "enabled": true,
+                "id": "yazi"
+            },
+            {
+                "enabled": true,
+                "id": "niri"
+            }
+        ],
+        "enableUserTemplates": false
     },
     "ui": {
         "bluetoothDetailsViewMode": "grid",
@@ -550,7 +552,7 @@
         "wifiDetailsViewMode": "grid"
     },
     "wallpaper": {
-        "directory": "/home/sqve/pictures/art/simon-stålenhag/SWEDISH_MACHINES",
+        "directory": "/home/sqve/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": true,
         "enabled": true,
         "fillColor": "#000000",
