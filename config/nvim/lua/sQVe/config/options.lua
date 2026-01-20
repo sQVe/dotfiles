@@ -117,7 +117,7 @@ local misc = {
   -- Refine "hit enter" prompts for cleaner message area.
   shortmess = vim.opt.shortmess + {
     I = true, -- Suppress intro message when starting Neovim.
-    S = true, -- Suppress "search hit BOTTOM, continuing at TOP" message.
+    S = true, -- Suppress search count in command line (shown as virtual text).
     W = true, -- Suppress "written" message on file write.
     c = true, -- Suppress completion menu messages.
   },
