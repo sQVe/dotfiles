@@ -10,6 +10,7 @@
 		<config key="CloseBackgroundTaskOnNoVolumes">0</config>
 		<config key="CloseExplorerWindowsOnDismount">1</config>
 		<config key="CloseSecurityTokenSessionsAfterMount">0</config>
+		<config key="EMVSupportEnabled">0</config>
 		<config key="DisableKernelEncryptionModeWarning">0</config>
 		<config key="DismountOnInactivity">0</config>
 		<config key="DismountOnLogOff">1</config>
@@ -18,7 +19,8 @@
 		<config key="DisplayMessageAfterHotkeyDismount">0</config>
 		<config key="BackgroundTaskEnabled">0</config>
 		<config key="ForceAutoDismount">1</config>
-		<config key="LastSelectedSlotNumber">1</config>
+		<config key="Language">system</config>
+		<config key="LastSelectedSlotNumber">12</config>
 		<config key="MaxVolumeIdleTime">60</config>
 		<config key="MountDevicesOnLogon">0</config>
 		<config key="MountFavoritesOnLogon">0</config>
@@ -33,7 +35,7 @@
 		<config key="UseKeyfiles">0</config>
 		<config key="WipeCacheOnAutoDismount">1</config>
 		<config key="WipeCacheOnClose">0</config>
-		<config key="DefaultTrueCryptMode">0</config>
 		<config key="DefaultPRF">autodetection</config>
+		<config key="DefaultTrueCryptMode">0</config>
 	</configuration>
 </VeraCrypt>
