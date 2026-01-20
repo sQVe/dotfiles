@@ -26,28 +26,32 @@ Runs automatable test plan items before creating the PR.
 </context_injection>
 
 <process>
-1. **Prepare branch**
+1. **Validate prerequisites**
+   - Run `git rev-parse --abbrev-ref HEAD` — if `main` or `master`: "Create a feature branch first"
+   - If validation fails: stop with clear message
+
+2. **Prepare branch**
    - Verify all changes committed and pushed
    - Check branch is up-to-date with target (main/master)
 
-2. **Check contribution requirements**
+3. **Check contribution requirements**
    - Look for CONTRIBUTING.md, CHANGELOG.md, .changeset/
    - Add required artifacts:
      - If CHANGELOG.md exists and has "Unreleased" section, add entry
      - If .changeset/ exists, run `npx changeset` interactively
      - If neither, skip
 
-3. **Create PR description**
+4. **Create PR description**
    - Use conventional commit format for title
    - Follow injected template structure
    - Link related issues with "Fixes #" or "Related to #"
 
-4. **Verify test plan coverage**
+5. **Verify test plan coverage**
    - Review the diff and list key behaviors/paths affected
    - Check coverage: happy path, edge cases, integration points, regression risks
    - If gaps found: add missing items before proceeding
 
-5. **Execute test plan**
+6. **Execute test plan**
    - Parse test plan checkboxes
    - Identify automatable items:
      - Commands: backticked like `npm test`
@@ -56,18 +60,57 @@ Runs automatable test plan items before creating the PR.
    - If any automatable check fails: mark as `[ ]`, report failure details, and ask user whether to proceed or abort
    - Report results before proceeding
 
-6. **Confirm** (skip if `--no-confirm`)
-   - Present complete PR title and description
-   - Use `AskUserQuestion` with options:
+7. **Confirm** (skip if `--no-confirm`)
+   - Output PR title and full description BEFORE asking
+   - Then use `AskUserQuestion` with options:
      - **Create PR** — publish immediately
      - **Create draft** — publish as draft for preview
      - **Edit** — revise title or description
      - **Cancel** — abort
 
-7. **Add references**
+8. **Create PR** (fix loop, max 3 attempts)
+   - Run `gh pr create` with title and body
+   - If creation fails (push rejected, conflicts):
+     - Analyze failure output
+     - Auto-fix if possible (rebase, push)
+     - Re-attempt creation
+     - After 3 failures: report issues, ask user to fix manually
+   - Capture PR URL on success
+
+9. **Add references and report**
    - Link relevant issues and PRs
    - Add appropriate reviewers
-</process>
+   - Output PR URL and summary
+     </process>
+
+<output_format>
+
+```
+✓ PR created: {pr_url}
+
+{title}
+
+Test plan: {passed}/{total} checks passed
+```
+
+---
+
+## ▶ Next Up
+
+**Monitor PR** — wait for CI and reviews
+
+`gh pr checks` — view CI status
+
+---
+
+**Also available:**
+
+- `gh pr view --web` — open PR in browser
+- `/annotate` — add self-review comments
+
+---
+
+</output_format>
 
 <tone>
 Use the `elements-of-style:writing-clearly-and-concisely` skill.
@@ -75,10 +118,12 @@ Use the `elements-of-style:writing-clearly-and-concisely` skill.
 Write as if explaining to a colleague who knows the domain but not this code.
 
 **Do:**
+
 - "feat: switch to JWT for stateless sessions"
 - "fix: resolve race condition in checkout by locking cart state"
 
 **Don't:**
+
 - Stiff: "This PR implements a refactored authentication layer"
 - Casual: "Hey! Threw together some auth stuff"
 - Padding: "As you can see, I've made some changes that..."

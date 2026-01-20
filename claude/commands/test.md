@@ -28,7 +28,13 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
 
 <process>
 
-1. **Gather source code**
+1. **Validate prerequisites**
+   - Run `git rev-parse --git-dir` — if fails and scope is git-based: "Not a git repository"
+   - Parse scope argument per `<arguments>`
+   - If no files found matching scope: "No source files found for scope: {scope}"
+   - If validation fails: stop with clear message
+
+2. **Gather source code**
 
    ```bash
    # For unstaged (default)
@@ -46,7 +52,7 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
    # Use provided path directly
    ```
 
-2. **Detect framework**
+3. **Detect framework**
 
    Check in order:
    - Existing test files (patterns: `*.test.*`, `*.spec.*`, `*_test.*`, `test_*.*`)
@@ -57,7 +63,7 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
 
    If no framework detected and no `--framework` flag, prompt user to specify framework or abort with error listing detected project files.
 
-3. **Collect existing test examples**
+4. **Collect existing test examples**
 
    Find 1-2 existing test files matching detected framework patterns. Read and extract:
    - Import style and assertion library
@@ -67,7 +73,9 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
 
    If no existing tests, use framework defaults.
 
-4. **Dispatch 3 subagents in parallel**
+5. **Dispatch 3 subagents in parallel**
+
+   Output before spawning: "Analyzing {N} files with 3 parallel agents..."
 
    Each subagent analyzes all source files together (not split). Use Task tool with `subagent_type: "general-purpose"` and `model: "sonnet"`.
 
@@ -102,25 +110,32 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
    {"proposals": [{"function": "name", "behavior": "what it does", "edge_cases": ["..."], "mocks_needed": ["..."]}]}
 
    Test behavior, not implementation.
+
+   <success_criteria>
+   - [ ] Analyzed all source files in scope
+   - [ ] Proposed tests for public APIs
+   - [ ] Identified edge cases from code inspection
+   - [ ] Returned valid JSON matching schema
+   - [ ] Each proposal has concrete test scenario
+   </success_criteria>
    ```
 
-5. **Merge by consensus**
+6. **Merge by consensus**
    - Group by `function` + `behavior`, count votes (1–3)
    - Dedupe edge cases and mocks; sort by vote count
 
-6. **Confirm test plan**
-   - Present proposed tests grouped by file
-   - Show: function, behavior, edge cases covered
+7. **Confirm test plan**
+   - Output proposed tests grouped by file as formatted text
+   - Include: function, behavior, edge cases covered
    - Use `AskUserQuestion` with options:
      - **Generate all** — create all proposed tests
      - **Select tests** — choose which tests to generate
      - **Add more** — request additional test cases
      - **Cancel** — abort without generating
 
-7. **Generate tests**
+8. **Generate tests**
 
    For each proposal with consensus ≥ 2 (or all proposals if total < 5):
-
    - **Determine test file location** (in priority order)
      - Add to existing test file for the same source if one exists
      - Use `__tests__/` directory if project has one
@@ -136,7 +151,7 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
    - **Write test files**
      - Group related tests. Use Write or Edit.
 
-8. **Run generated tests**
+9. **Run generated tests**
 
    ```bash
    # Framework-specific commands
@@ -146,16 +161,17 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
    # Rust: cargo test {module}
    ```
 
-9. **Fix loop (max 3 iterations)**
+10. **Fix loop (max 3 iterations)**
 
-   If tests fail:
-   - Analyze failure, fix, re-run
-   - Repeat until passing or iteration limit reached
-   - Report remaining issues at limit
+    If tests fail:
+    - Analyze failure, fix, re-run
+    - Repeat until passing or iteration limit reached
+    - Report remaining issues at limit
 
 </process>
 
 <output_format>
+
 ```
 ## Test generation summary
 
@@ -176,13 +192,32 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
 | parse    | 2                | 3          |
 | validate | 1                | 2          |
 ```
+
+---
+
+## ▶ Next Up
+
+**Run full test suite** — verify no regressions
+
+`npm test` — run all tests
+
+---
+
+**Also available:**
+
+- `/commit` — commit generated tests
+- `/review` — review test quality
+
+---
+
 </output_format>
 
 <success_criteria>
+
 - [ ] Dispatch 3 subagents with identical prompts
 - [ ] Merge proposals by consensus
 - [ ] User confirmed test plan
 - [ ] Tests generated
 - [ ] Verify tests pass
 - [ ] Report summary
-</success_criteria>
+      </success_criteria>

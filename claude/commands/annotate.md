@@ -24,54 +24,88 @@ The walkthrough presents each candidate interactively, then batches accepted com
 1. **Resolve PR**
    - If argument provided, use it directly
    - Otherwise: `gh pr view --json number -q '.number'`
-   - If no PR found, refuse: "No PR found for this branch. Run `/pr` first."
+   - If no PR found: "No PR found for this branch. Run `/pr` first."
 
-2.  **Fetch PR metadata**
-    - Get diff: `gh pr diff {pr_number}`
-    - Get head commit: `gh pr view {pr_number} --json commits -q '.commits[-1].oid'`
-    - Get repo: `gh repo view --json owner,name -q '"\(.owner.login)/\(.name)"'`
+2. **Fetch PR metadata**
+   - Get diff: `gh pr diff {pr_number}`
+   - Get head commit: `gh pr view {pr_number} --json commits -q '.commits[-1].oid'`
+   - Get repo: `gh repo view --json owner,name -q '"\(.owner.login)/\(.name)"'`
 
-3.  **Phase 1: Find candidates** (subagent)
-    - Launch one code-review subagent with the diff
-    - Agent flags generously — anything matching `<detection_criteria>`
-    - Returns JSON:
-      ```json
-      {"candidates": [{"path": "file.ts", "start_line": 38, "end_line": 42, "snippet": "code...", "draft": "explanation"}]}
-      ```
-    - Err toward inclusion—filtering happens next
+3. **Phase 1: Find candidates** (subagent)
+   - Output before spawning: "Analyzing PR diff for annotation candidates..."
+   - Launch one code-review subagent with the diff
+   - Agent flags generously — anything matching `<detection_criteria>`
+   - Returns JSON:
+     ```json
+     {
+       "candidates": [
+         {
+           "path": "file.ts",
+           "start_line": 38,
+           "end_line": 42,
+           "snippet": "code...",
+           "draft": "explanation"
+         }
+       ]
+     }
+     ```
+   - Err toward inclusion—filtering happens next
+   - **Success criteria for subagent:**
+     - [ ] Scanned all changed files in diff
+     - [ ] Applied detection criteria consistently
+     - [ ] Returned valid JSON matching schema
+     - [ ] Each candidate has draft explanation
 
-4.  **Phase 2: Filter candidates** (subagent)
-    - Launch one filtering subagent with Phase 1 output
-    - Agent scores each candidate 1-5 per `<scoring_criteria>`
-    - Returns JSON:
-      ```json
-      {"scored": [{"path": "file.ts", "start_line": 38, "end_line": 42, "snippet": "code...", "draft": "explanation", "score": 4, "reasoning": "why"}]}
-      ```
-    - Only candidates scoring 4+ proceed to walkthrough
-    - Discarded candidates logged with reasoning (visible if user asks)
+4. **Phase 2: Filter candidates** (subagent)
+   - Output: "Filtering {N} candidates by quality score..."
+   - Launch one filtering subagent with Phase 1 output
+   - Agent scores each candidate 1-5 per `<scoring_criteria>`
+   - Returns JSON:
+     ```json
+     {
+       "scored": [
+         {
+           "path": "file.ts",
+           "start_line": 38,
+           "end_line": 42,
+           "snippet": "code...",
+           "draft": "explanation",
+           "score": 4,
+           "reasoning": "why"
+         }
+       ]
+     }
+     ```
+   - Only candidates scoring 4+ proceed to walkthrough
+   - Discarded candidates logged with reasoning (visible if user asks)
+   - **Success criteria for subagent:**
+     - [ ] Scored all candidates from Phase 1
+     - [ ] Applied scoring criteria consistently
+     - [ ] Each score includes reasoning
+     - [ ] Returned valid JSON matching schema
 
-5.  **Interactive walkthrough**
-    - For each filtered candidate:
-      - Display per `<walkthrough_format>`
-      - Show draft explanation (or "[needs manual write]" if undraftable)
-      - Use `AskUserQuestion` with options:
-        - **Accept** — add to collection as-is
-        - **Edit** — revise the explanation, then add
-        - **Skip** — discard this candidate
-    - Continue until all candidates processed
+5. **Interactive walkthrough**
+   - For each filtered candidate:
+     - Output snippet and draft explanation per `<walkthrough_format>`
+     - Show draft explanation (or "[needs manual write]" if undraftable)
+     - Use `AskUserQuestion` with options:
+       - **Accept** — add to collection as-is
+       - **Edit** — revise the explanation, then add
+       - **Skip** — discard this candidate
+   - Continue until all candidates processed
 
-6.  **Confirm submission**
-    - Show summary: N comments across M files
-    - List each: `file:line — first 50 chars...`
-    - Use `AskUserQuestion` with options:
-      - **Submit** — post review immediately
-      - **Keep pending** — post as pending review
-      - **Cancel** — discard all comments
+6. **Confirm submission**
+   - Output summary as formatted text: N comments across M files
+   - List each comment: `file:line — first 50 chars...`
+   - Use `AskUserQuestion` with options:
+     - **Submit** — post review immediately
+     - **Keep pending** — post as pending review
+     - **Cancel** — discard all comments
 
-7.  **Post review**
-    - Build comments JSON per `<comment_format>`
-    - Submit via `gh api` per `<api_call>`
-    - Report success with review URL
+7. **Post review**
+   - Build comments JSON per `<comment_format>`
+   - Submit via `gh api` per `<api_call>`
+   - Report success with review URL
 
 </process>
 <detection_criteria>
@@ -128,7 +162,7 @@ Self-explanatory code. Standard patterns. Would clutter the review.
 - When in doubt, score lower — noise harms more than gaps
 - Consider: "Would I personally wonder about this as a reviewer?"
 - One high-value comment beats five mediocre ones
-</scoring_criteria>
+  </scoring_criteria>
 
 <tone>
 Use the `elements-of-style:writing-clearly-and-concisely` skill.
@@ -136,10 +170,12 @@ Use the `elements-of-style:writing-clearly-and-concisely` skill.
 Write as you would in a 30-second code review.
 
 **Do:**
+
 - "Uses bitwise AND here because status packs multiple flags"
 - "Watch out: this modifies shared state"
 
 **Don't:**
+
 - Stiff: "One must consider the implications of this approach"
 - Casual: "Yo heads up — bit trick incoming!"
 - Padding: "It's worth noting that this section..."
@@ -203,7 +239,7 @@ rm /tmp/review-payload.json
 
 - `$COMMENTS_JSON`: Array of comment objects per `<comment_format>`
 - `$EVENT`: `COMMENT` to submit, `PENDING` to keep pending
-</api_call>
+  </api_call>
 
 <walkthrough_format>
 
@@ -223,6 +259,35 @@ Use `AskUserQuestion` with options: Accept, Edit, Skip
 If undraftable, show `Draft: [needs manual write]` and use `AskUserQuestion` with options: Edit, Skip
 
 </walkthrough_format>
+
+<output_format>
+After posting review:
+
+```
+✓ Review posted: {review_url}
+
+PR #{pr_number}: {pr_title}
+Comments: {comment_count} across {file_count} files
+```
+
+---
+
+## ▶ Next Up
+
+**Monitor review** — wait for reviewer feedback
+
+`gh pr view --web` — open PR in browser
+
+---
+
+**Also available:**
+
+- `gh pr checks` — view CI status
+- `/review` — substantive code review
+
+---
+
+</output_format>
 
 <success_criteria>
 

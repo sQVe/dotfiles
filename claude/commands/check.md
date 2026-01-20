@@ -28,10 +28,16 @@ Load these reference documents (if they exist):
 - `.claude/CLAUDE.md` or `CLAUDE.md` (project rules)
 - `README.md` (project conventions)
 - `CONTRIBUTING.md` (contribution guidelines)
-</context_injection>
+  </context_injection>
 
 <process>
-1. **Determine scope**
+1. **Validate prerequisites**
+   - Run `git rev-parse --git-dir` — if fails: "Not a git repository"
+   - Check at least one reference document exists per `<context_injection>`
+   - If no reference documents found: "No CLAUDE.md or project guidelines found"
+   - If validation fails: stop with clear message
+
+2. **Determine scope**
    - Detect main branch: `git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@'` (fallback: `main`, then `master`)
    - No scope: Branch changes plus uncommitted
      ```bash
@@ -47,36 +53,35 @@ Load these reference documents (if they exist):
 
    **Verify complete coverage:**
    - Run `git diff --name-only [flags]` to list all affected files
+   - If no files found: "No changes found for scope: {scope}"
    - Confirm the diff content includes every listed file
    - Report file count: "Checking N files"
 
-2. **Load reference documents** per `<context_injection>`
+3. **Load reference documents** per `<context_injection>`
 
-3. **Build subagent prompt** using `<subagent_prompt>` template
+4. **Build subagent prompt** using `<subagent_prompt>` template
 
-4. **Dispatch 2 subagents in parallel**
+5. **Dispatch 2 subagents in parallel**
+   - Output before spawning: "Checking {N} files against project rules with 2 parallel agents..."
    - Use Task tool with 2 parallel invocations
    - Configuration: `subagent_type: general-purpose`, `model: sonnet`
    - Each gets identical prompt with all reference docs
    - Construct placeholders:
      - `$SCOPE_DESCRIPTION`: e.g., "staged changes" or "branch changes vs main"
      - `$LOADED_REFERENCE_DOCS`: concatenate contents of loaded reference files
-     - `$DIFF_OR_FILE_CONTENT`: the diff output or file content from step 1
+     - `$DIFF_OR_FILE_CONTENT`: the diff output or file content from step 2
 
-5. **Compile findings**
+6. **Compile findings**
    - Merge results from both agents
    - Deduplicate by: file + line + rule source (CLAUDE.md section name)
    - When source matches, keep the more specific description
    - Note source document for each rule
 
-6. **Generate report** using `<report_format>`
+7. **Generate report** using `<report_format>`
 
-7. **Confirm action** (if violations found)
-   - Use `AskUserQuestion` with options:
-     - **Fix all** — apply all recommended fixes
-     - **Fix selected** — choose which violations to fix
-     - **Skip** — leave violations unfixed
-</process>
+8. **Confirm action** (if violations found)
+   - Use `AskUserQuestion` with options: - **Fix all** — apply all recommended fixes - **Fix selected** — choose which violations to fix - **Skip** — leave violations unfixed
+     </process>
 
 <subagent_prompt>
 <check_context>
@@ -97,7 +102,7 @@ Check for violations of rules defined in the reference documents:
 - Code style rules (TypeScript conventions, patterns)
 - Principles (minimal changes, single responsibility)
 - Writing rules (concise, active voice, formatting)
-</check_focus>
+  </check_focus>
 
 <output_format>
 Return violations as JSON array:
@@ -116,21 +121,66 @@ Return violations as JSON array:
 
 Only flag clear violations. Do not flag subjective interpretations.
 </output_format>
-</subagent_prompt>
+
+<success_criteria>
+
+- [ ] Checked all files in scope
+- [ ] Validated against all loaded reference documents
+- [ ] Returned valid JSON matching schema
+- [ ] Each violation cites specific rule and source
+      </success_criteria>
+      </subagent_prompt>
 
 <report_format>
+
 ## Check: Project Rules Compliance
 
+**Scope:** {scope_description}
+**Files checked:** {file_count}
+**Agents:** 2 parallel
+
 ### Violations
-1. `file:line` — **[rule]** (source) description
-2. `file:line` — **[rule]** (source) description
-3. `file:line` — **[rule]** (source) description
 
-**Summary:** X files, Y violations
+| #   | File       | Line | Rule                   | Source    |
+| --- | ---------- | ---- | ---------------------- | --------- | ----------- | --------- |
+| 1   | `file.ts`  | 42   | ⚠️ Use ?? for defaults | CLAUDE.md |
+| 2   | `other.ts` | 15   | ⚠️ Avoid               |           | for nullish | CLAUDE.md |
 
-**Recommendation:** Fix 1, 3. Consider 2.
+**Details:**
 
-If no violations: ✓ All checks passed (X files)
+1. `file.ts:42` — Uses `||` where `??` is appropriate for nullish coalescing
+2. `other.ts:15` — Same pattern, should use nullish coalescing
+
+**Summary:** {file_count} files, {violation_count} violations
+
+**Recommendation:** Fix 1, 2 — straightforward replacements.
+
+If no violations:
+
+```
+✓ All checks passed
+
+Scope: {scope_description}
+Files: {file_count} checked against {rule_count} rules
+```
+
+---
+
+## ▶ Next Up
+
+**Fix violations** — apply recommended changes
+
+`/review staged` — review fixes before committing
+
+---
+
+**Also available:**
+
+- `/commit` — commit after fixing
+- `/check staged` — re-check after fixes
+
+---
+
 </report_format>
 
 <success_criteria>

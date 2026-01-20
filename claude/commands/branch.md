@@ -20,27 +20,31 @@ If a branch name is provided as an argument, use it directly. Otherwise, infer f
 </arguments>
 
 <process>
-1. **Check for explicit name**
-   - If argument provided, use it directly (skip to step 4)
+1. **Validate prerequisites**
+   - Run `git rev-parse --git-dir` — if fails: "Not a git repository"
+   - If validation fails: stop with clear message
 
-2. **Gather context**
+2. **Check for explicit name**
+   - If argument provided, use it directly (skip to step 5)
+
+3. **Gather context**
    - Review conversation to understand the task
    - Check `git status` and `git diff` for insight
    - Look for Linear ticket references in session
    - If no ticket found, use Linear MCP to check assigned/in-progress tickets
 
-3. **Generate branch name**
+4. **Generate branch name**
    - See `<naming_rules>` for format
 
-4. **Confirm and create**
-   - Present suggested branch name with rationale
+5. **Confirm and create**
+   - Output suggested branch name and rationale as formatted text
    - Use `AskUserQuestion` with options:
      - **Create** — create and checkout the branch
      - **Edit** — provide a different name
      - **Cancel** — abort
    - Run `git checkout -b <branch-name>`
    - Verify with `git branch --show-current`
-</process>
+     </process>
 
 <naming_rules>
 **With Linear ticket (preferred):**
@@ -56,14 +60,39 @@ If a branch name is provided as an argument, use it directly. Otherwise, infer f
 - Types: `feat`, `fix`, `chore`, `docs`, `refactor`, `test`
 - Use kebab-case
 - Keep under 50 characters
-</naming_rules>
+  </naming_rules>
 
 <output_format>
+
+```
 Found Linear ticket LIN-156
 
 Suggested branch: lin-156-dark-mode
+```
 
-Create this branch?
+After creation:
+
+```
+✓ Branch created: lin-156-dark-mode
+```
+
+---
+
+## ▶ Next Up
+
+**Start implementation** — make changes on the new branch
+
+`git status` — verify you're on the new branch
+
+---
+
+**Also available:**
+
+- `/commit` — commit your changes
+- `/pr` — create pull request when ready
+
+---
+
 </output_format>
 
 <success_criteria>
