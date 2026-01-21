@@ -12,6 +12,22 @@ local var = require('sQVe.utils.var')
 
 local M = {}
 
+M.ascii_header = {
+  callback = function()
+    vim.ui.input({ prompt = 'ASCII Header: ' }, function(input)
+      if input == nil or input == '' then
+        return
+      end
+
+      local ok = pcall(vim.fn.execute, 'read !toilet -f future ' .. input)
+      if ok then
+        vim.cmd('normal 0Vkkgc')
+      end
+    end)
+  end,
+  name = 'ASCII header',
+}
+
 M.blame = {
   callback = function(opts)
     local gitsigns = require('gitsigns')
@@ -141,6 +157,48 @@ M.diff_view = {
   name = 'Open diff view',
 }
 
+M.diff_view_buffer_commit_history = {
+  callback = function()
+    vim.cmd('CodeDiff history HEAD~50 %')
+  end,
+  condition = function(opts)
+    return git.is_inside_repo()
+      and buffer.is_valid(opts.bufnr)
+      and buffer.is_saved(opts.bufnr)
+  end,
+  name = function(opts)
+    return utils.get_short_path(
+      utils.get_name_with_buffer_directory('Open diff view (commit history)', opts)
+    )
+  end,
+}
+
+M.diff_view_buffer_vs_head = {
+  callback = function()
+    vim.cmd('CodeDiff file HEAD')
+  end,
+  condition = function(opts)
+    return git.is_inside_repo()
+      and buffer.is_valid(opts.bufnr)
+      and buffer.is_saved(opts.bufnr)
+  end,
+  name = function(opts)
+    return utils.get_short_path(
+      utils.get_name_with_buffer_directory('Open diff view (vs HEAD)', opts)
+    )
+  end,
+}
+
+M.diff_view_commit_history = {
+  callback = function()
+    vim.cmd('CodeDiff history')
+  end,
+  condition = function()
+    return git.is_inside_repo()
+  end,
+  name = 'Open diff view (commit history)',
+}
+
 M.document_symbols = {
   callback = function()
     Snacks.picker.lsp_symbols()
@@ -222,7 +280,11 @@ M.git_browse = {
       and buffer.is_valid(opts.bufnr)
       and buffer.is_saved(opts.bufnr)
   end,
-  name = 'Open buffer in browser',
+  name = function(opts)
+    return utils.get_short_path(
+      utils.get_name_with_buffer_directory('Open in browser', opts)
+    )
+  end,
 }
 
 M.help_tags = {
@@ -332,8 +394,10 @@ M.merge_base = {
 
     gitsigns.show(git.get_merge_base())
   end,
-  condition = function()
+  condition = function(opts)
     return git.is_inside_repo()
+      and buffer.is_valid(opts.bufnr)
+      and buffer.is_saved(opts.bufnr)
   end,
   name = function(opts)
     return utils.get_short_path(
@@ -398,7 +462,7 @@ M.resume = {
   callback = function()
     Snacks.picker.resume()
   end,
-  name = 'Resume previous pickers',
+  name = 'Resume picker',
 }
 
 M.review_diff_view = {
@@ -521,11 +585,7 @@ M.spawn_claude = {
   condition = function()
     return git.is_inside_repo()
   end,
-  name = function(opts)
-    return utils.get_short_path(
-      utils.get_name_with_buffer_directory('Spawn claude', opts)
-    )
-  end,
+  name = 'Spawn Claude',
 }
 
 M.spelling = {

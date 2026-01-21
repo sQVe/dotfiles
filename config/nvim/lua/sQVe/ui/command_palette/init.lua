@@ -12,6 +12,7 @@ local commands = require('sQVe.ui.command_palette.commands')
 local M = {}
 
 local default_commands = {
+  commands.ascii_header,
   commands.blame,
   commands.buffers,
   commands.change_cwd_buffer_path,
