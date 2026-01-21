@@ -29,8 +29,6 @@ local default_commands = {
   commands.diff_view,
   commands.document_symbols,
   commands.file_explorer,
-  commands.file_history,
-  commands.file_history_buffer_path,
   commands.find_all_files,
   commands.find_files,
   commands.find_files_in_subdirectory,

@@ -38,9 +38,9 @@ command('Ddg', function(input)
   local root_url = 'https://duckduckgo.com/?q='
   local args = input.args or ''
   local query = (#args > 0 and args) or vim.fn.getreg('o')
-  local safe_query = string.gsub(query, '%s', ' ')
+  local encoded_query = vim.uri_encode(query, 'rfc2396')
 
   vim
-    .system({ 'qutebrowser', root_url .. safe_query }, { detach = true })
+    .system({ 'qutebrowser', root_url .. encoded_query }, { detach = true })
     :wait()
 end, { nargs = '?' })

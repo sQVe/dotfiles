@@ -50,9 +50,10 @@ M.get_descriptive_name = function(path)
 end
 
 M.normalize = function(path)
-  local normalized_path = require('plenary.path'):new(path):normalize()
+  local normalized_path =
+    tostring(require('plenary.path'):new(path):normalize())
 
-  return tostring(normalized_path:gsub(vim.fn.expand('$HOME'), '~'))
+  return normalized_path:gsub(vim.fn.expand('$HOME'), '~')
 end
 
 M.remove_extension = function(path)

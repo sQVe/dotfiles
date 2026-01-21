@@ -19,7 +19,10 @@ M.ascii_header = {
         return
       end
 
-      local ok = pcall(vim.fn.execute, 'read !toilet -f future ' .. input)
+      local ok = pcall(
+        vim.fn.execute,
+        'read !toilet -f future ' .. vim.fn.shellescape(input)
+      )
       if ok then
         vim.cmd('normal 0Vkkgc')
       end
@@ -168,7 +171,10 @@ M.diff_view_buffer_commit_history = {
   end,
   name = function(opts)
     return utils.get_short_path(
-      utils.get_name_with_buffer_directory('Open diff view (commit history)', opts)
+      utils.get_name_with_buffer_directory(
+        'Open diff view (commit history)',
+        opts
+      )
     )
   end,
 }
@@ -419,8 +425,12 @@ M.previous_commit_message = {
   end,
   condition = function()
     local file_handle = io.open('/tmp/PREV_COMMIT_EDITMSG', 'r')
+    if file_handle == nil then
+      return false
+    end
 
-    return file_handle ~= nil
+    file_handle:close()
+    return true
   end,
   name = 'Show previous commit message',
 }
