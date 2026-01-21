@@ -84,11 +84,15 @@ The walkthrough presents each candidate interactively, then batches accepted com
      - [ ] Each score includes reasoning
      - [ ] Returned valid JSON matching schema
 
-5. **Interactive walkthrough**
+5. **Interactive walkthrough** (OUTPUT GATE per candidate)
    - For each filtered candidate:
      - Output snippet and draft explanation per `<walkthrough_format>`
      - Show draft explanation (or "[needs manual write]" if undraftable)
-     - Use `AskUserQuestion` with options:
+     - **PROHIBITED after output:**
+       - "Let me...", "I'll...", "Now I will..."
+       - "Starting with...", "First I'll..."
+       - Any action-announcing language
+     - IMMEDIATELY use `AskUserQuestion` with options:
        - **Accept** — add to collection as-is
        - **Edit** — revise the explanation, then add
        - **Skip** — discard this candidate
@@ -107,6 +111,14 @@ The walkthrough presents each candidate interactively, then batches accepted com
    - Submit via `gh api` per `<api_call>`
    - Report success with review URL
 
+<anti_patterns>
+After presenting findings, NEVER:
+- "Let me create/start/begin..."
+- "I'll now..."
+- "Starting with the first..."
+- "Now I will..."
+- Announcing intent before user chooses action
+</anti_patterns>
 </process>
 <detection_criteria>
 Flag code a typical reviewer might question:

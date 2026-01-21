@@ -124,10 +124,15 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
    - Group by `function` + `behavior`, count votes (1–3)
    - Dedupe edge cases and mocks; sort by vote count
 
-7. **Confirm test plan**
+7. **Confirm test plan** (OUTPUT GATE)
    - Output proposed tests grouped by file as formatted text
    - Include: function, behavior, edge cases covered
-   - Use `AskUserQuestion` with options:
+   - End output with `---` separator
+   - **PROHIBITED after separator:**
+     - "Let me...", "I'll...", "Now I will..."
+     - "Starting with...", "First I'll..."
+     - Any action-announcing language
+   - IMMEDIATELY use `AskUserQuestion` with options:
      - **Generate all** — create all proposed tests
      - **Select tests** — choose which tests to generate
      - **Add more** — request additional test cases
@@ -168,6 +173,14 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
     - Repeat until passing or iteration limit reached
     - Report remaining issues at limit
 
+<anti_patterns>
+After presenting findings, NEVER:
+- "Let me create/start/begin..."
+- "I'll now..."
+- "Starting with the first..."
+- "Now I will..."
+- Announcing intent before user chooses action
+</anti_patterns>
 </process>
 
 <output_format>

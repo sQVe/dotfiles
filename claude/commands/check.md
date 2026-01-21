@@ -77,11 +77,30 @@ Load these reference documents (if they exist):
    - When source matches, keep the more specific description
    - Note source document for each rule
 
-7. **Generate report** using `<report_format>`
+7. **Generate report** (OUTPUT GATE)
+   - Generate report using `<report_format>`
+   - End output with `---` separator
+   - **PROHIBITED after separator:**
+     - "Let me...", "I'll...", "Now I will..."
+     - "Starting with...", "First I'll..."
+     - Any action-announcing language
+   - Proceed directly to Confirm step
 
 8. **Confirm action** (if violations found)
-   - Use `AskUserQuestion` with options: - **Fix all** — apply all recommended fixes - **Fix selected** — choose which violations to fix - **Skip** — leave violations unfixed
-     </process>
+   - IMMEDIATELY use `AskUserQuestion` with options:
+     - **Fix all** — apply all recommended fixes
+     - **Fix selected** — choose which violations to fix
+     - **Skip** — leave violations unfixed
+
+<anti_patterns>
+After presenting findings, NEVER:
+- "Let me create/start/begin..."
+- "I'll now..."
+- "Starting with the first..."
+- "Now I will..."
+- Announcing intent before user chooses action
+</anti_patterns>
+</process>
 
 <subagent_prompt>
 <check_context>

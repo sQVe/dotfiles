@@ -39,14 +39,22 @@ Group related changes into atomic units. Explain why, not what.
    - Messages explain WHY, not what
    - Skip body unless reasoning is non-obvious
 
-4. **Confirm** (skip if `--no-confirm`)
-   - Output staged files and proposed commit message BEFORE asking
-   - Then use `AskUserQuestion` with options:
+4. **Present** (OUTPUT GATE)
+   - Output staged files and proposed commit message
+   - End output with `---` separator
+   - **PROHIBITED after separator:**
+     - "Let me...", "I'll...", "Now I will..."
+     - "Starting with...", "First I'll..."
+     - Any action-announcing language
+   - Proceed directly to Confirm step
+
+5. **Confirm** (skip if `--no-confirm`)
+   - IMMEDIATELY use `AskUserQuestion` with options:
      - **Commit** — create the commit
      - **Edit** — revise the message
      - **Cancel** — abort
 
-5. **Create and verify** (fix loop, max 3 attempts)
+6. **Create and verify** (fix loop, max 3 attempts)
    - Stage only files relevant to each commit
    - Create commit
    - If commit fails (pre-commit hook, lint error):
@@ -57,10 +65,19 @@ Group related changes into atomic units. Explain why, not what.
    - Run `git log --oneline -5` to confirm
    - Check `git status` shows expected state
 
-6. **Report and continue**
+7. **Report and continue**
    - Output commit hash and summary
    - If more uncommitted changes remain, note them
-     </process>
+
+<anti_patterns>
+After presenting findings, NEVER:
+- "Let me create/start/begin..."
+- "I'll now..."
+- "Starting with the first..."
+- "Now I will..."
+- Announcing intent before user chooses action
+</anti_patterns>
+</process>
 
 <output_format>
 

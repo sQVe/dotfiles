@@ -51,24 +51,32 @@ Runs automatable test plan items before creating the PR.
    - Check coverage: happy path, edge cases, integration points, regression risks
    - If gaps found: add missing items before proceeding
 
-6. **Execute test plan**
+6. **Present test plan** (OUTPUT GATE)
    - Parse test plan checkboxes
    - Identify automatable items:
      - Commands: backticked like `npm test`
      - URLs: paths like `/dashboard`
-   - Execute and update checkboxes: `[x]` passed, `[ ]` failed/manual
-   - If any automatable check fails: mark as `[ ]`, report failure details, and ask user whether to proceed or abort
-   - Report results before proceeding
+   - Output test plan showing which items are automatable
+   - Output PR title and full description
+   - End output with `---` separator
+   - **PROHIBITED after separator:**
+     - "Let me...", "I'll...", "Now I will..."
+     - "Starting with...", "First I'll..."
+     - Any action-announcing language
+   - Proceed directly to Confirm step
 
 7. **Confirm** (skip if `--no-confirm`)
-   - Output PR title and full description BEFORE asking
-   - Then use `AskUserQuestion` with options:
-     - **Create PR** — publish immediately
-     - **Create draft** — publish as draft for preview
+   - IMMEDIATELY use `AskUserQuestion` with options:
+     - **Create PR** — run tests and publish immediately
+     - **Create draft** — run tests and publish as draft for preview
      - **Edit** — revise title or description
      - **Cancel** — abort
 
-8. **Create PR** (fix loop, max 3 attempts)
+8. **Execute test plan**
+   - Execute automatable items and update checkboxes: `[x]` passed, `[ ]` failed/manual
+   - If any automatable check fails: mark as `[ ]`, report failure details, and ask user whether to proceed or abort
+
+9. **Create PR** (fix loop, max 3 attempts)
    - Run `gh pr create` with title and body
    - If creation fails (push rejected, conflicts):
      - Analyze failure output
@@ -77,11 +85,20 @@ Runs automatable test plan items before creating the PR.
      - After 3 failures: report issues, ask user to fix manually
    - Capture PR URL on success
 
-9. **Add references and report**
+10. **Add references and report**
    - Link relevant issues and PRs
    - Add appropriate reviewers
    - Output PR URL and summary
-     </process>
+
+<anti_patterns>
+After presenting findings, NEVER:
+- "Let me create/start/begin..."
+- "I'll now..."
+- "Starting with the first..."
+- "Now I will..."
+- Announcing intent before user chooses action
+</anti_patterns>
+</process>
 
 <output_format>
 
@@ -137,8 +154,8 @@ No exclamation marks. No emojis. Lead with the change, not preamble.
 - [ ] Contribution requirements met
 - [ ] PR description follows structure
 - [ ] Test plan verified for coverage gaps
-- [ ] Automatable test plan items executed
 - [ ] User confirmed (unless --no-confirm)
+- [ ] Automatable test plan items executed
 - [ ] PR created with references
 
 </success_criteria>

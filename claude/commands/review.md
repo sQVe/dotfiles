@@ -62,11 +62,30 @@ Dispatches 3 parallel subagents with identical prompts. Each reviews independent
    - Note consensus (found by N agents)
    - Sort: Critical → Warning → Info
 
-7. **Generate report** using `<report_format>`
+7. **Generate report** (OUTPUT GATE)
+   - Generate report using `<report_format>`
+   - End output with `---` separator
+   - **PROHIBITED after separator:**
+     - "Let me...", "I'll...", "Now I will..."
+     - "Starting with...", "First I'll..."
+     - Any action-announcing language
+   - Proceed directly to Confirm step
 
 8. **Confirm action** (if issues found)
-   - Use `AskUserQuestion` with options: - **Fix all** — apply all recommended fixes - **Fix selected** — choose which issues to fix - **Skip** — leave issues unfixed
-     </process>
+   - IMMEDIATELY use `AskUserQuestion` with options:
+     - **Fix all** — apply all recommended fixes
+     - **Fix selected** — choose which issues to fix
+     - **Skip** — leave issues unfixed
+
+<anti_patterns>
+After presenting findings, NEVER:
+- "Let me create/start/begin..."
+- "I'll now..."
+- "Starting with the first..."
+- "Now I will..."
+- Announcing intent before user chooses action
+</anti_patterns>
+</process>
 
 <subagent_prompt>
 <review_context>
