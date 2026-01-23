@@ -1,4 +1,3 @@
-@anthropic-ai/claude-code
 @ast-grep/cli
 @biomejs/biome
 @github/copilot-language-server
