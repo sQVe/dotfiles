@@ -82,7 +82,7 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
    **Subagent prompt:**
 
    ```
-   Analyze this source code and propose valuable tests.
+   Analyze this source code and propose tests that catch real bugs.
 
    Source code:
    <source>
@@ -92,41 +92,60 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
    Framework: {detected_framework}
    Existing test patterns: {existing_test_examples}
 
-   Propose tests that catch real bugs. Focus on:
-   - Public API behavior
-   - Edge cases:
-     - Empty/null/undefined inputs
-     - Boundary values (0, -1, max, min)
-     - Invalid types (string where number expected)
-     - Async: timeouts, cancellation, race conditions
-     - Large inputs (performance, memory)
-     - Unicode, encoding, and special characters
-     - Date/time: timezones, DST, leap years, epoch
-     - Localization: locale-specific formatting, RTL text
-     - Error conditions and recovery
-   - Integration points requiring mocks
+   ## Step 1: Identify testable logic
+
+   Find code that makes DECISIONS or TRANSFORMATIONS:
+   - Conditionals (if/else, switch, ternary, ??, ||)
+   - Data transformations (map, reduce, string manipulation, calculations)
+   - Default values and fallbacks
+   - Error handling branches (try/catch, .catch, error returns)
+   - Validation logic
+   - State machines or multi-step processes
+
+   ## Step 2: Exclude non-logic
+
+   Do NOT propose tests for:
+   - Passthrough: value goes in, same value comes out unchanged
+   - Wiring: "calls X with Y" where X is mocked (test the real X instead)
+   - Content existence: "contains this string" without conditional logic
+   - Type coercion handled by the language/framework
+
+   ## Step 3: Propose tests for identified logic
+
+   For each piece of logic found, propose tests that verify:
+   - Each branch of conditionals executes correctly
+   - Transformations produce expected output
+   - Edge cases WHERE THE CODE HAS HANDLING (not generic edge cases)
+   - Error paths trigger and recover properly
 
    Output as JSON:
-   {"proposals": [{"function": "name", "behavior": "what it does", "edge_cases": ["..."], "mocks_needed": ["..."]}]}
+   {
+     "proposals": [{
+       "function": "name",
+       "logic_found": "brief description of the decision/transformation",
+       "test_cases": [{"scenario": "when X", "expected": "then Y"}],
+       "mocks_needed": ["..."]
+     }]
+   }
 
-   Test behavior, not implementation.
+   If a function has no testable logic (pure passthrough, simple wiring), return empty proposals for it.
 
    <success_criteria>
-   - [ ] Analyzed all source files in scope
-   - [ ] Proposed tests for public APIs
-   - [ ] Identified edge cases from code inspection
+   - [ ] Identified specific logic (conditionals, transformations) in code
+   - [ ] Each proposal tied to actual code logic, not generic edge cases
+   - [ ] No passthrough or wiring-only tests proposed
    - [ ] Returned valid JSON matching schema
-   - [ ] Each proposal has concrete test scenario
    </success_criteria>
    ```
 
 6. **Merge by consensus**
-   - Group by `function` + `behavior`, count votes (1–3)
-   - Dedupe edge cases and mocks; sort by vote count
+   - Group by `function` + `logic_found`, count votes (1–3)
+   - Merge test_cases and mocks; sort by vote count
+   - Discard proposals where `logic_found` is vague or describes passthrough
 
 7. **Confirm test plan** (OUTPUT GATE)
    - Output proposed tests grouped by file as formatted text
-   - Include: function, behavior, edge cases covered
+   - Include: function, logic being tested, test scenarios
    - End output with `---` separator
    - **PROHIBITED after separator:**
      - "Let me...", "I'll...", "Now I will..."
@@ -200,10 +219,10 @@ After presenting findings, NEVER:
 ✓ All 8 tests passing
 
 ### Coverage
-| Function | Behaviors Tested | Edge Cases |
-|----------|------------------|------------|
-| parse    | 2                | 3          |
-| validate | 1                | 2          |
+| Function | Logic Tested | Scenarios |
+|----------|--------------|-----------|
+| parse    | MSO comment fix, concurrent render | 4 |
+| validate | fallback defaults, pluralization | 3 |
 ```
 
 ---

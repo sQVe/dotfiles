@@ -116,12 +116,14 @@ $DIFF_OR_FILE_CONTENT
 </content_to_check>
 
 <check_focus>
-Check for violations of rules defined in the reference documents:
+For EACH rule in the reference documents:
+1. State the exact rule text
+2. Search the diff for violations of that specific rule
+3. Record any violations found
 
-- Code style rules (TypeScript conventions, patterns)
-- Principles (minimal changes, single responsibility)
-- Writing rules (concise, active voice, formatting)
-  </check_focus>
+Do not summarize or categorize rules. Check each rule literally and individually.
+Treat every rule as equally important — do not skip rules that seem minor.
+</check_focus>
 
 <output_format>
 Return violations as JSON array:
