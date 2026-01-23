@@ -30,10 +30,6 @@
   file-style = bold yellow box
   hunk-header-decoration-style = magenta ul
 
-[diff]
-  algorithm = histogram
-  colorMoved = default
-
 [fetch]
   prune = true
 
@@ -42,6 +38,14 @@
 
 [interactive]
   diffFilter = delta --color-only
+
+[diff]
+  algorithm = histogram
+  colorMoved = default
+  tool = codediff
+
+[difftool "codediff"]
+	cmd = nvim \"$LOCAL\" \"$REMOTE\" +\"CodeDiff file $LOCAL $REMOTE\"
 
 [merge]
 	tool = codediff
