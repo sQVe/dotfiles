@@ -6,6 +6,7 @@
         "customLaunchPrefixEnabled": false,
         "enableClipPreview": false,
         "enableClipboardHistory": false,
+        "enableSettingsSearch": true,
         "iconMode": "tabler",
         "ignoreMouseInput": false,
         "pinnedApps": [
@@ -25,6 +26,7 @@
         ],
         "preferredPlayer": "mpv",
         "visualizerType": "linear",
+        "volumeFeedback": false,
         "volumeOverdrive": true,
         "volumeStep": 5
     },
@@ -41,6 +43,8 @@
         ],
         "outerCorners": true,
         "position": "top",
+        "screenOverrides": [
+        ],
         "showCapsule": false,
         "showOutline": false,
         "useSeparateOpacity": false,
@@ -94,6 +98,7 @@
                     "showMemoryAsPercent": true,
                     "showMemoryUsage": true,
                     "showNetworkStats": false,
+                    "showSwapUsage": false,
                     "useMonospaceFont": true,
                     "usePrimaryColor": false
                 },
@@ -187,6 +192,7 @@
                 {
                     "deviceNativePath": "",
                     "displayMode": "onhover",
+                    "hideIfIdle": false,
                     "hideIfNotDetected": true,
                     "id": "Battery",
                     "showNoctaliaPerformance": false,
@@ -250,9 +256,10 @@
     },
     "colorSchemes": {
         "darkMode": true,
+        "generationMethod": "tonal-spot",
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
-        "matugenSchemeType": "scheme-fruit-salad",
+        "monitorForColors": "",
         "predefinedScheme": "GruvboxAlt",
         "schedulingMode": "off",
         "useWallpaperColors": false
@@ -340,11 +347,13 @@
         "boxRadiusRatio": 1,
         "compactLockScreen": true,
         "dimmerOpacity": 0.5,
+        "enableLockScreenCountdown": true,
         "enableShadows": true,
         "forceBlackScreenCorners": false,
         "iRadiusRatio": 0.4,
         "language": "en",
         "lockOnSuspend": true,
+        "lockScreenCountdownDuration": 10000,
         "radiusRatio": 0.4,
         "scaleRatio": 1,
         "screenRadiusRatio": 1,
@@ -365,6 +374,7 @@
         "screenLock": "/home/sqve/scripts/noctalia/lock-hooks.sh lock",
         "screenUnlock": "/home/sqve/scripts/noctalia/lock-hooks.sh unlock",
         "session": "/home/sqve/scripts/zsh/backup-history.sh",
+        "startup": "",
         "wallpaperChange": ""
     },
     "location": {
@@ -393,7 +403,7 @@
         "autoSchedule": true,
         "dayTemp": "6500",
         "enabled": true,
-        "forced": false,
+        "forced": true,
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "nightTemp": "4005"
@@ -488,7 +498,7 @@
         "showHeader": true,
         "showNumberLabels": true
     },
-    "settingsVersion": 41,
+    "settingsVersion": 44,
     "systemMonitor": {
         "cpuCriticalThreshold": 90,
         "cpuPollingInterval": 2000,
@@ -507,6 +517,8 @@
         "memPollingInterval": 2000,
         "memWarningThreshold": 80,
         "networkPollingInterval": 2000,
+        "swapCriticalThreshold": 90,
+        "swapWarningThreshold": 80,
         "tempCriticalThreshold": 90,
         "tempPollingInterval": 2000,
         "tempWarningThreshold": 80,
@@ -536,7 +548,7 @@
                 "id": "niri"
             }
         ],
-        "enableUserTemplates": false
+        "enableUserTheming": false
     },
     "ui": {
         "bluetoothDetailsViewMode": "grid",
@@ -554,6 +566,7 @@
         "wifiDetailsViewMode": "grid"
     },
     "wallpaper": {
+        "automationEnabled": true,
         "directory": "/home/sqve/Pictures/Wallpapers",
         "enableMultiMonitorDirectories": true,
         "enabled": true,
@@ -576,16 +589,16 @@
         ],
         "overviewEnabled": true,
         "panelPosition": "follow_bar",
-        "randomEnabled": true,
         "randomIntervalSec": 1800,
-        "recursiveSearch": false,
         "setWallpaperOnAllMonitors": false,
+        "showHiddenFiles": false,
         "solidColor": "#1a1a2e",
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": "fade",
         "useSolidColor": false,
         "useWallhaven": false,
+        "viewMode": "single",
         "wallhavenApiKey": "",
         "wallhavenCategories": "111",
         "wallhavenOrder": "desc",
