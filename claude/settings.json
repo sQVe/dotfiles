@@ -107,11 +107,28 @@
       "ExitPlanMode",
       "mcp__context7",
       "mcp__linear",
-      "mcp__sentry"
+      "mcp__sentry",
+      "Bash(ps aux:*)",
+      "Bash(nvidia-smi:*)",
+      "Bash(git -C ~/.dotfiles log --all --oneline --name-only -- **/google* **/chrome*)",
+      "Bash(systemctl:*)",
+      "WebFetch(domain:yazi-rs.github.io)"
     ],
     "defaultMode": "plan"
   },
   "model": "opus",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"$HOME/.claude/hooks/gsd-check-update.js\""
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "/home/sqve/scripts/claude/statusline.sh"
@@ -130,17 +147,5 @@
   "alwaysThinkingEnabled": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754085535302
-  },
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node \"$HOME/.claude/hooks/gsd-check-update.js\""
-          }
-        ]
-      }
-    ]
   }
 }
