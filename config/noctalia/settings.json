@@ -31,7 +31,7 @@
         "volumeStep": 5
     },
     "bar": {
-        "backgroundOpacity": 0,
+        "backgroundOpacity": 1,
         "capsuleOpacity": 1,
         "density": "compact",
         "exclusive": true,
@@ -41,7 +41,7 @@
         "marginVertical": 0,
         "monitors": [
         ],
-        "outerCorners": true,
+        "outerCorners": false,
         "position": "top",
         "screenOverrides": [
         ],
@@ -409,7 +409,7 @@
         "nightTemp": "3800"
     },
     "notifications": {
-        "backgroundOpacity": 0.75,
+        "backgroundOpacity": 1,
         "criticalUrgencyDuration": 6,
         "enableKeyboardLayoutToast": false,
         "enableMediaToast": false,
