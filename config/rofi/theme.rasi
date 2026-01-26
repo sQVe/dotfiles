@@ -1,10 +1,10 @@
-@import "gruvbox-dark"
+@import "~/.dotfiles/config/rofi/catppuccin-latte.rasi"
 
 * {
+  background-color: transparent;
+  text-color: @text;
   highlight: bold;
   scrollbar: false;
-
-  gruvbox-dark-bg1: #3c3836;
 }
 
 window {
@@ -12,18 +12,61 @@ window {
   border: 0;
   border-radius: 8px;
   padding: 8px;
-
-  background-color: @gruvbox-dark-bg1;
+  background-color: @base;
 }
 
-listview {
-  border:  0;
-  padding: 8px;
-  lines:   10;
-  columns: 2;
+mainbox {
+  border: 0;
+  padding: 0;
 }
 
 inputbar {
   children: [ prompt, textbox-prompt-sep, entry ];
   padding: 8px;
+  background-color: @mantle;
+  border-radius: 8px;
+  margin: 0 0 8px 0;
+}
+
+prompt {
+  text-color: @lavender;
+}
+
+textbox-prompt-sep {
+  expand: false;
+  str: ":";
+  margin: 0 8px 0 0;
+  text-color: @overlay1;
+}
+
+entry {
+  placeholder-color: @overlay1;
+}
+
+listview {
+  border: 0;
+  padding: 0;
+  lines: 10;
+  columns: 2;
+}
+
+element {
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+element normal.normal,
+element alternate.normal {
+  background-color: transparent;
+  text-color: @text;
+}
+
+element selected.normal {
+  background-color: @lavender;
+  text-color: @base;
+}
+
+element-text {
+  background-color: transparent;
+  text-color: inherit;
 }

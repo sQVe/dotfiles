@@ -52,7 +52,6 @@ gestures {
   hot-corners { off; }
 }
 
-
 layout {
   background-color "transparent"
   gaps 8
@@ -74,19 +73,18 @@ layout {
   }
   focus-ring {
     width 2.5
-    active-color "#d3869b"
-    inactive-color "#505050"
+    active-color "#5858a0"
+    inactive-color "#92949f"
   }
   border {
     off
   }
   shadow {
-    on
     draw-behind-window false
     softness 10
-    spread 2
+    spread 0
     offset x=0 y=5
-    color "#0007"
+    color "#0004"
   }
   tab-indicator {
     position "left"
@@ -95,7 +93,7 @@ layout {
     gap 8
     gaps-between-tabs 8
     corner-radius 4
-    active-color "#ea6962"
+    active-color "#5858a0"
     place-within-column
   }
 }
@@ -118,7 +116,7 @@ recent-windows {
   open-delay-ms 0
 
   highlight {
-    active-color "#d3869b"
+    active-color "#5858a0"
     corner-radius 8
     padding 16
   }
@@ -149,6 +147,17 @@ output "LG Electronics 38GN950 206NTEP67796" {
 window-rule {
   geometry-corner-radius 8
   clip-to-geometry true
+}
+
+window-rule {
+  match is-floating=true
+  shadow { on; }
+}
+
+layer-rule {
+  match namespace="^rofi$"
+  shadow { on; }
+  geometry-corner-radius 8
 }
 
 window-rule {
