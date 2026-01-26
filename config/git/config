@@ -18,15 +18,15 @@
 
 [delta]
   features = line-numbers decorations
-  syntax-theme = teide-light
+  syntax-theme = "Catppuccin Latte"
   tabs = 2
   true-color = always
   whitespace-error-style = 22 reverse
   zero-style = syntax
-  plus-style = syntax "#b3c6cd"
-  plus-emph-style = syntax "#9ab8c0"
-  minus-style = syntax "#d1acbd"
-  minus-emph-style = syntax "#c299ac"
+  plus-style = syntax "#d4ead4"
+  plus-emph-style = syntax "#a0d0a0"
+  minus-style = syntax "#f5d5d8"
+  minus-emph-style = syntax "#e8a8b0"
 
 [delta "decorations"]
   commit-decoration-style = bold yellow box ul
