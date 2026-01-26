@@ -48,6 +48,10 @@ Runs automatable test plan items before creating the PR.
 
 5. **Verify test plan coverage**
    - Review the diff and list key behaviors/paths affected
+   - Categorize items:
+     - **Checkboxes**: Commands, verifiable behaviors, automatable checks
+     - **Manual verification**: Visual/UX, post-merge (CI), external systems
+   - If items are miscategorized: move to correct section
    - Check coverage: happy path, edge cases, integration points, regression risks
    - If gaps found: add missing items before proceeding
 
@@ -73,10 +77,19 @@ Runs automatable test plan items before creating the PR.
      - **Cancel** — abort
 
 8. **Execute test plan**
-   - Execute automatable items and update checkboxes: `[x]` passed, `[ ]` failed/manual
-   - If any automatable check fails: mark as `[ ]`, report failure details, and ask user whether to proceed or abort
+   - Execute all checkbox items
+   - Update checkboxes: `[x]` passed, `[ ]` failed
+   - If ANY checkbox fails:
+     - Report failure details
+     - Ask user: **Fix and retry** or **Cancel**
+     - Do NOT proceed with unchecked items
 
-9. **Create PR** (fix loop, max 3 attempts)
+9. **Validate test plan completion**
+   - Verify ALL checkboxes are `[x]`
+   - If any remain `[ ]`: block PR creation, return to step 8
+   - Manual verification section: no validation (informational only)
+
+10. **Create PR** (fix loop, max 3 attempts)
    - Run `gh pr create` with title and body
    - If creation fails (push rejected, conflicts):
      - Analyze failure output
@@ -85,7 +98,7 @@ Runs automatable test plan items before creating the PR.
      - After 3 failures: report issues, ask user to fix manually
    - Capture PR URL on success
 
-10. **Add references and report**
+11. **Add references and report**
    - Link relevant issues and PRs
    - Add appropriate reviewers
    - Output PR URL and summary
@@ -155,7 +168,7 @@ No exclamation marks. No emojis. Lead with the change, not preamble.
 - [ ] PR description follows structure
 - [ ] Test plan verified for coverage gaps
 - [ ] User confirmed (unless --no-confirm)
-- [ ] Automatable test plan items executed
+- [ ] All test plan checkboxes verified `[x]`
 - [ ] PR created with references
 
 </success_criteria>

@@ -7,6 +7,10 @@ Use this template when creating pull requests to ensure consistent, clear docume
 ```markdown
 [Brief description of what this PR accomplishes]
 
+#### Motivation
+
+[Problem being solved or opportunity. Why now? 1-3 sentences.]
+
 #### Changes
 
 - [Describe key changes made]
@@ -14,10 +18,15 @@ Use this template when creating pull requests to ensure consistent, clear docume
 - [Highlight any architectural or design decisions]
 
 #### Test plan
-<!-- Consider: happy path, edge cases, integration points, regression risks -->
+<!-- Automatable items — AI runs these before PR creation. All must pass. -->
 
-- [ ] [Specific test item]
-- [ ] [Specific test item]
+- [ ] [Command or verifiable behavior]
+- [ ] [Command or verifiable behavior]
+
+#### Manual verification
+<!-- Subjective items requiring human judgment. NOT for automatable checks. -->
+
+- [Subjective item requiring human judgment]
 
 [Optional: Add any additional context, screenshots, or notes]
 
@@ -32,6 +41,10 @@ Related to #[issue-number]
 ```markdown
 Added JWT-based authentication system for secure user access.
 
+#### Motivation
+
+Session-based auth requires sticky sessions, blocking horizontal scaling. JWT enables stateless auth across multiple API instances.
+
 #### Changes
 
 - Implemented JWT token generation and validation
@@ -40,12 +53,14 @@ Added JWT-based authentication system for secure user access.
 
 #### Test plan
 
-- [ ] Navigate to /login and verify login form renders
-- [ ] Test login with valid credentials - should redirect to dashboard
-- [ ] Test login with invalid credentials - should show error message
+- [ ] Run `npm test` — all tests pass
 - [ ] Verify `/api/auth/login` returns JWT on success
-- [ ] Verify protected routes redirect to login when not authenticated
-- [ ] Test logout clears session and redirects to login
+- [ ] Verify protected routes return 401 when not authenticated
+
+#### Manual verification
+
+- Login form layout matches design mockup
+- Error animations feel responsive
 
 Fixes #123
 Related to #456
@@ -53,30 +68,30 @@ Related to #456
 
 ## Guidelines
 
+- **Motivation**: Problem or opportunity driving the change (1-3 sentences)
 - **Changes**: Focus on "what" was implemented with technical details
 - **Test plan**: Specific, actionable items (see coverage prompt in template)
 - **Issues**: Link related issues with "Fixes #" or "Related to #"
 
 ### Test plan format
 
-Test items are auto-executed when possible. Use these patterns for automation:
-
-**Automatable items** (will be executed and checked off):
+**Checkboxes** (must all be `[x]` before PR):
 
 - Commands: "Run `npm test`", "Execute `make build`"
-- URLs: "Navigate to `/dashboard`", "Verify `/api/health` returns 200"
-- Build checks: "Verify build passes", "Check for type errors"
+- Verifiable behaviors: "API returns 200", "File is created"
+- Assertions: "Error message contains 'invalid'"
 
-**Manual items** (left unchecked for reviewers):
+**Manual verification** (prose, no checkboxes):
 
-- Subjective: "Verify UI looks correct"
-- Complex flows: "Complete full checkout flow"
-- External: "Confirm email is received"
+- Visual design: "Colors match mockup", "Layout looks balanced"
+- UX feel: "Animation feels smooth", "Interaction feels responsive"
+- Subjective: "Error message tone is appropriate"
 
-**Never include** (not actionable before PR):
+**Never in manual verification:**
 
-- CI status: "CI passes", "All checks green"
-- Review gates: "Approved by reviewer", "Code review complete"
-- Merge status: "No merge conflicts", "Branch up to date"
+- CI/CD status (automated by GitHub)
+- Text output verification (grep it)
+- Status codes or return values
+- Anything with deterministic output
 
-These happen automatically after PR creation. Don't clutter the test plan with them.
+If output is deterministic, it's a checkbox. Manual = human judgment only.
