@@ -1,31 +1,42 @@
 set selection-clipboard clipboard
 
-# Gruvbox Dark theme
-set default-bg "#222222"
-set default-fg "#fbf1c7"
+# Catppuccin Latte theme (muted)
+set default-bg "#eff1f5"
+set default-fg "#4c4e5e"
 
-set statusbar-bg "#3c3836"
-set statusbar-fg "#ebdbb2"
+set statusbar-bg "#dce0e8"
+set statusbar-fg "#4c4e5e"
 
-set inputbar-bg "#3c3836"
-set inputbar-fg "#fbf1c7"
+set inputbar-bg "#dce0e8"
+set inputbar-fg "#4c4e5e"
 
-set completion-bg "#3c3836"
-set completion-fg "#ebdbb2"
-set completion-group-bg "#282828"
-set completion-group-fg "#928374"
-set completion-highlight-bg "#fabd2f"
-set completion-highlight-fg "#222222"
+set completion-bg "#bdbfc5"
+set completion-fg "#4c4e5e"
+set completion-group-bg "#eff1f5"
+set completion-group-fg "#5858a0"
+set completion-highlight-bg "#5858a0"
+set completion-highlight-fg "#eff1f5"
 
-set notification-bg "#3c3836"
-set notification-fg "#fbf1c7"
-set notification-error-bg "#fb4934"
-set notification-error-fg "#222222"
-set notification-warning-bg "#fe8019"
-set notification-warning-fg "#222222"
+set notification-bg "#dce0e8"
+set notification-fg "#4c4e5e"
+set notification-error-bg "#b82530"
+set notification-error-fg "#eff1f5"
+set notification-warning-bg "#806010"
+set notification-warning-fg "#eff1f5"
 
-set highlight-color "rgba(250,189,47,0.5)"
-set highlight-active-color "rgba(254,128,25,0.5)"
+set highlight-color "rgba(118, 120, 133, 0.5)"
+set highlight-active-color "rgba(124, 50, 168, 0.5)"
+
+set index-bg "#bdbfc5"
+set index-fg "#4c4e5e"
+set index-active-bg "#5858a0"
+set index-active-fg "#eff1f5"
+
+set render-loading-bg "#eff1f5"
+set render-loading-fg "#4c4e5e"
+
+set recolor-lightcolor "#eff1f5"
+set recolor-darkcolor "#4c4e5e"
 
 # Disable instant quit
 unmap q
