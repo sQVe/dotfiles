@@ -42,8 +42,8 @@ export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
 export ZVM_KEYTIMEOUT=0.125
 export ZVM_READKEY_ENGINE=$ZVM_READKEY_ENGINE_NEX
 export ZVM_SYSTEM_CLIPBOARD_ENABLED=true
-export ZVM_VI_HIGHLIGHT_BACKGROUND=#928374 # gray_245
-export ZVM_VI_HIGHLIGHT_FOREGROUND=#fbf1c7 # light0
+export ZVM_VI_HIGHLIGHT_BACKGROUND=#b6bdd0 # bg_visual
+export ZVM_VI_HIGHLIGHT_FOREGROUND=#383e45 # fg
 
 # Pass options.
 export PASSWORD_STORE_GENERATED_LENGTH=24
@@ -65,4 +65,4 @@ export PRETTIERD_LOCAL_PRETTIER_ONLY=1
 export MOB_VOICE_COMMAND="mpv /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
 
 # Misc options.
-export GTK_THEME=Adwaita:dark
+export GTK_THEME=Orchis-Light
