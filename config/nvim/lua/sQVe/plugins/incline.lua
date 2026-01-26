@@ -4,7 +4,7 @@
 -- Floating winbar.
 
 local buffer = require('sQVe.utils.buffer')
-local colors = require('sQVe.plugins.catppuccin.palette').colors
+local palette = require('sQVe.plugins.catppuccin.palette')
 local path = require('sQVe.utils.path')
 
 local M = {
@@ -42,18 +42,18 @@ M.opts = {
 
     local guifg
     if is_modified then
-      guifg = colors.gruvbox.bright_yellow
+      guifg = palette.teal
     elseif is_focused then
-      guifg = colors.custom.lavender
+      guifg = palette.text
     else
-      guifg = colors.custom.steel
+      guifg = palette.overlay1
     end
 
     local guibg
     if is_focused then
-      guibg = colors.gruvbox.dark1
+      guibg = palette.crust
     else
-      guibg = colors.gruvbox.dark0_soft
+      guibg = palette.mantle
     end
 
     return {

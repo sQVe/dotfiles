@@ -91,7 +91,7 @@ autocmd('VimResized', {
 })
 
 -- Set active windows styling.
-autocmd('WinEnter', {
+autocmd({ 'VimEnter', 'WinEnter' }, {
   group = 'SetActiveWindowStyling',
   callback = function()
     vim.wo.colorcolumn = '80'

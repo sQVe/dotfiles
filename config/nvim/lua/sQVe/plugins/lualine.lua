@@ -5,8 +5,16 @@
 
 local M = {
   'nvim-lualine/lualine.nvim',
-  event = 'VimEnter',
+  event = 'VeryLazy',
 }
+
+local git_root_name = function()
+  local root = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
+  if vim.v.shell_error ~= 0 or root == nil then
+    return ''
+  end
+  return vim.fn.fnamemodify(root, ':t')
+end
 
 M.init = function()
   vim.g.lualine_laststatus = vim.o.laststatus
@@ -19,22 +27,17 @@ M.init = function()
   end
 end
 
-local git_root_name = function()
-  local root = vim.fn.systemlist('git rev-parse --show-toplevel')[1]
-  if vim.v.shell_error ~= 0 or root == nil then
-    return ''
-  end
-  return vim.fn.fnamemodify(root, ':t')
-end
-
 M.opts = function()
-  local palette = require('sQVe.plugins.catppuccin.palette')
+  vim.o.laststatus = vim.g.lualine_laststatus
 
   return {
     options = {
       component_separators = { left = '', right = '' },
-      disabled_filetypes = { statusline = { 'alpha' } },
-      globalstatus = true,
+      disabled_filetypes = {
+        statusline = { 'snacks_dashboard' },
+      },
+      globalstatus = vim.o.laststatus == 3,
+      refresh = { statusline = 0, tabline = 0 },
       section_separators = { left = '', right = '' },
       theme = 'catppuccin',
     },
@@ -42,18 +45,17 @@ M.opts = function()
       lualine_a = {},
       lualine_b = { { git_root_name } },
       lualine_c = {
-        { 'branch', color = { fg = palette.colors.gruvbox.gray } },
+        { 'branch' },
       },
       lualine_x = {
         {
           'filename',
-          color = { fg = palette.colors.gruvbox.gray, gui = 'italic' },
           file_status = false,
           path = 1,
         },
       },
       lualine_y = {
-        { 'filetype', color = { fg = palette.colors.gruvbox.gray } },
+        { 'filetype' },
         { 'location' },
       },
       lualine_z = {},

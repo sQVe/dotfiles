@@ -3,12 +3,10 @@
 -- ╹╹ ╹ ╹ ┗━╸┗━┛╹┗╸╹ ╹ ╹ ╹┗━┛╹ ╹┗━┛
 
 return {
-  alpha = true,
   blink_cmp = true,
   fidget = true,
   flash = true,
   gitsigns = true,
-  illuminate = { enabled = true },
   markdown = true,
   mini = { enabled = true, indentscope_color = '' },
   native_lsp = {
@@ -27,7 +25,6 @@ return {
       information = { 'italic' },
     },
   },
-  render_markdown = true,
   semantic_tokens = true,
   snacks = true,
   treesitter = true,
