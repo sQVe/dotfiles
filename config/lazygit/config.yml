@@ -25,17 +25,30 @@ gui:
     'master': red
   theme:
     activeBorderColor:
-      - cyan
+      - '#5858a0'
       - bold
     inactiveBorderColor:
-      - '#444'
-    cherryPickedCommitBgColor:
-      - reverse
-    cherryPickedCommitFgColor:
-      - white
+      - '#686a78'
+    searchingActiveBorderColor:
+      - '#5858a0'
       - bold
+    optionsTextColor:
+      - '#5858a0'
+    cherryPickedCommitBgColor:
+      - '#bdbfc5'
+    cherryPickedCommitFgColor:
+      - '#5858a0'
+      - bold
+    markedBaseCommitFgColor:
+      - '#5858a0'
+    markedBaseCommitBgColor:
+      - '#806010'
+    unstagedChangesColor:
+      - '#b82530'
+    defaultFgColor:
+      - '#4c4e5e'
     selectedLineBgColor:
-      - '#444'
+      - '#bdbfc5'
   border: 'rounded'
 git:
   autoFetch: false
@@ -44,7 +57,7 @@ git:
   overrideGpg: true
   pagers:
     - colorArg: always
-      pager: delta --dark --paging=never --tabs 2 --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+      pager: delta --light --syntax-theme="Catppuccin Latte" --minus-style='syntax "#e6d6d3"' --minus-emph-style='syntax "#c9a5aa"' --plus-style='syntax "#d0e2d0"' --plus-emph-style='syntax "#a5c9a2"' --paging=never --tabs 2 --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
   parseEmoji: true
   skipHookPrefix: 'draft: '
 keybinding:

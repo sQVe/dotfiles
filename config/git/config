@@ -18,11 +18,15 @@
 
 [delta]
   features = line-numbers decorations
-  syntax-theme = gruvbox-dark
+  syntax-theme = teide-light
   tabs = 2
   true-color = always
   whitespace-error-style = 22 reverse
   zero-style = syntax
+  plus-style = syntax "#b3c6cd"
+  plus-emph-style = syntax "#9ab8c0"
+  minus-style = syntax "#d1acbd"
+  minus-emph-style = syntax "#c299ac"
 
 [delta "decorations"]
   commit-decoration-style = bold yellow box ul
