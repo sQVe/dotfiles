@@ -17,7 +17,7 @@
 # Set colors.
 --colors=line:fg:yellow
 --colors=path:fg:blue
---colors=match:fg:black
---colors=match:bg:green
+--colors=match:style:bold
+--colors=match:fg:green
 
 # vim: ft=config
