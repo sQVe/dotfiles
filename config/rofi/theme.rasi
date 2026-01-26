@@ -3,12 +3,11 @@
 * {
   background-color: transparent;
   text-color: @text;
-  highlight: bold;
   scrollbar: false;
 }
 
 window {
-  width: 800px;
+  width: 600px;
   border: 0;
   border-radius: 8px;
   padding: 8px;
@@ -24,12 +23,11 @@ inputbar {
   children: [ prompt, textbox-prompt-sep, entry ];
   padding: 8px;
   background-color: @mantle;
-  border-radius: 8px;
   margin: 0 0 8px 0;
 }
 
 prompt {
-  text-color: @lavender;
+  text-color: @subtext1;
 }
 
 textbox-prompt-sep {
@@ -52,7 +50,6 @@ listview {
 
 element {
   padding: 4px 8px;
-  border-radius: 4px;
 }
 
 element normal.normal,
@@ -62,8 +59,8 @@ element alternate.normal {
 }
 
 element selected.normal {
-  background-color: @lavender;
-  text-color: @base;
+  background-color: @mantle;
+  text-color: @text;
 }
 
 element-text {
