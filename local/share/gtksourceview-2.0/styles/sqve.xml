@@ -2,111 +2,99 @@
 
 <style-scheme id="sqve" _name="sQVe" version="1.0">
   <author>Oskar 'sQVe' Grunning</author>
-  <_description>Dark color scheme</_description>
+  <_description>Catppuccin Latte (Muted) color scheme</_description>
 
-  <!-- Colors -->
-  <color name="yellow"                      value="#E09A45"/>
-  <color name="bright_orange"               value="#EDC33D"/>
-  <color name="faded_orange"                value="#FFB054"/>
-  <color name="nail_polish_pink"            value="#FF0044"/>
-  <color name="neon_pink"                   value="#FFDD00"/>
-  <color name="sky_blue"                    value="#0088FF"/>
-  <color name="teal_blue"                   value="#80FFBB"/>
-  <color name="light_blue"                  value="#3B80E0"/>
-  <color name="medium_blue"                 value="#5242D3"/>
-  <color name="dark_gray"                   value="#343434"/>
-  <color name="darker_gray"                 value="#222222"/>
-  <color name="fadein_gray"                 value="#383838"/>
-  <color name="light_gray"                  value="#AAAAAA"/>
-  <color name="pale_grey"                   value="#EEEEEE"/>
-  <color name="steel_grey"                  value="#343434"/>
-  <color name="spring_green"                value="#6DB545"/>
-  <color name="sea_green"                   value="#52B5B9"/>
-  <color name="dark_red"                    value="#E02760"/>
-  <color name="bluish_grey"                 value="#777777"/>
-  <color name="steelblue3"                  value="#1BA39C"/>
+  <color name="rosewater"   value="#8b4d4d"/>
+  <color name="flamingo"    value="#a24040"/>
+  <color name="pink"        value="#984080"/>
+  <color name="mauve"       value="#7c32a8"/>
+  <color name="red"         value="#b82530"/>
+  <color name="maroon"      value="#a03050"/>
+  <color name="peach"       value="#a85820"/>
+  <color name="yellow"      value="#806010"/>
+  <color name="green"       value="#287028"/>
+  <color name="teal"        value="#207068"/>
+  <color name="sky"         value="#1878a8"/>
+  <color name="sapphire"    value="#206090"/>
+  <color name="blue"        value="#2850a8"/>
+  <color name="lavender"    value="#5858a0"/>
+  <color name="text"        value="#4c4e5e"/>
+  <color name="subtext1"    value="#5a5c6a"/>
+  <color name="subtext0"    value="#686a78"/>
+  <color name="overlay2"    value="#767885"/>
+  <color name="overlay1"    value="#848692"/>
+  <color name="overlay0"    value="#92949f"/>
+  <color name="surface2"    value="#a0a2ab"/>
+  <color name="surface1"    value="#afb1b8"/>
+  <color name="surface0"    value="#bdbfc5"/>
+  <color name="base"        value="#eff1f5"/>
+  <color name="mantle"      value="#e6e9ef"/>
+  <color name="crust"       value="#dce0e8"/>
 
-  <!-- Global Settings -->
+  <style name="text"                        foreground="text" background="base"/>
+  <style name="selection"                   foreground="text" background="surface1"/>
+  <style name="cursor"                      foreground="rosewater"/>
+  <style name="current-line"                background="mantle"/>
+  <style name="line-numbers"                foreground="overlay1" background="mantle"/>
+  <style name="draw-spaces"                 foreground="overlay0"/>
 
-  <style name="text"                        foreground="light_gray" background="dark_gray"/>
-  <style name="selection"                   foreground="light_gray" background="sky_blue"/>
-  <style name="cursor"                      foreground="light_gray"/>
-  <style name="current-line"                background="darker_gray"/>
-  <style name="line-numbers"                foreground="fadin_gray" background="darker_gray"/>
-  <style name="draw-spaces"                 foreground="bluish_grey"/>
+  <style name="bracket-match"               background="surface1"/>
+  <style name="bracket-mismatch"            background="red" bold="true"/>
 
-  <!-- Bracket Matching -->
-  <style name="bracket-match"               background="steelblue3"/>
-  <style name="bracket-mismatch"            background="dark_red" bold="true"/>
+  <style name="search-match"                foreground="base" background="yellow"/>
 
-  <!-- Search Matching -->
-  <style name="search-match"                foreground="light_gray" background="sea_green"/>
+  <style name="bookmark"                    background="lavender"/>
 
-  <!-- Bookmarks -->
-  <style name="bookmark"                    background="light_gray"/>
-
-  <!-- Comments -->
-  <style name="def:comment"                 foreground="sky_blue" italic="true"/>
-  <style name="def:shebang"                 foreground="sky_blue" italic="true"/>
+  <style name="def:comment"                 foreground="overlay1" italic="true"/>
+  <style name="def:shebang"                 foreground="pink" italic="true"/>
   <style name="def:doc-comment-element"     bold="true"/>
 
-  <!-- Constants and Variables-->
-  <style name="def:constant"                foreground="yellow"/>
-  <style name="def:string"                  foreground="sea_green"/>
-  <style name="def:special-char"            foreground="light_gray"/>
-  <style name="def:special-constant"        foreground="nail_polish_pink" bold="true"/>
-  <style name="def:number"                  foreground="nail_polish_pink"/>
-  <style name="def:floating-point"          foreground="nail_polish_pink"/>
-  <style name="def:keyword"                 foreground="bright_orange" bold="true"/>
-  <style name="def:builtin"                 foreground="bright_orange" bold="true"/>
-  <style name="def:variable"                foreground="light_gray"/>
+  <style name="def:constant"                foreground="peach"/>
+  <style name="def:string"                  foreground="green"/>
+  <style name="def:special-char"            foreground="pink"/>
+  <style name="def:special-constant"        foreground="peach" bold="true"/>
+  <style name="def:number"                  foreground="peach"/>
+  <style name="def:floating-point"          foreground="peach"/>
+  <style name="def:keyword"                 foreground="mauve" bold="true"/>
+  <style name="def:builtin"                 foreground="red"/>
+  <style name="def:variable"                foreground="text"/>
 
-  <!-- Identifiers -->
-  <style name="def:identifier"              foreground="light_gray"/>
-  <style name="def:function"                use-style="def:identifier"/>
+  <style name="def:identifier"              foreground="text"/>
+  <style name="def:function"                foreground="blue" italic="true"/>
 
-  <!-- Statements -->
-  <style name="def:statement"               foreground="bright_orange"/>
+  <style name="def:statement"               foreground="mauve"/>
 
-  <!-- Types -->
-  <style name="def:type"                    foreground="teal_blue"/>
+  <style name="def:type"                    foreground="yellow" italic="true"/>
 
-  <!-- Others -->
-  <style name="def:error"                   foreground="light_gray" background="dark_red" bold="true"/>
-  <style name="def:note"                    foreground="neon_pink" bold="true"/>
-  <style name="def:net-address-in-comment"  foreground="teal_blue" italic="false" underline="true"/>
-  <style name="def:preprocessor"            foreground="light_gray"/>
+  <style name="def:error"                   foreground="base" background="red" bold="true"/>
+  <style name="def:note"                    foreground="yellow" bold="true"/>
+  <style name="def:net-address-in-comment"  foreground="blue" italic="false" underline="true"/>
+  <style name="def:preprocessor"            foreground="yellow"/>
 
-  <!-- Unknown? -->
-  <style name="def:specials"                foreground="light_gray" background="neon_pink"/>
-  <style name="def:boolean"                 foreground="nail_polish_pink"/>
+  <style name="def:specials"                foreground="base" background="pink"/>
+  <style name="def:boolean"                 foreground="peach"/>
 
-  <!-- C Styles -->
-  <style name="c:preprocessor"              foreground="teal_blue" bold="true"/>
-  <style name="c:included-file"             foreground="spring_green"/>
-  <style name="c:common-defines"            foreground="sky_blue" bold="true"/>
+  <style name="c:preprocessor"              foreground="yellow" bold="true"/>
+  <style name="c:included-file"             foreground="green"/>
+  <style name="c:common-defines"            foreground="blue" bold="true"/>
 
-  <!-- Diff Styles -->
-  <style name="diff:ignore"                 foreground="bluish_grey"/>
-  <style name="diff:added-line"             foreground="yellow"/>
-  <style name="diff:removed-line"           foreground="spring_green"/>
-  <style name="diff:changed-line"           foreground="bright_orange"/>
-  <style name="diff:diff-file"              foreground="sky_blue" bold="true"/>
-  <style name="diff:location"               foreground="sky_blue"/>
-  <style name="diff:special-case"           foreground="nail_polish_pink" bold="true"/>
+  <style name="diff:ignore"                 foreground="overlay0"/>
+  <style name="diff:added-line"             foreground="green"/>
+  <style name="diff:removed-line"           foreground="red"/>
+  <style name="diff:changed-line"           foreground="peach"/>
+  <style name="diff:diff-file"              foreground="blue" bold="true"/>
+  <style name="diff:location"               foreground="sky"/>
+  <style name="diff:special-case"           foreground="maroon" bold="true"/>
 
-  <!-- Ruby Styles -->
-  <style name="ruby:module-handler"         foreground="teal_blue"/>
-  <style name="ruby:symbol"                 foreground="nail_polish_pink"/>
-  <style name="ruby:regex"                  foreground="teal_blue"/>
+  <style name="ruby:module-handler"         foreground="mauve"/>
+  <style name="ruby:symbol"                 foreground="flamingo"/>
+  <style name="ruby:regex"                  foreground="pink"/>
 
-  <!-- SH Styles -->
-  <style name="sh:function"                 foreground="neon_pink"/>
+  <style name="sh:function"                 foreground="blue"/>
 
-  <!-- XML Styles -->
-  <style name="xml:attribute-name"          foreground="light_gray"/>
-  <style name="xml:element-name"            foreground="teal_blue"/>
-  <style name="xml:entity"                  foreground="#blue"/>
+  <style name="xml:attribute-name"          foreground="yellow"/>
+  <style name="xml:element-name"            foreground="blue"/>
+  <style name="xml:entity"                  foreground="teal"/>
   <style name="xml:processing-instruction"  bold="true"/>
 
 </style-scheme>
