@@ -12,6 +12,11 @@ return {
       truncate = 120,
     },
   },
+  layout = {
+    layout = {
+      backdrop = false,
+    },
+  },
   previews = {
     file = {
       max_size = BIG_FILE_THRESHOLD,
