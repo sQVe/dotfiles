@@ -72,12 +72,14 @@ layout {
     proportion 0.5
   }
   focus-ring {
-    width 2.5
+    width 2
     active-color "#5858a0"
     inactive-color "#92949f"
   }
   border {
-    off
+    width 1
+    active-color "#5858a0"
+    inactive-color "#92949f"
   }
   shadow {
     draw-behind-window false
