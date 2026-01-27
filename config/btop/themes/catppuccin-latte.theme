@@ -17,7 +17,7 @@ theme[hi_fg]="#2850a8"
 theme[selected_bg]="#2850a8"
 
 # Foreground color of selected items
-theme[selected_fg]="#eff1f5"
+theme[selected_fg]="#f5f7fa"
 
 # Color of inactive/disabled text
 theme[inactive_fg]="#92949f"

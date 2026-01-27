@@ -1,7 +1,7 @@
 # vim:fileencoding=utf-8
 
 [app]
-overall = { bg = "#eff1f5" }
+overall = { bg = "#f5f7fa" }
 
 [mgr]
 cwd = { fg = "#207068" }
@@ -14,9 +14,9 @@ marker_cut = { fg = "#b82530", bg = "#b82530" }
 marker_marked = { fg = "#207068", bg = "#207068" }
 marker_selected = { fg = "#2850a8", bg = "#2850a8" }
 
-count_copied = { fg = "#eff1f5", bg = "#287028" }
-count_cut = { fg = "#eff1f5", bg = "#b82530" }
-count_selected = { fg = "#eff1f5", bg = "#2850a8" }
+count_copied = { fg = "#f5f7fa", bg = "#287028" }
+count_cut = { fg = "#f5f7fa", bg = "#b82530" }
+count_selected = { fg = "#f5f7fa", bg = "#2850a8" }
 
 border_symbol = "│"
 border_style = { fg = "#848692" }
@@ -24,23 +24,23 @@ border_style = { fg = "#848692" }
 syntect_theme = "~/.config/bat/themes/catppuccin-latte.tmTheme"
 
 [tabs]
-active = { fg = "#eff1f5", bg = "#4c4e5e", bold = true }
+active = { fg = "#f5f7fa", bg = "#4c4e5e", bold = true }
 inactive = { fg = "#4c4e5e", bg = "#afb1b8" }
 
 [mode]
-normal_main = { fg = "#eff1f5", bg = "#2850a8", bold = true }
+normal_main = { fg = "#f5f7fa", bg = "#2850a8", bold = true }
 normal_alt = { fg = "#2850a8", bg = "#bdbfc5" }
 
-select_main = { fg = "#eff1f5", bg = "#287028", bold = true }
+select_main = { fg = "#f5f7fa", bg = "#287028", bold = true }
 select_alt = { fg = "#287028", bg = "#bdbfc5" }
 
-unset_main = { fg = "#eff1f5", bg = "#a05858", bold = true }
+unset_main = { fg = "#f5f7fa", bg = "#a05858", bold = true }
 unset_alt = { fg = "#a05858", bg = "#bdbfc5" }
 
 [indicator]
-parent = { fg = "#eff1f5", bg = "#4c4e5e" }
-current = { fg = "#eff1f5", bg = "#2850a8" }
-preview = { fg = "#eff1f5", bg = "#4c4e5e" }
+parent = { fg = "#f5f7fa", bg = "#4c4e5e" }
+current = { fg = "#f5f7fa", bg = "#2850a8" }
+preview = { fg = "#f5f7fa", bg = "#4c4e5e" }
 
 [status]
 sep_left = { open = "", close = "" }

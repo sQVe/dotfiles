@@ -27,7 +27,7 @@
   <color name="surface2"    value="#a0a2ab"/>
   <color name="surface1"    value="#afb1b8"/>
   <color name="surface0"    value="#bdbfc5"/>
-  <color name="base"        value="#eff1f5"/>
+  <color name="base"        value="#f5f7fa"/>
   <color name="mantle"      value="#e6e9ef"/>
   <color name="crust"       value="#dce0e8"/>
 

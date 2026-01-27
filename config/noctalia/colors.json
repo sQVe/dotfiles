@@ -1,10 +1,10 @@
 {
   "mError": "#b82530",
   "mHover": "#dce0e8",
-  "mOnError": "#eff1f5",
+  "mOnError": "#f5f7fa",
   "mOnHover": "#4c4e5e",
-  "mOnPrimary": "#eff1f5",
-  "mOnSecondary": "#eff1f5",
+  "mOnPrimary": "#f5f7fa",
+  "mOnSecondary": "#f5f7fa",
   "mOnSurface": "#4c4e5e",
   "mOnSurfaceVariant": "#5858a0",
   "mOnTertiary": "#4c4e5e",
