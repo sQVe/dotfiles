@@ -4,7 +4,7 @@ profile laptop {
 
 profile home-office {
     output "BOE *" enable mode 2560x1600@165.004 scale 1.3 position 3440,1577
-    output "Dell Inc. DELL S3422DWG *" enable mode 3440x1440@143.975 scale 1 position 0,1440
+    output "Dell Inc. DELL S3422DWG *" enable mode 3440x1440@119.991 scale 1 position 0,1440
     output "Lenovo Group Limited P24h-10 *" enable mode 2560x1440@59.951 scale 1 position 440,0
 }
 
