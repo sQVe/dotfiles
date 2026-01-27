@@ -13,7 +13,6 @@ local M = {
   name = 'catppuccin',
   priority = 1000,
 }
---asd
 
 M.opts = {
   compile_path = vim.fn.expand('$XDG_CACHE_HOME') .. '/catppuccin',
