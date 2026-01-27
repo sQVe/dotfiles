@@ -73,14 +73,18 @@
                 {
                     "characterCount": 2,
                     "colorizeIcons": false,
+                    "emptyColor": "secondary",
                     "enableScrollWheel": true,
+                    "focusedColor": "primary",
                     "followFocusedScreen": false,
                     "groupedBorderOpacity": 1,
                     "hideUnoccupied": false,
                     "iconScale": 0.87,
                     "id": "Workspace",
                     "labelMode": "index",
+                    "occupiedColor": "secondary",
                     "showApplications": false,
+                    "showBadge": true,
                     "showLabelsOnlyWhenOccupied": true,
                     "unfocusedIconsOpacity": 1
                 }
@@ -336,13 +340,14 @@
         "pinnedApps": [
         ],
         "pinnedStatic": false,
-        "position": "bottom",
+        "position": "right",
         "size": 1.54
     },
     "general": {
         "allowPanelsOnScreenWithoutBar": true,
         "animationDisabled": false,
         "animationSpeed": 1.2,
+        "autoStartAuth": false,
         "avatarImage": "/home/sqve/pictures/avatars/totoro.png",
         "boxRadiusRatio": 1,
         "compactLockScreen": true,
@@ -570,8 +575,8 @@
         "directory": "/home/sqve/pictures/art/GHARLIERA",
         "enableMultiMonitorDirectories": false,
         "enabled": true,
-        "fillColor": "#eeeeee",
-        "fillMode": "crop",
+        "fillColor": "#ffffff",
+        "fillMode": "fit",
         "hideWallpaperFilenames": false,
         "monitorDirectories": [
             {
