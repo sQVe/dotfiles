@@ -5,6 +5,7 @@
 
 local M = {
   'nvim-lualine/lualine.nvim',
+  dependencies = { 'catppuccin/nvim' },
   event = 'VeryLazy',
 }
 
