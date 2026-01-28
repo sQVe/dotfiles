@@ -6,7 +6,7 @@
 local M = {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'catppuccin/nvim' },
-  event = 'VeryLazy',
+  lazy = false,
 }
 
 local git_root_name = function()
@@ -40,7 +40,6 @@ M.opts = function()
       globalstatus = vim.o.laststatus == 3,
       refresh = { statusline = 0, tabline = 0 },
       section_separators = { left = '', right = '' },
-      theme = 'catppuccin',
     },
     sections = {
       lualine_a = {},
