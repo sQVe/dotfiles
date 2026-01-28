@@ -597,7 +597,7 @@
         "randomIntervalSec": 1800,
         "setWallpaperOnAllMonitors": true,
         "showHiddenFiles": false,
-        "solidColor": "#eeeeee",
+        "solidColor": "#ffffff",
         "transitionDuration": 1500,
         "transitionEdgeSmoothness": 0.05,
         "transitionType": "fade",
