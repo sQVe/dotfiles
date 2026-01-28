@@ -7,6 +7,8 @@ return {
   fidget = true,
   flash = true,
   gitsigns = true,
+  grug_far = true,
+  lualine = true,
   markdown = true,
   mini = { enabled = true, indentscope_color = '' },
   native_lsp = {
