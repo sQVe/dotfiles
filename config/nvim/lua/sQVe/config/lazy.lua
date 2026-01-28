@@ -28,11 +28,14 @@ require('lazy').setup('sQVe.plugins', {
         root = '~/code/forks'
       end
 
-      if plugin.name == 'fff.nvim' then
-        return root .. '/' .. plugin.name .. '/allow-layout-customization'
+      local base = vim.fn.expand(root .. '/' .. plugin.name)
+      local bare = base .. '/.bare'
+
+      if vim.fn.isdirectory(bare) == 1 then
+        return base .. '/main'
       end
 
-      return root .. '/' .. plugin.name
+      return base
     end,
   },
   performance = {
