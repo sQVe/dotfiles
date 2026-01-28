@@ -64,5 +64,8 @@ export PRETTIERD_LOCAL_PRETTIER_ONLY=1
 # Development tooling.
 export MOB_VOICE_COMMAND="mpv /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
 
+# Font rendering.
+export FREETYPE_PROPERTIES="cff:no-stem-darkening=0 autofitter:no-stem-darkening=0"
+
 # Misc options.
 export GTK_THEME=Orchis-Light
