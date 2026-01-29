@@ -1,6 +1,7 @@
 gui:
   commandLogSize: 16
   commitHashLength: 7
+  enlargedSideViewLocation: top
   expandFocusedSidePanel: true
   filterMode: fuzzy
   nerdFontsVersion: '3'
@@ -9,6 +10,7 @@ gui:
   showBottomLine: false
   showFileTree: false
   showRandomTip: false
+  sidePanelWidth: 0.4
   skipDiscardChangeWarning: true
   skipRewordInEditorWarning: true
   tabWidth: 2
