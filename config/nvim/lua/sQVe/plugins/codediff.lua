@@ -11,6 +11,9 @@ local M = {
 
 M.opts = {
   keymaps = {
+    explorer = {
+      toggle_view_mode = '`',
+    },
     view = {
       next_file = '<Tab>',
       prev_file = '<S-Tab>',
