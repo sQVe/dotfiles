@@ -2,6 +2,9 @@
 #  ┗━┓┣╸  ┃  ┃ ┃┃┗┫┃╺┓┗━┓
 #  ┗━┛┗━╸ ╹  ╹ ╹╹ ╹┗━┛┗━┛
 
+# Disable flow control (frees Ctrl+S and Ctrl+Q).
+stty -ixon
+
 if [[ "$TERM" = 'linux' ]]; then
   # Set virtual console colors (Teide dark palette).
   printf '%b' '\e]P0171b20\e]P1F97791\e]P238FFA5\e]P3FFA064' \
@@ -126,6 +129,8 @@ function zvm_after_init() {
   bindkey '^P' reverse-menu-complete
   bindkey '^J' history-substring-search-down
   bindkey '^K' history-substring-search-up
+
+  bindkey '^S' edit-command-line
 
   bindkey '^[[A' history-substring-search-up
   bindkey '^[[B' history-substring-search-down
