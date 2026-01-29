@@ -11,9 +11,7 @@ return function(theme)
     CursorLineNr = { bg = theme.mantle },
 
     -- Search.
-    Search = { fg = theme.base, bg = theme.yellow },
-    IncSearch = { fg = theme.base, bg = theme.green, bold = true },
-    CurSearch = { bg = theme.green, bold = true },
+    CurSearch = { bg = theme.teal, bold = true },
 
     -- Chainsaw.
     ChainsawLog = { bg = theme.crust },
