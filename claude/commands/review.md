@@ -27,18 +27,20 @@ Dispatches 3 parallel subagents with identical prompts. Each reviews independent
    - Run `git rev-parse --git-dir` — if fails: "Not a git repository"
    - If validation fails: stop with clear message
 
-2. **Determine scope**
+2. **Determine scope and gather content**
    - Detect main branch: `git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@'` (fallback: `main`, then `master`)
-   - No scope: `git diff $(git merge-base HEAD $MAIN_BRANCH)..HEAD` plus uncommitted changes
+   - No scope: changes from merge-base plus uncommitted
    - `unstaged`: `git diff` (working tree only)
    - `staged`: `git diff --staged`
    - Path: specified file(s)
 
-   **Verify complete coverage:**
+   **Gather full context:**
    - Run `git diff --name-only [flags]` to list all affected files
    - If no files found: "No changes found for scope: {scope}"
-   - Confirm the diff content includes every listed file
-   - Report file count: "Reviewing N files"
+   - For each changed file:
+     - Read full file content (not just diff)
+     - Get diff hunks for that file
+   - Report: "Reviewing N files with 3 parallel agents..."
 
 3. **Detect review type**
    - Argument provided → use it
@@ -91,16 +93,35 @@ After presenting findings, NEVER:
 <review_context>
 <type>$REVIEW_TYPE</type>
 <scope>$SCOPE_DESCRIPTION</scope>
+<changed_files>$FILE_LIST</changed_files>
 </review_context>
 
 <content_to_review>
-$DIFF_OR_FILE_CONTENT
+<!-- Each file includes FULL CONTENT plus diff hunks -->
+<file path="$FILE_PATH">
+<full_content>
+$FULL_FILE_CONTENT
+</full_content>
+<diff>
+$DIFF_HUNKS
+</diff>
+</file>
+<!-- Repeat for each changed file -->
 </content_to_review>
 
 <review_focus>
 For code: bugs, logic errors, edge cases, security issues, improvements
 For writing: clarity, accuracy, structure, missing information
 </review_focus>
+
+<context_awareness>
+You have FULL FILE CONTENT, not just diffs. Before flagging an issue:
+- Check if validation/handling exists elsewhere in the file
+- Check if the suggested fix already exists (don't add what's there)
+- Understand framework behavior (e.g., Next.js notFound() throws, React hooks rules)
+- Look at imports to understand available utilities and patterns
+- Consider parent/child component relationships visible in the file
+</context_awareness>
 
 <output_format>
 Return findings as JSON array:
@@ -121,16 +142,18 @@ Severity guide:
 - **critical**: Bugs, security issues, data loss risks
 - **warning**: Logic gaps, edge cases, maintainability issues
 - **info**: Improvements, suggestions, style (non-CLAUDE.md)
-  </output_format>
+
+Return empty array `[]` if no issues found.
+</output_format>
 
 <success_criteria>
-
 - [ ] Reviewed all files in scope
+- [ ] Used full file context to verify issues exist
 - [ ] Identified bugs, logic errors, and security issues
 - [ ] Returned valid JSON matching schema
 - [ ] Each finding has clear severity and description
-      </success_criteria>
-      </subagent_prompt>
+</success_criteria>
+</subagent_prompt>
 
 <report_format>
 
@@ -178,7 +201,7 @@ Files: {file_count} reviewed by 3 agents
 
 **Fix critical issues** — address high-severity findings first
 
-`/check staged` — verify fixes comply with project rules
+`/lint staged` — verify fixes comply with project rules
 
 ---
 
@@ -192,13 +215,11 @@ Files: {file_count} reviewed by 3 agents
 </report_format>
 
 <success_criteria>
-
 - [ ] Scope determined correctly
-- [ ] All changed files included (verified via --name-only)
+- [ ] Full file content retrieved for all changed files
 - [ ] Review type detected or used from argument
-- [ ] 3 subagents dispatched in parallel
-- [ ] Findings deduplicated and compiled
-- [ ] Report generated with severity categories
+- [ ] 3 subagents dispatched in parallel with identical prompts
+- [ ] Findings deduplicated with consensus tracking
+- [ ] Report generated with severity categories and consensus
 - [ ] User chose action for issues (if any)
-
 </success_criteria>

@@ -1,5 +1,5 @@
 ---
-name: annotate
+name: pr-annotate
 description: Add self-review comments to PR changes via GitHub review
 argument-hint: '[pr-number]'
 model: claude-sonnet-4-5-20250929

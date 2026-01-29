@@ -136,7 +136,7 @@ Test plan: {passed}/{total} checks passed
 **Also available:**
 
 - `gh pr view --web` — open PR in browser
-- `/annotate` — add self-review comments
+- `/pr-annotate` — add self-review comments
 
 ---
 

@@ -1,5 +1,5 @@
 ---
-name: check
+name: lint
 description: Check code against project rules and conventions
 argument-hint: '[scope]'
 model: claude-opus-4-5-20251101
@@ -198,7 +198,7 @@ Files: {file_count} checked against {rule_count} rules
 **Also available:**
 
 - `/commit` — commit after fixing
-- `/check staged` — re-check after fixes
+- `/lint staged` — re-check after fixes
 
 ---
 
