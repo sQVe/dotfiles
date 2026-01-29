@@ -28,7 +28,7 @@ M.ascii_header = {
       end
     end)
   end,
-  name = 'ASCII header',
+  name = 'Insert ASCII header',
 }
 
 M.blame = {
@@ -39,7 +39,7 @@ M.blame = {
   condition = function()
     return git.is_inside_repo()
   end,
-  name = 'Blame',
+  name = 'Show git blame',
 }
 
 M.buffers = {
@@ -143,7 +143,7 @@ M.clean_whitespace = {
   condition = function(opts)
     return opts.is_visual_mode
   end,
-  name = 'Clean whitespace',
+  name = 'Strip whitespace',
 }
 
 M.close_hidden_buffers = {
@@ -174,7 +174,7 @@ M.command_history = {
   callback = function()
     Snacks.picker.command_history()
   end,
-  name = 'Command history',
+  name = 'Browse command history',
 }
 
 M.commit_message_from_branch_name = {
@@ -191,7 +191,7 @@ M.commit_message_from_branch_name = {
   condition = function()
     return git.is_inside_repo()
   end,
-  name = 'Generate commit message title from branch name',
+  name = 'Insert commit title from branch',
 }
 
 M.create_new_daily_note = {
@@ -286,7 +286,7 @@ M.file_explorer = {
   callback = function()
     require('mini.files').open(buffer.get_path(), false)
   end,
-  name = 'File explorer',
+  name = 'Open file explorer',
 }
 
 M.find_all_files = {
@@ -339,7 +339,7 @@ M.git_status = {
   condition = function()
     return git.is_inside_repo() and git.has_changed_files()
   end,
-  name = 'Git status',
+  name = 'Show git status',
 }
 
 M.git_browse = {
@@ -353,7 +353,7 @@ M.git_browse = {
   end,
   name = function(opts)
     return utils.get_short_path(
-      utils.get_name_with_buffer_directory('Open in browser', opts)
+      utils.get_name_with_buffer_directory('Open in GitHub', opts)
     )
   end,
 }
@@ -374,7 +374,7 @@ M.grep = {
       args = { '--pcre2' },
     })
   end,
-  name = 'Grep',
+  name = 'Search in files',
 }
 
 M.grep_text = {
@@ -385,11 +385,7 @@ M.grep_text = {
     return buffer.is_valid(opts.bufnr)
   end,
   name = function(opts)
-    return string.format(
-      'Grep %s `%s`',
-      opts.is_visual_mode and 'selection' or 'word',
-      opts.query
-    )
+    return string.format('Search for `%s` in files', opts.query)
   end,
 }
 
@@ -397,7 +393,7 @@ M.grep_buffers = {
   callback = function()
     Snacks.picker.grep_buffers()
   end,
-  name = 'Grep in open buffers',
+  name = 'Search in open buffers',
 }
 
 M.grep_subdirectory = {
@@ -413,7 +409,7 @@ M.grep_subdirectory = {
   end,
   name = function(opts)
     return utils.get_short_path(
-      utils.get_name_with_buffer_directory('Grep', opts)
+      utils.get_name_with_buffer_directory('Search in files', opts)
     )
   end,
 }
@@ -422,7 +418,7 @@ M.icons = {
   callback = function()
     Snacks.picker.icons()
   end,
-  name = 'Get icon',
+  name = 'Insert icon',
 }
 
 M.input_file_paths = {
@@ -449,7 +445,7 @@ M.input_file_paths = {
       end,
     })
   end,
-  name = 'Input file paths',
+  name = 'Insert file paths',
 }
 
 M.lines = {
@@ -516,7 +512,7 @@ M.recent_files = {
       },
     })
   end,
-  name = 'Recent files',
+  name = 'Go to recent file',
 }
 
 M.rename_symbol = {
@@ -573,7 +569,7 @@ M.search_history = {
   callback = function()
     Snacks.picker.search_history()
   end,
-  name = 'Search history',
+  name = 'Browse search history',
 }
 
 M.spawn_file_manager = {
@@ -678,7 +674,7 @@ M.spelling = {
   callback = function()
     Snacks.picker.spelling()
   end,
-  name = 'Show spelling suggestions',
+  name = 'Fix spelling',
 }
 
 M.toggle_conceal_level = {
@@ -686,12 +682,7 @@ M.toggle_conceal_level = {
     vim.wo[opts.winnr].conceallevel = vim.wo[opts.winnr].conceallevel == 0 and 2
       or 0
   end,
-  name = function(opts)
-    return string.format(
-      '%s character conceal',
-      vim.wo[opts.winnr].conceallevel == 0 and 'Enable' or 'Disable'
-    )
-  end,
+  name = 'Toggle conceal',
 }
 
 M.toggle_format_on_save = {
@@ -703,12 +694,7 @@ M.toggle_format_on_save = {
 
     return conform ~= nil and conform._.loaded
   end,
-  name = function()
-    return string.format(
-      '%s format on save',
-      var.get_global('format_on_save') and 'Disable' or 'Enable'
-    )
-  end,
+  name = 'Toggle format on save',
 }
 
 M.toggle_inline_diff = {
@@ -721,55 +707,35 @@ M.toggle_inline_diff = {
 
     return git.is_inside_repo() and mini_diff ~= nil and mini_diff._.loaded
   end,
-  name = function(opts)
-    return string.format(
-      '%s inline diff',
-      var.get_buffer(opts.bufnr, 'git_diff') and 'Hide' or 'Show'
-    )
-  end,
+  name = 'Toggle inline diff',
 }
 
 M.toggle_relative_numbers = {
   callback = function(opts)
     vim.wo[opts.winnr].relativenumber = not vim.wo[opts.winnr].relativenumber
   end,
-  name = function(opts)
-    return string.format(
-      '%s relative numbers',
-      vim.wo[opts.winnr].relativenumber and 'Disable' or 'Enable'
-    )
-  end,
+  name = 'Toggle relative numbers',
 }
 
 M.toggle_spell = {
   callback = function(opts)
     vim.wo[opts.winnr].spell = not vim.wo[opts.winnr].spell
   end,
-  name = function(opts)
-    return string.format(
-      '%s spell checking',
-      vim.wo[opts.winnr].spell and 'Disable' or 'Enable'
-    )
-  end,
+  name = 'Toggle spell check',
 }
 
 M.toggle_wrap = {
   callback = function(opts)
     vim.wo[opts.winnr].wrap = not vim.wo[opts.winnr].wrap
   end,
-  name = function(opts)
-    return string.format(
-      '%s line wrapping',
-      vim.wo[opts.winnr].wrap and 'Disable' or 'Enable'
-    )
-  end,
+  name = 'Toggle line wrap',
 }
 
 M.undo = {
   callback = function()
     Snacks.picker.undo()
   end,
-  name = 'Undo',
+  name = 'Browse undo history',
 }
 
 M.workspace_symbols = {
@@ -834,7 +800,7 @@ M.yank_ring = {
   callback = function()
     Snacks.picker.yanky()
   end,
-  name = 'Open yank ring',
+  name = 'Browse yank history',
 }
 
 return M
