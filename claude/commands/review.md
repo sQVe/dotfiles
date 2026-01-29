@@ -9,6 +9,8 @@ allowed-tools:
   - Glob
   - Grep
   - Task
+  - Edit
+  - Write
 ---
 
 <objective>
@@ -59,10 +61,10 @@ Dispatches 3 parallel subagents with identical prompts. Each reviews independent
 
 6. **Compile findings**
    - Merge results from all agents
-   - Deduplicate by: file + line range overlap
+   - Deduplicate by: file + line range overlap (start_line/end_line)
    - When findings overlap, merge descriptions and keep highest severity
    - Note consensus (found by N agents)
-   - Sort: Critical → Warning → Info
+   - Sort: Critical → Suggestion → Nitpick
 
 7. **Generate report** (OUTPUT GATE)
    - Generate report using `<report_format>`
@@ -129,10 +131,12 @@ Return findings as JSON array:
 ```json
 [
   {
-    "severity": "critical|warning|info",
+    "severity": "critical|suggestion|nitpick",
     "file": "path/to/file.ts",
-    "line": 42,
-    "description": "Clear description of the issue"
+    "start_line": 42,
+    "end_line": 45,
+    "description": "Clear description of the issue",
+    "suggestion": "How to fix it"
   }
 ]
 ```
@@ -140,9 +144,10 @@ Return findings as JSON array:
 Severity guide:
 
 - **critical**: Bugs, security issues, data loss risks
-- **warning**: Logic gaps, edge cases, maintainability issues
-- **info**: Improvements, suggestions, style (non-CLAUDE.md)
+- **suggestion**: Logic gaps, edge cases, better approaches
+- **nitpick**: Style issues, naming, minor improvements
 
+For single-line findings, `start_line` and `end_line` are the same.
 Return empty array `[]` if no issues found.
 </output_format>
 
@@ -169,20 +174,20 @@ Return empty array `[]` if no issues found.
 | --- | --------- | ---- | --------------------------- | --------- |
 | 1   | `auth.ts` | 42   | SQL injection vulnerability | 3/3       |
 
-### ⚠️ Warning
+### 💡 Suggestion
 
 | #   | File       | Line | Issue                  | Consensus |
 | --- | ---------- | ---- | ---------------------- | --------- |
 | 2   | `utils.ts` | 15   | Unchecked null access  | 2/3       |
 | 3   | `api.ts`   | 88   | Missing error handling | 2/3       |
 
-### ℹ️ Info
+### 📝 Nitpick
 
 | #   | File        | Line | Suggestion                   | Consensus |
 | --- | ----------- | ---- | ---------------------------- | --------- |
 | 4   | `config.ts` | 5    | Consider extracting constant | 1/3       |
 
-**Summary:** {critical_count} critical, {warning_count} warnings, {info_count} info across {file_count} files
+**Summary:** {critical_count} critical, {suggestion_count} suggestions, {nitpick_count} nitpicks across {file_count} files
 
 **Recommendation:** Fix 1-2 (high consensus). Consider 3. Skip 4.
 

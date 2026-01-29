@@ -26,7 +26,7 @@ Assumes user is in a worktree checked out to the PR branch. Annotations stay in 
 <process>
 1. **Validate prerequisites**
    - Run `git rev-parse --git-dir` — if fails: "Not a git repository"
-   - Detect PR: `gh pr view --json number,baseRefName,title -q '.'`
+   - Detect PR: `gh pr view {pr-number} --json number,baseRefName,title -q '.'` (omit `{pr-number}` if not provided)
    - If no PR: "No PR found for this branch. Checkout the PR branch first."
    - Store base branch name for diff
 
@@ -127,7 +127,7 @@ You have FULL FILE CONTENT, not just diffs. Before flagging an issue:
 - **nitpick**: Style issues, naming, minor improvements
 </severity_guide>
 
-<output_format>
+<subagent_output_format>
 Return findings as JSON array:
 
 ```json
@@ -146,7 +146,7 @@ Return findings as JSON array:
 
 For single-line findings, `start_line` and `end_line` are the same.
 Return empty array `[]` if no issues found.
-</output_format>
+</subagent_output_format>
 
 <success_criteria>
 - [ ] Reviewed all files in scope
