@@ -118,11 +118,21 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
    - Edge cases WHERE THE CODE HAS HANDLING (not generic edge cases)
    - Error paths trigger and recover properly
 
+   ## Step 4: Categorize each test
+
+   Assign each proposal to a category:
+   - **core**: Business logic, key behavior users depend on, error paths that affect functionality
+   - **extended**: Edge cases, boundary conditions, defensive coverage, unusual inputs
+
+   A test is "core" if a failure would be noticed by users or break primary functionality.
+   A test is "extended" if it catches corner cases or improves robustness.
+
    Output as JSON:
    {
      "proposals": [{
        "function": "name",
        "logic_found": "brief description of the decision/transformation",
+       "category": "core | extended",
        "test_cases": [{"scenario": "when X", "expected": "then Y"}],
        "mocks_needed": ["..."]
      }]
@@ -133,6 +143,7 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
    <success_criteria>
    - [ ] Identified specific logic (conditionals, transformations) in code
    - [ ] Each proposal tied to actual code logic, not generic edge cases
+   - [ ] Each proposal has category assigned (core or extended)
    - [ ] No passthrough or wiring-only tests proposed
    - [ ] Returned valid JSON matching schema
    </success_criteria>
@@ -144,15 +155,28 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
    - Discard proposals where `logic_found` is vague or describes passthrough
 
 7. **Confirm test plan** (OUTPUT GATE)
-   - Output proposed tests grouped by file as formatted text
-   - Include: function, logic being tested, test scenarios
+   - Output proposed tests grouped by category, then by file:
+
+     ```
+     ### Core tests (recommended)
+     | Function | Logic tested | Scenarios |
+     |----------|--------------|-----------|
+     | parse    | MSO comment fix | 2 |
+
+     ### Extended tests (optional)
+     | Function | Logic tested | Scenarios |
+     |----------|--------------|-----------|
+     | parse    | whitespace edge cases | 3 |
+     ```
+
    - End output with `---` separator
    - **PROHIBITED after separator:**
      - "Let me...", "I'll...", "Now I will..."
      - "Starting with...", "First I'll..."
      - Any action-announcing language
    - IMMEDIATELY use `AskUserQuestion` with options:
-     - **Generate all** — create all proposed tests
+     - **Generate core** — create core tests only (PR-friendly)
+     - **Generate all** — create all proposed tests (full coverage)
      - **Select tests** — choose which tests to generate
      - **Add more** — request additional test cases
      - **Cancel** — abort without generating
@@ -219,10 +243,10 @@ After presenting findings, NEVER:
 ✓ All 8 tests passing
 
 ### Coverage
-| Function | Logic Tested | Scenarios |
-|----------|--------------|-----------|
-| parse    | MSO comment fix, concurrent render | 4 |
-| validate | fallback defaults, pluralization | 3 |
+| Function | Category | Logic tested | Scenarios |
+|----------|----------|--------------|-----------|
+| parse    | core     | MSO comment fix | 4 |
+| validate | extended | edge cases | 3 |
 ```
 
 ---
@@ -247,9 +271,11 @@ After presenting findings, NEVER:
 <success_criteria>
 
 - [ ] Dispatch 3 subagents with identical prompts
+- [ ] Each proposal has category assigned
 - [ ] Merge proposals by consensus
+- [ ] Confirmation shows tests grouped by category
 - [ ] User confirmed test plan
 - [ ] Tests generated
 - [ ] Verify tests pass
 - [ ] Report summary
-      </success_criteria>
+</success_criteria>
