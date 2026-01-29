@@ -81,6 +81,71 @@ M.change_cwd_git_root_path = {
   end,
 }
 
+M.clean_whitespace = {
+  callback = function(opts)
+    local region = require('sQVe.utils.selection').get_current_region()
+    local lines = vim.api.nvim_buf_get_lines(
+      opts.bufnr,
+      region.from.line - 1,
+      region.to.line,
+      false
+    )
+
+    for i, line in ipairs(lines) do
+      lines[i] = line:gsub('%s+$', '')
+    end
+
+    while #lines > 0 and lines[1]:match('^%s*$') do
+      table.remove(lines, 1)
+    end
+
+    while #lines > 0 and lines[#lines]:match('^%s*$') do
+      table.remove(lines)
+    end
+
+    local min_indent = math.huge
+    for _, line in ipairs(lines) do
+      if not line:match('^%s*$') then
+        local indent = line:match('^(%s*)'):len()
+        min_indent = math.min(min_indent, indent)
+      end
+    end
+    if min_indent == math.huge then
+      min_indent = 0
+    end
+
+    if min_indent > 0 then
+      for i, line in ipairs(lines) do
+        if not line:match('^%s*$') then
+          lines[i] = line:sub(min_indent + 1)
+        end
+      end
+    end
+
+    local cleaned = {}
+    local prev_blank = false
+    for _, line in ipairs(lines) do
+      local is_blank = line:match('^%s*$') ~= nil
+      if not (is_blank and prev_blank) then
+        table.insert(cleaned, line)
+      end
+      prev_blank = is_blank
+    end
+
+    vim.api.nvim_buf_set_lines(
+      opts.bufnr,
+      region.from.line - 1,
+      region.to.line,
+      false,
+      cleaned
+    )
+  end,
+  condition = function(opts)
+    return opts.is_visual_mode
+  end,
+  name = 'Clean whitespace',
+}
+
 M.close_hidden_buffers = {
   callback = function()
     Snacks.bufdelete.delete(function(bufnr)
@@ -475,15 +540,26 @@ M.resume = {
   name = 'Resume picker',
 }
 
-M.review_diff_view = {
+M.pr_review_commits = {
   callback = function()
-    vim.cmd('CodeDiff origin/HEAD HEAD')
+    vim.cmd('CodeDiff history origin/' .. git.get_default_branch() .. '..HEAD')
   end,
   condition = function()
     return git.is_inside_repo()
-      and not vim.tbl_contains({ 'main', 'master' }, git.get_branch_name())
+      and git.get_branch_name() ~= git.get_default_branch()
   end,
-  name = 'Open diff view (PR review)',
+  name = 'PR review (by commit)',
+}
+
+M.pr_review_diff = {
+  callback = function()
+    vim.cmd('CodeDiff ' .. git.get_default_branch() .. '...')
+  end,
+  condition = function()
+    return git.is_inside_repo()
+      and git.get_branch_name() ~= git.get_default_branch()
+  end,
+  name = 'PR review (all changes)',
 }
 
 M.search_and_replace = {
