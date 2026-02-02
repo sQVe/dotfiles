@@ -114,7 +114,7 @@
       "Bash(systemctl:*)",
       "WebFetch(domain:yazi-rs.github.io)"
     ],
-    "defaultMode": "plan"
+    "defaultMode": "bypassPermissions"
   },
   "model": "opus",
   "hooks": {
