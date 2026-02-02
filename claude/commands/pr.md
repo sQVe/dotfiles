@@ -49,9 +49,12 @@ Runs automatable test plan items before creating the PR.
 5. **Verify test plan coverage**
    - Review the diff and list key behaviors/paths affected
    - Categorize items:
-     - **Checkboxes**: Commands, verifiable behaviors, automatable checks
-     - **Manual verification**: Visual/UX, post-merge (CI), external systems
-   - If items are miscategorized: move to correct section
+     - **Test plan (checkboxes)**: Commands to run NOW, before PR creation (e.g., `npm test`, `curl localhost:3000/api`)
+     - **Verification performed**: Tests already run during development — document what you observed (e.g., "Confirmed login redirects to dashboard")
+     - **Deployment notes**: Post-merge operational steps (migrations, cache flushes) — optional
+     - **Manual verification**: RARE. Subjective judgment only (visual design, UX feel) — optional
+   - If no subjective items exist, **omit manual verification entirely**
+   - Anti-pattern: using manual verification as catch-all for non-automatable items
    - Check coverage: happy path, edge cases, integration points, regression risks
    - If gaps found: add missing items before proceeding
 
@@ -77,17 +80,18 @@ Runs automatable test plan items before creating the PR.
      - **Cancel** — abort
 
 8. **Execute test plan**
-   - Execute all checkbox items
-   - Update checkboxes: `[x]` passed, `[ ]` failed
-   - If ANY checkbox fails:
-     - Report failure details
-     - Ask user: **Fix and retry** or **Cancel**
-     - Do NOT proceed with unchecked items
+   - Execute each checkbox item sequentially
+   - Mark result immediately: `[x]` passed, `[ ]` failed
+   - On first failure:
+     - Stop execution, report failure details
+     - Ask user: **Fix and retry** (re-run failed item) or **Cancel**
+     - Do NOT proceed to next item until current passes
+   - Continue until all items attempted
 
 9. **Validate test plan completion**
-   - Verify ALL checkboxes are `[x]`
-   - If any remain `[ ]`: block PR creation, return to step 8
-   - Manual verification section: no validation (informational only)
+   - All checkboxes must be `[x]` to proceed
+   - If any remain `[ ]` after fix-retry loop exhausted: block PR creation
+   - Manual verification section: informational only, no validation
 
 10. **Create PR** (fix loop, max 3 attempts)
    - Run `gh pr create` with title and body

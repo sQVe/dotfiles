@@ -87,16 +87,14 @@ The walkthrough presents each candidate interactively, then batches accepted com
 5. **Interactive walkthrough** (OUTPUT GATE per candidate)
    - For each filtered candidate:
      - Output snippet and draft explanation per `<walkthrough_format>`
-     - Show draft explanation (or "[needs manual write]" if undraftable)
-     - **PROHIBITED after output:**
-       - "Let me...", "I'll...", "Now I will..."
-       - "Starting with...", "First I'll..."
-       - Any action-announcing language
+     - Show draft explanation, or "[needs manual write]" if undraftable
      - IMMEDIATELY use `AskUserQuestion` with options:
        - **Accept** — add to collection as-is
        - **Edit** — revise the explanation, then add
        - **Skip** — discard this candidate
    - Continue until all candidates processed
+
+   A candidate is **undraftable** when explanation requires context not visible in the diff: external system details, verbal discussions, or domain knowledge the agent lacks. Phase 1 subagent should still return these with `draft: null`.
 
 6. **Confirm submission**
    - Output summary as formatted text: N comments across M files

@@ -42,11 +42,9 @@ Group related changes into atomic units. Explain why, not what.
 4. **Present** (OUTPUT GATE)
    - Output staged files and proposed commit message
    - End output with `---` separator
-   - **PROHIBITED after separator:**
-     - "Let me...", "I'll...", "Now I will..."
-     - "Starting with...", "First I'll..."
-     - Any action-announcing language
    - Proceed directly to Confirm step
+
+   OUTPUT GATE: Present findings completely, then immediately request user action. Prevents "Let me..." language that assumes user intent before they respond.
 
 5. **Confirm** (skip if `--no-confirm`)
    - IMMEDIATELY use `AskUserQuestion` with options:

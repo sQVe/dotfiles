@@ -16,7 +16,7 @@ allowed-tools:
 <objective>
 Review a PR for bugs, logic errors, security issues, and style problems. Add inline annotations to files and generate GitHub-ready markdown for posting comments.
 
-Assumes user is in a worktree checked out to the PR branch. Annotations stay in files; user discards worktree when done.
+Designed for worktree workflow: user checks out PR branch in a worktree, annotations stay in files, user discards worktree when done. If not in a worktree, warn that annotations will persist in the working directory.
 </objective>
 
 <arguments>
@@ -26,9 +26,11 @@ Assumes user is in a worktree checked out to the PR branch. Annotations stay in 
 <process>
 1. **Validate prerequisites**
    - Run `git rev-parse --git-dir` — if fails: "Not a git repository"
-   - Detect PR: `gh pr view {pr-number} --json number,baseRefName,title -q '.'` (omit `{pr-number}` if not provided)
+   - Detect PR: `gh pr view {pr-number} --json number,baseRefName,title,body -q '.'` (omit `{pr-number}` if not provided)
    - If no PR: "No PR found for this branch. Checkout the PR branch first."
-   - Store base branch name for diff
+   - Fetch PR comments: `gh pr view {pr-number} --json comments -q '.comments[] | "**\(.author.login):** \(.body)"'`
+   - Fetch review comments: `gh api repos/{owner}/{repo}/pulls/{pr-number}/comments --jq '.[] | "**\(.user.login)** on `\(.path):\(.line // .original_line)`:\n\(.body)"'`
+   - Store base branch name, PR body, and all comments for context
 
 2. **Get content**
    - Get merge base: `git merge-base HEAD origin/{base}`
@@ -87,9 +89,21 @@ After presenting findings, NEVER:
 <subagent_prompt>
 <review_context>
 <pr_title>$PR_TITLE</pr_title>
+<pr_description>$PR_BODY</pr_description>
 <base_branch>$BASE_BRANCH</base_branch>
 <changed_files>$FILE_LIST</changed_files>
+<pr_comments>$PR_COMMENTS</pr_comments>
+<review_comments>$REVIEW_COMMENTS</review_comments>
 </review_context>
+
+<context_usage>
+Use PR description and comments to understand:
+- The author's intent and reasoning
+- Known limitations or trade-offs
+- Discussions that may have already addressed potential issues
+- Specific areas reviewers have flagged
+Do NOT flag issues already discussed and resolved in comments.
+</context_usage>
 
 <content_to_review>
 <!-- Each file includes FULL CONTENT plus diff hunks -->
@@ -151,6 +165,7 @@ Return empty array `[]` if no issues found.
 <success_criteria>
 - [ ] Reviewed all files in scope
 - [ ] Used full file context to verify issues exist
+- [ ] Considered PR description and comments before flagging
 - [ ] Identified bugs, logic errors, and security issues
 - [ ] Returned valid JSON matching schema
 - [ ] Each finding has severity, description, and suggestion
@@ -158,8 +173,16 @@ Return empty array `[]` if no issues found.
 </subagent_prompt>
 
 <comment_syntax>
-Use block comment syntax for the file type. Pattern:
+Use block comment syntax for the file type:
 
+| File type | Syntax |
+|-----------|--------|
+| JS/TS/Go/Java/C | `// @review(severity)` |
+| Python/Shell/Ruby | `# @review(severity)` |
+| CSS/HTML | `/* @review(severity) */` |
+| Rust | `// @review(severity)` or `/* @review(severity) */` |
+
+Pattern:
 ```
 @review(severity)
 Description of the issue
@@ -233,6 +256,7 @@ Files reviewed: {file_count} (3 agents, full context)
 
 <success_criteria>
 - [ ] PR detected from branch or argument
+- [ ] PR description and comments fetched for context
 - [ ] Full file content retrieved for all changed files
 - [ ] 3 parallel subagents dispatched with identical prompts
 - [ ] Findings compiled with consensus tracking (3/3, 2/3, 1/3)

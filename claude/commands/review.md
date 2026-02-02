@@ -39,9 +39,9 @@ Dispatches 3 parallel subagents with identical prompts. Each reviews independent
    **Gather full context:**
    - Run `git diff --name-only [flags]` to list all affected files
    - If no files found: "No changes found for scope: {scope}"
-   - For each changed file:
-     - Read full file content (not just diff)
-     - Get diff hunks for that file
+   - For each changed file, regardless of how many lines changed:
+     - Read entire file content (provides surrounding context)
+     - Get diff hunks for that file (shows what changed)
    - Report: "Reviewing N files with 3 parallel agents..."
 
 3. **Detect review type**

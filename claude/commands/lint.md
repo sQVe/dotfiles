@@ -51,10 +51,9 @@ Load these reference documents (if they exist):
    - `staged`: `git diff --staged`
    - Path: specified file(s)
 
-   **Verify complete coverage:**
-   - Run `git diff --name-only [flags]` to list all affected files
+   **Verify scope captured all files:**
+   - Run `git diff --name-only [flags]` to list affected files
    - If no files found: "No changes found for scope: {scope}"
-   - Confirm the diff content includes every listed file
    - Report file count: "Checking N files"
 
 3. **Load reference documents** per `<context_injection>`

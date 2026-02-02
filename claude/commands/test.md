@@ -48,8 +48,9 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
    MAIN_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@' || git rev-parse --verify main 2>/dev/null && echo main || echo master)
    git diff $(git merge-base HEAD $MAIN_BRANCH)..HEAD --name-only | grep -E '\.(ts|tsx|js|jsx|py|go|rs)$'
 
-   # For path
-   # Use provided path directly
+   # For path (file or directory)
+   # If file: use directly if it matches source extensions
+   # If directory: find <path> -type f \( -name '*.ts' -o -name '*.tsx' -o -name '*.js' -o -name '*.jsx' -o -name '*.py' -o -name '*.go' -o -name '*.rs' \)
    ```
 
 3. **Detect framework**
@@ -194,7 +195,7 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
      - Match existing test style (describe blocks, naming, assertions)
      - Include setup/teardown if pattern exists
      - Mock external dependencies identified in analysis
-     - One test per behavior, clear assertion messages
+     - One test function per scenario (e.g., "returns null when input empty" is one test, not combined with "returns parsed value when valid")
 
    - **Write test files**
      - Group related tests. Use Write or Edit.
