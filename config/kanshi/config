@@ -12,3 +12,8 @@ profile work-office {
     output "BOE *" disable
     output "LG Electronics 38GN950 *" enable mode 3840x1600@143.998 scale 1
 }
+
+profile work- {
+    output "BOE *" disable
+    output "LG Electronics LG TV SSCR2 *" enable mode 3840x2160@60.000 scale 2
+}
