@@ -1161,16 +1161,16 @@ c.colors.downloads.error.fg = '#b82530'
 
 # Font color for hints.
 # Type: QssColor
-c.colors.hints.fg = '#4c4e5e'
+c.colors.hints.fg = '#ffffff'
 
 # Background color for hints. Note that you can use a `rgba(...)` value
 # for transparency.
 # Type: QssColor
-c.colors.hints.bg = '#806010'
+c.colors.hints.bg = '#5858a0'
 
 # Font color for the matched part of hints.
 # Type: QtColor
-c.colors.hints.match.fg = '#4c4e5e'
+c.colors.hints.match.fg = '#dce0e8'
 
 # Text color for the keyhint widget.
 # Type: QssColor
