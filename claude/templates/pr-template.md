@@ -23,12 +23,20 @@ Use this template when creating pull requests to ensure consistent, clear docume
 - [ ] [Command or verifiable behavior]
 - [ ] [Command or verifiable behavior]
 
+#### Verification performed
+<!-- Testing done during development. Evidence, not promises. -->
+
+- [Describe testing done and results observed]
+
+#### Deployment notes
+<!-- OPTIONAL. Operational steps for deployers (migrations, cache flushes, feature flags). -->
+
+- [Deployment action required]
+
 #### Manual verification
-<!-- Subjective items requiring human judgment. NOT for automatable checks. -->
+<!-- OPTIONAL. Only for subjective human judgment (visual/UX). Omit for backend changes. -->
 
 - [Subjective item requiring human judgment]
-
-[Optional: Add any additional context, screenshots, or notes]
 
 ---
 
@@ -57,6 +65,12 @@ Session-based auth requires sticky sessions, blocking horizontal scaling. JWT en
 - [ ] Verify `/api/auth/login` returns JWT on success
 - [ ] Verify protected routes return 401 when not authenticated
 
+#### Verification performed
+
+- Tested login flow locally with valid/invalid credentials
+- Confirmed JWT contains expected claims (sub, exp, iat)
+- Verified token refresh works after expiration
+
 #### Manual verification
 
 - Login form layout matches design mockup
@@ -70,7 +84,10 @@ Related to #456
 
 - **Motivation**: Problem or opportunity driving the change (1-3 sentences)
 - **Changes**: Focus on "what" was implemented with technical details
-- **Test plan**: Specific, actionable items (see coverage prompt in template)
+- **Test plan**: Automatable commands and assertions
+- **Verification performed**: Evidence of testing already done
+- **Deployment notes**: Operational steps for deployers (optional)
+- **Manual verification**: Subjective human judgment only (optional, often omitted)
 - **Issues**: Link related issues with "Fixes #" or "Related to #"
 
 ### Test plan format
@@ -81,7 +98,20 @@ Related to #456
 - Verifiable behaviors: "API returns 200", "File is created"
 - Assertions: "Error message contains 'invalid'"
 
-**Manual verification** (prose, no checkboxes):
+**Verification performed** (prose, no checkboxes):
+
+- What you tested during development
+- Specific outputs or results observed
+- Evidence that the change works
+
+**Deployment notes** (optional):
+
+- Migrations to run
+- Caches to flush
+- Feature flags to enable
+- Environment variables to add
+
+**Manual verification** (optional, often omitted):
 
 - Visual design: "Colors match mockup", "Layout looks balanced"
 - UX feel: "Animation feels smooth", "Interaction feels responsive"
@@ -92,6 +122,7 @@ Related to #456
 - CI/CD status (automated by GitHub)
 - Text output verification (grep it)
 - Status codes or return values
+- Deployment actions (cache flush, migrations)
 - Anything with deterministic output
 
-If output is deterministic, it's a checkbox. Manual = human judgment only.
+If output is deterministic, it's a checkbox. If it's a deployment action, it's a deployment note. Manual = subjective human judgment only. Most backend PRs have no manual verification.
