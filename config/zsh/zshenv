@@ -15,27 +15,20 @@ export SSH_AGENT_PID=""
 export SSH_AUTH_SOCK="${XDG_RUNTIME_DIR}/gnupg/S.gpg-agent.ssh"
 
 # Dynamically add all dev binary directories.
-DEV_BINS=""
-setopt NULL_GLOB
-for dir in "$HOME/dev"/*/bin; do
-  [[ -d "$dir" ]] && DEV_BINS="$dir:$DEV_BINS"
-done
-unsetopt NULL_GLOB
+dev_bins=("$HOME/dev"/*/bin(N/))
+(( $#dev_bins )) && DEV_BINS=${(j.:.)dev_bins}
 
 if [[ -z "$DEFAULT_NODE_VERSION" ]]; then
   DEFAULT_NODE_VERSION=$($SCRIPTS/default-node-version.sh)
 fi
 
-export PATH="$BIN_HOME:$DEFAULT_NODE_VERSION:$PATH"
-if [[ -n "$DEV_BINS" ]]; then
-  export PATH="$DEV_BINS:$PATH"
-fi
+[[ -n "$DEFAULT_NODE_VERSION" ]] && export PATH="$DEFAULT_NODE_VERSION:$PATH"
+[[ -n "$DEV_BINS" ]] && export PATH="$DEV_BINS:$PATH"
+[[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
 
 # Terminal options.
 export AUTOPAIR_INHIBIT_INIT=1
 export KEYTIMEOUT=0
-export PROMPT_LEAN_VIMODE=1
-export PROMPT_LEAN_VIMODE_FORMAT='%F{magenta}NORMAL%f '
 export ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=240'
 export ZSH_AUTOSUGGEST_USE_ASYNC=1
 export ZSH_HIGHLIGHT_HIGHLIGHTERS=(main brackets)
@@ -56,13 +49,6 @@ export LS_COLORS='di=1;34:ln=35:so=32:pi=33:ex=31:bd=1;36:cd=1;33:su=30;41:sg=30
 export LESS='-R'
 export LESSOPEN='| bat --color=always %s'
 export LESSHISTFILE=-
-
-# JavaScript/TypeScript land.
-export ESLINT_D_LOCAL_ESLINT_ONLY=1
-export PRETTIERD_LOCAL_PRETTIER_ONLY=1
-
-# Development tooling.
-export MOB_VOICE_COMMAND="mpv /usr/share/sounds/freedesktop/stereo/alarm-clock-elapsed.oga"
 
 # Font rendering.
 export FREETYPE_PROPERTIES="cff:no-stem-darkening=0 autofitter:no-stem-darkening=0"
