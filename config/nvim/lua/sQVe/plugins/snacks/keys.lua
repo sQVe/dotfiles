@@ -17,7 +17,7 @@ return {
   {
     '<Leader><Leader>',
     function()
-      commands.buffers.callback()
+      commands.go_to_buffer.callback()
     end,
     desc = 'Go to buffer',
     mode = { 'n', 'v' },
@@ -25,7 +25,7 @@ return {
   {
     'z=',
     function()
-      commands.spelling.callback()
+      commands.fix_spelling.callback()
     end,
     desc = 'Show spelling suggestions',
     mode = { 'n', 'v' },
@@ -41,7 +41,7 @@ return {
   {
     'å',
     function()
-      commands.grep.callback()
+      commands.search_in_files.callback()
     end,
     desc = 'Grep',
     mode = { 'n' },
@@ -49,7 +49,7 @@ return {
   {
     'å',
     function()
-      commands.grep_text.callback()
+      commands.search_text.callback()
     end,
     desc = 'Grep',
     mode = { 'v' },
@@ -57,7 +57,7 @@ return {
   {
     'Å',
     function()
-      commands.recent_files.callback()
+      commands.go_to_recent_file.callback()
     end,
     desc = 'Recent files',
     mode = { 'n', 'v' },
@@ -65,7 +65,7 @@ return {
   {
     'M',
     function()
-      commands.marks.callback()
+      commands.go_to_mark.callback()
     end,
     desc = 'Go to mark',
     mode = { 'n' },
@@ -73,7 +73,7 @@ return {
   {
     'S',
     function()
-      commands.lines.callback()
+      commands.go_to_line.callback()
     end,
     desc = 'Go to line',
     mode = { 'n' },

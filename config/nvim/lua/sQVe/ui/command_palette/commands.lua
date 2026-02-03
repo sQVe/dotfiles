@@ -12,7 +12,7 @@ local var = require('sQVe.utils.var')
 
 local M = {}
 
-M.ascii_header = {
+M.insert_ascii_header = {
   callback = function()
     vim.ui.input({ prompt = 'ASCII Header: ' }, function(input)
       if input == nil or input == '' then
@@ -28,10 +28,10 @@ M.ascii_header = {
       end
     end)
   end,
-  name = 'Insert ASCII header',
+  name = 'Insert (ASCII header)',
 }
 
-M.blame = {
+M.git_blame = {
   callback = function(opts)
     local gitsigns = require('gitsigns')
     gitsigns.blame()
@@ -39,17 +39,17 @@ M.blame = {
   condition = function()
     return git.is_inside_repo()
   end,
-  name = 'Show git blame',
+  name = 'Git (blame)',
 }
 
-M.buffers = {
+M.go_to_buffer = {
   callback = function()
     Snacks.picker.buffers()
   end,
-  name = 'Go to buffer',
+  name = 'Go to (buffer)',
 }
 
-M.change_cwd_buffer_path = {
+M.cwd_buffer_directory = {
   callback = function(opts)
     vim.cmd(
       string.format('cd %s', path.get_parent(buffer.get_path(opts.bufnr)))
@@ -62,12 +62,12 @@ M.change_cwd_buffer_path = {
   end,
   name = function(opts)
     return utils.get_short_path(
-      utils.get_name_with_buffer_directory('Set cwd to buffer directory', opts)
+      utils.get_name_with_buffer_directory('Cwd (buffer directory)', opts)
     )
   end,
 }
 
-M.change_cwd_git_root_path = {
+M.cwd_git_root = {
   callback = function(opts)
     vim.cmd(string.format('cd %s', opts.git_root))
   end,
@@ -76,12 +76,12 @@ M.change_cwd_git_root_path = {
   end,
   name = function(opts)
     return utils.get_short_path(
-      utils.get_name_with_git_root_path('Set cwd to git root', opts)
+      utils.get_name_with_git_root_path('Cwd (git root)', opts)
     )
   end,
 }
 
-M.clean_whitespace = {
+M.strip_whitespace = {
   callback = function(opts)
     local region = require('sQVe.utils.selection').get_current_region()
     local lines = vim.api.nvim_buf_get_lines(
@@ -143,10 +143,10 @@ M.clean_whitespace = {
   condition = function(opts)
     return opts.is_visual_mode
   end,
-  name = 'Strip whitespace',
+  name = 'Strip (whitespace)',
 }
 
-M.close_hidden_buffers = {
+M.buffer_close_hidden = {
   callback = function()
     Snacks.bufdelete.delete(function(bufnr)
       local visible_buffers =
@@ -155,10 +155,10 @@ M.close_hidden_buffers = {
       return not vim.tbl_contains(visible_buffers, bufnr)
     end)
   end,
-  name = 'Close hidden buffers',
+  name = 'Buffer (close hidden)',
 }
 
-M.code_action = {
+M.lsp_code_action = {
   callback = function()
     vim.lsp.buf.code_action()
   end,
@@ -167,17 +167,17 @@ M.code_action = {
 
     return vim.tbl_contains(lspconfig.ft, vim.bo[opts.bufnr].filetype)
   end,
-  name = 'Apply code action',
+  name = 'LSP (code action)',
 }
 
-M.command_history = {
+M.history_commands = {
   callback = function()
     Snacks.picker.command_history()
   end,
-  name = 'Browse command history',
+  name = 'History (commands)',
 }
 
-M.commit_message_from_branch_name = {
+M.insert_commit_title_from_branch = {
   callback = function()
     local ok = pcall(vim.fn.execute, 'read !git branch --show-current')
 
@@ -191,41 +191,27 @@ M.commit_message_from_branch_name = {
   condition = function()
     return git.is_inside_repo()
   end,
-  name = 'Insert commit title from branch',
+  name = 'Insert (commit title from branch)',
 }
 
-M.create_new_daily_note = {
-  callback = function()
-    require('notebox.note').new_note('daily')
-  end,
-  name = 'Create new daily note',
-}
-
-M.create_new_note = {
-  callback = function()
-    require('notebox.note').new_note()
-  end,
-  name = 'Create new note',
-}
-
-M.diagnostics = {
+M.go_to_diagnostic = {
   callback = function()
     Snacks.picker.diagnostics()
   end,
-  name = 'Go to diagnostic',
+  name = 'Go to (diagnostic)',
 }
 
-M.diff_view = {
+M.diff_working_changes = {
   callback = function()
     vim.cmd('CodeDiff')
   end,
   condition = function()
     return git.is_inside_repo()
   end,
-  name = 'Open diff view',
+  name = 'Diff (working changes)',
 }
 
-M.diff_view_buffer_commit_history = {
+M.diff_file_commits = {
   callback = function()
     vim.cmd('CodeDiff history HEAD~50 %')
   end,
@@ -236,15 +222,12 @@ M.diff_view_buffer_commit_history = {
   end,
   name = function(opts)
     return utils.get_short_path(
-      utils.get_name_with_buffer_directory(
-        'Open diff view (commit history)',
-        opts
-      )
+      utils.get_name_with_buffer_path('Diff (file commits)', opts)
     )
   end,
 }
 
-M.diff_view_buffer_vs_head = {
+M.diff_file_vs_head = {
   callback = function()
     vim.cmd('CodeDiff file HEAD')
   end,
@@ -255,22 +238,22 @@ M.diff_view_buffer_vs_head = {
   end,
   name = function(opts)
     return utils.get_short_path(
-      utils.get_name_with_buffer_directory('Open diff view (vs HEAD)', opts)
+      utils.get_name_with_buffer_path('Diff (file vs HEAD)', opts)
     )
   end,
 }
 
-M.diff_view_commit_history = {
+M.diff_all_commits = {
   callback = function()
     vim.cmd('CodeDiff history')
   end,
   condition = function()
     return git.is_inside_repo()
   end,
-  name = 'Open diff view (commit history)',
+  name = 'Diff (all commits)',
 }
 
-M.document_symbols = {
+M.go_to_document_symbol = {
   callback = function()
     Snacks.picker.lsp_symbols()
   end,
@@ -279,14 +262,14 @@ M.document_symbols = {
 
     return vim.tbl_contains(lspconfig.ft, vim.bo[opts.bufnr].filetype)
   end,
-  name = 'Go to document symbol',
+  name = 'Go to (document symbol)',
 }
 
-M.file_explorer = {
+M.open_oil = {
   callback = function()
-    require('mini.files').open(buffer.get_path(), false)
+    require('oil').open_float()
   end,
-  name = 'Open file explorer',
+  name = 'Open (Oil)',
 }
 
 M.find_all_files = {
@@ -297,7 +280,7 @@ M.find_all_files = {
       follow = true,
     })
   end,
-  name = 'Find all files (including ignored)',
+  name = 'Find (all files)',
 }
 
 M.find_files = {
@@ -308,7 +291,7 @@ M.find_files = {
       ignored = false,
     })
   end,
-  name = 'Find files',
+  name = 'Find (files)',
 }
 
 M.find_files_in_subdirectory = {
@@ -327,7 +310,7 @@ M.find_files_in_subdirectory = {
   end,
   name = function(opts)
     return utils.get_short_path(
-      utils.get_name_with_buffer_directory('Find files', opts)
+      utils.get_name_with_buffer_directory('Find (files)', opts)
     )
   end,
 }
@@ -339,10 +322,10 @@ M.git_status = {
   condition = function()
     return git.is_inside_repo() and git.has_changed_files()
   end,
-  name = 'Show git status',
+  name = 'Git (status)',
 }
 
-M.git_browse = {
+M.git_open_in_github = {
   callback = function()
     Snacks.gitbrowse.open()
   end,
@@ -353,19 +336,19 @@ M.git_browse = {
   end,
   name = function(opts)
     return utils.get_short_path(
-      utils.get_name_with_buffer_directory('Open in GitHub', opts)
+      utils.get_name_with_buffer_path('Git (open in GitHub)', opts)
     )
   end,
 }
 
-M.help_tags = {
+M.go_to_help_tag = {
   callback = function()
     Snacks.picker.help()
   end,
-  name = 'Go to help tag',
+  name = 'Go to (help tag)',
 }
 
-M.grep = {
+M.search_in_files = {
   callback = function()
     Snacks.picker.grep({
       follow = true,
@@ -374,10 +357,10 @@ M.grep = {
       args = { '--pcre2' },
     })
   end,
-  name = 'Search in files',
+  name = 'Search (in files)',
 }
 
-M.grep_text = {
+M.search_text = {
   callback = function()
     Snacks.picker.grep_word({ regex = false, args = {}, live = true })
   end,
@@ -389,14 +372,14 @@ M.grep_text = {
   end,
 }
 
-M.grep_buffers = {
+M.search_in_buffers = {
   callback = function()
     Snacks.picker.grep_buffers()
   end,
-  name = 'Search in open buffers',
+  name = 'Search (in buffers)',
 }
 
-M.grep_subdirectory = {
+M.search_in_files_subdirectory = {
   callback = function(opts)
     Snacks.picker.grep({
       cwd = path.get_parent(buffer.get_path(opts.bufnr)),
@@ -409,19 +392,19 @@ M.grep_subdirectory = {
   end,
   name = function(opts)
     return utils.get_short_path(
-      utils.get_name_with_buffer_directory('Search in files', opts)
+      utils.get_name_with_buffer_directory('Search (in files)', opts)
     )
   end,
 }
 
-M.icons = {
+M.insert_icon = {
   callback = function()
     Snacks.picker.icons()
   end,
-  name = 'Insert icon',
+  name = 'Insert (icon)',
 }
 
-M.input_file_paths = {
+M.insert_file_paths = {
   callback = function()
     Snacks.picker.files({
       follow = true,
@@ -445,17 +428,17 @@ M.input_file_paths = {
       end,
     })
   end,
-  name = 'Insert file paths',
+  name = 'Insert (file paths)',
 }
 
-M.lines = {
+M.go_to_line = {
   callback = function()
     Snacks.picker.lines()
   end,
-  name = 'Go to line',
+  name = 'Go to (line)',
 }
 
-M.merge_base = {
+M.git_merge_base = {
   callback = function()
     local gitsigns = package.loaded.gitsigns
 
@@ -468,19 +451,19 @@ M.merge_base = {
   end,
   name = function(opts)
     return utils.get_short_path(
-      utils.get_name_with_buffer_directory('Show merge base version', opts)
+      utils.get_name_with_buffer_path('Git (merge base)', opts)
     )
   end,
 }
 
-M.marks = {
+M.go_to_mark = {
   callback = function()
     Snacks.picker.marks()
   end,
-  name = 'Go to mark',
+  name = 'Go to (mark)',
 }
 
-M.previous_commit_message = {
+M.git_previous_commit_message = {
   callback = function()
     vim.fn.execute('vsplit /tmp/PREV_COMMIT_EDITMSG')
   end,
@@ -493,17 +476,17 @@ M.previous_commit_message = {
     file_handle:close()
     return true
   end,
-  name = 'Show previous commit message',
+  name = 'Git (previous commit message)',
 }
 
-M.projects = {
+M.open_project = {
   callback = function()
     Snacks.picker.projects()
   end,
-  name = 'Load project',
+  name = 'Open (project)',
 }
 
-M.recent_files = {
+M.go_to_recent_file = {
   callback = function()
     Snacks.picker.recent({
       filter = {
@@ -512,10 +495,10 @@ M.recent_files = {
       },
     })
   end,
-  name = 'Go to recent file',
+  name = 'Go to (recent file)',
 }
 
-M.rename_symbol = {
+M.lsp_rename_symbol = {
   callback = function()
     vim.lsp.buf.rename()
   end,
@@ -525,15 +508,8 @@ M.rename_symbol = {
     return vim.tbl_contains(lspconfig.ft, vim.bo[opts.bufnr].filetype)
   end,
   name = function(opts)
-    return string.format('Rename symbol `%s`', opts.query)
+    return string.format('LSP (rename symbol `%s`)', opts.query)
   end,
-}
-
-M.resume = {
-  callback = function()
-    Snacks.picker.resume()
-  end,
-  name = 'Resume picker',
 }
 
 M.pr_review_commits = {
@@ -562,24 +538,24 @@ M.search_and_replace = {
   callback = function()
     require('grug-far').open()
   end,
-  name = 'Search and replace',
+  name = 'Search (and replace)',
 }
 
-M.search_history = {
+M.history_search = {
   callback = function()
     Snacks.picker.search_history()
   end,
-  name = 'Browse search history',
+  name = 'History (search)',
 }
 
-M.spawn_file_manager = {
+M.spawn_yazi = {
   callback = function()
     vim.system({ 'term', 'yazi' }, { detach = true }):wait()
   end,
-  name = 'Spawn file manager',
+  name = 'Spawn (yazi)',
 }
 
-M.spawn_file_manager_in_subdirectory = {
+M.spawn_yazi_in_subdirectory = {
   callback = function(opts)
     vim
       .system({
@@ -594,7 +570,7 @@ M.spawn_file_manager_in_subdirectory = {
   end,
   name = function(opts)
     return utils.get_short_path(
-      utils.get_name_with_buffer_directory('Spawn file manager', opts)
+      utils.get_name_with_buffer_directory('Spawn (yazi)', opts)
     )
   end,
 }
@@ -606,7 +582,7 @@ M.spawn_lazygit = {
   condition = function()
     return git.is_inside_repo()
   end,
-  name = 'Spawn lazygit',
+  name = 'Spawn (lazygit)',
 }
 
 M.spawn_lazygit_with_filter = {
@@ -627,7 +603,7 @@ M.spawn_lazygit_with_filter = {
   end,
   name = function(opts)
     return utils.get_short_path(
-      utils.get_name_with_buffer_directory('Spawn lazygit', opts)
+      utils.get_name_with_buffer_directory('Spawn (lazygit)', opts)
     )
   end,
 }
@@ -636,7 +612,7 @@ M.spawn_terminal = {
   callback = function()
     vim.system({ 'term' }, { detach = true }):wait()
   end,
-  name = 'Spawn terminal',
+  name = 'Spawn (terminal)',
 }
 
 M.spawn_terminal_in_subdirectory = {
@@ -655,7 +631,7 @@ M.spawn_terminal_in_subdirectory = {
   end,
   name = function(opts)
     return utils.get_short_path(
-      utils.get_name_with_buffer_directory('Spawn terminal', opts)
+      utils.get_name_with_buffer_directory('Spawn (terminal)', opts)
     )
   end,
 }
@@ -667,22 +643,22 @@ M.spawn_claude = {
   condition = function()
     return git.is_inside_repo()
   end,
-  name = 'Spawn Claude',
+  name = 'Spawn (Claude)',
 }
 
-M.spelling = {
+M.fix_spelling = {
   callback = function()
     Snacks.picker.spelling()
   end,
-  name = 'Fix spelling',
+  name = 'Fix (spelling)',
 }
 
-M.toggle_conceal_level = {
+M.toggle_conceal = {
   callback = function(opts)
     vim.wo[opts.winnr].conceallevel = vim.wo[opts.winnr].conceallevel == 0 and 2
       or 0
   end,
-  name = 'Toggle conceal',
+  name = 'Toggle (conceal)',
 }
 
 M.toggle_format_on_save = {
@@ -694,10 +670,10 @@ M.toggle_format_on_save = {
 
     return conform ~= nil and conform._.loaded
   end,
-  name = 'Toggle format on save',
+  name = 'Toggle (format on save)',
 }
 
-M.toggle_inline_diff = {
+M.git_toggle_inline_diff = {
   callback = function(opts)
     require('mini.diff').toggle_overlay(opts.bufnr)
     var.toggle_buffer(opts.bufnr, 'git_diff')
@@ -707,38 +683,38 @@ M.toggle_inline_diff = {
 
     return git.is_inside_repo() and mini_diff ~= nil and mini_diff._.loaded
   end,
-  name = 'Toggle inline diff',
+  name = 'Git (toggle inline diff)',
 }
 
 M.toggle_relative_numbers = {
   callback = function(opts)
     vim.wo[opts.winnr].relativenumber = not vim.wo[opts.winnr].relativenumber
   end,
-  name = 'Toggle relative numbers',
+  name = 'Toggle (relative numbers)',
 }
 
-M.toggle_spell = {
+M.toggle_spell_check = {
   callback = function(opts)
     vim.wo[opts.winnr].spell = not vim.wo[opts.winnr].spell
   end,
-  name = 'Toggle spell check',
+  name = 'Toggle (spell check)',
 }
 
-M.toggle_wrap = {
+M.toggle_line_wrap = {
   callback = function(opts)
     vim.wo[opts.winnr].wrap = not vim.wo[opts.winnr].wrap
   end,
-  name = 'Toggle line wrap',
+  name = 'Toggle (line wrap)',
 }
 
-M.undo = {
+M.history_undo = {
   callback = function()
     Snacks.picker.undo()
   end,
-  name = 'Browse undo history',
+  name = 'History (undo)',
 }
 
-M.workspace_symbols = {
+M.go_to_workspace_symbol = {
   callback = function()
     Snacks.picker.lsp_workspace_symbols()
   end,
@@ -747,7 +723,7 @@ M.workspace_symbols = {
 
     return vim.tbl_contains(lspconfig.ft, vim.bo[opts.bufnr].filetype)
   end,
-  name = 'Go to workspace symbol',
+  name = 'Go to (workspace symbol)',
 }
 
 M.copy_filename = {
@@ -763,7 +739,10 @@ M.copy_filename = {
     vim.fn.setreg('+', file_path)
     vim.notify('Copied: ' .. file_path)
   end,
-  name = 'Copy filename',
+  condition = function(opts)
+    return not opts.is_visual_mode
+  end,
+  name = 'Copy (filename)',
 }
 
 M.copy_filename_with_line = {
@@ -793,14 +772,14 @@ M.copy_filename_with_line = {
     vim.fn.setreg('+', result)
     vim.notify('Copied: ' .. result)
   end,
-  name = 'Copy filename with line number',
+  name = 'Copy (filename with line)',
 }
 
-M.yank_ring = {
+M.history_yank = {
   callback = function()
     Snacks.picker.yanky()
   end,
-  name = 'Browse yank history',
+  name = 'History (yank)',
 }
 
 return M

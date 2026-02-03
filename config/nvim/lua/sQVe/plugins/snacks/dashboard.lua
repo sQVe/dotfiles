@@ -16,19 +16,19 @@ return {
         icon = '🔍',
         key = 'å',
         desc = 'Grep',
-        action = ':lua require("sQVe.ui.command_palette.commands").grep.callback()',
+        action = ':lua require("sQVe.ui.command_palette.commands").search_in_files.callback()',
       },
       {
         icon = '🎒',
         key = 'Å',
         desc = 'Recent files',
-        action = ':lua require("sQVe.ui.command_palette.commands").recent_files.callback()',
+        action = ':lua require("sQVe.ui.command_palette.commands").go_to_recent_file.callback()',
       },
       {
         icon = '🔀',
         key = 'd',
         desc = 'Diff view',
-        action = ':lua require("sQVe.ui.command_palette.commands").diff_view.callback()',
+        action = ':lua require("sQVe.ui.command_palette.commands").diff_working_changes.callback()',
       },
       {
         icon = '✏️',
@@ -46,7 +46,7 @@ return {
         icon = '📎',
         key = 'p',
         desc = 'Load project',
-        action = ':lua require("sQVe.ui.command_palette.commands").projects.callback()',
+        action = ':lua require("sQVe.ui.command_palette.commands").open_project.callback()',
       },
       {
         icon = '📎',
