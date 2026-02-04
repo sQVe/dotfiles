@@ -122,6 +122,20 @@ For EACH rule in the reference documents:
 
 Do not summarize or categorize rules. Check each rule literally and individually.
 Treat every rule as equally important — do not skip rules that seem minor.
+
+**Rule interpretation guidance:**
+
+When checking "delete comments" rules, distinguish between:
+- **Flag:** Inline implementation comments explaining *what* code does (e.g., `// increment counter`)
+- **Exempt:** Function/method documentation that enables tooling (applies to both public and private functions):
+  - Lua: `---` docstrings above functions (with or without `@` annotations)
+  - Go: `// FunctionName ...` comments above functions (standard Go convention)
+  - JSDoc/TSDoc: `/** ... */` blocks
+  - Python: docstrings (`"""..."""`)
+  - Rust: `///` doc comments
+  - Type definition files (`.d.ts`, `types.lua`)
+
+The intent is to remove noise comments, not strip documentation that IDEs, linters, and doc generators consume.
 </check_focus>
 
 <output_format>
