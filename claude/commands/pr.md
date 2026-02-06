@@ -26,27 +26,35 @@ Runs automatable test plan items before creating the PR.
 </context_injection>
 
 <process>
-1. **Validate prerequisites**
+1. **Detect PR template**
+   - Check for repo-specific template in order:
+     - `.github/pull_request_template.md`
+     - `.github/PULL_REQUEST_TEMPLATE.md`
+     - `docs/pull_request_template.md`
+   - If found: read and use repo template structure, adapt injected template guidelines to fit
+   - If not found: use injected template as-is
+
+2. **Validate prerequisites**
    - Run `git rev-parse --abbrev-ref HEAD` — if `main` or `master`: "Create a feature branch first"
    - If validation fails: stop with clear message
 
-2. **Prepare branch**
+3. **Prepare branch**
    - Verify all changes committed and pushed
    - Check branch is up-to-date with target (main/master)
 
-3. **Check contribution requirements**
+4. **Check contribution requirements**
    - Look for CONTRIBUTING.md, CHANGELOG.md, .changeset/
    - Add required artifacts:
      - If CHANGELOG.md exists and has "Unreleased" section, add entry
      - If .changeset/ exists, run `npx changeset` interactively
      - If neither, skip
 
-4. **Create PR description**
+5. **Create PR description**
    - Use conventional commit format for title
-   - Follow injected template structure
+   - Follow detected repo template structure (or injected template if none found)
    - Link related issues with "Fixes #" or "Related to #"
 
-5. **Verify test plan coverage**
+6. **Verify test plan coverage**
    - Review the diff and list key behaviors/paths affected
    - Categorize items:
      - **Test plan (checkboxes)**: Commands to run NOW, before PR creation (e.g., `npm test`, `curl localhost:3000/api`)
@@ -58,7 +66,7 @@ Runs automatable test plan items before creating the PR.
    - Check coverage: happy path, edge cases, integration points, regression risks
    - If gaps found: add missing items before proceeding
 
-6. **Present test plan** (OUTPUT GATE)
+7. **Present test plan** (OUTPUT GATE)
    - Parse test plan checkboxes
    - Identify automatable items:
      - Commands: backticked like `npm test`
@@ -72,14 +80,14 @@ Runs automatable test plan items before creating the PR.
      - Any action-announcing language
    - Proceed directly to Confirm step
 
-7. **Confirm** (skip if `--no-confirm`)
+8. **Confirm** (skip if `--no-confirm`)
    - IMMEDIATELY use `AskUserQuestion` with options:
      - **Create PR** — run tests and publish immediately
      - **Create draft** — run tests and publish as draft for preview
      - **Edit** — revise title or description
      - **Cancel** — abort
 
-8. **Execute test plan**
+9. **Execute test plan**
    - Execute each checkbox item sequentially
    - Mark result immediately: `[x]` passed, `[ ]` failed
    - On first failure:
@@ -88,24 +96,24 @@ Runs automatable test plan items before creating the PR.
      - Do NOT proceed to next item until current passes
    - Continue until all items attempted
 
-9. **Validate test plan completion**
-   - All checkboxes must be `[x]` to proceed
-   - If any remain `[ ]` after fix-retry loop exhausted: block PR creation
-   - Manual verification section: informational only, no validation
+10. **Validate test plan completion**
+    - All checkboxes must be `[x]` to proceed
+    - If any remain `[ ]` after fix-retry loop exhausted: block PR creation
+    - Manual verification section: informational only, no validation
 
-10. **Create PR** (fix loop, max 3 attempts)
-   - Run `gh pr create` with title and body
-   - If creation fails (push rejected, conflicts):
-     - Analyze failure output
-     - Auto-fix if possible (rebase, push)
-     - Re-attempt creation
-     - After 3 failures: report issues, ask user to fix manually
-   - Capture PR URL on success
+11. **Create PR** (fix loop, max 3 attempts)
+    - Run `gh pr create` with title and body
+    - If creation fails (push rejected, conflicts):
+      - Analyze failure output
+      - Auto-fix if possible (rebase, push)
+      - Re-attempt creation
+      - After 3 failures: report issues, ask user to fix manually
+    - Capture PR URL on success
 
-11. **Add references and report**
-   - Link relevant issues and PRs
-   - Add appropriate reviewers
-   - Output PR URL and summary
+12. **Add references and report**
+    - Link relevant issues and PRs
+    - Add appropriate reviewers
+    - Output PR URL and summary
 
 <anti_patterns>
 After presenting findings, NEVER:
@@ -167,9 +175,10 @@ No exclamation marks. No emojis. Lead with the change, not preamble.
 
 <success_criteria>
 
+- [ ] Repo PR template detected (or fallback used)
 - [ ] Branch prepared and pushed
 - [ ] Contribution requirements met
-- [ ] PR description follows structure
+- [ ] PR description follows detected template structure
 - [ ] Test plan verified for coverage gaps
 - [ ] User confirmed (unless --no-confirm)
 - [ ] All test plan checkboxes verified `[x]`
