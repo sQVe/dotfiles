@@ -31,18 +31,20 @@ Dispatches 3 parallel subagents with identical prompts. Each reviews independent
 
 2. **Determine scope and gather content**
    - Detect main branch: `git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@'` (fallback: `main`, then `master`)
-   - No scope: changes from merge-base plus uncommitted
-   - `unstaged`: `git diff` (working tree only)
+   - No scope: changes from merge-base plus uncommitted plus untracked
+   - `unstaged`: `git diff` plus untracked files
    - `staged`: `git diff --staged`
    - Path: specified file(s)
 
    **Gather full context:**
-   - Run `git diff --name-only [flags]` to list all affected files
+   - Run `git diff --name-only [flags]` to list changed files
+   - Run `git status --porcelain | grep '^??' | cut -c 4-` to list untracked files
    - If no files found: "No changes found for scope: {scope}"
-   - For each changed file, regardless of how many lines changed:
+   - For each file (changed or new):
      - Read entire file content (provides surrounding context)
-     - Get diff hunks for that file (shows what changed)
-   - Report: "Reviewing N files with 3 parallel agents..."
+     - For changed files: get diff hunks (shows what changed)
+     - For new files: treat entire content as new
+   - Report: "Reviewing N files (M changed, K new) with 3 parallel agents..."
 
 3. **Detect review type**
    - Argument provided → use it
@@ -222,6 +224,7 @@ Files: {file_count} reviewed by 3 agents
 <success_criteria>
 - [ ] Scope determined correctly
 - [ ] Full file content retrieved for all changed files
+- [ ] Untracked (new) files included in scope
 - [ ] Review type detected or used from argument
 - [ ] 3 subagents dispatched in parallel with identical prompts
 - [ ] Findings deduplicated with consensus tracking

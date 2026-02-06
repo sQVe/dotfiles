@@ -37,16 +37,18 @@ Generate behavior-focused tests using parallel subagent analysis and consensus v
 2. **Gather source code**
 
    ```bash
-   # For unstaged (default)
+   # For unstaged (default) — include untracked files
    git diff --name-only | grep -E '\.(ts|tsx|js|jsx|py|go|rs)$'
+   git status --porcelain | grep '^??' | cut -c 4- | grep -E '\.(ts|tsx|js|jsx|py|go|rs)$'
 
    # For staged
    git diff --cached --name-only | grep -E '\.(ts|tsx|js|jsx|py|go|rs)$'
 
-   # For branch (detect default branch dynamically)
+   # For branch (detect default branch dynamically) — include untracked files
    # Fallback chain: origin/HEAD -> main -> master
    MAIN_BRANCH=$(git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@' || git rev-parse --verify main 2>/dev/null && echo main || echo master)
    git diff $(git merge-base HEAD $MAIN_BRANCH)..HEAD --name-only | grep -E '\.(ts|tsx|js|jsx|py|go|rs)$'
+   git status --porcelain | grep '^??' | cut -c 4- | grep -E '\.(ts|tsx|js|jsx|py|go|rs)$'
 
    # For path (file or directory)
    # If file: use directly if it matches source extensions

@@ -39,22 +39,25 @@ Load these reference documents (if they exist):
 
 2. **Determine scope**
    - Detect main branch: `git symbolic-ref refs/remotes/origin/HEAD 2>/dev/null | sed 's@^refs/remotes/origin/@@'` (fallback: `main`, then `master`)
-   - No scope: Branch changes plus uncommitted
+   - No scope: Branch changes plus uncommitted plus untracked
      ```bash
      # Branch changes (committed since diverging from main)
      git diff $(git merge-base HEAD $MAIN_BRANCH)..HEAD
      # Uncommitted changes (staged + unstaged)
      git diff
-     # Combined: concatenate outputs
+     # Untracked files (new files not yet added to git)
+     git status --porcelain | grep '^??' | cut -c 4-
+     # For untracked files: read full file content (not diff)
      ```
-   - `unstaged`: `git diff` (working tree only)
+   - `unstaged`: `git diff` plus untracked files
    - `staged`: `git diff --staged`
    - Path: specified file(s)
 
    **Verify scope captured all files:**
-   - Run `git diff --name-only [flags]` to list affected files
+   - Run `git diff --name-only [flags]` to list changed files
+   - Run `git status --porcelain | grep '^??' | cut -c 4-` to list untracked files
    - If no files found: "No changes found for scope: {scope}"
-   - Report file count: "Checking N files"
+   - Report file count: "Checking N files (M changed, K new)"
 
 3. **Load reference documents** per `<context_injection>`
 
@@ -68,7 +71,7 @@ Load these reference documents (if they exist):
    - Construct placeholders:
      - `$SCOPE_DESCRIPTION`: e.g., "staged changes" or "branch changes vs main"
      - `$LOADED_REFERENCE_DOCS`: concatenate contents of loaded reference files
-     - `$DIFF_OR_FILE_CONTENT`: the diff output or file content from step 2
+     - `$DIFF_OR_FILE_CONTENT`: diff output for tracked files, full content for untracked (new) files
 
 6. **Compile findings**
    - Merge results from both agents
@@ -117,7 +120,7 @@ $DIFF_OR_FILE_CONTENT
 <check_focus>
 For EACH rule in the reference documents:
 1. State the exact rule text
-2. Search the diff for violations of that specific rule
+2. Search the content for violations of that specific rule (may be diff output or full file content for new files)
 3. Record any violations found
 
 Do not summarize or categorize rules. Check each rule literally and individually.
@@ -221,6 +224,7 @@ Files: {file_count} checked against {rule_count} rules
 
 - [ ] Scope determined correctly
 - [ ] All changed files included (verified via --name-only)
+- [ ] All untracked (new) files included (verified via git status)
 - [ ] Reference documents loaded
 - [ ] 2 subagents dispatched in parallel
 - [ ] Violations deduplicated and compiled
