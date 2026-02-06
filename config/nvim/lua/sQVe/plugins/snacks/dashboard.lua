@@ -27,8 +27,8 @@ return {
       {
         icon = '🔀',
         key = 'd',
-        desc = 'Diff view',
-        action = ':lua require("sQVe.ui.command_palette.commands").diff_working_changes.callback()',
+        desc = 'Diff (branch vs main)',
+        action = ':lua require("sQVe.ui.command_palette.commands").diff_branch_vs_main.callback()',
       },
       {
         icon = '✏️',
