@@ -213,8 +213,7 @@
                     "hideIfNotDetected": true,
                     "id": "Battery",
                     "showNoctaliaPerformance": false,
-                    "showPowerProfiles": false,
-                    "warningThreshold": 20
+                    "showPowerProfiles": false
                 },
                 {
                     "blacklist": [
@@ -233,13 +232,13 @@
                     "width": 10
                 },
                 {
+                    "clockColor": "none",
                     "customFont": "Maple Mono",
                     "formatHorizontal": "HH:mm:ss",
                     "formatVertical": "",
                     "id": "Clock",
                     "tooltipFormat": "HH:mm ddd, MMM dd",
-                    "useCustomFont": true,
-                    "usePrimaryColor": false
+                    "useCustomFont": true
                 },
                 {
                     "hideWhenZero": false,
@@ -430,6 +429,8 @@
     },
     "notifications": {
         "backgroundOpacity": 1,
+        "batteryCriticalThreshold": 5,
+        "batteryWarningThreshold": 20,
         "criticalUrgencyDuration": 6,
         "enableKeyboardLayoutToast": false,
         "enableMediaToast": false,
@@ -579,7 +580,7 @@
         "fontDefaultScale": 0.9,
         "fontFixed": "Maple Mono",
         "fontFixedScale": 0.9,
-        "networkPanelView": "wifi",
+        "networkPanelView": "ethernet",
         "panelBackgroundOpacity": 1,
         "panelsAttachedToBar": true,
         "settingsPanelMode": "attached",
