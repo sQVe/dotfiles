@@ -2,7 +2,7 @@
 name: pr
 description: Create a pull request with description and test plan
 argument-hint: '[--no-confirm] [pr-title]'
-model: claude-opus-4-5-20251101
+model: claude-opus-4-6
 allowed-tools:
   - Bash
   - Read

@@ -2,7 +2,7 @@
 name: pr-review
 description: Review someone else's PR with inline annotations and GitHub-ready output
 argument-hint: '[pr-number]'
-model: claude-opus-4-5-20251101
+model: claude-opus-4-6
 allowed-tools:
   - Read
   - Bash
