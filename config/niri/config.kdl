@@ -162,6 +162,13 @@ layer-rule {
   geometry-corner-radius 8
 }
 
+layer-rule {
+  match namespace="^kitty-quick-access$"
+  shadow {
+    on
+    offset x=0 y=0
+  }
+}
 
 window-rule {
   match app-id=r#"(?i)^pinentry"#
@@ -199,6 +206,7 @@ binds {
   Mod+D repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/apps.sh"; }
   Mod+Shift+D repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/run.sh"; }
   Mod+E repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/emoji.sh"; }
+  Mod+I repeat=false { spawn "sh" "-c" "kitten quick-access-terminal"; }
   Mod+Return { spawn "term"; }
   Mod+Shift+Return { spawn "sh" "-c" "$SCRIPTS/niri/kitty-cwd.sh term"; }
   Mod+Shift+Q repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/state.sh"; }
