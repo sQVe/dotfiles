@@ -3,6 +3,8 @@
 -- ┗━╸┗━┛┗━┛ ╹ ┗━┛╹ ╹   ╹ ╹╹┗━┛╹ ╹┗━╸╹┗━┛╹ ╹ ╹ ┗━┛
 
 return function(theme)
+  local U = require('catppuccin.utils.colors')
+
   return {
     -- Color and cursor line.
     ColorColumn = { bg = theme.base },
@@ -15,6 +17,11 @@ return function(theme)
 
     -- Chainsaw.
     ChainsawLog = { bg = theme.crust },
+
+    DiffAdd = { bg = U.darken(theme.green, 0.05, theme.base) },
+    DiffChange = { bg = U.darken(theme.blue, 0.05, theme.base) },
+    DiffDelete = { bg = U.darken(theme.red, 0.05, theme.base) },
+    DiffText = { bg = U.darken(theme.blue, 0.1, theme.base) },
 
     -- Gitsigns.
     GitSignsAdd = { fg = theme.mauve },

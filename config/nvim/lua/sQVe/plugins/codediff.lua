@@ -10,6 +10,9 @@ local M = {
 }
 
 M.opts = {
+  highlights = {
+    char_brightness = 0.95,
+  },
   keymaps = {
     explorer = {
       toggle_view_mode = '`',
