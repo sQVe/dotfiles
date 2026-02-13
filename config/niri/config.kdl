@@ -6,17 +6,6 @@ environment {
   SDL_VIDEODRIVER "wayland"
 }
 
-prefer-no-csd
-screenshot-path "~/download/%Y-%m-%d-%H-%M-%S.png"
-
-hotkey-overlay {
-  skip-at-startup
-}
-
-cursor {
-    xcursor-theme "Bibata-Modern-Ice"
-    xcursor-size 24
-}
 
 input {
   disable-power-key-handling
@@ -46,10 +35,6 @@ input {
   }
 
   focus-follows-mouse max-scroll-amount="0%"
-}
-
-gestures {
-  hot-corners { off; }
 }
 
 layout {
@@ -100,9 +85,25 @@ layout {
   }
 }
 
+prefer-no-csd
+screenshot-path "~/download/%Y-%m-%d-%H-%M-%S.png"
+
 animations {
   on
   slowdown 0.6
+}
+
+hotkey-overlay {
+  skip-at-startup
+}
+
+cursor {
+  xcursor-theme "Bibata-Modern-Ice"
+  xcursor-size 24
+}
+
+gestures {
+  hot-corners { off; }
 }
 
 overview {
@@ -311,6 +312,7 @@ binds {
 
   // Columns
   Mod+C repeat=false { center-column; }
+  Mod+Shift+C repeat=false { center-visible-columns; }
   Mod+Comma { consume-or-expel-window-left; }
   Mod+M repeat=false { maximize-column; }
   Mod+Period { consume-or-expel-window-right; }
