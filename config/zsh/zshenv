@@ -43,7 +43,6 @@ export PASSWORD_STORE_GENERATED_LENGTH=24
 export PASSWORD_STORE_GPG_OPTS=--no-throw-keyids
 
 # Color options.
-export GREP_COLORS='mt=30;44'
 export LESS='-R'
 export LESSHISTFILE=-
 export LESSOPEN='| bat --color=always %s'

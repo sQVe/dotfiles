@@ -14,6 +14,7 @@ zmodule jeffreytse/zsh-vi-mode
 
 # Prompt and color.
 zmodule romkatv/powerlevel10k --use degit
+zmodule marlonrichert/zcolors
 zmodule zsh-users/zsh-syntax-highlighting
 
 # Do not touch order.
