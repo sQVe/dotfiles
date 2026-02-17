@@ -121,7 +121,6 @@ M.diff_branch_commits = {
   end,
   condition = function()
     return git.is_inside_repo()
-      and git.get_branch_name() ~= git.get_default_branch()
   end,
   name = 'Diff (branch commits)',
 }
@@ -132,7 +131,6 @@ M.diff_branch_vs_main = {
   end,
   condition = function()
     return git.is_inside_repo()
-      and git.get_branch_name() ~= git.get_default_branch()
   end,
   name = 'Diff (branch vs main)',
 }
