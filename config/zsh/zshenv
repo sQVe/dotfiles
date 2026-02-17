@@ -6,6 +6,10 @@ if [[ -f $ZDOTDIR/secretenv ]]; then
   source $ZDOTDIR/secretenv
 fi
 
+# Carapace.
+export CARAPACE_BRIDGES='clap,cobra,jj,kitten,yargs,zsh,bash'
+export CARAPACE_MATCH=1
+
 # Docker.
 export DOCKER_HOST="unix://${XDG_RUNTIME_DIR}/docker.sock"
 
