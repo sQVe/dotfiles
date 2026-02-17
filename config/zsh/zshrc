@@ -76,11 +76,6 @@ source "${ZIM_HOME}/init.zsh"
  source ~/.config/zsh/p10k.config.zsh
 
 # Completion.
-if [[ ! -f "${XDG_CACHE_HOME}/zcolors" ]]; then
-  zcolors >| "${XDG_CACHE_HOME}/zcolors"
-fi
-source "${XDG_CACHE_HOME}/zcolors"
-
 source /usr/share/fzf/completion.zsh
 source <(carapace _carapace)
 eval "$(grove completion zsh)"
