@@ -13,16 +13,16 @@ filekinds:
   mount_point: {foreground: "#207068"}
 
 perms:
-  user_read: {foreground: "#b82530", is_bold: true}
-  user_write: {foreground: "#806010", is_bold: true}
-  user_execute_file: {foreground: "#287028", is_bold: true}
-  user_execute_other: {foreground: "#287028", is_bold: true}
-  group_read: {foreground: "#b82530"}
-  group_write: {foreground: "#806010"}
-  group_execute: {foreground: "#287028"}
-  other_read: {foreground: "#b82530"}
-  other_write: {foreground: "#806010"}
-  other_execute: {foreground: "#287028"}
+  user_read: {foreground: "#686a78", is_bold: true}
+  user_write: {foreground: "#767885", is_bold: true}
+  user_execute_file: {foreground: "#5a5c6a", is_bold: true}
+  user_execute_other: {foreground: "#5a5c6a", is_bold: true}
+  group_read: {foreground: "#848692"}
+  group_write: {foreground: "#92949f"}
+  group_execute: {foreground: "#767885"}
+  other_read: {foreground: "#a0a2ab"}
+  other_write: {foreground: "#afb1b8"}
+  other_execute: {foreground: "#a0a2ab"}
   special_user_file: {foreground: "#7c32a8"}
   special_other: {foreground: "#848692"}
   attribute: {foreground: "#767885"}
@@ -55,7 +55,7 @@ links:
 
 git:
   new: {foreground: "#287028"}
-  modified: {foreground: "#806010"}
+  modified: {foreground: "#848692"}
   deleted: {foreground: "#a03050"}
   renamed: {foreground: "#207068"}
   typechange: {foreground: "#984080"}
@@ -76,7 +76,7 @@ security_context:
   range: {foreground: "#7c32a8"}
 
 file_type:
-  image: {foreground: "#806010"}
+  image: {foreground: "#848692"}
   video: {foreground: "#b82530"}
   music: {foreground: "#287028"}
   lossless: {foreground: "#207068"}
@@ -88,11 +88,11 @@ file_type:
   source: {foreground: "#2850a8"}
 
 punctuation: {foreground: "#92949f"}
-date: {foreground: "#806010"}
+date: {foreground: "#848692"}
 inode: {foreground: "#686a78"}
 blocks: {foreground: "#92949f"}
 header: {foreground: "#4c4e5e"}
-octal: {foreground: "#207068"}
+octal: {foreground: "#848692"}
 flags: {foreground: "#7c32a8"}
 
 symlink_path: {foreground: "#1878a8"}
