@@ -1,15 +1,91 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
+  "alwaysThinkingEnabled": true,
   "cleanupPeriodDays": 7,
+  "enabledPlugins": {
+    "context7@claude-plugins-official": true,
+    "elements-of-style@superpowers-marketplace": true,
+    "frontend-design@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "safety-net@cc-marketplace": true,
+    "security-guidance@claude-code-plugins": true,
+    "typescript-lsp@claude-plugins-official": true,
+    "withzombies-hyper@withzombies-hyper": true
+  },
   "env": {
     "BASH_DEFAULT_TIMEOUT_MS": "120000",
     "BASH_MAX_TIMEOUT_MS": "120000",
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
     "DISABLE_AUTOUPDATER": "1",
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
     "DISABLE_TELEMETRY": "1"
   },
+  "feedbackSurveyState": {
+    "lastShownTime": 1754085535302
+  },
+  "hooks": {
+    "PreCompact": [
+      {
+        "hooks": [
+          {
+            "command": "bd prime",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      },
+      {
+        "hooks": [
+          {
+            "command": "mulch prime",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      }
+    ],
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "command": "bd prime",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      },
+      {
+        "hooks": [
+          {
+            "command": "mulch prime",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      },
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/sqve/.claude/hooks/gsd-check-update.js\""
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node \"/home/sqve/.claude/hooks/gsd-context-monitor.js\""
+          }
+        ]
+      }
+    ]
+  },
   "includeCoAuthoredBy": false,
+  "model": "opusplan",
   "permissions": {
     "allow": [
       "Bash(basename:*)",
@@ -40,6 +116,7 @@
       "Bash(go:*)",
       "Bash(grep:*)",
       "Bash(grove:*)",
+      "Bash(mulch:*)",
       "Bash(head:*)",
       "Bash(jest:*)",
       "Bash(jq:*)",
@@ -82,28 +159,19 @@
       "Bash(which:*)",
       "Bash(xargs:*)",
       "Bash(yarn:*)",
-      "AskUserQuestion",
-      "Edit(**)",
-      "Glob(**)",
-      "Grep(**)",
+      "Edit",
+      "Glob",
+      "Grep",
       "KillShell",
-      "LS(**)",
-      "MultiEdit(**)",
-      "Read(**)",
-      "Read(~/.bin/**)",
-      "Read(~/.dotfiles/**)",
-      "Read(~/.claude/**)",
-      "Read(~/code/**)",
-      "Read(~/download/**)",
-      "Read(~/notebox/**)",
-      "Read(~/scripts/**)",
+      "LS",
+      "MultiEdit",
+      "Read",
       "Skill",
       "Task",
-      "TodoRead",
       "TodoWrite",
       "WebFetch",
       "WebSearch",
-      "Write(**)",
+      "Write",
       "ExitPlanMode",
       "mcp__context7",
       "mcp__linear",
@@ -114,38 +182,11 @@
       "Bash(systemctl:*)",
       "WebFetch(domain:yazi-rs.github.io)"
     ],
-    "defaultMode": "bypassPermissions"
+    "defaultMode": "plan"
   },
-  "model": "opus",
-  "hooks": {
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node \"$HOME/.claude/hooks/gsd-check-update.js\""
-          }
-        ]
-      }
-    ]
-  },
-  "statusLine": {
-    "type": "command",
-    "command": "/home/sqve/scripts/claude/statusline.sh"
-  },
-  "enabledPlugins": {
-    "context7@claude-plugins-official": true,
-    "elements-of-style@superpowers-marketplace": true,
-    "frontend-design@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "safety-net@cc-marketplace": true,
-    "security-guidance@claude-code-plugins": true,
-    "superpowers@superpowers-marketplace": true,
-    "typescript-lsp@claude-plugins-official": true
-  },
-  "alwaysThinkingEnabled": true,
   "skipDangerousModePermissionPrompt": true,
-  "feedbackSurveyState": {
-    "lastShownTime": 1754085535302
+  "statusLine": {
+    "command": "/home/sqve/scripts/claude/statusline.sh",
+    "type": "command"
   }
 }

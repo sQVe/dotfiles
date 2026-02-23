@@ -23,17 +23,6 @@ Descriptive names.
 
 </principles>
 
-<typescript>
-Infer types. Omit return types when inferable (Math.*, literals, simple expressions).
-Use `??` for defaults, `||` only for intentional falsy checks.
-Use `if (value != null)` for null checks.
-Use `null` over `undefined` for intentional absence.
-Use `unknown` instead of `any`.
-Use arrow functions. Use `function` for generators and overloads.
-Use braces for all control flow statements.
-Use explicit checks instead of `!` assertions.
-</typescript>
-
 <writing>
 Concise. Active voice. No fluff.
 Use APA sentence case for titles and headings.
