@@ -2,7 +2,7 @@
 name: commit
 description: Create atomic git commits with conventional format
 argument-hint: '[--no-confirm] [commit-message]'
-model: claude-sonnet-4-5-20250929
+model: claude-sonnet-4-6
 allowed-tools:
   - Bash
   - Read
