@@ -78,9 +78,15 @@ source "${ZIM_HOME}/init.zsh"
 # Completion.
 source /usr/share/fzf/completion.zsh
 source <(carapace _carapace)
+eval "$(bd completion zsh)"
 eval "$(grove completion zsh)"
 eval "$(grove switch shell-init)"
 eval "$(zoxide init zsh)"
+
+# pnpm run completion.
+_carapace_pnpm=$_comps[pnpm]
+source /usr/share/zsh/plugins/pnpm-shell-completion/pnpm-shell-completion.zsh
+compdef _pnpm_bridge pnpm
 
 #  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓
 #  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
@@ -105,6 +111,14 @@ function _fzf_compgen_path() {
 # Use fd in fzf completion for directory listing.
 function _fzf_compgen_dir() {
   command fd --type directory --hidden --follow --exclude '.git' --exclude '.steam' --exclude 'Steam' . "$1"
+}
+
+function _pnpm_bridge() {
+  if [[ ${words[2]} == (run|run-script) && $CURRENT -eq 3 && -f ./package.json ]]; then
+    _pnpm
+  else
+    $_carapace_pnpm "$@"
+  fi
 }
 
 # Colorize man
