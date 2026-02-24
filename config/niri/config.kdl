@@ -155,20 +155,14 @@ window-rule {
 window-rule {
   match is-floating=true
   shadow { on; }
+  min-width 100
+  min-height 100
 }
 
 layer-rule {
   match namespace="^rofi$"
   shadow { on; }
   geometry-corner-radius 8
-}
-
-layer-rule {
-  match namespace="^kitty-quick-access$"
-  shadow {
-    on
-    offset x=0 y=0
-  }
 }
 
 window-rule {
@@ -179,7 +173,7 @@ window-rule {
 window-rule {
   match app-id="mpv"
   open-floating true
-  default-floating-position x=8 y=8 relative-to="bottom-right"
+  default-floating-position x=8 y=8 relative-to="top-right"
 }
 
 window-rule {
@@ -190,11 +184,11 @@ window-rule {
 
 // Startup
 spawn-at-startup "sh" "-c" "$SCRIPTS/niri/init.sh"
-
 spawn-at-startup "/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1"
 spawn-at-startup "gnome-keyring-daemon" "--start" "--components=pkcs11,secrets"
 spawn-at-startup "kanshi"
-spawn-at-startup "niri-float-sticky"
+spawn-at-startup "niri-sidebar" "listen"
+spawn-at-startup "niri-float-sticky" "-app-id" "(?i:^pinentry)" "-app-id" "mpv" "-app-id" "^chrome-"
 spawn-at-startup "sh" "-c" "sleep 4 && easyeffects --gapplication-service"
 spawn-at-startup "swayidle" "-w" \
     "before-sleep" "qs msg --any-display -c noctalia-shell lockScreen lock" \
@@ -207,7 +201,6 @@ binds {
   Mod+D repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/apps.sh"; }
   Mod+Shift+D repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/run.sh"; }
   Mod+E repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/emoji.sh"; }
-  Mod+I repeat=false { spawn "sh" "-c" "kitten quick-access-terminal"; }
   Mod+Return { spawn "term"; }
   Mod+Shift+Return { spawn "sh" "-c" "$SCRIPTS/niri/kitty-cwd.sh term"; }
   Mod+Shift+Q repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/state.sh"; }
@@ -303,12 +296,16 @@ binds {
   Mod+Ctrl+P { move-workspace-up; }
 
   // Windows
-  Mod+O repeat=false { toggle-window-floating; }
-  Mod+Shift+O repeat=false { switch-focus-between-floating-and-tiling; }
   Mod+Q repeat=false { close-window; }
   Mod+S repeat=false { toggle-overview; }
   Mod+Z repeat=false { fullscreen-window; }
   Mod+Shift+Z repeat=false { toggle-windowed-fullscreen; }
+
+  // Sidebar.
+  Mod+O { spawn-sh "niri-sidebar toggle-visibility"; }
+  Mod+Shift+O { spawn-sh "niri-sidebar toggle-window"; }
+  Mod+P repeat=false { switch-focus-between-floating-and-tiling; }
+  Mod+Shift+P  repeat=false { toggle-window-floating; }
 
   // Columns
   Mod+C repeat=false { center-column; }

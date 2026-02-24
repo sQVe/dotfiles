@@ -1,0 +1,25 @@
+# niri-sidebar configuration
+
+[geometry]
+width = 1000
+height = 400
+gap = 8
+
+[margins]
+top = 50
+right = 10
+left = 10
+bottom = 35
+
+[interaction]
+position = "right"
+peek = 10
+focus_peek = 10
+sticky = false
+
+[[window_rule]]
+app_id = "google-chrome"
+title = "^DevTools"
+width = 1000
+height = 600
+auto_add = true
