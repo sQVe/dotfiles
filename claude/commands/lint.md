@@ -28,6 +28,8 @@ Load these reference documents (if they exist):
 - `.claude/CLAUDE.md` or `CLAUDE.md` (project rules)
 - `README.md` (project conventions)
 - `CONTRIBUTING.md` (contribution guidelines)
+- `~/.claude/rules/*.md` — load each rule file whose `globs` frontmatter matches any file in scope
+- `.claude/rules/*.md` — same as above, project-level rules
   </context_injection>
 
 <process>
