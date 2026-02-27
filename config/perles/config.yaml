@@ -1,0 +1,33 @@
+# Perles Configuration
+
+auto_refresh: true
+
+ui:
+  vim_mode: true
+  markdown_style: light
+
+theme:
+  preset: catppuccin-latte
+
+views:
+  - name: Default
+    columns:
+      - name: Blocked
+        type: bql
+        query: 'status = open and blocked = true'
+        color: '#FF8787'
+
+      - name: Ready
+        type: bql
+        query: 'status = open and ready = true'
+        color: '#73F59F'
+
+      - name: In Progress
+        type: bql
+        query: 'status = in_progress'
+        color: '#54A0FF'
+
+      - name: Closed
+        type: bql
+        query: 'status = closed'
+        color: '#BBBBBB'
