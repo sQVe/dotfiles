@@ -2,7 +2,7 @@
 
 [geometry]
 width = 1000
-height = 400
+height = 550
 gap = 8
 
 [margins]
@@ -20,6 +20,4 @@ sticky = false
 [[window_rule]]
 app_id = "google-chrome"
 title = "^DevTools"
-width = 1000
-height = 600
 auto_add = true
