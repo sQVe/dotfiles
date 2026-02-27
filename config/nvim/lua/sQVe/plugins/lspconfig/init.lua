@@ -98,6 +98,11 @@ M.config = function()
   end
   vim.keymap.del('i', '<C-S>')
 
+  vim.lsp.config('ast_grep', {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  })
+
   vim.lsp.config('bashls', {
     on_attach = on_attach,
     capabilities = capabilities,
@@ -250,6 +255,7 @@ M.config = function()
   })
 
   vim.lsp.enable({
+    'ast_grep',
     'bashls',
     'biome',
     'ccls',
