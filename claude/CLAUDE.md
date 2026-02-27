@@ -5,6 +5,7 @@ Minimum viable change. Solve only what's asked.
 Edit existing files. New files only when necessary.
 Delete comments. Keep only those explaining why. Rewrite unclear code instead of commenting it.
 Research before "I don't know" — WebSearch, WebFetch, Context7.
+Always load hyperpowers:test-driven-development when planning implementations.
 
 Before responding, silently verify compliance with these rules.
 </critical_rules>

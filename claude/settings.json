@@ -8,6 +8,7 @@
     "DISABLE_AUTOUPDATER": "1",
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
+    "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "128000",
     "DISABLE_TELEMETRY": "1"
   },
   "includeCoAuthoredBy": false,
@@ -111,15 +112,6 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bd prime"
-          }
-        ]
-      },
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
             "command": "mulch prime"
           }
         ]
@@ -131,34 +123,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "bd prime"
-          }
-        ]
-      },
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
             "command": "mulch prime"
-          }
-        ]
-      },
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node \"/home/sqve/.claude/hooks/gsd-check-update.js\""
-          }
-        ]
-      }
-    ],
-    "PostToolUse": [
-      {
-        "hooks": [
-          {
-            "type": "command",
-            "command": "node \"/home/sqve/.claude/hooks/gsd-context-monitor.js\""
           }
         ]
       }
@@ -174,10 +139,10 @@
     "elements-of-style@superpowers-marketplace": true,
     "frontend-design@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
-    "lua-lsp@claude-plugins-official": true,
     "safety-net@cc-marketplace": true,
     "typescript-lsp@claude-plugins-official": true,
-    "withzombies-hyper@withzombies-hyper": true
+    "withzombies-hyper@withzombies-hyper": true,
+    "beads@beads-marketplace": true
   },
   "alwaysThinkingEnabled": true,
   "skipDangerousModePermissionPrompt": true,
