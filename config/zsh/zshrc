@@ -221,7 +221,7 @@ alias -g F='| fzf'
 alias -g V='| nvim'
 
 # Listing.
-alias eza='eza --group-directories-first --color=auto'
+alias eza='eza --group-directories-first --color=auto --icons'
 alias la='eza -la --octal-permissions --no-permissions'
 alias ll='eza -l --octal-permissions --no-permissions'
 alias ls='eza'
