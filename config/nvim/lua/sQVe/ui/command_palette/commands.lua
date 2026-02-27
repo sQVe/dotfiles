@@ -238,6 +238,18 @@ M.git_blame = {
   name = 'Git (blame)',
 }
 
+M.git_branch_changes = {
+  callback = function()
+    Snacks.picker.git_diff({
+      base = 'origin/' .. git.get_default_branch(),
+    })
+  end,
+  condition = function()
+    return git.is_inside_repo()
+  end,
+  name = 'Git (branch changes)',
+}
+
 M.git_merge_base = {
   callback = function()
     local gitsigns = package.loaded.gitsigns

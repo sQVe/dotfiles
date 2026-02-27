@@ -28,6 +28,7 @@ local default_commands = {
   commands.find_files_in_subdirectory,
   commands.fix_spelling,
   commands.git_blame,
+  commands.git_branch_changes,
   commands.git_merge_base,
   commands.git_open_in_github,
   commands.git_previous_commit_message,
