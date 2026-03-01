@@ -191,10 +191,6 @@ spawn-at-startup "niri-sidebar" "listen"
 spawn-at-startup "qs" "-c" "noctalia-shell"
 spawn-at-startup "sh" "-c" "$SCRIPTS/niri/init.sh"
 spawn-at-startup "sh" "-c" "sleep 4 && easyeffects --gapplication-service"
-spawn-at-startup "swayidle" "-w" \
-    "before-sleep" "qs ipc --any-display -c noctalia-shell call lockScreen lock" \
-    "timeout" "300" "qs ipc --any-display -c noctalia-shell call lockScreen lock" \
-    "resume" "niri msg action power-on-monitors"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
 binds {
