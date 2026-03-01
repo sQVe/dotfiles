@@ -106,6 +106,17 @@
   },
   "model": "opusplan",
   "hooks": {
+    "UserPromptSubmit": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node /home/sqve/scripts/claude/enforce-tdd.js"
+          }
+        ]
+      }
+    ],
     "PreCompact": [
       {
         "matcher": "",
