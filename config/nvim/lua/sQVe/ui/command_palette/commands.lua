@@ -578,7 +578,14 @@ M.search_in_files_subdirectory = {
 
 M.search_text = {
   callback = function()
-    Snacks.picker.grep_word({ regex = false, args = {}, live = true })
+    Snacks.picker.grep_word({
+      follow = true,
+      hidden = true,
+      ignored = false,
+      regex = false,
+      args = { '--pcre2' },
+      live = true,
+    })
   end,
   condition = function(opts)
     return buffer.is_valid(opts.bufnr)
