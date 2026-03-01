@@ -15,19 +15,19 @@ views:
       - name: Blocked
         type: bql
         query: 'status = open and blocked = true'
-        color: '#FF8787'
+        color: '#b82530'
 
       - name: Ready
         type: bql
         query: 'status = open and ready = true'
-        color: '#73F59F'
+        color: '#287028'
 
       - name: In Progress
         type: bql
         query: 'status = in_progress'
-        color: '#54A0FF'
+        color: '#2850a8'
 
       - name: Closed
         type: bql
         query: 'status = closed'
-        color: '#BBBBBB'
+        color: '#7c32a8'
