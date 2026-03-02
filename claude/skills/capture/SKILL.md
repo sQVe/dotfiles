@@ -91,11 +91,11 @@ If type is **completion**, do this instead of the normal flow (skip remaining st
 3. If the input includes a conclusion (e.g., "not necessary — no dotfiles commands warrant conversion"), extract and polish it: fix spelling/punctuation, remove filler. Otherwise conclusion is empty.
 
 4. If found: replace that line with `- [x] {original task text}` (appending ` — _{conclusion}_` if a conclusion exists) using Edit (exact line match). Do NOT rewrite the file.
-   - Example with conclusion: `- [x] Check if dotfiles commands should be converted (dotfiles) — _none warrant conversion_`
-   - Example without: `- [x] Fix the login bug (myrepo)`
+   - Example with conclusion: `- [x] Check if dotfiles commands should be converted — _none warrant conversion_`
+   - Example without: `- [x] Fix the login bug`
 
 5. **Move completed task to end of its group:**
-   - Extract context from the original task text (before any conclusion or carry-over label): the `(context-name)` suffix at the end.
+   - Extract context from the original task text: check the `(context-name)` suffix at the end (legacy format), or identify the context group header the task sits under.
    - For tasks with context: find the `` `{context}`: `` header. Group end is the next `` `...`: `` line OR the `### Tasks` section end.
    - For tasks without context: group end is the first `` `...`: `` line in `### Tasks` OR the section end.
    - If no context group headers exist at all, skip the move.
@@ -261,11 +261,10 @@ Within today's day section, subsections appear in this order: Tasks, Notes, Refe
 basename "$(git rev-parse --show-toplevel 2>/dev/null)" 2>/dev/null
 ```
 
-If non-empty, append `(repo-name)` to the task — **unless** the task will be placed in a named context group matching that repo (the group header already provides that context, so the suffix would be redundant). If not in a git repo, omit.
+If non-empty, this is the **task context** — use it in Step 8 for group placement. Do NOT append it as a suffix to the task text; the context group header provides that information.
 
-- "I need to fix the login bug" → `- [ ] Fix the login bug (myrepo)` (no matching group)
-- "check if the deployment worked" → `- [ ] Check if deployment worked (myrepo)` (no matching group)
-- task in `notebox` repo, placed in `` `notebox`: `` group → `- [ ] Set up qmd` (suffix omitted)
+- "I need to fix the login bug" → `- [ ] Fix the login bug` (context: `myrepo`)
+- "check if the deployment worked" → `- [ ] Check if deployment worked` (context: `myrepo`)
 
 **Notes:** Fix spelling and punctuation. Remove filler phrases ("I think", "maybe", "probably"). Do not change the substance.
 
@@ -283,7 +282,7 @@ If non-empty, append `(repo-name)` to the task — **unless** the task will be p
 
 **For tasks:** Insert into the correct context group within `### Tasks`.
 
-**Context extraction:** From the polished task line, extract the `(context-name)` suffix — the parenthetical at the end, before any ` — carried from` label. Strip surrounding parens.
+**Context source:** Use the task context detected in Step 7 (the git repo name). If Step 7 found no context (not in a git repo), the task is ungrouped.
 
 **Context group header pattern:** A line matching `` `name`: `` (backtick-wrapped name followed by a colon, alone on its line). Named groups are sorted alphabetically within `### Tasks`. Tasks with no context go at the top, before all named groups, with no header.
 
@@ -378,8 +377,8 @@ This skill:
 
 `notebox`:
 
-- [ ] Task one (notebox)
-- [x] Task two (notebox)
+- [ ] Task one
+- [x] Task two
 
 ### Notes
 
@@ -451,7 +450,7 @@ The skill ran correctly when ALL of these are true:
 - [ ] The file starts with `# YYYY-WNN` (H1 only, nothing else before it)
 - [ ] Today's `## DayName YYYY-MM-DD` section exists
 - [ ] Tasks inserted into correct context group within `### Tasks` — general tasks at top (no header), named groups as `` `context`: `` sorted alphabetically below (incomplete before completed within group); notes to `### Notes`; references to `### References`
-- [ ] Tasks use `- [ ]` (new), `- [-]` (started), or `- [x]` (done) prefix, imperative verb, and `(repo-name)` suffix when in a git repo — omitted when task is placed in a named context group matching the repo
+- [ ] Tasks use `- [ ]` (new), `- [-]` (started), or `- [x]` (done) prefix, imperative verb, no `(repo-name)` suffix — git repo context is expressed by the context group header, not a suffix
 - [ ] References include a fetched title (or raw URL as fallback) and em-dash summary
 - [ ] No empty subsections were created
 - [ ] Completions: matching `- [ ]` or `- [-]` task found and changed to `- [x]`; conclusion appended as ` — _{conclusion}_` on the task line if present
