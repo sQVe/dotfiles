@@ -29,6 +29,7 @@ fi
 [[ -n "$DEFAULT_NODE_VERSION" ]] && export PATH="$DEFAULT_NODE_VERSION:$PATH"
 [[ -n "$DEV_BINS" ]] && export PATH="$DEV_BINS:$PATH"
 [[ -d "$HOME/.local/bin" ]] && export PATH="$HOME/.local/bin:$PATH"
+[[ -d /opt/cuda/bin ]] && export PATH="$PATH:/opt/cuda/bin"
 
 # Terminal options.
 export AUTOPAIR_INHIBIT_INIT=1
