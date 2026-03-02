@@ -109,18 +109,18 @@ Create `### Notes` only if at least one context note was added.
 Run:
 
 ```bash
-bun $SCRIPTS/claude/fetch-feeds.ts $NOTEBOX/reference/feeds.md --hours 48 --per-category 8
+bun $SCRIPTS/claude/fetch-feeds.ts $NOTEBOX/reference/feeds.md --hours 48 --per-category 10
 ```
 
-This returns a JSON array of recent feed items: `[{title, url, feed, published, summary, category}]`, capped at 8 per category.
+This returns a JSON array of recent feed items: `[{title, url, feed, published, summary, category}]`, capped at 10 per category.
 
-**If items are returned:** Read `$NOTEBOX/reference/interests.md` first. Use it to rank items within each category:
+**If items are returned:** Read `$NOTEBOX/reference/interests.md` and `$NOTEBOX/reference/feeds.md`. Use them to rank items within each category:
 
 - Prefer items that match topics in **Topics I care about**
 - Skip or rank last items matching **Deprioritize**
 - Within a category, prefer items from higher-priority feeds listed in **Feed priority**
 
-Group items by `category`. Use the category name as a `**bold:**` label (bold text with trailing colon) followed by a blank line. For each category, pick ~5 entries. Write to today's `### Reading` section:
+Group items by `category`. Use the category name as a `**bold:**` label (bold text with trailing colon) followed by a blank line. For each category, pick the count from **Feed priority** in `feeds.md` (e.g. `Swedish news — 5` means pick 5). Categories not listed in **Feed priority** get 3 items by default. Write to today's `### Reading` section:
 
 ```markdown
 ### Reading
