@@ -57,7 +57,8 @@ For each item in order:
 
 1. Display the item content clearly (show the raw line).
 2. Use `AskUserQuestion` with:
-   - **Promote** — move to reference/*.md
+   - **Promote to reference** — move to reference/*.md
+   - **Promote to project** — move to projects/YYYY.md under a project
    - **Keep** — move to today's day section
    - **Reject** — discard
 
@@ -92,6 +93,32 @@ Execute the action (Step 5) before moving to the next item.
 
 4. Remove the item's raw line from the source file's `## AI suggestions` section using Edit (exact line match).
 
+### Promote to project
+
+1. Resolve the project file: `bun $SCRIPTS/claude/notebox.ts project-path`
+
+2. Read the project file. List existing H1 headings (project names). Use `AskUserQuestion` to let the user pick one, or select "New project".
+
+   If "New project": ask for name, category, and one-sentence description. Append to the file:
+   ```markdown
+   # {Name}
+
+   _{Category} · {YYYY-MM-DD} · Active_
+
+   {Description}
+   ```
+
+3. Format and polish the content (same rules as reference promotion):
+   - task: strip `(suggested)` → `- [ ] <task text>` (make imperative, strip filler)
+   - note: strip `Note: ` → plain paragraph text (fix spelling/punctuation, remove filler)
+   - reference: strip `Suggested reading: ` → `- [Title](url) — summary.`
+
+4. Find or create today's `## YYYY-MM-DD` heading under the matched project. Get today's date via `bun $SCRIPTS/claude/notebox.ts today` (extract date part only).
+   - If the heading exists: append after the last content line under it.
+   - If missing: append at end of the project section with a blank line before and after.
+
+5. Remove the item's raw line from the source file's `## AI suggestions` section using Edit (exact line match).
+
 ### Keep
 
 1. Strip the type prefix, polish, and format for the weekly file:
@@ -122,6 +149,7 @@ Do NOT rewrite the entire file.
 Compile all files modified during this skill run. Collect the unique set:
 - All source weekly files from which AI suggestion lines were removed (Promote, Keep, or Reject)
 - All reference files that received promoted content
+- All project files that received promoted content
 - The current weekly file, if any items were kept there
 
 For each file, run:
@@ -130,7 +158,7 @@ For each file, run:
 cd "$NOTEBOX" && make <target>
 ```
 
-Where target is derived by stripping `.md` and the `$NOTEBOX/` prefix (e.g., `reference/coding.md` → `reference/coding`). Compile weekly files first (newest first), then reference files. If any call fails, output:
+Where target is derived by stripping `.md` and the `$NOTEBOX/` prefix (e.g., `reference/coding.md` → `reference/coding`). For project files: target is `projects/YYYY` (strip `.md` and `$NOTEBOX/` prefix). Compile weekly files first (newest first), then reference files, then project files. If any call fails, output:
 
 ```
 Warning: PDF compilation failed for <target> — check typst install
@@ -180,7 +208,7 @@ If items came from multiple files, list each: `(2 from 2026-W10.md, 1 from 2026-
 - [ ] `$NOTEBOX` resolved and valid
 - [ ] All weekly files scanned for AI suggestions
 - [ ] Each item presented one at a time with clear options
-- [ ] Promote writes clean content (no type-label prefix) to correct reference file
+- [ ] Promote writes clean content (no type-label prefix) to correct destination (reference or project file)
 - [ ] Keep writes clean content to today's correct subsection in the current weekly file
 - [ ] Reject removes item without leaving a blank line trace
 - [ ] Empty `## AI suggestions` sections removed (no orphaned headers)
@@ -191,7 +219,7 @@ If items came from multiple files, list each: `(2 from 2026-W10.md, 1 from 2026-
 <integration>
 
 **Reads:** `## AI suggestions` content across all weekly files (written by capture when AI-initiated)
-**Produces:** promoted content in `$NOTEBOX/reference/*.md`; kept content in today's day section; cleaned-up weekly files with empty suggestion sections removed
+**Produces:** promoted content in `$NOTEBOX/reference/*.md` or `$NOTEBOX/projects/YYYY.md`; kept content in today's day section; cleaned-up weekly files with empty suggestion sections removed
 **Consumed by:** nothing — terminal step in the weekly cycle
 
 </integration>

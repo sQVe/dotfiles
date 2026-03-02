@@ -42,7 +42,8 @@ Example (run on 2026-03-09, a Monday of W11):
 Read the previous week file. Collect all task lines from day sections only (any `## ` heading with a day name, not `## AI suggestions` or `## Review`).
 
 For each `- [x]` line: add to **completed** list (with the day name it came from).
-For each `- [ ]` line: add to **incomplete** list (with the day name it came from).
+For each `- [ ]` line: add to **incomplete** list with `[ ]` state (with the day name it came from).
+For each `- [-]` line: add to **incomplete** list with `[-]` state (with the day name it came from).
 
 Strip any existing `— carried from ...` labels when recording the task text — they will be regenerated if needed.
 
@@ -80,7 +81,10 @@ For each collected note (from step 3), present it to the user:
 Note from {DayName}:
   "{note text}"
 
-Promote to reference/? Enter a filename (e.g. "arch-linux") to promote, or press Enter to skip.
+Promote? Enter:
+  r <filename>  → reference/<filename>.md  (e.g. "r arch-linux")
+  p <project>   → projects/ under project name  (e.g. "p notebox automation")
+  (empty)       → skip
 ```
 
 Wait for the user's response for each note before proceeding to the next.
@@ -94,6 +98,21 @@ Wait for the user's response for each note before proceeding to the next.
 - Do not add timestamps or metadata
 
 **If user presses Enter (empty input):** skip this note, do not write anywhere.
+
+**If user enters `p <project>`:**
+
+- Resolve the project file: `bun $SCRIPTS/claude/notebox.ts project-path`
+- Polish the note before writing: fix spelling and punctuation, remove filler phrases ("I think", "maybe", "probably", "seems like"), make sentences active and direct. Do not change the substance.
+- Read the project file. Fuzzy-match `<project>` to an H1 heading (case-insensitive, partial match). If no match, list existing project names and ask the user to clarify. If user wants a new project, ask for category and one-sentence description, then create the H1 + metadata line.
+- Check if today's `## YYYY-MM-DD` heading exists under the matched project. Get today's date part from `bun $SCRIPTS/claude/notebox.ts today`.
+- If today's heading exists: append the polished note after the last content line under it.
+- If today's heading is missing: append at the end of the project section:
+  ```
+  ## YYYY-MM-DD
+
+  {polished note}
+  ```
+- Do not add timestamps or metadata within the note itself.
 
 After all notes, proceed to step 6.
 
@@ -126,10 +145,11 @@ For each incomplete task (collected in step 2), determine the source day name an
 - Format origin label: `— carried from {DayName} {YYYY-MM-DD}` (e.g., `— carried from Wed 2026-03-04`)
   - Use abbreviated day: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 
-Insert each task into the correct context group in current week's Monday `### Tasks` section:
+Insert each task into the correct context group in current week's Monday `### Tasks` section, using the original task prefix (`- [ ]` or `- [-]`):
 
 ```
 - [ ] Task text — carried from Wed 2026-03-04
+- [-] Started task — carried from Wed 2026-03-04
 ```
 
 **Context group placement:** Extract the `(context-name)` suffix from the task text, before any ` — carried from` label. Use the same insertion algorithm as capture Step 8 — find or create the `` `{context}`: `` group sorted alphabetically, insert before the first `- [x]` in that group (or before the next group header, or at group end). Tasks with no context suffix go at the top of `### Tasks` without a header.
@@ -158,15 +178,16 @@ Write (overwrite if exists, append if missing):
 
 - [ ] Task text — carried from Wed 2026-03-04
 
-### Promoted to reference
+### Promoted
 
 - "{note text}" → reference/filename.md
+- "{note text}" → projects/2026.md # Project Name
 ```
 
 Rules:
 - `### Completed`: one `- ` line per completed task, with abbreviated day in parentheses. If none: write `None this week.`
-- `### Rolled over`: one `- [ ]` line per incomplete task with carry-over label. If none: write `None.`
-- `### Promoted to reference`: one line per promoted note. If none: omit this subsection entirely.
+- `### Rolled over`: one line per incomplete task using original prefix (`- [ ]` or `- [-]`) with carry-over label. If none: write `None.`
+- `### Promoted`: one line per promoted note (reference or project). If none: omit this subsection entirely.
 
 Do NOT rewrite the whole file. If `## Review` already exists, replace it entirely. Otherwise append at the end.
 
@@ -188,6 +209,12 @@ For each file written in this skill run, compile to PDF. Run each make call sepa
    ```bash
    cd "$NOTEBOX" && make reference/{filename}
    ```
+
+4. Each project file promoted in Step 5 (skip if none):
+   ```bash
+   cd "$NOTEBOX" && make projects/YYYY
+   ```
+   Where `YYYY` is the current year.
 
 Where targets are derived by stripping `.md` and the `$NOTEBOX/` prefix. If any call fails, output:
 
@@ -286,7 +313,7 @@ Rules:
 - ❌ Rewriting the whole file — use Edit to insert/replace at the correct point only
 - ❌ Creating empty subsections in the Review section — omit `### Promoted to reference` if none
 - ❌ Using relative paths — always use the full `$NOTEBOX/weekly/` path
-- ❌ Promoting notes to day sections — promotions go only to `$NOTEBOX/reference/*.md` files
+- ❌ Promoting notes to day sections — promotions go only to `$NOTEBOX/reference/*.md` or `$NOTEBOX/projects/YYYY.md`
 - ❌ Reviewing the current week — always review the previous week's file
 - ❌ Running if previous week file has already been reviewed — check for `## Review` first
 
@@ -298,12 +325,12 @@ Rules:
 - [ ] Previous week file found and has no existing `## Review` section
 - [ ] Previous week file scanned — completed and incomplete tasks both collected
 - [ ] User was shown each note and asked whether to promote it
-- [ ] Promoted notes written to correct `$NOTEBOX/reference/*.md` file
+- [ ] Promoted notes written to correct destination: `$NOTEBOX/reference/*.md` or `$NOTEBOX/projects/YYYY.md` depending on user's choice
 - [ ] Current week file exists at correct path (created or already present)
-- [ ] Current week Monday `### Tasks` contains all rolled-over incomplete tasks with carry-over labels, placed in correct `` `context`: `` groups (alphabetical, general at top)
+- [ ] Current week Monday `### Tasks` contains all rolled-over incomplete tasks with carry-over labels, placed in correct `` `context`: `` groups (alphabetical, general at top); `- [-]` tasks preserve `- [-]` prefix (not reset to `- [ ]`)
 - [ ] No duplicate tasks in current week Monday (deduplication applied)
 - [ ] `## Review` section written at end of previous week file with Completed, Rolled over subsections
-- [ ] `### Promoted to reference` subsection present only if at least one note was promoted
+- [ ] `### Promoted` subsection present only if at least one note was promoted
 - [ ] Summary printed to user
 
 </success_criteria>
@@ -311,7 +338,7 @@ Rules:
 <integration>
 
 **Reads:** all day sections and `## AI suggestions` from the previous week's file (written by capture and daily throughout the week)
-**Produces:** `## Review` section in the previous week file; incomplete tasks rolled to current week's Monday `### Tasks`; promoted notes written to `$NOTEBOX/reference/*.md`
+**Produces:** `## Review` section in the previous week file; incomplete tasks rolled to current week's Monday `### Tasks`; promoted notes written to `$NOTEBOX/reference/*.md` or `$NOTEBOX/projects/YYYY.md`
 **Consumed by:** nothing — terminal step in the weekly cycle
 
 </integration>

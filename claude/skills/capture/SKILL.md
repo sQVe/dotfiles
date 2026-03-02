@@ -35,10 +35,11 @@ Classify the input as one of: **completion**, **task**, **note**, **reference**,
 | started    | Describes beginning work on an existing task ("started", "working on", "in progress", "began", "kicking off") OR starts with `- [-]`                                              |
 | cancelled  | Describes dropping/abandoning a task ("cancel", "cancelled", "drop", "dropped", "scrapping", "won't do", "not doing", "skip") OR starts with `- [/]`                              |
 | reference  | Contains a URL, or user says "reference" or "link"                                                                                                                                 |
+| project    | User says "project update", "project log", names a known project, or starts with "for [project name]:"                                                                             |
 | task       | Contains action verb ("fix", "add", "build", "check", "write", "update", "review", "create", "investigate", "test") OR starts with `- [ ]` OR is a question about something to do |
 | note       | Everything else — observations, learnings, thoughts                                                                                                                                |
 
-When ambiguous, prefer: completion > started > cancelled > reference > task > note
+When ambiguous, prefer: completion > started > cancelled > reference > project > task > note
 
 ## Step 3: Check initiator
 
@@ -166,6 +167,63 @@ If type is **cancelled**, do this instead of steps 6b–9:
    Captured cancellation to $NOTEBOX/weekly/YYYY-WNN.md → marked [/] {task text}
    ```
    If task not found in file, warn: "No matching open task found for: {task text}. Captured as note instead." Then fall through to note routing.
+
+## Step 6e: Handle project type (early exit)
+
+If type is **project**, do this instead of steps 6b–9:
+
+1. Resolve the project file path:
+
+   ```bash
+   bun $SCRIPTS/claude/notebox.ts project-path
+   ```
+
+   Example output: `/home/sqve/notebox/projects/2026.md`
+
+2. Read the file. Extract all H1 headings (`# Project name`) — these are existing projects.
+
+3. **Identify target project:**
+   - If user named a project (e.g., "for notebox automation:", "notebox project"), fuzzy-match to an H1. If no match, list existing projects and ask which one.
+   - If no project named, list existing projects and ask.
+   - If user wants to create a new project, ask for: name, category, one-sentence description. Append to the file:
+     ```markdown
+     # {Name}
+
+     _{Category} · {YYYY-MM-DD} · Active_
+
+     {Description}
+     ```
+
+4. Within the target project's section, check if today's date heading (`## {YYYY-MM-DD}`) already exists. Get today's date from `bun $SCRIPTS/claude/notebox.ts today` and extract just the date part.
+
+5. Polish the input: fix spelling and punctuation. Remove filler phrases. Keep substance.
+
+6. Insert the polished content:
+   - If today's date heading exists: append after the last line of content under it (before the next `## ` heading or end of file).
+   - If today's date heading is missing: append at the end of the project's section (before the next `# ` heading or end of file):
+     ```markdown
+
+     ## {YYYY-MM-DD}
+
+     {content}
+     ```
+
+7. Compile the project file to PDF:
+
+   ```bash
+   cd "$NOTEBOX" && make projects/YYYY
+   ```
+
+   Where `YYYY` is the current year. If the command fails, output:
+
+   ```
+   Warning: PDF compilation failed for projects/YYYY — check typst install
+   ```
+
+8. Output confirmation and stop:
+   ```
+   Captured project update to $NOTEBOX/projects/YYYY.md → # Project Name / ## YYYY-MM-DD
+   ```
 
 ## Step 6b: Find or create the subsection
 
@@ -367,6 +425,7 @@ Rules:
 - ❌ Assuming task type from context when it could be a note (classify carefully)
 - ❌ Using relative paths like `weekly/` — always use the full `$NOTEBOX/weekly/` path
 - ❌ Appending tasks to the end of `### Tasks` without placing them in their context group
+- ❌ Routing a project update to the weekly file (use the project file)
 
 </anti_patterns>
 
@@ -397,13 +456,14 @@ The skill ran correctly when ALL of these are true:
 - [ ] Completions: matching `- [ ]` or `- [-]` task found and changed to `- [x]`; conclusion appended as ` — _{conclusion}_` on the task line if present
 - [ ] Started: matching `- [ ]` task found and changed to `- [-]`
 - [ ] Cancellations: matching `- [ ]` or `- [-]` task found and changed to `- [/]`
+- [ ] Project updates: target project matched, today's ## YYYY-MM-DD heading found or created, content appended under it
 - [ ] The confirmation line was output to the user
 
 </success_criteria>
 
 <integration>
 
-**Produces:** tasks/notes/references in day sections; AI-initiated content in `## AI suggestions`
+**Produces:** tasks/notes/references in day sections; AI-initiated content in `## AI suggestions`; project updates in `projects/YYYY.md`
 **Consumed by:** daily (carries over tasks), weekly (reviews completed/incomplete tasks), triage (processes AI suggestions)
 **Called after:** completing any task that originated from a notebox weekly file — use completion type to mark `- [ ]` → `- [x]`
 
