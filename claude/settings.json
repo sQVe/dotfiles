@@ -145,6 +145,12 @@
     "type": "command",
     "command": "/home/sqve/scripts/claude/statusline.sh"
   },
+  "mcpServers": {
+    "qmd": {
+      "command": "qmd",
+      "args": ["mcp"]
+    }
+  },
   "enabledPlugins": {
     "chrome-devtools-mcp@chrome-devtools-plugins": true,
     "context7@claude-plugins-official": true,

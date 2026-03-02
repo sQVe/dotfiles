@@ -49,7 +49,7 @@ bun $SCRIPTS/claude/notebox.ts today
 
 Today's section header format: `## {DayName} YYYY-MM-DD`
 
-If missing, insert it in chronological order among existing day sections — before `## AI suggestions` or `## Review` if they exist, otherwise at the end.
+If missing, insert it in chronological order among existing day sections — before `## Review` if it exists, otherwise at the end.
 
 ## Step 4: Find incomplete tasks from previous days
 
@@ -102,6 +102,13 @@ For each carried-over task:
 - Call `mcp__linear__get_issue` to get details
 - Add to `### Notes`: `**{short task name} (Linear):** {ISSUE-ID} {title} — {status}`
 - Skip if no relevant results
+
+**Notebox context:**
+- Run `qmd search "{task keywords}" -c notebox -n 3`
+- Filter results to `reference/*.md` and `projects/*.md` only (skip weekly files)
+- If results exist with score ≥ 60%, pick the single most relevant chunk
+- Add to `### Notes`: `**{short task name} (Notebox):** {one sentence from the matched chunk}`
+- Skip if no results meet the threshold
 
 Create `### Notes` only if at least one context note was added.
 
@@ -239,7 +246,7 @@ Example output after running /daily:
 - [ ] Today's day section exists in the current weekly file
 - [ ] Incomplete tasks from prior days appear in today's `### Tasks` with carry-over labels; `- [-]` tasks carry over with `- [-]` prefix preserved (not reset to `- [ ]`)
 - [ ] No duplicate tasks (deduplication applied)
-- [ ] Relevant Slack/Linear context added to `### Notes` (or skipped with note if MCP unavailable)
+- [ ] Relevant Slack/Linear/Notebox context added to `### Notes` (or skipped if unavailable/below threshold)
 - [ ] Carried-over tasks placed in correct `` `context`: `` group within `### Tasks` (alphabetical, general tasks at top without header)
 - [ ] Reading list grouped by category with `**Category:**` bold headers, ~5 items per active category
 - [ ] All links are from actual feed items or WebSearch results (no invented URLs)
@@ -251,6 +258,6 @@ Example output after running /daily:
 
 **Reads:** tasks from previous day sections (written by capture/daily), previous weekly file (for cross-week carry-over)
 **Produces:** carried-over tasks in today's `### Tasks`; Slack/Linear context in `### Notes`; reading list in `### Reading`
-**Consumed by:** triage (processes any AI suggestions), weekly (reviews week's tasks at end of week)
+**Consumed by:** weekly (reviews week's tasks at end of week)
 
 </integration>

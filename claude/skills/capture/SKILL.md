@@ -10,7 +10,7 @@ allowed-tools:
 ---
 
 <skill_overview>
-Accept rough input, infer its type, and append it to the correct section of this week's weekly file. Create the file and any missing sections automatically. AI-initiated content goes to ## AI suggestions, never to day sections. HIGH RIGIDITY — follow exact routing rules and file manipulation steps exactly.
+Accept rough input, infer its type, and append it to the correct section of this week's weekly file. Create the file and any missing sections automatically. HIGH RIGIDITY — follow exact routing rules and file manipulation steps exactly.
 </skill_overview>
 
 <the_process>
@@ -65,7 +65,7 @@ bun $SCRIPTS/claude/notebox.ts today
 
 **Finding the section:** Read the file, look for `## {DayName} {Date}`.
 
-**If missing:** Insert it in chronological order among existing day sections. If no later day section exists, insert before `## AI suggestions` or `## Review` (if they exist). Otherwise append at the end.
+**If missing:** Insert it in chronological order among existing day sections. If no later day section exists, insert before `## Review` (if it exists). Otherwise append at the end.
 
 ```markdown
 ## Monday 2026-03-02
@@ -77,7 +77,13 @@ If type is **completion**, do this instead of steps 6–9:
 
 1. Extract the task text from the input — strip any `- [x]`, outcome phrases ("done", "not necessary", etc.), and leading punctuation. The remainder is the task description to match.
 
-2. Search the entire weekly file for `- [ ] {task text}` or `- [-] {task text}` (fuzzy match — ignore repo suffix, carry-over labels, minor wording differences). Check all day sections, newest first.
+2. Use qmd to find candidate files containing the task text:
+
+   ```bash
+   qmd search "{task text}" -c notebox -n 5
+   ```
+
+   From the results, extract file paths (format: `qmd://notebox/{path}:line`). Filter to `weekly/*.md` files only, most recent first. Also include the current weekly file if not in results. For each candidate file (newest first), read it and scan for `- [ ] {task text}` or `- [-] {task text}` (fuzzy match — ignore repo suffix, carry-over labels, minor wording differences) across all day sections, newest day first. Use the first match found.
 
 3. If the input includes a conclusion (e.g., "not necessary — no dotfiles commands warrant conversion"), extract and polish it: fix spelling/punctuation, remove filler. Otherwise conclusion is empty.
 
@@ -117,7 +123,13 @@ If type is **started**, do this instead of steps 6b–9:
 
 1. Extract the task text — strip any `- [-]`, "started"/"working on" phrases, and leading punctuation. The remainder is the task description to match.
 
-2. Search the entire weekly file for `- [ ] {task text}` (fuzzy match — ignore repo suffix, carry-over labels, minor wording differences). Check all day sections, newest first.
+2. Use qmd to find candidate files containing the task text:
+
+   ```bash
+   qmd search "{task text}" -c notebox -n 5
+   ```
+
+   From the results, extract `weekly/*.md` file paths (most recent first). Also include the current weekly file if not in results. For each candidate file (newest first), read it and scan for `- [ ] {task text}` (fuzzy match — ignore repo suffix, carry-over labels, minor wording differences) across all day sections, newest day first. Use the first match found.
 
 3. If found: replace `- [ ]` with `- [-]` using Edit (exact line match). Do NOT rewrite the file.
    - Example: `- [-] Fix the login bug (myrepo)`
@@ -143,7 +155,13 @@ If type is **cancelled**, do this instead of steps 6b–9:
 
 1. Extract the task text — strip any `- [/]`, cancel phrases ("cancel", "drop", "won't do", etc.), and leading punctuation. The remainder is the task description to match.
 
-2. Search the entire weekly file for `- [ ] {task text}` or `- [-] {task text}` (fuzzy match — ignore repo suffix, carry-over labels, minor wording differences). Check all day sections, newest first.
+2. Use qmd to find candidate files containing the task text:
+
+   ```bash
+   qmd search "{task text}" -c notebox -n 5
+   ```
+
+   From the results, extract `weekly/*.md` file paths (most recent first). Also include the current weekly file if not in results. For each candidate file (newest first), read it and scan for `- [ ] {task text}` or `- [-] {task text}` (fuzzy match — ignore repo suffix, carry-over labels, minor wording differences) across all day sections, newest day first. Use the first match found.
 
 3. If found: replace `- [ ]` or `- [-]` with `- [/]` using Edit (exact line match). Do NOT rewrite the file.
    - Example: `- [/] Fix the login bug (myrepo)`
@@ -240,10 +258,11 @@ Within today's day section, subsections appear in this order: Tasks, Notes, Refe
 basename "$(git rev-parse --show-toplevel 2>/dev/null)" 2>/dev/null
 ```
 
-If non-empty, append `(repo-name)` to the task. If not in a git repo, omit.
+If non-empty, append `(repo-name)` to the task — **unless** the task will be placed in a named context group matching that repo (the group header already provides that context, so the suffix would be redundant). If not in a git repo, omit.
 
-- "I need to fix the login bug" → `- [ ] Fix the login bug (myrepo)`
-- "check if the deployment worked" → `- [ ] Check if deployment worked (myrepo)`
+- "I need to fix the login bug" → `- [ ] Fix the login bug (myrepo)` (no matching group)
+- "check if the deployment worked" → `- [ ] Check if deployment worked (myrepo)` (no matching group)
+- task in `notebox` repo, placed in `` `notebox`: `` group → `- [ ] Set up qmd` (suffix omitted)
 
 **Notes:** Fix spelling and punctuation. Remove filler phrases ("I think", "maybe", "probably"). Do not change the substance.
 
@@ -428,7 +447,7 @@ The skill ran correctly when ALL of these are true:
 - [ ] The file starts with `# YYYY-WNN` (H1 only, nothing else before it)
 - [ ] Today's `## DayName YYYY-MM-DD` section exists
 - [ ] Tasks inserted into correct context group within `### Tasks` — general tasks at top (no header), named groups as `` `context`: `` sorted alphabetically below (incomplete before completed within group); notes to `### Notes`; references to `### References`
-- [ ] Tasks use `- [ ]` (new), `- [-]` (started), or `- [x]` (done) prefix, imperative verb, and `(repo-name)` suffix when in a git repo
+- [ ] Tasks use `- [ ]` (new), `- [-]` (started), or `- [x]` (done) prefix, imperative verb, and `(repo-name)` suffix when in a git repo — omitted when task is placed in a named context group matching the repo
 - [ ] References include a fetched title (or raw URL as fallback) and em-dash summary
 - [ ] No empty subsections were created
 - [ ] Completions: matching `- [ ]` or `- [-]` task found and changed to `- [x]`; conclusion appended as ` — _{conclusion}_` on the task line if present
