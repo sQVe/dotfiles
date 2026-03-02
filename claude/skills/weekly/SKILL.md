@@ -162,7 +162,7 @@ Do NOT rewrite the current week file. Use Edit to insert at the correct point.
 
 ## Step 7.5: Reading signal analysis
 
-Scan the previous week file for reading items and captured URLs, then compute per-category capture rates.
+Scan the previous week file for surviving reading items and captured URLs to compile the `### Reading patterns` block.
 
 **Collect reading items:**
 
@@ -171,27 +171,44 @@ Scan all day sections (`## DayName YYYY-MM-DD` headings) for `### Reading` subse
 - The URL from each `- [Title](URL)` list item (the portion inside the final `(...)`)
 - The `**Category**` bold header immediately preceding it (scanning upward within the subsection); if none, group under "Uncategorized"
 
-**Collect captured URLs:**
+**Shared skip condition:** if the previous week file has no `### Reading` subsections with list items, skip this step entirely. Do not write `### Reading patterns`.
 
-Scan all day sections for `### References` subsections. Extract all URLs from `- [Title](URL)` list items using the same pattern. Deduplicate: if the same URL appears more than once, count it once only.
+**Capture-rate analysis:**
 
-**Skip condition:** if the previous week file has no `### Reading` subsections with list items, OR if total deduplicated captures = 0, skip this step entirely. Do not write `### Reading patterns`.
+Scan all day sections for `### References` subsections. Extract all URLs from `- [Title](URL)` list items using the same pattern. Deduplicate: if the same URL appears more than once, count it once only. If total deduplicated captures = 0, skip capture-rate analysis.
 
-**Find overlap:** for each reading item URL, check whether it appears verbatim in the deduplicated captures list. Exact match only — do not normalize or strip query strings.
-
-**Group by category:** for each category, count total reading items and how many of those URLs appear in captures.
-
-**Write output:** if ≥1 capture found, compile the `### Reading patterns` block for use in Step 8:
+Otherwise: for each reading item URL, check whether it appears verbatim in the deduplicated captures list (exact match — do not normalize or strip query strings). Group by category: count total reading items per category and how many appeared in captures. Compile capture-rate lines:
 
 ```markdown
-### Reading patterns
-
 - Electronics: 1/2 captured (50%) ← consider boosting in feeds.md
 - Hardware and making: 0/3 captured
 - Neovim: 0/2 captured
 ```
 
 Add `← consider boosting in feeds.md` only when the category meets both: capture rate ≥ 20% AND total reading items in that category ≥ 2. Do not add it for 1/1 = 100% (single-item categories are noise).
+
+**Surviving-items analysis:**
+
+Count reading items per category. Normalize category names: strip trailing colons and whitespace from bold headers; treat case-insensitively (merge `**Neovim:**` and `**neovim:**` into one key, keeping the first casing seen). Discard categories with <2 items.
+
+If ≥1 category has ≥2 items, compile kept lines:
+
+```markdown
+- Neovim: 8 kept
+- Electronics: 3 kept
+```
+
+Use the word `kept`. List in descending order by count.
+
+**Write output:** if capture-rate lines OR kept lines were compiled, assemble the `### Reading patterns` block for use in Step 8. Capture-rate lines appear first, then kept lines; no separator between them:
+
+```markdown
+### Reading patterns
+
+- Electronics: 1/2 captured (50%) ← consider boosting in feeds.md
+- Neovim: 0/3 captured
+- Neovim: 3 kept
+```
 
 ## Step 8: Write Review section in previous week file
 
@@ -226,7 +243,7 @@ Rules:
 - `### Completed`: one `- ` line per completed task, with abbreviated day in parentheses. If none: write `None this week.`
 - `### Rolled over`: one line per incomplete task using original prefix (`- [ ]` or `- [-]`) with carry-over label. If none: write `None.`
 - `### Promoted`: one line per promoted note (reference or project). If none: omit this subsection entirely.
-- `### Reading patterns`: include only if Step 7.5 found ≥1 capture. If Step 7.5 was skipped, omit this subsection entirely.
+- `### Reading patterns`: include if Step 7.5 compiled any capture-rate or kept lines. If Step 7.5 was skipped (no reading items), omit this subsection entirely.
 
 Do NOT rewrite the whole file. If `## Review` already exists, replace it entirely. Otherwise append at the end.
 
@@ -350,8 +367,10 @@ Rules:
 - ❌ Promoting notes to day sections — promotions go only to `$NOTEBOX/reference/*.md` or `$NOTEBOX/projects/YYYY.md`
 - ❌ Reviewing the current week — always review the previous week's file
 - ❌ Running if previous week file has already been reviewed — check for `## Review` first
-- ❌ Writing `### Reading patterns` when total captures = 0 — creates noise in weeks with no captures; step 7.5 must be skipped entirely
+- ❌ Writing `### Reading patterns` when no `### Reading` items exist — step 7.5 must be skipped entirely when the week has no reading section
 - ❌ Adding "← consider boosting" for categories with fewer than 2 reading items that week — 1/1 = 100% is noise, not signal
+- ❌ Adding kept lines for a category with only 1 surviving item — noise threshold is 2
+- ❌ Auto-applying changes to `interests.md` — user must confirm every proposed edit
 
 </anti_patterns>
 
@@ -367,7 +386,9 @@ Rules:
 - [ ] No duplicate tasks in current week Monday (deduplication applied)
 - [ ] `## Review` section written at end of previous week file with Completed, Rolled over subsections
 - [ ] `### Promoted` subsection present only if at least one note was promoted
-- [ ] Step 7.5 skipped (no `### Reading patterns` written) when previous week has no reading items or zero captures; `### Reading patterns` appears in `## Review` only when ≥1 capture found
+- [ ] Step 7.5 skipped entirely when previous week has no `### Reading` items; `### Reading patterns` written to `## Review` when ≥1 capture-rate or kept line was compiled
+- [ ] Surviving reading items counted per category (case-insensitive, trailing colons stripped); categories with <2 items excluded from kept lines
+- [ ] Kept lines appear in `### Reading patterns` using the word `kept`, in descending order by count, after any capture-rate lines
 - [ ] Summary printed to user
 
 </success_criteria>
