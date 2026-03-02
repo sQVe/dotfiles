@@ -27,16 +27,18 @@ Example output: `/home/sqve/notebox/weekly/2026-W09.md`
 
 ## Step 2: Detect input type
 
-Classify the input as one of: **completion**, **task**, **note**, **reference**
+Classify the input as one of: **completion**, **task**, **note**, **reference**, **cancelled**
 
 | Type       | Detection rule                                                                                                                                                                     |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | completion | Describes the outcome of an existing task ("done", "complete", "decided", "evaluated", "not necessary", "no longer needed", or starts with `- [x]`)                               |
+| started    | Describes beginning work on an existing task ("started", "working on", "in progress", "began", "kicking off") OR starts with `- [-]`                                              |
+| cancelled  | Describes dropping/abandoning a task ("cancel", "cancelled", "drop", "dropped", "scrapping", "won't do", "not doing", "skip") OR starts with `- [/]`                              |
 | reference  | Contains a URL, or user says "reference" or "link"                                                                                                                                 |
 | task       | Contains action verb ("fix", "add", "build", "check", "write", "update", "review", "create", "investigate", "test") OR starts with `- [ ]` OR is a question about something to do |
 | note       | Everything else — observations, learnings, thoughts                                                                                                                                |
 
-When ambiguous, prefer: completion > reference > task > note
+When ambiguous, prefer: completion > started > cancelled > reference > task > note
 
 ## Step 3: Check initiator
 
@@ -79,12 +81,12 @@ If type is **completion**, do this instead of steps 6–9:
 
 1. Extract the task text from the input — strip any `- [x]`, outcome phrases ("done", "not necessary", etc.), and leading punctuation. The remainder is the task description to match.
 
-2. Search the entire weekly file for `- [ ] {task text}` (fuzzy match — ignore repo suffix, carry-over labels, minor wording differences). Check all day sections, newest first.
+2. Search the entire weekly file for `- [ ] {task text}` or `- [-] {task text}` (fuzzy match — ignore repo suffix, carry-over labels, minor wording differences). Check all day sections, newest first.
 
 3. If the input includes a conclusion (e.g., "not necessary — no dotfiles commands warrant conversion"), extract and polish it: fix spelling/punctuation, remove filler. Otherwise conclusion is empty.
 
-4. If found: replace that line with `- [x] {original task text}` (appending ` — *{conclusion}*` if a conclusion exists) using Edit (exact line match). Do NOT rewrite the file.
-   - Example with conclusion: `- [x] Check if dotfiles commands should be converted (dotfiles) — *none warrant conversion*`
+4. If found: replace that line with `- [x] {original task text}` (appending ` — _{conclusion}_` if a conclusion exists) using Edit (exact line match). Do NOT rewrite the file.
+   - Example with conclusion: `- [x] Check if dotfiles commands should be converted (dotfiles) — _none warrant conversion_`
    - Example without: `- [x] Fix the login bug (myrepo)`
 
 4a. **Move completed task to end of its group:**
@@ -110,6 +112,58 @@ If type is **completion**, do this instead of steps 6–9:
 6. Output confirmation and stop:
    ```
    Captured completion to $NOTEBOX/weekly/YYYY-WNN.md → marked ✓ {task text}
+   ```
+   If task not found in file, warn: "No matching open task found for: {task text}. Captured as note instead." Then fall through to note routing.
+
+## Step 6c: Handle started type (early exit)
+
+If type is **started**, do this instead of steps 6b–9:
+
+1. Extract the task text — strip any `- [-]`, "started"/"working on" phrases, and leading punctuation. The remainder is the task description to match.
+
+2. Search the entire weekly file for `- [ ] {task text}` (fuzzy match — ignore repo suffix, carry-over labels, minor wording differences). Check all day sections, newest first.
+
+3. If found: replace `- [ ]` with `- [-]` using Edit (exact line match). Do NOT rewrite the file.
+   - Example: `- [-] Fix the login bug (myrepo)`
+
+4. Compile PDF:
+   ```bash
+   cd "$NOTEBOX" && make weekly/YYYY-WNN
+   ```
+   If the command fails, output:
+   ```
+   Warning: PDF compilation failed for weekly/YYYY-WNN — check typst install
+   ```
+
+5. Output confirmation and stop:
+   ```
+   Captured started to $NOTEBOX/weekly/YYYY-WNN.md → marked [-] {task text}
+   ```
+   If task not found in file, warn: "No matching open task found for: {task text}. Captured as note instead." Then fall through to note routing.
+
+## Step 6d: Handle cancelled type (early exit)
+
+If type is **cancelled**, do this instead of steps 6b–9:
+
+1. Extract the task text — strip any `- [/]`, cancel phrases ("cancel", "drop", "won't do", etc.), and leading punctuation. The remainder is the task description to match.
+
+2. Search the entire weekly file for `- [ ] {task text}` or `- [-] {task text}` (fuzzy match — ignore repo suffix, carry-over labels, minor wording differences). Check all day sections, newest first.
+
+3. If found: replace `- [ ]` or `- [-]` with `- [/]` using Edit (exact line match). Do NOT rewrite the file.
+   - Example: `- [/] Fix the login bug (myrepo)`
+
+4. Compile PDF:
+   ```bash
+   cd "$NOTEBOX" && make weekly/YYYY-WNN
+   ```
+   If the command fails, output:
+   ```
+   Warning: PDF compilation failed for weekly/YYYY-WNN — check typst install
+   ```
+
+5. Output confirmation and stop:
+   ```
+   Captured cancellation to $NOTEBOX/weekly/YYYY-WNN.md → marked [/] {task text}
    ```
    If task not found in file, warn: "No matching open task found for: {task text}. Captured as note instead." Then fall through to note routing.
 
@@ -160,9 +214,9 @@ If non-empty, append `(repo-name)` to the task. If not in a git repo, omit.
 
 **Insertion algorithm:**
 1. Locate the `### Tasks` section (from `### Tasks` heading to the next `###` or `##` heading, or end of file).
-2. **No context:** Find the first `` `...`: `` header OR the first `- [x]` ungrouped line — insert immediately before that point. If neither exists, append at end of section.
+2. **No context:** Find the first `` `...`: `` header OR the first `- [x]` ungrouped line — insert immediately before that point. Treat `- [-]` lines as incomplete (not as a stop point). If neither exists, append at end of section.
 3. **Named context:** Scan for `` `{context}`: `` line within the section.
-4. If found: scan forward from that header to find the first `- [x]` line OR the next `` `...`: `` header OR the section end — whichever comes first. Insert immediately before that point.
+4. If found: scan forward from that header to find the first `- [x]` line (treat `- [-]` as incomplete, not as a stop point) OR the next `` `...`: `` header OR the section end — whichever comes first. Insert immediately before that point.
 5. If NOT found: determine alphabetical insertion position among existing `` `...`: `` headers. Insert a new group block at that position: blank line, `` `{context}`: ``, blank line, then the task line.
 
 ## Step 9: AI suggestions path
@@ -336,11 +390,13 @@ The skill ran correctly when ALL of these are true:
 - [ ] The file starts with `# YYYY-WNN` (H1 only, nothing else before it)
 - [ ] Today's `## DayName YYYY-MM-DD` section exists
 - [ ] Tasks inserted into correct context group within `### Tasks` — general tasks at top (no header), named groups as `` `context`: `` sorted alphabetically below (incomplete before completed within group); notes to `### Notes`; references to `### References`
-- [ ] Tasks use `- [ ]` prefix, imperative verb, and `(repo-name)` suffix when in a git repo
+- [ ] Tasks use `- [ ]` (new), `- [-]` (started), or `- [x]` (done) prefix, imperative verb, and `(repo-name)` suffix when in a git repo
 - [ ] References include a fetched title (or raw URL as fallback) and em-dash summary
 - [ ] No empty subsections were created
 - [ ] AI-initiated content appears only in `## AI suggestions`, never in a day section
-- [ ] Completions: matching `- [ ]` task found and changed to `- [x]`; conclusion appended as ` — *{conclusion}*` on the task line if present
+- [ ] Completions: matching `- [ ]` or `- [-]` task found and changed to `- [x]`; conclusion appended as ` — _{conclusion}_` on the task line if present
+- [ ] Started: matching `- [ ]` task found and changed to `- [-]`
+- [ ] Cancellations: matching `- [ ]` or `- [-]` task found and changed to `- [/]`
 - [ ] The confirmation line was output to the user
 
 </success_criteria>
