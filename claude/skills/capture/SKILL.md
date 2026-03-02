@@ -7,6 +7,7 @@ allowed-tools:
   - Read
   - Edit
   - Glob
+  - WebFetch
 ---
 
 <skill_overview>
@@ -27,7 +28,7 @@ Example output: `/home/sqve/notebox/weekly/2026-W09.md`
 
 ## Step 2: Detect input type
 
-Classify the input as one of: **completion**, **task**, **note**, **reference**, **cancelled**
+Classify the input as one of: **completion**, **started**, **cancelled**, **reference**, **project**, **task**, **note**
 
 | Type       | Detection rule                                                                                                                                                                     |
 | ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -41,7 +42,9 @@ Classify the input as one of: **completion**, **task**, **note**, **reference**,
 
 When ambiguous, prefer: completion > started > cancelled > reference > project > task > note
 
-## Step 4: Create weekly file if missing
+**Routing:** If type is completion → go to Step 5. If started → Step 5a. If cancelled → Step 5b. If project → Step 5c. Otherwise continue to Step 3.
+
+## Step 3: Create weekly file if missing
 
 If `$NOTEBOX/weekly/YYYY-WNN.md` does not exist, create it:
 
@@ -51,7 +54,7 @@ If `$NOTEBOX/weekly/YYYY-WNN.md` does not exist, create it:
 
 (Single H1 with the week identifier, one blank line after. Nothing else.)
 
-## Step 5: Find or create today's day section
+## Step 4: Find or create today's day section
 
 Today's section header format: `## {DayName} YYYY-MM-DD`
 
@@ -71,9 +74,9 @@ bun $SCRIPTS/claude/notebox.ts today
 ## Monday 2026-03-02
 ```
 
-## Step 6: Handle completion type (early exit)
+## Step 5: Handle completion type (early exit)
 
-If type is **completion**, do this instead of steps 6–9:
+If type is **completion**, do this instead of the normal flow (skip remaining steps):
 
 1. Extract the task text from the input — strip any `- [x]`, outcome phrases ("done", "not necessary", etc.), and leading punctuation. The remainder is the task description to match.
 
@@ -91,15 +94,15 @@ If type is **completion**, do this instead of steps 6–9:
    - Example with conclusion: `- [x] Check if dotfiles commands should be converted (dotfiles) — _none warrant conversion_`
    - Example without: `- [x] Fix the login bug (myrepo)`
 
-4a. **Move completed task to end of its group:**
-   - Extract context from the task line: the `(context-name)` suffix at the end, before any ` — carried from` label.
+5. **Move completed task to end of its group:**
+   - Extract context from the original task text (before any conclusion or carry-over label): the `(context-name)` suffix at the end.
    - For tasks with context: find the `` `{context}`: `` header. Group end is the next `` `...`: `` line OR the `### Tasks` section end.
    - For tasks without context: group end is the first `` `...`: `` line in `### Tasks` OR the section end.
    - If no context group headers exist at all, skip the move.
    - If the task line is already immediately before the group end, skip (no-op).
    - Otherwise: use two Edit operations — first delete the `- [x]` line from its current position, then insert it immediately before the group end.
 
-5. Compile the weekly file to PDF:
+6. Compile the weekly file to PDF:
 
    ```bash
    cd "$NOTEBOX" && make weekly/YYYY-WNN
@@ -111,15 +114,15 @@ If type is **completion**, do this instead of steps 6–9:
    Warning: PDF compilation failed for weekly/YYYY-WNN — check typst install
    ```
 
-6. Output confirmation and stop:
+7. Output confirmation and stop:
    ```
    Captured completion to $NOTEBOX/weekly/YYYY-WNN.md → marked ✓ {task text}
    ```
    If task not found in file, warn: "No matching open task found for: {task text}. Captured as note instead." Then fall through to note routing.
 
-## Step 6c: Handle started type (early exit)
+## Step 5a: Handle started type (early exit)
 
-If type is **started**, do this instead of steps 6b–9:
+If type is **started**, do this instead of the normal flow (skip remaining steps):
 
 1. Extract the task text — strip any `- [-]`, "started"/"working on" phrases, and leading punctuation. The remainder is the task description to match.
 
@@ -149,9 +152,9 @@ If type is **started**, do this instead of steps 6b–9:
    ```
    If task not found in file, warn: "No matching open task found for: {task text}. Captured as note instead." Then fall through to note routing.
 
-## Step 6d: Handle cancelled type (early exit)
+## Step 5b: Handle cancelled type (early exit)
 
-If type is **cancelled**, do this instead of steps 6b–9:
+If type is **cancelled**, do this instead of the normal flow (skip remaining steps):
 
 1. Extract the task text — strip any `- [/]`, cancel phrases ("cancel", "drop", "won't do", etc.), and leading punctuation. The remainder is the task description to match.
 
@@ -181,9 +184,9 @@ If type is **cancelled**, do this instead of steps 6b–9:
    ```
    If task not found in file, warn: "No matching open task found for: {task text}. Captured as note instead." Then fall through to note routing.
 
-## Step 6e: Handle project type (early exit)
+## Step 5c: Handle project type (early exit)
 
-If type is **project**, do this instead of steps 6b–9:
+If type is **project**, do this instead of the normal flow (skip remaining steps):
 
 1. Resolve the project file path:
 
@@ -238,9 +241,9 @@ If type is **project**, do this instead of steps 6b–9:
    Captured project update to $NOTEBOX/projects/YYYY.md → # Project Name / ## YYYY-MM-DD
    ```
 
-## Step 6b: Find or create the subsection
+## Step 6: Find or create the subsection
 
-Within today's day section, subsections appear in this order: Tasks, Notes, References.
+Within today's day section, subsections appear in this order: Tasks, Notes, References, Reading.
 
 **Target subsection by type:**
 
@@ -248,7 +251,7 @@ Within today's day section, subsections appear in this order: Tasks, Notes, Refe
 - note → `### Notes`
 - reference → `### References`
 
-**If subsection missing:** Insert it in the correct position within today's day section. Maintain the ordering: Tasks before Notes before References. Do not add empty subsections — only add the subsection you need.
+**If subsection missing:** Insert it in the correct position within today's day section. Maintain the ordering: Tasks before Notes before References before Reading. Do not add empty subsections — only add the subsection you need. If a `### Reading` section exists (created by the daily skill), insert before it.
 
 ## Step 7: Polish the input
 
@@ -286,12 +289,12 @@ If non-empty, append `(repo-name)` to the task — **unless** the task will be p
 
 **Insertion algorithm:**
 1. Locate the `### Tasks` section (from `### Tasks` heading to the next `###` or `##` heading, or end of file).
-2. **No context:** Find the first `` `...`: `` header OR the first `- [x]` ungrouped line — insert immediately before that point. Treat `- [-]` lines as incomplete (not as a stop point). If neither exists, append at end of section.
+2. **No context:** Find the first `` `...`: `` header OR the first `- [x]` or `- [/]` ungrouped line — insert immediately before that point. Treat `- [-]` lines as incomplete (not as a stop point). If neither exists, append at end of section.
 3. **Named context:** Scan for `` `{context}`: `` line within the section.
-4. If found: scan forward from that header to find the first `- [x]` line (treat `- [-]` as incomplete, not as a stop point) OR the next `` `...`: `` header OR the section end — whichever comes first. Insert immediately before that point.
+4. If found: scan forward from that header to find the first `- [x]` or `- [/]` line (treat `- [-]` as incomplete, not as a stop point) OR the next `` `...`: `` header OR the section end — whichever comes first. Insert immediately before that point.
 5. If NOT found: determine alphabetical insertion position among existing `` `...`: `` headers. Insert a new group block at that position: blank line, `` `{context}`: ``, blank line, then the task line.
 
-## Step 10: Compile PDF
+## Step 9: Compile PDF
 
 Compile the weekly file to PDF:
 
@@ -305,7 +308,7 @@ Where `YYYY-WNN` is the week identifier from Step 1. If the command fails, outpu
 Warning: PDF compilation failed for weekly/YYYY-WNN — check typst install
 ```
 
-## Step 11: Confirm to user
+## Step 10: Confirm to user
 
 After writing, output a one-line confirmation:
 
@@ -327,7 +330,7 @@ This skill:
 - Captures to the current week only — no retroactive insertion into past weeks
 - Expects one item per invocation — does not split multi-item input
 - Does not deduplicate — capturing the same task twice creates two entries
-- Does not track task completion — that belongs in the `## Review` section
+- Does not write the `## Review` section — that belongs in the weekly skill
 - Requires weekly files to follow the exact format specified in `<weekly_file_format>`
 - Requires `$NOTEBOX` environment variable to be set
 
@@ -365,7 +368,7 @@ This skill:
 <weekly_file_format>
 
 ```markdown
-# 2026-W09
+# 2026-W10
 
 ## Monday 2026-03-02
 
@@ -396,15 +399,16 @@ Another observation.
 
 ### Completed
 
-Brief summary of what got done.
+- Task two (Mon)
 
 ### Rolled over
 
-- [ ] Task that didn't happen.
+- [ ] Task one — carried from Mon 2026-03-02
+- [ ] Task three — carried from Mon 2026-03-02
 
-### To promote
+### Promoted
 
-Notes or references worth extracting to reference/\*.md.
+- "Observation or learning." → reference/topic.md
 ```
 
 Rules:

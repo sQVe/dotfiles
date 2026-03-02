@@ -61,7 +61,7 @@ If missing, insert it in chronological order among existing day sections — bef
 bun $SCRIPTS/claude/notebox.ts prev-weekly-path
 ```
 
-If that file exists, collect all `- [ ]` and `- [-]` lines from its day sections.
+If that file exists and does NOT contain a `## Review` section, collect all `- [ ]` and `- [-]` lines from its day sections. If the file has a `## Review` section, skip it — those tasks were already rolled over to the current week by the weekly skill.
 
 **Deduplication:** For each collected task, strip the task text (everything after the task prefix `- [ ] ` or `- [-] ` and before any ` — carried from` label). Skip it if an identical or near-identical task (regardless of state) already exists in today's `### Tasks` section.
 
@@ -76,7 +76,7 @@ For each incomplete task (oldest first), insert into today's `### Tasks` section
 - [-] Fix the auth issue — carried from Mon 2026-03-01
 ```
 
-The origin label format is `— carried from {DayName} {YYYY-MM-DD}`.
+The origin label format is `— carried from {AbbrevDay} {YYYY-MM-DD}`. Use abbreviated day: Mon, Tue, Wed, Thu, Fri, Sat, Sun.
 
 Create `### Tasks` if it does not exist.
 
@@ -188,7 +188,7 @@ Morning brief for YYYY-MM-DD
 
 **If Linear MCP is unavailable:** Skip Linear context in step 6. Note "Linear unavailable" in the summary.
 
-**If `fetch-feeds.py` fails or returns empty:** Write "No articles found today." in `### Reading`.
+**If `fetch-feeds.ts` fails or returns empty:** Write "No articles found today." in `### Reading`.
 
 </error_handling>
 
@@ -206,7 +206,7 @@ Example output after running /daily:
 `myrepo`:
 
 - [ ] Fix auth bug (myrepo) — carried from Fri 2026-02-28
-- [ ] Review PR #456 (myrepo) — carried from Mon 2026-03-02
+- [ ] Review PR #456 (myrepo) — carried from Fri 2026-02-27
 
 ### Notes
 
@@ -248,7 +248,7 @@ Example output after running /daily:
 - [ ] No duplicate tasks (deduplication applied)
 - [ ] Relevant Slack/Linear/Notebox context added to `### Notes` (or skipped if unavailable/below threshold)
 - [ ] Carried-over tasks placed in correct `` `context`: `` group within `### Tasks` (alphabetical, general tasks at top without header)
-- [ ] Reading list grouped by category with `**Category:**` bold headers, ~5 items per active category
+- [ ] Reading list grouped by category with `**Category:**` bold headers, item count per category matching feeds.md Feed priority (default 3)
 - [ ] All links are from actual feed items or WebSearch results (no invented URLs)
 - [ ] Summary printed to user
 

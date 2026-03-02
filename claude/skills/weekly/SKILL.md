@@ -47,11 +47,11 @@ For each `- [-]` line: add to **incomplete** list with `[-]` state (with the day
 
 Strip any existing `— carried from ...` labels when recording the task text — they will be regenerated if needed.
 
-If no tasks exist anywhere (no `- [ ]` and no `- [x]`), skip steps 3 and 4.
+If no tasks exist anywhere (no `- [ ]`, no `- [-]`, and no `- [x]`), skip steps 3 and 4.
 
 ## Step 3: Collect notes from day sections
 
-Collect all prose lines from `### Notes` subsections in day sections. Exclude headings, blank lines, and task lines.
+Collect all prose lines from `### Notes` subsections in day sections. Exclude headings, blank lines, task lines, and auto-generated context notes from the daily skill (lines matching `**...(Slack):**`, `**...(Linear):**`, or `**...(Notebox):**`).
 
 Group each note with the day section it came from (e.g., "Monday 2026-03-02").
 
@@ -89,7 +89,7 @@ Promote? Enter:
 
 Wait for the user's response for each note before proceeding to the next.
 
-**If user provides a filename (e.g. "arch-linux"):**
+**If user enters `r <filename>` (e.g. "r arch-linux"):** Strip the `r ` prefix — the filename is the portion after `r `.
 
 - Resolve path: `$NOTEBOX/reference/{filename}.md`
 - Polish the note before writing: fix spelling and punctuation, remove filler phrases ("I think", "maybe", "probably", "seems like"), make sentences active and direct. Do not change the substance.
@@ -124,8 +124,9 @@ Compute current week's Monday date:
 bun $SCRIPTS/claude/notebox.ts week-monday
 ```
 
-If current week's file does not exist, create it:
+If current week's file does not exist, create it. Include `### Tasks` only if there are incomplete tasks to roll over in Step 7:
 
+With incomplete tasks:
 ```markdown
 # YYYY-WNN
 
@@ -135,7 +136,13 @@ If current week's file does not exist, create it:
 
 ```
 
-(H1 with the week identifier, then Monday section with empty Tasks subsection.)
+Without incomplete tasks:
+```markdown
+# YYYY-WNN
+
+## Monday YYYY-MM-DD
+
+```
 
 ## Step 7: Roll incomplete tasks to current week's Monday
 
@@ -240,7 +247,7 @@ Show ALL kept lines in the signal section (including covered ones). Show only un
 
 Find or create `## Review` at the end of the previous week file.
 
-Write (overwrite if exists, append if missing):
+Append at the end of the file:
 
 ```markdown
 ## Review
@@ -271,7 +278,7 @@ Rules:
 - `### Promoted`: one line per promoted note (reference or project). If none: omit this subsection entirely.
 - `### Reading patterns`: include if Step 7.5 compiled any capture-rate or kept lines. If Step 7.5 was skipped (no reading items), omit this subsection entirely.
 
-Do NOT rewrite the whole file. If `## Review` already exists, replace it entirely. Otherwise append at the end.
+Do NOT rewrite the whole file. Append the Review section at the end. (The stop condition in Step 1 guarantees `## Review` does not already exist.)
 
 ## Step 9: Compile PDF
 
@@ -314,7 +321,7 @@ Output:
 Weekly review complete — YYYY-WNN
   Completed: N tasks
   Rolled over: N tasks → YYYY-WNN Monday
-  Promoted: N notes to reference/
+  Promoted: N notes
   Current week file: {path} (created | already existed)
 ```
 
@@ -372,14 +379,14 @@ Observation or learning.
 
 - [ ] Task not done — carried from Mon 2026-03-02
 
-### Promoted to reference
+### Promoted
 
 - "Observation or learning." → reference/topic.md
 ```
 
 Rules:
 - `## Review` is always the last section
-- Promoted-to-reference subsection is omitted if nothing was promoted
+- `### Promoted` subsection is omitted if nothing was promoted
 
 </weekly_file_format>
 
@@ -388,7 +395,7 @@ Rules:
 - ❌ Promoting notes without user confirmation (step 5 requires explicit approval per note)
 - ❌ Stacking carry-over labels (`— carried from Mon — carried from Tue`) — replace, don't stack
 - ❌ Rewriting the whole file — use Edit to insert/replace at the correct point only
-- ❌ Creating empty subsections in the Review section — omit `### Promoted to reference` if none
+- ❌ Creating empty subsections in the Review section — omit `### Promoted` if none
 - ❌ Using relative paths — always use the full `$NOTEBOX/weekly/` path
 - ❌ Promoting notes to day sections — promotions go only to `$NOTEBOX/reference/*.md` or `$NOTEBOX/projects/YYYY.md`
 - ❌ Reviewing the current week — always review the previous week's file
