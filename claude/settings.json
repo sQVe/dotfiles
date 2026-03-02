@@ -113,7 +113,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "node /home/sqve/scripts/claude/enforce-tdd.js"
+            "command": "bun /home/sqve/scripts/claude/enforce-tdd.ts"
           }
         ]
       }
