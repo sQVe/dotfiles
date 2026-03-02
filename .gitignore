@@ -2,3 +2,7 @@ stylua.toml
 
 .aider*
 !.aider.conf.yml
+
+# Dolt database files (added by bd init)
+.dolt/
+*.db
