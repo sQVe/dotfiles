@@ -1,6 +1,6 @@
 ---
 name: weekly
-description: End-of-week review skill. Closes the week by summarizing completed tasks, rolling over incomplete tasks to next week's Monday, promoting notes to reference files, creating next week's file, and writing a Review section. Run once at the end of each week.
+description: End-of-week review skill. Closes the week by summarizing completed tasks, rolling over incomplete tasks to the current week's Monday, promoting notes to reference files, creating the current week's file, and writing a Review section. Run once at the end of a week or start of the next. Always reviews the previous week.
 allowed-tools:
   - Bash
   - Read
@@ -10,42 +10,49 @@ allowed-tools:
 ---
 
 <skill_overview>
-End-of-week cycle: scan current week file, summarize completed tasks, roll incomplete tasks to next week, let user approve note promotions, create next week's file, write Review section. HIGH RIGIDITY — follow steps in order. Interactive at step 5 (note promotion requires user confirmation).
+End-of-week cycle: find the previous week's file, check it hasn't been reviewed yet, summarize completed tasks, roll incomplete tasks to the current week, let user approve note promotions, create the current week's file if missing, write Review section. HIGH RIGIDITY — follow steps in order. Interactive at step 5 (note promotion requires user confirmation).
 </skill_overview>
 
 <the_process>
 
 ## Step 1: Resolve file paths
 
-Get current and next week paths:
+Compute previous week and current week paths:
 
 ```bash
 python3 -c "
 import os
 from datetime import date, timedelta
 d = date.today()
-iso = d.isocalendar()
-next_week = d + timedelta(weeks=1)
-next_iso = next_week.isocalendar()
+prev_week = d - timedelta(weeks=1)
+prev_iso = prev_week.isocalendar()
+curr_iso = d.isocalendar()
 notebox = os.environ.get('NOTEBOX', '')
 if not notebox:
     raise SystemExit('NOTEBOX environment variable is not set')
-print(f'{notebox}/weekly/{iso[0]}-W{iso[1]:02d}.md')
-print(f'{notebox}/weekly/{next_iso[0]}-W{next_iso[1]:02d}.md')
+print(f'{notebox}/weekly/{prev_iso[0]}-W{prev_iso[1]:02d}.md')
+print(f'{notebox}/weekly/{curr_iso[0]}-W{curr_iso[1]:02d}.md')
+print(f'{prev_iso[0]}-W{prev_iso[1]:02d}')
+print(f'{curr_iso[0]}-W{curr_iso[1]:02d}')
 "
 ```
 
-Example:
+Example (run on 2026-03-09, a Monday of W11):
 ```
-/home/sqve/notebox/weekly/2026-W10.md
-/home/sqve/notebox/weekly/2026-W11.md
+/home/sqve/notebox/weekly/2026-W10.md   ← week being reviewed
+/home/sqve/notebox/weekly/2026-W11.md   ← week tasks roll into
+2026-W10
+2026-W11
 ```
 
-If the current weekly file does not exist, stop: "No current weekly file found at {path}. Nothing to review."
+**Stop conditions (check in order):**
+
+1. If the previous week file does not exist: stop — "No file found for {prev_week_id}. Nothing to review."
+2. If the previous week file already contains a `## Review` section: stop — "{prev_week_id} has already been reviewed."
 
 ## Step 2: Collect tasks from all day sections
 
-Read the current weekly file. Collect all task lines from day sections only (any `## ` heading with a day name, not `## AI suggestions` or `## Review`).
+Read the previous week file. Collect all task lines from day sections only (any `## ` heading with a day name, not `## AI suggestions` or `## Review`).
 
 For each `- [x]` line: add to **completed** list (with the day name it came from).
 For each `- [ ]` line: add to **incomplete** list (with the day name it came from).
@@ -94,32 +101,30 @@ Wait for the user's response for each note before proceeding to the next.
 **If user provides a filename (e.g. "arch-linux"):**
 
 - Resolve path: `$NOTEBOX/reference/{filename}.md`
-- If file exists: append note as a new paragraph at the end
-- If file does not exist: create it with H1 matching the filename (title-case words), then the note
+- Polish the note before writing: fix spelling and punctuation, remove filler phrases ("I think", "maybe", "probably", "seems like"), make sentences active and direct. Do not change the substance.
+- If file exists: append polished note as a new paragraph at the end
+- If file does not exist: create it with H1 matching the filename (title-case words), then the polished note
 - Do not add timestamps or metadata
 
 **If user presses Enter (empty input):** skip this note, do not write anywhere.
 
 After all notes, proceed to step 6.
 
-## Step 6: Create next week's file if missing
+## Step 6: Create current week's file if missing
 
-Compute next week's Monday date:
+Compute current week's Monday date:
 
 ```bash
 python3 -c "
 from datetime import date, timedelta
 d = date.today()
-# Find next Monday
-days_until_monday = (7 - d.weekday()) % 7
-if days_until_monday == 0:
-    days_until_monday = 7
-monday = d + timedelta(days=days_until_monday)
+days_since_monday = d.weekday()
+monday = d - timedelta(days=days_since_monday)
 print(monday.strftime('%A %Y-%m-%d'))
 "
 ```
 
-If next week's file does not exist, create it:
+If current week's file does not exist, create it:
 
 ```markdown
 # YYYY-WNN
@@ -132,7 +137,7 @@ If next week's file does not exist, create it:
 
 (H1 with the week identifier, then Monday section with empty Tasks subsection.)
 
-## Step 7: Roll incomplete tasks to next week's Monday
+## Step 7: Roll incomplete tasks to current week's Monday
 
 For each incomplete task (collected in step 2), determine the source day name and date:
 
@@ -140,7 +145,7 @@ For each incomplete task (collected in step 2), determine the source day name an
 - Format origin label: `— carried from {DayName} {YYYY-MM-DD}` (e.g., `— carried from Wed 2026-03-04`)
   - Use abbreviated day: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 
-Append to next week's Monday `### Tasks` section:
+Append to current week's Monday `### Tasks` section:
 
 ```
 - [ ] Task text — carried from Wed 2026-03-04
@@ -148,13 +153,13 @@ Append to next week's Monday `### Tasks` section:
 
 If a task already has a carry-over label, replace it with the new one (do not stack labels).
 
-**Deduplication:** If an identical task text (ignoring carry-over labels) already exists in next week's Monday Tasks, skip it.
+**Deduplication:** If an identical task text (ignoring carry-over labels) already exists in current week's Monday Tasks, skip it.
 
-Do NOT rewrite the next week file. Use Edit to append at the correct insertion point.
+Do NOT rewrite the current week file. Use Edit to append at the correct insertion point.
 
-## Step 8: Write Review section in current week file
+## Step 8: Write Review section in previous week file
 
-Find or create `## Review` at the end of the current week file (after `## AI suggestions` if it exists).
+Find or create `## Review` at the end of the previous week file (after `## AI suggestions` if it exists).
 
 Write (overwrite if exists, append if missing):
 
@@ -191,7 +196,7 @@ Weekly review complete — YYYY-WNN
   Completed: N tasks
   Rolled over: N tasks → YYYY-WNN Monday
   Promoted: N notes to reference/
-  Next week file: {path} (created | already existed)
+  Current week file: {path} (created | already existed)
 ```
 
 </the_process>
@@ -200,17 +205,19 @@ Weekly review complete — YYYY-WNN
 
 **If `$NOTEBOX` is not set:** Stop. Report: "`NOTEBOX` environment variable is not set. Set it in your Claude settings.json env block."
 
-**If current weekly file does not exist:** Stop. Report: "No current weekly file found at {path}. Nothing to review."
+**If previous week file does not exist:** Stop. Report: "No file found for {prev_week_id}. Nothing to review."
 
-**If the current weekly file is malformed** (wrong heading level, missing H1, corrupted structure): Do NOT attempt to repair. Notify the user and stop.
+**If previous week file already has `## Review`:** Stop. Report: "{prev_week_id} has already been reviewed."
+
+**If the previous week file is malformed** (wrong heading level, missing H1, corrupted structure): Do NOT attempt to repair. Notify the user and stop.
 
 **If python3 fails:** Ask the user: "What is today's date?"
 
 **If reference file write fails:** Report the error and continue with the rest of the review. Do not abort.
 
-**If next week file already exists:** Skip creation. Still roll tasks over to its Monday section.
+**If current week file already exists:** Skip creation. Still roll tasks over to its Monday section.
 
-**If next week file's Monday section already has content:** Append to it, do not overwrite.
+**If current week file's Monday section already has content:** Append to it, do not overwrite.
 
 </error_handling>
 
@@ -268,20 +275,22 @@ Rules:
 - ❌ Creating empty subsections in the Review section — omit `### Promoted to reference` if none
 - ❌ Using relative paths — always use the full `$NOTEBOX/weekly/` path
 - ❌ Promoting notes to day sections — promotions go only to `$NOTEBOX/reference/*.md` files
-- ❌ Running if no current week file exists — check first, stop if missing
+- ❌ Reviewing the current week — always review the previous week's file
+- ❌ Running if previous week file has already been reviewed — check for `## Review` first
 
 </anti_patterns>
 
 <success_criteria>
 
 - [ ] `$NOTEBOX` resolved and path is valid
-- [ ] Current week file scanned — completed and incomplete tasks both collected
+- [ ] Previous week file found and has no existing `## Review` section
+- [ ] Previous week file scanned — completed and incomplete tasks both collected
 - [ ] User was shown each note and asked whether to promote it
 - [ ] Promoted notes written to correct `$NOTEBOX/reference/*.md` file
-- [ ] Next week file exists at correct path (created or already present)
-- [ ] Next week Monday `### Tasks` contains all rolled-over incomplete tasks with carry-over labels
-- [ ] No duplicate tasks in next week Monday (deduplication applied)
-- [ ] `## Review` section written at end of current week file with Completed, Rolled over subsections
+- [ ] Current week file exists at correct path (created or already present)
+- [ ] Current week Monday `### Tasks` contains all rolled-over incomplete tasks with carry-over labels
+- [ ] No duplicate tasks in current week Monday (deduplication applied)
+- [ ] `## Review` section written at end of previous week file with Completed, Rolled over subsections
 - [ ] `### Promoted to reference` subsection present only if at least one note was promoted
 - [ ] Summary printed to user
 

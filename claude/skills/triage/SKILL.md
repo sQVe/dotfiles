@@ -89,9 +89,9 @@ Execute the action (Step 5) before moving to the next item.
 
    If the topic doesn't match any known file, use `AskUserQuestion` and list existing files in `$NOTEBOX/reference/` with a "New file" option. For "New file", ask for the filename (without `.md`).
 
-2. Format the content for the reference file:
-   - task: strip `(suggested)` → `- [ ] <task text>`
-   - note: strip `Note: ` → plain paragraph text
+2. Format and polish the content for the reference file:
+   - task: strip `(suggested)` → `- [ ] <task text>` (make imperative, strip filler)
+   - note: strip `Note: ` → plain paragraph text (fix spelling/punctuation, remove filler phrases like "I think", "maybe", "probably", keep substance intact)
    - reference: strip `Suggested reading: ` → `- [Title](url) — summary.`
 
 3. Read the target reference file. Append the formatted content at the most semantically appropriate location:
@@ -103,9 +103,9 @@ Execute the action (Step 5) before moving to the next item.
 
 ### Keep
 
-1. Strip the type prefix and format for the weekly file:
-   - task: `- [ ] (suggested) Fix the login bug` → `- [ ] Fix the login bug`
-   - note: `Note: Cache issue likely.` → `Cache issue likely.`
+1. Strip the type prefix, polish, and format for the weekly file:
+   - task: `- [ ] (suggested) Fix the login bug` → `- [ ] Fix the login bug` (make imperative, strip filler)
+   - note: `Note: Cache issue likely.` → `Cache issue likely.` (fix spelling/punctuation, remove filler phrases like "I think", "maybe", "probably")
    - reference: `Suggested reading: [Title](url) — summary.` → `- [Title](url) — summary.`
 
 2. Target subsection by type: task → `### Tasks`, note → `### Notes`, reference → `### References`.
