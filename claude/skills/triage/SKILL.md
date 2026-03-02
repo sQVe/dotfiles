@@ -1,6 +1,6 @@
 ---
-name: review
-description: Review AI suggestions in notebox weekly files. Promotes to reference/*.md, keeps in today's tasks, or rejects each item interactively.
+name: triage
+description: Triage AI suggestions in notebox weekly files. Promotes to reference/*.md, keeps in today's tasks, or rejects each item interactively.
 allowed-tools:
   - Bash
   - Read
