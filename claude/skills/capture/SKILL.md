@@ -35,15 +35,16 @@ Example output: `/home/sqve/notebox/weekly/2026-W09.md`
 
 ## Step 2: Detect input type
 
-Classify the input as one of: **task**, **note**, **reference**
+Classify the input as one of: **completion**, **task**, **note**, **reference**
 
-| Type      | Detection rule                                                                                                                                                                    |
-| --------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| reference | Contains a URL, or user says "reference" or "link"                                                                                                                                |
-| task      | Contains action verb ("fix", "add", "build", "check", "write", "update", "review", "create", "investigate", "test") OR starts with `- [ ]` OR is a question about something to do |
-| note      | Everything else — observations, learnings, thoughts                                                                                                                               |
+| Type       | Detection rule                                                                                                                                                                     |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| completion | Describes the outcome of an existing task ("done", "complete", "decided", "evaluated", "not necessary", "no longer needed", or starts with `- [x]`)                               |
+| reference  | Contains a URL, or user says "reference" or "link"                                                                                                                                 |
+| task       | Contains action verb ("fix", "add", "build", "check", "write", "update", "review", "create", "investigate", "test") OR starts with `- [ ]` OR is a question about something to do |
+| note       | Everything else — observations, learnings, thoughts                                                                                                                                |
 
-When ambiguous, prefer: reference > task > note
+When ambiguous, prefer: completion > reference > task > note
 
 ## Step 3: Check initiator
 
@@ -84,7 +85,29 @@ print(d.strftime('%A %Y-%m-%d'))
 ## Monday 2026-03-02
 ```
 
-## Step 6: Find or create the subsection
+## Step 6: Handle completion type (early exit)
+
+If type is **completion**, do this instead of steps 6–9:
+
+1. Extract the task text from the input — strip any `- [x]`, outcome phrases ("done", "not necessary", etc.), and leading punctuation. The remainder is the task description to match.
+
+2. Search the entire weekly file for `- [ ] {task text}` (fuzzy match — ignore repo suffix, carry-over labels, minor wording differences). Check all day sections, newest first.
+
+3. If found: replace that line with `- [x] {original task text}` using Edit (exact line match). Do NOT rewrite the file.
+
+4. If the input includes a conclusion (e.g., "not necessary — no dotfiles commands warrant conversion"), add a note to today's `### Notes`:
+   - Format: `{Task description}: {conclusion}.`
+   - Example: `Check dotfiles commands for skill conversion: none warrant conversion.`
+   - Polish the note: fix spelling/punctuation, remove filler.
+   - Create `### Notes` if missing.
+
+5. Output confirmation and stop:
+   ```
+   Captured completion to $NOTEBOX/weekly/YYYY-WNN.md → marked ✓ {task text}
+   ```
+   If task not found in file, warn: "No matching open task found for: {task text}. Captured as note instead." Then fall through to note routing.
+
+## Step 6b: Find or create the subsection
 
 Within today's day section, subsections appear in this order: Tasks, Notes, References.
 
@@ -270,6 +293,7 @@ The skill ran correctly when ALL of these are true:
 - [ ] References include a fetched title (or raw URL as fallback) and em-dash summary
 - [ ] No empty subsections were created
 - [ ] AI-initiated content appears only in `## AI suggestions`, never in a day section
+- [ ] Completions: matching `- [ ]` task found and changed to `- [x]`; conclusion note added to `### Notes` if present
 - [ ] The confirmation line was output to the user
 
 </success_criteria>
