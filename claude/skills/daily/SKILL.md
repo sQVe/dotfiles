@@ -1,12 +1,12 @@
 ---
 name: daily
-description: Morning routine skill. Carries over incomplete tasks from previous days, adds Slack/Linear context as notes, and writes a curated reading list to today's day section. Run once each morning.
+model: haiku
+description: Use each morning to start the day. Carries over incomplete tasks from previous days, adds Slack/Linear context as notes, and writes a curated reading list to today's day section.
 allowed-tools:
   - Bash
   - Read
   - Edit
   - Glob
-  - WebSearch
   - mcp__slack__slack_search_public_and_private
   - mcp__slack__slack_read_thread
   - mcp__linear__list_issues
@@ -24,16 +24,7 @@ Morning routine that runs once per day. Carries over incomplete tasks from previ
 Run:
 
 ```bash
-python3 -c "
-import os
-from datetime import date
-d = date.today()
-iso = d.isocalendar()
-notebox = os.environ.get('NOTEBOX', '')
-if not notebox:
-    raise SystemExit('NOTEBOX environment variable is not set')
-print(f'{notebox}/weekly/{iso[0]}-W{iso[1]:02d}.md')
-"
+bun $SCRIPTS/claude/notebox.ts weekly-path
 ```
 
 Example output: `/home/sqve/notebox/weekly/2026-W10.md`
@@ -53,11 +44,7 @@ If `$NOTEBOX/weekly/YYYY-WNN.md` does not exist, create it:
 Get today's date:
 
 ```bash
-python3 -c "
-from datetime import date
-d = date.today()
-print(d.strftime('%A %Y-%m-%d'))
-"
+bun $SCRIPTS/claude/notebox.ts today
 ```
 
 Today's section header format: `## {DayName} YYYY-MM-DD`
@@ -71,14 +58,7 @@ If missing, insert it in chronological order among existing day sections — bef
 **Previous weekly file:** Compute last week's path:
 
 ```bash
-python3 -c "
-import os
-from datetime import date, timedelta
-last_week = date.today() - timedelta(weeks=1)
-iso = last_week.isocalendar()
-notebox = os.environ.get('NOTEBOX', '')
-print(f'{notebox}/weekly/{iso[0]}-W{iso[1]:02d}.md')
-"
+bun $SCRIPTS/claude/notebox.ts prev-weekly-path
 ```
 
 If that file exists, collect all `- [ ]` lines from its day sections.
@@ -89,7 +69,7 @@ If no incomplete tasks are found, skip steps 5 and 6 and proceed to step 7.
 
 ## Step 5: Write carried-over tasks to today's section
 
-For each incomplete task (oldest first), append to today's `### Tasks` section:
+For each incomplete task (oldest first), insert into today's `### Tasks` section using context group placement:
 
 ```
 - [ ] Fix the login bug — carried from Mon 2026-03-01
@@ -97,7 +77,9 @@ For each incomplete task (oldest first), append to today's `### Tasks` section:
 
 The origin label format is `— carried from {DayName} {YYYY-MM-DD}`.
 
-Create `### Tasks` if it does not exist. If today already has tasks, append after the last existing one.
+Create `### Tasks` if it does not exist.
+
+**Context group placement:** Extract the `(context-name)` suffix from the task text, before any ` — carried from` label. Use the same insertion algorithm as capture Step 8 — find or create the `**{context}:**` group, insert before the first `- [x]` in that group (or before the next group header, or at group end). Tasks with no context suffix go into `**general:**`.
 
 Do NOT rewrite the file. Use Edit to insert at the correct point.
 
@@ -124,26 +106,56 @@ Create `### Notes` only if at least one context note was added.
 
 ## Step 7: Write curated reading list
 
-Read `$NOTEBOX/reference/interests.md`.
+Run:
 
-Pick 2–3 topics, varying across the file's sections. Prefer topics not recently covered (check today's existing `### Reading` if it already has entries).
+```bash
+bun $SCRIPTS/claude/fetch-feeds.ts $NOTEBOX/reference/feeds.md --hours 48 --per-category 8
+```
 
-For each topic, use `WebSearch` to find 1–2 recent articles (last 2 weeks when possible). Criteria: novel insight, practical value, or recent development — not basic tutorials or landing pages.
+This returns a JSON array of recent feed items: `[{title, url, feed, published, summary, category}]`, capped at 8 per category.
 
-Select 3–5 total links. Write to today's `### Reading` section:
+**If items are returned:** Read `$NOTEBOX/reference/interests.md` first. Use it to rank items within each category:
+
+- Prefer items that match topics in **Topics I care about**
+- Skip or rank last items matching **Deprioritize**
+- Within a category, prefer items from higher-priority feeds listed in **Feed priority**
+
+Group items by `category`. Use the category name as a `**bold:**` label (bold text with trailing colon) followed by a blank line. For each category, pick ~5 entries. Write to today's `### Reading` section:
 
 ```markdown
 ### Reading
 
-- [Article Title](url) — one sentence on why it's useful.
-- [Article Title](url) — one sentence on why it's useful.
+**Category name:**
+
+- [Article Title](url) — one sentence on why it's relevant.
+- [Article Title](url) — one sentence on why it's relevant.
+
+**Another category:**
+
+- [Article Title](url) — one sentence on why it's relevant.
 ```
+
+The sentence must come from the item's summary, not invented.
+
+**If the script returns an empty array or fails:** Write `### Reading\n\nNo articles found today.`
 
 Create `### Reading` if missing. Its position within today's section: after `### References` (or after `### Notes`, or after `### Tasks`) — always last among subsections.
 
-If WebSearch returns no usable results, write: `### Reading\n\nNo articles found today.`
+## Step 8: Compile PDF
 
-## Step 8: Confirm to user
+Compile the weekly file to PDF:
+
+```bash
+cd "$NOTEBOX" && make weekly/YYYY-WNN
+```
+
+Where `YYYY-WNN` is the week identifier from Step 1. If the command fails, output:
+
+```
+Warning: PDF compilation failed for weekly/YYYY-WNN — check typst install
+```
+
+## Step 9: Confirm to user
 
 Output:
 
@@ -162,13 +174,13 @@ Morning brief for YYYY-MM-DD
 
 **If the weekly file exists but is malformed:** Do NOT attempt to repair it. Notify the user and stop.
 
-**If python3 fails:** Ask the user: "What is today's date?"
+**If `notebox.ts` fails:** Ask the user: "What is today's date?"
 
 **If Slack MCP is unavailable:** Skip Slack context in step 6. Note "Slack unavailable" in the summary.
 
 **If Linear MCP is unavailable:** Skip Linear context in step 6. Note "Linear unavailable" in the summary.
 
-**If WebSearch fails entirely:** Skip reading list. Note "WebSearch unavailable" in the summary.
+**If `fetch-feeds.py` fails or returns empty:** Write "No articles found today." in `### Reading`.
 
 </error_handling>
 
@@ -183,8 +195,9 @@ Example output after running /daily:
 
 ### Tasks
 
-- [ ] Fix auth bug — carried from Fri 2026-02-28
-- [ ] Review PR #456 — carried from Mon 2026-03-02
+**myrepo:**
+- [ ] Fix auth bug (myrepo) — carried from Fri 2026-02-28
+- [ ] Review PR #456 (myrepo) — carried from Mon 2026-03-02
 
 ### Notes
 
@@ -193,7 +206,12 @@ Example output after running /daily:
 
 ### Reading
 
+**Software development:**
+
 - [Rust async patterns in 2026](url) — Covers tokio 2.0 changes and how they affect existing async codebases.
+
+**Hardware and making:**
+
 - [NixOS on Raspberry Pi 5](url) — Step-by-step flake setup for ARM builds with cross-compilation tips.
 - [KiCad 8 differential pair routing](url) — Practical walkthrough of impedance-controlled routing for USB 3.2 boards.
 ```
@@ -204,10 +222,12 @@ Example output after running /daily:
 
 - ❌ Writing Slack/Linear context anywhere except `### Notes` within today's day section
 - ❌ Carrying over tasks already present in today's Tasks (always deduplicate)
-- ❌ Inventing article URLs or titles — use only actual WebSearch results
+- ❌ Inventing article URLs or titles — use only actual feed items or WebSearch results; copy URLs verbatim from fetch-feeds output, never construct them from titles
 - ❌ Placing `### Reading` before `### Notes` or `### Tasks` (maintain order)
 - ❌ Using relative paths — always use the full `$NOTEBOX/weekly/` path
 - ❌ Rewriting the whole file — use Edit to insert at the correct point only
+- ❌ Appending carried-over tasks to the end of `### Tasks` without context group placement
+- ❌ Using `**Category name**` without trailing colon for reading headers (must be `**Category name:**`)
 
 </anti_patterns>
 
@@ -218,8 +238,17 @@ Example output after running /daily:
 - [ ] Incomplete tasks from prior days appear in today's `### Tasks` with carry-over labels
 - [ ] No duplicate tasks (deduplication applied)
 - [ ] Relevant Slack/Linear context added to `### Notes` (or skipped with note if MCP unavailable)
-- [ ] Reading list with 3–5 links in today's `### Reading`
-- [ ] All links are from actual WebSearch results
+- [ ] Carried-over tasks placed in correct `**context:**` group within `### Tasks`
+- [ ] Reading list grouped by category with `**Category:**` bold headers, ~5 items per active category
+- [ ] All links are from actual feed items or WebSearch results (no invented URLs)
 - [ ] Summary printed to user
 
 </success_criteria>
+
+<integration>
+
+**Reads:** tasks from previous day sections (written by capture/daily), previous weekly file (for cross-week carry-over)
+**Produces:** carried-over tasks in today's `### Tasks`; Slack/Linear context in `### Notes`; reading list in `### Reading`
+**Consumed by:** triage (processes any AI suggestions), weekly (reviews week's tasks at end of week)
+
+</integration>

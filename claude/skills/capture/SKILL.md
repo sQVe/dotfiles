@@ -1,6 +1,7 @@
 ---
 name: capture
-description: Capture rough tasks, notes, and reference links into the current week's markdown file. Infers input type, creates missing sections, and polishes formatting automatically. Use when logging daily work items, recording observations, or saving links during a session — or when another skill needs to record a suggestion. Keeps AI suggestions separate from user day sections.
+model: haiku
+description: Use when logging daily work items, recording observations, or saving links — or when another skill needs to record a suggestion. Routes input to the correct weekly file section, infers type, creates missing sections, and polishes formatting automatically.
 allowed-tools:
   - Bash
   - Read
@@ -19,16 +20,7 @@ Accept rough input, infer its type, and append it to the correct section of this
 Run this to get the path:
 
 ```bash
-python3 -c "
-import os
-from datetime import date
-d = date.today()
-iso = d.isocalendar()
-notebox = os.environ.get('NOTEBOX', '')
-if not notebox:
-    raise SystemExit('NOTEBOX environment variable is not set')
-print(f'{notebox}/weekly/{iso[0]}-W{iso[1]:02d}.md')
-"
+bun $SCRIPTS/claude/notebox.ts weekly-path
 ```
 
 Example output: `/home/sqve/notebox/weekly/2026-W09.md`
@@ -70,11 +62,7 @@ Example: `## Monday 2026-03-02`
 Get today's day name and date:
 
 ```bash
-python3 -c "
-from datetime import date
-d = date.today()
-print(d.strftime('%A %Y-%m-%d'))
-"
+bun $SCRIPTS/claude/notebox.ts today
 ```
 
 **Finding the section:** Read the file, look for `## {DayName} {Date}`.
@@ -95,13 +83,32 @@ If type is **completion**, do this instead of steps 6–9:
 
 3. If found: replace that line with `- [x] {original task text}` using Edit (exact line match). Do NOT rewrite the file.
 
+3a. **Move completed task to end of its group:**
+   - Extract context from the task line: the `(context-name)` suffix at the end, before any ` — carried from` label. If absent, context is `general`.
+   - Find the `**{context}:**` header in the `### Tasks` section. If the section has no context groups (flat list), skip the move.
+   - Find the group end: the next `**...**` line OR the `### Tasks` section end — whichever comes first.
+   - If the task line is already immediately before the group end, skip (no-op).
+   - Otherwise: use two Edit operations — first delete the `- [x]` line from its current position, then insert it immediately before the group end.
+
 4. If the input includes a conclusion (e.g., "not necessary — no dotfiles commands warrant conversion"), add a note to today's `### Notes`:
    - Format: `{Task description}: {conclusion}.`
    - Example: `Check dotfiles commands for skill conversion: none warrant conversion.`
    - Polish the note: fix spelling/punctuation, remove filler.
    - Create `### Notes` if missing.
 
-5. Output confirmation and stop:
+5. Compile the weekly file to PDF:
+
+   ```bash
+   cd "$NOTEBOX" && make weekly/YYYY-WNN
+   ```
+
+   Where `YYYY-WNN` is the week identifier from Step 1. If the command fails, output:
+
+   ```
+   Warning: PDF compilation failed for weekly/YYYY-WNN — check typst install
+   ```
+
+6. Output confirmation and stop:
    ```
    Captured completion to $NOTEBOX/weekly/YYYY-WNN.md → marked ✓ {task text}
    ```
@@ -144,9 +151,22 @@ If non-empty, append `(repo-name)` to the task. If not in a git repo, omit.
 
 ## Step 8: Insert the content
 
-Append the polished item at the end of the target subsection (before the next `###` or `##` heading, or end of file if none follows).
+**For notes and references:** Append at the end of the target subsection (before the next `###` or `##` heading, or end of file if none follows). Do NOT rewrite the whole file.
 
-Do NOT rewrite the whole file. Read it, find the insertion point, use Edit to add the new line.
+**For tasks:** Insert into the correct context group within `### Tasks`.
+
+**Context extraction:** From the polished task line, extract the `(context-name)` suffix — the parenthetical at the end, before any ` — carried from` label. Strip surrounding parens. If absent, context is `general`.
+
+**Bold header pattern:** A context group header is a line matching `**name:**` (bold text ending with colon, alone on its line).
+
+**Insertion algorithm:**
+1. Locate the `### Tasks` section (from `### Tasks` heading to the next `###` or `##` heading, or end of file).
+2. Scan for `**{context}:**` line within that section.
+3. If found: scan forward from that header to find the first `- [x]` line OR the next `**...**` header OR the section end — whichever comes first. Insert the task line immediately before that point.
+4. If NOT found AND context is not `general`: insert a new group block. If `**general:**` exists in `### Tasks`, insert before it; otherwise append at end of `### Tasks`. New group block: blank line, `**{context}:**`, blank line, then the task line.
+5. If NOT found AND context IS `general`: create `**general:**` group at the end of `### Tasks` using the same block format.
+
+**Initial state (no context groups exist):** If `### Tasks` contains only flat `- [ ]` / `- [x]` lines with no `**...**` headers, treat the section as if all groups are missing. Apply step 4 or 5 — create the first group header and insert into it. Leave existing flat lines untouched.
 
 ## Step 9: AI suggestions path
 
@@ -158,7 +178,21 @@ Find or create `## AI suggestions` section at the bottom of the file (before `##
 - note → `Note: Likely related to the cache issue.`
 - reference → `Suggested reading: [Title](url) — summary.`
 
-## Step 10: Confirm to user
+## Step 10: Compile PDF
+
+Compile the weekly file to PDF:
+
+```bash
+cd "$NOTEBOX" && make weekly/YYYY-WNN
+```
+
+Where `YYYY-WNN` is the week identifier from Step 1. If the command fails, output:
+
+```
+Warning: PDF compilation failed for weekly/YYYY-WNN — check typst install
+```
+
+## Step 11: Confirm to user
 
 After writing, output a one-line confirmation:
 
@@ -201,7 +235,7 @@ This skill:
 - Use the first occurrence
 - Notify the user of the duplicate
 
-**If the python3 date command fails**:
+**If `notebox.ts` fails**:
 - Do NOT guess the date
 - Ask the user: "What is today's date?"
 
@@ -224,8 +258,12 @@ This skill:
 
 ### Tasks
 
-- [ ] Task one
-- [ ] Task two
+**notebox:**
+- [ ] Task one (notebox)
+- [x] Task two (notebox)
+
+**general:**
+- [ ] Task three
 
 ### Notes
 
@@ -277,8 +315,20 @@ Rules:
 - ❌ Skipping URL fetching (always get real title and write summary)
 - ❌ Assuming task type from context when it could be a note (classify carefully)
 - ❌ Using relative paths like `weekly/` — always use the full `$NOTEBOX/weekly/` path
+- ❌ Appending tasks to the end of `### Tasks` without placing them in their context group
 
 </anti_patterns>
+
+<rationalizations>
+
+These mean: use /capture anyway.
+
+- "This is just a quick note" → still needs type detection and routing
+- "I'll edit the file directly" → direct edits skip insertion order, polish, and AI/user routing
+- "The format doesn't matter here" → it does; subsection order and prefix rules are exact
+- "I already know which section to write to" → still run the skill; it enforces rules you might miss
+
+</rationalizations>
 
 <success_criteria>
 
@@ -288,7 +338,7 @@ The skill ran correctly when ALL of these are true:
 - [ ] Weekly file exists at the correct `$NOTEBOX/weekly/YYYY-WNN.md` path
 - [ ] The file starts with `# YYYY-WNN` (H1 only, nothing else before it)
 - [ ] Today's `## DayName YYYY-MM-DD` section exists
-- [ ] Content was appended to `### Tasks`, `### Notes`, or `### References` — not to the day heading directly
+- [ ] Tasks inserted into correct `**context:**` group within `### Tasks` (incomplete before completed within group); notes to `### Notes`; references to `### References`
 - [ ] Tasks use `- [ ]` prefix, imperative verb, and `(repo-name)` suffix when in a git repo
 - [ ] References include a fetched title (or raw URL as fallback) and em-dash summary
 - [ ] No empty subsections were created
@@ -297,3 +347,11 @@ The skill ran correctly when ALL of these are true:
 - [ ] The confirmation line was output to the user
 
 </success_criteria>
+
+<integration>
+
+**Produces:** tasks/notes/references in day sections; AI-initiated content in `## AI suggestions`
+**Consumed by:** daily (carries over tasks), weekly (reviews completed/incomplete tasks), triage (processes AI suggestions)
+**Called after:** completing any task that originated from a notebox weekly file — use completion type to mark `- [ ]` → `- [x]`
+
+</integration>

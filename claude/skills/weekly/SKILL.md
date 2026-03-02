@@ -1,6 +1,7 @@
 ---
 name: weekly
-description: End-of-week review skill. Closes the week by summarizing completed tasks, rolling over incomplete tasks to the current week's Monday, promoting notes to reference files, creating the current week's file, and writing a Review section. Run once at the end of a week or start of the next. Always reviews the previous week.
+model: haiku
+description: Use at the end of a week or start of the next. Closes the previous week by summarizing completed tasks, rolling over incomplete tasks to Monday, promoting notes to reference files, and writing a Review section.
 allowed-tools:
   - Bash
   - Read
@@ -20,21 +21,7 @@ End-of-week cycle: find the previous week's file, check it hasn't been reviewed 
 Compute previous week and current week paths:
 
 ```bash
-python3 -c "
-import os
-from datetime import date, timedelta
-d = date.today()
-prev_week = d - timedelta(weeks=1)
-prev_iso = prev_week.isocalendar()
-curr_iso = d.isocalendar()
-notebox = os.environ.get('NOTEBOX', '')
-if not notebox:
-    raise SystemExit('NOTEBOX environment variable is not set')
-print(f'{notebox}/weekly/{prev_iso[0]}-W{prev_iso[1]:02d}.md')
-print(f'{notebox}/weekly/{curr_iso[0]}-W{curr_iso[1]:02d}.md')
-print(f'{prev_iso[0]}-W{prev_iso[1]:02d}')
-print(f'{curr_iso[0]}-W{curr_iso[1]:02d}')
-"
+bun $SCRIPTS/claude/notebox.ts week-context
 ```
 
 Example (run on 2026-03-09, a Monday of W11):
@@ -115,13 +102,7 @@ After all notes, proceed to step 6.
 Compute current week's Monday date:
 
 ```bash
-python3 -c "
-from datetime import date, timedelta
-d = date.today()
-days_since_monday = d.weekday()
-monday = d - timedelta(days=days_since_monday)
-print(monday.strftime('%A %Y-%m-%d'))
-"
+bun $SCRIPTS/claude/notebox.ts week-monday
 ```
 
 If current week's file does not exist, create it:
@@ -145,17 +126,19 @@ For each incomplete task (collected in step 2), determine the source day name an
 - Format origin label: `— carried from {DayName} {YYYY-MM-DD}` (e.g., `— carried from Wed 2026-03-04`)
   - Use abbreviated day: Mon, Tue, Wed, Thu, Fri, Sat, Sun
 
-Append to current week's Monday `### Tasks` section:
+Insert each task into the correct context group in current week's Monday `### Tasks` section:
 
 ```
 - [ ] Task text — carried from Wed 2026-03-04
 ```
 
+**Context group placement:** Extract the `(context-name)` suffix from the task text, before any ` — carried from` label. Use the same insertion algorithm as capture Step 8 — find or create the `**{context}:**` group, insert before the first `- [x]` in that group (or before the next group header, or at group end). Tasks with no context suffix go into `**general:**`.
+
 If a task already has a carry-over label, replace it with the new one (do not stack labels).
 
 **Deduplication:** If an identical task text (ignoring carry-over labels) already exists in current week's Monday Tasks, skip it.
 
-Do NOT rewrite the current week file. Use Edit to append at the correct insertion point.
+Do NOT rewrite the current week file. Use Edit to insert at the correct point.
 
 ## Step 8: Write Review section in previous week file
 
@@ -187,7 +170,34 @@ Rules:
 
 Do NOT rewrite the whole file. If `## Review` already exists, replace it entirely. Otherwise append at the end.
 
-## Step 9: Confirm to user
+## Step 9: Compile PDF
+
+For each file written in this skill run, compile to PDF. Run each make call separately:
+
+1. Previous week file (always):
+   ```bash
+   cd "$NOTEBOX" && make weekly/YYYY-W(prev)
+   ```
+
+2. Current week file (always):
+   ```bash
+   cd "$NOTEBOX" && make weekly/YYYY-W(current)
+   ```
+
+3. Each reference file promoted in Step 5 (skip if none):
+   ```bash
+   cd "$NOTEBOX" && make reference/{filename}
+   ```
+
+Where targets are derived by stripping `.md` and the `$NOTEBOX/` prefix. If any call fails, output:
+
+```
+Warning: PDF compilation failed for <target> — check typst install
+```
+
+Do not stop on failure — compile remaining files.
+
+## Step 10: Confirm to user
 
 Output:
 
@@ -211,7 +221,7 @@ Weekly review complete — YYYY-WNN
 
 **If the previous week file is malformed** (wrong heading level, missing H1, corrupted structure): Do NOT attempt to repair. Notify the user and stop.
 
-**If python3 fails:** Ask the user: "What is today's date?"
+**If `notebox.ts` fails:** Ask the user: "What is today's date?"
 
 **If reference file write fails:** Report the error and continue with the rest of the review. Do not abort.
 
@@ -230,8 +240,9 @@ Weekly review complete — YYYY-WNN
 
 ### Tasks
 
-- [x] Task completed
-- [ ] Task not done
+**myrepo:**
+- [ ] Task not done (myrepo)
+- [x] Task completed (myrepo)
 
 ### Notes
 
@@ -288,10 +299,18 @@ Rules:
 - [ ] User was shown each note and asked whether to promote it
 - [ ] Promoted notes written to correct `$NOTEBOX/reference/*.md` file
 - [ ] Current week file exists at correct path (created or already present)
-- [ ] Current week Monday `### Tasks` contains all rolled-over incomplete tasks with carry-over labels
+- [ ] Current week Monday `### Tasks` contains all rolled-over incomplete tasks with carry-over labels, placed in correct `**context:**` groups
 - [ ] No duplicate tasks in current week Monday (deduplication applied)
 - [ ] `## Review` section written at end of previous week file with Completed, Rolled over subsections
 - [ ] `### Promoted to reference` subsection present only if at least one note was promoted
 - [ ] Summary printed to user
 
 </success_criteria>
+
+<integration>
+
+**Reads:** all day sections and `## AI suggestions` from the previous week's file (written by capture and daily throughout the week)
+**Produces:** `## Review` section in the previous week file; incomplete tasks rolled to current week's Monday `### Tasks`; promoted notes written to `$NOTEBOX/reference/*.md`
+**Consumed by:** nothing — terminal step in the weekly cycle
+
+</integration>
