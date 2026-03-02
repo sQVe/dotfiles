@@ -39,7 +39,7 @@ Example (run on 2026-03-09, a Monday of W11):
 
 ## Step 2: Collect tasks from all day sections
 
-Read the previous week file. Collect all task lines from day sections only (any `## ` heading with a day name, not `## AI suggestions` or `## Review`).
+Read the previous week file. Collect all task lines from day sections only (any `## ` heading with a day name, not `## Review`).
 
 For each `- [x]` line: add to **completed** list (with the day name it came from).
 For each `- [ ]` line: add to **incomplete** list with `[ ]` state (with the day name it came from).
@@ -195,7 +195,7 @@ Add `← consider boosting in feeds.md` only when the category meets both: captu
 
 ## Step 8: Write Review section in previous week file
 
-Find or create `## Review` at the end of the previous week file (after `## AI suggestions` if it exists).
+Find or create `## Review` at the end of the previous week file.
 
 Write (overwrite if exists, append if missing):
 
@@ -319,10 +319,6 @@ Observation or learning.
 
 - [Title](url) — one-sentence summary.
 
-## AI suggestions
-
-Suggested reading: [Title](url) — why it might be relevant.
-
 ## Review
 
 ### Completed
@@ -340,7 +336,6 @@ Suggested reading: [Title](url) — why it might be relevant.
 
 Rules:
 - `## Review` is always the last section
-- `## AI suggestions` comes before `## Review`, after all day sections
 - Promoted-to-reference subsection is omitted if nothing was promoted
 
 </weekly_file_format>
@@ -379,7 +374,7 @@ Rules:
 
 <integration>
 
-**Reads:** all day sections and `## AI suggestions` from the previous week's file (written by capture and daily throughout the week)
+**Reads:** all day sections from the previous week's file (written by capture and daily throughout the week)
 **Produces:** `## Review` section in the previous week file; incomplete tasks rolled to current week's Monday `### Tasks`; promoted notes written to `$NOTEBOX/reference/*.md` or `$NOTEBOX/projects/YYYY.md`
 **Consumed by:** nothing — terminal step in the weekly cycle
 

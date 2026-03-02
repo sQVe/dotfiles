@@ -41,11 +41,6 @@ Classify the input as one of: **completion**, **task**, **note**, **reference**,
 
 When ambiguous, prefer: completion > started > cancelled > reference > project > task > note
 
-## Step 3: Check initiator
-
-**User-initiated** (default): route to today's day section.
-**AI-initiated** (skill called by another skill, or prefixed with `[AI]`): route to `## AI suggestions` section only.
-
 ## Step 4: Create weekly file if missing
 
 If `$NOTEBOX/weekly/YYYY-WNN.md` does not exist, create it:
@@ -277,16 +272,6 @@ If non-empty, append `(repo-name)` to the task. If not in a git repo, omit.
 4. If found: scan forward from that header to find the first `- [x]` line (treat `- [-]` as incomplete, not as a stop point) OR the next `` `...`: `` header OR the section end — whichever comes first. Insert immediately before that point.
 5. If NOT found: determine alphabetical insertion position among existing `` `...`: `` headers. Insert a new group block at that position: blank line, `` `{context}`: ``, blank line, then the task line.
 
-## Step 9: AI suggestions path
-
-If AI-initiated, skip steps 5–6. Steps 7–8 still apply.
-
-Find or create `## AI suggestions` section at the bottom of the file (before `## Review` if it exists, otherwise at the end). Append content with a type label:
-
-- task → `- [ ] (suggested) Fix the login bug`
-- note → `Note: Likely related to the cache issue.`
-- reference → `Suggested reading: [Title](url) — summary.`
-
 ## Step 10: Compile PDF
 
 Compile the weekly file to PDF:
@@ -388,10 +373,6 @@ Observation or learning.
 
 Another observation.
 
-## AI suggestions
-
-Suggested reading: [Title](url) — why it might be relevant.
-
 ## Review
 
 ### Completed
@@ -410,7 +391,6 @@ Notes or references worth extracting to reference/\*.md.
 Rules:
 
 - Skip days and subsections with no content — no empty headings
-- `## AI suggestions` is always after all day sections
 - `## Review` is always last
 - Notes are rough — polish belongs in reference files
 
@@ -418,7 +398,6 @@ Rules:
 
 <anti_patterns>
 
-- ❌ Writing AI-generated content into day sections (put it in ## AI suggestions)
 - ❌ Creating empty subsections (only create subsections when adding content)
 - ❌ Rewriting the entire file (use Edit to append at insertion point)
 - ❌ Skipping URL fetching (always get real title and write summary)
@@ -434,7 +413,7 @@ Rules:
 These mean: use /capture anyway.
 
 - "This is just a quick note" → still needs type detection and routing
-- "I'll edit the file directly" → direct edits skip insertion order, polish, and AI/user routing
+- "I'll edit the file directly" → direct edits skip insertion order, polish, and routing rules
 - "The format doesn't matter here" → it does; subsection order and prefix rules are exact
 - "I already know which section to write to" → still run the skill; it enforces rules you might miss
 
@@ -452,7 +431,6 @@ The skill ran correctly when ALL of these are true:
 - [ ] Tasks use `- [ ]` (new), `- [-]` (started), or `- [x]` (done) prefix, imperative verb, and `(repo-name)` suffix when in a git repo
 - [ ] References include a fetched title (or raw URL as fallback) and em-dash summary
 - [ ] No empty subsections were created
-- [ ] AI-initiated content appears only in `## AI suggestions`, never in a day section
 - [ ] Completions: matching `- [ ]` or `- [-]` task found and changed to `- [x]`; conclusion appended as ` — _{conclusion}_` on the task line if present
 - [ ] Started: matching `- [ ]` task found and changed to `- [-]`
 - [ ] Cancellations: matching `- [ ]` or `- [-]` task found and changed to `- [/]`
@@ -463,8 +441,8 @@ The skill ran correctly when ALL of these are true:
 
 <integration>
 
-**Produces:** tasks/notes/references in day sections; AI-initiated content in `## AI suggestions`; project updates in `projects/YYYY.md`
-**Consumed by:** daily (carries over tasks), weekly (reviews completed/incomplete tasks), triage (processes AI suggestions)
+**Produces:** tasks/notes/references in day sections; project updates in `projects/YYYY.md`
+**Consumed by:** daily (carries over tasks), weekly (reviews completed/incomplete tasks)
 **Called after:** completing any task that originated from a notebox weekly file — use completion type to mark `- [ ]` → `- [x]`
 
 </integration>

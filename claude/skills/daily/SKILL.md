@@ -53,7 +53,7 @@ If missing, insert it in chronological order among existing day sections — bef
 
 ## Step 4: Find incomplete tasks from previous days
 
-**Current weekly file:** Read the file. Collect all `- [ ]` lines that appear in day sections *before* today's section. A day section boundary is any `## ` heading that is not today's.
+**Current weekly file:** Read the file. Collect all `- [ ]` and `- [-]` lines that appear in day sections *before* today's section. A day section boundary is any `## ` heading that is not today's.
 
 **Previous weekly file:** Compute last week's path:
 
@@ -61,18 +61,19 @@ If missing, insert it in chronological order among existing day sections — bef
 bun $SCRIPTS/claude/notebox.ts prev-weekly-path
 ```
 
-If that file exists, collect all `- [ ]` lines from its day sections.
+If that file exists, collect all `- [ ]` and `- [-]` lines from its day sections.
 
-**Deduplication:** For each collected task, strip the task text (everything after `- [ ] ` and before any ` — carried from` label). Skip it if an identical or near-identical task already exists in today's `### Tasks` section.
+**Deduplication:** For each collected task, strip the task text (everything after the task prefix `- [ ] ` or `- [-] ` and before any ` — carried from` label). Skip it if an identical or near-identical task (regardless of state) already exists in today's `### Tasks` section.
 
 If no incomplete tasks are found, skip steps 5 and 6 and proceed to step 7.
 
 ## Step 5: Write carried-over tasks to today's section
 
-For each incomplete task (oldest first), insert into today's `### Tasks` section using context group placement:
+For each incomplete task (oldest first), insert into today's `### Tasks` section using context group placement. Preserve the original task prefix (`- [ ]` or `- [-]`):
 
 ```
 - [ ] Fix the login bug — carried from Mon 2026-03-01
+- [-] Fix the auth issue — carried from Mon 2026-03-01
 ```
 
 The origin label format is `— carried from {DayName} {YYYY-MM-DD}`.
@@ -236,7 +237,7 @@ Example output after running /daily:
 
 - [ ] `$NOTEBOX` resolved and path is valid
 - [ ] Today's day section exists in the current weekly file
-- [ ] Incomplete tasks from prior days appear in today's `### Tasks` with carry-over labels
+- [ ] Incomplete tasks from prior days appear in today's `### Tasks` with carry-over labels; `- [-]` tasks carry over with `- [-]` prefix preserved (not reset to `- [ ]`)
 - [ ] No duplicate tasks (deduplication applied)
 - [ ] Relevant Slack/Linear context added to `### Notes` (or skipped with note if MCP unavailable)
 - [ ] Carried-over tasks placed in correct `` `context`: `` group within `### Tasks` (alphabetical, general tasks at top without header)
