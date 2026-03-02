@@ -1,6 +1,7 @@
 ---
 name: triage
-description: Triage AI suggestions in notebox weekly files. Promotes to reference/*.md, keeps in today's tasks, or rejects each item interactively.
+model: haiku
+description: Use when reviewing AI suggestions in notebox weekly files. Presents each item interactively to promote to reference/*.md, keep in today's tasks, or reject.
 allowed-tools:
   - Bash
   - Read
@@ -18,21 +19,11 @@ Interactive review of AI-written content across weekly files. Finds all ## AI su
 ## Step 1: Resolve paths
 
 ```bash
-python3 -c "
-import os
-from datetime import date
-d = date.today()
-iso = d.isocalendar()
-notebox = os.environ.get('NOTEBOX', '')
-if not notebox:
-    raise SystemExit('NOTEBOX environment variable is not set')
-print(notebox)
-print(f'{notebox}/weekly/{iso[0]}-W{iso[1]:02d}.md')
-print(d.strftime('%A %Y-%m-%d'))
-"
+bun $SCRIPTS/claude/notebox.ts weekly-path
+bun $SCRIPTS/claude/notebox.ts today
 ```
 
-Output is three lines: NOTEBOX path, current weekly file path, today's day name and date (e.g. `Monday 2026-03-02`).
+Output is two lines: current weekly file path, today's day name and date (e.g. `Monday 2026-03-02`).
 
 ## Step 2: Find weekly files with AI suggestions
 
@@ -126,7 +117,28 @@ After processing all items from a file, re-read the file. If the `## AI suggesti
 
 Do NOT rewrite the entire file.
 
-## Step 7: Summary
+## Step 7: Compile PDF
+
+Compile all files modified during this skill run. Collect the unique set:
+- All source weekly files from which AI suggestion lines were removed (Promote, Keep, or Reject)
+- All reference files that received promoted content
+- The current weekly file, if any items were kept there
+
+For each file, run:
+
+```bash
+cd "$NOTEBOX" && make <target>
+```
+
+Where target is derived by stripping `.md` and the `$NOTEBOX/` prefix (e.g., `reference/coding.md` → `reference/coding`). Compile weekly files first (newest first), then reference files. If any call fails, output:
+
+```
+Warning: PDF compilation failed for <target> — check typst install
+```
+
+Do not stop on failure — compile remaining files.
+
+## Step 8: Summary
 
 ```
 Reviewed N items: M promoted, K kept, J rejected
@@ -175,3 +187,11 @@ If items came from multiple files, list each: `(2 from 2026-W10.md, 1 from 2026-
 - [ ] Summary printed to user
 
 </success_criteria>
+
+<integration>
+
+**Reads:** `## AI suggestions` content across all weekly files (written by capture when AI-initiated)
+**Produces:** promoted content in `$NOTEBOX/reference/*.md`; kept content in today's day section; cleaned-up weekly files with empty suggestion sections removed
+**Consumed by:** nothing — terminal step in the weekly cycle
+
+</integration>

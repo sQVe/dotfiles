@@ -79,7 +79,7 @@ The origin label format is `— carried from {DayName} {YYYY-MM-DD}`.
 
 Create `### Tasks` if it does not exist.
 
-**Context group placement:** Extract the `(context-name)` suffix from the task text, before any ` — carried from` label. Use the same insertion algorithm as capture Step 8 — find or create the `**{context}:**` group, insert before the first `- [x]` in that group (or before the next group header, or at group end). Tasks with no context suffix go into `**general:**`.
+**Context group placement:** Extract the `(context-name)` suffix from the task text, before any ` — carried from` label. Use the same insertion algorithm as capture Step 8 — find or create the `` `{context}`: `` group sorted alphabetically, insert before the first `- [x]` in that group (or before the next group header, or at group end). Tasks with no context suffix go at the top of `### Tasks` without a header.
 
 Do NOT rewrite the file. Use Edit to insert at the correct point.
 
@@ -195,7 +195,8 @@ Example output after running /daily:
 
 ### Tasks
 
-**myrepo:**
+`myrepo`:
+
 - [ ] Fix auth bug (myrepo) — carried from Fri 2026-02-28
 - [ ] Review PR #456 (myrepo) — carried from Mon 2026-03-02
 
@@ -238,7 +239,7 @@ Example output after running /daily:
 - [ ] Incomplete tasks from prior days appear in today's `### Tasks` with carry-over labels
 - [ ] No duplicate tasks (deduplication applied)
 - [ ] Relevant Slack/Linear context added to `### Notes` (or skipped with note if MCP unavailable)
-- [ ] Carried-over tasks placed in correct `**context:**` group within `### Tasks`
+- [ ] Carried-over tasks placed in correct `` `context`: `` group within `### Tasks` (alphabetical, general tasks at top without header)
 - [ ] Reading list grouped by category with `**Category:**` bold headers, ~5 items per active category
 - [ ] All links are from actual feed items or WebSearch results (no invented URLs)
 - [ ] Summary printed to user

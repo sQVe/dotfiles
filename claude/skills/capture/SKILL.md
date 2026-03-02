@@ -81,20 +81,19 @@ If type is **completion**, do this instead of steps 6–9:
 
 2. Search the entire weekly file for `- [ ] {task text}` (fuzzy match — ignore repo suffix, carry-over labels, minor wording differences). Check all day sections, newest first.
 
-3. If found: replace that line with `- [x] {original task text}` using Edit (exact line match). Do NOT rewrite the file.
+3. If the input includes a conclusion (e.g., "not necessary — no dotfiles commands warrant conversion"), extract and polish it: fix spelling/punctuation, remove filler. Otherwise conclusion is empty.
 
-3a. **Move completed task to end of its group:**
-   - Extract context from the task line: the `(context-name)` suffix at the end, before any ` — carried from` label. If absent, context is `general`.
-   - Find the `**{context}:**` header in the `### Tasks` section. If the section has no context groups (flat list), skip the move.
-   - Find the group end: the next `**...**` line OR the `### Tasks` section end — whichever comes first.
+4. If found: replace that line with `- [x] {original task text}` (appending ` — *{conclusion}*` if a conclusion exists) using Edit (exact line match). Do NOT rewrite the file.
+   - Example with conclusion: `- [x] Check if dotfiles commands should be converted (dotfiles) — *none warrant conversion*`
+   - Example without: `- [x] Fix the login bug (myrepo)`
+
+4a. **Move completed task to end of its group:**
+   - Extract context from the task line: the `(context-name)` suffix at the end, before any ` — carried from` label.
+   - For tasks with context: find the `` `{context}`: `` header. Group end is the next `` `...`: `` line OR the `### Tasks` section end.
+   - For tasks without context: group end is the first `` `...`: `` line in `### Tasks` OR the section end.
+   - If no context group headers exist at all, skip the move.
    - If the task line is already immediately before the group end, skip (no-op).
    - Otherwise: use two Edit operations — first delete the `- [x]` line from its current position, then insert it immediately before the group end.
-
-4. If the input includes a conclusion (e.g., "not necessary — no dotfiles commands warrant conversion"), add a note to today's `### Notes`:
-   - Format: `{Task description}: {conclusion}.`
-   - Example: `Check dotfiles commands for skill conversion: none warrant conversion.`
-   - Polish the note: fix spelling/punctuation, remove filler.
-   - Create `### Notes` if missing.
 
 5. Compile the weekly file to PDF:
 
@@ -155,18 +154,16 @@ If non-empty, append `(repo-name)` to the task. If not in a git repo, omit.
 
 **For tasks:** Insert into the correct context group within `### Tasks`.
 
-**Context extraction:** From the polished task line, extract the `(context-name)` suffix — the parenthetical at the end, before any ` — carried from` label. Strip surrounding parens. If absent, context is `general`.
+**Context extraction:** From the polished task line, extract the `(context-name)` suffix — the parenthetical at the end, before any ` — carried from` label. Strip surrounding parens.
 
-**Bold header pattern:** A context group header is a line matching `**name:**` (bold text ending with colon, alone on its line).
+**Context group header pattern:** A line matching `` `name`: `` (backtick-wrapped name followed by a colon, alone on its line). Named groups are sorted alphabetically within `### Tasks`. Tasks with no context go at the top, before all named groups, with no header.
 
 **Insertion algorithm:**
 1. Locate the `### Tasks` section (from `### Tasks` heading to the next `###` or `##` heading, or end of file).
-2. Scan for `**{context}:**` line within that section.
-3. If found: scan forward from that header to find the first `- [x]` line OR the next `**...**` header OR the section end — whichever comes first. Insert the task line immediately before that point.
-4. If NOT found AND context is not `general`: insert a new group block. If `**general:**` exists in `### Tasks`, insert before it; otherwise append at end of `### Tasks`. New group block: blank line, `**{context}:**`, blank line, then the task line.
-5. If NOT found AND context IS `general`: create `**general:**` group at the end of `### Tasks` using the same block format.
-
-**Initial state (no context groups exist):** If `### Tasks` contains only flat `- [ ]` / `- [x]` lines with no `**...**` headers, treat the section as if all groups are missing. Apply step 4 or 5 — create the first group header and insert into it. Leave existing flat lines untouched.
+2. **No context:** Find the first `` `...`: `` header OR the first `- [x]` ungrouped line — insert immediately before that point. If neither exists, append at end of section.
+3. **Named context:** Scan for `` `{context}`: `` line within the section.
+4. If found: scan forward from that header to find the first `- [x]` line OR the next `` `...`: `` header OR the section end — whichever comes first. Insert immediately before that point.
+5. If NOT found: determine alphabetical insertion position among existing `` `...`: `` headers. Insert a new group block at that position: blank line, `` `{context}`: ``, blank line, then the task line.
 
 ## Step 9: AI suggestions path
 
@@ -258,12 +255,12 @@ This skill:
 
 ### Tasks
 
-**notebox:**
+- [ ] Task three
+
+`notebox`:
+
 - [ ] Task one (notebox)
 - [x] Task two (notebox)
-
-**general:**
-- [ ] Task three
 
 ### Notes
 
@@ -338,12 +335,12 @@ The skill ran correctly when ALL of these are true:
 - [ ] Weekly file exists at the correct `$NOTEBOX/weekly/YYYY-WNN.md` path
 - [ ] The file starts with `# YYYY-WNN` (H1 only, nothing else before it)
 - [ ] Today's `## DayName YYYY-MM-DD` section exists
-- [ ] Tasks inserted into correct `**context:**` group within `### Tasks` (incomplete before completed within group); notes to `### Notes`; references to `### References`
+- [ ] Tasks inserted into correct context group within `### Tasks` — general tasks at top (no header), named groups as `` `context`: `` sorted alphabetically below (incomplete before completed within group); notes to `### Notes`; references to `### References`
 - [ ] Tasks use `- [ ]` prefix, imperative verb, and `(repo-name)` suffix when in a git repo
 - [ ] References include a fetched title (or raw URL as fallback) and em-dash summary
 - [ ] No empty subsections were created
 - [ ] AI-initiated content appears only in `## AI suggestions`, never in a day section
-- [ ] Completions: matching `- [ ]` task found and changed to `- [x]`; conclusion note added to `### Notes` if present
+- [ ] Completions: matching `- [ ]` task found and changed to `- [x]`; conclusion appended as ` — *{conclusion}*` on the task line if present
 - [ ] The confirmation line was output to the user
 
 </success_criteria>

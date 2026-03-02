@@ -132,7 +132,7 @@ Insert each task into the correct context group in current week's Monday `### Ta
 - [ ] Task text — carried from Wed 2026-03-04
 ```
 
-**Context group placement:** Extract the `(context-name)` suffix from the task text, before any ` — carried from` label. Use the same insertion algorithm as capture Step 8 — find or create the `**{context}:**` group, insert before the first `- [x]` in that group (or before the next group header, or at group end). Tasks with no context suffix go into `**general:**`.
+**Context group placement:** Extract the `(context-name)` suffix from the task text, before any ` — carried from` label. Use the same insertion algorithm as capture Step 8 — find or create the `` `{context}`: `` group sorted alphabetically, insert before the first `- [x]` in that group (or before the next group header, or at group end). Tasks with no context suffix go at the top of `### Tasks` without a header.
 
 If a task already has a carry-over label, replace it with the new one (do not stack labels).
 
@@ -240,7 +240,8 @@ Weekly review complete — YYYY-WNN
 
 ### Tasks
 
-**myrepo:**
+`myrepo`:
+
 - [ ] Task not done (myrepo)
 - [x] Task completed (myrepo)
 
@@ -299,7 +300,7 @@ Rules:
 - [ ] User was shown each note and asked whether to promote it
 - [ ] Promoted notes written to correct `$NOTEBOX/reference/*.md` file
 - [ ] Current week file exists at correct path (created or already present)
-- [ ] Current week Monday `### Tasks` contains all rolled-over incomplete tasks with carry-over labels, placed in correct `**context:**` groups
+- [ ] Current week Monday `### Tasks` contains all rolled-over incomplete tasks with carry-over labels, placed in correct `` `context`: `` groups (alphabetical, general at top)
 - [ ] No duplicate tasks in current week Monday (deduplication applied)
 - [ ] `## Review` section written at end of previous week file with Completed, Rolled over subsections
 - [ ] `### Promoted to reference` subsection present only if at least one note was promoted
