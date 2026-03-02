@@ -210,6 +210,32 @@ Use the word `kept`. List in descending order by count.
 - Neovim: 3 kept
 ```
 
+**Interests update proposal:**
+
+Skip this sub-step entirely if no kept lines were compiled (surviving-items analysis found no category with ≥2 items). Also skip if `$NOTEBOX/reference/interests.md` does not exist — print "Warning: interests.md not found — skipping interests update proposal" and proceed to Step 8.
+
+Read `$NOTEBOX/reference/interests.md`. For each kept category, check whether any bullet line under `## Topics I care about` contains the category name as a case-insensitive substring (e.g., kept category "CLI tools" matches "- CLI tools: CLIs, TUIs, productivity tooling"). Covered = ≥1 bullet contains the category name; uncovered = no match.
+
+If all kept categories are covered: print "Reading signal matches current interests — no updates needed." Proceed to Step 8 without prompting.
+
+If ≥1 uncovered category, present a proposal:
+
+```
+Reading signal this week:
+  Neovim: 8 kept
+  CLI tools: 3 kept
+
+Proposed additions to interests.md:
+  + "CLI tools: CLIs, TUIs, productivity tooling" (suggested text — edit as needed)
+
+Apply? (y/n)
+```
+
+Show ALL kept lines in the signal section (including covered ones). Show only uncovered categories in "Proposed additions". For each proposed addition, suggest text using the category name plus a brief placeholder description. Wait for user response:
+
+- `y`: append each proposed addition as a new bullet line under `## Topics I care about` using Edit (do NOT rewrite the whole file), then run `cd "$NOTEBOX" && make reference/interests`. If write fails: print "Warning: Failed to update interests.md — check file permissions" and proceed to Step 8. If PDF compile fails: print "Warning: PDF compilation failed for reference/interests — check typst install" and proceed to Step 8.
+- Anything other than `y`: print "Skipping interests.md update." and proceed to Step 8. Do not re-prompt.
+
 ## Step 8: Write Review section in previous week file
 
 Find or create `## Review` at the end of the previous week file.
@@ -371,6 +397,10 @@ Rules:
 - ❌ Adding "← consider boosting" for categories with fewer than 2 reading items that week — 1/1 = 100% is noise, not signal
 - ❌ Adding kept lines for a category with only 1 surviving item — noise threshold is 2
 - ❌ Auto-applying changes to `interests.md` — user must confirm every proposed edit
+- ❌ Suggesting removals or deprioritizations from interests.md — kept signal is positive only; absence is ambiguous
+- ❌ Running the interests update proposal when no kept lines were compiled (signal must exist before prompting)
+- ❌ Adding duplicate entries to interests.md — coverage check (case-insensitive substring) must pass before proposing
+- ❌ Rewriting the whole interests.md file — append only under `## Topics I care about` using Edit
 
 </anti_patterns>
 
@@ -389,6 +419,12 @@ Rules:
 - [ ] Step 7.5 skipped entirely when previous week has no `### Reading` items; `### Reading patterns` written to `## Review` when ≥1 capture-rate or kept line was compiled
 - [ ] Surviving reading items counted per category (case-insensitive, trailing colons stripped); categories with <2 items excluded from kept lines
 - [ ] Kept lines appear in `### Reading patterns` using the word `kept`, in descending order by count, after any capture-rate lines
+- [ ] Interests update proposal sub-step skipped when no kept lines were compiled
+- [ ] Coverage check uses case-insensitive substring match against bullets in `## Topics I care about`
+- [ ] Proposal shows full kept signal + only uncovered categories in "Proposed additions"
+- [ ] User prompted with `y/n` before any write to interests.md; unexpected input treated as `n`
+- [ ] Approved additions appended under `## Topics I care about` via Edit (no full file rewrite); interests.md compiled to PDF after write
+- [ ] Write/compile failures produce warnings but do not abort the weekly review
 - [ ] Summary printed to user
 
 </success_criteria>
