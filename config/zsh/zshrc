@@ -78,7 +78,7 @@ source "${ZIM_HOME}/init.zsh"
 # Completion.
 source /usr/share/fzf/completion.zsh
 source <(carapace _carapace)
-eval "$(bd completion zsh)"
+eval "$(br completion zsh 2>/dev/null)"
 eval "$(grove completion zsh)"
 eval "$(grove switch shell-init)"
 eval "$(zoxide init zsh)"
