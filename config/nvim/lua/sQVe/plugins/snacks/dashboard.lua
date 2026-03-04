@@ -37,6 +37,12 @@ return {
         action = ':ene | startinsert',
       },
       {
+        icon = '📅',
+        key = 'w',
+        desc = 'Weekly note',
+        action = ':lua require("sQVe.ui.command_palette.commands").open_weekly_note.callback()',
+      },
+      {
         icon = '⚡',
         key = '<Backspace>',
         desc = 'Command palette',

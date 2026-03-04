@@ -532,6 +532,16 @@ M.open_project = {
   name = 'Open (project)',
 }
 
+M.open_weekly_note = {
+  callback = function()
+    vim.cmd(
+      'edit '
+        .. vim.fn.expand('~/notebox/weekly/' .. os.date('%Y-W%V') .. '.md')
+    )
+  end,
+  name = 'Open (weekly note)',
+}
+
 M.search_and_replace = {
   callback = function()
     require('grug-far').open()

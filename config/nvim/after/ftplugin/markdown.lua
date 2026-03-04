@@ -120,6 +120,16 @@ if notebox_root ~= nil then
     local current_bufnr = vim.api.nvim_get_current_buf()
     start_typst_watch(current_bufnr, info, notebox_root)
 
+    if info.type == 'weekly' then
+      local today_heading = os.date('## %A %Y-%m-%d')
+      vim.schedule(function()
+        local line = vim.fn.search('^' .. today_heading .. '$', 'cw')
+        if line > 0 then
+          vim.cmd('normal! zt')
+        end
+      end)
+    end
+
     local group = vim.api.nvim_create_augroup('NoteboxWatch', { clear = false })
 
     vim.api.nvim_create_autocmd({ 'BufDelete', 'BufWipeout', 'BufUnload' }, {

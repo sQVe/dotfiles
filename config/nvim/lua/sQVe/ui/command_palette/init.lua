@@ -54,6 +54,7 @@ local default_commands = {
   commands.lsp_rename_symbol,
   commands.open_oil,
   commands.open_project,
+  commands.open_weekly_note,
   commands.search_and_replace,
   commands.search_in_buffers,
   commands.search_in_files,
