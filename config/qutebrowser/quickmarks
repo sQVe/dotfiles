@@ -3,6 +3,7 @@ bin https://github.com/sQVe/bin
 cal https://calendar.google.com/calendar/r
 chatgpt https://chatgpt.com
 claude https://claude.ai/new
+coderabbit https://app.coderabbit.ai/settings/repositories
 ddg https://start.duckduckgo.com
 devdocs https://devdocs.io
 devhints https://devhints.io
@@ -12,14 +13,12 @@ drive https://drive.google.com/drive/my-drive
 g https://www.google.com
 gh https://github.com
 gist https://gist.github.com/sQVe
-greptile https://app.greptile.com/
 grove https://github.com/sQVe/grove
 linear https://linear.app
 locg https://leagueofcomicgeeks.com/comics
 mail https://mail.google.com/mail/u/0/#inbox
 mdn https://developer.mozilla.org/en-US/docs/Web
 mega https://mega.nz
-nba https://www.nba.com
 netflix https://www.netflix.com/browse
 nit https://github.com/sQVe/nit.nvim
 notebox https://github.com/sQVe/notebox
@@ -34,5 +33,4 @@ sort https://github.com/sQVe/sort.nvim
 svt https://www.svt.se/
 svtplay https://www.svtplay.se/
 wiki https://en.wikipedia.org
-wnba https://www.wnba.com
 yt https://www.youtube.com
