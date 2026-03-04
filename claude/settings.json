@@ -154,7 +154,6 @@
     "gopls-lsp@claude-plugins-official": true,
     "safety-net@cc-marketplace": true,
     "typescript-lsp@claude-plugins-official": true,
-    "beads@beads-marketplace": true,
     "hyperpowers@withzombies-hyper": true,
     "notebox@notebox": true
   },
