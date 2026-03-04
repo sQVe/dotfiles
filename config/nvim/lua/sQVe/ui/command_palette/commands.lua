@@ -701,7 +701,7 @@ M.spawn_yazi_in_subdirectory = {
   end,
 }
 
-M.strip_whitespace = {
+M.normalize_text = {
   callback = function(opts)
     local region = require('sQVe.utils.selection').get_current_region()
     local lines = vim.api.nvim_buf_get_lines(
@@ -752,18 +752,35 @@ M.strip_whitespace = {
       prev_blank = is_blank
     end
 
+    local joined = {}
+    local paragraph = {}
+    for _, line in ipairs(cleaned) do
+      if line:match('^%s*$') then
+        if #paragraph > 0 then
+          table.insert(joined, table.concat(paragraph, ' '))
+          paragraph = {}
+        end
+        table.insert(joined, line)
+      else
+        table.insert(paragraph, line)
+      end
+    end
+    if #paragraph > 0 then
+      table.insert(joined, table.concat(paragraph, ' '))
+    end
+
     vim.api.nvim_buf_set_lines(
       opts.bufnr,
       region.from.line - 1,
       region.to.line,
       false,
-      cleaned
+      joined
     )
   end,
   condition = function(opts)
     return opts.is_visual_mode
   end,
-  name = 'Strip (whitespace)',
+  name = 'Normalize (text)',
 }
 
 M.toggle_conceal = {

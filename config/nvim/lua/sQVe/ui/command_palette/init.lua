@@ -67,7 +67,7 @@ local default_commands = {
   commands.spawn_terminal_in_subdirectory,
   commands.spawn_yazi,
   commands.spawn_yazi_in_subdirectory,
-  commands.strip_whitespace,
+  commands.normalize_text,
   commands.toggle_conceal,
   commands.toggle_format_on_save,
   commands.toggle_line_wrap,
