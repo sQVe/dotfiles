@@ -17,6 +17,7 @@
     "allow": [
       "Bash(basename:*)",
       "Bash(bat:*)",
+      "Bash(bd:*)",
       "Bash(biome:*)",
       "Bash(bun:*)",
       "Bash(cargo:*)",
@@ -124,7 +125,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "mulch prime"
+            "command": "test -d .mulch && mulch prime || true"
           }
         ]
       }
@@ -135,7 +136,7 @@
         "hooks": [
           {
             "type": "command",
-            "command": "mulch prime"
+            "command": "test -d .mulch && mulch prime || true"
           }
         ]
       }
@@ -145,12 +146,6 @@
     "type": "command",
     "command": "/home/sqve/scripts/claude/statusline.sh"
   },
-  "mcpServers": {
-    "qmd": {
-      "command": "qmd",
-      "args": ["mcp"]
-    }
-  },
   "enabledPlugins": {
     "chrome-devtools-mcp@chrome-devtools-plugins": true,
     "context7@claude-plugins-official": true,
@@ -159,11 +154,34 @@
     "gopls-lsp@claude-plugins-official": true,
     "safety-net@cc-marketplace": true,
     "typescript-lsp@claude-plugins-official": true,
-    "withzombies-hyper@withzombies-hyper": true,
-    "beads@beads-marketplace": true
+    "beads@beads-marketplace": true,
+    "hyperpowers@withzombies-hyper": true,
+    "notebox@notebox": true
+  },
+  "extraKnownMarketplaces": {
+    "withzombies-hyper": {
+      "source": {
+        "source": "directory",
+        "path": "/home/sqve/code/forks/hyperpowers"
+      }
+    },
+    "notebox": {
+      "source": {
+        "source": "directory",
+        "path": "/home/sqve/notebox"
+      }
+    }
   },
   "alwaysThinkingEnabled": true,
   "skipDangerousModePermissionPrompt": true,
+  "mcpServers": {
+    "qmd": {
+      "command": "qmd",
+      "args": [
+        "mcp"
+      ]
+    }
+  },
   "feedbackSurveyState": {
     "lastShownTime": 1754085535302
   }
