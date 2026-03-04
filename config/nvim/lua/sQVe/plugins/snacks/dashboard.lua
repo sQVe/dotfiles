@@ -29,6 +29,9 @@ return {
         key = 'd',
         desc = 'Branch changes',
         action = ':lua require("sQVe.ui.command_palette.commands").git_branch_changes.callback()',
+        enabled = function()
+          return require('sQVe.ui.command_palette.commands').git_branch_changes.condition()
+        end,
       },
       {
         icon = '✏️',

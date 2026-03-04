@@ -240,9 +240,7 @@ M.git_blame = {
 
 M.git_branch_changes = {
   callback = function()
-    Snacks.picker.git_diff({
-      base = 'origin/' .. git.get_default_branch(),
-    })
+    vim.cmd('CodeDiff ' .. git.get_default_branch() .. '...')
   end,
   condition = function()
     return git.is_inside_repo()
