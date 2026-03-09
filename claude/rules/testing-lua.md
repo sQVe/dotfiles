@@ -1,6 +1,6 @@
 ---
 globs:
-  - "**/*_spec.lua"
+  - '**/*_spec.lua'
 ---
 
 `_spec.lua` suffix for test files.

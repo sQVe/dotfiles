@@ -1,8 +1,8 @@
 ---
 globs:
-  - "**/*.test.ts"
-  - "**/*.test.tsx"
-  - "**/*.integration.test.ts"
+  - '**/*.test.ts'
+  - '**/*.test.tsx'
+  - '**/*.integration.test.ts'
 ---
 
 Co-locate test files with source.

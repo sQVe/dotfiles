@@ -1,6 +1,6 @@
 ---
 globs:
-  - "**/*_test.go"
+  - '**/*_test.go'
 ---
 
 Group subtests under `TestFunctionName` with `t.Run("descriptive sentence", ...)`.

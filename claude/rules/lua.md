@@ -1,6 +1,6 @@
 ---
 globs:
-  - "**/*.lua"
+  - '**/*.lua'
 ---
 
 Format with stylua; per-project `.stylua.toml` sets `column_width`.

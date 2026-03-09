@@ -1,6 +1,6 @@
 ---
 globs:
-  - "**/*.md"
+  - '**/*.md'
 ---
 
 APA sentence case for all headings.

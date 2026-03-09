@@ -1,6 +1,6 @@
 ---
 globs:
-  - "**/*.go"
+  - '**/*.go'
 ---
 
 Single lowercase word for package names.
