@@ -27,10 +27,10 @@
         "viewMode": "grid"
     },
     "audio": {
-        "cavaFrameRate": 30,
         "mprisBlacklist": [
         ],
         "preferredPlayer": "mpv",
+        "spectrumFrameRate": 30,
         "visualizerType": "linear",
         "volumeFeedback": false,
         "volumeFeedbackSoundFile": "",
@@ -54,6 +54,9 @@
         "hideOnOverview": true,
         "marginHorizontal": 0,
         "marginVertical": 0,
+        "middleClickAction": "none",
+        "middleClickCommand": "",
+        "middleClickFollowMouse": false,
         "monitors": [
         ],
         "mouseWheelAction": "none",
@@ -61,6 +64,9 @@
         "outerCorners": false,
         "position": "top",
         "reverseScroll": false,
+        "rightClickAction": "controlCenter",
+        "rightClickCommand": "",
+        "rightClickFollowMouse": true,
         "screenOverrides": [
         ],
         "showCapsule": false,
@@ -95,6 +101,7 @@
                     "enableScrollWheel": true,
                     "focusedColor": "primary",
                     "followFocusedScreen": false,
+                    "fontWeight": "bold",
                     "groupedBorderOpacity": 1,
                     "hideUnoccupied": false,
                     "iconScale": 0.9,
@@ -114,6 +121,7 @@
                     "diskPath": "/",
                     "iconColor": "none",
                     "id": "SystemMonitor",
+                    "showCpuCores": false,
                     "showCpuFreq": false,
                     "showCpuTemp": true,
                     "showCpuUsage": true,
@@ -339,7 +347,6 @@
             }
         ],
         "diskPath": "/",
-        "openAtMouseOnBarRightClick": true,
         "position": "close_to_bar_button",
         "shortcuts": {
             "left": [
@@ -413,6 +420,7 @@
         "clockStyle": "custom",
         "compactLockScreen": true,
         "dimmerOpacity": 0.5,
+        "enableBlurBehind": true,
         "enableLockScreenCountdown": true,
         "enableLockScreenMediaControls": false,
         "enableShadows": false,
@@ -505,6 +513,7 @@
     },
     "network": {
         "airplaneModeEnabled": false,
+        "bluetoothAutoConnect": true,
         "bluetoothDetailsViewMode": "grid",
         "bluetoothHideUnnamedDevices": false,
         "bluetoothRssiPollIntervalMs": 10000,
@@ -522,6 +531,10 @@
         "manualSunrise": "06:30",
         "manualSunset": "18:30",
         "nightTemp": "3500"
+    },
+    "noctaliaPerformance": {
+        "disableDesktopWidgets": true,
+        "disableWallpaper": true
     },
     "notifications": {
         "backgroundOpacity": 1,
@@ -628,12 +641,19 @@
                 "countdownEnabled": true,
                 "enabled": true,
                 "keybind": ""
+            },
+            {
+                "action": "userspaceReboot",
+                "command": "",
+                "countdownEnabled": true,
+                "enabled": false,
+                "keybind": ""
             }
         ],
         "showHeader": true,
         "showKeybinds": true
     },
-    "settingsVersion": 54,
+    "settingsVersion": 57,
     "systemMonitor": {
         "batteryCriticalThreshold": 5,
         "batteryWarningThreshold": 20,
@@ -695,14 +715,14 @@
         "tooltipsEnabled": true
     },
     "wallpaper": {
-        "automationEnabled": false,
-        "directory": "/home/sqve/pictures/art/GHARLIERA",
-        "enableMultiMonitorDirectories": false,
+        "automationEnabled": true,
+        "directory": "/home/sqve/pictures/art/simon-stålenhag/SWEDISH_MACHINES",
+        "enableMultiMonitorDirectories": true,
         "enabled": true,
         "favorites": [
         ],
         "fillColor": "#ffffff",
-        "fillMode": "fit",
+        "fillMode": "crop",
         "hideWallpaperFilenames": false,
         "monitorDirectories": [
             {
@@ -723,7 +743,7 @@
         "overviewTint": 0.6,
         "panelPosition": "follow_bar",
         "randomIntervalSec": 1800,
-        "setWallpaperOnAllMonitors": true,
+        "setWallpaperOnAllMonitors": false,
         "showHiddenFiles": false,
         "skipStartupTransition": false,
         "solidColor": "#ffffff",
