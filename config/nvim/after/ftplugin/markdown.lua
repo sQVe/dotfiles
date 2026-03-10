@@ -15,7 +15,7 @@ vim.opt_local.tabstop = 3
 
 -- Improve text formatting.
 vim.opt_local.formatoptions:append('t')
-vim.opt_local.textwidth = 80
+vim.opt_local.textwidth = 100
 
 -- Move cursor to end for Claude Code prompts.
 local bufname = vim.api.nvim_buf_get_name(0)
