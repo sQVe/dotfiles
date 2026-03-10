@@ -237,7 +237,12 @@ M.config = function()
 
   vim.lsp.config('tsgo', {
     cmd = { 'tsgo', '--lsp', '-stdio' },
-    filetypes = { 'javascript', 'javascriptreact', 'typescript', 'typescriptreact' },
+    filetypes = {
+      'javascript',
+      'javascriptreact',
+      'typescript',
+      'typescriptreact',
+    },
     root_markers = { 'tsconfig.json', 'jsconfig.json', 'package.json' },
     on_attach = on_attach,
     capabilities = capabilities,
