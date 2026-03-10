@@ -144,7 +144,8 @@
     "safety-net@cc-marketplace": true,
     "typescript-lsp@claude-plugins-official": true,
     "hyperpowers@withzombies-hyper": true,
-    "notebox@notebox": true
+    "notebox@notebox": true,
+    "cape@cape": true
   },
   "extraKnownMarketplaces": {
     "withzombies-hyper": {
@@ -157,6 +158,12 @@
       "source": {
         "source": "directory",
         "path": "/home/sqve/notebox"
+      }
+    },
+    "cape": {
+      "source": {
+        "source": "directory",
+        "path": "/home/sqve/code/personal/cape"
       }
     }
   },
