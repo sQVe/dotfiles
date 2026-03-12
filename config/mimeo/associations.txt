@@ -13,6 +13,7 @@ google-chrome-stable --new-window %U
   ^https?:\/\/localhost
   ^https?:\/\/outlook.office.com
   ^https?:\/\/teams\.microsoft\.com
+  ^/tmp/.*eval.*\.html$
 
 mpv %U
   ^https?:\/\/(www\.)?svtplay\.se/video
