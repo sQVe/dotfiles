@@ -145,7 +145,11 @@
     "typescript-lsp@claude-plugins-official": true,
     "hyperpowers@withzombies-hyper": true,
     "notebox@notebox": true,
-    "cape@cape": true
+    "cape@cape": true,
+    "ouroboros@ouroboros": true,
+    "qmd@qmd": true,
+    "linear@claude-plugins-official": true,
+    "slack@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "withzombies-hyper": {
@@ -165,12 +169,24 @@
         "source": "directory",
         "path": "/home/sqve/code/personal/cape"
       }
+    },
+    "ouroboros": {
+      "source": {
+        "source": "github",
+        "repo": "Q00/ouroboros"
+      }
+    },
+    "qmd": {
+      "source": {
+        "source": "github",
+        "repo": "tobi/qmd"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
   "skipDangerousModePermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754085535302
-  },
-  "effortLevel": "high"
+  }
 }
