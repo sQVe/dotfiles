@@ -185,6 +185,7 @@
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
+  "voiceEnabled": true,
   "skipDangerousModePermissionPrompt": true,
   "feedbackSurveyState": {
     "lastShownTime": 1754085535302
