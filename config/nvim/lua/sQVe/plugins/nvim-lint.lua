@@ -15,7 +15,7 @@ local function has_config_files(config_files)
 end
 
 local function should_lint_filetype(filetype)
-  if vim.tbl_contains({ 'gdscript', 'go', 'sh' }, filetype) then
+  if vim.tbl_contains({ 'gdscript', 'go', 'sh', 'yaml.github' }, filetype) then
     return true
   end
 
@@ -63,6 +63,9 @@ local M = {
 
     -- shellcheck.
     'sh',
+
+    -- actionlint.
+    'yaml.github',
   },
 }
 
@@ -81,6 +84,7 @@ M.config = function()
     javascriptreact = { 'eslint' },
     lua = { 'selene' },
     sh = { 'shellcheck' },
+    ['yaml.github'] = { 'actionlint' },
     typescript = { 'eslint' },
     typescriptreact = { 'eslint' },
   }

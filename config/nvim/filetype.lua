@@ -7,7 +7,9 @@ vim.filetype.add({
     ['.eslintrc.json'] = 'jsonc',
   },
   extension = { jsonl = 'jsonl' },
-  pattern = {},
+  pattern = {
+    ['.*%.github/workflows/.*%.ya?ml'] = 'yaml.github',
+  },
 })
 
 vim.treesitter.language.register('json', 'jsonl')
