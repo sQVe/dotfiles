@@ -14,6 +14,7 @@ g https://www.google.com
 gh https://github.com
 gist https://gist.github.com/sQVe
 grove https://github.com/sQVe/grove
+klang https://app.klang.ai/
 linear https://linear.app
 locg https://leagueofcomicgeeks.com/comics
 mail https://mail.google.com/mail/u/0/#inbox
@@ -21,6 +22,7 @@ mdn https://developer.mozilla.org/en-US/docs/Web
 mega https://mega.nz
 netflix https://www.netflix.com/browse
 nit https://github.com/sQVe/nit.nvim
+notebooklm https://notebooklm.google.com/?icid=home_maincta
 notebox https://github.com/sQVe/notebox
 platform https://github.com/hups-co/platform
 playground https://github.com/sQVe/playground
@@ -34,4 +36,3 @@ svt https://www.svt.se/
 svtplay https://www.svtplay.se/
 wiki https://en.wikipedia.org
 yt https://www.youtube.com
-notebooklm https://notebooklm.google.com/?icid=home_maincta
