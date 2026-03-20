@@ -1,7 +1,6 @@
 @biomejs/biome
 @github/copilot-language-server
 @openai/codex
-@os-eco/mulch-cli
 @typescript/native-preview
 bash-language-server
 colorally

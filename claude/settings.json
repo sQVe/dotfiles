@@ -51,7 +51,6 @@
       "Bash(mage:*)",
       "Bash(make:*)",
       "Bash(mkdir:*)",
-      "Bash(mulch:*)",
       "Bash(mv:*)",
       "Bash(npm:*)",
       "Bash(npx:*)",
@@ -105,31 +104,6 @@
       "Write"
     ],
     "defaultMode": "plan"
-  },
-  "model": "opus",
-  "hooks": {
-    "PreCompact": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "test -d .mulch && mulch prime || true"
-          }
-        ]
-      }
-    ],
-    "SessionStart": [
-      {
-        "matcher": "",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "test -d .mulch && mulch prime || true"
-          }
-        ]
-      }
-    ]
   },
   "statusLine": {
     "type": "command",
