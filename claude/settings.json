@@ -120,10 +120,11 @@
     "hyperpowers@withzombies-hyper": true,
     "notebox@notebox": true,
     "cape@cape": true,
-    "ouroboros@ouroboros": true,
     "qmd@qmd": true,
     "linear@claude-plugins-official": true,
-    "slack@claude-plugins-official": true
+    "slack@claude-plugins-official": true,
+    "posthog@claude-plugins-official": true,
+    "code-review-graph@code-review-graph": true
   },
   "extraKnownMarketplaces": {
     "withzombies-hyper": {
@@ -144,16 +145,16 @@
         "path": "/home/sqve/code/personal/cape"
       }
     },
-    "ouroboros": {
-      "source": {
-        "source": "github",
-        "repo": "Q00/ouroboros"
-      }
-    },
     "qmd": {
       "source": {
         "source": "github",
         "repo": "tobi/qmd"
+      }
+    },
+    "code-review-graph": {
+      "source": {
+        "source": "github",
+        "repo": "tirth8205/code-review-graph"
       }
     }
   },
