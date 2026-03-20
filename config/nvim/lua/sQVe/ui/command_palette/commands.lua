@@ -240,7 +240,7 @@ M.git_blame = {
 
 M.git_branch_changes = {
   callback = function()
-    vim.cmd('CodeDiff ' .. git.get_default_branch() .. '...')
+    Snacks.picker.git_diff({ base = git.get_default_branch() })
   end,
   condition = function()
     return git.is_inside_repo()
@@ -267,8 +267,16 @@ M.git_merge_base = {
 }
 
 M.git_open_in_github = {
-  callback = function()
-    Snacks.gitbrowse.open()
+  callback = function(opts)
+    if opts.is_visual_mode then
+      local region = require('sQVe.utils.selection').get_current_region()
+      Snacks.gitbrowse.open({
+        line_start = region.from.line,
+        line_end = region.to.line,
+      })
+    else
+      Snacks.gitbrowse.open()
+    end
   end,
   condition = function(opts)
     return git.is_inside_repo()
@@ -762,7 +770,7 @@ M.normalize_text = {
         end
         table.insert(joined, line)
       else
-        table.insert(paragraph, line)
+        table.insert(paragraph, line:match('^%s*(.*)'))
       end
     end
     if #paragraph > 0 then
