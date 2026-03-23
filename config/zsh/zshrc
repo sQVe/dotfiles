@@ -27,6 +27,11 @@ WORDCHARS=${WORDCHARS//[\/]}
 autoload -z edit-command-line
 zle -N edit-command-line
 
+# Set terminal title to `directory — command`.
+autoload -Uz add-zsh-hook
+add-zsh-hook precmd _title_precmd
+add-zsh-hook preexec _title_preexec
+
 # Disable terminal close on <C-c>.
 set -o ignoreeof
 
@@ -91,6 +96,18 @@ compdef _pnpm_bridge pnpm
 #  ┏━╸╻ ╻┏┓╻┏━╸╺┳╸╻┏━┓┏┓╻┏━┓
 #  ┣╸ ┃ ┃┃┗┫┃   ┃ ┃┃ ┃┃┗┫┗━┓
 #  ╹  ┗━┛╹ ╹┗━╸ ╹ ╹┗━┛╹ ╹┗━┛
+
+function _set_title() {
+  print -Pn "\e]0;${1}\a"
+}
+
+function _title_precmd() {
+  _set_title "%1~ — zsh"
+}
+
+function _title_preexec() {
+  _set_title "%1~ — ${1[(w)1]}"
+}
 
 function _colorize() {
   command env \
