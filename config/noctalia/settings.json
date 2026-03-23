@@ -748,7 +748,8 @@
         "monitorDirectories": [
             {
                 "directory": "/home/sqve/pictures/art/simon-stålenhag/SWEDISH_MACHINES",
-                "name": "eDP-1"
+                "name": "eDP-1",
+                "wallpaper": ""
             },
             {
                 "directory": "/home/sqve/pictures/art/simon-stålenhag/SWEDISH_MACHINES",
