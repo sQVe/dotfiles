@@ -3,6 +3,8 @@
 -- ╹ ╹┗━╸ ╹ ╹ ╹╹ ╹╹
 
 local map = require('sQVe.utils.map')
+local copy_filename_with_line =
+  require('sQVe.ui.command_palette.commands').copy_filename_with_line
 
 -- Clear search matches.
 map(
@@ -152,6 +154,16 @@ map('i', '.', '.<c-g>u')
 map('i', '?', '?<c-g>u')
 map('i', '[', '[<c-g>u')
 map('i', '{', '{<c-g>u')
+
+-- Copy filename with line.
+map('n', '<C-g>', function()
+  copy_filename_with_line.callback({ is_visual_mode = false })
+end, { desc = 'Copy filename with line' })
+map('v', '<C-g>', function()
+  local esc = vim.api.nvim_replace_termcodes('<Esc>', true, false, true)
+  vim.api.nvim_feedkeys(esc, 'nx', false)
+  copy_filename_with_line.callback({ is_visual_mode = true })
+end, { desc = 'Copy filename with line' })
 
 -- Search for selected text with DuckDuckGo.
 map(
