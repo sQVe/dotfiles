@@ -129,7 +129,10 @@ M.config = function()
   })
 
   vim.lsp.config('copilot', {
-    on_attach = on_attach,
+    on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+      utils.setup_copilot_commands(client, bufnr)
+    end,
   })
 
   vim.lsp.config('cssls', {

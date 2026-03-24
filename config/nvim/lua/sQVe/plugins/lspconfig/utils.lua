@@ -126,4 +126,38 @@ M.map_lookup_keys = function(bufnr)
   )
 end
 
+M.setup_copilot_commands = function(client, bufnr)
+  client:request('checkStatus', { localChecksOnly = false }, function(_, result)
+    if result and result.status == 'NotSignedIn' then
+      vim.notify('Copilot is not signed in. Run :CopilotSignIn', vim.log.levels.WARN)
+    end
+  end, bufnr)
+
+  vim.api.nvim_buf_create_user_command(bufnr, 'CopilotSignIn', function()
+    client:request('signIn', vim.empty_dict(), function(err, result)
+      if err then
+        vim.notify(err.message, vim.log.levels.ERROR)
+        return
+      end
+      if result.status == 'AlreadySignedIn' then
+        vim.notify('Already signed in as ' .. result.user)
+      elseif result.userCode then
+        vim.fn.setreg('+', result.userCode)
+        vim.notify('Code copied to clipboard: ' .. result.userCode)
+        vim.fn.system({ 'mimeo', result.verificationUri })
+      end
+    end, bufnr)
+  end, {})
+
+  vim.api.nvim_buf_create_user_command(bufnr, 'CopilotSignOut', function()
+    client:request('signOut', vim.empty_dict(), function(err, result)
+      if err then
+        vim.notify(err.message, vim.log.levels.ERROR)
+        return
+      end
+      vim.notify(result.status == 'NotSignedIn' and 'Signed out' or vim.inspect(result))
+    end, bufnr)
+  end, {})
+end
+
 return M
