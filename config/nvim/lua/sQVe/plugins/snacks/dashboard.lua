@@ -25,8 +25,17 @@ return {
         action = ':lua require("sQVe.ui.command_palette.commands").go_to_recent_file.callback()',
       },
       {
+        icon = '🔧',
+        key = 'w',
+        desc = 'Working changes',
+        action = ':lua require("sQVe.ui.command_palette.commands").diff_working_changes.callback()',
+        enabled = function()
+          return require('sQVe.ui.command_palette.commands').diff_working_changes.condition()
+        end,
+      },
+      {
         icon = '🔀',
-        key = 'd',
+        key = 'b',
         desc = 'Branch changes',
         action = ':lua require("sQVe.ui.command_palette.commands").git_branch_changes.callback()',
         enabled = function()
@@ -41,21 +50,9 @@ return {
       },
       {
         icon = '📅',
-        key = 'w',
+        key = 'n',
         desc = 'Weekly note',
         action = ':lua require("sQVe.ui.command_palette.commands").open_weekly_note.callback()',
-      },
-      {
-        icon = '⚡',
-        key = '<Backspace>',
-        desc = 'Command palette',
-        action = ':lua require("sQVe.ui.command_palette").open_command_palette()',
-      },
-      {
-        icon = '📎',
-        key = 'p',
-        desc = 'Load project',
-        action = ':lua require("sQVe.ui.command_palette.commands").open_project.callback()',
       },
       {
         icon = '📎',
@@ -83,8 +80,7 @@ return {
 █▄█ ▄ █▄▄█▄▄█ █ ▄▄█ █ ▄ █ █▄█▄█ █
     █▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄█ █▄█▄▄▄█
 
-It is essential to know a thing first
-before saying or acting upon it]],
+Knowledge comes before speech and action]],
   },
   sections = {
     { section = 'header', padding = 4 },
