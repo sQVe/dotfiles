@@ -90,4 +90,11 @@ return {
       Snacks.bufdelete.other()
     end,
   },
+  {
+    '<C-w>m',
+    function()
+      Snacks.zen.zoom()
+    end,
+    desc = 'Toggle maximize window',
+  },
 }
