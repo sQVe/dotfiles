@@ -54,7 +54,7 @@ layout {
     proportion 1.0
   }
   default-column-width {
-    proportion 0.5
+    proportion 0.33333
   }
   focus-ring {
     width 2
@@ -135,15 +135,9 @@ layer-rule {
   place-within-backdrop true
 }
 
-output "Dell Inc. DELL S3422DWG 8BB3TH3" {
+output "BOE 0x0A1F Unknown" {
   layout {
-    default-column-width { proportion 0.33333; }
-  }
-}
-
-output "LG Electronics 38GN950 206NTEP67796" {
-  layout {
-    default-column-width { proportion 0.33333; }
+    default-column-width { proportion 0.5; }
   }
 }
 
