@@ -37,9 +37,9 @@ return {
         icon = '🔀',
         key = 'b',
         desc = 'Branch changes',
-        action = ':lua require("sQVe.ui.command_palette.commands").git_branch_changes.callback()',
+        action = ':lua require("sQVe.ui.command_palette.commands").diff_branch_vs_main.callback()',
         enabled = function()
-          return require('sQVe.ui.command_palette.commands').git_branch_changes.condition()
+          return require('sQVe.ui.command_palette.commands').diff_branch_vs_main.condition()
         end,
       },
       {
