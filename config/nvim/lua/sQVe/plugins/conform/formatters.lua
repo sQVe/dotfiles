@@ -10,8 +10,8 @@ M.by_ft = {
   go = { 'goimports', 'gofumpt' },
   graphql = { 'prettier' },
   html = { 'prettier' },
-  javascript = { 'biome-check', 'prettier', stop_after_first = true },
-  javascriptreact = { 'biome-check', 'prettier', stop_after_first = true },
+  javascript = { 'oxfmt', 'biome-check', 'prettier', stop_after_first = true },
+  javascriptreact = { 'oxfmt', 'biome-check', 'prettier', stop_after_first = true },
   json = { 'biome', 'prettier' },
   jsonc = { 'biome', 'prettier' },
   lua = { 'stylua' },
@@ -19,8 +19,8 @@ M.by_ft = {
   sh = { 'shfmt' },
   sql = { 'pg_format' },
   toml = { 'taplo' },
-  typescript = { 'biome-check', 'prettier', stop_after_first = true },
-  typescriptreact = { 'biome-check', 'prettier', stop_after_first = true },
+  typescript = { 'oxfmt', 'biome-check', 'prettier', stop_after_first = true },
+  typescriptreact = { 'oxfmt', 'biome-check', 'prettier', stop_after_first = true },
   typst = { 'typstyle' },
   yaml = { 'prettier' },
   ['_'] = { 'trim_newlines', 'trim_whitespace' },
@@ -31,12 +31,14 @@ M.override_formatting_settings = function()
 
   local biome = require('conform.formatters.biome')
   local biome_check = require('conform.formatters.biome-check')
+  local oxfmt = require('conform.formatters.oxfmt')
   local prettier = require('conform.formatters.prettier')
   local shfmt = require('conform.formatters.shfmt')
   local stylua = require('conform.formatters.stylua')
 
   biome.require_cwd = true
   biome_check.require_cwd = true
+  oxfmt.require_cwd = true
   prettier.require_cwd = true
   stylua.require_cwd = true
 
