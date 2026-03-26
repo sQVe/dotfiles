@@ -13,6 +13,7 @@ drive https://drive.google.com/drive/my-drive
 g https://www.google.com
 gh https://github.com
 gist https://gist.github.com/sQVe
+greppa https://github.com/sQVe/greppa
 grove https://github.com/sQVe/grove
 klang https://app.klang.ai/
 linear https://linear.app
@@ -32,6 +33,7 @@ regex https://regex101.com
 scripts https://github.com/sQVe/scripts
 secret https://github.com/sQVe/secret
 sort https://github.com/sQVe/sort.nvim
+stitch https://stitch.withgoogle.com/
 svt https://www.svt.se/
 svtplay https://www.svtplay.se/
 wiki https://en.wikipedia.org
