@@ -27,11 +27,4 @@ return {
     config = true,
     dev = true,
   },
-
-  -- GitHub review.
-  {
-    'sQVe/nit.nvim',
-    config = true,
-    dev = true,
-  },
 }
