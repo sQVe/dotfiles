@@ -146,6 +146,9 @@ local misc = {
     '.yml',
   },
 
+  -- Default text width for colorcolumn and formatting.
+  textwidth = 80,
+
   -- Allow ~ operator to change case of characters.
   tildeop = true,
 
