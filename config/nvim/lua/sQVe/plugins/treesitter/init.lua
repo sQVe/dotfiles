@@ -8,23 +8,19 @@ local languages = require('sQVe.plugins.treesitter.languages')
 local M = {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
-  branch = 'master',
-  event = 'BufReadPost',
+  lazy = false,
 }
 
-M.opts = {
-  ensure_installed = languages,
-  highlight = { enable = true },
-  indent = { enable = true },
-  textsubjects = {
-    enable = true,
-    prev_selection = ';',
-    keymaps = { [','] = 'textsubjects-smart' },
-  },
-}
+M.config = function()
+  require('nvim-treesitter').install(languages)
 
-M.config = function(_, opts)
-  require('nvim-treesitter.configs').setup(opts)
+  vim.api.nvim_create_autocmd('FileType', {
+    callback = function()
+      if pcall(vim.treesitter.start) then
+        vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+      end
+    end,
+  })
 end
 
 return M
