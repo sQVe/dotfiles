@@ -37,6 +37,7 @@ M.opts = function()
       disabled_filetypes = {
         statusline = { 'snacks_dashboard' },
       },
+      always_show_tabline = false,
       globalstatus = vim.o.laststatus == 3,
       refresh = { statusline = 0, tabline = 0 },
       section_separators = { left = '', right = '' },
@@ -73,8 +74,6 @@ end
 
 M.config = function(_, opts)
   require('lualine').setup(opts)
-
-  vim.opt.showtabline = 1
 end
 
 return M
