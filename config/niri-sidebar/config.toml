@@ -16,8 +16,3 @@ position = "right"
 peek = 10
 focus_peek = 10
 sticky = false
-
-[[window_rule]]
-app_id = "google-chrome"
-title = "^DevTools"
-auto_add = true
