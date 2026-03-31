@@ -10,6 +10,11 @@ local M = {
 }
 
 M.opts = {
+  explorer = {
+    file_filter = {
+      ignore = { '*.ndjson', '*_snapshot.json' },
+    },
+  },
   highlights = {
     char_brightness = 0.95,
   },
