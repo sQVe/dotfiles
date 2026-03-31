@@ -189,6 +189,7 @@ spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
 binds {
   // Programs
+  Mod+A repeat=false { spawn "voxtype" "record" "toggle"; }
   Mod+D repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/apps.sh"; }
   Mod+Shift+D repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/run.sh"; }
   Mod+E repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/emoji.sh"; }

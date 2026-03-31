@@ -1,0 +1,65 @@
+# Voxtype Configuratio
+#
+# Location: ~/.config/voxtype/config.toml
+# All settings can be overridden via CLI flags
+
+# State file for external integrations (Waybar, polybar, etc.)
+# Use "auto" for default location ($XDG_RUNTIME_DIR/voxtype/state),
+# a custom path, or "disabled" to turn off. The daemon writes state
+# ("idle", "recording", "transcribing") to this file whenever it changes.
+# Required for `voxtype record toggle` and `voxtype status` commands.
+state_file = "auto"
+
+[hotkey]
+enabled = false
+
+[audio]
+device = "default"
+
+# Sample rate in Hz (whisper expects 16000)
+sample_rate = 16000
+
+# Maximum recording duration in seconds (safety limit)
+max_duration_secs = 60
+
+[whisper]
+model = "large-v3-turbo"
+
+# Language for transcription
+# Options:
+#   - Single language: "en", "fr", "de", etc.
+#   - Auto-detect all: "auto"
+#   - Constrained auto-detect: ["en", "fr"] (detects from allowed set only)
+# The array form helps with multilingual users where Whisper might misdetect
+# the language, especially for short sentences.
+# See: https://github.com/openai/whisper#available-models-and-languages
+language = ["en", "sv"]
+
+# Translate non-English speech to English
+translate = false
+
+[output]
+# Primary output mode: "type" or "clipboard"
+# - type: Simulates keyboard input at cursor position (requires ydotool)
+# - clipboard: Copies text to clipboard (requires wl-copy)
+mode = "clipboard"
+
+# Fall back to clipboard if typing fails
+fallback_to_clipboard = true
+
+# Delay between typed characters in milliseconds
+# 0 = fastest possible, increase if characters are dropped
+type_delay_ms = 0
+
+restore_clipboard = true
+post_output_command = "notify-send -a Voxtype 'Copied to clipboard' \"$(wl-paste)\""
+
+
+[output.notification]
+on_recording_start = false
+on_recording_stop = false
+on_transcription = false
+
+[text]
+spoken_punctuation = true
+replacements = { "vox type" = "voxtype" }
