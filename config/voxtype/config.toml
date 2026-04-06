@@ -15,12 +15,11 @@ enabled = false
 
 [audio]
 device = "default"
-
-# Sample rate in Hz (whisper expects 16000)
 sample_rate = 16000
-
-# Maximum recording duration in seconds (safety limit)
 max_duration_secs = 60
+
+[audio.feedback]
+enabled = false
 
 [whisper]
 model = "large-v3-turbo"
