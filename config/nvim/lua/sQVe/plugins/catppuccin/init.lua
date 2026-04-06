@@ -21,6 +21,21 @@ M.opts = {
   default_integrations = false,
   flavour = 'latte',
   integrations = integrations,
+  lsp_styles = {
+    virtual_text = {
+      errors = { 'italic' },
+      hints = { 'italic' },
+      warnings = { 'italic' },
+      information = { 'italic' },
+    },
+    underlines = {
+      errors = { 'undercurl' },
+      hints = { 'underline' },
+      warnings = { 'undercurl' },
+      information = { 'underline' },
+    },
+    inlay_hints = { background = true },
+  },
   styles = styles,
 }
 
@@ -28,7 +43,7 @@ M.config = function(_, opts)
   require('catppuccin').setup(opts)
 
   vim.o.background = 'light'
-  vim.cmd.colorscheme('catppuccin')
+  vim.cmd.colorscheme('catppuccin-nvim')
 end
 
 return M
