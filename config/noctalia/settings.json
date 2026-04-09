@@ -812,7 +812,7 @@
         "transitionType": [
             "fade"
         ],
-        "useOriginalImages": false,
+        "useOriginalImages": true,
         "useSolidColor": false,
         "useWallhaven": false,
         "viewMode": "browse",
