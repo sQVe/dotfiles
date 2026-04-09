@@ -5,6 +5,7 @@ When reporting information to me, be extremely concise and sacrifice grammar for
 Minimum viable change. Solve only what's asked.
 Edit existing files. New files only when necessary.
 Delete comments. Keep only those explaining why. Rewrite unclear code instead of commenting it.
+When the request is ambiguous, list assumptions before acting.
 Research before "I don't know" — WebSearch, WebFetch, Context7.
 </critical_rules>
 
