@@ -18,18 +18,18 @@
   <color name="sapphire"    value="#206090"/>
   <color name="blue"        value="#2850a8"/>
   <color name="lavender"    value="#5858a0"/>
-  <color name="text"        value="#4c4e5e"/>
-  <color name="subtext1"    value="#5a5c6a"/>
-  <color name="subtext0"    value="#686a78"/>
-  <color name="overlay2"    value="#767885"/>
-  <color name="overlay1"    value="#848692"/>
-  <color name="overlay0"    value="#92949f"/>
-  <color name="surface2"    value="#a0a2ab"/>
-  <color name="surface1"    value="#afb1b8"/>
-  <color name="surface0"    value="#bdbfc5"/>
-  <color name="base"        value="#f5f7fa"/>
-  <color name="mantle"      value="#e6e9ef"/>
-  <color name="crust"       value="#dce0e8"/>
+  <color name="text"        value="#1e2028"/>
+  <color name="subtext1"    value="#2d3040"/>
+  <color name="subtext0"    value="#3e4152"/>
+  <color name="overlay2"    value="#4f5263"/>
+  <color name="overlay1"    value="#616475"/>
+  <color name="overlay0"    value="#747787"/>
+  <color name="surface2"    value="#868998"/>
+  <color name="surface1"    value="#999ca7"/>
+  <color name="surface0"    value="#adb0ba"/>
+  <color name="base"        value="#d4d6de"/>
+  <color name="mantle"      value="#cbcdd5"/>
+  <color name="crust"       value="#c1c4cc"/>
 
   <style name="text"                        foreground="text" background="base"/>
   <style name="selection"                   foreground="text" background="surface1"/>

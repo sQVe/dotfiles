@@ -30,14 +30,14 @@ gui:
       - '#5858a0'
       - bold
     inactiveBorderColor:
-      - '#686a78'
+      - '#3e4152'
     searchingActiveBorderColor:
       - '#5858a0'
       - bold
     optionsTextColor:
       - '#5858a0'
     cherryPickedCommitBgColor:
-      - '#bdbfc5'
+      - '#c1c4cc'
     cherryPickedCommitFgColor:
       - '#5858a0'
       - bold
@@ -48,9 +48,9 @@ gui:
     unstagedChangesColor:
       - '#b82530'
     defaultFgColor:
-      - '#4c4e5e'
+      - '#1e2028'
     selectedLineBgColor:
-      - '#bdbfc5'
+      - '#c1c4cc'
   border: 'rounded'
 git:
   autoFetch: false

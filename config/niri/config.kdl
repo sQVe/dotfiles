@@ -59,12 +59,12 @@ layout {
   focus-ring {
     width 2
     active-color "#5858a0"
-    inactive-color "#92949f"
+    inactive-color "#747787"
   }
   border {
     width 1
     active-color "#5858a0"
-    inactive-color "#92949f"
+    inactive-color "#747787"
   }
   shadow {
     draw-behind-window false

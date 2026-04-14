@@ -18,18 +18,18 @@
     "blue":      "#2850a8",
     "lavender":  "#5858a0",
 
-    "text":      "#4c4e5e",
-    "subtext1":  "#5a5c6a",
-    "subtext0":  "#686a78",
-    "overlay2":  "#767885",
-    "overlay1":  "#848692",
-    "overlay0":  "#92949f",
-    "surface2":  "#a0a2ab",
-    "surface1":  "#afb1b8",
-    "surface0":  "#bdbfc5",
-    "base":      "#f5f7fa",
-    "mantle":    "#e6e9ef",
-    "crust":     "#dce0e8"
+    "text":      "#1e2028",
+    "subtext1":  "#2d3040",
+    "subtext0":  "#3e4152",
+    "overlay2":  "#4f5263",
+    "overlay1":  "#616475",
+    "overlay0":  "#747787",
+    "surface2":  "#868998",
+    "surface1":  "#999ca7",
+    "surface0":  "#adb0ba",
+    "base":      "#d4d6de",
+    "mantle":    "#cbcdd5",
+    "crust":     "#c1c4cc"
   },
 
   "diff": {
@@ -40,22 +40,22 @@
   },
 
   "terminal": {
-    "black":   "#5a5c6a",
+    "black":   "#2d3040",
     "red":     "#b82530",
     "green":   "#287028",
     "yellow":  "#806010",
     "blue":    "#2850a8",
     "magenta": "#984080",
     "cyan":    "#207068",
-    "white":   "#a0a2ab",
+    "white":   "#868998",
 
-    "bright_black":   "#686a78",
+    "bright_black":   "#3e4152",
     "bright_red":     "#b82530",
     "bright_green":   "#287028",
     "bright_yellow":  "#806010",
     "bright_blue":    "#2850a8",
     "bright_magenta": "#984080",
     "bright_cyan":    "#207068",
-    "bright_white":   "#afb1b8"
+    "bright_white":   "#999ca7"
   }
 }

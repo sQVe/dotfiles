@@ -1,7 +1,7 @@
 # vim:fileencoding=utf-8
 
 [app]
-overall = { bg = "#f5f7fa" }
+overall = { bg = "#d4d6de" }
 
 [mgr]
 cwd = { fg = "#207068" }
@@ -14,47 +14,47 @@ marker_cut = { fg = "#b82530", bg = "#b82530" }
 marker_marked = { fg = "#207068", bg = "#207068" }
 marker_selected = { fg = "#2850a8", bg = "#2850a8" }
 
-count_copied = { fg = "#f5f7fa", bg = "#287028" }
-count_cut = { fg = "#f5f7fa", bg = "#b82530" }
-count_selected = { fg = "#f5f7fa", bg = "#2850a8" }
+count_copied = { fg = "#d4d6de", bg = "#287028" }
+count_cut = { fg = "#d4d6de", bg = "#b82530" }
+count_selected = { fg = "#d4d6de", bg = "#2850a8" }
 
 border_symbol = "│"
-border_style = { fg = "#848692" }
+border_style = { fg = "#616475" }
 
 syntect_theme = "~/.config/bat/themes/catppuccin-latte.tmTheme"
 
 [tabs]
-active = { fg = "#f5f7fa", bg = "#4c4e5e", bold = true }
-inactive = { fg = "#4c4e5e", bg = "#afb1b8" }
+active = { fg = "#d4d6de", bg = "#1e2028", bold = true }
+inactive = { fg = "#1e2028", bg = "#999ca7" }
 
 [mode]
-normal_main = { fg = "#f5f7fa", bg = "#2850a8", bold = true }
-normal_alt = { fg = "#2850a8", bg = "#bdbfc5" }
+normal_main = { fg = "#d4d6de", bg = "#2850a8", bold = true }
+normal_alt = { fg = "#2850a8", bg = "#adb0ba" }
 
-select_main = { fg = "#f5f7fa", bg = "#287028", bold = true }
-select_alt = { fg = "#287028", bg = "#bdbfc5" }
+select_main = { fg = "#d4d6de", bg = "#287028", bold = true }
+select_alt = { fg = "#287028", bg = "#adb0ba" }
 
-unset_main = { fg = "#f5f7fa", bg = "#a05858", bold = true }
-unset_alt = { fg = "#a05858", bg = "#bdbfc5" }
+unset_main = { fg = "#d4d6de", bg = "#a05858", bold = true }
+unset_alt = { fg = "#a05858", bg = "#adb0ba" }
 
 [indicator]
-parent = { fg = "#f5f7fa", bg = "#4c4e5e" }
-current = { fg = "#f5f7fa", bg = "#2850a8" }
-preview = { fg = "#f5f7fa", bg = "#4c4e5e" }
+parent = { fg = "#d4d6de", bg = "#1e2028" }
+current = { fg = "#d4d6de", bg = "#2850a8" }
+preview = { fg = "#d4d6de", bg = "#1e2028" }
 
 [status]
 sep_left = { open = "", close = "" }
 sep_right = { open = "", close = "" }
 
 progress_label = { fg = "#ffffff", bold = true }
-progress_normal = { fg = "#287028", bg = "#afb1b8" }
+progress_normal = { fg = "#287028", bg = "#999ca7" }
 progress_error = { fg = "#806010", bg = "#b82530" }
 
 perm_type = { fg = "#2850a8" }
 perm_read = { fg = "#806010" }
 perm_write = { fg = "#b82530" }
 perm_exec = { fg = "#287028" }
-perm_sep = { fg = "#848692" }
+perm_sep = { fg = "#616475" }
 
 [input]
 border = { fg = "#2850a8" }
@@ -84,19 +84,19 @@ title = {}
 hovered = { fg = "#984080", bold = true }
 
 [which]
-mask = { bg = "#bdbfc5" }
+mask = { bg = "#adb0ba" }
 cand = { fg = "#207068" }
-rest = { fg = "#686a78" }
+rest = { fg = "#3e4152" }
 desc = { fg = "#984080" }
 separator = "  "
-separator_style = { fg = "#a0a2ab" }
+separator_style = { fg = "#868998" }
 
 [help]
 on = { fg = "#207068" }
 run = { fg = "#984080" }
-desc = { fg = "#686a78" }
-hovered = { bg = "#a0a2ab", bold = true }
-footer = { fg = "#4c4e5e", bg = "#afb1b8" }
+desc = { fg = "#3e4152" }
+hovered = { bg = "#868998", bold = true }
+footer = { fg = "#1e2028", bg = "#999ca7" }
 
 [notify]
 title_info = { fg = "#207068" }
@@ -123,7 +123,7 @@ rules = [
   { mime = "application/{pdf,doc,rtf}", fg = "#287028" },
 
   # Virtual file system
-  { mime = "vfs/{absent,stale}", fg = "#afb1b8" },
+  { mime = "vfs/{absent,stale}", fg = "#999ca7" },
 
   # Special file
   { url = "*", is = "orphan", bg = "#b82530" },
