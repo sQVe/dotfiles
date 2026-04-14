@@ -11,7 +11,7 @@ window {
   border: 0;
   border-radius: 8px;
   padding: 8px;
-  background-color: @base;
+  background-color: @surface;
 }
 
 mainbox {
@@ -22,7 +22,7 @@ mainbox {
 inputbar {
   children: [ prompt, textbox-prompt-sep, entry ];
   padding: 8px;
-  background-color: @mantle;
+  background-color: #e4e7ed;
   margin: 0 0 8px 0;
 }
 
@@ -59,7 +59,7 @@ element alternate.normal {
 }
 
 element selected.normal {
-  background-color: @mantle;
+  background-color: #e4e7ed;
   text-color: @text;
 }
 

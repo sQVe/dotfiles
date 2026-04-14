@@ -57,13 +57,11 @@ layout {
     proportion 0.33333
   }
   focus-ring {
-    width 0
-    active-color "#ffffff88"
+    width 2
+    active-color "#ffffffdd"
   }
   border {
-    width 4
-    active-color "#747787"
-    inactive-color "#74778788"
+    off
   }
   shadow {
     draw-behind-window false
@@ -185,47 +183,6 @@ window-rule {
   match app-id=r#"^chrome-"#
   exclude app-id=r#"^chrome-cad\.onshape\.com"#
   open-floating true
-}
-
-// Repo-aware border colors (title prefix set by repo-tag script).
-window-rule {
-  match app-id="kitty" title=r#"^repo-peach:"#
-  border { active-color "#a85820"; inactive-color "#a8582088"; }
-}
-
-window-rule {
-  match app-id="kitty" title=r#"^repo-teal:"#
-  border { active-color "#207068"; inactive-color "#20706888"; }
-}
-
-window-rule {
-  match app-id="kitty" title=r#"^repo-mauve:"#
-  border { active-color "#7c32a8"; inactive-color "#7c32a888"; }
-}
-
-window-rule {
-  match app-id="kitty" title=r#"^repo-green:"#
-  border { active-color "#287028"; inactive-color "#28702888"; }
-}
-
-window-rule {
-  match app-id="kitty" title=r#"^repo-sky:"#
-  border { active-color "#1878a8"; inactive-color "#1878a888"; }
-}
-
-window-rule {
-  match app-id="kitty" title=r#"^repo-rosewater:"#
-  border { active-color "#8b4d4d"; inactive-color "#8b4d4d88"; }
-}
-
-window-rule {
-  match app-id="kitty" title=r#"^repo-yellow:"#
-  border { active-color "#806010"; inactive-color "#80601088"; }
-}
-
-window-rule {
-  match app-id="kitty" title=r#"^repo-lavender:"#
-  border { active-color "#5858a0"; inactive-color "#5858a088"; }
 }
 
 // Startup

@@ -1,0 +1,23 @@
+# Pin specific repos to specific color slots.
+# Format: <repo-key> <slot>
+# Any whitespace works as separator. Blank lines and # comments are ignored.
+#
+# Repo-key is the basename of the project. For bare-worktree layouts
+# (project/.bare + project/<branch> subdirs), all worktrees of the same
+# project share one key (e.g. "platform", not "platform/main").
+#
+# Available slots (catppuccin-latte muted accents):
+#   pink mauve red maroon peach yellow green teal sky blue lavender
+#
+# A pin is a hint: if another open window is already using the pinned slot
+# for a different repo, the probe picks a different slot for this one.
+
+.dotfiles         green
+alice-supermarket yellow
+cape              mauve
+greppa            maroon
+grove             pink
+notebox           sky
+platform          red
+scripts           peach
+tau               teal

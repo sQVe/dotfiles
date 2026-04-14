@@ -22,6 +22,7 @@
   surface2: #868998;
   surface1: #999ca7;
   surface0: #adb0ba;
+  surface: #f2f4f8;
   base: #d4d6de;
   mantle: #cbcdd5;
   crust: #c1c4cc;
