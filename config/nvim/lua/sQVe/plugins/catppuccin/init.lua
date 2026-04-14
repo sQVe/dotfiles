@@ -37,6 +37,7 @@ M.opts = {
     inlay_hints = { background = true },
   },
   styles = styles,
+  transparent_background = true,
 }
 
 M.config = function(_, opts)
