@@ -1,7 +1,6 @@
 [Default Applications]
 application/javascript=term-nvim.desktop;
 application/json=term-nvim.desktop;
-application/x-ndjson=term-nvim.desktop;
 application/pdf=org.pwmt.zathura.desktop;
 application/toml=term-nvim.desktop;
 application/vnd.comicbook+zip=org.pwmt.zathura.desktop;
@@ -11,6 +10,7 @@ application/x-awk=term-nvim.desktop;
 application/x-darktable=term-nvim.desktop;
 application/x-genesis-32x-rom=term-nvim.desktop;
 application/x-makefile=term-nvim.desktop;
+application/x-ndjson=term-nvim.desktop;
 application/x-ogg=term-nvim.desktop;
 application/x-pem-file=term-nvim.desktop;
 application/x-pem-key=term-nvim.desktop;
@@ -130,7 +130,8 @@ video/x-ms-wvxvideo=mpv.desktop;
 video/x-msvideo=mpv.desktop;
 video/x-ogm+ogg=mpv.desktop;
 video/x-theora=mpv.desktop;
-x-scheme-handler/bruno=bruno.desktop
+x-scheme-handler/bruno=bruno.desktop;
 x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop;
 x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop;
 x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop;
+x-scheme-handler/slack=slack.desktop;
