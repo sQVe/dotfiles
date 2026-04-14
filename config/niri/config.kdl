@@ -153,6 +153,11 @@ window-rule {
   min-height 100
 }
 
+window-rule {
+  match app-id="kitty" is-floating=true
+  opacity 0.9
+}
+
 layer-rule {
   match namespace="^rofi$"
   shadow { on; }
