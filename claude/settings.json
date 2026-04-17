@@ -107,13 +107,37 @@
     ],
     "defaultMode": "plan"
   },
-  "hooks": {},
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "code-review-graph update --skip-flows",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "code-review-graph status",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  },
   "statusLine": {
     "type": "command",
     "command": "/home/sqve/scripts/claude/statusline.sh"
   },
   "enabledPlugins": {
-    "chrome-devtools-mcp@chrome-devtools-plugins": true,
     "context7@claude-plugins-official": true,
     "elements-of-style@superpowers-marketplace": true,
     "frontend-design@claude-plugins-official": true,
@@ -125,8 +149,7 @@
     "qmd@qmd": true,
     "linear@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
-    "posthog@claude-plugins-official": true,
-    "code-review-graph@code-review-graph": true
+    "posthog@claude-plugins-official": true
   },
   "extraKnownMarketplaces": {
     "notebox": {
@@ -147,17 +170,23 @@
         "repo": "tobi/qmd"
       }
     },
-    "code-review-graph": {
+    "superpowers-marketplace": {
       "source": {
         "source": "github",
-        "repo": "tirth8205/code-review-graph"
+        "repo": "obra/superpowers-marketplace"
+      }
+    },
+    "cc-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "kenryu42/cc-marketplace"
       }
     }
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "medium",
-  "voiceEnabled": false,
+  "effortLevel": "xhigh",
   "skipDangerousModePermissionPrompt": true,
+  "voiceEnabled": false,
   "feedbackSurveyState": {
     "lastShownTime": 1754085535302
   }
