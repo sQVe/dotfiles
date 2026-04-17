@@ -12,12 +12,11 @@
 # A pin is a hint: if another open window is already using the pinned slot
 # for a different repo, the probe picks a different slot for this one.
 
-.dotfiles         green
-alice-supermarket yellow
-cape              mauve
-greppa            maroon
-grove             pink
-notebox           sky
-platform          red
-scripts           peach
-tau               teal
+.dotfiles green
+cape      mauve
+greppa    maroon
+grove     pink
+notebox   sky
+platform  lavender
+scripts   peach
+tau       red
