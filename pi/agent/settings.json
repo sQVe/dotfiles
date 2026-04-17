@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.66.1",
+  "lastChangelogVersion": "0.67.1",
   "enableSkillCommands": false,
   "transport": "sse",
   "quietStartup": true,
@@ -10,5 +10,5 @@
   "extensions": [
     "/home/sqve/code/personal/tau/main/src/extensions"
   ],
-  "defaultThinkingLevel": "xhigh"
+  "defaultThinkingLevel": "high"
 }
