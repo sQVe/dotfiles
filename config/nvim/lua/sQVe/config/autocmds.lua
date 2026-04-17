@@ -94,7 +94,6 @@ autocmd('VimResized', {
 autocmd({ 'VimEnter', 'WinEnter' }, {
   group = 'SetActiveWindowStyling',
   callback = function()
-    vim.wo.colorcolumn = '+0'
     vim.wo.cursorline = true
   end,
 })
@@ -103,7 +102,6 @@ autocmd({ 'VimEnter', 'WinEnter' }, {
 autocmd('WinLeave', {
   group = 'SetInactiveWindowStyling',
   callback = function()
-    vim.wo.colorcolumn = ''
     vim.wo.cursorline = false
   end,
 })

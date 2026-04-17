@@ -7,7 +7,6 @@ return function(theme)
 
   return {
     -- Color and cursor line.
-    ColorColumn = { bg = theme.base },
     CursorLine = { bg = theme.mantle },
     CursorLineFold = { bg = theme.mantle },
     CursorLineNr = { bg = theme.mantle },

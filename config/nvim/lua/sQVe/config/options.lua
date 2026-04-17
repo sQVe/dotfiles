@@ -229,9 +229,6 @@ local timeout = {
 }
 
 local ui = {
-  -- Color column is set via autocmd for active windows.
-  colorcolumn = '',
-
   -- Cursor line is enabled via autocmd for active windows.
   cursorline = false,
 
