@@ -57,8 +57,8 @@ layout {
     proportion 0.33333
   }
   focus-ring {
-    width 2
-    active-color "#ffffffdd"
+    width 4
+    active-color "#a8abb8"
   }
   border {
     off
@@ -77,7 +77,7 @@ layout {
     gap 8
     gaps-between-tabs 8
     corner-radius 4
-    active-color "#747787"
+    active-color "#a8abb8"
     place-within-column
   }
 }
@@ -110,7 +110,7 @@ overview {
     offset x=0 y=10
     color "#0007"
   }
-  zoom 0.6666
+  zoom 0.4
 }
 
 recent-windows {
@@ -153,7 +153,7 @@ window-rule {
 
 window-rule {
   match app-id="kitty" is-floating=true
-  opacity 0.9
+  opacity 0.85
 }
 
 layer-rule {
