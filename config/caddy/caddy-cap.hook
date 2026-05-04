@@ -1,0 +1,10 @@
+[Trigger]
+Operation = Install
+Operation = Upgrade
+Type = Path
+Target = usr/bin/caddy
+
+[Action]
+Description = Restore cap_net_bind_service on caddy
+When = PostTransaction
+Exec = /usr/bin/setcap cap_net_bind_service=+ep /usr/bin/caddy

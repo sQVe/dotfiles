@@ -1,0 +1,11 @@
+[Unit]
+Description=Shared dev Caddy
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/caddy run --config %h/.config/caddy/dev/Caddyfile
+ExecReload=/usr/bin/caddy reload --config %h/.config/caddy/dev/Caddyfile
+Restart=on-failure
+
+[Install]
+WantedBy=default.target
