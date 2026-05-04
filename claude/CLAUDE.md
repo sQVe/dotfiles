@@ -15,6 +15,7 @@ Build only what's needed now.
 One function, one job. Split anything that does two.
 One logical change per commit.
 Descriptive names.
+Negative space: carve valid behavior by rejecting invalid states. Fail loudly at the violation, not downstream.
 
 ```
 // Good: getUserById, errorMessage, isAuthenticated
