@@ -83,7 +83,7 @@
                     "hideMode": "hidden",
                     "hideWhenIdle": false,
                     "id": "MediaMini",
-                    "maxWidth": 400,
+                    "maxWidth": 600,
                     "panelShowAlbumArt": true,
                     "scrollingMode": "never",
                     "showAlbumArt": true,
