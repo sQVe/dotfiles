@@ -149,7 +149,8 @@
     "qmd@qmd": true,
     "linear@claude-plugins-official": true,
     "slack@claude-plugins-official": true,
-    "posthog@claude-plugins-official": true
+    "posthog@claude-plugins-official": true,
+    "fallow@fallow-skills": true
   },
   "extraKnownMarketplaces": {
     "notebox": {
@@ -181,11 +182,20 @@
         "source": "github",
         "repo": "kenryu42/cc-marketplace"
       }
+    },
+    "fallow-skills": {
+      "source": {
+        "source": "github",
+        "repo": "fallow-rs/fallow-skills"
+      }
     }
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
   "skipDangerousModePermissionPrompt": true,
+  "theme": "light",
+  "verbose": true,
+  "preferredNotifChannel": "kitty",
   "voiceEnabled": false,
   "feedbackSurveyState": {
     "lastShownTime": 1754085535302
