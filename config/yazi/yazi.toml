@@ -31,12 +31,12 @@ play = [{ run = 'mpv "$@"', orphan = true }]
 
 [open]
 rules = [
-  { name = "*/", use = [
+  { url = "*/", use = [
     "edit",
     "open",
     "reveal",
   ] },
-  { name = "*.jsonl", use = [
+  { url = "*.jsonl", use = [
     "edit",
     "reveal",
   ] },
