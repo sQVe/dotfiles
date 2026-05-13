@@ -139,7 +139,6 @@
   },
   "enabledPlugins": {
     "context7@claude-plugins-official": true,
-    "elements-of-style@superpowers-marketplace": true,
     "frontend-design@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
     "safety-net@cc-marketplace": true,
@@ -147,10 +146,10 @@
     "notebox@notebox": true,
     "cape@cape": true,
     "qmd@qmd": true,
-    "linear@claude-plugins-official": true,
+    "fallow@fallow-skills": true,
     "slack@claude-plugins-official": true,
-    "posthog@claude-plugins-official": true,
-    "fallow@fallow-skills": true
+    "linear@claude-plugins-official": true,
+    "posthog@claude-plugins-official": false
   },
   "extraKnownMarketplaces": {
     "notebox": {
@@ -193,6 +192,8 @@
   "alwaysThinkingEnabled": true,
   "effortLevel": "xhigh",
   "skipDangerousModePermissionPrompt": true,
+  "skillListingBudgetFraction": 0.02,
+  "skillListingMaxDescChars": 2048,
   "theme": "light",
   "verbose": true,
   "preferredNotifChannel": "kitty",
