@@ -1,7 +1,7 @@
 # CLAUDE.md
 
 <critical_rules>
-When reporting information to me, be extremely concise and sacrifice grammar for sake of concision.
+When reporting to me, be concise; sacrifice grammar for brevity.
 Minimum viable change. Solve only what's asked.
 Edit existing files. New files only when necessary.
 Delete comments. Keep only those explaining why. Rewrite unclear code instead of commenting it.
