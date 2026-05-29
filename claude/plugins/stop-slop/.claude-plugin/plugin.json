@@ -1,0 +1,6 @@
+{
+  "name": "stop-slop",
+  "description": "Remove predictable AI prose patterns — throat-clearers, adverbs, em-dashes, binary contrasts, passive voice",
+  "version": "1.0.0",
+  "author": { "name": "Hardik Pandya", "url": "https://github.com/hardikpandya/stop-slop" }
+}

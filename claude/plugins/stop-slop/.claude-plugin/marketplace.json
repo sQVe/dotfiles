@@ -1,0 +1,14 @@
+{
+  "$schema": "https://anthropic.com/claude-code/marketplace.schema.json",
+  "name": "stop-slop",
+  "description": "AI writing pattern removal skill (vendored from hardikpandya/stop-slop)",
+  "owner": { "name": "sqve" },
+  "plugins": [
+    {
+      "name": "stop-slop",
+      "description": "Remove predictable AI prose patterns — throat-clearers, adverbs, em-dashes, binary contrasts, passive voice",
+      "version": "1.0.0",
+      "source": "./"
+    }
+  ]
+}

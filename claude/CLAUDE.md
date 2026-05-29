@@ -26,5 +26,5 @@ Negative space: carve valid behavior by rejecting invalid states. Fail loudly at
 
 <writing>
 Concise. Active voice. No fluff.
-Use the `elements-of-style:writing-clearly-and-concisely` skill for prose.
+Use the `stop-slop` skill when drafting or editing prose.
 </writing>

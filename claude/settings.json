@@ -149,13 +149,20 @@
     "fallow@fallow-skills": true,
     "slack@claude-plugins-official": true,
     "linear@claude-plugins-official": true,
-    "posthog@claude-plugins-official": false
+    "posthog@claude-plugins-official": false,
+    "stop-slop@stop-slop": true
   },
   "extraKnownMarketplaces": {
     "notebox": {
       "source": {
         "source": "directory",
         "path": "/home/sqve/notebox"
+      }
+    },
+    "stop-slop": {
+      "source": {
+        "source": "directory",
+        "path": "/home/sqve/.dotfiles/claude/plugins/stop-slop"
       }
     },
     "cape": {
