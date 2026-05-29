@@ -53,6 +53,11 @@ type_delay_ms = 0
 restore_clipboard = true
 post_output_command = "$SCRIPTS/voxtype/notify-clipboard.sh"
 
+# Clipboard mode doesn't synthesize keystrokes, so the modifier-release
+# guard is unnecessary and produces a spurious "held too long" warning
+# when the toggle hotkey is still held.
+wait_for_modifier_release = false
+
 [output.notification]
 on_recording_start = false
 on_recording_stop = false
