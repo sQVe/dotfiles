@@ -64,12 +64,12 @@ git:
   skipHookPrefix: 'draft: '
 keybinding:
   branches:
-    viewGitFlowOptions: ''
+    viewGitFlowOptions: '<disabled>'
   commits:
     renameCommitWithEditor: 'r'
-    renameCommit: ''
+    renameCommit: '<f12>'
   files:
-    openMergeOptions: ''
+    openMergeOptions: '<f11>'
 customCommands:
   - key: 'f'
     context: 'files, localBranches, remoteBranches, remotes, tags, worktrees'
