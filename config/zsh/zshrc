@@ -257,12 +257,13 @@ alias suspend='state suspend'
 # Apps.
 alias bc='bc --mathlib --quiet'
 alias bluetooth=bluetoothctl
-alias c="claude --allow-dangerously-skip-permissions"
+alias cl="claude --allow-dangerously-skip-permissions"
 alias claude="claude --allow-dangerously-skip-permissions"
 alias fd="fd --hidden --follow --exclude .git --exclude '.steam' --exclude 'Steam'"
 alias fm=yazi
 alias format='npx prettier --write'
 alias gh='gh'
+alias hr='herdr'
 alias icat="kitten icat"
 alias lg=lazygit
 alias rcup="${SCRIPTS}/extended-rcup.sh"
