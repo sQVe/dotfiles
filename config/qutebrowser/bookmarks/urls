@@ -144,3 +144,4 @@ https://login.tailscale.com/admin/machines Machines - Tailscale
 https://www.customercontrolpanel.de/start.php netcup ccp
 https://www.servercontrolpanel.de/SCP/Home SCP - Home
 https://dashboard.exa.ai/home Home | Exa API
+https://github.com/hups-co/platform/pull/2274 feat(transformation): backend support for desired state responses by hedblad · Pull Request #2274 · hups-co/platform
