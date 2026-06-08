@@ -42,7 +42,7 @@
     "bar": {
         "autoHideDelay": 500,
         "autoShowDelay": 150,
-        "backgroundOpacity": 1,
+        "backgroundOpacity": 0.5,
         "barType": "simple",
         "capsuleColorKey": "none",
         "capsuleOpacity": 0.55,
@@ -761,7 +761,7 @@
         "settingsPanelMode": "attached",
         "settingsPanelSideBarCardStyle": false,
         "tooltipsEnabled": true,
-        "translucentWidgets": false
+        "translucentWidgets": true
     },
     "wallpaper": {
         "automationEnabled": true,
@@ -776,16 +776,16 @@
         "linkLightAndDarkWallpapers": true,
         "monitorDirectories": [
             {
-                "directory": "/home/sqve/pictures/art/simon-stålenhag/SWEDISH_MACHINES",
+                "directory": "/home/sqve/pictures/art/simon-stålenhag/EUROPA_MEKANO",
                 "name": "eDP-1",
                 "wallpaper": ""
             },
             {
-                "directory": "/home/sqve/pictures/art/simon-stålenhag/SWEDISH_MACHINES",
+                "directory": "/home/sqve/pictures/art/simon-stålenhag/EUROPA_MEKANO",
                 "name": "DP-1"
             },
             {
-                "directory": "/home/sqve/pictures/art/simon-stålenhag/SWEDISH_MACHINES",
+                "directory": "/home/sqve/pictures/art/simon-stålenhag/EUROPA_MEKANO",
                 "name": "HDMI-A-1"
             }
         ],
