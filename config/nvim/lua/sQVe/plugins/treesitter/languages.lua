@@ -23,7 +23,6 @@ return {
   'javascript',
   'jsdoc',
   'json',
-  'jsonc',
   'kdl',
   'lua',
   'luadoc',
