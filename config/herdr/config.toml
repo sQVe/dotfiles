@@ -1,0 +1,54 @@
+onboarding = false
+
+[keys]
+# ctrl+b chosen over ctrl+a (vim increment) and ctrl+s (zsh edit-command-line +
+# nvim spell). ctrl+b only collides with fzf page-up, which is popup-only.
+cycle_pane_next = ""                            # disabled
+cycle_pane_previous = ""                        # disabled
+detach = "prefix+q"
+focus_pane_down = ["prefix+j", "prefix+down"]
+focus_pane_left = ["prefix+h", "prefix+left"]
+focus_pane_right = ["prefix+l", "prefix+right"]
+focus_pane_up = ["prefix+k", "prefix+up"]
+new_tab = "prefix+t"
+new_workspace = "prefix+shift+n"
+close_workspace = "prefix+d"
+new_worktree = ""                               # disabled
+next_tab = "prefix+tab"
+prefix = "ctrl+b"
+previous_tab = "prefix+shift+tab"
+reload_config = ""                              # disabled
+rename_workspace = "prefix+r"
+resize_mode = "prefix+shift+r"
+settings = "prefix+comma"
+split_horizontal = "prefix+s"
+split_vertical = "prefix+v"
+switch_tab = "prefix+1..9"
+zoom = "prefix+m"
+next_workspace = "prefix+n"
+previous_workspace = "prefix+p"
+
+[terminal]
+default_shell = "zsh"
+
+[theme]
+name = "catppuccin-latte"
+
+[ui]
+agent_panel_scope = "all"
+show_agent_labels_on_pane_borders = true
+sidebar_max_width = 36
+sidebar_min_width = 18
+sidebar_width = 32
+
+[ui.toast]
+delivery = "terminal"
+
+[ui.sound]
+enabled = false
+
+[session]
+resume_agents_on_restore = true
+
+[experimental]
+allow_nested = false
