@@ -760,22 +760,39 @@ M.normalize_text = {
       prev_blank = is_blank
     end
 
+    local function is_list_item(line)
+      return line:match('^[%-%*%+]%s') ~= nil
+        or line:match('^%d+[%.%)]%s') ~= nil
+        -- Emoji or symbol used as a bullet marker: a leading multibyte glyph
+        -- (em-dash range and up, skipping Latin-1 letters) plus whitespace.
+        or line:match('^[\226-\255][\128-\255]*%s') ~= nil
+    end
+
     local joined = {}
     local paragraph = {}
-    for _, line in ipairs(cleaned) do
-      if line:match('^%s*$') then
-        if #paragraph > 0 then
-          table.insert(joined, table.concat(paragraph, ' '))
-          paragraph = {}
-        end
-        table.insert(joined, line)
-      else
-        table.insert(paragraph, line:match('^%s*(.*)'))
+
+    local function flush_paragraph()
+      if #paragraph > 0 then
+        table.insert(joined, table.concat(paragraph, ' '))
+        paragraph = {}
       end
     end
-    if #paragraph > 0 then
-      table.insert(joined, table.concat(paragraph, ' '))
+
+    for _, line in ipairs(cleaned) do
+      if line:match('^%s*$') then
+        flush_paragraph()
+        table.insert(joined, line)
+      else
+        local trimmed = line:match('^%s*(.*)')
+        -- Break the paragraph at each list item so bullets keep their own
+        -- line; wrapped continuation lines still join to the current bullet.
+        if is_list_item(trimmed) then
+          flush_paragraph()
+        end
+        table.insert(paragraph, trimmed)
+      end
     end
+    flush_paragraph()
 
     vim.api.nvim_buf_set_lines(
       opts.bufnr,
