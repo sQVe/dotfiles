@@ -1,5 +1,5 @@
 {
-  "lastChangelogVersion": "0.78.0",
+  "lastChangelogVersion": "0.79.0",
   "enableSkillCommands": false,
   "transport": "sse",
   "quietStartup": true,
