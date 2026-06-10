@@ -1,23 +1,8 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "alwaysThinkingEnabled": true,
   "cleanupPeriodDays": 7,
-  "effortLevel": "xhigh",
-  "enabledPlugins": {
-    "cape@cape": true,
-    "context7@claude-plugins-official": false,
-    "fallow@fallow-skills": true,
-    "frontend-design@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "linear@claude-plugins-official": true,
-    "notebox@notebox": true,
-    "posthog@claude-plugins-official": false,
-    "qmd@qmd": true,
-    "safety-net@cc-marketplace": true,
-    "slack@claude-plugins-official": true,
-    "stop-slop@stop-slop": true,
-    "typescript-lsp@claude-plugins-official": false
-  },
+  "skillListingMaxDescChars": 2048,
+  "skillListingBudgetFraction": 0.02,
   "env": {
     "BASH_DEFAULT_TIMEOUT_MS": "120000",
     "BASH_MAX_TIMEOUT_MS": "120000",
@@ -31,109 +16,7 @@
     "DISABLE_TELEMETRY": "1",
     "ENABLE_LSP_TOOL": "1"
   },
-  "extraKnownMarketplaces": {
-    "cape": {
-      "source": {
-        "path": "/home/sqve/code/personal/cape",
-        "source": "directory"
-      }
-    },
-    "cc-marketplace": {
-      "source": {
-        "repo": "kenryu42/cc-marketplace",
-        "source": "github"
-      }
-    },
-    "fallow-skills": {
-      "source": {
-        "repo": "fallow-rs/fallow-skills",
-        "source": "github"
-      }
-    },
-    "notebox": {
-      "source": {
-        "path": "/home/sqve/notebox",
-        "source": "directory"
-      }
-    },
-    "qmd": {
-      "source": {
-        "repo": "tobi/qmd",
-        "source": "github"
-      }
-    },
-    "stop-slop": {
-      "source": {
-        "path": "/home/sqve/.dotfiles/claude/plugins/stop-slop",
-        "source": "directory"
-      }
-    },
-    "superpowers-marketplace": {
-      "source": {
-        "repo": "obra/superpowers-marketplace",
-        "source": "github"
-      }
-    }
-  },
-  "feedbackSurveyState": {
-    "lastShownTime": 1754085535302
-  },
-  "hooks": {
-    "PostToolUse": [
-      {
-        "hooks": [
-          {
-            "command": "code-review-graph update --skip-flows",
-            "timeout": 30,
-            "type": "command"
-          }
-        ],
-        "matcher": "Edit|Write"
-      }
-    ],
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "command": "code-review-graph update --skip-flows",
-            "timeout": 60,
-            "type": "command"
-          }
-        ],
-        "matcher": ""
-      },
-      {
-        "hooks": [
-          {
-            "command": "bash '/home/sqve/.claude/hooks/herdr-agent-state.sh' session",
-            "timeout": 10,
-            "type": "command"
-          }
-        ],
-        "matcher": "*"
-      }
-    ]
-  },
   "includeCoAuthoredBy": false,
-  "lspServers": {
-    "typescript": {
-      "command": "typescript-language-server",
-      "args": ["--stdio"],
-      "initializationOptions": {
-        "maxTsServerMemory": 2048
-      },
-      "extensionToLanguage": {
-        ".ts": "typescript",
-        ".tsx": "typescriptreact",
-        ".js": "javascript",
-        ".jsx": "javascriptreact",
-        ".mts": "typescript",
-        ".cts": "typescript",
-        ".mjs": "javascript",
-        ".cjs": "javascript"
-      }
-    }
-  },
   "permissions": {
     "allow": [
       "Bash(basename:*)",
@@ -226,15 +109,127 @@
     ],
     "defaultMode": "bypassPermissions"
   },
-  "preferredNotifChannel": "kitty",
-  "skillListingBudgetFraction": 0.02,
-  "skillListingMaxDescChars": 2048,
-  "skipDangerousModePermissionPrompt": true,
-  "statusLine": {
-    "command": "/home/sqve/scripts/claude/statusline.sh",
-    "type": "command"
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "code-review-graph update --skip-flows",
+            "timeout": 30
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "code-review-graph update --skip-flows",
+            "timeout": 60
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/home/sqve/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "/home/sqve/scripts/claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "cape@cape": true,
+    "context7@claude-plugins-official": false,
+    "fallow@fallow-skills": true,
+    "frontend-design@claude-plugins-official": true,
+    "gopls-lsp@claude-plugins-official": true,
+    "linear@claude-plugins-official": true,
+    "notebox@notebox": true,
+    "posthog@claude-plugins-official": false,
+    "safety-net@cc-marketplace": true,
+    "slack@claude-plugins-official": true,
+    "stop-slop@stop-slop": true,
+    "typescript-lsp@claude-plugins-official": false
+  },
+  "extraKnownMarketplaces": {
+    "cape": {
+      "source": {
+        "source": "directory",
+        "path": "/home/sqve/code/personal/cape"
+      }
+    },
+    "cc-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "kenryu42/cc-marketplace"
+      }
+    },
+    "fallow-skills": {
+      "source": {
+        "source": "github",
+        "repo": "fallow-rs/fallow-skills"
+      }
+    },
+    "notebox": {
+      "source": {
+        "source": "directory",
+        "path": "/home/sqve/notebox"
+      }
+    },
+    "stop-slop": {
+      "source": {
+        "source": "directory",
+        "path": "/home/sqve/.dotfiles/claude/plugins/stop-slop"
+      }
+    },
+    "superpowers-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "obra/superpowers-marketplace"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "skipDangerousModePermissionPrompt": true,
   "theme": "light",
   "verbose": true,
-  "voiceEnabled": false
+  "preferredNotifChannel": "kitty",
+  "voiceEnabled": false,
+  "feedbackSurveyState": {
+    "lastShownTime": 1754085535302
+  },
+  "lspServers": {
+    "typescript": {
+      "command": "typescript-language-server",
+      "args": [
+        "--stdio"
+      ],
+      "initializationOptions": {
+        "maxTsServerMemory": 2048
+      },
+      "extensionToLanguage": {
+        ".ts": "typescript",
+        ".tsx": "typescriptreact",
+        ".js": "javascript",
+        ".jsx": "javascriptreact",
+        ".mts": "typescript",
+        ".cts": "typescript",
+        ".mjs": "javascript",
+        ".cjs": "javascript"
+      }
+    }
+  }
 }
