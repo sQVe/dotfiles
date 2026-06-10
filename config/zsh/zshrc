@@ -141,6 +141,65 @@ function _pnpm_bridge() {
   fi
 }
 
+# Run claude in a transient systemd scope for two payoffs: each session shows up
+# as a named cgroup in systemd-cgtop, and the scope reaps the whole tree (MCP
+# servers, tsserver) when it exits. No memory cap by default — a session runs
+# monorepo build/test fleets whose footprint is large but legitimate, so any
+# fixed per-session ceiling either kills real work or sits too high to protect a
+# 31G box; the system-wide layer (earlyoom + zram mem_limit) handles true
+# exhaustion. Opt into a cap with CLAUDE_MEM_MAX=20G; skip the scope with
+# `command claude`.
+function claude() {
+  emulate -L zsh
+
+  local bin=/opt/claude-code/bin/claude
+
+  # Tag the scope with the working directory so sessions are identifiable in
+  # systemd-cgtop; strip characters systemd disallows in unit names.
+  local tag=${${PWD:t}//[^A-Za-z0-9_]/-}
+
+  if command -v systemd-run >/dev/null 2>&1 && systemctl --user is-active --quiet default.target 2>/dev/null; then
+    # No memory cap by default; OOMPolicy=continue spares the session if a child
+    # is OOM-killed. Set CLAUDE_MEM_MAX to bound a specific session.
+    local -a limits=(-p OOMPolicy=continue)
+    [[ -n ${CLAUDE_MEM_MAX:-} ]] && limits+=(-p MemoryMax="${CLAUDE_MEM_MAX}")
+
+    systemd-run --user --scope --quiet --collect \
+      --unit="claude-${tag:-root}-$$" \
+      "${limits[@]}" \
+      -- "$bin" --allow-dangerously-skip-permissions "$@"
+  else
+    "$bin" --allow-dangerously-skip-permissions "$@"
+  fi
+}
+
+# Run a long-lived dev server (sst/turbo/vite) in a transient systemd scope.
+# sst spawns setsid'd workers that escape the pane's SIGHUP and orphan to
+# systemd; we found a 5 GB sst tree running headless for 4 hours. A scope kills
+# by cgroup membership, so the trap stops it on shell exit/HUP and reaps the
+# whole tree, setsid workers included. Tune DEV_MEM_MAX.
+# Usage: dev pnpm run dev --mode=mono
+function dev() {
+  emulate -L zsh
+
+  if (( ! $# )); then
+    print -u2 'dev: need a command, e.g. dev pnpm run dev --mode=mono'
+    return 2
+  fi
+
+  if command -v systemd-run >/dev/null 2>&1 && systemctl --user is-active --quiet default.target 2>/dev/null; then
+    local tag=${${PWD:t}//[^A-Za-z0-9_]/-}
+    local unit="dev-${tag:-root}-$$"
+
+    trap "systemctl --user stop ${unit}.scope 2>/dev/null" EXIT HUP
+    systemd-run --user --scope --quiet --collect --unit="${unit}" \
+      -p MemoryMax="${DEV_MEM_MAX:-12G}" \
+      -- "$@"
+  else
+    "$@"
+  fi
+}
+
 # Colorize man
 function man {
   _colorize $0 "$@"
@@ -257,8 +316,7 @@ alias suspend='state suspend'
 # Apps.
 alias bc='bc --mathlib --quiet'
 alias bluetooth=bluetoothctl
-alias cl="claude --allow-dangerously-skip-permissions"
-alias claude="claude --allow-dangerously-skip-permissions"
+alias cl=claude
 alias fd="fd --hidden --follow --exclude .git --exclude '.steam' --exclude 'Steam'"
 alias fm=yazi
 alias format='npx prettier --write'
