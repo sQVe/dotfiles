@@ -35,7 +35,7 @@ default_shell = "zsh"
 name = "catppuccin-latte"
 
 [ui]
-agent_panel_scope = "all"
+agent_panel_scope = "current"
 show_agent_labels_on_pane_borders = true
 sidebar_max_width = 36
 sidebar_min_width = 18
