@@ -132,9 +132,11 @@ video/x-ogm+ogg=mpv.desktop;
 video/x-theora=mpv.desktop;
 x-scheme-handler/bruno=bruno.desktop;
 x-scheme-handler/claude-cli=claude-code-url-handler.desktop;
-x-scheme-handler/discord=vesktop.desktop;
+x-scheme-handler/discord=vesktop.desktop
 x-scheme-handler/eclipse+command=_usr_lib_dbeaver_.desktop;
 x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop;
 x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop;
 x-scheme-handler/openhuman=OpenHuman-handler.desktop;
-x-scheme-handler/slack=slack.desktop;
+x-scheme-handler/slack=slack.desktop
+
+[Added Associations]
