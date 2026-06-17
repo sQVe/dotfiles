@@ -7,7 +7,6 @@
     "BASH_DEFAULT_TIMEOUT_MS": "120000",
     "BASH_MAX_TIMEOUT_MS": "120000",
     "BROWSER": "google-chrome-stable",
-    "CLAUDE_CODE_DISABLE_TERMINAL_TITLE": "1",
     "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1",
     "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "128000",
     "DISABLE_AUTOUPDATER": "1",
@@ -22,7 +21,6 @@
       "Bash(basename:*)",
       "Bash(bat:*)",
       "Bash(bd:*)",
-      "Bash(biome:*)",
       "Bash(bun:*)",
       "Bash(cargo:*)",
       "Bash(cat:*)",
@@ -213,22 +211,22 @@
   },
   "lspServers": {
     "typescript": {
-      "command": "typescript-language-server",
       "args": [
         "--stdio"
       ],
-      "initializationOptions": {
-        "maxTsServerMemory": 2048
-      },
+      "command": "typescript-language-server",
       "extensionToLanguage": {
-        ".ts": "typescript",
-        ".tsx": "typescriptreact",
+        ".cjs": "javascript",
+        ".cts": "typescript",
         ".js": "javascript",
         ".jsx": "javascriptreact",
-        ".mts": "typescript",
-        ".cts": "typescript",
         ".mjs": "javascript",
-        ".cjs": "javascript"
+        ".mts": "typescript",
+        ".ts": "typescript",
+        ".tsx": "typescriptreact"
+      },
+      "initializationOptions": {
+        "maxTsServerMemory": 2048
       }
     }
   }
