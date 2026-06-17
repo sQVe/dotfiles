@@ -1,52 +1,107 @@
 {
-  "version": 1,
+  "rulebook_version": 1,
+  "name": "user-rules",
+  "version": "1.0.0",
+  "description": "Migrated CC Safety Net rules.",
+  "author": "project",
+  "migrated_from": "~/.cc-safety-net/config.json",
+  "allowed_commands": [
+    "iptables",
+    "nc",
+    "ncat",
+    "kill",
+    "wipefs",
+    "cat",
+    "curl",
+    "chmod",
+    "crontab",
+    "truncate",
+    "socat",
+    "blkdiscard",
+    "shred",
+    "fdisk",
+    "dd",
+    "docker",
+    "podman",
+    "systemctl",
+    "wget",
+    "grep",
+    "head",
+    "tail",
+    "less",
+    "base64",
+    "xxd",
+    "hexdump"
+  ],
   "rules": [
     {
       "name": "block-iptables-flush",
       "command": "iptables",
-      "block_args": ["-F"],
+      "block_args": [
+        "-F"
+      ],
       "reason": "Flushing firewall rules is dangerous. Review rules manually."
     },
     {
       "name": "block-iptables-policy",
       "command": "iptables",
-      "block_args": ["-P"],
+      "block_args": [
+        "-P"
+      ],
       "reason": "Changing firewall policy is dangerous. Review manually."
     },
     {
       "name": "block-nc-shell",
       "command": "nc",
-      "block_args": ["-c", "-e"],
+      "block_args": [
+        "-c",
+        "-e"
+      ],
       "reason": "Reverse shell flags blocked for security."
     },
     {
       "name": "block-ncat-shell",
       "command": "ncat",
-      "block_args": ["-c", "-e", "--lua-exec", "--sh-exec"],
+      "block_args": [
+        "-c",
+        "-e",
+        "--lua-exec",
+        "--sh-exec"
+      ],
       "reason": "Reverse shell flags blocked for security."
     },
     {
       "name": "block-kill-all",
       "command": "kill",
-      "block_args": ["-1"],
+      "block_args": [
+        "-1"
+      ],
       "reason": "Killing all processes is dangerous."
     },
     {
       "name": "block-wipefs",
       "command": "wipefs",
-      "block_args": ["--all", "-a"],
+      "block_args": [
+        "--all",
+        "-a"
+      ],
       "reason": "Wiping filesystem signatures is destructive."
     },
     {
       "name": "block-cat-shadow",
       "command": "cat",
-      "block_args": ["/etc/shadow"],
+      "block_args": [
+        "/etc/shadow"
+      ],
       "reason": "Reading /etc/shadow exposes password hashes."
     },
     {
       "name": "block-cat-aws-creds",
       "command": "cat",
-      "block_args": ["/home/sqve/.aws/credentials", "~/.aws/credentials"],
+      "block_args": [
+        "/home/sqve/.aws/credentials",
+        "~/.aws/credentials"
+      ],
       "reason": "Reading AWS credentials exposes access keys."
     },
     {
@@ -80,25 +135,43 @@
     {
       "name": "block-chmod-777",
       "command": "chmod",
-      "block_args": ["777"],
+      "block_args": [
+        "777"
+      ],
       "reason": "777 permissions are insecure. Use 755 or 644."
     },
     {
       "name": "block-crontab",
       "command": "crontab",
-      "block_args": ["-e", "-i", "-l", "-r"],
+      "block_args": [
+        "-e",
+        "-i",
+        "-l",
+        "-r"
+      ],
       "reason": "Crontab manipulation blocked. Run manually if needed."
     },
     {
       "name": "block-truncate-system",
       "command": "truncate",
-      "block_args": ["/etc/group", "/etc/passwd", "/etc/shadow"],
+      "block_args": [
+        "/etc/group",
+        "/etc/passwd",
+        "/etc/shadow"
+      ],
       "reason": "Truncating system files destroys the system."
     },
     {
       "name": "block-socat-exec",
       "command": "socat",
-      "block_args": ["EXEC:", "SYSTEM:", "TCP-LISTEN:", "exec:", "system:", "tcp-listen:"],
+      "block_args": [
+        "EXEC:",
+        "SYSTEM:",
+        "TCP-LISTEN:",
+        "exec:",
+        "system:",
+        "tcp-listen:"
+      ],
       "reason": "Socat exec/listen patterns can create backdoors."
     },
     {
@@ -216,19 +289,34 @@
     {
       "name": "block-systemctl-destructive",
       "command": "systemctl",
-      "block_args": ["daemon-reload", "disable", "mask", "stop", "unmask"],
+      "block_args": [
+        "daemon-reload",
+        "disable",
+        "mask",
+        "stop",
+        "unmask"
+      ],
       "reason": "Service manipulation blocked. Run manually if needed."
     },
     {
       "name": "block-wget-exfil",
       "command": "wget",
-      "block_args": ["--body-file", "--post-data", "--post-file"],
+      "block_args": [
+        "--body-file",
+        "--post-data",
+        "--post-file"
+      ],
       "reason": "Data exfiltration via wget blocked."
     },
     {
       "name": "block-curl-exfil",
       "command": "curl",
-      "block_args": ["-T", "-d@", "--data-binary", "--upload-file"],
+      "block_args": [
+        "-T",
+        "-d@",
+        "--data-binary",
+        "--upload-file"
+      ],
       "reason": "Data exfiltration via curl blocked."
     },
     {
@@ -356,6 +444,158 @@
         "~/.ssh/id_rsa"
       ],
       "reason": "Hex-dumping secrets via hexdump blocked."
+    }
+  ],
+  "tests": [
+    {
+      "command": "iptables -F",
+      "expect": "blocked",
+      "rule": "block-iptables-flush"
+    },
+    {
+      "command": "iptables -P",
+      "expect": "blocked",
+      "rule": "block-iptables-policy"
+    },
+    {
+      "command": "nc -c",
+      "expect": "blocked",
+      "rule": "block-nc-shell"
+    },
+    {
+      "command": "ncat -c",
+      "expect": "blocked",
+      "rule": "block-ncat-shell"
+    },
+    {
+      "command": "kill -1",
+      "expect": "blocked",
+      "rule": "block-kill-all"
+    },
+    {
+      "command": "wipefs --all",
+      "expect": "blocked",
+      "rule": "block-wipefs"
+    },
+    {
+      "command": "cat /etc/shadow",
+      "expect": "blocked",
+      "rule": "block-cat-shadow"
+    },
+    {
+      "command": "cat /home/sqve/.aws/credentials",
+      "expect": "blocked",
+      "rule": "block-cat-aws-creds"
+    },
+    {
+      "command": "cat /home/sqve/.ssh/id_dsa",
+      "expect": "blocked",
+      "rule": "block-cat-ssh-keys"
+    },
+    {
+      "command": "curl http://169.254.169.254",
+      "expect": "blocked",
+      "rule": "block-curl-aws-metadata"
+    },
+    {
+      "command": "chmod 777",
+      "expect": "blocked",
+      "rule": "block-chmod-777"
+    },
+    {
+      "command": "crontab -e",
+      "expect": "blocked",
+      "rule": "block-crontab"
+    },
+    {
+      "command": "truncate /etc/group",
+      "expect": "blocked",
+      "rule": "block-truncate-system"
+    },
+    {
+      "command": "socat EXEC:",
+      "expect": "blocked",
+      "rule": "block-socat-exec"
+    },
+    {
+      "command": "blkdiscard /dev/mmcblk0",
+      "expect": "blocked",
+      "rule": "block-blkdiscard"
+    },
+    {
+      "command": "shred /dev/mmcblk0",
+      "expect": "blocked",
+      "rule": "block-shred-devices"
+    },
+    {
+      "command": "fdisk /dev/mmcblk0",
+      "expect": "blocked",
+      "rule": "block-fdisk"
+    },
+    {
+      "command": "dd of=/dev/mmcblk0",
+      "expect": "blocked",
+      "rule": "block-dd-to-device"
+    },
+    {
+      "command": "docker --cap-add=ALL",
+      "expect": "blocked",
+      "rule": "block-docker-privileged"
+    },
+    {
+      "command": "podman --cap-add=ALL",
+      "expect": "blocked",
+      "rule": "block-podman-privileged"
+    },
+    {
+      "command": "systemctl daemon-reload",
+      "expect": "blocked",
+      "rule": "block-systemctl-destructive"
+    },
+    {
+      "command": "wget --body-file",
+      "expect": "blocked",
+      "rule": "block-wget-exfil"
+    },
+    {
+      "command": "curl -T",
+      "expect": "blocked",
+      "rule": "block-curl-exfil"
+    },
+    {
+      "command": "grep /etc/shadow",
+      "expect": "blocked",
+      "rule": "block-grep-secrets"
+    },
+    {
+      "command": "head /etc/shadow",
+      "expect": "blocked",
+      "rule": "block-head-secrets"
+    },
+    {
+      "command": "tail /etc/shadow",
+      "expect": "blocked",
+      "rule": "block-tail-secrets"
+    },
+    {
+      "command": "less /etc/shadow",
+      "expect": "blocked",
+      "rule": "block-less-secrets"
+    },
+    {
+      "command": "base64 /etc/shadow",
+      "expect": "blocked",
+      "rule": "block-base64-secrets"
+    },
+    {
+      "command": "xxd /etc/shadow",
+      "expect": "blocked",
+      "rule": "block-xxd-secrets"
+    },
+    {
+      "command": "hexdump /etc/shadow",
+      "expect": "blocked",
+      "rule": "block-hexdump-secrets"
     }
   ]
 }
