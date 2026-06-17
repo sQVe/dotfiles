@@ -10,17 +10,17 @@ M.by_ft = {
   go = { 'goimports', 'gofumpt' },
   graphql = { 'prettier' },
   html = { 'prettier' },
-  javascript = { 'oxfmt', 'biome-check', 'prettier', stop_after_first = true },
-  javascriptreact = { 'oxfmt', 'biome-check', 'prettier', stop_after_first = true },
-  json = { 'biome', 'prettier' },
-  jsonc = { 'biome', 'prettier' },
+  javascript = { 'oxfmt', 'prettier', stop_after_first = true },
+  javascriptreact = { 'oxfmt', 'prettier', stop_after_first = true },
+  json = { 'oxfmt', 'prettier', stop_after_first = true },
+  jsonc = { 'oxfmt', 'prettier', stop_after_first = true },
   lua = { 'stylua' },
   markdown = { 'prettier', 'injected' },
   sh = { 'shfmt' },
   sql = { 'pg_format' },
   toml = { 'taplo' },
-  typescript = { 'oxfmt', 'biome-check', 'prettier', stop_after_first = true },
-  typescriptreact = { 'oxfmt', 'biome-check', 'prettier', stop_after_first = true },
+  typescript = { 'oxfmt', 'prettier', stop_after_first = true },
+  typescriptreact = { 'oxfmt', 'prettier', stop_after_first = true },
   typst = { 'typstyle' },
   yaml = { 'prettier' },
   ['_'] = { 'trim_newlines', 'trim_whitespace' },
@@ -29,29 +29,19 @@ M.by_ft = {
 M.override_formatting_settings = function()
   local util = require('conform.util')
 
-  local biome = require('conform.formatters.biome')
-  local biome_check = require('conform.formatters.biome-check')
   local oxfmt = require('conform.formatters.oxfmt')
   local prettier = require('conform.formatters.prettier')
   local shfmt = require('conform.formatters.shfmt')
   local stylua = require('conform.formatters.stylua')
 
-  biome.require_cwd = true
-  biome_check.require_cwd = true
   oxfmt.require_cwd = true
   prettier.require_cwd = true
   stylua.require_cwd = true
 
-  prettier.cwd = util.root_file({
-    '.prettierrc',
-    '.prettierrc.cjs',
-    '.prettierrc.js',
-    '.prettierrc.json',
-    '.prettierrc.toml',
-    '.prettierrc.yaml',
-    '.prettierrc.yml',
-    'prettier.config.cjs',
-    'prettier.config.js',
+  oxfmt.cwd = util.root_file({
+    '.oxfmtrc.json',
+    '.oxfmtrc.jsonc',
+    'oxfmt.config.ts',
   })
 
   shfmt.args = { '-filename', '$FILENAME', '-i', '2', '-bn', '-ci', '-sr' }

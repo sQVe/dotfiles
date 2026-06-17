@@ -26,6 +26,7 @@ local eslint_config_files = {
 
 local oxlint_config_files = {
   '.oxlintrc.json',
+  '.oxlintrc.jsonc',
   'oxlint.config.ts',
 }
 

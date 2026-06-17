@@ -53,7 +53,7 @@ local M = {
     'gdscript',
     'gdscript3',
 
-    -- biome and tsgo
+    -- tsgo
     'javascript',
     'javascriptreact',
     'typescript',
@@ -106,21 +106,6 @@ M.config = function()
   vim.lsp.config('bashls', {
     on_attach = on_attach,
     capabilities = capabilities,
-  })
-
-  vim.lsp.config('biome', {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    root_dir = function(bufnr, on_dir)
-      local filename = vim.api.nvim_buf_get_name(bufnr)
-      local root = vim.fs.dirname(
-        vim.fs.find(
-          { 'biome.json', 'biome.jsonc' },
-          { path = filename, upward = true }
-        )[1]
-      )
-      on_dir(root)
-    end,
   })
 
   vim.lsp.config('ccls', {
@@ -265,7 +250,6 @@ M.config = function()
   vim.lsp.enable({
     'ast_grep',
     'bashls',
-    'biome',
     'ccls',
     'copilot',
     'css_variables',
