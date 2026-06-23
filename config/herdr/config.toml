@@ -37,9 +37,9 @@ name = "catppuccin-latte"
 [ui]
 agent_panel_scope = "current"
 show_agent_labels_on_pane_borders = true
-sidebar_max_width = 36
+sidebar_max_width = 54
 sidebar_min_width = 18
-sidebar_width = 32
+sidebar_width = 38
 
 [ui.toast]
 delivery = "terminal"
