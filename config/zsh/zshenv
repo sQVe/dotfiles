@@ -47,6 +47,16 @@ export ZVM_VI_HIGHLIGHT_FOREGROUND=#383e45 # fg
 export PASSWORD_STORE_GENERATED_LENGTH=24
 export PASSWORD_STORE_GPG_OPTS=--no-throw-keyids
 
+# History.
+# pam_env exports HISTFILE to every shell. Tool shells (codex, herdr, agents)
+# skip zshrc and zim, fall back to zsh defaults (HISTSIZE=30, SAVEHIST=0), and
+# overwrite the file with their few commands on exit. zshenv loads even when
+# zshrc does not, so mirror zim's history config here too.
+export HISTFILE="$ZDOTDIR/history"
+export HISTSIZE=20000
+export SAVEHIST=10000
+setopt HIST_FIND_NO_DUPS HIST_IGNORE_DUPS HIST_IGNORE_SPACE HIST_VERIFY SHARE_HISTORY
+
 # Color options.
 export LESS='-R'
 export LESSHISTFILE=-
