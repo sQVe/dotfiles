@@ -1,147 +1,146 @@
-http://browserl.ist Development / Web / Compatibility | Browserlist
-http://cheat.sh Development / Apps | Cheat.sh
-http://expressjs.com/en/api.html Development / JavaScript / Node.js | Express
-http://guide.bash.academy Development / Bash | Bash Academy
-http://html5please.com Development / Web / Compatibility | HTML5 Please
-http://learnvimscriptthehardway.stevelosh.com Development / Vim Script | Learn Vim Script the hard way
-http://mywiki.wooledge.org/BashGuide Development / Bash | Bash Guide
-http://nekubasu Local | Nekubasu
-http://sed.sourceforge.net/sed1line.txt Linux / Apps | Sed One Liners
-http://shishigami:5000 Local | Shishigami
-http://www.gnu.org/software/gawk/manual/gawk.html Linux / Apps | Awk Manual
-http://www.gnu.org/software/grep/manual/grep.html Linux / Apps | Grep Manual
-http://www.gnu.org/software/sed/manual/sed.html Linux / Apps | Sed Manual
-http://www.heropatterns.com Development / Web / Resources | Hero Patterns
-http://www.imdb.com Movies | IMDb
-http://www.keyboard-layout-editor.com Keeb | Keyboard Layout Editor
-http://www.lua.org/manual/5.4 Development / Lua | Reference Manual
-https://accessible-colors.com Development / Apps | Accessible Colors
-https://account.snijlab.nl/en/dashboard Manufacturing | Snijlab
-https://app.coderabbit.ai/settings/repositories Development / CodeRabbit
-https://archive.archlinux.org Linux / Arch Linux | Archive
-https://archlinuxarm.org Linux / Arch Linux | ARM
-https://artificialanalysis.ai Development / AI | Model comparison
-https://asciinema.org Development / Apps | Asciinema
-https://aur.archlinux.org Linux / Arch Linux | AUR
-https://basarat.gitbook.io/typescript Development / TypeScript | TypeScript Deep Dive
-https://bazaardb.gg Gaming | The Bazaar Database
-https://bbs.archlinux.org Linux / Arch Linux | Forum
-https://bigocheatsheet.io Development / Information | Big-O Cheatsheet
-https://bundlephobia.com Development / Apps | BundlePhobia
-https://calendar.google.com/calendar/r Services | Calendar
-https://caniuse.com Development / Web / Compatibility | Can I Use
-https://cheatsheetseries.owasp.org Development / Security | OWASP Cheat Sheet Series
-https://claude.ai/new Claude
-https://clig.dev Development / Information | Command Line Interface Guidelines
-https://cnc.jlcpcb.com Manufacturing | JLCCNC
-https://codesandbox.io/dashboard/recent Development / Apps | Code Sandbox
-https://color.adobe.com Development / Colors | Color Wheel
-https://compare.splitkb.com Keeb | Compare Ergo keyboards
-https://compat-table.github.io/compat-table/es6 Development / Web / Compatibility | ECMAScript Compatibility Table
-https://config.qmk.fm Keeb | QMK Configurator
-https://craftcloud3d.com Manufacturing |  Craftcloud
-https://crontab.guru Linux / Apps | Crontab Guru
-https://css-tricks.com/snippets Development / Information | CSS Tricks
+https://leagueofcomicgeeks.com/comics Books & Comics | Comic Book Database
+https://www.readme.club Books & Comics | XTEINK Community
+https://www.hackerrank.com Development | HackerRank
 https://developer.mend.io/github/sQVe Development | Renovate Bot
-https://developer.mozilla.org/en-US/docs/Web Development / Information | MDN
+https://claude.ai/new Development / AI | Claude
+https://dashboard.exa.ai/home Development / AI | Exa API
+https://artificialanalysis.ai Development / AI | Model comparison
+https://accessible-colors.com Development / Apps | Accessible Colors
+https://asciinema.org Development / Apps | Asciinema
+https://www.astexplorer.net Development / Apps | AST Explorer
+https://bundlephobia.com Development / Apps | BundlePhobia
+http://cheat.sh Development / Apps | Cheat.sh
+https://codesandbox.io/dashboard/recent Development / Apps | Code Sandbox
+https://app.coderabbit.ai/settings/repositories Development / Apps | CodeRabbit
+https://www.cubic.dev/dashboard Development / Apps | Cubic
+https://www.draw.io Development / Apps | Draw
+https://explainshell.com Development / Apps | Explain Shell
+https://www.figma.com Development / Apps | Figma
+https://www.digitalocean.com/community/tools/glob Development / Apps | Glob
+https://jsonlint.com Development / Apps | JSON Lint
+https://www.jsonviewer.tools/editor Development / Apps | JSON Viewer
+https://jwt.io Development / Apps | JWT
+https://md-to-pdf.fly.dev Development / Apps | Markdown to PDF
+https://www.nerdfonts.com/cheat-sheet Development / Apps | Nerd Fonts
+https://regex101.com Development / Apps | RegEx 101
+https://ts-ast-viewer.com Development / Apps | TS AST Viewer
+https://wordoid.com Development / Apps | Wordoid
+https://share.yopass.se/ Development / Apps | Yopass
+http://guide.bash.academy Development / Bash | Bash Academy
+http://mywiki.wooledge.org/BashGuide Development / Bash | Bash Guide
+https://color.adobe.com Development / Colors | Color Wheel
+https://huetone.ardov.me/ Development / Colors | Huetone
+https://jmattthew.github.io/better-font-finder/better-font-finder.html Development / Fonts | Google Font Finder
+https://fonts.google.com Development / Fonts | Google Fonts
+https://gist.github.com/sQVe Development / GitHub | Gist
+https://www.github.com Development / GitHub | GitHub
+https://help.github.com Development / GitHub | Help
+https://help.github.com/en/articles/keyboard-shortcuts Development / GitHub | Keymap
+https://bigocheatsheet.io Development / Information | Big-O Cheatsheet
+https://clig.dev Development / Information | Command Line Interface Guidelines
+https://css-tricks.com/snippets Development / Information | CSS Tricks
 https://devhints.io Development / Information | Devhints
+https://developer.mozilla.org/en-US/docs/Web Development / Information | MDN
+https://nextjs.org/docs Development / JavaScript | Next.js
+https://sst.dev/docs Development / JavaScript | SST Docs
+https://guide.sst.dev Development / JavaScript | SST Guide
+http://expressjs.com/en/api.html Development / JavaScript / Node.js | Express
+https://nodejs.org/api Development / JavaScript / Node.js | Node.js
+https://facebook.github.io/jest/docs/en/api.html Development / JavaScript / Testing | Jest
+http://www.lua.org/manual/5.4 Development / Lua | Reference Manual
+https://cheatsheetseries.owasp.org Development / Security | OWASP Cheat Sheet Series
+https://securityheaders.com Development / Security | Security Headers
+https://www.gnu.org/software/bash/manual/bash.html Development / Specification | Bash
+https://www.w3.org/TR/?status=rec&version=latest Development / Specification | W3C
+https://spec.whatwg.org/ Development / Specification | WHATWG
+https://basarat.gitbook.io/typescript Development / TypeScript | TypeScript Deep Dive
+https://www.typescriptlang.org/docs/ Development / TypeScript | TypeScript Handbook
+http://learnvimscriptthehardway.stevelosh.com Development / Vim Script | Learn Vim Script the hard way
+http://browserl.ist Development / Web / Compatibility | Browserlist
+https://www.browserstack.com Development / Web / Compatibility | BrowserStack
+https://caniuse.com Development / Web / Compatibility | Can I Use
+https://compat-table.github.io/compat-table/es6 Development / Web / Compatibility | ECMAScript Compatibility Table
+http://html5please.com Development / Web / Compatibility | HTML5 Please
+https://node.green/ Development / Web / Compatibility | Node Compatibility Table
+http://www.heropatterns.com Development / Web / Resources | Hero Patterns
+https://www.allaboutcircuits.com Electronics | All About Electronics
+https://www.badcaps.net/forum/document-software-archive/schematics-and-boardviews Electronics | Badcaps Boardviews
 https://digikey.se/en Electronics | DigiKey
-https://docs.qmk.fm Keeb | QMK Docs
 https://elektrotanya.com Electronics | ElektroTanya
 https://eleshop.eu Electronics | Eleshop
-https://ergogen.cache.works Keeb | Ergogen
-https://explainshell.com Development / Apps | Explain Shell
-https://facebook.github.io/jest/docs/en/api.html Development / JavaScript / Testing | Jest
-https://fonts.google.com Development / Fonts | Google Fonts
-https://geekhack.org Keeb | GeekHack
-https://gist.github.com/sQVe Development | GitHub Gist
-https://github.com/hups-co/platform/pull/1863 Pull requests · hups-co/platform
-https://gitlab.archlinux.org Linux / Arch Linux | Gitlab
-https://guide.sst.dev Development / JavaScript | SST Guide
-https://help.github.com Development | GitHub Help
-https://help.github.com/en/articles/keyboard-shortcuts Development | GitHub Keymap
-https://huetone.ardov.me/ Huetone
-https://i3wm.org/docs/userguide.html Linux / Apps | i3 Manual
-https://javl.github.io/image2cpp Keeb | OLED image converter
-https://jlc3dp.com Manufacturing | JLC3DP
-https://jlcpcb.com Manufacturing | JLCPCB
-https://jmattthew.github.io/better-font-finder/better-font-finder.html Development / Fonts | Google Font Finder
-https://jsonlint.com Development / Apps | JSON Lint
-https://jwt.io Development / Apps | JWT
-https://kbd.news Keeb | Keyboard Builders' Digest
-https://kbfirmware.com Keeb | Keyboard Firmware Builder
+https://www.elfa.se/sv Electronics | Elfa
+https://www.ifixit.com/guide Electronics | iFixit
+https://www.lcsc.com Electronics | LCSC
+https://www.octopart.com Electronics | Octopart
+https://www.snapeda.com Electronics | SnapMagic Search
+https://www.reddit.com Forum | Reddit
+https://www.protondb.com Gaming | ProtonDB
+https://bazaardb.gg Gaming | The Bazaar Database
 https://kbplate.ai03.com Keeb | ai03 Plate Generator
-https://leagueofcomicgeeks.com/comics Books & Comics | Comic Book Database
-https://mail.google.com/mail/u/0/#inbox Services | GMail
-https://mail.protonmail.com/u/0/inbox Services | ProtonMail
-https://man.archlinux.org Linux / Arch Linux | Manual pages
-https://md-to-pdf.fly.dev Development / Apps | Markdown to PDF
-https://monkeytype.com Keeb | Monkeytype
-https://news.ycombinator.com News / Tech | Hacker News
-https://nextjs.org/docs Development / JavaScript | Next.js
-https://node.green/ Development / Web / Compatibility | Node Compatibility Table
-https://nodejs.org/api Development / JavaScript | Node.js
-https://pashutk.com/ergopad Keeb | Ergopad
-https://plate.keeb.io Keeb | Keebio Plate Generator
-https://regex101.com Development / Apps | RegEx 101
+https://www.crackedthecode.co/a-complete-guide-to-building-a-hand-wired-keyboard Keeb | Building a Hand-Wired Keyboard
+https://compare.splitkb.com Keeb | Compare Ergo keyboards
 https://ryanis.cool/cosmos Keeb | Cosmos Keyboard Generator
 https://ryanis.cool/dactyl Keeb | Dactyl Generator
+https://ergogen.cache.works Keeb | Ergogen
+https://pashutk.com/ergopad Keeb | Ergopad
+https://geekhack.org Keeb | GeekHack
+https://plate.keeb.io Keeb | Keebio Plate Generator
+https://kbd.news Keeb | Keyboard Builders' Digest
+https://kbfirmware.com Keeb | Keyboard Firmware Builder
+http://www.keyboard-layout-editor.com Keeb | Keyboard Layout Editor
+https://monkeytype.com Keeb | Monkeytype
+https://javl.github.io/image2cpp Keeb | OLED image converter
+https://config.qmk.fm Keeb | QMK Configurator
+https://docs.qmk.fm Keeb | QMK Docs
 https://scottokeebs.com Keeb | ScottoKeebs
-https://securityheaders.com Development / Web / Compatibility | Security Headers
-https://spec.whatwg.org/ Development / Specification | WHATWG
-https://sst.dev/docs Development / JavaScript | SST Docs
-https://start.duckduckgo.com Search engine | DuckDuckGo
-https://status.archlinux.org Linux / Arch Linuxs | Status
+https://www.usevia.app Keeb | VIA
+https://zmk.dev/docs Keeb | ZMK Docs
+http://www.gnu.org/software/gawk/manual/gawk.html Linux / Apps | Awk Manual
+https://crontab.guru Linux / Apps | Crontab Guru
+http://www.gnu.org/software/grep/manual/grep.html Linux / Apps | Grep Manual
+https://i3wm.org/docs/userguide.html Linux / Apps | i3 Manual
 https://stedolan.github.io/jq/manual/#del%28path_expression%29 Linux / Apps | JQ Manual
-https://svgnest.com Manufacturing | SVGNest
 https://sw.kovidgoyal.net/kitty/conf Linux / Apps | Kitty
-https://ts-ast-viewer.com Development / Apps | TS AST Viewer
-https://web.whatsapp.com Services | WhatsApp
-https://wiki.archlinux.org Linux / Arch Linux | Wiki
-https://wordoid.com Development / Apps | Wordoid
-https://www.aliexpress.com Manufacturing | Aliexpress
-https://www.allaboutcircuits.com Electronics | All About Electronics
+http://www.gnu.org/software/sed/manual/sed.html Linux / Apps | Sed Manual
+http://sed.sourceforge.net/sed1line.txt Linux / Apps | Sed One Liners
 https://www.archlinux.org Linux / Arch Linux | Arch Linux
-https://www.astexplorer.net Development / Apps | AST Explorer
-https://www.badcaps.net/forum/document-software-archive/schematics-and-boardviews Electronics | Badcaps Boardviews
-https://www.browserstack.com Development / Web / Compatibility | BrowserStack
-https://www.crackedthecode.co/a-complete-guide-to-building-a-hand-wired-keyboard Keeb | Building a Hand-Wired Keyboard
-https://www.cubic.dev/dashboard Development / Cubic
-https://www.digitalocean.com/community/tools/glob Development / Apps / Glob
-https://www.draw.io Development / Apps | Draw
+https://archive.archlinux.org Linux / Arch Linux | Archive
+https://archlinuxarm.org Linux / Arch Linux | ARM
+https://aur.archlinux.org Linux / Arch Linux | AUR
+https://bbs.archlinux.org Linux / Arch Linux | Forum
+https://gitlab.archlinux.org Linux / Arch Linux | Gitlab
+https://man.archlinux.org Linux / Arch Linux | Manual pages
+https://status.archlinux.org Linux / Arch Linux | Status
+https://wiki.archlinux.org Linux / Arch Linux | Wiki
+http://nekubasu Local | Nekubasu
+http://shishigami:5000 Local | Shishigami
+https://www.aliexpress.com Manufacturing | Aliexpress
+https://craftcloud3d.com Manufacturing | Craftcloud
 https://www.elecrow.com Manufacturing | Elecrow
-https://www.elfa.se/sv Electronics | Elfa
-https://www.figma.com Development / Apps | Figma
-https://www.github.com Development | GitHub
-https://www.gnu.org/software/bash/manual/bash.html Development / Specification | Bash
-https://www.google.com Search engine | Google
-https://www.hackerrank.com Development | HackerRank
-https://www.ifixit.com/guide Electronics / iFixit
-https://www.jsonviewer.tools/editor Development / Apps | JSON Viewer
-https://www.justwatch.com/se Streaming | JustWatch
+https://jlc3dp.com Manufacturing | JLC3DP
+https://cnc.jlcpcb.com Manufacturing | JLCCNC
+https://jlcpcb.com Manufacturing | JLCPCB
 https://www.laserboost.com Manufacturing | Laserboost
-https://www.lcsc.com Electronics | LCSC
-https://www.nerdfonts.com/cheat-sheet Development / Apps | Nerd Fonts
-https://www.netflix.com/se-en/browse Streaming | Netflix
-https://www.octopart.com Electronics | Octopart
-https://www.protondb.com Gaming | ProtonDB
-https://www.readme.club Books / XTEINK Community
-https://www.reddit.com Forum | Reddit
+https://account.snijlab.nl/en/dashboard Manufacturing | Snijlab
+https://svgnest.com Manufacturing | SVGNest
+http://www.imdb.com Movies | IMDb
 https://www.rottentomatoes.com Movies | Rotten Tomatoes
-https://www.snapeda.com Electronics | SnapMagic Search
 https://www.svt.se News / Newspaper | SVT Nyheter
 https://www.sydsvenskan.se News / Newspaper | Sydsvenskan
 https://www.theguardian.com/international News / Newspaper | The Guardian
+https://news.ycombinator.com News / Tech | Hacker News
+https://start.duckduckgo.com Search engine | DuckDuckGo
+https://www.google.com Search engine | Google
+https://calendar.google.com/calendar/r Services | Calendar
+https://mail.google.com/mail/u/0/#inbox Services | GMail
+https://mail.protonmail.com/u/0/inbox Services | ProtonMail
+https://web.whatsapp.com Services | WhatsApp
+https://healthchecks.io/checks/Aburaya Services / Hosting | Healthchecks (Aburaya)
+https://console.hetzner.com/projects Services / Hosting | Hetzner Console
+https://www.customercontrolpanel.de/start.php Services / Hosting | netcup CCP
+https://www.servercontrolpanel.de/SCP/Home Services / Hosting | netcup SCP
+https://login.tailscale.com/admin/machines Services / Hosting | Tailscale
+https://www.justwatch.com/se Streaming | JustWatch
+https://www.netflix.com/se-en/browse Streaming | Netflix
 https://www.twitch.tv Streaming | Twitch
-https://www.typescriptlang.org/docs/ Development / TypeScript | TypeScript Handbook
-https://www.usevia.app Keeb | VIA
-https://www.w3.org/TR/?status=rec&version=latest Development / Specification | W3C
 https://www.youtube.com VOD | YouTube
-https://zmk.dev/docs Keeb | ZMK Docs
-https://claude.ai/chat/02790562-1ad5-4ec2-bcfe-0afbe171e46d Enyaq och nedstängning av 2G/3G näten - Claude
-https://console.hetzner.com/projects Projects · Hetzner Console
-https://login.tailscale.com/admin/machines Machines - Tailscale
-https://www.customercontrolpanel.de/start.php netcup ccp
-https://www.servercontrolpanel.de/SCP/Home SCP - Home
-https://dashboard.exa.ai/home Home | Exa API
-https://github.com/hups-co/platform/pull/2274 feat(transformation): backend support for desired state responses by hedblad · Pull Request #2274 · hups-co/platform
