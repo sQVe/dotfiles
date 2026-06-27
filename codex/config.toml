@@ -13,8 +13,8 @@ enabled = true
 enabled = true
 
 [marketplaces.ponytail]
-last_updated = "2026-06-23T20:49:03Z"
-last_revision = "88be9caee7df4585406ae982f6f697f1d7aeed38"
+last_updated = "2026-06-26T10:50:02Z"
+last_revision = "c4d1925ae9b76a1b641877328209ad25cfeb5ef2"
 source_type = "git"
 source = "https://github.com/DietrichGebert/ponytail.git"
 
@@ -34,6 +34,12 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/home/sqve/.dotfiles"]
+trust_level = "trusted"
+
+[projects."/home/sqve/code/personal/tau"]
+trust_level = "trusted"
+
+[projects."/home/sqve/scripts"]
 trust_level = "trusted"
 
 [notice.model_migrations]
@@ -56,7 +62,10 @@ hooks = true
 trusted_hash = "sha256:fd7fbd7da7a939ee7f88c387d1dc7feaa197362e8d8cfd0bc1f894b429897201"
 
 [hooks.state."ponytail@ponytail:hooks/claude-codex-hooks.json:user_prompt_submit:0:0"]
-trusted_hash = "sha256:f79c8de133c1109b841f9835a9d032231900a0d96ecf5f6d1866132df5ca4aa4"
+trusted_hash = "sha256:22db2f951755c593f9deba5e69cd1be1c87e0c9b2f5538a13b5dd9911141793f"
 
 [hooks.state."ponytail@ponytail:hooks/claude-codex-hooks.json:session_start:0:0"]
-trusted_hash = "sha256:195e73e498a4cdb40bbe765719d39371ac72c0ebb084fee1beee9d28d21fb7a0"
+trusted_hash = "sha256:35ad4fd900da217d98e6eb60198465bd10d55e21eacd72758621dc385145cc05"
+
+[hooks.state."ponytail@ponytail:hooks/claude-codex-hooks.json:subagent_start:0:0"]
+trusted_hash = "sha256:28c43eada804ad00a4e651d6af6320c01e763b1df060af0ab74865a55bc1c9a9"
