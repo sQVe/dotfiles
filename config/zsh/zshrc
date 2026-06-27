@@ -31,7 +31,6 @@ zle -N edit-command-line
 autoload -Uz add-zsh-hook
 add-zsh-hook precmd _title_precmd
 add-zsh-hook preexec _title_preexec
-add-zsh-hook chpwd _repo_chpwd
 
 # Disable terminal close on <C-c>.
 set -o ignoreeof
@@ -102,14 +101,12 @@ function _set_title() {
   print -Pn "\e]0;${1}\a"
 }
 
-source "${SCRIPTS}/zsh/repo-tag.zsh"
-
 function _title_precmd() {
-  _set_title "${_REPO_TAG}%1~ — zsh"
+  _set_title "%1~ — zsh"
 }
 
 function _title_preexec() {
-  _set_title "${_REPO_TAG}%1~ — ${1[(w)1]}"
+  _set_title "%1~ — ${1[(w)1]}"
 }
 
 function _colorize() {
@@ -141,36 +138,40 @@ function _pnpm_bridge() {
   fi
 }
 
-# Run claude in a transient systemd scope for two payoffs: each session shows up
-# as a named cgroup in systemd-cgtop, and the scope reaps the whole tree (MCP
-# servers, tsserver) when it exits. No memory cap by default — a session runs
-# monorepo build/test fleets whose footprint is large but legitimate, so any
-# fixed per-session ceiling either kills real work or sits too high to protect a
-# 31G box; the system-wide layer (earlyoom + zram mem_limit) handles true
-# exhaustion. Opt into a cap with CLAUDE_MEM_MAX=20G; skip the scope with
-# `command claude`.
+# Pass --allow-dangerously-skip-permissions by default; enable agent teams only
+# inside herdr (Orca disables teams on purpose, and a global flag would force
+# them on there). Run claude as a plain child of the shell, never a systemd
+# scope: a scope is torn down as its own unit on reboot, killing claude while
+# herdr/Orca are still alive — they log the exit and drop the pane's resume id,
+# so it restores as a bare shell. `dev` still scopes long-lived servers, where
+# orphan reaping actually matters.
 function claude() {
   emulate -L zsh
+  [[ ${HERDR_ENV:-} == 1 ]] && export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
+  /opt/claude-code/bin/claude --allow-dangerously-skip-permissions "$@"
+}
 
-  local bin=/opt/claude-code/bin/claude
+# Route codex to a per-account CODEX_HOME so multiple ChatGPT logins coexist
+# without re-auth. Default is personal (~/.codex). Select another with a
+# leading @name token — `codex @work ...` uses ~/.codex-work — auto-created
+# with the shared config.toml symlinked on first use; then `codex @work login`
+# once. Token is stripped before codex runs.
+function codex() {
+  emulate -L zsh
 
-  # Tag the scope with the working directory so sessions are identifiable in
-  # systemd-cgtop; strip characters systemd disallows in unit names.
-  local tag=${${PWD:t}//[^A-Za-z0-9_]/-}
-
-  if command -v systemd-run >/dev/null 2>&1 && systemctl --user is-active --quiet default.target 2>/dev/null; then
-    # No memory cap by default; OOMPolicy=continue spares the session if a child
-    # is OOM-killed. Set CLAUDE_MEM_MAX to bound a specific session.
-    local -a limits=(-p OOMPolicy=continue)
-    [[ -n ${CLAUDE_MEM_MAX:-} ]] && limits+=(-p MemoryMax="${CLAUDE_MEM_MAX}")
-
-    systemd-run --user --scope --quiet --collect \
-      --unit="claude-${tag:-root}-$$" \
-      "${limits[@]}" \
-      -- "$bin" --allow-dangerously-skip-permissions "$@"
-  else
-    "$bin" --allow-dangerously-skip-permissions "$@"
+  local home=$HOME/.codex
+  if [[ $1 == @* ]]; then
+    home=$HOME/.codex-${1#@}
+    shift
+    if [[ ! -d $home ]]; then
+      mkdir -p "$home"
+      ln -s "$HOME/.dotfiles/codex/config.toml" "$home/config.toml"
+    fi
   fi
+
+  # Accounts share config.toml via symlink; codex writes back to it, so avoid
+  # running two accounts that write at the same instant.
+  CODEX_HOME=$home command codex "$@"
 }
 
 # Run a long-lived dev server (sst/turbo/vite) in a transient systemd scope.
