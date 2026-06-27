@@ -41,6 +41,7 @@ sidebar_max_width = 54
 sidebar_min_width = 18
 sidebar_width = 38
 
+agent_panel_sort = "priority"
 [ui.toast]
 delivery = "terminal"
 
