@@ -18,7 +18,6 @@ input {
       variant "nodeadkeys"
       options "caps:backspace"
     }
-    numlock
   }
   touchpad {
     accel-profile "adaptive"
