@@ -138,16 +138,12 @@ function _pnpm_bridge() {
   fi
 }
 
-# Pass --allow-dangerously-skip-permissions by default; enable agent teams only
-# inside herdr (Orca disables teams on purpose, and a global flag would force
-# them on there). Run claude as a plain child of the shell, never a systemd
-# scope: a scope is torn down as its own unit on reboot, killing claude while
-# herdr/Orca are still alive — they log the exit and drop the pane's resume id,
-# so it restores as a bare shell. `dev` still scopes long-lived servers, where
-# orphan reaping actually matters.
+# Agent teams everywhere except Orca, keyed on kitty (herdr runs in kitty, Orca
+# doesn't). Plain child of the shell, not a systemd scope: a scope dies on
+# reboot while herdr/Orca live on, dropping the pane's resume id.
 function claude() {
   emulate -L zsh
-  [[ ${HERDR_ENV:-} == 1 ]] && export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
+  [[ -n ${KITTY_WINDOW_ID:-} ]] && export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
   /opt/claude-code/bin/claude --allow-dangerously-skip-permissions "$@"
 }
 
