@@ -2,31 +2,42 @@ onboarding = false
 
 [keys]
 # ctrl+b chosen over ctrl+a (vim increment) and ctrl+s (zsh edit-command-line +
-# nvim spell). ctrl+b only collides with fzf page-up, which is popup-only.
-cycle_pane_next = ""                            # disabled
-cycle_pane_previous = ""                        # disabled
-detach = "prefix+q"
-focus_pane_down = ["prefix+j", "prefix+down"]
-focus_pane_left = ["prefix+h", "prefix+left"]
-focus_pane_right = ["prefix+l", "prefix+right"]
-focus_pane_up = ["prefix+k", "prefix+up"]
-new_tab = "prefix+t"
-new_workspace = "prefix+shift+n"
-close_workspace = "prefix+d"
-new_worktree = ""                               # disabled
-next_tab = "prefix+tab"
+# nvim spell).
+close_pane = ["prefix+q", "ctrl+shift+q"]
+close_tab = ""
+close_workspace = ["prefix+d", "ctrl+shift+d"]
+cycle_pane_next = ["prefix+l", "ctrl+shift+l"]
+cycle_pane_previous = ["prefix+h", "ctrl+shift+h"]
+detach = ["prefix+z", "ctrl+shift+z"]
+focus_pane_down = ""                               # disabled
+focus_pane_left = ""                               # disabled
+focus_pane_right = ""                              # disabled
+focus_pane_up = ""                                 # disabled
+goto = ["prefix+g", "ctrl+shift+g"]
+navigate_pane_down = ""                            # disabled
+navigate_pane_left = ""                            # disabled
+navigate_pane_right = ""                           # disabled
+navigate_pane_up = ""                              # disabled
+navigate_workspace_down = "j"
+navigate_workspace_up = "k"
+new_tab = ["prefix+t", "ctrl+shift+t"]
+new_workspace = ["prefix+n", "ctrl+shift+n"]
+new_worktree = ""                                  # disabled
+next_tab = ["prefix+/", "ctrl+shift+/"]
+next_workspace = ["prefix+j", "ctrl+shift+j"]
 prefix = "ctrl+b"
-previous_tab = "prefix+shift+tab"
-reload_config = ""                              # disabled
-rename_workspace = "prefix+r"
-resize_mode = "prefix+shift+r"
-settings = "prefix+comma"
+previous_tab = ""                                  # disabled
+previous_workspace = ["prefix+k", "ctrl+shift+k"]
+reload_config = ""                                 # disabled
+rename_tab = ""                                    # disabled
+rename_workspace = ["prefix+r", "ctrl+shift+r"]
+resize_mode = ["prefix+f", "ctrl+shift+f"]
+settings = ""                                      # disabled
 split_horizontal = "prefix+s"
 split_vertical = "prefix+v"
-switch_tab = "prefix+1..9"
+switch_tab = "ctrl+shift+1..9"
+workspace_picker = ["prefix+w", "ctrl+shift+w"]
 zoom = "prefix+m"
-next_workspace = "prefix+n"
-previous_workspace = "prefix+p"
 
 [terminal]
 default_shell = "zsh"
