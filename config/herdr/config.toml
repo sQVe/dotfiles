@@ -4,7 +4,7 @@ onboarding = false
 # ctrl+b chosen over ctrl+a (vim increment) and ctrl+s (zsh edit-command-line +
 # nvim spell).
 close_pane = ["prefix+q", "ctrl+shift+q"]
-close_tab = ""
+close_tab = ""                                                   # disabled
 close_workspace = ["prefix+d", "ctrl+shift+d"]
 cycle_pane_next = ["prefix+l", "ctrl+shift+l"]
 cycle_pane_previous = ["prefix+h", "ctrl+shift+h"]
@@ -23,7 +23,7 @@ navigate_workspace_up = "k"
 new_tab = ["prefix+t", "ctrl+shift+t"]
 new_workspace = ["prefix+n", "ctrl+shift+n", "ctrl+shift+enter"]
 new_worktree = ""                                                # disabled
-next_tab = ["prefix+tab", "ctrl+shift+tab"]
+next_tab = ["prefix+o", "ctrl+shift+o"]
 next_workspace = ["prefix+j", "ctrl+shift+j"]
 prefix = "ctrl+b"
 previous_tab = ""                                                # disabled
