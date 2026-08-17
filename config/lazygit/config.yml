@@ -57,9 +57,9 @@ git:
   log:
     showGraph: 'always'
   overrideGpg: true
-  pagers:
+  diffRenderers:
     - colorArg: always
-      pager: delta --light --syntax-theme="Catppuccin Latte" --minus-style='syntax "#e6d6d3"' --minus-emph-style='syntax "#c9a5aa"' --plus-style='syntax "#d0e2d0"' --plus-emph-style='syntax "#a5c9a2"' --paging=never --tabs 2 --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
+      command: delta --light --syntax-theme="Catppuccin Latte" --minus-style='syntax "#e6d6d3"' --minus-emph-style='syntax "#c9a5aa"' --plus-style='syntax "#d0e2d0"' --plus-emph-style='syntax "#a5c9a2"' --paging=never --tabs 2 --line-numbers --hyperlinks --hyperlinks-file-link-format="lazygit-edit://{path}:{line}"
   parseEmoji: true
   skipHookPrefix: 'draft: '
 keybinding:
