@@ -1,0 +1,18 @@
+comment_tab_width = 2
+comment_vim = true
+diff_view = "side-by-side"
+ignore_whitespace = true
+no_update_check = true
+scroll_offset = 8
+theme = "catppuccin-latte"
+
+comment_types = [
+  { id = "issue", definition = "wrong behavior: bug, crash, race, invalid output", color = "#d20f39" },
+  { id = "convention", definition = "diverges from an established pattern or helper in this codebase", color = "#1e66f5" },
+  { id = "simplify", definition = "shorter, plainer, or deletable: dead code, needless indirection", color = "#179299" },
+  { id = "missing", definition = "absent test, guard, error state, or tracking that should exist", color = "#fe640b" },
+  { id = "question", definition = "genuine ask for clarification; no change implied", color = "#8839ef" },
+]
+
+[forge]
+comment_type_prefix = false
