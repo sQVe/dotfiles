@@ -1,14 +1,14 @@
 {
-  "lastChangelogVersion": "0.80.1",
+  "lastChangelogVersion": "0.84.2",
   "enableSkillCommands": false,
   "transport": "sse",
   "quietStartup": true,
   "treeFilterMode": "all",
   "theme": "light",
   "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.5",
+  "defaultModel": "gpt-5.6-sol",
   "extensions": [
     "/home/sqve/code/personal/tau/main/src/extensions"
   ],
-  "defaultThinkingLevel": "low"
+  "defaultThinkingLevel": "high"
 }
