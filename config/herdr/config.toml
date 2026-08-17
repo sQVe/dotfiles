@@ -46,13 +46,12 @@ default_shell = "zsh"
 name = "catppuccin-latte"
 
 [ui]
-agent_panel_scope = "current"
+agent_panel_sort = "priority"
 show_agent_labels_on_pane_borders = true
 sidebar_max_width = 54
 sidebar_min_width = 18
 sidebar_width = 38
 
-agent_panel_sort = "priority"
 [ui.toast]
 delivery = "terminal"
 
