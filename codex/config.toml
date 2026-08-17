@@ -1,4 +1,4 @@
-model = "gpt-5.5"
+model = "gpt-5.6-sol"
 model_reasoning_effort = "high"
 sandbox_mode = "workspace-write"
 approval_policy = "never"
@@ -13,8 +13,8 @@ enabled = true
 enabled = true
 
 [marketplaces.ponytail]
-last_updated = "2026-07-02T05:55:26Z"
-last_revision = "40e50d9e03242aa5dd53ac771950f9127362b25f"
+last_updated = "2026-07-25T11:56:52Z"
+last_revision = "16f29800fd2681bdf24f3eb4ccffe38be3baec6b"
 source_type = "git"
 source = "https://github.com/DietrichGebert/ponytail.git"
 
@@ -45,13 +45,11 @@ trust_level = "trusted"
 [projects."/home/sqve/code/personal/grove"]
 trust_level = "trusted"
 
+[notice]
+hide_rate_limit_model_nudge = true
+
 [notice.model_migrations]
 "gpt-5.3-codex" = "gpt-5.4"
-
-[mcp_servers.code-review-graph]
-command = "uvx"
-args = ["code-review-graph", "serve"]
-type = "stdio"
 
 [tui.model_availability_nux]
 "gpt-5.5" = 4
@@ -65,10 +63,10 @@ hooks = true
 trusted_hash = "sha256:fd7fbd7da7a939ee7f88c387d1dc7feaa197362e8d8cfd0bc1f894b429897201"
 
 [hooks.state."ponytail@ponytail:hooks/claude-codex-hooks.json:user_prompt_submit:0:0"]
-trusted_hash = "sha256:2a3c9015a1fe10f0809ffec8da3d67c326e27c38ebf720725099283b1e2085a8"
+trusted_hash = "sha256:6a6f42bc3b58d6262db38bfd74d7f340fcca2b09cdb134aad365063f0bfefca4"
 
 [hooks.state."ponytail@ponytail:hooks/claude-codex-hooks.json:session_start:0:0"]
-trusted_hash = "sha256:10e0ac0497512b279dc2b073d0d559fb9fb252bc18b9c943d2f0a6d58152b1f4"
+trusted_hash = "sha256:5f81d38f47448a1581c08ec877e044d9e04dd6f814dce3f2671f7a8edadd719b"
 
 [hooks.state."ponytail@ponytail:hooks/claude-codex-hooks.json:subagent_start:0:0"]
-trusted_hash = "sha256:4765354e31cc783c9cc7379f8beac7ac7ff68743c3cd7dad333d1f6a64e7a6f3"
+trusted_hash = "sha256:1423b56c1322f96c8f74c51c1e7ae9a047b904c1fa43ee9165d462fd7a6e70ef"
