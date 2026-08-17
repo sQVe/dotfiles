@@ -138,5 +138,6 @@ x-scheme-handler/http=org.qutebrowser.qutebrowser.desktop;
 x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop;
 x-scheme-handler/openhuman=OpenHuman-handler.desktop;
 x-scheme-handler/slack=slack.desktop
+x-scheme-handler/claude=com.anthropic.Claude.desktop
 
 [Added Associations]
