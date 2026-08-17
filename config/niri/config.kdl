@@ -190,7 +190,7 @@ spawn-at-startup "gnome-keyring-daemon" "--start" "--components=pkcs11,secrets"
 spawn-at-startup "kanshi"
 spawn-at-startup "niri-float-sticky" "-app-id" "(?i:^pinentry)" "-app-id" "mpv" "-app-id" "^chrome-"
 spawn-at-startup "niri-sidebar" "listen"
-spawn-at-startup "qs" "-c" "noctalia-shell"
+spawn-at-startup "noctalia" "--daemon"
 spawn-at-startup "sh" "-c" "$SCRIPTS/niri/init.sh"
 spawn-at-startup "sh" "-c" "sleep 4 && easyeffects --gapplication-service"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
@@ -205,13 +205,13 @@ binds {
   Mod+Shift+Return { spawn "sh" "-c" "$SCRIPTS/niri/kitty-cwd.sh term"; }
   Mod+Shift+Q repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/state.sh"; }
   Mod+U repeat=false { spawn "sh" "-c" "$SCRIPTS/menus/passwords.sh"; }
-  Mod+X repeat=false { spawn "qs" "ipc" "--any-display" "-c" "noctalia-shell" "call" "lockScreen" "lock"; }
+  Mod+X repeat=false { spawn "noctalia" "msg" "session" "lock"; }
   Mod+Y repeat=false { spawn "term" "yazi"; }
   Mod+Shift+Y repeat=false { spawn "sh" "-c" "$SCRIPTS/niri/kitty-cwd.sh term yazi"; }
 
   // Notifications
-  Mod+Odiaeresis repeat=false { spawn "qs" "ipc" "--any-display" "-c" "noctalia-shell" "call" "notifications" "dismissOldest"; }
-  Mod+Shift+Odiaeresis repeat=false { spawn "qs" "ipc" "--any-display" "-c" "noctalia-shell" "call" "notifications" "clear"; }
+  Mod+Odiaeresis repeat=false { spawn "noctalia" "msg" "notification-clear-active"; }
+  Mod+Shift+Odiaeresis repeat=false { spawn "noctalia" "msg" "notification-clear-history"; }
 
   // Focus: Windows
   Mod+H { focus-column-left; }
@@ -329,14 +329,16 @@ binds {
   Shift+Print repeat=false { screenshot; }
 
   // Hardware
-  XF86AudioLowerVolume allow-when-locked=true { spawn "qs" "ipc" "--any-display" "-c" "noctalia-shell" "call" "volume" "decrease"; }
-  XF86AudioMicMute allow-when-locked=true repeat=false { spawn "qs" "ipc" "--any-display" "-c" "noctalia-shell" "call" "volume" "muteInput"; }
-  XF86AudioMute allow-when-locked=true repeat=false { spawn "qs" "ipc" "--any-display" "-c" "noctalia-shell" "call" "volume" "muteOutput"; }
-  XF86AudioNext allow-when-locked=true { spawn "qs" "ipc" "--any-display" "-c" "noctalia-shell" "call" "media" "next"; }
-  XF86AudioPlay allow-when-locked=true repeat=false { spawn "qs" "ipc" "--any-display" "-c" "noctalia-shell" "call" "media" "playPause"; }
-  XF86AudioPrev allow-when-locked=true { spawn "qs" "ipc" "--any-display" "-c" "noctalia-shell" "call" "media" "previous"; }
-  XF86AudioRaiseVolume allow-when-locked=true { spawn "qs" "ipc" "--any-display" "-c" "noctalia-shell" "call" "volume" "increase"; }
-  XF86AudioStop allow-when-locked=true repeat=false { spawn "qs" "ipc" "--any-display" "-c" "noctalia-shell" "call" "media" "stop"; }
-  XF86MonBrightnessDown allow-when-locked=true { spawn "qs" "ipc" "--any-display" "-c" "noctalia-shell" "call" "brightness" "decrease"; }
-  XF86MonBrightnessUp allow-when-locked=true { spawn "qs" "ipc" "--any-display" "-c" "noctalia-shell" "call" "brightness" "increase"; }
+  XF86AudioLowerVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-down" "5"; }
+  XF86AudioMicMute allow-when-locked=true repeat=false { spawn "noctalia" "msg" "mic-mute"; }
+  XF86AudioMute allow-when-locked=true repeat=false { spawn "noctalia" "msg" "volume-mute"; }
+  XF86AudioNext allow-when-locked=true { spawn "noctalia" "msg" "media" "next"; }
+  XF86AudioPlay allow-when-locked=true repeat=false { spawn "noctalia" "msg" "media" "toggle"; }
+  XF86AudioPrev allow-when-locked=true { spawn "noctalia" "msg" "media" "previous"; }
+  XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-up" "5"; }
+  XF86AudioStop allow-when-locked=true repeat=false { spawn "noctalia" "msg" "media" "stop"; }
+  XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia" "msg" "brightness-down" "5"; }
+  XF86MonBrightnessUp allow-when-locked=true { spawn "noctalia" "msg" "brightness-up" "5"; }
 }
+
+include "noctalia.kdl"

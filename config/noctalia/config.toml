@@ -1,0 +1,329 @@
+[audio]
+enable_overdrive = true
+enable_sounds = false
+
+[backdrop]
+enabled = true
+blur_intensity = 0.4
+tint_intensity = 0.6
+
+[battery]
+warning_threshold = 20
+
+[brightness]
+enable_ddcutil = false
+
+[calendar]
+enabled = false
+
+[desktop_widgets]
+enabled = false
+
+[dock]
+enabled = false
+
+[nightlight]
+enabled = true
+force = false
+temperature_day = 6000
+temperature_night = 3500
+
+[weather]
+enabled = false
+effects = true
+
+[storage]
+key_source = "secret-service"
+
+[theme]
+source = "custom"
+custom_palette = "custom"
+mode = "light"
+
+[theme.templates]
+enable_builtin_templates = true
+builtin_ids = ["gtk3", "gtk4", "qt", "kcolorscheme", "niri"]
+
+[wallpaper]
+enabled = true
+directory = "/home/sqve/pictures/art/simon-stålenhag/EUROPA_MEKANO"
+fill_mode = "crop"
+per_monitor_directories = false
+transition = ["fade"]
+transition_duration = 1500.0
+transition_on_startup = true
+edge_smoothness = 0.05
+
+[wallpaper.automation]
+enabled = true
+interval_seconds = 1800
+order = "random"
+
+[hooks]
+session_locked = ["/home/sqve/scripts/noctalia/lock-hooks.sh lock"]
+session_unlocked = ["/home/sqve/scripts/noctalia/lock-hooks.sh unlock"]
+logging_out = ["/home/sqve/scripts/zsh/backup-history.sh"]
+rebooting = ["/home/sqve/scripts/zsh/backup-history.sh"]
+shutting_down = ["/home/sqve/scripts/zsh/backup-history.sh"]
+
+[idle]
+pre_action_fade_seconds = 15.0
+
+[idle.behavior.lock]
+enabled = true
+timeout = 300.0
+
+[idle.behavior.screen-off]
+enabled = true
+timeout = 600.0
+
+[idle.behavior.lock-and-suspend]
+enabled = false
+
+[lockscreen]
+enabled = true
+lock_before_suspend = true
+fingerprint = true
+blur_intensity = 0.0
+tint_intensity = 0.0
+
+[notification]
+enable_daemon = true
+position = "top_center"
+layer = "overlay"
+background_opacity = 1.0
+
+# v5 has no per-urgency durations and its 6s default is compiled in; a catch-all
+# filter is the only way to set one. Keep specific rules ahead of it in
+# filter_order — first match wins.
+[notification.filter.default]
+match_content = ".*"
+override_duration = 4000
+
+[osd]
+enabled = true
+position = "bottom_right"
+background_opacity = 1.0
+
+[control_center]
+show_session_button = true
+show_shortcut_labels = true
+
+[control_center.calendar]
+show_week_numbers = true
+show_events_card = true
+
+[[control_center.shortcuts]]
+type = "wifi"
+
+[[control_center.shortcuts]]
+type = "bluetooth"
+
+[[control_center.shortcuts]]
+type = "notification"
+
+[[control_center.shortcuts]]
+type = "caffeine"
+
+[[control_center.shortcuts]]
+type = "nightlight"
+
+[shell]
+avatar_path = "/home/sqve/pictures/avatars/totoro.png"
+font_family = "Roboto"
+clipboard_enabled = false
+popup_shadows = false
+telemetry_enabled = false
+show_location = false
+time_format = "{:%H:%M}"
+setup_wizard_enabled = false
+
+[shell.screenshot]
+directory = "/home/sqve/download"
+
+[shell.animation]
+enabled = true
+speed = 1.2
+
+[shell.launcher]
+sort_by_usage = true
+categories = false
+show_icons = true
+app_grid = true
+
+[shell.mpris]
+blacklist = []
+
+[shell.panel]
+control_center_placement = "attached"
+open_near_click_control_center = true
+launcher_placement = "floating"
+launcher_position = "center"
+
+[shell.screen_corners]
+enabled = false
+
+[shell.session]
+show_shortcuts = true
+grid = false
+
+[[shell.session.actions]]
+action = "lock"
+shortcut = "1"
+enabled = true
+
+[[shell.session.actions]]
+action = "suspend"
+shortcut = "2"
+enabled = true
+
+[[shell.session.actions]]
+action = "reboot"
+shortcut = "4"
+enabled = true
+
+[[shell.session.actions]]
+action = "logout"
+shortcut = "5"
+enabled = true
+
+[[shell.session.actions]]
+action = "shutdown"
+shortcut = "6"
+enabled = true
+variant = "destructive"
+
+[system.monitor]
+enabled = true
+cpu_usage_activity_threshold = 80.0
+cpu_usage_critical_threshold = 90.0
+cpu_temp_activity_threshold = 80.0
+cpu_temp_critical_threshold = 90.0
+ram_pct_activity_threshold = 80.0
+ram_pct_critical_threshold = 90.0
+swap_pct_activity_threshold = 80.0
+swap_pct_critical_threshold = 90.0
+disk_used_pct_activity_threshold = 80.0
+disk_used_pct_critical_threshold = 90.0
+gpu_usage_activity_threshold = 80.0
+gpu_usage_critical_threshold = 90.0
+gpu_temp_activity_threshold = 80.0
+gpu_temp_critical_threshold = 90.0
+
+[plugins]
+auto_update = false
+
+[bar]
+order = ["default"]
+
+[bar.default]
+enabled = true
+position = "top"
+background_opacity = 0.5
+border_width = 0.0
+radius = 12
+margin_edge = 0
+margin_ends = 0
+widget_spacing = 6
+shadow = false
+show_on_workspace_switch = true
+auto_hide = false
+reserve_space = true
+start = ["workspaces"]
+center = ["media"]
+end = [
+  "cpu",
+  "ram",
+  "temp",
+  "spacer_a",
+  "keep_creds",
+  "caffeine",
+  "spacer_b",
+  "voxtype",
+  "bluetooth",
+  "network",
+  "volume",
+  "brightness",
+  "battery",
+  "tray",
+  "spacer_c",
+  "clock",
+  "notifications",
+]
+
+[bar.default.actions]
+right = "panel-toggle control-center"
+
+[widget.workspaces]
+type = "workspaces"
+style = "regular"
+show_labels = true
+label_source = "id"
+labels_only_when_occupied = true
+max_label_chars = 2
+pill_scale = 0.6
+hide_when_empty = false
+focused_output_only = false
+focused_color = "primary"
+occupied_color = "secondary"
+empty_color = "secondary"
+
+[widget.media]
+type = "media"
+artist_first = true
+hide_when_no_media = true
+max_length = 600.0
+title_scroll = "none"
+
+[widget.cpu]
+type = "sysmon"
+stat = "cpu_usage"
+font_family = "Maple Mono"
+
+[widget.ram]
+type = "sysmon"
+stat = "ram_pct"
+font_family = "Maple Mono"
+
+[widget.temp]
+type = "sysmon"
+stat = "cpu_temp"
+font_family = "Maple Mono"
+
+[widget.spacer_a]
+type = "spacer"
+length = 10
+
+[widget.spacer_b]
+type = "spacer"
+length = 10
+
+[widget.spacer_c]
+type = "spacer"
+length = 10
+
+[widget.keep_creds]
+type = "custom_button"
+glyph = "shield-off"
+tooltip = "Keep credentials"
+
+[widget.keep_creds.actions]
+left = "exec /home/sqve/scripts/noctalia/keep-creds.sh toggle"
+
+[widget.voxtype]
+type = "gabedunn/voxtype:status"
+idle_glyph = "ripple-off"
+stopped_glyph = "ripple-off"
+recording_glyph = "ripple"
+streaming_glyph = "keyboard"
+transcribing_glyph = "loader"
+
+[widget.clock]
+type = "clock"
+format = "{:%H:%M}"
+
+[widget.tray]
+type = "tray"
+
+[widget.notifications]
+type = "notifications"
