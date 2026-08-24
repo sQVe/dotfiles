@@ -211,7 +211,7 @@ gpu_temp_activity_threshold = 80.0
 gpu_temp_critical_threshold = 90.0
 
 [plugins]
-auto_update = false
+auto_update = "none"
 
 [widget.workspaces]
 type = "workspaces"
