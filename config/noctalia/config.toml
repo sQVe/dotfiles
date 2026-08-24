@@ -213,47 +213,6 @@ gpu_temp_critical_threshold = 90.0
 [plugins]
 auto_update = false
 
-[bar]
-order = ["default"]
-
-[bar.default]
-enabled = true
-position = "top"
-background_opacity = 0.5
-border_width = 0.0
-radius = 12
-margin_edge = 0
-margin_ends = 0
-widget_spacing = 6
-shadow = false
-show_on_workspace_switch = true
-auto_hide = false
-reserve_space = true
-start = ["workspaces"]
-center = ["media"]
-end = [
-  "cpu",
-  "ram",
-  "temp",
-  "spacer_a",
-  "keep_creds",
-  "caffeine",
-  "spacer_b",
-  "voxtype",
-  "bluetooth",
-  "network",
-  "volume",
-  "brightness",
-  "battery",
-  "tray",
-  "spacer_c",
-  "clock",
-  "notifications",
-]
-
-[bar.default.actions]
-right = "panel-toggle control-center"
-
 [widget.workspaces]
 type = "workspaces"
 style = "regular"
@@ -303,12 +262,7 @@ type = "spacer"
 length = 10
 
 [widget.keep_creds]
-type = "custom_button"
-glyph = "shield-off"
-tooltip = "Keep credentials"
-
-[widget.keep_creds.actions]
-left = "exec /home/sqve/scripts/noctalia/keep-creds.sh toggle"
+type = "sqve/keep-creds:status"
 
 [widget.voxtype]
 type = "gabedunn/voxtype:status"
