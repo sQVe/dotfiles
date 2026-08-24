@@ -337,8 +337,9 @@ binds {
   XF86AudioPrev allow-when-locked=true { spawn "noctalia" "msg" "media" "previous"; }
   XF86AudioRaiseVolume allow-when-locked=true { spawn "noctalia" "msg" "volume-up" "5"; }
   XF86AudioStop allow-when-locked=true repeat=false { spawn "noctalia" "msg" "media" "stop"; }
-  XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia" "msg" "brightness-down" "5"; }
-  XF86MonBrightnessUp allow-when-locked=true { spawn "noctalia" "msg" "brightness-up" "5"; }
+  // Target the laptop panel explicitly; the default follows focus, which lands on an external monitor.
+  XF86MonBrightnessDown allow-when-locked=true { spawn "noctalia" "msg" "brightness-down" "eDP-1" "5"; }
+  XF86MonBrightnessUp allow-when-locked=true { spawn "noctalia" "msg" "brightness-up" "eDP-1" "5"; }
 }
 
 include "noctalia.kdl"
