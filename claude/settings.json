@@ -6,17 +6,14 @@
   "enabledPlugins": {
     "cape@cape": true,
     "context7@claude-plugins-official": false,
-    "fallow@fallow-skills": true,
     "frontend-design@claude-plugins-official": true,
     "gopls-lsp@claude-plugins-official": true,
-    "improve@improve": true,
     "linear@claude-plugins-official": true,
     "notebox@notebox": true,
     "ponytail@ponytail": true,
     "posthog@claude-plugins-official": false,
     "safety-net@cc-marketplace": true,
     "slack@claude-plugins-official": true,
-    "stop-slop@stop-slop": true,
     "typescript-lsp@claude-plugins-official": false
   },
   "env": {
@@ -43,18 +40,6 @@
         "source": "github"
       }
     },
-    "fallow-skills": {
-      "source": {
-        "repo": "fallow-rs/fallow-skills",
-        "source": "github"
-      }
-    },
-    "improve": {
-      "source": {
-        "repo": "shadcn/improve",
-        "source": "github"
-      }
-    },
     "notebox": {
       "source": {
         "path": "/home/sqve/notebox",
@@ -65,12 +50,6 @@
       "source": {
         "repo": "DietrichGebert/ponytail",
         "source": "github"
-      }
-    },
-    "stop-slop": {
-      "source": {
-        "path": "/home/sqve/.dotfiles/claude/plugins/stop-slop",
-        "source": "directory"
       }
     },
     "superpowers-marketplace": {
