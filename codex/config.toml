@@ -83,3 +83,6 @@ trusted_hash = "sha256:fc87dbee1cb8a9be4f78ba094c4fa8d5e2fd38cb800854e3717f9b6a5
 
 [hooks.state."/home/sqve/.codex/hooks.json:post_tool_use:0:0"]
 trusted_hash = "sha256:ac371f260e4b23ba1d1b7a4ad68a44a323a8470b61f38471a47aceac1b7a5a7c"
+
+[hooks.state."cc-safety-net@cc-marketplace:hooks/hooks.json:pre_tool_use:0:0"]
+trusted_hash = "sha256:7b87fcacf51460fefc46c497c2fa90e8dac4489b1e3b2ba7ae9d7e1602baf044"
