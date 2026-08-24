@@ -83,6 +83,7 @@ source "${ZIM_HOME}/init.zsh"
 # Completion.
 source /usr/share/fzf/completion.zsh
 source <(carapace _carapace)
+eval "$(atuin init zsh)"
 eval "$(br completion zsh 2>/dev/null)"
 eval "$(grove completion zsh)"
 eval "$(grove switch shell-init)"
@@ -219,7 +220,8 @@ function zvm_after_init() {
 
   bindkey '^F' fzf-file-widget
   bindkey '^G' fzf-cd-widget
-  bindkey '^R' fzf-history-widget
+  bindkey '^R' atuin-search-viins
+  bindkey '?' self-atuin-ai-question-mark
 
   autopair-init
   bindkey '^ ' autosuggest-accept
@@ -259,7 +261,10 @@ function zvm_after_lazy_keybindings() {
 
   bindkey -M vicmd '^F' fzf-file-widget
   bindkey -M vicmd '^G' fzf-cd-widget
-  bindkey -M vicmd '^R' fzf-history-widget
+  bindkey -M vicmd '^R' atuin-search
+
+  # Atuin binds vicmd '/' at init; zvm never rebinds it, so restore vi search.
+  bindkey -M vicmd '/' vi-history-search-backward
 
   bindkey -M vicmd 'k' history-substring-search-up
   bindkey -M vicmd 'j' history-substring-search-down

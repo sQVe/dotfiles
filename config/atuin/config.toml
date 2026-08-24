@@ -1,0 +1,30 @@
+auto_sync = false
+update_check = false
+enter_accept = false
+search_mode = "daemon-fuzzy"
+filter_mode = "global"
+style = "full"
+inline_height = 20
+invert = true
+show_numeric_shortcuts = false
+keymap_mode = "auto"
+secrets_filter = true
+show_help = false
+show_tabs = false
+
+[ui]
+columns = ["command"]
+
+[daemon]
+enabled = true
+autostart = true
+
+[search]
+frequency_score_multiplier = 2.0
+
+[ai]
+enabled = true
+
+[ai.opening]
+send_cwd = true
+send_last_command = true
