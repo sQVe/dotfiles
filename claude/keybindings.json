@@ -1,0 +1,20 @@
+{
+  "$schema": "https://www.schemastore.org/claude-code-keybindings.json",
+  "$docs": "https://code.claude.com/docs/en/keybindings",
+  "bindings": [
+    {
+      "context": "Transcript",
+      "bindings": {
+        "ctrl+j": "scroll:bottom",
+        "ctrl+k": "scroll:top"
+      }
+    },
+    {
+      "context": "Chat",
+      "bindings": {
+        "ctrl+p": "history:previous",
+        "ctrl+n": "history:next"
+      }
+    }
+  ]
+}
