@@ -4,7 +4,7 @@ diff_view = "side-by-side"
 ignore_whitespace = true
 no_update_check = true
 scroll_offset = 8
-theme = "catppuccin-latte"
+theme = "catppuccin-latte-sel"
 
 comment_types = [
   { id = "issue", definition = "wrong behavior: bug, crash, race, invalid output", color = "#d20f39" },

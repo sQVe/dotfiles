@@ -1,0 +1,51 @@
+# catppuccin-latte with a blue-tinted bg_highlight so visual selections stand
+# out from the cursor line (bundled latte uses surface1 for both).
+panel_bg = "#eff1f5"
+bg_highlight = "#bacef5"
+fg_primary = "#4c4f69"
+fg_secondary = "#5c5f77"
+fg_dim = "#9ca0b0"
+
+diff_add = "#40a02b"
+diff_add_bg = "#cce0cc"
+diff_del = "#d20f39"
+diff_del_bg = "#e9c3cf"
+diff_context = "#4c4f69"
+diff_hunk_header = "#1e66f5"
+expanded_context_fg = "#8c8fa1"
+
+syntax_add_bg = "#d3e4d4"
+syntax_del_bg = "#eaccd6"
+
+file_added = "#40a02b"
+file_modified = "#df8e1d"
+file_deleted = "#d20f39"
+file_renamed = "#ea76cb"
+
+reviewed = "#40a02b"
+pending = "#df8e1d"
+
+comment_note = "#1e66f5"
+comment_suggestion = "#179299"
+comment_issue = "#d20f39"
+comment_praise = "#40a02b"
+
+border_focused = "#1e66f5"
+border_unfocused = "#acb0be"
+status_bar_bg = "#e6e9ef"
+cursor_color = "#fe640b"
+cursor_line_bg = "#bcc0cc"
+branch_name = "#179299"
+help_indicator = "#9ca0b0"
+
+message_info_fg = "#dce0e8"
+message_info_bg = "#179299"
+message_warning_fg = "#dce0e8"
+message_warning_bg = "#df8e1d"
+message_error_fg = "#dce0e8"
+message_error_bg = "#d20f39"
+update_badge_fg = "#dce0e8"
+update_badge_bg = "#fe640b"
+
+mode_fg = "#dce0e8"
+mode_bg = "#7287fd"
