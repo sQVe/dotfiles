@@ -7,10 +7,8 @@ scroll_offset = 8
 theme = "catppuccin-latte-sel"
 
 comment_types = [
-  { id = "issue", definition = "wrong behavior: bug, crash, race, invalid output", color = "#d20f39" },
-  { id = "convention", definition = "diverges from an established pattern or helper in this codebase", color = "#1e66f5" },
-  { id = "simplify", definition = "shorter, plainer, or deletable: dead code, needless indirection", color = "#179299" },
-  { id = "missing", definition = "absent test, guard, error state, or tracking that should exist", color = "#fe640b" },
+  { id = "issue", definition = "must fix: bug, crash, race, invalid output, or missing test/guard/error state", color = "#d20f39" },
+  { id = "suggestion", definition = "should consider: simpler, shorter, or matches an existing pattern or helper", color = "#1e66f5" },
   { id = "question", definition = "genuine ask for clarification; no change implied", color = "#8839ef" },
 ]
 

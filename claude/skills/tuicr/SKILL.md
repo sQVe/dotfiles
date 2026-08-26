@@ -141,8 +141,7 @@ Treat these comments as the user's review feedback:
 
 - `issue`: blocking problem to fix first
 - `suggestion`: consider implementing or explain why not
-- `note`: answer or acknowledge
-- `praise`: no action required
+- `question`: answer it; no change implied
 
 If you are waiting during an active review, poll this command about every 30
 seconds and compare comment IDs with the previous result. Read immediately when
