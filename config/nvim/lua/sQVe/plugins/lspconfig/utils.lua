@@ -17,7 +17,7 @@ M.diagnostic_handler = function(_, result, ctx, ...)
   }
 
   if client then
-    if client.name == 'tsgo' then
+    if client.name == 'tsc' then
       ignored_diagnostics = {
         { code = 7016, severity = severity.ERROR },
         { code = 80001, severity = severity.HINT },

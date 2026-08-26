@@ -53,7 +53,7 @@ local M = {
     'gdscript',
     'gdscript3',
 
-    -- tsgo
+    -- tsc
     'javascript',
     'javascriptreact',
     'typescript',
@@ -223,15 +223,7 @@ M.config = function()
     capabilities = capabilities,
   })
 
-  vim.lsp.config('tsgo', {
-    cmd = { 'tsgo', '--lsp', '-stdio' },
-    filetypes = {
-      'javascript',
-      'javascriptreact',
-      'typescript',
-      'typescriptreact',
-    },
-    root_markers = { 'tsconfig.json', 'jsconfig.json', 'package.json' },
+  vim.lsp.config('tsc', {
     on_attach = on_attach,
     capabilities = capabilities,
   })
@@ -261,7 +253,7 @@ M.config = function()
     'lua_ls',
     'marksman',
     'tinymist',
-    'tsgo',
+    'tsc',
     'yamlls',
   })
 
