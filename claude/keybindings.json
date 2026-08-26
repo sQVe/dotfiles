@@ -3,7 +3,7 @@
   "$docs": "https://code.claude.com/docs/en/keybindings",
   "bindings": [
     {
-      "context": "Transcript",
+      "context": "Scroll",
       "bindings": {
         "ctrl+j": "scroll:bottom",
         "ctrl+k": "scroll:top"
