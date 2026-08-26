@@ -21,13 +21,13 @@ ueberzug_scale = 1
 ueberzug_offset = [0, 0, 0, 0]
 
 [opener]
-edit = [{ run = 'nvim "$@"', block = true }]
-open = [{ run = 'mimeo -q "$@"', desc = "Open" }]
+edit = [{ run = 'nvim %s', block = true }]
+open = [{ run = 'mimeo -q %s', desc = "Open" }]
 reveal = [
-  { run = '''exiftool "$1"; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF" },
+  { run = '''exiftool %s1; echo "Press enter to exit"; read''', block = true, desc = "Show EXIF" },
 ]
-extract = [{ run = 'unar "$1"', desc = "Extract here" }]
-play = [{ run = 'mpv "$@"', orphan = true }]
+extract = [{ run = 'unar %s1', desc = "Extract here" }]
+play = [{ run = 'mpv %s', orphan = true }]
 
 [open]
 rules = [
