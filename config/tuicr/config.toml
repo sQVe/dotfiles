@@ -1,9 +1,10 @@
 comment_tab_width = 2
 comment_vim = true
-diff_view = "side-by-side"
+diff_view = "unified"
 ignore_whitespace = true
 no_update_check = true
 scroll_offset = 8
+single_file_view = true
 theme = "catppuccin-latte-sel"
 
 comment_types = [
