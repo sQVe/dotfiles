@@ -1,0 +1,16 @@
+{
+  "settings": {
+    "refresh_minutes": {
+      "description": "How often the CLI is asked for fresh usage. One call serves every capsule.",
+      "label": "Refresh interval (minutes)"
+    },
+    "vendor": {
+      "description": "Which plan this capsule tracks, by the id ai-usagebar reports (anthropic, openai, openrouter, ...).",
+      "label": "Vendor"
+    },
+    "window": {
+      "description": "Which of the plan's windows to read, matched against their names and comma separated for several in one capsule (e.g. \"fable,weekly\"). Empty takes the first.",
+      "label": "Window"
+    }
+  }
+}

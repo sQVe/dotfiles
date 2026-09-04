@@ -249,6 +249,19 @@ type = "sysmon"
 stat = "cpu_temp"
 font_family = "Maple Mono"
 
+# `window` matches the names the CLI reports, comma separated for several in one
+# capsule. Anthropic carries the per-model window next to the plan's weekly one;
+# each is coloured by its own severity, so the red number is the binding limit.
+[widget.ai_claude]
+type = "sqve/ai-usage:bar"
+vendor = "anthropic"
+window = "fable,weekly"
+
+[widget.ai_codex]
+type = "sqve/ai-usage:bar"
+vendor = "openai"
+window = "weekly"
+
 [widget.spacer_a]
 type = "spacer"
 length = 10

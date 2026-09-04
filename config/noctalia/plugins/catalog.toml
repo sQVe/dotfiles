@@ -1,4 +1,15 @@
 [[plugin]]
+id          = "sqve/ai-usage"
+name        = "AI usage"
+version     = "1.0.0"
+plugin_api  = 14
+author      = "sqve"
+license     = "MIT"
+icon        = "brain"
+description = "One AI plan usage window per capsule, from the ai-usagebar CLI."
+tags        = ["bar", "ai", "indicator"]
+
+[[plugin]]
 id          = "sqve/keep-creds"
 name        = "Keep credentials"
 version     = "1.0.0"
