@@ -1051,7 +1051,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = 'https://devdocs.io'
+c.url.start_pages = 'https://mado.kamaji.local'
 
 # URL parameters to strip when yanking a URL.
 # Type: List of String
