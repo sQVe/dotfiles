@@ -1,85 +1,100 @@
 ---
 name: grove
-description: "Create, switch, inspect, and clean up git worktrees via grove. Use when the user wants to work on a branch or PR in a separate worktree, run a command across worktrees, review a PR in isolation, or prune stale worktrees. grove is the interface — do not use raw `git worktree`."
+description: "Create, inspect, run commands in, and clean up git worktrees with grove. Use when the user wants a branch or PR in its own worktree, a command run in another worktree or across all of them, a per-ticket worktree plus herdr workspace, or stale worktrees removed. grove is the interface. Do not use raw `git worktree`."
 ---
 
-# grove — agent skill
+# Grove
 
-grove manages git worktrees. it is the interface for all worktree work — prefer it over raw `git worktree`. the `grove` binary is in PATH and shell integration is already active.
+grove manages git worktrees. Use it for all worktree work instead of raw `git worktree`. The `grove` binary is on PATH. Run `grove <command> --help` for flags not listed here.
 
-run any grove command from anywhere inside the workspace (any worktree dir). if a command reports `not in a grove workspace`, you are outside one — `cd` into a worktree first, or `grove clone <url>` / `grove init` to make one.
+A workspace is one directory per repo holding `.bare/` (git data) plus one subdirectory per worktree, for example `aburaya/main` and `aburaya/abu-294`. `main` is a worktree like any other, though `.grove.toml` may autolock it. `<wt>` arguments take the directory name or the branch name.
 
-## the cwd rule (read first)
+## Rules
 
-`grove switch` works by `cd`-ing your shell via a shell function. each Bash tool call is a fresh shell, so **`grove switch` never persists across your calls — do not use it to "stay" in a worktree.**
+- Each Bash call is a fresh shell, so `grove switch` (and `grove add -s`) never persists across calls. To act inside a worktree, use `grove exec <wt> -- <cmd>` or `cd <path> && <cmd>` in one call. Take paths from `grove list --json`. Never assume your cwd between calls.
+- `grove list` works from anywhere in the workspace. `grove status` needs cwd inside a worktree. From the workspace root it fails with "must be run in a work tree".
+- `grove list --json` prints a progress line to stderr. Pipe stdout only into jq. `2>&1` breaks the parse.
+- `grove prune` is a dry run. Removal needs `--commit`.
+- There is no `--branch` flag on `add`. The branch is the positional argument and `--name` sets the directory.
+- `grove add` runs the `hooks.add` commands from `.grove.toml` (often `pnpm install`). A failed hook still leaves the worktree in place. Rerun the hook with `grove exec`, not `grove add`.
 
-to act inside a specific worktree, use one of:
+## Discover state
 
-- `grove exec <worktree> -- <command>` — runs the command in that worktree regardless of cwd. **preferred.**
-- `cd <path> && <command>` in a single call — get `<path>` from `grove list --json`.
-
-never assume your cwd is a given worktree between calls.
-
-## discover state
+List worktrees as JSON, then pick the path you need.
 
 ```bash
-grove list --json          # machine-readable array — parse this
-grove list -v              # human view with paths and upstreams
-grove list --filter dirty  # filter by: dirty,ahead,behind,gone,locked
-grove status               # current worktree only
+grove list --json --fast
+grove list --json --fast | jq -r '.[] | select(.name == "abu-294") | .path'
 ```
 
-`grove list --json` returns one object per worktree. fields: `name` (dir), `branch`, `path` (absolute — use this to `cd`), `current` (bool), plus state flags that appear only when set: `dirty`, `upstream` (string) or `no_upstream`, and the filter states (`ahead`/`behind`/`gone`/`locked`). treat absent flags as false.
+Each object has `name` (directory), `branch`, `path` (absolute), `current`, and flags present only when set: `dirty`, `upstream` or `no_upstream`, `ahead`, `behind`, `gone`, `locked`, `lock_reason`, `last_commit`. Treat absent flags as false. `--fast` skips dirty and sync checks and drops `dirty`, `upstream`, `no_upstream`, `ahead`, `behind`, `gone`, and `last_commit`. `--filter` accepts `dirty`, `ahead`, `behind`, `gone`, `locked`. `--sort recent` orders by last commit. Pass `--plain` on any non-JSON output you parse or echo. Do not create a worktree just to inspect one.
 
-## core commands
+Status of another worktree without changing cwd.
 
-| goal | command |
+```bash
+grove exec <wt> -- grove status --json
+```
+
+## Add a worktree
+
+The directory defaults to the branch name with `/` replaced by `-`. `--base` defaults to the default branch.
+
+| Goal | Command |
 | --- | --- |
-| new branch off main | `grove add --base main feat/x` → creates `./feat-x` |
-| existing branch | `grove add feat/x` |
-| custom dir name | `grove add feat/x --name x` |
-| carry uncommitted files in | `grove add --from <src> feat/x` |
-| review a PR | `grove add --pr 123` → creates `./pr-123` |
-| run a command in a worktree | `grove exec <wt> -- <cmd>` |
-| run across all worktrees | `grove exec --all -- <cmd>` (add `--fail-fast` to stop early) |
-| remove one | `grove remove <wt>` |
-| prune deleted-upstream worktrees | `grove prune` |
+| New or existing branch off the default branch | `grove add feat/x` |
+| Different base | `grove add --base origin/main feat/x` |
+| Short directory name | `grove add feat/abu-294-unreviewed-default --name abu-294` |
+| Carry uncommitted changes from another worktree | `grove add --from <wt> feat/x` |
+| Check out a PR into `./pr-123` | `grove add --pr 123` (`--reset` if the branch diverged) |
+| Offline | `grove add --no-fetch feat/x` |
 
-`-s` / `--switch` on `add` only matters interactively (see the cwd rule) — for agent work, create then `grove exec` into it.
+`grove add` on a branch that already has a worktree fails with "worktree already exists". Check `grove list` first.
 
-## common flows
+## Run a command in another worktree
 
-### start work on a new branch
+Use `grove exec` so cwd does not matter.
 
 ```bash
-grove add --base main feat/thing
-grove exec feat-thing -- <setup cmd>   # e.g. install deps
-# then operate: grove exec feat-thing -- <cmd>, or cd into its path from `grove list --json`
-```
-
-### review a pull request in isolation
-
-```bash
-grove add --pr 123                     # checks out the PR branch into ./pr-123
-grove exec pr-123 -- <build/test cmd>
-grove remove pr-123                    # when done
-```
-
-### run the same command everywhere
-
-```bash
+grove exec abu-294 -- pnpm install --frozen-lockfile
+grove exec fix-thing -- git diff --stat
+grove exec main -- git branch -d fix/thing
 grove exec --all -- npm ci
 grove exec --all --fail-fast -- go build ./...
 ```
 
-### clean up
+`grove exec --json` returns per-worktree results. "All N executions failed" means the command itself failed inside the worktree, not grove.
 
-`grove prune` removes worktrees whose upstream branch is gone (the safe bulk cleanup). for a specific one, `grove remove <wt>`. a locked worktree must be `grove unlock`ed first.
+## Clean up
 
-## notes
+Remove a finished worktree with its branch, then remove every worktree whose upstream is gone.
 
-- workspace layout: each repo is a workspace dir holding a `.bare/` (the git data) plus one subdir per worktree — e.g. `fff.nvim/main`, `fff.nvim/feat-x`. `main` is itself a worktree, not special.
-- directory name derives from the branch (`feat/x` → `feat-x`) unless `--name` is given. worktrees are created as subdirs of the workspace root.
-- team-shared config lives in `.grove.toml` (`grove config init` to scaffold); personal config in global git config. precedence: `grove config list`.
-- `grove doctor` diagnoses a broken workspace.
-- if you only need to know what exists, `grove list --json` is enough — do not create a worktree to inspect one.
+```bash
+grove remove abu-294 --branch
+grove prune --commit
+```
+
+`grove remove` refuses dirty or locked worktrees. Add `--force` only when the changes are disposable. `grove prune` takes `--merged`, `--stale 30d`, and `--force` as opt-ins. If `main` is autolocked, run `grove unlock main` before removing it. Protect others with `grove lock <wt> --reason "..."`.
+
+## Workspace
+
+`not in a grove workspace` means cwd is outside one. `cd` into a worktree, or create one with `grove clone <url|pr-url>`, `grove init new [dir]`, or `grove init convert`. Bare `grove init` only prints usage. `grove doctor` diagnoses a broken workspace. `grove config list` shows the effective config.
+
+## Inside herdr
+
+Skip this section unless `HERDR_ENV` is `1`. Then herdr is the multiplexer and every worktree gets its own herdr workspace, grouped under the repo. A herdr hook adopts any workspace whose first pane sits in a linked worktree, so `herdr workspace create --cwd <worktree path>` is enough.
+
+Create the worktree with grove, then open it as a background workspace and keep the ids.
+
+```bash
+grove add --base main feat/abu-294-unreviewed-default --name abu-294
+path=$(grove list --json --fast | jq -r '.[] | select(.name == "abu-294") | .path')
+herdr workspace create --cwd "${path}" --label "aburaya: ABU-294 unreviewed default" --no-focus \
+  | jq -r '.result.workspace.workspace_id, .result.root_pane.pane_id'
+```
+
+For several tickets, loop over `"<id>|<branch>|<label>"` specs and run the same two commands per entry.
+
+- Pass the worktree path itself as `--cwd`, not a subdirectory.
+- Never run `herdr worktree create`. It skips grove entirely, so hooks, preserve patterns, autolock, and grove's bookkeeping do not apply.
+- Removing the worktree with `grove remove` does not close the herdr workspace. Close it with `herdr workspace close <id>` first.
+- Read ids from the JSON response. They are opaque strings like `w8Y` and `w8Y:p1`, not ordinals.
