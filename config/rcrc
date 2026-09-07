@@ -1,4 +1,4 @@
 EXCLUDES='README selene.toml stylua.toml vim.toml'
 # Descending into these would create self-referential symlinks: the target dir
 # is already a symlink back into this repo.
-SYMLINK_DIRS='config/noctalia/palettes claude/skills/vercel-react-best-practices'
+SYMLINK_DIRS='config/noctalia/palettes'
