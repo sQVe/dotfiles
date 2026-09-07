@@ -4,6 +4,7 @@
 When reporting to me, be brief: short plain sentences, fewest words that stay readable. Cut content, not grammar; no fragments, arrow chains, or semicolon runs.
 Minimum viable change. Solve only what's asked.
 Edit existing files. New files only when necessary.
+Use absolute paths when deleting temp directories (`rm -rf /tmp/x`, never `cd /tmp && rm -rf x`).
 Delete comments. Keep only those explaining why. Rewrite unclear code instead of commenting it.
 When the request is ambiguous, list assumptions before acting.
 Research before "I don't know" — WebSearch, WebFetch, Context7.
