@@ -144,6 +144,24 @@ herdr pane read w8Y:p2 --source visible --lines 20
 
 If more `--lines` reveals nothing, the agent runs on the alternate screen and old rows are gone. Ask the agent to write its answer to a file and read that.
 
+## Name workspaces
+
+Worktree workspaces are grouped under their repo workspace, and the parent row already shows the repo. Do not repeat it in a child label. The sidebar is 38 columns and children are indented, so keep child labels under about 30 characters.
+
+| Workspace | Label | Example |
+|---|---|---|
+| Repo parent | Repo name, or its role | `platform`, `orchestrator` |
+| Worktree work | `<2-4 words>` | `enforce TDD`, `meeting bot` |
+| Ungrouped workspace | `<repo>: <2-4 words>` | `aburaya: redesign` |
+
+Only an ungrouped workspace carries the repo prefix, because nothing above it says which repo it belongs to.
+
+Never put the ticket ID in the label. A second sidebar row shows `#PR · TICKET` on its own, filled in by `report-ids.sh` from the branch and the open PR. Setting a `pr` or `linear` token yourself is wasted work; the next sweep overwrites it.
+
+Describe the goal, not the branch. Where the work has a ticket, read its title with the repo's Linear MCP before creating the workspace; the branch is a lossy copy of that title and is usually truncated. Compress the title, or your own task where there is no ticket, down to the words that tell this workspace apart from its siblings: `base on fetched default`, not `abu-318-base-new-branches-on-the-fetched-default-branch-instead-of`. Lowercase, keeping acronyms as they read (`enforce TDD`).
+
+Rename with `herdr workspace rename <id> <label>` when the task changes. Leave workspaces the user created alone unless asked to fix one.
+
 ## Open a worktree as a workspace
 
 Create worktrees with grove and open them with `herdr workspace create`. A hook groups the new workspace under the repo workspace. Never use `herdr worktree create`; it skips grove's hooks and bookkeeping.
@@ -153,7 +171,7 @@ Run from the repo's main worktree.
 ```bash
 grove add --base main feat/unreviewed-default --name abu-294
 WT=$(grove list --json --fast | jq -r '.[] | select(.name=="abu-294").path')
-WS_JSON=$(herdr workspace create --cwd "$WT" --label "aburaya: ABU-294 unreviewed default" --no-focus)
+WS_JSON=$(herdr workspace create --cwd "$WT" --label "unreviewed today" --no-focus)
 WS=$(echo "$WS_JSON" | jq -r .result.workspace.workspace_id)
 ROOT=$(echo "$WS_JSON" | jq -r .result.root_pane.pane_id)
 ```
@@ -161,6 +179,16 @@ ROOT=$(echo "$WS_JSON" | jq -r .result.root_pane.pane_id)
 `--cwd` must be the worktree path itself. Pipe only stdout from `grove list`; it writes progress to stderr. `grove add` runs repo hooks such as `pnpm install`. A failed hook still leaves the worktree; fix it with `grove exec abu-294 -- pnpm install`.
 
 Then start an agent in `$ROOT` as in "Start a worker agent in its own tab".
+
+## Adopt a worktree the user made
+
+A worktree created outside herdr either has no workspace or has one that never got grouped. Check which before acting.
+
+```bash
+herdr workspace list | jq -r --arg wt "$WT" '.result.workspaces[] | select(.worktree.checkout_path == $wt) | .workspace_id'
+```
+
+No output means no workspace: run `herdr workspace create --cwd "$WT"` as above and the hook groups it. Output means a workspace exists, so read it with `herdr workspace get <id>` and fix only what is wrong. A bad label needs `herdr workspace rename <id> <label>`. A workspace sitting ungrouped has to be closed and recreated, which kills its panes, so confirm with the user first when anything is running in it.
 
 ## Clean up
 

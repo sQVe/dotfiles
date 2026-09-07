@@ -48,6 +48,14 @@ The directory defaults to the branch name with `/` replaced by `-`. `--base` def
 | Check out a PR into `./pr-123` | `grove add --pr 123` (`--reset` if the branch diverged) |
 | Offline | `grove add --no-fetch feat/x` |
 
+Name the directory yourself with `--name`. Grove derives it from the branch otherwise, which produces long names truncated mid-word, such as `abu-318-base-new-branches-on-the-fetched-default-branch-instead-of`. Use the bare ticket ID for ticket work (`abu-294`) and a two or three word slug otherwise (`meeting-bot`). Keep the full description in the branch name, where length costs nothing.
+
+```bash
+grove add feat/abu-294-default-unreviewed-today --name abu-294
+```
+
+The directory name is what `grove exec`, `grove remove`, and every other command take as `<wt>`, so short names pay off on every later call. Keep it stable: if the branch is renamed, the directory keeps its old name and drifts out of sync.
+
 `grove add` on a branch that already has a worktree fails with "worktree already exists". Check `grove list` first.
 
 ## Run a command in another worktree
@@ -88,7 +96,7 @@ Create the worktree with grove, then open it as a background workspace and keep 
 ```bash
 grove add --base main feat/abu-294-unreviewed-default --name abu-294
 path=$(grove list --json --fast | jq -r '.[] | select(.name == "abu-294") | .path')
-herdr workspace create --cwd "${path}" --label "aburaya: ABU-294 unreviewed default" --no-focus \
+herdr workspace create --cwd "${path}" --label "unreviewed today" --no-focus \
   | jq -r '.result.workspace.workspace_id, .result.root_pane.pane_id'
 ```
 
@@ -97,4 +105,4 @@ For several tickets, loop over `"<id>|<branch>|<label>"` specs and run the same 
 - Pass the worktree path itself as `--cwd`, not a subdirectory.
 - Never run `herdr worktree create`. It skips grove entirely, so hooks, preserve patterns, autolock, and grove's bookkeeping do not apply.
 - Removing the worktree with `grove remove` does not close the herdr workspace. Close it with `herdr workspace close <id>` first.
-- Read ids from the JSON response. They are opaque strings like `w8Y` and `w8Y:p1`, not ordinals.
+- Label the workspace without a repo prefix; the parent row already shows the repo. Read ids from the JSON response. They are opaque strings like `w8Y` and `w8Y:p1`, not ordinals.
