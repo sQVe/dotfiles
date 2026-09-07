@@ -1,0 +1,6 @@
+[Unit]
+Description=Report PR and Linear ids to the herdr sidebar
+
+[Service]
+Type=oneshot
+ExecStart=%h/.config/herdr/report-ids.sh

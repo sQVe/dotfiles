@@ -6,8 +6,8 @@ onboarding = false
 close_pane = ["prefix+q", "ctrl+shift+q"]
 close_tab = ""                                                   # disabled
 close_workspace = ["prefix+d", "ctrl+shift+d"]
-cycle_pane_next = ["prefix+l", "ctrl+shift+l"]
-cycle_pane_previous = ["prefix+h", "ctrl+shift+h"]
+cycle_pane_next = ["prefix+l", "ctrl+shift+l", "prefix+right", "ctrl+shift+right"]
+cycle_pane_previous = ["prefix+h", "ctrl+shift+h", "prefix+left", "ctrl+shift+left"]
 detach = ["prefix+z", "ctrl+shift+z"]
 focus_pane_down = ""                                             # disabled
 focus_pane_left = ""                                             # disabled
@@ -18,16 +18,16 @@ navigate_pane_down = ""                                          # disabled
 navigate_pane_left = ""                                          # disabled
 navigate_pane_right = ""                                         # disabled
 navigate_pane_up = ""                                            # disabled
-navigate_workspace_down = "j"
-navigate_workspace_up = "k"
+navigate_workspace_down = ["j", "down"]
+navigate_workspace_up = ["k", "up"]
 new_tab = ["prefix+t", "ctrl+shift+t"]
 new_workspace = ["prefix+n", "ctrl+shift+n", "ctrl+shift+enter"]
 new_worktree = ""                                                # disabled
 next_tab = ["prefix+o", "ctrl+shift+o"]
-next_workspace = ["prefix+j", "ctrl+shift+j"]
+next_workspace = ["prefix+j", "ctrl+shift+j", "prefix+down", "ctrl+shift+down"]
 prefix = "ctrl+b"
 previous_tab = ""                                                # disabled
-previous_workspace = ["prefix+k", "ctrl+shift+k"]
+previous_workspace = ["prefix+k", "ctrl+shift+k", "prefix+up", "ctrl+shift+up"]
 reload_config = ""                                               # disabled
 rename_tab = ""                                                  # disabled
 rename_workspace = ["prefix+r", "ctrl+shift+r"]
@@ -59,11 +59,12 @@ sidebar_width = 38
 rows = [["state_icon", "workspace", "tab"], [{ token = "terminal_title_stripped", dim = true }]]
 
 [ui.sidebar.spaces]
-# $phase comes from `herdr workspace report-metadata --source cape --token phase=...`.
-# Rows drop out entirely when no token has a value, so this is inert without cape.
-# Densest block is furthest along: ░ plan, ▒ build, ▓ review, █ pr.
+# report-ids.sh supplies $pr from the open PR and $linear from its closing
+# lines, falling back to the branch for the ticket.
+# The second row is hidden when both tokens are empty.
 rows = [
-  ["state_icon", "workspace", { token = "$phase", fg = "#6c6f85" }],
+  ["state_icon", "workspace"],
+  [{ token = "$pr", fg = "#8c8fa1" }, { token = "$linear", fg = "#8c8fa1" }],
 ]
 
 [ui.toast]
@@ -78,10 +79,3 @@ resume_agents_on_restore = true
 [experimental]
 allow_nested = false
 pane_history = true
-
-[[keys.command]]
-key = "prefix+shift+g"
-type = "popup"
-command = "~/.config/herdr/grove-worktree.sh"
-description = "new grove worktree"
-height = 5
