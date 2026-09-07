@@ -7,8 +7,10 @@
   "theme": "light",
   "defaultProvider": "openai-codex",
   "defaultModel": "gpt-6-astra",
-  "extensions": [
-    "/home/sqve/code/personal/tau/main/src/extensions"
-  ],
-  "defaultThinkingLevel": "medium"
+  "defaultThinkingLevel": "medium",
+  "packages": [
+    "/home/sqve/code/personal/tau/main",
+    "npm:cc-safety-net",
+    "git:github.com/DietrichGebert/ponytail"
+  ]
 }
