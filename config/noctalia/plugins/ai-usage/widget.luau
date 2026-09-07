@@ -88,7 +88,7 @@ end
 local function colorFor(metric)
     local severity = tostring(metric and metric.severity or "")
     if severity == "critical" then return "error" end
-    if severity == "high" then return "tertiary" end
+    if severity == "high" then return "#e8912d" end
     return "on_surface"
 end
 
