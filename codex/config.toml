@@ -1,5 +1,5 @@
-model = "gpt-5.6-sol"
-model_reasoning_effort = "high"
+model = "gpt-6-astra"
+model_reasoning_effort = "medium"
 sandbox_mode = "danger-full-access"
 approval_policy = "never"
 
@@ -80,3 +80,6 @@ trusted_hash = "sha256:7b87fcacf51460fefc46c497c2fa90e8dac4489b1e3b2ba7ae9d7e160
 
 [hooks.state."cc-safety-net@cc-marketplace:hooks/codex.json:pre_tool_use:0:0"]
 trusted_hash = "sha256:5174e0a51d30e5607ceaa390f6be6d5bf3487b570b8d42fbe70b2f8b40f16aa2"
+
+[tui.model_availability_nux]
+gpt-6-astra = 4
