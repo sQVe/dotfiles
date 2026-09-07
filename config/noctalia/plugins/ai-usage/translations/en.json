@@ -5,7 +5,7 @@
       "label": "Refresh interval (minutes)"
     },
     "vendor": {
-      "description": "Which plan this capsule tracks, by the id ai-usagebar reports (anthropic, openai, openrouter, ...).",
+      "description": "Which plans this capsule tracks, by the id ai-usagebar reports, comma separated for several in one capsule (e.g. \"openai,openai@work\"). A named account is \"<vendor>@<label>\".",
       "label": "Vendor"
     },
     "window": {

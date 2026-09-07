@@ -1,11 +1,23 @@
 --!nonstrict
--- One capsule: a vendor mark and one percentage per window. `vendor` picks the
--- plan and `window` names the windows to read, comma separated, so a single
--- capsule can carry a plan's weekly window next to a per-model one. Each
--- reading is coloured by its own severity, which is the point of grouping them:
--- one red number in the row is the one that stops the next prompt.
+-- One capsule: a vendor mark and one percentage per reading. Both `vendor` and
+-- `window` take comma-separated lists, and the readings are their cross
+-- product, so a capsule can carry two windows of one plan (Claude's weekly and
+-- per-model) or one window of two plans (two ChatGPT logins). Each reading is
+-- coloured by its own severity, which is the point of grouping them: one red
+-- number in the row is the one that stops the next prompt.
 
-local vendor = string.lower(tostring(noctalia.getConfig("vendor") or "anthropic"))
+local function listSetting(key)
+    local items = {}
+    for item in string.gmatch(tostring(noctalia.getConfig(key) or ""), "[^,]+") do
+        local trimmed = string.lower(noctalia.string.trim(item))
+        if trimmed ~= "" then items[#items + 1] = trimmed end
+    end
+    return items
+end
+
+local vendors = listSetting("vendor")
+if #vendors == 0 then vendors = { "anthropic" } end
+local windows = listSetting("window")
 
 -- Tabler carries an OpenAI mark but no Claude one, so Claude ships as an SVG
 -- asset. ui.image takes no colour role, so the ink is baked into the file: this
@@ -28,29 +40,25 @@ local GLYPH_SIZE = 13
 -- matches the glyph's weight without moving off centre.
 local IMAGE_SIZE = 15
 
+-- A named account reports as "<vendor>@<label>" ("openai@work"), which is the
+-- id to select but not the one that has a mark: both logins of a vendor share
+-- its icon. A capsule spanning several vendors is named after its first.
+local function baseVendor()
+    return (vendors[1]:gsub("@.*$", ""))
+end
+
 local function iconNode()
-    local icon = ICONS[vendor]
+    local icon = ICONS[baseVendor()]
     if icon ~= nil and icon.image ~= nil then
         return ui.image({ path = icon.image, width = IMAGE_SIZE, height = IMAGE_SIZE, fit = "contain" })
     end
     return ui.glyph({ name = icon ~= nil and icon.glyph or "brain", size = GLYPH_SIZE, color = "on_surface" })
 end
 
-local function windowNames()
-    local names = {}
-    for name in string.gmatch(tostring(noctalia.getConfig("window") or ""), "[^,]+") do
-        local trimmed = string.lower(noctalia.string.trim(name))
-        if trimmed ~= "" then names[#names + 1] = trimmed end
-    end
-    return names
-end
-
-local windows = windowNames()
-
-local function entryFor(report)
+local function entryFor(report, id)
     if type(report) ~= "table" or type(report.entries) ~= "table" then return nil end
     for _, entry in ipairs(report.entries) do
-        if tostring(entry.id or "") == vendor then return entry end
+        if tostring(entry.id or "") == id then return entry end
     end
     return nil
 end
@@ -114,11 +122,20 @@ local function detailRows(detail, rows)
     end
 end
 
-local function tooltipFor(entry, metrics)
-    local rows = { { key = tostring(entry.display_name or vendor), value = tostring(entry.plan or "") } }
-    for _, metric in ipairs(metrics) do
-        rows[#rows + 1] = { key = tostring(metric.label or ""), value = percentText(metric) }
-        detailRows(metric.detail, rows)
+-- One header per plan, then its windows under it, so a capsule carrying two
+-- ChatGPT logins says which percentage belongs to which subscription.
+local function tooltipFor(readings)
+    local rows, lastEntry = {}, nil
+    for _, reading in ipairs(readings) do
+        if reading.entry ~= lastEntry then
+            rows[#rows + 1] = {
+                key = tostring(reading.entry.display_name or reading.entry.id or ""),
+                value = tostring(reading.entry.plan or ""),
+            }
+            lastEntry = reading.entry
+        end
+        rows[#rows + 1] = { key = tostring(reading.metric.label or ""), value = percentText(reading.metric) }
+        detailRows(reading.metric.detail, rows)
     end
     return rows
 end
@@ -134,35 +151,49 @@ local function fallback(text, role, tooltip)
     barWidget.setTooltip(tooltip)
 end
 
+-- A vendor that is missing or erroring contributes no reading but does not sink
+-- the capsule: with two logins on one capsule, one broken login should not hide
+-- the other's percentage. Its trouble is reported in the tooltip instead.
+local function readingsFor(report)
+    local readings, problems = {}, {}
+    for _, id in ipairs(vendors) do
+        local entry = entryFor(report, id)
+        if entry == nil then
+            problems[#problems + 1] = { key = id, value = "not reported" }
+        elseif tostring(entry.status or "") == "error" then
+            problems[#problems + 1] = { key = id, value = tostring(entry.error or "vendor error") }
+        else
+            for _, metric in ipairs(metricsFor(entry)) do
+                readings[#readings + 1] = { entry = entry, metric = metric }
+            end
+        end
+    end
+    return readings, problems
+end
+
 local function render()
     local err = tostring(noctalia.state.get("error") or "")
-    local entry = entryFor(noctalia.state.get("report"))
+    local readings, problems = readingsFor(noctalia.state.get("report"))
 
-    if entry == nil then
-        fallback("—", "on_surface_variant", err ~= "" and err or ("no usage for " .. vendor))
-        return
-    end
-    if tostring(entry.status or "") == "error" then
-        fallback("!", "error", tostring(entry.error or "vendor error"))
-        return
-    end
-
-    local metrics = metricsFor(entry)
-    if #metrics == 0 then
-        fallback("—", "on_surface_variant", "no matching window for " .. vendor)
+    if #readings == 0 then
+        local detail = err ~= "" and err or (problems[1] ~= nil and problems[1].value or "no matching window")
+        fallback(#problems > 0 and "!" or "—", #problems > 0 and "error" or "on_surface_variant", detail)
         return
     end
 
     local nodes = { iconNode() }
-    for _, metric in ipairs(metrics) do
+    for _, reading in ipairs(readings) do
         nodes[#nodes + 1] = ui.label({
-            text = percentText(metric), fontSize = 11, fontWeight = "semibold",
-            color = colorFor(metric), baseline = "inkCentered",
+            text = percentText(reading.metric), fontSize = 11, fontWeight = "semibold",
+            color = colorFor(reading.metric), baseline = "inkCentered",
         })
     end
 
+    local rows = tooltipFor(readings)
+    for _, problem in ipairs(problems) do rows[#rows + 1] = problem end
+
     barWidget.render(ui.row({ gap = 4, align = "center" }, nodes))
-    barWidget.setTooltip(tooltipFor(entry, metrics))
+    barWidget.setTooltip(rows)
 end
 
 noctalia.state.watch("report", render)
