@@ -1,136 +1,20 @@
 {
   "$schema": "https://json.schemastore.org/claude-code-settings.json",
-  "alwaysThinkingEnabled": true,
   "cleanupPeriodDays": 7,
-  "effortLevel": "high",
-  "enabledPlugins": {
-    "cape@cape": true,
-    "context7@claude-plugins-official": false,
-    "frontend-design@claude-plugins-official": true,
-    "gopls-lsp@claude-plugins-official": true,
-    "linear@claude-plugins-official": true,
-    "notebox@notebox": true,
-    "ponytail@ponytail": true,
-    "posthog@claude-plugins-official": false,
-    "safety-net@cc-marketplace": true,
-    "slack@claude-plugins-official": true,
-    "typescript-lsp@claude-plugins-official": false
-  },
+  "skillListingMaxDescChars": 2048,
+  "skillListingBudgetFraction": 0.02,
   "env": {
     "BASH_DEFAULT_TIMEOUT_MS": "120000",
     "BASH_MAX_TIMEOUT_MS": "120000",
     "BROWSER": "google-chrome-stable",
     "CLAUDE_CODE_MAX_OUTPUT_TOKENS": "128000",
-    "CLAUDE_CODE_SUBAGENT_MODEL": "opus",
     "DISABLE_AUTOUPDATER": "1",
     "DISABLE_ERROR_REPORTING": "1",
     "DISABLE_NON_ESSENTIAL_MODEL_CALLS": "1",
     "DISABLE_TELEMETRY": "1",
     "ENABLE_LSP_TOOL": "1"
   },
-  "extraKnownMarketplaces": {
-    "cape": {
-      "source": {
-        "path": "/home/sqve/code/personal/cape/main",
-        "source": "directory"
-      }
-    },
-    "cc-marketplace": {
-      "source": {
-        "repo": "kenryu42/cc-marketplace",
-        "source": "github"
-      }
-    },
-    "notebox": {
-      "source": {
-        "path": "/home/sqve/notebox",
-        "source": "directory"
-      }
-    },
-    "ponytail": {
-      "source": {
-        "repo": "DietrichGebert/ponytail",
-        "source": "github"
-      }
-    },
-    "superpowers-marketplace": {
-      "source": {
-        "repo": "obra/superpowers-marketplace",
-        "source": "github"
-      }
-    }
-  },
-  "feedbackSurveyState": {
-    "lastShownTime": 1754085535302
-  },
-  "hooks": {
-    "PostToolUse": [
-      {
-        "hooks": [
-          {
-            "command": "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && code-review-graph update --skip-flows",
-            "timeout": 30,
-            "type": "command"
-          }
-        ],
-        "matcher": "Edit|Write"
-      }
-    ],
-    "SessionStart": [
-      {
-        "hooks": [
-          {
-            "command": "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && code-review-graph update --skip-flows",
-            "timeout": 60,
-            "type": "command"
-          }
-        ],
-        "matcher": ""
-      },
-      {
-        "hooks": [
-          {
-            "command": "bash '/home/sqve/.claude/hooks/herdr-agent-state-guard.sh' session",
-            "timeout": 10,
-            "type": "command"
-          }
-        ],
-        "matcher": "*"
-      },
-      {
-        "hooks": [
-          {
-            "command": "bash '/home/sqve/.claude/hooks/herdr-agent-state.sh' session",
-            "timeout": 10,
-            "type": "command"
-          }
-        ],
-        "matcher": "*"
-      }
-    ]
-  },
   "includeCoAuthoredBy": false,
-  "lspServers": {
-    "typescript": {
-      "args": [
-        "--stdio"
-      ],
-      "command": "typescript-language-server",
-      "extensionToLanguage": {
-        ".cjs": "javascript",
-        ".cts": "typescript",
-        ".js": "javascript",
-        ".jsx": "javascriptreact",
-        ".mjs": "javascript",
-        ".mts": "typescript",
-        ".ts": "typescript",
-        ".tsx": "typescriptreact"
-      },
-      "initializationOptions": {
-        "maxTsServerMemory": 2048
-      }
-    }
-  },
   "permissions": {
     "allow": [
       "Bash(basename:*)",
@@ -222,15 +106,242 @@
     ],
     "defaultMode": "bypassPermissions"
   },
-  "preferredNotifChannel": "kitty",
-  "skillListingBudgetFraction": 0.02,
-  "skillListingMaxDescChars": 2048,
-  "skipDangerousModePermissionPrompt": true,
-  "statusLine": {
-    "command": "/home/sqve/scripts/claude/statusline.sh",
-    "type": "command"
+  "model": "opus[1m]",
+  "hooks": {
+    "PermissionRequest": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -x '/home/sqve/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/home/sqve/.orca/agent-hooks/claude-hook.sh'; fi",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && code-review-graph update --skip-flows",
+            "timeout": 30
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -x '/home/sqve/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/home/sqve/.orca/agent-hooks/claude-hook.sh'; fi",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "atuin hook claude-code"
+          }
+        ]
+      }
+    ],
+    "PostToolUseFailure": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -x '/home/sqve/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/home/sqve/.orca/agent-hooks/claude-hook.sh'; fi",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "atuin hook claude-code"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -x '/home/sqve/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/home/sqve/.orca/agent-hooks/claude-hook.sh'; fi",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "atuin hook claude-code"
+          }
+        ]
+      }
+    ],
+    "SessionStart": [
+      {
+        "matcher": "",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git rev-parse --is-inside-work-tree >/dev/null 2>&1 && code-review-graph update --skip-flows",
+            "timeout": 60
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/home/sqve/.claude/hooks/herdr-agent-state-guard.sh' session",
+            "timeout": 10
+          }
+        ]
+      },
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash '/home/sqve/.claude/hooks/herdr-agent-state.sh' session",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -x '/home/sqve/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/home/sqve/.orca/agent-hooks/claude-hook.sh'; fi",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "StopFailure": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -x '/home/sqve/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/home/sqve/.orca/agent-hooks/claude-hook.sh'; fi",
+            "timeout": 10
+          }
+        ]
+      }
+    ],
+    "UserPromptSubmit": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "if [ -x '/home/sqve/.orca/agent-hooks/claude-hook.sh' ]; then /bin/sh '/home/sqve/.orca/agent-hooks/claude-hook.sh'; fi",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
   },
+  "statusLine": {
+    "type": "command",
+    "command": "/home/sqve/scripts/claude/statusline.sh"
+  },
+  "enabledPlugins": {
+    "cape@cape": true,
+    "cc-safety-net@cc-marketplace": true,
+    "context7@claude-plugins-official": false,
+    "linear@claude-plugins-official": true,
+    "ponytail@ponytail": true,
+    "slack@claude-plugins-official": true,
+    "typescript-lsp@claude-plugins-official": false
+  },
+  "extraKnownMarketplaces": {
+    "cape": {
+      "source": {
+        "source": "directory",
+        "path": "/home/sqve/code/personal/cape/main"
+      }
+    },
+    "cc-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "kenryu42/cc-marketplace"
+      }
+    },
+    "notebox": {
+      "source": {
+        "source": "directory",
+        "path": "/home/sqve/notebox"
+      }
+    },
+    "ponytail": {
+      "source": {
+        "source": "github",
+        "repo": "DietrichGebert/ponytail"
+      }
+    },
+    "superpowers-marketplace": {
+      "source": {
+        "source": "github",
+        "repo": "obra/superpowers-marketplace"
+      }
+    }
+  },
+  "alwaysThinkingEnabled": true,
+  "effortLevel": "high",
+  "modelSettings": {
+    "claude-opus-5": {
+      "effortLevel": "medium"
+    },
+    "claude-fable-5-1": {
+      "effortLevel": "medium"
+    }
+  },
+  "tui": "fullscreen",
+  "skipDangerousModePermissionPrompt": true,
   "theme": "light",
   "verbose": true,
-  "voiceEnabled": false
+  "preferredNotifChannel": "kitty",
+  "voiceEnabled": false,
+  "feedbackSurveyState": {
+    "lastShownTime": 1754085535302
+  },
+  "lspServers": {
+    "typescript": {
+      "args": [
+        "--stdio"
+      ],
+      "command": "typescript-language-server",
+      "extensionToLanguage": {
+        ".cjs": "javascript",
+        ".cts": "typescript",
+        ".js": "javascript",
+        ".jsx": "javascriptreact",
+        ".mjs": "javascript",
+        ".mts": "typescript",
+        ".ts": "typescript",
+        ".tsx": "typescriptreact"
+      },
+      "initializationOptions": {
+        "maxTsServerMemory": 2048
+      }
+    }
+  }
 }
