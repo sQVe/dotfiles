@@ -1,0 +1,11 @@
+id = "sqve.report-ids"
+name = "Report ids"
+version = "0.1.0"
+min_herdr_version = "0.9.0"
+description = "Report open PR numbers and Linear tickets to the sidebar"
+platforms = ["linux", "macos"]
+
+# Herdr is started by hand, so the systemd timer alone leaves the sidebar empty
+# until its next tick. This runs once the API socket is ready.
+[[startup]]
+command = ["bash", "report-ids.sh"]
