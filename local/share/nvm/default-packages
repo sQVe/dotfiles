@@ -10,7 +10,6 @@ css-variables-language-server
 neovim
 npm
 playwright
-pnpm
 prettier
 serve
 ts-node
