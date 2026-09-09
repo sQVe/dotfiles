@@ -1,16 +1,22 @@
 {
-  "lastChangelogVersion": "0.85.1",
-  "enableSkillCommands": false,
-  "transport": "sse",
-  "quietStartup": true,
-  "treeFilterMode": "all",
-  "theme": "light",
-  "defaultProvider": "openai-codex",
+  "autocompleteMaxVisible": 10,
   "defaultModel": "gpt-6-astra",
+  "defaultProjectTrust": "always",
+  "defaultProvider": "openai-codex",
   "defaultThinkingLevel": "medium",
+  "editorPaddingX": 0,
+  "enableInstallTelemetry": false,
+  "enableSkillCommands": false,
+  "lastChangelogVersion": "0.85.1",
+  "markdown": { "mermaid": "streaming" },
   "packages": [
     "/home/sqve/code/personal/tau/main",
     "npm:cc-safety-net",
     "git:github.com/DietrichGebert/ponytail"
-  ]
+  ],
+  "quietStartup": true,
+  "theme": "light",
+  "transport": "auto",
+  "treeFilterMode": "default",
+  "tuiMode": "fullscreen"
 }
