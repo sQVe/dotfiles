@@ -14,6 +14,7 @@ Research before "I don't know" — WebSearch, WebFetch, Context7.
 Boring code wins. Clever code is bad code.
 Build only what's needed now.
 One function, one job. Split anything that does two.
+Code breathes. Blank lines between a function's logical steps; an unbroken wall of statements is a defect even when it is short.
 One logical change per commit.
 Descriptive names; no abbreviations, even idiomatic ones (getUserById not getUsr; no btn, cb, errMsg).
 Negative space: carve valid behavior by rejecting invalid states. Fail loudly at the violation, not downstream.
