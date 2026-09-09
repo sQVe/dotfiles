@@ -91,6 +91,8 @@ grove prune --commit
 
 Skip this section unless `HERDR_ENV` is `1`. Then herdr is the multiplexer and every worktree gets its own herdr workspace, grouped under the repo. A herdr hook adopts any workspace whose first pane sits in a linked worktree, so `herdr workspace create --cwd <worktree path>` is enough.
 
+Decide who does the work before creating anything. Creating a workspace does not start an agent; the root pane is a bare shell in the worktree. Either launch an agent into `root_pane` and hand it the task (see the herdr skill), or skip the workspace and work in the worktree from the pane you are already in. A per-ticket workspace with nothing running reads as work in progress that is not happening.
+
 Create the worktree with grove, then open it as a background workspace and keep the ids.
 
 ```bash
@@ -103,6 +105,7 @@ herdr workspace create --cwd "${path}" --label "unreviewed today" --no-focus \
 For several tickets, loop over `"<id>|<branch>|<label>"` specs and run the same two commands per entry.
 
 - Pass the worktree path itself as `--cwd`, not a subdirectory.
+- `grove add` alone is enough when you are doing the work yourself. Create the workspace when an agent will live in it, or when the human asked for one.
 - Never run `herdr worktree create`. It skips grove entirely, so hooks, preserve patterns, autolock, and grove's bookkeeping do not apply.
 - Removing the worktree with `grove remove` does not close the herdr workspace. Close it with `herdr workspace close <id>` first.
 - Label the workspace without a repo prefix; the parent row already shows the repo. Read ids from the JSON response. They are opaque strings like `w8Y` and `w8Y:p1`, not ordinals.
