@@ -3,9 +3,7 @@ enable_overdrive = true
 enable_sounds = false
 
 [backdrop]
-enabled = true
-blur_intensity = 0.4
-tint_intensity = 0.6
+enabled = false
 
 [battery]
 warning_threshold = 20
@@ -34,6 +32,13 @@ effects = true
 
 [storage]
 key_source = "secret-service"
+
+# The bar plate is always painted with the palette's `surface`, which is close
+# to white and vanishes over light windows. An outline is the only bar-scoped
+# color control, so give the floating bar a visible edge.
+[bar.bar]
+border = "outline"
+border_width = 1.0
 
 [theme]
 source = "custom"
