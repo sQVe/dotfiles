@@ -1,0 +1,117 @@
+# yaml-language-server: $schema=https://gh-dash.dev/schema.json
+
+smartFilteringAtLaunch: false
+
+prSections:
+  - title: mine
+    filters: is:open author:@me
+  - title: review
+    filters: is:open assignee:@me
+  - title: review wanted
+    filters: is:open review-requested:@me -author:app/dependabot
+  - title: active
+    filters: >-
+      is:open draft:false
+      repo:sQVe/tau repo:hups-co/platform repo:sQVe/aburaya repo:sQVe/grove repo:sQVe/cape
+      -author:@me -author:app/dependabot -author:app/renovate -author:app/github-actions
+  - title: inbound
+    filters: >-
+      is:open user:sQVe
+      -author:@me -author:app/dependabot -author:app/renovate -author:app/github-actions
+      -author:kamajibot
+
+issuesSections:
+  - title: mine
+    filters: is:open author:@me user:sQVe
+  - title: work
+    filters: is:open org:hups-co involves:@me
+  - title: inbound
+    filters: >-
+      is:open user:sQVe
+      -author:@me -author:app/dependabot -author:app/renovate -author:app/github-actions
+      -author:kamajibot
+
+# Notification filters are client-side and use their own syntax, not GitHub search.
+includeReadNotifications: false
+
+notificationsSections:
+  - title: needs me
+    filters: reason:mention reason:review-requested reason:assign reason:team-mention
+  - title: active
+    filters: >-
+      repo:hups-co/platform repo:sQVe/tau repo:sQVe/aburaya repo:sQVe/grove repo:sQVe/cape
+  - title: all
+    filters: ''
+
+repoPaths:
+  hups-co/*: /home/sqve/code/work/*
+  sQVe/*: /home/sqve/code/personal/*
+
+pager:
+  diff: delta
+
+defaults:
+  refetchIntervalMinutes: 10
+  view: notifications
+  layout:
+    prs:
+      assignees:
+        hidden: false
+        width: 14
+
+theme:
+  ui:
+    table:
+      # compact folds each row onto one line and promotes repo/author to real columns.
+      compact: true
+      showSeparator: false
+  # Colors come from config/colors/catppuccin-latte.json; comments name the entry.
+  colors:
+    text:
+      primary: '#1e2028' # text
+      secondary: '#3e4152' # subtext0
+      inverted: '#d4d6de' # base
+      faint: '#747787' # overlay0
+      warning: '#b82530' # red
+      success: '#287028' # green
+      actor: '#2850a8' # blue
+    background:
+      selected: '#adb0ba' # surface0
+    border:
+      primary: '#616475' # overlay1
+      secondary: '#999ca7' # surface1
+      faint: '#c1c4cc' # crust
+    inline:
+      icons:
+        newcontributor: '#207068' # teal
+        contributor: '#1878a8' # sky
+        collaborator: '#806010' # yellow
+        member: '#806010' # yellow
+        owner: '#a85820' # peach
+        unknownrole: '#747787' # overlay0
+
+keybindings:
+  universal:
+    - key: tab
+      builtin: nextSection
+    - key: shift+tab
+      builtin: prevSection
+  prs:
+    - key: h
+      builtin: prevSidebarTab
+    - key: left
+      builtin: prevSidebarTab
+    - key: l
+      builtin: nextSidebarTab
+    - key: right
+      builtin: nextSidebarTab
+    - key: C
+      name: grove worktree
+      command: >-
+        niri msg action spawn -- kitty --app-id gh-dash-grove
+        sh -c 'cd {{.RepoPath}} && grove add --pr {{.PrNumber}} --herdr'
+    - key: T
+      name: review in tuicr
+      command: >-
+        niri msg action spawn -- kitty --app-id gh-dash-tuicr
+        sh -c 'cd {{.RepoPath}} && tuicr pr {{.PrNumber}}'

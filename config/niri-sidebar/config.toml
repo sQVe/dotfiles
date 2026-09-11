@@ -16,3 +16,8 @@ position = "right"
 peek = 10
 focus_peek = 10
 sticky = false
+
+# Worktree terminals spawned by the gh-dash "C" keybinding.
+[[window_rule]]
+app_id = "^gh-dash-grove$"
+auto_add = true
