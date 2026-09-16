@@ -139,5 +139,6 @@ x-scheme-handler/https=org.qutebrowser.qutebrowser.desktop;
 x-scheme-handler/openhuman=OpenHuman-handler.desktop;
 x-scheme-handler/slack=slack.desktop
 x-scheme-handler/claude=com.anthropic.Claude.desktop
+x-scheme-handler/codex=chatgpt.desktop
 
 [Added Associations]
