@@ -4,11 +4,11 @@ smartFilteringAtLaunch: false
 
 prSections:
   - title: mine
-    filters: is:open author:@me
+    filters: is:open author:@me -label:gh-dash-ignore
   - title: review
-    filters: is:open assignee:@me
+    filters: is:open assignee:@me -label:gh-dash-ignore
   - title: review wanted
-    filters: is:open review-requested:@me -author:app/dependabot
+    filters: is:open review-requested:@me -author:app/dependabot -label:gh-dash-ignore
   - title: active
     filters: >-
       is:open draft:false
@@ -51,7 +51,7 @@ pager:
   diff: delta
 
 defaults:
-  refetchIntervalMinutes: 10
+  refetchIntervalMinutes: 5
   view: notifications
   layout:
     prs:
@@ -97,12 +97,8 @@ keybindings:
     - key: shift+tab
       builtin: prevSection
   prs:
-    - key: h
-      builtin: prevSidebarTab
     - key: left
       builtin: prevSidebarTab
-    - key: l
-      builtin: nextSidebarTab
     - key: right
       builtin: nextSidebarTab
     - key: C
