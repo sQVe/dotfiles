@@ -4,7 +4,6 @@ bin https://github.com/sQVe/bin
 bloody https://bloody-disgusting.com/
 cal https://calendar.google.com/calendar/r
 cape https://github.com/sQVe/cape/pull/1
-chatgpt https://chatgpt.com
 claude https://claude.ai/new
 ddg https://start.duckduckgo.com
 devdocs https://devdocs.io
@@ -15,6 +14,7 @@ drive https://drive.google.com/drive/my-drive
 g https://www.google.com
 gh https://github.com
 gist https://gist.github.com/sQVe
+gpt https://chatgpt.com
 greppa https://github.com/sQVe/greppa
 grove https://github.com/sQVe/grove
 klang https://app.klang.ai/
@@ -30,6 +30,7 @@ notebox https://github.com/sQVe/notebox
 platform https://github.com/hups-co/platform
 playground https://github.com/sQVe/playground
 prime https://www.primevideo.com
+prs https://github.com/pulls/inbox
 reddit https://www.reddit.com
 regex https://regex101.com
 scripts https://github.com/sQVe/scripts
@@ -41,4 +42,3 @@ svtplay https://www.svtplay.se/
 tau https://github.com/sQVe/tau
 wiki https://en.wikipedia.org
 yt https://www.youtube.com
-prs https://github.com/pulls/inbox
