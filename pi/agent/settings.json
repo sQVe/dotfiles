@@ -8,7 +8,9 @@
   "enableInstallTelemetry": false,
   "enableSkillCommands": false,
   "lastChangelogVersion": "0.85.1",
-  "markdown": { "mermaid": "streaming" },
+  "markdown": {
+    "mermaid": "streaming"
+  },
   "packages": [
     "/home/sqve/code/personal/tau/main",
     "npm:cc-safety-net",
@@ -18,5 +20,6 @@
   "theme": "light",
   "transport": "auto",
   "treeFilterMode": "default",
-  "tuiMode": "fullscreen"
+  "tuiMode": "fullscreen",
+  "hideThinkingBlock": true
 }
