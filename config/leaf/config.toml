@@ -1,0 +1,5 @@
+theme = "arctic"
+editor = 'nvim +{$line} +"normal! zz"'
+width = 100
+code-line-numbers = true
+file-history-length = 20

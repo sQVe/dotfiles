@@ -524,6 +524,21 @@ M.lsp_rename_symbol = {
   end,
 }
 
+M.open_leaf = {
+  callback = function(opts)
+    vim
+      .system({ 'term', 'leaf --watch', buffer.get_path(opts.bufnr) }, {
+        detach = true,
+      })
+      :wait()
+  end,
+  condition = function(opts)
+    return vim.bo[opts.bufnr].filetype == 'markdown'
+      and buffer.is_saved(opts.bufnr)
+  end,
+  name = 'Open (leaf)',
+}
+
 M.open_oil = {
   callback = function()
     require('oil').open_float()

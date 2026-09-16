@@ -52,6 +52,7 @@ local default_commands = {
   commands.insert_icon,
   commands.lsp_code_action,
   commands.lsp_rename_symbol,
+  commands.open_leaf,
   commands.open_oil,
   commands.open_project,
   commands.open_weekly_note,
