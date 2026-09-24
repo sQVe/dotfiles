@@ -3,6 +3,7 @@
 @github/copilot-language-server
 @openai/codex
 @typescript/native-preview
+agent-browser
 bash-language-server
 colorally
 corepack
