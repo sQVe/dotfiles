@@ -106,7 +106,7 @@
     ],
     "defaultMode": "bypassPermissions"
   },
-  "model": "claude-fable-5-1[1m]",
+  "model": "opus[1m]",
   "hooks": {
     "PermissionRequest": [
       {
@@ -215,7 +215,7 @@
         ]
       },
       {
-        "matcher": "*",
+        "matcher": "^(startup|resume|clear|compact|fork)$",
         "hooks": [
           {
             "type": "command",
@@ -267,7 +267,6 @@
     "cape@cape": true,
     "cc-safety-net@cc-marketplace": true,
     "context7@claude-plugins-official": false,
-    "linear@claude-plugins-official": true,
     "ponytail@ponytail": true,
     "slack@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": false
@@ -308,7 +307,7 @@
   "effortLevel": "high",
   "modelSettings": {
     "claude-opus-5": {
-      "effortLevel": "medium"
+      "effortLevel": "high"
     },
     "claude-fable-5-1": {
       "effortLevel": "medium"
