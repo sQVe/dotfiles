@@ -86,12 +86,15 @@ main() {
   fi
 
   while IFS=$'\t' read -r workspace_id checkout_path; do
+    # Separate source without TTL: the id is stable, so a gh failure must not
+    # expire it.
+    herdr workspace report-metadata "${workspace_id}" --source workspace-id \
+      --seq "$(date +%s%N)" --token "id=${workspace_id}" > /dev/null 2>&1 || true
     [[ -n "${checkout_path}" ]] || continue
     report_workspace "${workspace_id}" "${checkout_path}"
   done < <(jq -r '
     .result.workspaces[]
-    | select(.worktree.checkout_path)
-    | [.workspace_id, .worktree.checkout_path]
+    | [.workspace_id, .worktree.checkout_path // ""]
     | @tsv
   ' <<< "${workspaces}")
 }
