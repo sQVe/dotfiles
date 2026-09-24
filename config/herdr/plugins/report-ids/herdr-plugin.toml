@@ -9,3 +9,8 @@ platforms = ["linux", "macos"]
 # until its next tick. This runs once the API socket is ready.
 [[startup]]
 command = ["bash", "report-ids.sh"]
+
+# New workspaces would otherwise wait up to five minutes for their id.
+[[events]]
+on = "workspace.created"
+command = ["bash", "report-ids.sh"]

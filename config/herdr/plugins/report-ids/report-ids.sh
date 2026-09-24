@@ -85,16 +85,20 @@ main() {
     exit 0
   fi
 
-  while IFS=$'\t' read -r workspace_id checkout_path; do
-    # Separate source without TTL: the id is stable, so a gh failure must not
-    # expire it.
+  # Report every id before the slow gh lookups so new workspaces show theirs at
+  # once. Separate source without TTL: the id is stable, so a gh failure must
+  # not expire it.
+  while read -r workspace_id; do
     herdr workspace report-metadata "${workspace_id}" --source workspace-id \
       --seq "$(date +%s%N)" --token "id=${workspace_id}" > /dev/null 2>&1 || true
-    [[ -n "${checkout_path}" ]] || continue
+  done < <(jq -r '.result.workspaces[].workspace_id' <<< "${workspaces}")
+
+  while IFS=$'\t' read -r workspace_id checkout_path; do
     report_workspace "${workspace_id}" "${checkout_path}"
   done < <(jq -r '
     .result.workspaces[]
-    | [.workspace_id, .worktree.checkout_path // ""]
+    | select(.worktree.checkout_path)
+    | [.workspace_id, .worktree.checkout_path]
     | @tsv
   ' <<< "${workspaces}")
 }
