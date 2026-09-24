@@ -2,6 +2,7 @@ model = "gpt-6-astra"
 model_reasoning_effort = "medium"
 sandbox_mode = "danger-full-access"
 approval_policy = "never"
+service_tier = "default"
 
 [plugins."github@openai-curated"]
 enabled = true
@@ -87,6 +88,9 @@ trust_level = "trusted"
 [projects."/tmp/tau-subagent-experiment-o4r4ak4y/work-5"]
 trust_level = "trusted"
 
+[projects."/home/sqve/Documents/Codex/2026-09-16/st"]
+trust_level = "trusted"
+
 [notice]
 hide_rate_limit_model_nudge = true
 
@@ -119,6 +123,9 @@ trusted_hash = "sha256:7b87fcacf51460fefc46c497c2fa90e8dac4489b1e3b2ba7ae9d7e160
 [hooks.state."cc-safety-net@cc-marketplace:hooks/codex.json:pre_tool_use:0:0"]
 trusted_hash = "sha256:5174e0a51d30e5607ceaa390f6be6d5bf3487b570b8d42fbe70b2f8b40f16aa2"
 
+[tui]
+screen_reader_detection_done = true
+
 [tui.model_availability_nux]
 gpt-6-astra = 4
 
@@ -143,6 +150,6 @@ BROWSER_USE_TINYSKY_ENABLED = "1"
 NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.908.70816"
-NODE_REPL_TRUSTED_SERVICES = '{"browser":"/home/sqve/.codex/plugins/cache/openai-bundled/browser/26.908.70816/scripts/browser-service.mjs"}'
+BROWSER_USE_CODEX_APP_VERSION = "26.917.71314"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/home/sqve/.codex/plugins/cache/openai-bundled/browser/26.917.71314/scripts/browser-service.mjs"}'
 CODEX_CLI_PATH = "/usr/lib/chatgpt/resources/codex"
