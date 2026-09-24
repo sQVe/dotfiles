@@ -99,43 +99,69 @@ end
 
 -- ── Tooltip ───────────────────────────────────────────────────────────────────
 
+-- A row is { key, value } and nothing else — the API carries no colour, weight
+-- or rule — so the only lever on scannability is how few rows there are and
+-- what order they come in.
+
 -- The CLI packs a window's context into one string: "Resets in 1d 7h · 81%
--- elapsed · 25pts under". As a single tooltip row that overflows and ellipsises,
--- so each fragment becomes its own key/value pair.
-local function detailRows(detail, rows)
-    for part in string.gmatch(tostring(detail or ""), "[^·]+") do
-        local text = noctalia.string.trim(part)
-        if text ~= "" then
-            local resets = text:match("^Resets in%s+(.+)$")
-            local elapsed = text:match("^(%d+%%)%s+elapsed$")
-            local pace = text:match("^(%d+pts%s+%a+)$")
-            if resets ~= nil then
-                rows[#rows + 1] = { key = "Resets in", value = resets }
-            elseif elapsed ~= nil then
-                rows[#rows + 1] = { key = "Elapsed", value = elapsed }
-            elseif pace ~= nil then
-                rows[#rows + 1] = { key = "Pace", value = pace }
-            else
-                rows[#rows + 1] = { key = "", value = text }
-            end
-        end
-    end
+-- elapsed · 25pts under". Only the reset is kept: elapsed and pace cost a row
+-- each, and four rows per window turned a two-login capsule into fourteen rows
+-- that had to be read instead of scanned.
+local function resetIn(detail)
+    local resets = tostring(detail or ""):match("Resets in%s+([^·]*)")
+    if resets == nil then return nil end
+    resets = noctalia.string.trim(resets)
+    return resets ~= "" and resets or nil
 end
 
--- One header per plan, then its windows under it, so a capsule carrying two
--- ChatGPT logins says which percentage belongs to which subscription.
-local function tooltipFor(readings)
-    local rows, lastEntry = {}, nil
-    for _, reading in ipairs(readings) do
-        if reading.entry ~= lastEntry then
+-- Labels repeat the plan they sit under ("Codex weekly" below a header already
+-- reading "Codex"), and that repetition is what the eye wades through. The
+-- account suffix goes first, so the work login's "Codex 5h" loses the same
+-- prefix its "Codex · work" header carries.
+local function shortLabel(entry, metric)
+    local label = tostring(metric.label or "")
+    local plan = tostring(entry.display_name or ""):gsub("%s*·.*$", "")
+    if plan == "" then return label end
+    return label:match("^" .. plan:gsub("%W", "%%%0") .. "%s+(.+)$") or label
+end
+
+-- Fullest window first, so the one that stops the next prompt is the first line
+-- under its plan. Ties keep report order; table.sort is not stable on its own.
+local function byFullness(metrics)
+    local sorted, position = {}, {}
+    for index, metric in ipairs(metrics) do
+        sorted[index] = metric
+        position[metric] = index
+    end
+    table.sort(sorted, function(a, b)
+        local left, right = tonumber(a.percent) or -1, tonumber(b.percent) or -1
+        if left ~= right then return left > right end
+        return position[a] < position[b]
+    end)
+    return sorted
+end
+
+-- One header per plan, then one line per window under it, so a capsule carrying
+-- two ChatGPT logins says which percentage belongs to which subscription. Every
+-- window the vendor reports is listed, not just the ones `window` draws: a
+-- window left off the bar still stops the next prompt when it fills, and a full
+-- weekly next to an empty 5h reads as headroom that isn't there. Percentages
+-- are alone in the value column so they line up as one scannable stack.
+local function tooltipFor(entries)
+    local rows = {}
+    for _, entry in ipairs(entries) do
+        if #rows > 0 then rows[#rows + 1] = { key = "", value = "" } end
+        rows[#rows + 1] = {
+            key = tostring(entry.display_name or entry.id or ""),
+            value = tostring(entry.plan or ""),
+        }
+        for _, metric in ipairs(byFullness(entry.metrics or {})) do
+            local label, reset = shortLabel(entry, metric), resetIn(metric.detail)
             rows[#rows + 1] = {
-                key = tostring(reading.entry.display_name or reading.entry.id or ""),
-                value = tostring(reading.entry.plan or ""),
+                key = reset ~= nil and (label .. " · " .. reset) or label,
+                value = percentText(metric),
             }
-            lastEntry = reading.entry
         end
-        rows[#rows + 1] = { key = tostring(reading.metric.label or ""), value = percentText(reading.metric) }
-        detailRows(reading.metric.detail, rows)
     end
     return rows
 end
@@ -155,7 +181,7 @@ end
 -- the capsule: with two logins on one capsule, one broken login should not hide
 -- the other's percentage. Its trouble is reported in the tooltip instead.
 local function readingsFor(report)
-    local readings, problems = {}, {}
+    local readings, entries, problems = {}, {}, {}
     for _, id in ipairs(vendors) do
         local entry = entryFor(report, id)
         if entry == nil then
@@ -163,17 +189,18 @@ local function readingsFor(report)
         elseif tostring(entry.status or "") == "error" then
             problems[#problems + 1] = { key = id, value = tostring(entry.error or "vendor error") }
         else
+            entries[#entries + 1] = entry
             for _, metric in ipairs(metricsFor(entry)) do
                 readings[#readings + 1] = { entry = entry, metric = metric }
             end
         end
     end
-    return readings, problems
+    return readings, entries, problems
 end
 
 local function render()
     local err = tostring(noctalia.state.get("error") or "")
-    local readings, problems = readingsFor(noctalia.state.get("report"))
+    local readings, entries, problems = readingsFor(noctalia.state.get("report"))
 
     if #readings == 0 then
         local detail = err ~= "" and err or (problems[1] ~= nil and problems[1].value or "no matching window")
@@ -189,7 +216,7 @@ local function render()
         })
     end
 
-    local rows = tooltipFor(readings)
+    local rows = tooltipFor(entries)
     for _, problem in ipairs(problems) do rows[#rows + 1] = problem end
 
     barWidget.render(ui.row({ gap = 4, align = "center" }, nodes))
