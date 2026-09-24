@@ -7,7 +7,7 @@ set -euo pipefail
 readonly source_id="pr-ids"
 # Linear team keys, lowercase. A generic letters-digits pattern also matches
 # content such as `chore/round-1-shave` and ADR numbering such as `adr-029-*`.
-readonly ticket_keys="abu|hup|ai"
+readonly ticket_keys="abu|hup|ai|tms"
 # Expire tokens after three missed timer intervals to avoid stale IDs.
 readonly ttl_ms=900000
 readonly gh_timeout=15
@@ -93,14 +93,16 @@ main() {
       --seq "$(date +%s%N)" --token "id=${workspace_id}" > /dev/null 2>&1 || true
   done < <(jq -r '.result.workspaces[].workspace_id' <<< "${workspaces}")
 
+  # Look up every checkout at once; sequential gh calls take seconds each.
   while IFS=$'\t' read -r workspace_id checkout_path; do
-    report_workspace "${workspace_id}" "${checkout_path}"
+    report_workspace "${workspace_id}" "${checkout_path}" &
   done < <(jq -r '
     .result.workspaces[]
     | select(.worktree.checkout_path)
     | [.workspace_id, .worktree.checkout_path]
     | @tsv
   ' <<< "${workspaces}")
+  wait
 }
 
 main "$@"
