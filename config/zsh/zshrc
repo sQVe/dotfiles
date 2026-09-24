@@ -171,6 +171,29 @@ function codex() {
   CODEX_HOME=$home command codex "$@"
 }
 
+# Route pi to a per-account agent dir, like codex above. `pi @work ...` uses
+# ~/.pi/agent-work, created on first use with everything except auth.json
+# symlinked from ~/.pi/agent; then `/login` once. Entries added to ~/.pi/agent
+# later need linking by hand.
+function pi() {
+  emulate -L zsh
+
+  local agent_dir=$HOME/.pi/agent
+  if [[ $1 == @* ]]; then
+    agent_dir=$HOME/.pi/agent-${1#@}
+    shift
+    if [[ ! -d $agent_dir ]]; then
+      mkdir -p "$agent_dir"
+      local entry
+      for entry in $HOME/.pi/agent/*(N); do
+        [[ ${entry:t} == auth.json ]] || ln -s "$entry" "$agent_dir/${entry:t}"
+      done
+    fi
+  fi
+
+  PI_CODING_AGENT_DIR=$agent_dir command pi "$@"
+}
+
 # Run a long-lived dev server (sst/turbo/vite) in a transient systemd scope.
 # sst spawns setsid'd workers that escape the pane's SIGHUP and orphan to
 # systemd; we found a 5 GB sst tree running headless for 4 hours. A scope kills
@@ -302,11 +325,11 @@ alias -g F='| fzf'
 alias -g V='| nvim'
 
 # Listing.
-alias eza='eza --group-directories-first --color=auto --icons'
+alias eza='eza --group-directories-first --color=auto --icons=auto'
 alias la='eza -la --octal-permissions --no-permissions'
 alias ll='eza -l --octal-permissions --no-permissions'
 alias ls='eza'
-alias lt='eza -la -T'
+alias lt='eza -la -T -L 2 --git-ignore'
 
 # State.
 alias ns=niri-session
