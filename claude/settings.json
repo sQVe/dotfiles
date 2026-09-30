@@ -267,7 +267,6 @@
     "cape@cape": true,
     "cc-safety-net@cc-marketplace": true,
     "context7@claude-plugins-official": false,
-    "ponytail@ponytail": true,
     "slack@claude-plugins-official": true,
     "typescript-lsp@claude-plugins-official": false
   },
