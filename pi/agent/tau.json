@@ -1,0 +1,9 @@
+{
+  "profiles": {
+    "default": { "model": "claude-bridge/claude-opus-5-5" },
+    "scout": { "model": "openai-codex/gpt-6.1-sol" },
+    "reviewer": { "model": "openai-codex/gpt-6.1-sol" },
+    "qa": { "model": "claude-bridge/claude-sonnet-5-5" }
+  },
+  "bulkRead": { "model": "openai-codex/gpt-5.6-luna" }
+}
