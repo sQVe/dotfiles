@@ -1,0 +1,9 @@
+{
+  "tui.altScreen.lineDown": "ctrl+e",
+  "tui.altScreen.lineUp": "ctrl+y",
+  "tui.altScreen.halfPageDown": "ctrl+d",
+  "tui.altScreen.halfPageUp": "ctrl+u",
+  "tui.altScreen.previousPrompt": "ctrl+shift+[",
+  "tui.altScreen.nextPrompt": "ctrl+shift+]",
+  "tui.altScreen.search": "ctrl+/"
+}
