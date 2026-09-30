@@ -1,6 +1,7 @@
 @anthropic-ai/sandbox-runtime
 @biomejs/biome
 @github/copilot-language-server
+@higgsfield/cli
 @openai/codex
 @typescript/native-preview
 agent-browser
