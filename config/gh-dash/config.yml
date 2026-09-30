@@ -12,7 +12,7 @@ prSections:
   - title: active
     filters: >-
       is:open draft:false
-      repo:sQVe/tau repo:hups-co/platform repo:sQVe/aburaya repo:sQVe/grove repo:sQVe/cape
+      repo:sQVe/tau repo:hups-co/platform repo:sQVe/aburaya repo:sQVe/grove repo:sQVe/cape repo:sQVe/gremlin
       -author:@me -author:app/dependabot -author:app/renovate -author:app/github-actions
   - title: inbound
     filters: >-
@@ -35,11 +35,15 @@ issuesSections:
 includeReadNotifications: false
 
 notificationsSections:
+  - title: review requests
+    filters: reason:review-requested
   - title: needs me
-    filters: reason:mention reason:review-requested reason:assign reason:team-mention
+    filters: reason:mention reason:assign reason:team-mention
+  - title: ci
+    filters: reason:ci-activity
   - title: active
     filters: >-
-      repo:hups-co/platform repo:sQVe/tau repo:sQVe/aburaya repo:sQVe/grove repo:sQVe/cape
+      repo:hups-co/platform repo:sQVe/tau repo:sQVe/aburaya repo:sQVe/grove repo:sQVe/cape repo:sQVe/gremlin
   - title: all
     filters: ''
 
