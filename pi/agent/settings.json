@@ -7,14 +7,13 @@
   "editorPaddingX": 0,
   "enableInstallTelemetry": false,
   "enableSkillCommands": false,
-  "lastChangelogVersion": "0.99.1",
+  "lastChangelogVersion": "0.99.2",
   "markdown": {
     "mermaid": "streaming"
   },
   "packages": [
     "/home/sqve/code/personal/tau/main",
     "git:github.com/elidickinson/pi-claude-bridge",
-    "npm:pi-agent-browser-native",
     {
       "source": "npm:pi-codex-image-gen",
       "extensions": [
@@ -27,7 +26,7 @@
   "transport": "auto",
   "treeFilterMode": "default",
   "tuiMode": "fullscreen",
-  "hideThinkingBlock": true,
+  "hideThinkingBlock": false,
   "enabledModels": [
     "claude-bridge/claude-fable-5-1",
     "claude-bridge/claude-opus-5-5",
