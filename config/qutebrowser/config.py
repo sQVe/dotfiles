@@ -1051,7 +1051,7 @@ c.url.searchengines = {'DEFAULT': 'https://duckduckgo.com/?q={}'}
 
 # Page(s) to open at the start.
 # Type: List of FuzzyUrl, or FuzzyUrl
-c.url.start_pages = 'https://mado.kamaji.local'
+c.url.start_pages = '~/.dotfiles/config/qutebrowser/index.html'
 
 # URL parameters to strip when yanking a URL.
 # Type: List of String
