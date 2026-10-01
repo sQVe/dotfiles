@@ -150,9 +150,9 @@ Worktree workspaces are grouped under their repo workspace, and the parent row a
 
 | Workspace | Label | Example |
 |---|---|---|
-| Repo parent | Repo name | `platform`, `aburaya` |
+| Repo parent | Repo name | `platform`, `tau` |
 | Worktree work | `<2-4 words>` | `enforce TDD`, `meeting bot` |
-| Ungrouped workspace | `<repo>: <2-4 words>` | `aburaya: redesign` |
+| Ungrouped workspace | `<repo>: <2-4 words>` | `tau: redesign` |
 
 Only an ungrouped workspace carries the repo prefix, because nothing above it says which repo it belongs to.
 

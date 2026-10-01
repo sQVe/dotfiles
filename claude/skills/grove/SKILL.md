@@ -7,7 +7,7 @@ description: "Create, inspect, run commands in, and clean up git worktrees with 
 
 grove manages git worktrees. Use it for all worktree work instead of raw `git worktree`. The `grove` binary is on PATH. Run `grove <command> --help` for flags not listed here.
 
-A workspace is one directory per repo holding `.bare/` (git data) plus one subdirectory per worktree, for example `aburaya/main` and `aburaya/abu-294`. `main` is a worktree like any other, though `.grove.toml` may autolock it. `<wt>` arguments take the directory name or the branch name.
+A workspace is one directory per repo holding `.bare/` (git data) plus one subdirectory per worktree, for example `tau/main` and `tau/tau-294`. `main` is a worktree like any other, though `.grove.toml` may autolock it. `<wt>` arguments take the directory name or the branch name.
 
 ## Rules
 
