@@ -40,6 +40,9 @@ enabled = true
 [plugins."template-creator@openai-primary-runtime"]
 enabled = true
 
+[plugins."code-review@openai-bundled"]
+enabled = true
+
 [marketplaces.cc-marketplace]
 source_type = "git"
 source = "https://github.com/kenryu42/cc-marketplace.git"
@@ -68,9 +71,6 @@ trust_level = "trusted"
 trust_level = "trusted"
 
 [projects."/home/sqve/code/personal/cape"]
-trust_level = "trusted"
-
-[projects."/home/sqve/code/personal/aburaya"]
 trust_level = "trusted"
 
 [projects."/home/sqve/.dotfiles"]
@@ -145,11 +145,11 @@ NODE_REPL_NODE_MODULE_DIRS = "/usr/lib/chatgpt/resources/cua_node/lib/node_modul
 NODE_REPL_NODE_PATH = "/usr/lib/chatgpt/resources/cua_node/bin/node"
 NODE_REPL_TRUSTED_CODE_PATHS = "/home/sqve/.codex:/usr/lib/chatgpt/resources/cua_node/lib/node_modules"
 CODEX_HOME = "/home/sqve/.codex"
-BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab"
+BROWSER_USE_AVAILABLE_BACKENDS = "chrome,iab,mcpapps"
 BROWSER_USE_TINYSKY_ENABLED = "1"
 NODE_REPL_INSTRUCTIONS_USE_CASE_BROWSER = ""
 NODE_REPL_INSTRUCTIONS_USE_CASE_CHROME = ""
 BROWSER_USE_CODEX_APP_BUILD_FLAVOR = "prod"
-BROWSER_USE_CODEX_APP_VERSION = "26.917.71314"
-NODE_REPL_TRUSTED_SERVICES = '{"browser":"/home/sqve/.codex/plugins/cache/openai-bundled/browser/26.917.71314/scripts/browser-service.mjs"}'
+BROWSER_USE_CODEX_APP_VERSION = "26.928.21956"
+NODE_REPL_TRUSTED_SERVICES = '{"browser":"/home/sqve/.codex/plugins/cache/openai-bundled/browser/26.928.21956/scripts/browser-service.mjs"}'
 CODEX_CLI_PATH = "/usr/lib/chatgpt/resources/codex"
