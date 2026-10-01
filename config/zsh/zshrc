@@ -355,3 +355,6 @@ alias rcup="${SCRIPTS}/extended-rcup.sh"
 alias v=nvim
 alias vim=nvim
 alias vn='nvim -u NONE'
+
+# Vite+ bin (https://viteplus.dev)
+. "/home/sqve/.config/vite-plus/env"
