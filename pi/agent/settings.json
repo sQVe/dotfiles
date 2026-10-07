@@ -4,22 +4,19 @@
   "defaultProjectTrust": "always",
   "defaultProvider": "claude-bridge",
   "defaultThinkingLevel": "medium",
+  "defaultTools": [
+    "+codemode"
+  ],
   "editorPaddingX": 0,
   "enableInstallTelemetry": false,
   "enableSkillCommands": false,
-  "lastChangelogVersion": "0.99.2",
+  "lastChangelogVersion": "1.0.4",
   "markdown": {
     "mermaid": "streaming"
   },
   "packages": [
     "/home/sqve/code/personal/tau/main",
-    "git:github.com/elidickinson/pi-claude-bridge",
-    {
-      "source": "npm:pi-codex-image-gen",
-      "extensions": [
-        "+index.ts"
-      ]
-    }
+    "git:github.com/elidickinson/pi-claude-bridge"
   ],
   "quietStartup": true,
   "theme": "light",
@@ -31,16 +28,19 @@
     "claude-bridge/claude-fable-5-1",
     "claude-bridge/claude-opus-5-5",
     "claude-bridge/claude-sonnet-5-5",
-    "openai-codex/gpt-6.1-sol",
-    "openai-codex/gpt-5.6-luna",
+    "openai/gpt-6.1-sol",
+    "openai/gpt-6-astra",
+    "openai/gpt-5.6-luna",
     "openrouter/deepseek/deepseek-v4.1-flash"
   ],
   "modelThinkingLevels": {
     "claude-bridge/claude-fable-5-1": "high",
     "claude-bridge/claude-opus-5-5": "medium",
     "claude-bridge/claude-sonnet-5-5": "medium",
-    "openai-codex/gpt-6.1-sol": "high",
-    "openai-codex/gpt-5.6-luna": "high",
+    "openai/gpt-6.1-sol": "high",
+    "openai/gpt-6-astra": "high",
+    "openai/gpt-5.6-luna": "high",
     "openrouter/deepseek/deepseek-v4.1-flash": "high"
-  }
+  },
+  "deviceId": "5fa86e26-2010-41f4-af99-458f2a2a9adc"
 }

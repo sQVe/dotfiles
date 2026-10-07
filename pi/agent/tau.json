@@ -1,11 +1,22 @@
 {
   "profiles": {
     "default": { "model": "claude-bridge/claude-opus-5-5" },
-    "scout": { "model": "openai-codex/gpt-6.1-sol" },
-    "reviewer": { "model": "openai-codex/gpt-6.1-sol" },
-    "qa": { "model": "claude-bridge/claude-sonnet-5-5" }
+    "scout": { "model": "openai/gpt-6-astra" },
+    "reviewer": { "model": "openai/gpt-6-astra" },
+    "qa": { "model": "claude-bridge/claude-sonnet-5-5" },
+    "worker": { "model": "openai/gpt-6-astra" }
   },
-  "bulkRead": { "model": "openai-codex/gpt-5.6-luna" },
-  "slice": { "agentTeam": "AI" },
-  "browser": { "loginCommand": "google-chrome-stable --profile-directory=\"Agent profile\"" }
+  "bulkRead": { "model": "openai/gpt-5.6-luna" },
+  "tracker": {
+    "agentTeam": "AI",
+    "repositories": {
+      "sQVe/tau": { "team": "ME", "project": "Tau" },
+      "sQVe/zeta": { "team": "ME", "project": "Zeta" },
+      "sQVe/phi": { "team": "ME", "project": "Phi" },
+      "hups-co/platform": { "team": "TMS" }
+    }
+  },
+  "browser": {
+    "loginCommand": "google-chrome-stable --profile-directory=\"Agent profile\""
+  }
 }
