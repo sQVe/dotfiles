@@ -6,12 +6,12 @@ local map = require('sQVe.utils.map')
 local copy_filename_with_line =
   require('sQVe.ui.command_palette.commands').copy_filename_with_line
 
--- Clear search matches.
+-- Clear search matches and multicursors.
 map(
   'n',
   '<Esc>',
-  '<Cmd>nohl<CR><Esc>',
-  { desc = 'Escape and clear search highlights' }
+  '<Cmd>nohl<Bar>call nvim_buf_clear_namespace(0, nvim_create_namespace("nvim.multicursor"), 0, -1)<CR><Esc>',
+  { desc = 'Escape and clear search highlights and multicursors' }
 )
 
 -- Open command with right pinky.
@@ -145,6 +145,13 @@ map('i', '<C-s>', '<C-o><C-s>', { desc = 'Toggle spell', remap = true })
 
 -- Star search but stay at same word.
 map('', '<C-n>', '*N', { desc = 'Search for word or selection', remap = true })
+
+-- Multicursor.
+map('n', '<M-j>', '1Qj', { desc = 'Add cursor and move down' })
+map('n', '<M-k>', '1Qk', { desc = 'Add cursor and move up' })
+map('n', '<M-n>', '1Q*', { desc = 'Add cursor and go to next match' })
+map('n', '<M-a>', 'zq*', { desc = 'Add cursor at every match' })
+map('n', '<M-=>', 'q=', { desc = 'Toggle multicursor follow mode' })
 
 -- Set undo breakpoints.
 map('i', '!', '!<c-g>u')
