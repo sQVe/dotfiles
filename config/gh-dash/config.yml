@@ -12,7 +12,8 @@ prSections:
   - title: active
     filters: >-
       is:open draft:false
-      repo:sQVe/tau repo:hups-co/platform repo:sQVe/grove repo:sQVe/cape repo:sQVe/gremlin
+      repo:hups-co/platform repo:sQVe/tau repo:sQVe/zeta repo:sQVe/phi repo:sQVe/seam
+      repo:sQVe/grove
       -author:@me -author:app/dependabot -author:app/renovate -author:app/github-actions
   - title: inbound
     filters: >-
@@ -41,7 +42,8 @@ notificationsSections:
     filters: reason:ci-activity
   - title: active
     filters: >-
-      repo:hups-co/platform repo:sQVe/tau repo:sQVe/grove repo:sQVe/cape repo:sQVe/gremlin
+      repo:hups-co/platform repo:sQVe/tau repo:sQVe/zeta repo:sQVe/phi repo:sQVe/seam
+      repo:sQVe/grove
   - title: all
     filters: ''
 
