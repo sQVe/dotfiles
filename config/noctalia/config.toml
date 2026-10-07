@@ -254,20 +254,14 @@ type = "sysmon"
 stat = "cpu_temp"
 font_family = "Maple Mono"
 
-# `window` matches the names the CLI reports, comma separated for several in one
-# capsule. Anthropic carries the per-model window next to the plan's weekly one;
-# each is coloured by its own severity, so the red number is the binding limit.
 [widget.ai_claude]
 type = "sqve/ai-usage:bar"
 vendor = "anthropic"
-window = "fable,weekly"
+window = "weekly"
 
-# Both ChatGPT subscriptions in one capsule. A named account reports as
-# "<vendor>@<label>", with the label defined under [[openai.accounts]] in
-# ai-usagebar's own config; personal first, work second.
 [widget.ai_codex]
 type = "sqve/ai-usage:bar"
-vendor = "openai,openai@work"
+vendor = "openai"
 window = "weekly"
 
 [widget.spacer_a]
