@@ -2,7 +2,6 @@ baz https://bazaardb.gg
 bin https://github.com/sQVe/bin
 bloody https://bloody-disgusting.com/
 cal https://calendar.google.com/calendar/r
-cape https://github.com/sQVe/cape/pull/1
 claude https://claude.ai/new
 ddg https://start.duckduckgo.com
 devdocs https://devdocs.io
@@ -14,7 +13,6 @@ g https://www.google.com
 gh https://github.com
 gist https://gist.github.com/sQVe
 gpt https://chatgpt.com
-gremlin https://github.com/sQVe/gremlin
 greppa https://github.com/sQVe/greppa
 grove https://github.com/sQVe/grove
 klang https://app.klang.ai/
@@ -27,6 +25,7 @@ netflix https://www.netflix.com/browse
 nit https://github.com/sQVe/nit.nvim
 notebooklm https://notebooklm.google.com
 notebox https://github.com/sQVe/notebox
+phi https://github.com/sQVe/phi
 platform https://github.com/hups-co/platform
 playground https://github.com/sQVe/playground
 prime https://www.primevideo.com
@@ -34,6 +33,7 @@ prs https://github.com/pulls/inbox
 reddit https://www.reddit.com
 regex https://regex101.com
 scripts https://github.com/sQVe/scripts
+seam https://github.com/sQVe/seam
 secret https://github.com/sQVe/secret
 sort https://github.com/sQVe/sort.nvim
 stitch https://stitch.withgoogle.com/
@@ -42,4 +42,5 @@ svtplay https://www.svtplay.se/
 tau https://github.com/sQVe/tau
 wiki https://en.wikipedia.org
 yt https://www.youtube.com
+zeta https://github.com/sQVe/zeta
 tms https://platform.hups.com/teams/f52aad05-11e2-47a7-93ba-4fff8a279c56
