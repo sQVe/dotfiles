@@ -193,6 +193,7 @@ spawn-at-startup "niri-float-sticky" "-app-id" "(?i:^pinentry)" "-app-id" "mpv" 
 spawn-at-startup "niri-sidebar" "listen"
 spawn-at-startup "noctalia" "--daemon"
 spawn-at-startup "sh" "-c" "$SCRIPTS/niri/init.sh"
+spawn-at-startup "sh" "-c" "$SCRIPTS/niri/refresh-rate.sh watch"
 spawn-at-startup "sh" "-c" "sleep 4 && easyeffects --gapplication-service"
 spawn-at-startup "wl-paste" "--watch" "cliphist" "store"
 
