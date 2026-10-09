@@ -15,16 +15,6 @@ gui:
   skipRewordInEditorWarning: true
   tabWidth: 2
   timeFormat: '2006-01-02 15:04'
-  authorColors:
-    '*': green
-    'Oskar Grunning': magenta
-  branchColors:
-    'chore': green
-    'docs': blue
-    'feat': magenta
-    'fix': yellow
-    'main': red
-    'master': red
   theme:
     activeBorderColor:
       - '#5858a0'
@@ -51,6 +41,16 @@ gui:
       - '#1e2028'
     selectedLineBgColor:
       - '#c1c4cc'
+    authorColors:
+      '*': green
+      'Oskar Grunning': magenta
+    branchColorPatterns:
+      '^chore(/|$)': green
+      '^docs(/|$)': blue
+      '^feat(/|$)': magenta
+      '^fix(/|$)': yellow
+      '^main(/|$)': red
+      '^master(/|$)': red
   border: 'rounded'
 git:
   autoFetch: false
