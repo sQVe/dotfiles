@@ -1,8 +1,8 @@
 {
   "profiles": {
     "default": { "model": "claude-bridge/claude-opus-5-5" },
-    "scout": { "model": "openai/gpt-6-astra" },
-    "reviewer": { "model": "openai/gpt-6-astra" },
+    "scout": { "model": "openai/gpt-6.1-sol" },
+    "reviewer": { "model": "openai/gpt-6.1-sol" },
     "qa": { "model": "claude-bridge/claude-sonnet-5-5" },
     "worker": { "model": "openai/gpt-6-astra" }
   },
