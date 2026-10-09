@@ -279,6 +279,9 @@ length = 10
 [widget.keep_creds]
 type = "sqve/keep-creds:status"
 
+[widget.tcc_profile]
+type = "sqve/tcc-profile:status"
+
 [widget.voxtype]
 type = "gabedunn/voxtype:status"
 idle_glyph = "ripple-off"

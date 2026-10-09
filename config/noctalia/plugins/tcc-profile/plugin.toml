@@ -1,0 +1,13 @@
+id          = "sqve/tcc-profile"
+name        = "TCC profile"
+version     = "1.0.0"
+plugin_api  = 14
+author      = "sqve"
+license     = "MIT"
+icon        = "bolt"
+description = "Shows the active TUXEDO Control Center profile and cycles Max, Eco, and Quiet."
+tags        = ["bar", "power"]
+
+[[widget]]
+id    = "status"
+entry = "widget.luau"

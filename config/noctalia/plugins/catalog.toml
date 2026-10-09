@@ -19,3 +19,14 @@ license     = "MIT"
 icon        = "shield"
 description = "Shows whether extended credential caching is active."
 tags        = ["bar", "security"]
+
+[[plugin]]
+id          = "sqve/tcc-profile"
+name        = "TCC profile"
+version     = "1.0.0"
+plugin_api  = 14
+author      = "sqve"
+license     = "MIT"
+icon        = "bolt"
+description = "Shows the active TUXEDO Control Center profile and cycles Max, Eco, and Quiet."
+tags        = ["bar", "power"]
