@@ -168,8 +168,20 @@ end
 
 -- ── Render ────────────────────────────────────────────────────────────────────
 
+local drawnVertical = nil
+
+-- A side bar is too narrow for a row, so the readings stack under the mark.
+local function capsule(nodes)
+    drawnVertical = barWidget.isVertical()
+    noctalia.log("DEBUG-AI capsule isVertical=" .. tostring(drawnVertical))
+    if drawnVertical then
+        return ui.column({ gap = 2, align = "center" }, nodes)
+    end
+    return ui.row({ gap = 4, align = "center" }, nodes)
+end
+
 local function fallback(text, role, tooltip)
-    barWidget.render(ui.row({ gap = 4, align = "center" }, {
+    barWidget.render(capsule({
         iconNode(),
         ui.label({ text = text, fontSize = 11, fontWeight = "semibold", color = role,
             baseline = "inkCentered" }),
@@ -219,11 +231,21 @@ local function render()
     local rows = tooltipFor(entries)
     for _, problem in ipairs(problems) do rows[#rows + 1] = problem end
 
-    barWidget.render(ui.row({ gap = 4, align = "center" }, nodes))
+    barWidget.render(capsule(nodes))
     barWidget.setTooltip(rows)
 end
 
 noctalia.state.watch("report", render)
 noctalia.state.watch("error", render)
+
+-- Moving the bar to another edge can leave the last drawing in the old
+-- orientation, so redraw when the orientation no longer matches it.
+noctalia.setUpdateInterval(1000)
+function update()
+    if barWidget.isVertical() ~= drawnVertical then
+        noctalia.log("DEBUG-AI orientation changed, redrawing")
+        render()
+    end
+end
 
 render()

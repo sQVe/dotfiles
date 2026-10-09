@@ -5,11 +5,14 @@
 -- labels repeat theirs. Stubs are the whole noctalia surface the widget touches.
 
 local config, state, tooltip, bar = {}, {}, nil, {}
+local vertical, layout = false, nil
 
 noctalia = {
   getConfig = function(key)
     return config[key]
   end,
+  setUpdateInterval = function() end,
+  log = function() end,
   string = {
     trim = function(s)
       return (s:gsub('^%s+', ''):gsub('%s+$', ''))
@@ -27,6 +30,11 @@ noctalia = {
 }
 ui = {
   row = function(_, children)
+    layout = 'row'
+    return children
+  end,
+  column = function(_, children)
+    layout = 'column'
     return children
   end,
   label = function(props)
@@ -45,6 +53,9 @@ barWidget = {
   end,
   setTooltip = function(rows)
     tooltip = rows
+  end,
+  isVertical = function()
+    return vertical
   end,
 }
 
@@ -154,6 +165,29 @@ assert(
 assert(
   claude[4].key == 'Session (5h) · 2h 51m',
   'label mangled: ' .. claude[4].key
+)
+assert(
+  layout == 'row',
+  'horizontal bar not drawn as a row: ' .. tostring(layout)
+)
+
+-- A side bar is too narrow for a row, so the readings stack under the mark.
+vertical = true
+draw('openai,openai@work', 'weekly')
+assert(
+  layout == 'column',
+  'vertical bar not drawn as a column: ' .. tostring(layout)
+)
+assert(#bar == 3, 'vertical bar lost readings, got ' .. #bar)
+
+-- Moving the bar to a side edge must redraw without waiting for a new report.
+vertical = false
+draw('openai,openai@work', 'weekly')
+vertical = true
+update()
+assert(
+  layout == 'column',
+  'bar moved to a side edge but widget stayed a ' .. tostring(layout)
 )
 
 print('OK')
