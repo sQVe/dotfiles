@@ -1,12 +1,43 @@
 {
   "profiles": {
     "default": { "model": "claude-bridge/claude-opus-5-5" },
-    "scout": { "model": "openai/gpt-6.1-sol" },
-    "reviewer": { "model": "openai/gpt-6.1-sol" },
+    "scout": {
+      "model": "claude-bridge/claude-opus-5-5",
+      "route": {
+        "classifier": "typesafe/jev-latest",
+        "question": "How wide is this scout brief?",
+        "labels": {
+          "narrow": {
+            "criterion": "A lookup about known code: where something is defined, which files touch it, or what a config or file says.",
+            "model": "claude-bridge/claude-haiku-5-5"
+          },
+          "wide": {
+            "criterion": "An investigation across many files, logs, sources, or the web, or one that needs judgment or a recommendation.",
+            "model": "claude-bridge/claude-opus-5-5"
+          }
+        }
+      }
+    },
+    "reviewer": { "model": "openai/gpt-6-astra" },
     "qa": { "model": "claude-bridge/claude-sonnet-5-5" },
-    "worker": { "model": "openai/gpt-6-astra" }
+    "worker": {
+      "model": "claude-bridge/claude-sonnet-5-5",
+      "route": {
+        "classifier": "typesafe/jev-latest",
+        "question": "How hard is this implementation task?",
+        "labels": {
+          "routine": {
+            "criterion": "A bounded edit with clear acceptance criteria in known code.",
+            "model": "claude-bridge/claude-sonnet-5-5"
+          },
+          "hard": {
+            "criterion": "Concurrency, native code, a cross-cutting design, or an unclear specification.",
+            "model": "claude-bridge/claude-opus-5-5"
+          }
+        }
+      }
+    }
   },
-  "bulkRead": { "model": "openai/gpt-5.6-luna" },
   "tracker": {
     "agentTeam": "AI",
     "repositories": {
@@ -14,6 +45,20 @@
       "sQVe/zeta": { "team": "ME", "project": "Zeta" },
       "sQVe/phi": { "team": "ME", "project": "Phi" },
       "hups-co/platform": { "team": "TMS" }
+    }
+  },
+  "fullCheck": {
+    "repositories": {
+      "sQVe/tau": { "argv": ["pnpm", "check"] },
+      "sQVe/zeta": { "argv": ["bun", "run", "--bun", "check"] },
+      "sQVe/phi": { "argv": ["bun", "run", "--bun", "check"] },
+      "hups-co/platform": {
+        "argv": [
+          "sh",
+          "-c",
+          "pnpm run lint:ci && pnpm run format:ci && pnpm run lint:rules && pnpm run lint:env && pnpm run lint:exports && pnpm run lint:event-catalog && pnpm run translations:ci && pnpm run typecheck && pnpm run test:ci"
+        ]
+      }
     }
   },
   "browser": {

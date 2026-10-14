@@ -10,7 +10,7 @@
   "editorPaddingX": 0,
   "enableInstallTelemetry": false,
   "enableSkillCommands": false,
-  "lastChangelogVersion": "1.1.0",
+  "lastChangelogVersion": "1.2.0",
   "markdown": {
     "mermaid": "streaming"
   },
@@ -28,6 +28,7 @@
     "claude-bridge/claude-fable-5-1",
     "claude-bridge/claude-opus-5-5",
     "claude-bridge/claude-sonnet-5-5",
+    "claude-bridge/claude-haiku-5-5",
     "openai/gpt-6.1-sol",
     "openai/gpt-6-astra",
     "openai/gpt-5.6-luna",
@@ -37,6 +38,7 @@
     "claude-bridge/claude-fable-5-1": "high",
     "claude-bridge/claude-opus-5-5": "medium",
     "claude-bridge/claude-sonnet-5-5": "medium",
+    "claude-bridge/claude-haiku-5-5": "medium",
     "openai/gpt-6.1-sol": "high",
     "openai/gpt-6-astra": "high",
     "openai/gpt-5.6-luna": "high",
