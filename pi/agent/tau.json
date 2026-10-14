@@ -6,25 +6,44 @@
       "route": {
         "classifier": "typesafe/jev-latest",
         "question": "How wide is this scout brief?",
+        "canary": 0.5,
         "labels": {
           "narrow": {
-            "criterion": "A lookup about known code: where something is defined, which files touch it, or what a config or file says.",
+            "criterion": "A factual lookup whose answer sits in a few files or one command output: where something is defined, which files use it, or what a file, config, or command says. It needs no judgment and no sources outside the repository.",
             "model": "claude-bridge/claude-haiku-5-5"
           },
           "wide": {
-            "criterion": "An investigation across many files, logs, sources, or the web, or one that needs judgment or a recommendation.",
+            "criterion": "Every other brief: a root cause, a reproduction, research in logs or on the web, a review or audit, or a question that needs a recommendation.",
             "model": "claude-bridge/claude-opus-5-5"
           }
         }
       }
     },
-    "reviewer": { "model": "openai/gpt-6-astra" },
+    "reviewer": {
+      "model": "openai/gpt-6-astra",
+      "route": {
+        "classifier": "typesafe/jev-latest",
+        "question": "How wide is this review?",
+        "canary": 0.5,
+        "labels": {
+          "fix": {
+            "criterion": "A fix review: it checks a bounded diff against findings an earlier review named, and the callers of the changed code.",
+            "model": "claude-bridge/claude-haiku-5-5"
+          },
+          "full": {
+            "criterion": "Every other review: a first review of a whole change, a deep review, or a fix review whose fix widens the change.",
+            "model": "openai/gpt-6-astra"
+          }
+        }
+      }
+    },
     "qa": { "model": "claude-bridge/claude-sonnet-5-5" },
     "worker": {
       "model": "claude-bridge/claude-sonnet-5-5",
       "route": {
         "classifier": "typesafe/jev-latest",
         "question": "How hard is this implementation task?",
+        "canary": 0.5,
         "labels": {
           "routine": {
             "criterion": "A bounded edit with clear acceptance criteria in known code.",
