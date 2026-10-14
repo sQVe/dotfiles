@@ -9,6 +9,7 @@ local TIMEOUT_MS = 5000
 
 local GLYPHS = {
   Max = "bolt",
+  Work = "briefcase",
   Eco = "leaf",
   Quiet = "ear-off",
 }
