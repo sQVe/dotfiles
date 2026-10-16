@@ -61,7 +61,6 @@ local default_commands = {
   commands.search_in_files,
   commands.search_in_files_subdirectory,
   commands.search_text,
-  commands.spawn_claude,
   commands.spawn_lazygit,
   commands.spawn_lazygit_with_filter,
   commands.spawn_terminal,

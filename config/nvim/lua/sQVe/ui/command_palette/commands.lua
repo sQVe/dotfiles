@@ -626,16 +626,6 @@ M.search_text = {
   end,
 }
 
-M.spawn_claude = {
-  callback = function()
-    vim.system({ 'term', 'command claude' }, { detach = true }):wait()
-  end,
-  condition = function()
-    return git.is_inside_repo()
-  end,
-  name = 'Spawn (Claude)',
-}
-
 M.spawn_lazygit = {
   callback = function()
     vim.system({ 'term', 'lazygit' }, { detach = true }):wait()

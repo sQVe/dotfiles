@@ -17,12 +17,6 @@ vim.opt_local.tabstop = 3
 vim.opt_local.formatoptions:append('t')
 vim.opt_local.textwidth = 100
 
--- Move cursor to end for Claude Code prompts.
-local bufname = vim.api.nvim_buf_get_name(0)
-if bufname:match('^/tmp/claude%-prompt%-.*%.md$') then
-  vim.cmd('normal! G$')
-end
-
 -- Notebox live PDF watcher.
 local notebox_types = {
   weekly = 'week',
