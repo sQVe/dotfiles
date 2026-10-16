@@ -139,15 +139,6 @@ function _pnpm_bridge() {
   fi
 }
 
-# Agent teams everywhere except Orca, keyed on kitty (herdr runs in kitty, Orca
-# doesn't). Plain child of the shell, not a systemd scope: a scope dies on
-# reboot while herdr/Orca live on, dropping the pane's resume id.
-function claude() {
-  emulate -L zsh
-  [[ -n ${KITTY_WINDOW_ID:-} ]] && export CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS=1
-  /opt/claude-code/bin/claude --allow-dangerously-skip-permissions "$@"
-}
-
 # Run a long-lived dev server (sst/turbo/vite) in a transient systemd scope.
 # sst spawns setsid'd workers that escape the pane's SIGHUP and orphan to
 # systemd; we found a 5 GB sst tree running headless for 4 hours. A scope kills
@@ -295,8 +286,6 @@ alias suspend='state suspend'
 # Apps.
 alias bc='bc --mathlib --quiet'
 alias bluetooth=bluetoothctl
-alias cl=claude
-alias cx=codex
 alias dash='gh dash'
 alias fd="fd --hidden --follow --exclude .git --exclude '.steam' --exclude 'Steam'"
 alias fm=yazi
