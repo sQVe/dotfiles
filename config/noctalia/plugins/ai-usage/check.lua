@@ -6,6 +6,7 @@
 
 local config, state, tooltip, bar = {}, {}, nil, {}
 local vertical, layout = false, nil
+local watchers = {}
 
 noctalia = {
   getConfig = function(key)
@@ -25,7 +26,9 @@ noctalia = {
     set = function(key, value)
       state[key] = value
     end,
-    watch = function() end,
+    watch = function(key, callback)
+      watchers[key] = callback
+    end,
   },
 }
 ui = {
@@ -188,6 +191,16 @@ update()
 assert(
   layout == 'column',
   'bar moved to a side edge but widget stayed a ' .. tostring(layout)
+)
+
+-- Noctalia runs state.watch callbacks without the bar's snapshot, so
+-- isVertical() answers false there even on a side bar. A new report must keep
+-- the orientation the last update() saw.
+vertical = false
+watchers.report(REPORT)
+assert(
+  layout == 'column',
+  'new report flipped a side-bar capsule to a ' .. tostring(layout)
 )
 
 print('OK')
