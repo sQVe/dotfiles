@@ -20,22 +20,7 @@
       }
     },
     "reviewer": {
-      "model": "openai/gpt-6-astra",
-      "route": {
-        "classifier": "typesafe/jev-latest",
-        "question": "How wide is this review?",
-        "canary": 0.5,
-        "labels": {
-          "fix": {
-            "criterion": "A fix review: it checks a bounded diff against findings an earlier review named, and the callers of the changed code.",
-            "model": "claude-bridge/claude-haiku-5-5"
-          },
-          "full": {
-            "criterion": "Every other review: a first review of a whole change, a deep review, or a fix review whose fix widens the change.",
-            "model": "openai/gpt-6-astra"
-          }
-        }
-      }
+      "model": "openai/gpt-6-astra"
     },
     "qa": { "model": "claude-bridge/claude-sonnet-5-5" },
     "worker": {
@@ -62,7 +47,7 @@
     "repositories": {
       "sQVe/tau": { "team": "ME", "project": "Tau" },
       "sQVe/zeta": { "team": "ME", "project": "Zeta" },
-      "sQVe/phi": { "team": "ME", "project": "Phi" },
+      "sQVe/koja": { "team": "ME", "project": "Koja" },
       "hups-co/platform": { "team": "TMS" }
     }
   },
@@ -70,7 +55,7 @@
     "repositories": {
       "sQVe/tau": { "argv": ["pnpm", "check"] },
       "sQVe/zeta": { "argv": ["bun", "run", "--bun", "check"] },
-      "sQVe/phi": { "argv": ["bun", "run", "--bun", "check"] },
+      "sQVe/koja": { "argv": ["bun", "run", "--bun", "check"] },
       "hups-co/platform": {
         "argv": [
           "sh",
