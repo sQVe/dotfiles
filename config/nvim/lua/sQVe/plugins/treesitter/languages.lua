@@ -32,6 +32,7 @@ return {
   'markdown_inline',
   'query',
   'regex',
+  'rust',
   'scss',
   'sql',
   'toml',

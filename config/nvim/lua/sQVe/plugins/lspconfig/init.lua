@@ -45,6 +45,9 @@ local M = {
     -- marksman,
     'markdown',
 
+    -- rust_analyzer
+    'rust',
+
     -- yamlls
     'yaml',
 
@@ -58,9 +61,6 @@ local M = {
     'javascriptreact',
     'typescript',
     'typescriptreact',
-
-    -- Typst.
-    'typst',
 
     -- other filetypes where copilot might be useful
     'dockerfile',
@@ -218,9 +218,21 @@ M.config = function()
     capabilities = capabilities,
   })
 
-  vim.lsp.config('tinymist', {
-    on_attach = on_attach,
+  vim.lsp.config('rust_analyzer', {
+    on_attach = function(client, bufnr)
+      on_attach(client, bufnr)
+      vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+    end,
     capabilities = capabilities,
+    settings = {
+      ['rust-analyzer'] = {
+        check = { command = 'clippy' },
+        inlayHints = {
+          closureCaptureHints = { enable = true },
+          lifetimeElisionHints = { enable = 'skip_trivial' },
+        },
+      },
+    },
   })
 
   vim.lsp.config('tsc', {
@@ -252,7 +264,7 @@ M.config = function()
     'jsonls',
     'lua_ls',
     'marksman',
-    'tinymist',
+    'rust_analyzer',
     'tsc',
     'yamlls',
   })

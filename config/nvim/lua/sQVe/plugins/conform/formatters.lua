@@ -16,6 +16,7 @@ M.by_ft = {
   jsonc = { 'oxfmt', 'prettier', stop_after_first = true },
   lua = { 'stylua' },
   markdown = { 'prettier', 'injected' },
+  rust = { 'rustfmt' },
   sh = { 'shfmt' },
   sql = { 'pg_format' },
   toml = { 'taplo' },
