@@ -1,41 +1,46 @@
 {
   "profiles": {
-    "default": { "model": "claude-bridge/claude-opus-5-5" },
+    "default": {
+      "model": "claude-bridge/claude-opus-5-5"
+    },
     "scout": {
-      "model": "claude-bridge/claude-opus-5-5",
+      "model": "openai/gpt-6.1-sol",
       "route": {
         "classifier": "typesafe/jev-latest",
         "question": "How wide is this scout brief?",
-        "canary": 0.5,
         "labels": {
           "narrow": {
-            "criterion": "A factual lookup whose answer sits in a few files or one command output: where something is defined, which files use it, or what a file, config, or command says. It needs no judgment and no sources outside the repository.",
+            "criterion": "A question answered by reading the repository or running local commands: where something is defined, which files use it, what a file, config, or command says, how a code path flows, or what a module does. It may span many files, but it asks for facts, not a recommendation.",
             "model": "claude-bridge/claude-haiku-5-5"
           },
           "wide": {
-            "criterion": "Every other brief: a root cause, a reproduction, research in logs or on the web, a review or audit, or a question that needs a recommendation.",
-            "model": "claude-bridge/claude-opus-5-5"
+            "criterion": "A brief that needs judgment: an unknown root cause, a reproduction, research on the web, a review or audit, or a question that asks for a recommendation.",
+            "model": "openai/gpt-6.1-sol"
           }
         }
       }
     },
     "reviewer": {
-      "model": "openai/gpt-6-astra"
+      "model": "openai/gpt-6.1-sol"
     },
-    "qa": { "model": "claude-bridge/claude-sonnet-5-5" },
+    "qa": {
+      "model": "openai/gpt-6.1-terra"
+    },
+    "browser": {
+      "model": "claude-bridge/claude-haiku-5-5"
+    },
     "worker": {
-      "model": "claude-bridge/claude-sonnet-5-5",
+      "model": "claude-bridge/claude-opus-5-5",
       "route": {
         "classifier": "typesafe/jev-latest",
         "question": "How hard is this implementation task?",
-        "canary": 0.5,
         "labels": {
           "routine": {
-            "criterion": "A bounded edit with clear acceptance criteria in known code.",
-            "model": "claude-bridge/claude-sonnet-5-5"
+            "criterion": "A change whose acceptance criteria say what to build, even across several files: a bug fix with a known cause, new or updated tests, a rename or move, a config or docs change, or a feature that follows an existing pattern.",
+            "model": "claude-bridge/claude-haiku-5-5"
           },
           "hard": {
-            "criterion": "Concurrency, native code, a cross-cutting design, or an unclear specification.",
+            "criterion": "A change that needs design or diagnosis: concurrency, native code, a new design across modules, a bug with an unknown cause, or an unclear specification.",
             "model": "claude-bridge/claude-opus-5-5"
           }
         }
@@ -45,17 +50,42 @@
   "tracker": {
     "agentTeam": "AI",
     "repositories": {
-      "sQVe/tau": { "team": "ME", "project": "Tau" },
-      "sQVe/zeta": { "team": "ME", "project": "Zeta" },
-      "sQVe/koja": { "team": "ME", "project": "Koja" },
-      "hups-co/platform": { "team": "TMS" }
+      "sQVe/tau": {
+        "team": "ME",
+        "project": "Tau"
+      },
+      "sQVe/mergit": {
+        "team": "ME",
+        "project": "Mergit"
+      },
+      "sQVe/koja": {
+        "team": "ME",
+        "project": "Koja"
+      },
+      "hups-co/platform": {
+        "team": "TMS"
+      },
+      "sQVe/tikk": {
+        "team": "ME",
+        "project": "Tikk"
+      },
+      "sQVe/mutation": {
+        "team": "ME",
+        "project": "Mutation"
+      }
     }
   },
   "fullCheck": {
     "repositories": {
-      "sQVe/tau": { "argv": ["pnpm", "check"] },
-      "sQVe/zeta": { "argv": ["bun", "run", "--bun", "check"] },
-      "sQVe/koja": { "argv": ["bun", "run", "--bun", "check"] },
+      "sQVe/tau": {
+        "argv": ["pnpm", "check"]
+      },
+      "sQVe/mergit": {
+        "argv": ["bun", "run", "--bun", "check"]
+      },
+      "sQVe/koja": {
+        "argv": ["bun", "run", "--bun", "check"]
+      },
       "hups-co/platform": {
         "argv": [
           "sh",
@@ -67,5 +97,65 @@
   },
   "browser": {
     "loginCommand": "google-chrome-stable --profile-directory=\"Agent profile\""
+  },
+  "reviews": {
+    "repositories": {
+      "sQVe/koja": {
+        "bots": [
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
+        ]
+      },
+      "hups-co/platform": {
+        "bots": [
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
+        ]
+      },
+      "sQVe/grove": {
+        "bots": [
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
+        ]
+      },
+      "sQVe/mergit": {
+        "bots": [
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
+        ]
+      },
+      "sQVe/seam": {
+        "bots": [
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
+        ]
+      },
+      "sQVe/tau": {
+        "bots": [
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
+        ]
+      },
+      "sQVe/tikk": {
+        "bots": [
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
+        ]
+      }
+    }
   }
 }
