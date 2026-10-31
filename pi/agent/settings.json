@@ -1,8 +1,8 @@
 {
   "autocompleteMaxVisible": 10,
-  "defaultModel": "gpt-6-astra",
+  "defaultModel": "claude-opus-5-5",
   "defaultProjectTrust": "always",
-  "defaultProvider": "openai",
+  "defaultProvider": "claude-bridge",
   "defaultThinkingLevel": "medium",
   "defaultTools": ["+codemode"],
   "editorPaddingX": 0,
