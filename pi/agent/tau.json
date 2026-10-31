@@ -30,7 +30,7 @@
       "model": "claude-bridge/claude-haiku-5-5"
     },
     "worker": {
-      "model": "claude-bridge/claude-opus-5-5",
+      "model": "openrouter/deepseek/deepseek-v4.1-flash",
       "route": {
         "classifier": "typesafe/jev-latest",
         "question": "How hard is this implementation task?",
@@ -41,7 +41,7 @@
           },
           "hard": {
             "criterion": "A change that needs design or diagnosis: concurrency, native code, a new design across modules, a bug with an unknown cause, or an unclear specification.",
-            "model": "claude-bridge/claude-opus-5-5"
+            "model": "openrouter/deepseek/deepseek-v4.1-flash"
           }
         }
       }
@@ -72,26 +72,6 @@
       "sQVe/mutation": {
         "team": "ME",
         "project": "Mutation"
-      }
-    }
-  },
-  "fullCheck": {
-    "repositories": {
-      "sQVe/tau": {
-        "argv": ["pnpm", "check"]
-      },
-      "sQVe/mergit": {
-        "argv": ["bun", "run", "--bun", "check"]
-      },
-      "sQVe/koja": {
-        "argv": ["bun", "run", "--bun", "check"]
-      },
-      "hups-co/platform": {
-        "argv": [
-          "sh",
-          "-c",
-          "pnpm run lint:ci && pnpm run format:ci && pnpm run lint:rules && pnpm run lint:env && pnpm run lint:exports && pnpm run lint:event-catalog && pnpm run translations:ci && pnpm run typecheck && pnpm run test:ci"
-        ]
       }
     }
   },
