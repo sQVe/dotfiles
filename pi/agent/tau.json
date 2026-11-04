@@ -23,6 +23,9 @@
     "reviewer": {
       "model": "openai/gpt-6.1-sol"
     },
+    "checker": {
+      "model": "claude-bridge/claude-sonnet-5-5"
+    },
     "qa": {
       "model": "openai/gpt-6.1-terra"
     },
@@ -58,6 +61,10 @@
         "team": "ME",
         "project": "Mergit"
       },
+      "sQVe/koja-mux": {
+        "team": "ME",
+        "project": "Koja Mux"
+      },
       "sQVe/koja": {
         "team": "ME",
         "project": "Koja"
@@ -80,6 +87,14 @@
   },
   "reviews": {
     "repositories": {
+      "sQVe/koja-mux": {
+        "bots": [
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
+        ]
+      },
       "sQVe/koja": {
         "bots": [
           {
