@@ -78,7 +78,10 @@ fi
 source "${ZIM_HOME}/init.zsh"
 
 # Load Powerlevel10k configuration.
- source ~/.config/zsh/p10k.config.zsh
+source "${XDG_CONFIG_HOME}/zsh/p10k.config.zsh"
+
+# Pi resume in herdr-app.
+source "${CODE}/personal/tau/main/shell/resume-pi.zsh"
 
 # Completion.
 source /usr/share/fzf/completion.zsh
@@ -298,6 +301,3 @@ alias rcup="${SCRIPTS}/extended-rcup.sh"
 alias v=nvim
 alias vim=nvim
 alias vn='nvim -u NONE'
-
-# Vite+ bin (https://viteplus.dev)
-. "/home/sqve/.config/vite-plus/env"
