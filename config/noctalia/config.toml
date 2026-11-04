@@ -282,14 +282,6 @@ type = "sqve/keep-creds:status"
 [widget.tcc_profile]
 type = "sqve/tcc-profile:status"
 
-[widget.voxtype]
-type = "gabedunn/voxtype:status"
-idle_glyph = "ripple-off"
-stopped_glyph = "ripple-off"
-recording_glyph = "ripple"
-streaming_glyph = "keyboard"
-transcribing_glyph = "loader"
-
 [widget.clock]
 type = "clock"
 format = "{:%H:%M}"

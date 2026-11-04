@@ -1,0 +1,24 @@
+{
+  "transcription.model": "parakeet_unified_en",
+  "transcription.language": "en",
+  "paste_last_hotkey": null,
+  "labs.filler_words": true,
+  "labs.spoken_symbols": true,
+  "dictation_processing.default_mode": {
+    "name": "Global",
+    "applications": [],
+    "browser_hosts": [],
+    "replacements": [],
+    "transformations": [
+      "end-with-period"
+    ],
+    "post_processing": {
+      "enabled": false,
+      "prompt": "Rewrite the transcript into clear, natural text while preserving the speaker's intended meaning.",
+      "model": null,
+      "variant": null,
+      "deadline_seconds": 30
+    }
+  },
+  "paste_with_shift": true
+}
