@@ -4,11 +4,13 @@
   "defaultProjectTrust": "always",
   "defaultProvider": "claude-bridge",
   "defaultThinkingLevel": "medium",
-  "defaultTools": ["+codemode"],
+  "defaultTools": [
+    "+codemode"
+  ],
   "editorPaddingX": 0,
   "enableInstallTelemetry": false,
   "enableSkillCommands": false,
-  "lastChangelogVersion": "1.4.0",
+  "lastChangelogVersion": "1.5.0",
   "markdown": {
     "mermaid": "streaming"
   },
@@ -44,5 +46,9 @@
     "openai/gpt-5.6-luna": "high",
     "openrouter/deepseek/deepseek-v4.1-flash": "high"
   },
-  "deviceId": "5fa86e26-2010-41f4-af99-458f2a2a9adc"
+  "deviceId": "5fa86e26-2010-41f4-af99-458f2a2a9adc",
+  "extensionChangelogVersions": {
+    "{\"source\":\"/home/sqve/code/personal/tau/main\",\"scope\":\"user\"}": "1.0.0",
+    "{\"source\":\"git:github.com/elidickinson/pi-claude-bridge\",\"scope\":\"user\"}": "0.9.3"
+  }
 }
