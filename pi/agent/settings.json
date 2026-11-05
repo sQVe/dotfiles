@@ -49,6 +49,7 @@
   "deviceId": "5fa86e26-2010-41f4-af99-458f2a2a9adc",
   "extensionChangelogVersions": {
     "{\"source\":\"/home/sqve/code/personal/tau/main\",\"scope\":\"user\"}": "1.0.0",
-    "{\"source\":\"git:github.com/elidickinson/pi-claude-bridge\",\"scope\":\"user\"}": "0.9.3"
+    "{\"source\":\"git:github.com/elidickinson/pi-claude-bridge\",\"scope\":\"user\"}": "0.10.0",
+    "{\"source\":\"..\",\"scope\":\"project\"}": "1.0.0"
   }
 }
