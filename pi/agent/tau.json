@@ -33,53 +33,20 @@
       "model": "claude-bridge/claude-haiku-5-5"
     },
     "worker": {
-      "model": "openrouter/deepseek/deepseek-v4.1-flash",
-      "route": {
-        "classifier": "typesafe/jev-latest",
-        "question": "How hard is this implementation task?",
-        "labels": {
-          "routine": {
-            "criterion": "A change whose acceptance criteria say what to build, even across several files: a bug fix with a known cause, new or updated tests, a rename or move, a config or docs change, or a feature that follows an existing pattern.",
-            "model": "claude-bridge/claude-haiku-5-5"
-          },
-          "hard": {
-            "criterion": "A change that needs design or diagnosis: concurrency, native code, a new design across modules, a bug with an unknown cause, or an unclear specification.",
-            "model": "openrouter/deepseek/deepseek-v4.1-flash"
-          }
-        }
-      }
+      "model": "openrouter/deepseek/deepseek-v4.1-flash"
     }
   },
   "tracker": {
     "agentTeam": "AI",
     "repositories": {
-      "sQVe/tau": {
-        "team": "ME",
-        "project": "Tau"
-      },
-      "sQVe/mergit": {
-        "team": "ME",
-        "project": "Mergit"
-      },
-      "sQVe/koja-mux": {
-        "team": "ME",
-        "project": "Koja Mux"
-      },
-      "sQVe/koja": {
-        "team": "ME",
-        "project": "Koja"
-      },
-      "hups-co/platform": {
-        "team": "TMS"
-      },
-      "sQVe/tikk": {
-        "team": "ME",
-        "project": "Tikk"
-      },
-      "sQVe/mutation": {
-        "team": "ME",
-        "project": "Mutation"
-      }
+      "hups-co/platform": { "team": "TMS" },
+      "sQVe/greppa": { "team": "ME", "project": "Greppa" },
+      "sQVe/grove": { "team": "ME", "project": "Grove" },
+      "sQVe/koja": { "team": "ME", "project": "Koja" },
+      "sQVe/mergit": { "team": "ME", "project": "Mergit" },
+      "sQVe/mutation": { "team": "ME", "project": "Mutation" },
+      "sQVe/tau": { "team": "ME", "project": "Tau" },
+      "sQVe/tikk": { "team": "ME", "project": "Tikk" }
     }
   },
   "browser": {
@@ -87,68 +54,49 @@
   },
   "reviews": {
     "repositories": {
-      "sQVe/koja-mux": {
-        "bots": [
-          {
-            "login": "chatgpt-codex-connector",
-            "comment": "@codex review"
-          }
-        ]
-      },
-      "sQVe/koja": {
-        "bots": [
-          {
-            "login": "chatgpt-codex-connector",
-            "comment": "@codex review"
-          }
-        ]
-      },
       "hups-co/platform": {
         "bots": [
-          {
-            "login": "chatgpt-codex-connector",
-            "comment": "@codex review"
-          }
+          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
+        ]
+      },
+      "sQVe/greppa": {
+        "bots": [
+          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
         ]
       },
       "sQVe/grove": {
         "bots": [
-          {
-            "login": "chatgpt-codex-connector",
-            "comment": "@codex review"
-          }
+          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
+        ]
+      },
+      "sQVe/koja": {
+        "bots": [
+          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
         ]
       },
       "sQVe/mergit": {
         "bots": [
-          {
-            "login": "chatgpt-codex-connector",
-            "comment": "@codex review"
-          }
+          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
+        ]
+      },
+      "sQVe/mutation": {
+        "bots": [
+          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
         ]
       },
       "sQVe/seam": {
         "bots": [
-          {
-            "login": "chatgpt-codex-connector",
-            "comment": "@codex review"
-          }
+          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
         ]
       },
       "sQVe/tau": {
         "bots": [
-          {
-            "login": "chatgpt-codex-connector",
-            "comment": "@codex review"
-          }
+          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
         ]
       },
       "sQVe/tikk": {
         "bots": [
-          {
-            "login": "chatgpt-codex-connector",
-            "comment": "@codex review"
-          }
+          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
         ]
       }
     }
