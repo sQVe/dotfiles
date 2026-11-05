@@ -69,6 +69,11 @@ export FZF_DEFAULT_OPTS="--bind ctrl-a:toggle-all,ctrl-b:page-up,ctrl-d:half-pag
 # ┣╸ ┃┏┛┣━┫┃    ┣━┫┃┗┫ ┃┃   ┗━┓┃ ┃┃ ┃┣┳┛┃  ┣╸
 # ┗━╸┗┛ ╹ ╹┗━╸  ╹ ╹╹ ╹╺┻┛   ┗━┛┗━┛┗━┛╹┗╸┗━╸┗━╸
 
+# Pi resume in herdr-app.
+if [[ -r "${CODE}/personal/tau/main/shell/resume-pi.zsh" ]]; then
+  source "${CODE}/personal/tau/main/shell/resume-pi.zsh"
+fi
+
 # Enable Powerlevel10k instant prompt.
 if [[ -r "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME}/p10k-instant-prompt-${(%):-%n}.zsh"
@@ -79,9 +84,6 @@ source "${ZIM_HOME}/init.zsh"
 
 # Load Powerlevel10k configuration.
 source "${XDG_CONFIG_HOME}/zsh/p10k.config.zsh"
-
-# Pi resume in herdr-app.
-source "${CODE}/personal/tau/main/shell/resume-pi.zsh"
 
 # Completion.
 source /usr/share/fzf/completion.zsh
