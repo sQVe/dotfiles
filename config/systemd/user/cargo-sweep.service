@@ -1,0 +1,8 @@
+[Unit]
+Description=Remove Rust build files not used in 7 days
+
+[Service]
+Type=oneshot
+ExecStart=%h/dev/cargo/bin/cargo-sweep sweep --recursive --time 7 %h/code
+Nice=19
+IOSchedulingClass=idle

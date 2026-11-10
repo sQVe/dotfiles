@@ -1,0 +1,10 @@
+[Unit]
+Description=Remove Rust build files not used in 7 days timer
+
+[Timer]
+OnCalendar=daily
+Persistent=true
+RandomizedDelaySec=1h
+
+[Install]
+WantedBy=timers.target
