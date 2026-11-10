@@ -5,13 +5,15 @@
     },
     "scout": {
       "model": "openai/gpt-6.1-sol",
+      "thinking": "medium",
       "route": {
         "classifier": "typesafe/jev-latest",
         "question": "How wide is this scout brief?",
         "labels": {
           "narrow": {
             "criterion": "A question answered by reading the repository or running local commands: where something is defined, which files use it, what a file, config, or command says, how a code path flows, or what a module does. It may span many files, but it asks for facts, not a recommendation.",
-            "model": "claude-bridge/claude-haiku-5-5"
+            "model": "claude-bridge/claude-haiku-5-5",
+            "thinking": "low"
           },
           "wide": {
             "criterion": "A brief that needs judgment: an unknown root cause, a reproduction, research on the web, a review or audit, or a question that asks for a recommendation.",
@@ -30,23 +32,68 @@
       "model": "openai/gpt-6.1-terra"
     },
     "browser": {
-      "model": "claude-bridge/claude-haiku-5-5"
+      "model": "claude-bridge/claude-haiku-5-5",
+      "thinking": "low"
     },
     "worker": {
-      "model": "openrouter/deepseek/deepseek-v4.1-flash"
+      "model": "openai/gpt-6-astra",
+      "thinking": "medium",
+      "route": {
+        "classifier": "typesafe/jev-latest",
+        "question": "How much design does this worker brief leave open?",
+        "labels": {
+          "contained": {
+            "criterion": "The brief names what to change and how: a rename, a config or text edit, a fix whose cause is already known, or a change that copies an existing pattern in the repository. Any tests follow existing tests closely.",
+            "model": "openai/gpt-6-astra",
+            "thinking": "low"
+          },
+          "involved": {
+            "criterion": "The brief leaves choices to the worker: an unknown root cause, a change across several modules or a shared interface, new tests to design, state, concurrency, or data migration, or acceptance criteria that do not say how to meet them.",
+            "model": "openai/gpt-6-astra",
+            "thinking": "high"
+          }
+        }
+      }
     }
   },
   "tracker": {
     "agentTeam": "AI",
     "repositories": {
-      "hups-co/platform": { "team": "TMS" },
-      "sQVe/greppa": { "team": "ME", "project": "Greppa" },
-      "sQVe/grove": { "team": "ME", "project": "Grove" },
-      "sQVe/koja": { "team": "ME", "project": "Koja" },
-      "sQVe/mergit": { "team": "ME", "project": "Mergit" },
-      "sQVe/mutation": { "team": "ME", "project": "Mutation" },
-      "sQVe/tau": { "team": "ME", "project": "Tau" },
-      "sQVe/tikk": { "team": "ME", "project": "Tikk" }
+      "hups-co/platform": {
+        "team": "TMS"
+      },
+      "sQVe/greppa": {
+        "team": "ME",
+        "project": "Greppa"
+      },
+      "sQVe/grove": {
+        "team": "ME",
+        "project": "Grove"
+      },
+      "sQVe/koja": {
+        "team": "ME",
+        "project": "Koja"
+      },
+      "sQVe/mergit": {
+        "team": "ME",
+        "project": "Mergit"
+      },
+      "sQVe/mutation": {
+        "team": "ME",
+        "project": "Mutation"
+      },
+      "sQVe/tau": {
+        "team": "ME",
+        "project": "Tau"
+      },
+      "sQVe/tikk": {
+        "team": "ME",
+        "project": "Tikk"
+      },
+      "sQVe/ruta": {
+        "team": "ME",
+        "project": "Ruta"
+      }
     }
   },
   "browser": {
@@ -56,47 +103,82 @@
     "repositories": {
       "hups-co/platform": {
         "bots": [
-          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
         ]
       },
       "sQVe/greppa": {
         "bots": [
-          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
         ]
       },
       "sQVe/grove": {
         "bots": [
-          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
         ]
       },
       "sQVe/koja": {
         "bots": [
-          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
         ]
       },
       "sQVe/mergit": {
         "bots": [
-          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
         ]
       },
       "sQVe/mutation": {
         "bots": [
-          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
         ]
       },
       "sQVe/seam": {
         "bots": [
-          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
         ]
       },
       "sQVe/tau": {
         "bots": [
-          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
         ]
       },
       "sQVe/tikk": {
         "bots": [
-          { "login": "chatgpt-codex-connector", "comment": "@codex review" }
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
+        ]
+      },
+      "sQVe/ruta": {
+        "bots": [
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
         ]
       }
     }
