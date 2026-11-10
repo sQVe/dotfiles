@@ -1,0 +1,11 @@
+# Applies to every project. A project's own Cargo.toml profile settings win.
+# Full debug info is opt-in: `cargo build --profile debugging`.
+[profile.dev]
+debug = "line-tables-only"
+
+[profile.dev.package."*"]
+debug = false
+
+[profile.debugging]
+inherits = "dev"
+debug = true
