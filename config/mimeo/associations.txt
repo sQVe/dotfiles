@@ -23,7 +23,7 @@ mpv %U
 streamlink %U
   ^https?:\/\/(www\.)?twitch\.tv\/.*
 
-imv-url %U
+swayimg-url %U
   ^https?:\/\/.+?\.(jpe?g|png|bmp|svg|heic|heif|tiff?|webp)
 
 qutebrowser %F

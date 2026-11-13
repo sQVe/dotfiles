@@ -1,9 +1,9 @@
 # Replicate mime settings for applications that use mailcap.
 
 audio/*; mpv %s; copiousoutput
-image/gif; imv %s; copiousoutput
+image/gif; swayimg %s; copiousoutput
 image/svg; qutebrowser %s; copiousoutput
-image/*; imv %s; copiousoutput
+image/*; swayimg %s; copiousoutput
 text/html; w3m -I %{charset} -T text/html; copiousoutput
 text/plain; nvim %s;
 text/*; nvim %s;
