@@ -4,13 +4,11 @@
   "defaultProjectTrust": "always",
   "defaultProvider": "claude-bridge",
   "defaultThinkingLevel": "medium",
-  "defaultTools": [
-    "+codemode"
-  ],
+  "defaultTools": ["+codemode"],
   "editorPaddingX": 0,
   "enableInstallTelemetry": false,
   "enableSkillCommands": false,
-  "lastChangelogVersion": "1.5.1",
+  "lastChangelogVersion": "1.5.2",
   "markdown": {
     "mermaid": "streaming"
   },
@@ -36,7 +34,7 @@
     "openrouter/deepseek/deepseek-v4.1-flash"
   ],
   "modelThinkingLevels": {
-    "claude-bridge/claude-fable-5-2": "high",
+    "claude-bridge/claude-fable-5-2": "medium",
     "claude-bridge/claude-opus-5-5": "medium",
     "claude-bridge/claude-sonnet-5-5": "medium",
     "claude-bridge/claude-haiku-5-5": "high",
@@ -48,9 +46,13 @@
   },
   "deviceId": "5fa86e26-2010-41f4-af99-458f2a2a9adc",
   "extensionChangelogVersions": {
-    "{\"source\":\"/home/sqve/code/personal/tau/main\",\"scope\":\"user\"}": "1.0.0",
-    "{\"source\":\"git:github.com/elidickinson/pi-claude-bridge\",\"scope\":\"user\"}": "0.11.0",
-    "{\"source\":\"..\",\"scope\":\"project\"}": "1.0.0"
+    "{\"source\":\"/home/sqve/code/personal/tau/main\",\"scope\":\"user\"}": "1.1.0",
+    "{\"source\":\"git:github.com/elidickinson/pi-claude-bridge\",\"scope\":\"user\"}": "0.12.0",
+    "{\"source\":\"..\",\"scope\":\"project\"}": "1.0.0",
+    "{\"source\":\"/home/sqve/code/personal/tau/me-1367\",\"scope\":\"project\"}": "1.1.0",
+    "{\"source\":\"/home/sqve/code/personal/tau/me-1376\",\"scope\":\"project\"}": "1.1.0",
+    "{\"source\":\"/home/sqve/code/personal/tau/me-1371\",\"scope\":\"project\"}": "1.1.0",
+    "{\"source\":\"/home/sqve/code/personal/tau/me-1368\",\"scope\":\"project\"}": "1.1.0"
   },
   "compaction": {
     "reserveTokens": 100000,

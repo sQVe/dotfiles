@@ -36,7 +36,7 @@
       "thinking": "low"
     },
     "worker": {
-      "model": "openai/gpt-6-astra",
+      "model": "claude-bridge/claude-opus-5-5",
       "thinking": "medium",
       "route": {
         "classifier": "typesafe/jev-latest",
@@ -49,8 +49,8 @@
           },
           "involved": {
             "criterion": "The brief leaves choices to the worker: an unknown root cause, a change across several modules or a shared interface, new tests to design, state, concurrency, or data migration, or acceptance criteria that do not say how to meet them.",
-            "model": "openai/gpt-6-astra",
-            "thinking": "high"
+            "model": "claude-bridge/claude-opus-5-5",
+            "thinking": "medium"
           }
         }
       }
@@ -93,6 +93,10 @@
       "sQVe/ruta": {
         "team": "ME",
         "project": "Ruta"
+      },
+      "sQVe/plugga": {
+        "team": "ME",
+        "project": "Plugga"
       }
     }
   },
@@ -174,6 +178,14 @@
         ]
       },
       "sQVe/ruta": {
+        "bots": [
+          {
+            "login": "chatgpt-codex-connector",
+            "comment": "@codex review"
+          }
+        ]
+      },
+      "sQVe/plugga": {
         "bots": [
           {
             "login": "chatgpt-codex-connector",
