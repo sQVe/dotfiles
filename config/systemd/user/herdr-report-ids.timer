@@ -1,9 +1,0 @@
-[Unit]
-Description=Herdr sidebar id reporting timer
-
-[Timer]
-OnBootSec=1min
-OnUnitActiveSec=5min
-
-[Install]
-WantedBy=timers.target
