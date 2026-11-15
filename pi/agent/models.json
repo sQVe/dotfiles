@@ -1,5 +1,40 @@
 {
   "providers": {
+    "morph": {
+      "name": "Morph",
+      "baseUrl": "https://api.morphllm.com/v1",
+      "api": "openai-completions",
+      "apiKey": "$MORPH_API_KEY",
+      "compat": {
+        "supportsDeveloperRole": false,
+        "supportsReasoningEffort": true,
+        "thinkingFormat": "openai",
+        "maxTokensField": "max_tokens",
+        "requiresReasoningContentOnAssistantMessages": true,
+        "sendSessionAffinityHeaders": true,
+        "sessionAffinityFormat": "openrouter"
+      },
+      "models": [
+        {
+          "id": "morph-dsv41flash-1017",
+          "name": "Morph: DeepSeek V4.1 Flash 1017",
+          "reasoning": true,
+          "thinkingLevelMap": {
+            "off": "none",
+            "minimal": null,
+            "low": "low",
+            "medium": null,
+            "high": "high",
+            "xhigh": "xhigh",
+            "max": "max"
+          },
+          "input": ["text", "image"],
+          "cost": { "input": 0.057, "output": 0.505, "cacheRead": 0.005, "cacheWrite": 0 },
+          "contextWindow": 1048576,
+          "maxTokens": 393216
+        }
+      ]
+    },
     "openai": {
       "modelOverrides": {
         "gpt-5.4": { "contextWindow": 1050000 },
@@ -12,19 +47,6 @@
         "gpt-6-sol": { "contextWindow": 1050000 },
         "gpt-6.1-sol": { "contextWindow": 1050000 },
         "gpt-6.1-terra": { "contextWindow": 1050000 }
-      }
-    },
-    "openrouter": {
-      "modelOverrides": {
-        "deepseek/deepseek-v4.1-flash": {
-          "compat": {
-            "openRouterRouting": {
-              "zdr": true,
-              "data_collection": "deny",
-              "sort": { "by": "throughput", "partition": "model" }
-            }
-          }
-        }
       }
     }
   }
